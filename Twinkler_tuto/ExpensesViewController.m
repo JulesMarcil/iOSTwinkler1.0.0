@@ -141,7 +141,7 @@
                                      @"some member_ids", @"member_ids",
                                      nil];
             
-            NSURL *baseURL = [NSURL URLWithString:@"http://localhost:8888/Twinkler1.2.3/web/app_dev.php/group/json/expenses"];
+            NSURL *baseURL = [NSURL URLWithString:@"http://localhost:8888/Twinkler1.2.3/web/app_dev.php/group/app/expenses"];
             
             //build normal NSMutableURLRequest objects
             //make sure to setHTTPMethod to "POST".
@@ -150,7 +150,7 @@
             [httpClient defaultValueForHeader:@"Accept"];
             
             NSMutableURLRequest *request = [httpClient requestWithMethod:@"POST"
-                                                                    path:@"http://localhost:8888/Twinkler1.2.3/web/app_dev.php/group/json/expenses" parameters:expense];
+                                                                    path:@"http://localhost:8888/Twinkler1.2.3/web/app_dev.php/group/app/expenses" parameters:expense];
             
             //Add your request object to an AFHTTPRequestOperation
             AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc]

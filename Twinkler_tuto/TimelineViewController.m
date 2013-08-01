@@ -29,7 +29,7 @@
 {
     [super viewDidLoad];
     
-    NSURL *url = [[NSURL alloc] initWithString:@"http://localhost:8888/Twinkler1.2.3/web/app_dev.php/group/json/expenses"];
+    NSURL *url = [[NSURL alloc] initWithString:@"http://localhost:8888/Twinkler1.2.3/web/app_dev.php/group/app/expenses"];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request
         success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {

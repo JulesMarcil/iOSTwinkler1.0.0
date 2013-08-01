@@ -22,13 +22,7 @@
     NSMutableArray *localListList = [[NSMutableArray alloc] init];
     self.listList = localListList;
     
-    NSURL *listsURL = [NSURL URLWithString:@"http://localhost:8888/Twinkler1.2.3/web/app_dev.php/group/json/lists"];
-    
-    /*
-    NSData *jsonData = [NSData dataWithContentsOfURL:listsURL];
-    NSError *error = nil;
-    NSArray *dataArray = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
-     */
+    NSURL *listsURL = [NSURL URLWithString:@"http://localhost:8888/Twinkler1.2.3/web/app_dev.php/group/app/lists"];
     
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:listsURL];
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
@@ -37,7 +31,8 @@
         for(id key in dataArray) {
         
             List *list = [[List alloc] initWithName:key[@"name"]
-                                             items:key[@"items"]];
+                                              items:key[@"items"]
+                                         identifier:key[@"id"]];
         
             [self addListWithList:list];
         }

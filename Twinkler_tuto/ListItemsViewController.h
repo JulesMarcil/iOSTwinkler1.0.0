@@ -11,6 +11,7 @@
 @interface ListItemsViewController : UITableViewController
 
 @property (nonatomic, strong) NSArray *items;
+@property (nonatomic, strong) NSNumber *list_id;
 
 - (IBAction)done:(UIStoryboardSegue *)segue;
 - (IBAction)cancel:(UIStoryboardSegue *)segue;

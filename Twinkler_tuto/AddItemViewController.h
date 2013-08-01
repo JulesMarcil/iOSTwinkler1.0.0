@@ -8,12 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class List
-
 @interface AddItemViewController : UITableViewController
 <UITextFieldDelegate>
 
-@property (strong, nonatomic) List *list;
+@property (strong, nonatomic) NSDictionary *item;
 @property (weak, nonatomic) IBOutlet UITextField *itemNameInput;
 
 @end

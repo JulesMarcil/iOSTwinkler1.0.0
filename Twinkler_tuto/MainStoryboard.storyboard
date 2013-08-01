@@ -157,14 +157,23 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Osn-yC-rod">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="3y4-4w-fPT"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="zub-zw-l2Q"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="3y4-4w-fPT">
+                            <connections>
+                                <segue destination="VkZ-aB-QOQ" kind="unwind" identifier="CancelInput" unwindAction="cancel:" id="RID-gW-s68"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="zub-zw-l2Q">
+                            <connections>
+                                <segue destination="VkZ-aB-QOQ" kind="unwind" identifier="ReturnInput" unwindAction="done:" id="lns-tT-Nkm"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="itemNameInput" destination="IbY-GN-moZ" id="Y1F-0M-SzN"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="65p-cT-83u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="VkZ-aB-QOQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1965" y="1308"/>
         </scene>

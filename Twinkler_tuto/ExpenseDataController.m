@@ -22,7 +22,7 @@
     NSMutableArray *localExpenseList = [[NSMutableArray alloc] init];
     self.expenseList = localExpenseList;
 
-    NSURL *expensesURL = [NSURL URLWithString:@"http://localhost:8888/Twinkler1.2.3/web/app_dev.php/group/json/expenses"];
+    NSURL *expensesURL = [NSURL URLWithString:@"http://localhost:8888/Twinkler1.2.3/web/app_dev.php/group/app/expenses"];
     
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:expensesURL];
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {

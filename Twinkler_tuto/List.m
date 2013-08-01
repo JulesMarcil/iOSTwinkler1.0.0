@@ -10,10 +10,11 @@
 
 @implementation List
 
-- (id)initWithName:(NSString *)name items:(NSArray *)items
+- (id)initWithName:(NSString *)name items:(NSArray *)items identifier:(NSNumber *)identifier
 {
     self = [super init];
     if (self) {
+        _identifier = identifier;
         _name = name;
         _items = items;
         return self;

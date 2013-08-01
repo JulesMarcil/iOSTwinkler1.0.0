@@ -91,6 +91,7 @@
         
         ListItemsViewController *livc = [segue destinationViewController];
         livc.items = listAtIndex.items;
+        livc.list_id = listAtIndex.identifier;
     }
 }
 
