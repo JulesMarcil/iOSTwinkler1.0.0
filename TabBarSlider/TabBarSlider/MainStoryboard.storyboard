@@ -134,12 +134,10 @@
                                     <constraint firstItem="W14-Iv-0NE" firstAttribute="bottom" secondItem="yLr-kz-sh4" secondAttribute="bottom" type="default" id="FFR-jQ-t3R"/>
                                     <constraint firstItem="W14-Iv-0NE" firstAttribute="centerX" secondItem="yLr-kz-sh4" secondAttribute="centerX" type="default" id="LSN-1U-V2j"/>
                                     <constraint firstItem="Sdr-S6-Ogv" firstAttribute="top" secondItem="yLr-kz-sh4" secondAttribute="top" type="default" id="S6t-FN-Vij"/>
-                                    <constraint firstItem="Sdr-S6-Ogv" firstAttribute="baseline" secondItem="7cJ-cX-HfO" secondAttribute="baseline" type="default" id="TwV-7X-JTG"/>
                                     <constraint firstItem="W14-Iv-0NE" firstAttribute="top" secondItem="yLr-kz-sh4" secondAttribute="top" type="default" id="UdW-tc-VpH"/>
                                     <constraint firstItem="2f3-R7-Uas" firstAttribute="bottom" secondItem="yLr-kz-sh4" secondAttribute="bottom" type="default" id="ViI-kE-FZt"/>
                                     <constraint firstItem="7cJ-cX-HfO" firstAttribute="bottom" secondItem="yLr-kz-sh4" secondAttribute="bottom" type="default" id="WqQ-hN-7Y1"/>
                                     <constraint firstItem="W14-Iv-0NE" firstAttribute="centerX" secondItem="7cJ-cX-HfO" secondAttribute="centerX" type="default" id="cPH-2v-NzY"/>
-                                    <constraint firstItem="Sdr-S6-Ogv" firstAttribute="baseline" secondItem="2f3-R7-Uas" secondAttribute="baseline" type="default" id="deq-ee-fL5"/>
                                     <constraint firstItem="Sdr-S6-Ogv" firstAttribute="leading" secondItem="yLr-kz-sh4" secondAttribute="leading" type="default" id="qic-Az-Ave"/>
                                     <constraint firstItem="Sdr-S6-Ogv" firstAttribute="bottom" secondItem="yLr-kz-sh4" secondAttribute="bottom" type="default" id="tFY-8J-F99"/>
                                 </constraints>
