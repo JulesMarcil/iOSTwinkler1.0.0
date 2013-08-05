@@ -17,8 +17,8 @@
 @property (nonatomic, strong) UITableView *expenseListTable;
 @property (nonatomic, strong) ExpenseDataController *expenseDataController;
 @property (weak, nonatomic) IBOutlet UIView *addItemToolbar;
-- (IBAction)addExpenseButton:(id)sender;
 
+- (IBAction)addExpenseButton:(id)sender;
 - (IBAction)doneAddMember:(UIStoryboardSegue *)segue;
 - (IBAction)cancelAddMember:(UIStoryboardSegue *)segue;
 
