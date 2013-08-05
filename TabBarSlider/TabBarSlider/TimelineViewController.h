@@ -16,5 +16,6 @@
 @property (nonatomic, strong) UITableView *messageOnTimeline;
 @property (nonatomic, strong) TimelineDataController *messageDataController;
 @property (weak, nonatomic) IBOutlet UIView *actionBar;
+@property (weak, nonatomic) IBOutlet UITextField *timelineTextBox;
 
 @end

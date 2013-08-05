@@ -9,6 +9,7 @@
 #import "ExpenseViewController.h"
 #import "ExpenseDataController.h"
 #import "Expense.h"
+#import "AddExpenseViewController.h"
 
 @interface ExpenseViewController ()
 
@@ -31,11 +32,19 @@
 {
     [super viewDidLoad];
     
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenHeight = screenRect.size.height;
+    
     CGRect frame= [self.expenseListTable frame];
     [self.expenseListTable setFrame:CGRectMake(0,
                                        -20,
                                        frame.size.width,
-                                       frame.size.height)];
+                                       screenHeight-208)];
+    frame= [self.addItemToolbar frame];
+    [self.addItemToolbar setFrame:CGRectMake(0,
+                                               screenHeight-228,
+                                               frame.size.width,
+                                               44)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -81,4 +90,25 @@
     return cell;
 }
 
+- (IBAction)addExpenseButton:(id)sender {
+}
+
+- (IBAction)doneAddMember:(UIStoryboardSegue *)segue {
+    {
+        if ([[segue identifier] isEqualToString:@"ReturnInput"]) {
+            AddExpenseViewController *addController = [segue
+                                                       sourceViewController];
+            if (addController.expenseAmount) {
+                //Code to add expense here
+            }
+            [self dismissViewControllerAnimated:YES completion:NULL];
+        }
+    }
+}
+
+- (IBAction)cancelAddMember:(UIStoryboardSegue *)segue{
+    if ([[segue identifier] isEqualToString:@"CancelInput"]) {
+        [self dismissViewControllerAnimated:YES completion:NULL];
+    }
+}
 @end

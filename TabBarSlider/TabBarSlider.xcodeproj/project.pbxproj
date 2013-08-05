@@ -19,6 +19,7 @@
 		8901CE7B17AD191A0084E749 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 8901CE7A17AD19180084E749 /* Message.m */; };
 		8901CE7E17AD1EF10084E749 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 8901CE7D17AD1EEF0084E749 /* Group.m */; };
 		8901CE8117AD1F250084E749 /* GroupDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8901CE8017AD1F240084E749 /* GroupDataController.m */; };
+		8901CE8517AFE74E0084E749 /* AddExpenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8901CE8417AFE74E0084E749 /* AddExpenseViewController.m */; };
 		895C4E3A17AA77D2004EC590 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3917AA77D2004EC590 /* UIKit.framework */; };
 		895C4E3C17AA77D2004EC590 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3B17AA77D2004EC590 /* Foundation.framework */; };
 		895C4E3E17AA77D2004EC590 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3D17AA77D2004EC590 /* CoreGraphics.framework */; };
@@ -94,6 +95,8 @@
 		8901CE7D17AD1EEF0084E749 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
 		8901CE7F17AD1F230084E749 /* GroupDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupDataController.h; sourceTree = "<group>"; };
 		8901CE8017AD1F240084E749 /* GroupDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDataController.m; sourceTree = "<group>"; };
+		8901CE8317AFE74E0084E749 /* AddExpenseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddExpenseViewController.h; sourceTree = "<group>"; };
+		8901CE8417AFE74E0084E749 /* AddExpenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddExpenseViewController.m; sourceTree = "<group>"; };
 		895C4E3617AA77D2004EC590 /* TabBarSlider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabBarSlider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		895C4E3917AA77D2004EC590 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		895C4E3B17AA77D2004EC590 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -188,6 +191,8 @@
 				8901CE5417AD0D8C0084E749 /* Expense.m */,
 				8901CE5617AD0DBE0084E749 /* ExpenseDataController.h */,
 				8901CE5717AD0DBE0084E749 /* ExpenseDataController.m */,
+				8901CE8317AFE74E0084E749 /* AddExpenseViewController.h */,
+				8901CE8417AFE74E0084E749 /* AddExpenseViewController.m */,
 			);
 			name = Expense;
 			sourceTree = "<group>";
@@ -474,6 +479,7 @@
 				8901CE7B17AD191A0084E749 /* Message.m in Sources */,
 				8901CE7E17AD1EF10084E749 /* Group.m in Sources */,
 				8901CE8117AD1F250084E749 /* GroupDataController.m in Sources */,
+				8901CE8517AFE74E0084E749 /* AddExpenseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

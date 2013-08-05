@@ -35,12 +35,17 @@
     [self.messageOnTimeline setFrame:CGRectMake(0,
                                                -20,
                                                frame.size.width,
-                                               screenHeight-44)];
+                                               screenHeight-208)];
     frame= [self.actionBar frame];
     [self.actionBar setFrame:CGRectMake(0,
-                                       screenHeight-44,
+                                       screenHeight-208,
                                        frame.size.width,
                                        44)];
+    frame= [self.timelineTextBox frame];
+    [self.timelineTextBox setFrame:CGRectMake(50,
+                                        -20,
+                                        frame.size.width,
+                                        30)];
 }
 
 - (void)didReceiveMemoryWarning
