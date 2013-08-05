@@ -15,7 +15,7 @@
 
 - (NSUInteger)countOfList;
 - (Group *)objectInListAtIndex:(NSUInteger)theIndex;
-- (void)addGroupWithGroupData:(Group *)message;
+- (void)addGroupWithGroup:(Group *)group;
 
 
 @end

@@ -8,16 +8,34 @@
 
 #import "GroupDataController.h"
 #import "Group.h"
+#import "AuthAPIClient.h"
 
 @implementation GroupDataController
 
 - (void)initializeDefaultDataList {
     NSMutableArray *GroupList = [[NSMutableArray alloc] init];
     self.groupList = GroupList;
-    Group *group;
-    group= [[Group alloc]initWithName:@"Carnac Attitude"];
     
-    [self addGroupWithGroupData:group];
+    [[AuthAPIClient sharedClient] getPath:@"app/groups"
+                               parameters:nil
+                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                      NSError *error = nil;
+                                      NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                                      NSLog(@"success: %@", response);
+                                      
+                                      for(id key in response) {
+                                          
+                                          Group *group = [[Group alloc] initWithName:key[@"name"]
+                                                                          identifier:key[@"id"]
+                                                                             members:key[@"members"]
+                                                              ];
+                                          
+                                          [self addGroupWithGroup:group];
+                                      }
+                                      [[NSNotificationCenter defaultCenter] postNotificationName:@"groupssWithJSONFinishedLoading" object:nil];
+                                  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                      NSLog(@"error: %@", error);
+                                  }];
 }
 
 - (id)init {
@@ -42,8 +60,8 @@
     return [self.groupList objectAtIndex:theIndex];
 }
 
-- (void)addGroupWithGroupData:(Group *)message {
-    [self.groupList addObject:message];
+- (void)addGroupWithGroup:(Group *)group {
+    [self.groupList addObject:group];
 }
 
 @end
