@@ -17,6 +17,8 @@
 		8901CE7E17AD1EF10084E749 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 8901CE7D17AD1EEF0084E749 /* Group.m */; };
 		8901CE8117AD1F250084E749 /* GroupDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8901CE8017AD1F240084E749 /* GroupDataController.m */; };
 		8901CE8517AFE74E0084E749 /* AddExpenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8901CE8417AFE74E0084E749 /* AddExpenseViewController.m */; };
+		8901CE8817B024A80084E749 /* ItemListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8901CE8717B024A80084E749 /* ItemListViewController.m */; };
+		8901CE9117B033F40084E749 /* AddItemListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8901CE9017B033F40084E749 /* AddItemListViewController.m */; };
 		895C4E3A17AA77D2004EC590 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3917AA77D2004EC590 /* UIKit.framework */; };
 		895C4E3C17AA77D2004EC590 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3B17AA77D2004EC590 /* Foundation.framework */; };
 		895C4E3E17AA77D2004EC590 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3D17AA77D2004EC590 /* CoreGraphics.framework */; };
@@ -108,6 +110,10 @@
 		8901CE8017AD1F240084E749 /* GroupDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDataController.m; sourceTree = "<group>"; };
 		8901CE8317AFE74E0084E749 /* AddExpenseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddExpenseViewController.h; sourceTree = "<group>"; };
 		8901CE8417AFE74E0084E749 /* AddExpenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddExpenseViewController.m; sourceTree = "<group>"; };
+		8901CE8617B024A80084E749 /* ItemListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemListViewController.h; sourceTree = "<group>"; };
+		8901CE8717B024A80084E749 /* ItemListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemListViewController.m; sourceTree = "<group>"; };
+		8901CE8F17B033F40084E749 /* AddItemListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemListViewController.h; sourceTree = "<group>"; };
+		8901CE9017B033F40084E749 /* AddItemListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemListViewController.m; sourceTree = "<group>"; };
 		895C4E3617AA77D2004EC590 /* TabBarSlider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabBarSlider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		895C4E3917AA77D2004EC590 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		895C4E3B17AA77D2004EC590 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -440,6 +446,10 @@
 				BA24D4C617B016CE0042C7A4 /* ListDataController.m */,
 				BA24D4C717B016CE0042C7A4 /* ListViewController.h */,
 				BA24D4C817B016CE0042C7A4 /* ListViewController.m */,
+				8901CE8F17B033F40084E749 /* AddItemListViewController.h */,
+				8901CE9017B033F40084E749 /* AddItemListViewController.m */,
+				8901CE8617B024A80084E749 /* ItemListViewController.h */,
+				8901CE8717B024A80084E749 /* ItemListViewController.m */,
 			);
 			name = Lists;
 			sourceTree = "<group>";
@@ -616,6 +626,8 @@
 				BA24D4E817B017120042C7A4 /* UIImageView+AFNetworking.m in Sources */,
 				BA24D4F117B0171C0042C7A4 /* SSKeychain.m in Sources */,
 				BA24D4F217B0171C0042C7A4 /* SSKeychainQuery.m in Sources */,
+				8901CE8817B024A80084E749 /* ItemListViewController.m in Sources */,
+				8901CE9117B033F40084E749 /* AddItemListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

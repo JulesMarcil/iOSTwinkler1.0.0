@@ -9,6 +9,7 @@
 #import "ListViewController.h"
 #import "ListDataController.h"
 #import "List.h"
+#import "AddItemListViewController.h"
 
 @interface ListViewController ()
 
@@ -30,11 +31,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenHeight = screenRect.size.height;
     CGRect frame= [self.listOnLists frame];
     [self.listOnLists setFrame:CGRectMake(0,
                                                -20,
                                                frame.size.width,
-                                               frame.size.height)];
+                                               screenHeight-208)];
+    
+    
+    
     [[NSNotificationCenter defaultCenter]
      addObserver:self
      selector:@selector(dataRetrieved)
@@ -88,6 +94,12 @@
 {
     // Return NO if you do not want the specified item to be editable.
     return NO;
+}
+
+- (IBAction)backToList:(UIStoryboardSegue *)segue{
+    if ([[segue identifier] isEqualToString:@"goBackToList"]) {
+        [self dismissViewControllerAnimated:YES completion:NULL];
+    }
 }
 
 @end
