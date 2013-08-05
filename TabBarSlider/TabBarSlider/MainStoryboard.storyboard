@@ -536,16 +536,63 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="GrC-8N-fzm">
-                                        <rect key="frame" x="33" y="0.0" width="231" height="30"/>
+                                        <rect key="frame" x="45" y="0.0" width="231" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="a8b-Ql-6SD">
-                                        <rect key="frame" x="0.0" y="0.0" width="31" height="29"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6dY-Ai-iQr">
+                                        <rect key="frame" x="39" y="-7" width="48" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Button">
+                                        <state key="normal" image="location-button.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lmO-ll-4bH">
+                                        <rect key="frame" x="89" y="-7" width="48" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="email-button.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iJL-G4-uvE">
+                                        <rect key="frame" x="145" y="-7" width="48" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="comment-button.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="G7E-rE-7Mj">
+                                        <rect key="frame" x="196" y="-7" width="48" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" image="smile-button.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="a8b-Ql-6SD">
+                                        <rect key="frame" x="3" y="0.0" width="31" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Button" image="main-button.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -562,6 +609,11 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="actionBar" destination="Fn9-gx-EJL" id="SbT-HJ-tvD"/>
+                        <outlet property="button1" destination="6dY-Ai-iQr" id="BbD-Eo-ju5"/>
+                        <outlet property="button2" destination="lmO-ll-4bH" id="Geg-c7-suV"/>
+                        <outlet property="button3" destination="iJL-G4-uvE" id="Of3-UE-0vJ"/>
+                        <outlet property="button4" destination="G7E-rE-7Mj" id="UFK-yw-0qb"/>
+                        <outlet property="main" destination="a8b-Ql-6SD" id="DNn-CV-E15"/>
                         <outlet property="messageOnTimeline" destination="5th-jr-zAr" id="YPm-oc-NhE"/>
                         <outlet property="timelineTextBox" destination="GrC-8N-fzm" id="MyK-nt-7X7"/>
                     </connections>
@@ -798,8 +850,13 @@
         <image name="check-icon-inactive.png" width="30" height="30"/>
         <image name="coin-icon-active.png" width="30" height="30"/>
         <image name="coin-icon-inactive.png" width="30" height="30"/>
+        <image name="comment-button.png" width="38" height="38"/>
         <image name="dashboard-button-white.png" width="36" height="36"/>
+        <image name="email-button.png" width="38" height="38"/>
+        <image name="location-button.png" width="38" height="38"/>
+        <image name="main-button.png" width="38" height="38"/>
         <image name="menu-button-white.png" width="36" height="36"/>
+        <image name="smile-button.png" width="38" height="38"/>
         <image name="tabbar-active.png" width="44" height="44"/>
         <image name="tk-icon-active.png" width="30" height="30"/>
         <image name="tk-icon-inactive.png" width="30" height="30"/>

@@ -7,6 +7,7 @@
 //
 
 #import "TimelineViewController.h"
+#import "ExpandableNavigation.h"
 
 @interface TimelineViewController ()
 
@@ -15,6 +16,12 @@
 @implementation TimelineViewController
 
 @synthesize messageOnTimeline=_messageOnTimeline;
+@synthesize button1;
+@synthesize button2;
+@synthesize button3;
+@synthesize button4;
+@synthesize main;
+@synthesize navigation;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,7 +35,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    //-------------Position----------------------------
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenHeight = screenRect.size.height;
     CGRect frame= [self.messageOnTimeline frame];
@@ -46,6 +54,29 @@
                                         -20,
                                         frame.size.width,
                                         30)];
+    frame= [self.main frame];
+    [self.main setFrame:CGRectMake(15,
+                                    -15,
+                                    frame.size.width+3,
+                                    frame.size.height+3)];
+    
+    //-------------Expandable Button----------------------------
+    // initialize ExpandableNavigation object with an array of buttons.
+    NSArray* buttons = [NSArray arrayWithObjects:button1, button2, button3, button4, nil];
+    
+    self.navigation = [[ExpandableNavigation alloc] initWithMenuItems:buttons mainButton:self.main radius:120.0];
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    self.button1 = nil;
+    self.button2 = nil;
+    self.button3 = nil;
+    self.button4 = nil;
+    self.main = nil;
+    self.navigation = nil;
 }
 
 - (void)didReceiveMemoryWarning
