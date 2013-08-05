@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @interface Group : NSObject
-@property (nonatomic,copy) NSString *name;
-@property (nonatomic,copy) NSString *author;
-@property (nonatomic, strong) NSDate *date;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSNumber *identifier;
+@property (nonatomic, strong) NSArray *members;
 
--(id) initWithName:(NSString *)name;
+-(id) initWithName:(NSString *)name
+        identifier:(NSNumber *)identifier
+           members:(NSArray *)members;
 @end

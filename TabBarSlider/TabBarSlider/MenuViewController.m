@@ -19,55 +19,32 @@
 @implementation MenuViewController
 @synthesize groupOnMenu=_groupOnMenu;
 
-- (void) prepareForSegue: (UIStoryboardSegue *) segue sender: (id) sender
-{
-    // configure the destination view controller:
-    if ( [segue.destinationViewController isKindOfClass: [TabBarViewController class]] &&
-        [sender isKindOfClass:[UIButton class]] )
-    {
-        TabBarViewController* cvc = segue.destinationViewController;
-        
-        [cvc view];
-    }
-    
-    // configure the segue.
-    // in this case we dont swap out the front view controller, which is a UINavigationController.
-    // but we could..
-    if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] )
-    {
-        SWRevealViewControllerSegue* rvcs = (SWRevealViewControllerSegue*) segue;
-        
-        SWRevealViewController* rvc = self.revealViewController;
-        NSAssert( rvc != nil, @"oops! must have a revealViewController" );
-        
-        NSAssert( [rvc.frontViewController isKindOfClass: [UINavigationController class]], @"oops!  for this segue we want a permanent navigation controller in the front!" );
-        
-        rvcs.performBlock = ^(SWRevealViewControllerSegue* rvc_segue, UIViewController* svc, UIViewController* dvc) {
-            
-            UINavigationController* nc = (UINavigationController*)rvc.frontViewController;
-            [nc setViewControllers: @[ dvc ] animated: YES ];
-            
-            [rvc setFrontViewPosition: FrontViewPositionLeft animated: YES];
-        };
-    }
-}
-
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
+    NSLog(@"initWithNibName");
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.groupDataController = [[GroupDataController alloc] init];
     }
     return self;
 }
 
 - (void)viewDidLoad
 {
+    NSLog(@"viewDidLoad");
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(dataRetrieved)
+     name:@"groupsWithJSONFinishedLoading"
+     object:nil];
 }
 
+- (void)dataRetrieved {
+    [self.groupOnMenu reloadData];
+}
 
 - (void)awakeFromNib
 {
@@ -106,6 +83,43 @@
 {
     // Return NO if you do not want the specified item to be editable.
     return NO;
+}
+
+- (void) prepareForSegue: (UIStoryboardSegue *) segue sender: (id) sender
+{
+    // configure the destination view controller:
+    if ( [segue.destinationViewController isKindOfClass: [TabBarViewController class]] &&
+        [sender isKindOfClass:[UIButton class]] )
+    {
+        TabBarViewController* cvc = segue.destinationViewController;
+        
+        [cvc view];
+    }
+    
+    // configure the segue.
+    // in this case we dont swap out the front view controller, which is a UINavigationController.
+    // but we could..
+    if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] )
+    {
+        Group *selectedGroup = [self.groupDataController objectInListAtIndex:[self.groupOnMenu indexPathForSelectedRow].row];
+        NSNumber *identifier = selectedGroup.identifier;
+        [[NSUserDefaults standardUserDefaults] setObject:identifier forKey:@"currentGroupId"];
+        
+        SWRevealViewControllerSegue* rvcs = (SWRevealViewControllerSegue*) segue;
+        
+        SWRevealViewController* rvc = self.revealViewController;
+        NSAssert( rvc != nil, @"oops! must have a revealViewController" );
+        
+        NSAssert( [rvc.frontViewController isKindOfClass: [UINavigationController class]], @"oops!  for this segue we want a permanent navigation controller in the front!" );
+        
+        rvcs.performBlock = ^(SWRevealViewControllerSegue* rvc_segue, UIViewController* svc, UIViewController* dvc) {
+            
+            UINavigationController* nc = (UINavigationController*)rvc.frontViewController;
+            [nc setViewControllers: @[ dvc ] animated: YES ];
+            
+            [rvc setFrontViewPosition: FrontViewPositionLeft animated: YES];
+        };
+    }
 }
 
 - (IBAction)doneAddGroup:(UIStoryboardSegue *)segue {
