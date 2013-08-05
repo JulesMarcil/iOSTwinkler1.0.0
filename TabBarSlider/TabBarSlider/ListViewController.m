@@ -30,7 +30,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    CGRect frame= [self.listOnLists frame];
+    [self.listOnLists setFrame:CGRectMake(0,
+                                               -20,
+                                               frame.size.width,
+                                               frame.size.height)];
 }
 
 - (void)didReceiveMemoryWarning

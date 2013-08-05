@@ -28,7 +28,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenHeight = screenRect.size.height;
+    CGRect frame= [self.messageOnTimeline frame];
+    [self.messageOnTimeline setFrame:CGRectMake(0,
+                                               -20,
+                                               frame.size.width,
+                                               screenHeight-44)];
+    frame= [self.actionBar frame];
+    [self.actionBar setFrame:CGRectMake(0,
+                                       screenHeight-44,
+                                       frame.size.width,
+                                       44)];
 }
 
 - (void)didReceiveMemoryWarning

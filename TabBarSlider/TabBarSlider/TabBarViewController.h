@@ -16,5 +16,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *revealButtonItem;
 @property (weak, nonatomic) IBOutlet UIView *placeholderView;
 @property (nonatomic, weak) UIViewController *currentViewController;
+@property (weak, nonatomic) IBOutlet UIImageView *coverPic;
+@property (weak, nonatomic) IBOutlet UIView *topWhiteBar;
+@property (weak, nonatomic) IBOutlet UIView *toolbar;
 
 @end

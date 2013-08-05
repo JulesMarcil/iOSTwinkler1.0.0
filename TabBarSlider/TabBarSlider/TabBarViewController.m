@@ -29,6 +29,30 @@
     [super viewDidLoad];
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
     
+    CGRect frame= [self.coverPic frame];
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenHeight = screenRect.size.height;
+    [self.coverPic setFrame:CGRectMake(0,
+                                                0,
+                                                frame.size.width,
+                                                frame.size.height)];
+    frame= [self.topWhiteBar frame];
+    [self.topWhiteBar setFrame:CGRectMake(0,
+                                       0,
+                                       frame.size.width,
+                                       frame.size.height)];
+    frame= [self.placeholderView frame];
+    [self.placeholderView setFrame:CGRectMake(0,
+                                          144,
+                                          frame.size.width,
+                                          screenHeight - 100)];
+    frame= [self.toolbar frame];
+    [self.toolbar setFrame:CGRectMake(0,
+                                              100,
+                                              frame.size.width,
+                                              44)];
+    
+    
     TabBarViewController *src= self.navigationController.visibleViewController;
     UIViewController *dst =[self.storyboard instantiateViewControllerWithIdentifier:@"timelineTab"];
     src.currentViewController =dst;

@@ -30,7 +30,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    CGRect frame= [self.expenseListTable frame];
+    [self.expenseListTable setFrame:CGRectMake(0,
+                                       -20,
+                                       frame.size.width,
+                                       frame.size.height)];
 }
 
 - (void)didReceiveMemoryWarning

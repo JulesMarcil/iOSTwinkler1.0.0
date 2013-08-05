@@ -15,5 +15,6 @@
 
 @property (nonatomic, strong) UITableView *messageOnTimeline;
 @property (nonatomic, strong) TimelineDataController *messageDataController;
+@property (weak, nonatomic) IBOutlet UIView *actionBar;
 
 @end
