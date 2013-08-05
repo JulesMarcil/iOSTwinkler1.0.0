@@ -81,13 +81,13 @@
 
 }
 - (void)expenseButtonPressed:(UIButton *)sender {
-    CGPoint pt = {31,0};
+    CGPoint pt = {0,0};
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.1];
     //you can change the setAnimationDuration value, it is in seconds.
     
-    CGRect rect = CGRectMake(pt.x, pt.y, self.activeTabBarImage.frame.size.height, self.activeTabBarImage.frame.size.width);
+    CGRect rect = CGRectMake(pt.x, pt.y, self.activeTabBarImage.frame.size.width,self.activeTabBarImage.frame.size.height);
     
     [self.activeTabBarImage setFrame:rect];
     [sender setSelected:YES];
@@ -98,13 +98,13 @@
     [self performSegueWithIdentifier: @"expenseSegue" sender: self];
 }
 - (void)timelineButtonPressed:(UIButton *)sender {
-    CGPoint pt = {138,0};
+    CGPoint pt = {107,0};
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.1];
     //you can change the setAnimationDuration value, it is in seconds.
     
-    CGRect rect = CGRectMake(pt.x, pt.y, self.activeTabBarImage.frame.size.height, self.activeTabBarImage.frame.size.width);
+    CGRect rect = CGRectMake(pt.x, pt.y, self.activeTabBarImage.frame.size.width,self.activeTabBarImage.frame.size.height);
     
     [self.activeTabBarImage setFrame:rect];
     [sender setSelected:YES];
@@ -115,13 +115,13 @@
     [self performSegueWithIdentifier: @"timelineSegue" sender: self];
 }
 - (void)listButtonPressed:(UIButton *)sender {
-    CGPoint pt = {244,0};
+    CGPoint pt = {214,0};
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.1];
     //you can change the setAnimationDuration value, it is in seconds.
     
-    CGRect rect = CGRectMake(pt.x, pt.y, self.activeTabBarImage.frame.size.height, self.activeTabBarImage.frame.size.width);
+    CGRect rect = CGRectMake(pt.x, pt.y, self.activeTabBarImage.frame.size.width,self.activeTabBarImage.frame.size.height);
     
     [self.activeTabBarImage setFrame:rect];
     [sender setSelected:YES];
