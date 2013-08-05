@@ -16,5 +16,8 @@
 @property (nonatomic, strong) UITableView *groupOnMenu;
 @property (nonatomic, strong) GroupDataController *groupDataController;
 
+- (IBAction)doneAddGroup:(UIStoryboardSegue *)segue;
+- (IBAction)cancelAddGroup:(UIStoryboardSegue *)segue;
+
 
 @end

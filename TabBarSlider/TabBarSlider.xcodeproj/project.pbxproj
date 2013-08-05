@@ -19,6 +19,8 @@
 		8901CE8517AFE74E0084E749 /* AddExpenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8901CE8417AFE74E0084E749 /* AddExpenseViewController.m */; };
 		8901CE8817B024A80084E749 /* ItemListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8901CE8717B024A80084E749 /* ItemListViewController.m */; };
 		8901CE9117B033F40084E749 /* AddItemListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8901CE9017B033F40084E749 /* AddItemListViewController.m */; };
+		8901CE9317B03C940084E749 /* Arnaud copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 8901CE9217B03C940084E749 /* Arnaud copy.png */; };
+		8901CE9617B03D7C0084E749 /* AddGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8901CE9517B03D7C0084E749 /* AddGroupViewController.m */; };
 		895C4E3A17AA77D2004EC590 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3917AA77D2004EC590 /* UIKit.framework */; };
 		895C4E3C17AA77D2004EC590 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3B17AA77D2004EC590 /* Foundation.framework */; };
 		895C4E3E17AA77D2004EC590 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3D17AA77D2004EC590 /* CoreGraphics.framework */; };
@@ -114,6 +116,9 @@
 		8901CE8717B024A80084E749 /* ItemListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemListViewController.m; sourceTree = "<group>"; };
 		8901CE8F17B033F40084E749 /* AddItemListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemListViewController.h; sourceTree = "<group>"; };
 		8901CE9017B033F40084E749 /* AddItemListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemListViewController.m; sourceTree = "<group>"; };
+		8901CE9217B03C940084E749 /* Arnaud copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arnaud copy.png"; sourceTree = "<group>"; };
+		8901CE9417B03D7C0084E749 /* AddGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGroupViewController.h; sourceTree = "<group>"; };
+		8901CE9517B03D7C0084E749 /* AddGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddGroupViewController.m; sourceTree = "<group>"; };
 		895C4E3617AA77D2004EC590 /* TabBarSlider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabBarSlider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		895C4E3917AA77D2004EC590 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		895C4E3B17AA77D2004EC590 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -276,6 +281,8 @@
 				8901CE7D17AD1EEF0084E749 /* Group.m */,
 				8901CE7F17AD1F230084E749 /* GroupDataController.h */,
 				8901CE8017AD1F240084E749 /* GroupDataController.m */,
+				8901CE9417B03D7C0084E749 /* AddGroupViewController.h */,
+				8901CE9517B03D7C0084E749 /* AddGroupViewController.m */,
 			);
 			name = GroupMenu;
 			sourceTree = "<group>";
@@ -338,6 +345,7 @@
 				895C4E4217AA77D3004EC590 /* InfoPlist.strings */,
 				895C4E4517AA77D3004EC590 /* main.m */,
 				895C4E4717AA77D3004EC590 /* TabBarSlider-Prefix.pch */,
+				8901CE9217B03C940084E749 /* Arnaud copy.png */,
 				895C4E8F17AAC527004EC590 /* dashboard-button.png */,
 				895C4E9117AAC532004EC590 /* menu-button.png */,
 				895C4E7617AA97C7004EC590 /* tabbar-active.png */,
@@ -561,6 +569,7 @@
 				895C4EAC17AAF7CA004EC590 /* menu-button-white.png in Resources */,
 				895C4EB017AAF8D3004EC590 /* dashboard-button-white.png in Resources */,
 				BA24D4F017B0171C0042C7A4 /* SSKeychain.strings in Resources */,
+				8901CE9317B03C940084E749 /* Arnaud copy.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,6 +637,7 @@
 				BA24D4F217B0171C0042C7A4 /* SSKeychainQuery.m in Sources */,
 				8901CE8817B024A80084E749 /* ItemListViewController.m in Sources */,
 				8901CE9117B033F40084E749 /* AddItemListViewController.m in Sources */,
+				8901CE9617B03D7C0084E749 /* AddGroupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

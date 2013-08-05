@@ -10,6 +10,7 @@
 #import "TabBarViewController.h"
 #import "GroupDataController.h"
 #import "Group.h"
+#import "AddGroupViewController.h"
 
 @interface MenuViewController ()
 
@@ -105,6 +106,25 @@
 {
     // Return NO if you do not want the specified item to be editable.
     return NO;
+}
+
+- (IBAction)doneAddGroup:(UIStoryboardSegue *)segue {
+    {
+        if ([[segue identifier] isEqualToString:@"ReturnAddGroupInput"]) {
+            AddGroupViewController *addController = [segue
+                                                       sourceViewController];
+            if (addController.groupName) {
+                //Code to add expense here
+            }
+            [self dismissViewControllerAnimated:YES completion:NULL];
+        }
+    }
+}
+
+- (IBAction)cancelAddGroup:(UIStoryboardSegue *)segue{
+    if ([[segue identifier] isEqualToString:@"CancelAddGroupInput"]) {
+        [self dismissViewControllerAnimated:YES completion:NULL];
+    }
 }
 
 @end
