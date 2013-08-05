@@ -20,5 +20,9 @@
 
 - (id)initWithName:(NSString *)name
             amount:(NSNumber *)amount
-              date:(NSDate *)date;
+             owner:(NSDictionary *)owner
+              date:(NSDate *)date
+           members:(NSArray *)members
+            author:(NSString *)author
+         addedDate:(NSDate *)addedDate;
 @end

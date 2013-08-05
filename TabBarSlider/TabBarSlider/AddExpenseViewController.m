@@ -7,6 +7,7 @@
 //
 
 #import "AddExpenseViewController.h"
+#import "Expense.h"
 
 @interface AddExpenseViewController ()
 
@@ -34,7 +35,7 @@
     
     arrStatus = [[NSArray alloc] initWithObjects:@"Polo", @"Marco", @"Jacquo", nil];
     
-
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,7 +53,7 @@
     NSString *strDate = [dateFormatter stringFromDate:sender.date];
     
     self.dateLabel.text=strDate;
-
+    
 }
 
 - (void)removeViews:(id)object {
@@ -131,9 +132,9 @@
 {
     [UIView animateWithDuration:0.3 animations:^{
         self.expenseMemberPicker.frame = CGRectMake(self.expenseMemberPicker.frame.origin.x,
-                                       460, //Displays the view off the screen
-                                       self.expenseMemberPicker.frame.size.width,
-                                       self.expenseMemberPicker.frame.size.height);
+                                                    460, //Displays the view off the screen
+                                                    self.expenseMemberPicker.frame.size.width,
+                                                    self.expenseMemberPicker.frame.size.height);
     }];
 }
 
@@ -169,7 +170,9 @@
     [darkView addGestureRecognizer:tapGesture];
     [self.view addSubview:darkView];
     
-
+    NSInteger row;
+    NSArray *repeatPickerData;
+    
     [self.view addSubview:self.expenseMemberPicker];
     
     UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height, 320, 44)] ;
@@ -186,4 +189,42 @@
     darkView.alpha = 0.5;
     [UIView commitAnimations];
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"ReturnInput"]) {
+        if ([self.expenseName.text length] || [self.expenseAmount.text length]) {
+            
+            //NSString to NSNumber formatter
+            NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+            [f setNumberStyle:NSNumberFormatterDecimalStyle];
+            NSNumber *formattedAmount = [f numberFromString:self.expenseAmount.text];
+            
+            //Get date of today
+            NSDate *today = [NSDate date];
+            
+            //Create Owner and author dictionaries
+            NSDictionary *owner = [[NSDictionary alloc] initWithObjectsAndKeys:@"julio", @"name", @1, @"id", nil];
+            NSString *author = @"you";
+            
+            //Create Member Array (to be completed)
+            NSArray *members = [[NSArray alloc] init];
+            
+            Expense *expense = [[Expense alloc] initWithName:self.expenseName.text
+                                                      amount:formattedAmount
+                                                       owner:owner
+                                                        date:today
+                                                     members:members
+                                                      author:author
+                                                   addedDate:today];
+            self.expense = expense;
+        }
+        
+        
+    }
+    
+}
+
+
+
+
 @end

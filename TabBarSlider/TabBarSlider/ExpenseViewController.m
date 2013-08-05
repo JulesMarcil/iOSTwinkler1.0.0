@@ -10,6 +10,8 @@
 #import "ExpenseDataController.h"
 #import "Expense.h"
 #import "AddExpenseViewController.h"
+#import "AuthAPIClient.h"
+#import "AFHTTPRequestOperation.h"
 
 @interface ExpenseViewController ()
 
@@ -19,11 +21,18 @@
 
 @synthesize expenseListTable=_expenseListTable;
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    self.expenseDataController = [[ExpenseDataController alloc] init];
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
     }
     return self;
 }
@@ -37,14 +46,23 @@
     
     CGRect frame= [self.expenseListTable frame];
     [self.expenseListTable setFrame:CGRectMake(0,
-                                       -20,
-                                       frame.size.width,
-                                       screenHeight-208)];
+                                               -20,
+                                               frame.size.width,
+                                               screenHeight-208)];
     frame= [self.addItemToolbar frame];
     [self.addItemToolbar setFrame:CGRectMake(0,
-                                               screenHeight-228,
-                                               frame.size.width,
-                                               44)];
+                                             screenHeight-228,
+                                             frame.size.width,
+                                             44)];
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(dataRetrieved)
+     name:@"expensesWithJSONFinishedLoading"
+     object:nil];
+}
+
+- (void)dataRetrieved {
+    [self.expenseListTable reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,13 +70,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-- (void)awakeFromNib
-{
-    [super awakeFromNib];
-    self.expenseDataController=[[ExpenseDataController alloc] init];
-}
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -83,7 +94,7 @@
     };
     
     Expense *expenseAtIndex = [self.expenseDataController
-                                   objectInListAtIndex:indexPath.row];
+                               objectInListAtIndex:indexPath.row];
     [[cell textLabel] setText:expenseAtIndex.name];
     [[cell detailTextLabel] setText:[formatter stringFromDate:(NSDate
                                                                *)expenseAtIndex.date]];
@@ -98,8 +109,42 @@
         if ([[segue identifier] isEqualToString:@"ReturnInput"]) {
             AddExpenseViewController *addController = [segue
                                                        sourceViewController];
-            if (addController.expenseAmount) {
-                //Code to add expense here
+            if (addController.expense) {
+                
+                // initialize the expense
+                NSDictionary *expense = [NSDictionary dictionaryWithObjectsAndKeys:
+                                         addController.expense.name, @"name",
+                                         addController.expense.amount, @"amount",
+                                         @"an owner_id", @"owner_id",
+                                         @"a date", @"date",
+                                         @"some member_ids", @"member_ids",
+                                         nil];
+                
+                AuthAPIClient *client = [AuthAPIClient sharedClient];
+                
+                NSMutableURLRequest *request = [client requestWithMethod:@"POST"
+                                                                    path:@"group/app/expenses"
+                                                              parameters:expense];
+                
+                //Add your request object to an AFHTTPRequestOperation
+                AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc]
+                                                     initWithRequest:request];
+                
+                [client registerHTTPOperationClass:[AFHTTPRequestOperation class]];
+                
+                [operation setCompletionBlockWithSuccess:
+                 ^(AFHTTPRequestOperation *operation, id responseObject) {
+                     NSString *response = [operation responseString];
+                     NSLog(@"response: %@",response);
+                     [self.expenseListTable reloadData];
+                 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                     NSLog(@"error: %@", [operation error]);
+                 }];
+                
+                //call start on your request operation
+                [operation start];
+                
+                [self.expenseDataController addExpenseWithExpense:addController.expense];
             }
             [self dismissViewControllerAnimated:YES completion:NULL];
         }
