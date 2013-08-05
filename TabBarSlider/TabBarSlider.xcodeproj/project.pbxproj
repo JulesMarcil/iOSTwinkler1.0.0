@@ -8,13 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8901CE3F17AD072A0084E749 /* CustomTabBarSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8901CE3E17AD072A0084E749 /* CustomTabBarSegue.m */; };
-		8901CE4317AD09D30084E749 /* ExpenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8901CE4217AD09D30084E749 /* ExpenseViewController.m */; };
 		8901CE4617AD09E20084E749 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8901CE4517AD09E20084E749 /* TimelineViewController.m */; };
-		8901CE5517AD0D8C0084E749 /* Expense.m in Sources */ = {isa = PBXBuildFile; fileRef = 8901CE5417AD0D8C0084E749 /* Expense.m */; };
-		8901CE5817AD0DBE0084E749 /* ExpenseDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8901CE5717AD0DBE0084E749 /* ExpenseDataController.m */; };
 		8901CE7817AD18FD0084E749 /* TimelineDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8901CE7717AD18FD0084E749 /* TimelineDataController.m */; };
 		8901CE7B17AD191A0084E749 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 8901CE7A17AD19180084E749 /* Message.m */; };
-		8901CE8517AFE74E0084E749 /* AddExpenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8901CE8417AFE74E0084E749 /* AddExpenseViewController.m */; };
 		8901CE8817B024A80084E749 /* ItemListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8901CE8717B024A80084E749 /* ItemListViewController.m */; };
 		8901CE9117B033F40084E749 /* AddItemListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8901CE9017B033F40084E749 /* AddItemListViewController.m */; };
 		8901CE9317B03C940084E749 /* Arnaud copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 8901CE9217B03C940084E749 /* Arnaud copy.png */; };
@@ -82,10 +78,14 @@
 		BA403FCB17B008CB00BE5282 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA403FCA17B008CB00BE5282 /* SystemConfiguration.framework */; };
 		BA403FD017B00C5800BE5282 /* AuthAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BA403FCD17B00C5800BE5282 /* AuthAPIClient.m */; };
 		BA403FD117B00C5800BE5282 /* CredentialStore.m in Sources */ = {isa = PBXBuildFile; fileRef = BA403FCF17B00C5800BE5282 /* CredentialStore.m */; };
-		BA9C6DE017B0584800C50CC2 /* AddGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9C6DD917B0584800C50CC2 /* AddGroupViewController.m */; };
-		BA9C6DE117B0584800C50CC2 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9C6DDB17B0584800C50CC2 /* Group.m */; };
-		BA9C6DE217B0584800C50CC2 /* GroupDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9C6DDD17B0584800C50CC2 /* GroupDataController.m */; };
-		BA9C6DE317B0584800C50CC2 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9C6DDF17B0584800C50CC2 /* MenuViewController.m */; };
+		BA9C6DEC17B0627E00C50CC2 /* AddGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9C6DE517B0627E00C50CC2 /* AddGroupViewController.m */; };
+		BA9C6DED17B0627E00C50CC2 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9C6DE717B0627E00C50CC2 /* Group.m */; };
+		BA9C6DEE17B0627E00C50CC2 /* GroupDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9C6DE917B0627E00C50CC2 /* GroupDataController.m */; };
+		BA9C6DEF17B0627E00C50CC2 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9C6DEB17B0627E00C50CC2 /* MenuViewController.m */; };
+		BA9C6DF817B062A200C50CC2 /* ExpenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9C6DF117B062A200C50CC2 /* ExpenseViewController.m */; };
+		BA9C6DF917B062A200C50CC2 /* Expense.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9C6DF317B062A200C50CC2 /* Expense.m */; };
+		BA9C6DFA17B062A200C50CC2 /* ExpenseDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9C6DF517B062A200C50CC2 /* ExpenseDataController.m */; };
+		BA9C6DFB17B062A200C50CC2 /* AddExpenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9C6DF717B062A200C50CC2 /* AddExpenseViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,20 +101,12 @@
 /* Begin PBXFileReference section */
 		8901CE3D17AD072A0084E749 /* CustomTabBarSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBarSegue.h; sourceTree = "<group>"; };
 		8901CE3E17AD072A0084E749 /* CustomTabBarSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBarSegue.m; sourceTree = "<group>"; };
-		8901CE4117AD09D30084E749 /* ExpenseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseViewController.h; sourceTree = "<group>"; };
-		8901CE4217AD09D30084E749 /* ExpenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseViewController.m; sourceTree = "<group>"; };
 		8901CE4417AD09E20084E749 /* TimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineViewController.h; sourceTree = "<group>"; };
 		8901CE4517AD09E20084E749 /* TimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineViewController.m; sourceTree = "<group>"; };
-		8901CE5317AD0D8C0084E749 /* Expense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Expense.h; sourceTree = "<group>"; };
-		8901CE5417AD0D8C0084E749 /* Expense.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Expense.m; sourceTree = "<group>"; };
-		8901CE5617AD0DBE0084E749 /* ExpenseDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseDataController.h; sourceTree = "<group>"; };
-		8901CE5717AD0DBE0084E749 /* ExpenseDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseDataController.m; sourceTree = "<group>"; };
 		8901CE7617AD18FD0084E749 /* TimelineDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineDataController.h; sourceTree = "<group>"; };
 		8901CE7717AD18FD0084E749 /* TimelineDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineDataController.m; sourceTree = "<group>"; };
 		8901CE7917AD19180084E749 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		8901CE7A17AD19180084E749 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
-		8901CE8317AFE74E0084E749 /* AddExpenseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddExpenseViewController.h; sourceTree = "<group>"; };
-		8901CE8417AFE74E0084E749 /* AddExpenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddExpenseViewController.m; sourceTree = "<group>"; };
 		8901CE8617B024A80084E749 /* ItemListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemListViewController.h; sourceTree = "<group>"; };
 		8901CE8717B024A80084E749 /* ItemListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemListViewController.m; sourceTree = "<group>"; };
 		8901CE8F17B033F40084E749 /* AddItemListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemListViewController.h; sourceTree = "<group>"; };
@@ -207,14 +199,22 @@
 		BA403FCD17B00C5800BE5282 /* AuthAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthAPIClient.m; sourceTree = "<group>"; };
 		BA403FCE17B00C5800BE5282 /* CredentialStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CredentialStore.h; sourceTree = "<group>"; };
 		BA403FCF17B00C5800BE5282 /* CredentialStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialStore.m; sourceTree = "<group>"; };
-		BA9C6DD817B0584800C50CC2 /* AddGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGroupViewController.h; sourceTree = "<group>"; };
-		BA9C6DD917B0584800C50CC2 /* AddGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddGroupViewController.m; sourceTree = "<group>"; };
-		BA9C6DDA17B0584800C50CC2 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
-		BA9C6DDB17B0584800C50CC2 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
-		BA9C6DDC17B0584800C50CC2 /* GroupDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupDataController.h; sourceTree = "<group>"; };
-		BA9C6DDD17B0584800C50CC2 /* GroupDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDataController.m; sourceTree = "<group>"; };
-		BA9C6DDE17B0584800C50CC2 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
-		BA9C6DDF17B0584800C50CC2 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		BA9C6DE417B0627E00C50CC2 /* AddGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGroupViewController.h; sourceTree = "<group>"; };
+		BA9C6DE517B0627E00C50CC2 /* AddGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddGroupViewController.m; sourceTree = "<group>"; };
+		BA9C6DE617B0627E00C50CC2 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
+		BA9C6DE717B0627E00C50CC2 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
+		BA9C6DE817B0627E00C50CC2 /* GroupDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupDataController.h; sourceTree = "<group>"; };
+		BA9C6DE917B0627E00C50CC2 /* GroupDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDataController.m; sourceTree = "<group>"; };
+		BA9C6DEA17B0627E00C50CC2 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		BA9C6DEB17B0627E00C50CC2 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		BA9C6DF017B062A200C50CC2 /* ExpenseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseViewController.h; sourceTree = "<group>"; };
+		BA9C6DF117B062A200C50CC2 /* ExpenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseViewController.m; sourceTree = "<group>"; };
+		BA9C6DF217B062A200C50CC2 /* Expense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Expense.h; sourceTree = "<group>"; };
+		BA9C6DF317B062A200C50CC2 /* Expense.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Expense.m; sourceTree = "<group>"; };
+		BA9C6DF417B062A200C50CC2 /* ExpenseDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseDataController.h; sourceTree = "<group>"; };
+		BA9C6DF517B062A200C50CC2 /* ExpenseDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseDataController.m; sourceTree = "<group>"; };
+		BA9C6DF617B062A200C50CC2 /* AddExpenseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddExpenseViewController.h; sourceTree = "<group>"; };
+		BA9C6DF717B062A200C50CC2 /* AddExpenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddExpenseViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,14 +261,14 @@
 		8901CE4A17AD0A5A0084E749 /* Expense */ = {
 			isa = PBXGroup;
 			children = (
-				8901CE4117AD09D30084E749 /* ExpenseViewController.h */,
-				8901CE4217AD09D30084E749 /* ExpenseViewController.m */,
-				8901CE5317AD0D8C0084E749 /* Expense.h */,
-				8901CE5417AD0D8C0084E749 /* Expense.m */,
-				8901CE5617AD0DBE0084E749 /* ExpenseDataController.h */,
-				8901CE5717AD0DBE0084E749 /* ExpenseDataController.m */,
-				8901CE8317AFE74E0084E749 /* AddExpenseViewController.h */,
-				8901CE8417AFE74E0084E749 /* AddExpenseViewController.m */,
+				BA9C6DF017B062A200C50CC2 /* ExpenseViewController.h */,
+				BA9C6DF117B062A200C50CC2 /* ExpenseViewController.m */,
+				BA9C6DF217B062A200C50CC2 /* Expense.h */,
+				BA9C6DF317B062A200C50CC2 /* Expense.m */,
+				BA9C6DF417B062A200C50CC2 /* ExpenseDataController.h */,
+				BA9C6DF517B062A200C50CC2 /* ExpenseDataController.m */,
+				BA9C6DF617B062A200C50CC2 /* AddExpenseViewController.h */,
+				BA9C6DF717B062A200C50CC2 /* AddExpenseViewController.m */,
 			);
 			name = Expense;
 			sourceTree = "<group>";
@@ -290,14 +290,14 @@
 		8901CE8217AF8A200084E749 /* GroupMenu */ = {
 			isa = PBXGroup;
 			children = (
-				BA9C6DD817B0584800C50CC2 /* AddGroupViewController.h */,
-				BA9C6DD917B0584800C50CC2 /* AddGroupViewController.m */,
-				BA9C6DDA17B0584800C50CC2 /* Group.h */,
-				BA9C6DDB17B0584800C50CC2 /* Group.m */,
-				BA9C6DDC17B0584800C50CC2 /* GroupDataController.h */,
-				BA9C6DDD17B0584800C50CC2 /* GroupDataController.m */,
-				BA9C6DDE17B0584800C50CC2 /* MenuViewController.h */,
-				BA9C6DDF17B0584800C50CC2 /* MenuViewController.m */,
+				BA9C6DE417B0627E00C50CC2 /* AddGroupViewController.h */,
+				BA9C6DE517B0627E00C50CC2 /* AddGroupViewController.m */,
+				BA9C6DE617B0627E00C50CC2 /* Group.h */,
+				BA9C6DE717B0627E00C50CC2 /* Group.m */,
+				BA9C6DE817B0627E00C50CC2 /* GroupDataController.h */,
+				BA9C6DE917B0627E00C50CC2 /* GroupDataController.m */,
+				BA9C6DEA17B0627E00C50CC2 /* MenuViewController.h */,
+				BA9C6DEB17B0627E00C50CC2 /* MenuViewController.m */,
 			);
 			name = GroupMenu;
 			sourceTree = "<group>";
@@ -651,13 +651,9 @@
 				895C4E4A17AA77D3004EC590 /* AppDelegate.m in Sources */,
 				895C4E8017AA9FA3004EC590 /* TabBarViewController.m in Sources */,
 				8901CE3F17AD072A0084E749 /* CustomTabBarSegue.m in Sources */,
-				8901CE4317AD09D30084E749 /* ExpenseViewController.m in Sources */,
 				8901CE4617AD09E20084E749 /* TimelineViewController.m in Sources */,
-				8901CE5517AD0D8C0084E749 /* Expense.m in Sources */,
-				8901CE5817AD0DBE0084E749 /* ExpenseDataController.m in Sources */,
 				8901CE7817AD18FD0084E749 /* TimelineDataController.m in Sources */,
 				8901CE7B17AD191A0084E749 /* Message.m in Sources */,
-				8901CE8517AFE74E0084E749 /* AddExpenseViewController.m in Sources */,
 				BA403FD017B00C5800BE5282 /* AuthAPIClient.m in Sources */,
 				BA403FD117B00C5800BE5282 /* CredentialStore.m in Sources */,
 				BA24D4C917B016CE0042C7A4 /* List.m in Sources */,
@@ -677,10 +673,14 @@
 				8901CE8817B024A80084E749 /* ItemListViewController.m in Sources */,
 				8901CE9117B033F40084E749 /* AddItemListViewController.m in Sources */,
 				8901CE9917B043EE0084E749 /* ExpandableNavigation.m in Sources */,
-				BA9C6DE017B0584800C50CC2 /* AddGroupViewController.m in Sources */,
-				BA9C6DE117B0584800C50CC2 /* Group.m in Sources */,
-				BA9C6DE217B0584800C50CC2 /* GroupDataController.m in Sources */,
-				BA9C6DE317B0584800C50CC2 /* MenuViewController.m in Sources */,
+				BA9C6DEC17B0627E00C50CC2 /* AddGroupViewController.m in Sources */,
+				BA9C6DED17B0627E00C50CC2 /* Group.m in Sources */,
+				BA9C6DEE17B0627E00C50CC2 /* GroupDataController.m in Sources */,
+				BA9C6DEF17B0627E00C50CC2 /* MenuViewController.m in Sources */,
+				BA9C6DF817B062A200C50CC2 /* ExpenseViewController.m in Sources */,
+				BA9C6DF917B062A200C50CC2 /* Expense.m in Sources */,
+				BA9C6DFA17B062A200C50CC2 /* ExpenseDataController.m in Sources */,
+				BA9C6DFB17B062A200C50CC2 /* AddExpenseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

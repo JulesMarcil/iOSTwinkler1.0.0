@@ -102,8 +102,10 @@
     if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] )
     {
         Group *selectedGroup = [self.groupDataController objectInListAtIndex:[self.groupOnMenu indexPathForSelectedRow].row];
+        NSLog(@"%@", selectedGroup.name);
         NSNumber *identifier = selectedGroup.identifier;
         [[NSUserDefaults standardUserDefaults] setObject:identifier forKey:@"currentGroupId"];
+        NSLog(@"%@", identifier);
         
         SWRevealViewControllerSegue* rvcs = (SWRevealViewControllerSegue*) segue;
         
