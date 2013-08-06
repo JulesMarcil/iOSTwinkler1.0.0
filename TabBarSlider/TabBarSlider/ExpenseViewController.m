@@ -60,7 +60,6 @@
      selector:@selector(dataRetrieved)
      name:@"expensesWithJSONFinishedLoading"
      object:nil];
-    NSLog(@"yeaaaah");
 }
 
 - (void)dataRetrieved {
