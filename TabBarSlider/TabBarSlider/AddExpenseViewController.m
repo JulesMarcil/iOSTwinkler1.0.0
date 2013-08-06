@@ -33,9 +33,8 @@
     self.dateLabel.text=[dateFormatter stringFromDate:[NSDate date]];
     [self closePicker:nil];
     
-    arrStatus = [[NSArray alloc] initWithObjects:@"Polo", @"Marco", @"Jacquo", nil];
-    
-    
+    memberArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupMembers"];
+    self.selectedExpenseOwner = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -119,13 +118,13 @@
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
     //set number of rows
-    return arrStatus.count;
+    return memberArray.count;
 }
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     //set item per row
-    return [arrStatus objectAtIndex:row];
+    return [memberArray objectAtIndex:row][@"name"];
 }
 
 -(IBAction)closePicker:(id)sender
@@ -149,10 +148,6 @@
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(removeViews:)];
     [UIView commitAnimations];
-    self.selectedExpenseOwner= [self pickerView:self.expenseMemberPicker
-                                    titleForRow:[self.expenseMemberPicker selectedRowInComponent:0]
-                                   forComponent:0
-                                ];
     [self closePicker:nil];
 }
 
@@ -162,6 +157,7 @@
     if ([self.view viewWithTag:9]) {
         return;
     }
+    
     CGRect toolbarTargetFrame = CGRectMake(0, self.view.bounds.size.height-216-44, 320, 44);
     CGRect datePickerTargetFrame = CGRectMake(0, self.view.bounds.size.height-216, 320, 216);
     
@@ -172,11 +168,6 @@
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissDatePicker:)] ;
     [darkView addGestureRecognizer:tapGesture];
     [self.view addSubview:darkView];
-    
-    self.selectedExpenseOwner= [self pickerView:self.expenseMemberPicker
-                                     titleForRow:[self.expenseMemberPicker selectedRowInComponent:0]
-                                    forComponent:0
-                                 ];
     [self.view addSubview:self.expenseMemberPicker];
     
     UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height, 320, 44)] ;
@@ -192,8 +183,18 @@
     self.expenseMemberPicker.frame = datePickerTargetFrame;
     darkView.alpha = 0.5;
     [UIView commitAnimations];
+    
+    //Set selected owner to the first one in the list (to be updated with current member)
+    self.selectedExpenseOwner = [memberArray objectAtIndex:0];
+    [self.expenseMemberPicker reloadAllComponents];
+    [self.expenseMemberPicker selectRow:0 inComponent:0 animated:YES];
 }
 
+- (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    
+    self.selectedExpenseOwner = [memberArray objectAtIndex:row];
+    NSLog(@"%@", self.selectedExpenseOwner);
+}
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -208,29 +209,19 @@
             //Get date of today
             NSDate *today = [NSDate date];
             
-            //Create Owner and author dictionaries
-            NSDictionary *owner = [[NSDictionary alloc] initWithObjectsAndKeys:@"julio", @"name", @1, @"id", nil];
-            NSString *author = @"you";
-            
             //Create Member Array (to be completed)
             NSArray *members = [[NSArray alloc] init];
             
             Expense *expense = [[Expense alloc] initWithName:self.expenseName.text
                                                       amount:formattedAmount
-                                                       owner:owner
+                                                       owner:self.selectedExpenseOwner
                                                         date:today
                                                      members:members
-                                                      author:author
+                                                      author:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"]
                                                    addedDate:today];
             self.expense = expense;
+            NSLog(@"%@", self.selectedExpenseOwner);
         }
-        
-        
     }
-    
 }
-
-
-
-
 @end

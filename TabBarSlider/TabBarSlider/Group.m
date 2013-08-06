@@ -9,12 +9,13 @@
 #import "Group.h"
 
 @implementation Group
--(id)initWithName:(NSString *)name identifier:(NSNumber *)identifier members:(NSArray *)members{
+-(id)initWithName:(NSString *)name identifier:(NSNumber *)identifier members:(NSArray *)members activeMember:(NSDictionary *)activeMember {
     self=[super init];
     if(self){
         _name=name;
         _identifier=identifier;
         _members=members;
+        _activeMember=activeMember;
         return self;
     }
     return nil;

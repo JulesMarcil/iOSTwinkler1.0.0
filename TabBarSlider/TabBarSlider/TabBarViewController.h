@@ -10,6 +10,7 @@
 #import "SWRevealViewController.h"
 
 @interface TabBarViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *groupTitle;
 @property (weak, nonatomic) IBOutlet UIButton *expenseButton;
 @property (weak, nonatomic) IBOutlet UIButton *timelineButton;
 @property (weak, nonatomic) IBOutlet UIButton *listButton;

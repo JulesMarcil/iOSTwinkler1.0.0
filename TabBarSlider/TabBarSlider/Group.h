@@ -12,8 +12,10 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSArray *members;
+@property (nonatomic, strong) NSDictionary *activeMember;
 
 -(id) initWithName:(NSString *)name
         identifier:(NSNumber *)identifier
-           members:(NSArray *)members;
+           members:(NSArray *)members
+      activeMember:(NSDictionary *)activeMember;
 @end

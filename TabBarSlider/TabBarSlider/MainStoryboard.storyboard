@@ -118,6 +118,7 @@
                         <outlet property="activeTabBarImage" destination="W14-Iv-0NE" id="Gp9-Re-AcS"/>
                         <outlet property="coverPic" destination="CEJ-Kj-tyY" id="8sQ-GL-Zec"/>
                         <outlet property="expenseButton" destination="Sdr-S6-Ogv" id="i67-w2-7yk"/>
+                        <outlet property="groupTitle" destination="A1f-cY-EFc" id="dwg-HO-Ydt"/>
                         <outlet property="listButton" destination="2f3-R7-Uas" id="w9i-im-QXT"/>
                         <outlet property="placeholderView" destination="at9-FK-ZVX" id="GWa-6j-Wwa"/>
                         <outlet property="revealButtonItem" destination="crz-9H-jQT" id="ssC-xQ-kbt"/>
@@ -400,6 +401,7 @@
                 <relationship kind="outlet" name="activeTabBarImage" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="coverPic" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="expenseButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="groupTitle" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="listButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="placeholderView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="revealButtonItem" candidateClass="UIButton"/>

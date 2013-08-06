@@ -21,13 +21,14 @@
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                       NSError *error = nil;
                                       NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
-                                      NSLog(@"success: %@", response);
+                                      NSLog(@"groups loaded");
                                       
                                       for(id key in response) {
                                           
                                           Group *group = [[Group alloc] initWithName:key[@"name"]
                                                                           identifier:key[@"id"]
                                                                              members:key[@"members"]
+                                                                        activeMember:key[@"activeMember"]
                                                               ];
                                           
                                           [self addGroupWithGroup:group];

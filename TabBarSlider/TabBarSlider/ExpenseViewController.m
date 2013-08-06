@@ -119,12 +119,17 @@
                                                        sourceViewController];
             if (addController.expense) {
                 
+                
+                NSLog(@"selected owner = %@", addController.selectedExpenseOwner);
+                
                 // initialize the request parameters
                 NSString *currentGroupId = [[NSUserDefaults standardUserDefaults] stringForKey:@"currentGroupId"];
                 NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:
                                          addController.expense.name, @"name",
                                          addController.expense.amount, @"amount",
                                          currentGroupId, @"currentGroupId",
+                                         addController.selectedExpenseOwner[@"id"], @"owner_id",
+                                         [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"id"], @"author_id",
                                          nil];
                 
                 AuthAPIClient *client = [AuthAPIClient sharedClient];

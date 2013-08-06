@@ -135,10 +135,13 @@
     if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] )
     {
         Group *selectedGroup = [self.groupDataController objectInListAtIndex:[self.groupOnMenu indexPathForSelectedRow].row];
-        NSLog(@"%@", selectedGroup.name);
-        NSNumber *identifier = selectedGroup.identifier;
-        [[NSUserDefaults standardUserDefaults] setObject:identifier forKey:@"currentGroupId"];
-        NSLog(@"%@", identifier);
+        
+        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.identifier forKey:@"currentGroupId"];
+        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.activeMember forKey:@"currentMember"];
+        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.name forKey:@"currentGroupName"];
+        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.members forKey:@"currentGroupMembers"];
+        
+        NSLog(@"active member = %@", selectedGroup.activeMember);
         
         SWRevealViewControllerSegue* rvcs = (SWRevealViewControllerSegue*) segue;
         

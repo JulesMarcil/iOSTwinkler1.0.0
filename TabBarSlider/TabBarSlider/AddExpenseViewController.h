@@ -11,13 +11,13 @@
 @class Expense;
 
 @interface AddExpenseViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>{
-    NSArray *arrStatus; }
+    NSArray *memberArray; }
 
 @property (weak, nonatomic) IBOutlet UIPickerView *expenseMemberPicker;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UITextField *expenseName;
 @property (weak, nonatomic) IBOutlet UITextField *expenseAmount;
-@property (weak, nonatomic) NSString *selectedExpenseOwner;
+@property (weak, nonatomic) NSDictionary *selectedExpenseOwner;
 @property (strong, nonatomic) Expense *expense;
 
 - (IBAction)showPicker:(id)sender;
