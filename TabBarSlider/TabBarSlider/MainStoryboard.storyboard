@@ -154,7 +154,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Svw-mF-0GO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Uvb-6Z-2W7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2261" y="-696"/>
+            <point key="canvasLocation" x="2221" y="-1338"/>
         </scene>
         <!--Expense View Controller-->
         <scene sceneID="uD3-uh-QvW">
@@ -169,11 +169,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="expenseCell" textLabel="Ugh-Vt-W5V" detailTextLabel="trD-2M-VAZ" style="IBUITableViewCellStyleSubtitle" id="kyA-Pr-jQH">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="expenseCell" textLabel="Ugh-Vt-W5V" detailTextLabel="trD-2M-VAZ" style="IBUITableViewCellStyleSubtitle" id="kyA-Pr-jQH">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ugh-Vt-W5V">
@@ -193,6 +193,9 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <segue destination="rED-rQ-Rjp" kind="push" id="ZxW-zp-PGn"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -234,18 +237,58 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDx-sQ-vte" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1233" y="-603"/>
+            <point key="canvasLocation" x="1705" y="-677"/>
+        </scene>
+        <!--Expense Detail View Controller-->
+        <scene sceneID="Gsh-Uu-oZr">
+            <objects>
+                <viewController id="rED-rQ-Rjp" customClass="ExpenseDetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G40-De-IJ3">
+                        <rect key="frame" x="0.0" y="20" width="320" height="341"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="V0l-5F-Cf0">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="341"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="expenseItemCell" id="M4S-QO-ZuV">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="rED-rQ-Rjp" id="YlQ-hR-l1u"/>
+                                    <outlet property="delegate" destination="rED-rQ-Rjp" id="2Tt-2J-oqx"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="AYf-KZ-gfu"/>
+                    <connections>
+                        <outlet property="expenseDetailTable" destination="V0l-5F-Cf0" id="qW9-Su-5I4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HbS-sy-pTf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2221" y="-677"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="cNE-TO-Np4">
             <objects>
                 <viewController id="TSO-ay-kkC" customClass="TabBarViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jmI-jh-A5V">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="at9-FK-ZVX">
-                                <rect key="frame" x="0.0" y="144" width="320" height="405"/>
+                                <rect key="frame" x="0.0" y="132" width="320" height="417"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -253,7 +296,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                             </imageView>
                             <view contentMode="scaleToFill" id="yLr-kz-sh4">
-                                <rect key="frame" x="0.0" y="99" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="90" width="320" height="44"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="tabbar-active.png" id="W14-Iv-0NE">
                                         <rect key="frame" x="107" y="0.0" width="107" height="44"/>
@@ -296,7 +339,7 @@
                                 <color key="backgroundColor" white="0.90006272810218979" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Carnac Attitude" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="A1f-cY-EFc">
-                                <rect key="frame" x="42" y="11" width="239" height="21"/>
+                                <rect key="frame" x="42" y="10" width="239" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -304,7 +347,7 @@
                                 <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="crz-9H-jQT">
-                                <rect key="frame" x="-13" y="5" width="70" height="35"/>
+                                <rect key="frame" x="-13" y="4" width="70" height="35"/>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <state key="normal" image="menu-button-white.png">
                                     <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
@@ -620,7 +663,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1X6-qo-nDK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1233" y="106"/>
+            <point key="canvasLocation" x="1705" y="32"/>
         </scene>
         <!--List View Controller-->
         <scene sceneID="fZP-f8-7h3">
@@ -644,7 +687,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <segue destination="3z7-3F-4Kw" kind="modal" identifier="itemListSegue" id="Nkk-Aa-YqD"/>
+                                            <segue destination="Ke9-hk-2v0" kind="push" id="6vA-RJ-hYS"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -663,23 +706,34 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Jf-3r-I34" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1233" y="601"/>
+            <point key="canvasLocation" x="1705" y="527"/>
         </scene>
         <!--Item List View Controller-->
         <scene sceneID="qsF-Vb-2fa">
             <objects>
                 <viewController id="Ke9-hk-2v0" customClass="ItemListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RgN-65-Ygw">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="341"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="OkB-OH-vNh">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="462"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="341"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <toolbar key="tableHeaderView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="SYX-1O-PAy">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                    <items>
+                                        <barButtonItem systemItem="cancel" id="JdC-UG-Md0">
+                                            <connections>
+                                                <segue destination="Asm-WB-7Fg" kind="unwind" unwindAction="backToList:" id="7Pq-w2-FGK"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </items>
+                                </toolbar>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="itemListCell" id="z3Q-no-pLo">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="66" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -694,7 +748,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" id="yQ2-S2-UvC">
-                                <rect key="frame" x="0.0" y="460" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="460" width="320" height="0.0"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ryS-gW-o2v">
@@ -718,13 +772,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Xjo-L5-CP2">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="JdC-UG-Md0">
-                            <connections>
-                                <segue destination="Asm-WB-7Fg" kind="unwind" identifier="goBackToList" unwindAction="backToList:" id="0qW-PK-wCm"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Xjo-L5-CP2"/>
                     <connections>
                         <outlet property="addItemButton" destination="ryS-gW-o2v" id="eV6-Uv-LUv"/>
                         <outlet property="bottomToolbar" destination="yQ2-S2-UvC" id="cBL-hY-bv3"/>
@@ -734,7 +782,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AVV-n2-AST" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Asm-WB-7Fg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2312" y="601"/>
+            <point key="canvasLocation" x="2237" y="558"/>
         </scene>
         <!--Add Item List View Controller - Add a New Item-->
         <scene sceneID="05p-CO-H9x">
@@ -769,7 +817,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lrn-og-4Ie" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Py6-Ob-wTg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3287" y="601"/>
+            <point key="canvasLocation" x="3759" y="527"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wmL-HL-i1K">
@@ -787,25 +835,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nQF-DF-raR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1735" y="-696"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="qIe-zB-g4V">
-            <objects>
-                <navigationController id="3z7-3F-4Kw" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hhI-6f-00L">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Ke9-hk-2v0" kind="relationship" relationship="rootViewController" id="806-0K-HLS"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="S4d-kW-qUd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1786" y="601"/>
+            <point key="canvasLocation" x="1695" y="-1338"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="unB-e9-qXo">
@@ -823,7 +853,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zXU-lB-snt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2761" y="601"/>
+            <point key="canvasLocation" x="3233" y="527"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="RDh-gH-5Qg">
@@ -866,6 +896,8 @@
         <class className="AddExpenseViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AddExpenseViewController.h"/>
             <relationships>
+                <relationship kind="action" name="callDP:"/>
+                <relationship kind="action" name="closePicker:"/>
                 <relationship kind="action" name="showPicker:"/>
                 <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="expenseAmount" candidateClass="UITextField"/>
@@ -888,6 +920,12 @@
                 <relationship kind="outlet" name="itemInput" candidateClass="UITextField"/>
             </relationships>
         </class>
+        <class className="ExpenseDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExpenseDetailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="expenseDetailTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
         <class className="ExpenseViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ExpenseViewController.h"/>
             <relationships>
@@ -902,6 +940,8 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemListViewController.h"/>
             <relationships>
                 <relationship kind="action" name="backToList:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="cancelAddItem:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="doneAddItem:" candidateClass="UIStoryboardSegue"/>
                 <relationship kind="outlet" name="addItemButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="bottomToolbar" candidateClass="UIView"/>
                 <relationship kind="outlet" name="itemListTableView" candidateClass="UITableView"/>
@@ -910,6 +950,7 @@
         <class className="ListViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ListViewController.h"/>
             <relationships>
+                <relationship kind="action" name="backToList:" candidateClass="UIStoryboardSegue"/>
                 <relationship kind="outlet" name="listOnLists" candidateClass="UITableView"/>
             </relationships>
         </class>
@@ -961,6 +1002,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Zda-LX-yYf"/>
+        <segue reference="dB0-O4-sD8"/>
     </inferredMetricsTieBreakers>
 </document>

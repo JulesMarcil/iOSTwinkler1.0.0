@@ -21,6 +21,7 @@
 		8901CED017B05DB50084E749 /* money-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8901CECB17B05DB50084E749 /* money-button.png */; };
 		8901CED117B05DB50084E749 /* user-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8901CECC17B05DB50084E749 /* user-button.png */; };
 		8901CED217B05DB50084E749 /* uservoice-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8901CECD17B05DB50084E749 /* uservoice-button.png */; };
+		8911839717B0E3AA00B28ABE /* ExpenseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8911839617B0E3AA00B28ABE /* ExpenseDetailViewController.m */; };
 		895C4E3A17AA77D2004EC590 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3917AA77D2004EC590 /* UIKit.framework */; };
 		895C4E3C17AA77D2004EC590 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3B17AA77D2004EC590 /* Foundation.framework */; };
 		895C4E3E17AA77D2004EC590 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3D17AA77D2004EC590 /* CoreGraphics.framework */; };
@@ -119,6 +120,8 @@
 		8901CECB17B05DB50084E749 /* money-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "money-button.png"; sourceTree = "<group>"; };
 		8901CECC17B05DB50084E749 /* user-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user-button.png"; sourceTree = "<group>"; };
 		8901CECD17B05DB50084E749 /* uservoice-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uservoice-button.png"; sourceTree = "<group>"; };
+		8911839517B0E3AA00B28ABE /* ExpenseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseDetailViewController.h; sourceTree = "<group>"; };
+		8911839617B0E3AA00B28ABE /* ExpenseDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseDetailViewController.m; sourceTree = "<group>"; };
 		895C4E3617AA77D2004EC590 /* TabBarSlider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabBarSlider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		895C4E3917AA77D2004EC590 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		895C4E3B17AA77D2004EC590 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -264,6 +267,8 @@
 				BA9C6DF017B062A200C50CC2 /* ExpenseViewController.h */,
 				BA9C6DF117B062A200C50CC2 /* ExpenseViewController.m */,
 				BA9C6DF217B062A200C50CC2 /* Expense.h */,
+				8911839517B0E3AA00B28ABE /* ExpenseDetailViewController.h */,
+				8911839617B0E3AA00B28ABE /* ExpenseDetailViewController.m */,
 				BA9C6DF317B062A200C50CC2 /* Expense.m */,
 				BA9C6DF417B062A200C50CC2 /* ExpenseDataController.h */,
 				BA9C6DF517B062A200C50CC2 /* ExpenseDataController.m */,
@@ -681,6 +686,7 @@
 				BA9C6DF917B062A200C50CC2 /* Expense.m in Sources */,
 				BA9C6DFA17B062A200C50CC2 /* ExpenseDataController.m in Sources */,
 				BA9C6DFB17B062A200C50CC2 /* AddExpenseViewController.m in Sources */,
+				8911839717B0E3AA00B28ABE /* ExpenseDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
