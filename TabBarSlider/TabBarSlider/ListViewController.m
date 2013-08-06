@@ -9,6 +9,7 @@
 #import "ListViewController.h"
 #import "ListDataController.h"
 #import "List.h"
+#import "ItemListViewController.h"
 #import "AddItemListViewController.h"
 
 @interface ListViewController ()
@@ -35,9 +36,9 @@
     CGFloat screenHeight = screenRect.size.height;
     CGRect frame= [self.listOnLists frame];
     [self.listOnLists setFrame:CGRectMake(0,
-                                               -20,
-                                               frame.size.width,
-                                               screenHeight-208)];
+                                          -20,
+                                          frame.size.width,
+                                          screenHeight-208)];
     
     
     
@@ -76,18 +77,27 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"listCell";
-    static NSDateFormatter *formatter = nil;
-    if (formatter == nil) {
-        formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateStyle:NSDateFormatterMediumStyle];
-    }
+    
     UITableViewCell *cell = [tableView
                              dequeueReusableCellWithIdentifier:CellIdentifier];
     List *listAtIndex = [self.listDataController
-                               objectInListAtIndex:indexPath.row];
+                         objectInListAtIndex:indexPath.row];
     [[cell textLabel] setText:listAtIndex.name];
     return cell;
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"itemListSegue"]){
+        NSIndexPath *indexPath = [self.listOnLists indexPathForCell:sender];
+        
+        List *listAtIndex = [self.listDataController objectInListAtIndex:indexPath.row];
+        
+        ItemListViewController *ilvc = [segue destinationViewController];
+        ilvc.list = listAtIndex;
+        NSLog(@"%@", listAtIndex);
+    }
+}
+
 
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
