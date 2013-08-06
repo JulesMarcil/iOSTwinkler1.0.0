@@ -149,7 +149,10 @@
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(removeViews:)];
     [UIView commitAnimations];
-    
+    self.selectedExpenseOwner= [self pickerView:self.expenseMemberPicker
+                                    titleForRow:[self.expenseMemberPicker selectedRowInComponent:0]
+                                   forComponent:0
+                                ];
     [self closePicker:nil];
 }
 
@@ -170,9 +173,10 @@
     [darkView addGestureRecognizer:tapGesture];
     [self.view addSubview:darkView];
     
-    NSInteger row;
-    NSArray *repeatPickerData;
-    
+    self.selectedExpenseOwner= [self pickerView:self.expenseMemberPicker
+                                     titleForRow:[self.expenseMemberPicker selectedRowInComponent:0]
+                                    forComponent:0
+                                 ];
     [self.view addSubview:self.expenseMemberPicker];
     
     UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height, 320, 44)] ;
@@ -189,6 +193,8 @@
     darkView.alpha = 0.5;
     [UIView commitAnimations];
 }
+
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"ReturnInput"]) {
