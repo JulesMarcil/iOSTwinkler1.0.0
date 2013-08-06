@@ -104,11 +104,19 @@
             AddItemListViewController *addController = [segue sourceViewController];
             if (addController.item) {
                 
+                // prepare request parameters
+                NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:
+                                      addController.item[@"name"], @"name",
+                                      self.list.identifier, @"list_id",
+                                      nil];
+                
+                NSLog(@"%@", self.list.identifier);
+                
                 AuthAPIClient *client = [AuthAPIClient sharedClient];
                 
                 NSMutableURLRequest *request = [client requestWithMethod:@"POST"
                                                                     path:@"group/app/items"
-                                                              parameters:addController.item];
+                                                              parameters:parameters];
                 
                 //Add your request object to an AFHTTPRequestOperation
                 AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc]
@@ -131,6 +139,8 @@
                 NSMutableArray *temp = [[NSMutableArray alloc] initWithArray:self.list.items];
                 [temp addObject:addController.item];
                 self.list.items = temp;
+                
+                [self.itemListTableView reloadData];
             }
             [self dismissViewControllerAnimated:YES completion:NULL];
         }
