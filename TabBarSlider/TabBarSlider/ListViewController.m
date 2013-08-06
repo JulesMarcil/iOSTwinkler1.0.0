@@ -47,6 +47,9 @@
      selector:@selector(dataRetrieved)
      name:@"listsWithJSONFinishedLoading"
      object:nil];
+    
+    
+    NSLog(@"ceci est un nslog de jules");
 }
 
 - (void)dataRetrieved {
