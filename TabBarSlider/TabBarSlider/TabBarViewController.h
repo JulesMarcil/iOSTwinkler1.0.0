@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SWRevealViewController.h"
 
 @interface TabBarViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIButton *expenseButton;

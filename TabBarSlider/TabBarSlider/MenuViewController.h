@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GroupDataController.h"
+#import "SWRevealViewController.h"
 
 @interface MenuViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>  {
     IBOutlet UITableView* groupOnMenu;

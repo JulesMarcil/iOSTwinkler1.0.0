@@ -9,6 +9,7 @@
 #import "TabBarViewController.h"
 #import "CustomTabBarSegue.h"
 #import "AddExpenseViewController.h"
+#import "SWRevealViewController.h"
 
 @interface TabBarViewController ()
 

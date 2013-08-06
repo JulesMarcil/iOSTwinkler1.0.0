@@ -11,6 +11,7 @@
 #import "GroupDataController.h"
 #import "Group.h"
 #import "AddGroupViewController.h"
+#import "SWRevealViewController.h"
 
 @interface MenuViewController ()
 
