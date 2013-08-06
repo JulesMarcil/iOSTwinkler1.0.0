@@ -13,6 +13,7 @@
 #import "AddExpenseViewController.h"
 #import "AuthAPIClient.h"
 #import "AFHTTPRequestOperation.h"
+#import "ExpenseItemCell.h"
 
 @interface ExpenseViewController ()
 
@@ -50,7 +51,7 @@
     [self.expenseListTable setFrame:CGRectMake(0,
                                                -20,
                                                frame.size.width,
-                                               screenHeight-208)];
+                                               screenHeight-164)];
     frame= [self.addItemToolbar frame];
     [self.addItemToolbar setFrame:CGRectMake(0,
                                              screenHeight-228,
@@ -89,7 +90,7 @@
         formatter = [[NSDateFormatter alloc] init];
         [formatter setDateStyle:NSDateFormatterMediumStyle];
     }
-    UITableViewCell *cell = [tableView
+    ExpenseItemCell *cell = [tableView
                              dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
@@ -97,8 +98,10 @@
     
     Expense *expenseAtIndex = [self.expenseDataController
                                objectInListAtIndex:indexPath.row];
-    [[cell textLabel] setText:expenseAtIndex.name];
-    [[cell detailTextLabel] setText:[formatter stringFromDate:(NSDate *)expenseAtIndex.date]];
+    cell.expenseNameLabel.text=expenseAtIndex.name;
+    cell.expenseSubtitleLabel.text=[formatter stringFromDate:(NSDate *)expenseAtIndex.date];
+    
+    cell.expenseAmountLabel.text= [expenseAtIndex.amount stringValue];
     return cell;
 }
 

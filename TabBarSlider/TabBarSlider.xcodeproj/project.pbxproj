@@ -26,6 +26,9 @@
 		8911839F17B12D9D00B28ABE /* heart-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8911839E17B12D9C00B28ABE /* heart-icon.png */; };
 		891183A217B13DD700B28ABE /* GroupListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 891183A117B13DD700B28ABE /* GroupListCell.m */; };
 		891183A417B145BE00B28ABE /* sasa.png in Resources */ = {isa = PBXBuildFile; fileRef = 891183A317B145BE00B28ABE /* sasa.png */; };
+		891183B317B1A31200B28ABE /* ExpenseItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 891183B217B1A31200B28ABE /* ExpenseItemCell.m */; };
+		891183B517B1ABE700B28ABE /* balance-knob.png in Resources */ = {isa = PBXBuildFile; fileRef = 891183B417B1ABE600B28ABE /* balance-knob.png */; };
+		891183B717B1AC7F00B28ABE /* timeline-line.png in Resources */ = {isa = PBXBuildFile; fileRef = 891183B617B1AC7F00B28ABE /* timeline-line.png */; };
 		895C4E3A17AA77D2004EC590 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3917AA77D2004EC590 /* UIKit.framework */; };
 		895C4E3C17AA77D2004EC590 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3B17AA77D2004EC590 /* Foundation.framework */; };
 		895C4E3E17AA77D2004EC590 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3D17AA77D2004EC590 /* CoreGraphics.framework */; };
@@ -131,6 +134,10 @@
 		891183A017B13DD700B28ABE /* GroupListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupListCell.h; sourceTree = "<group>"; };
 		891183A117B13DD700B28ABE /* GroupListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupListCell.m; sourceTree = "<group>"; };
 		891183A317B145BE00B28ABE /* sasa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sasa.png; sourceTree = "<group>"; };
+		891183B117B1A31200B28ABE /* ExpenseItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseItemCell.h; sourceTree = "<group>"; };
+		891183B217B1A31200B28ABE /* ExpenseItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseItemCell.m; sourceTree = "<group>"; };
+		891183B417B1ABE600B28ABE /* balance-knob.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "balance-knob.png"; sourceTree = "<group>"; };
+		891183B617B1AC7F00B28ABE /* timeline-line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timeline-line.png"; sourceTree = "<group>"; };
 		895C4E3617AA77D2004EC590 /* TabBarSlider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabBarSlider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		895C4E3917AA77D2004EC590 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		895C4E3B17AA77D2004EC590 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -286,6 +293,8 @@
 				8911839617B0E3AA00B28ABE /* ExpenseDetailViewController.m */,
 				BA9C6DF417B062A200C50CC2 /* ExpenseDataController.h */,
 				BA9C6DF517B062A200C50CC2 /* ExpenseDataController.m */,
+				891183B117B1A31200B28ABE /* ExpenseItemCell.h */,
+				891183B217B1A31200B28ABE /* ExpenseItemCell.m */,
 				BA9C6DF617B062A200C50CC2 /* AddExpenseViewController.h */,
 				BA9C6DF717B062A200C50CC2 /* AddExpenseViewController.m */,
 			);
@@ -397,9 +406,11 @@
 		895C4E4017AA77D3004EC590 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				891183B417B1ABE600B28ABE /* balance-knob.png */,
 				8911839E17B12D9C00B28ABE /* heart-icon.png */,
 				895C4E7017AA952B004EC590 /* check-icon.png */,
 				895C4E7117AA952B004EC590 /* coin-icon.png */,
+				891183B617B1AC7F00B28ABE /* timeline-line.png */,
 				895C4E7217AA952B004EC590 /* tk-icon.png */,
 				895C4E4117AA77D3004EC590 /* TabBarSlider-Info.plist */,
 				895C4E4217AA77D3004EC590 /* InfoPlist.strings */,
@@ -642,6 +653,8 @@
 				8911839D17B1206B00B28ABE /* listStoryboard.storyboard in Resources */,
 				8911839F17B12D9D00B28ABE /* heart-icon.png in Resources */,
 				891183A417B145BE00B28ABE /* sasa.png in Resources */,
+				891183B517B1ABE700B28ABE /* balance-knob.png in Resources */,
+				891183B717B1AC7F00B28ABE /* timeline-line.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -713,6 +726,7 @@
 				BA4CB84817B0F47D00521584 /* AddItemListViewController.m in Sources */,
 				BA4CB84917B0F47D00521584 /* ItemListViewController.m in Sources */,
 				891183A217B13DD700B28ABE /* GroupListCell.m in Sources */,
+				891183B317B1A31200B28ABE /* ExpenseItemCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
