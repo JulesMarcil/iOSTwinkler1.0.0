@@ -114,4 +114,11 @@
         [self dismissViewControllerAnimated:YES completion:NULL];
     }
 }
+
+
+
+- (IBAction)backToList:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
 @end

@@ -96,10 +96,5 @@
     return NO;
 }
 
-- (IBAction)backToList:(UIStoryboardSegue *)segue{
-    if ([[segue identifier] isEqualToString:@"goBackToList"]) {
-        [self dismissViewControllerAnimated:YES completion:NULL];
-    }
-}
 
 @end

@@ -726,7 +726,7 @@
                                     <items>
                                         <barButtonItem systemItem="cancel" id="JdC-UG-Md0">
                                             <connections>
-                                                <segue destination="Asm-WB-7Fg" kind="unwind" unwindAction="backToList:" id="7Pq-w2-FGK"/>
+                                                <action selector="backToList:" destination="Ke9-hk-2v0" id="53o-FZ-6kn"/>
                                             </connections>
                                         </barButtonItem>
                                     </items>
@@ -780,7 +780,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AVV-n2-AST" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="Asm-WB-7Fg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2237" y="558"/>
         </scene>
@@ -896,8 +895,6 @@
         <class className="AddExpenseViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AddExpenseViewController.h"/>
             <relationships>
-                <relationship kind="action" name="callDP:"/>
-                <relationship kind="action" name="closePicker:"/>
                 <relationship kind="action" name="showPicker:"/>
                 <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="expenseAmount" candidateClass="UITextField"/>
@@ -939,7 +936,7 @@
         <class className="ItemListViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemListViewController.h"/>
             <relationships>
-                <relationship kind="action" name="backToList:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="backToList:"/>
                 <relationship kind="action" name="cancelAddItem:" candidateClass="UIStoryboardSegue"/>
                 <relationship kind="action" name="doneAddItem:" candidateClass="UIStoryboardSegue"/>
                 <relationship kind="outlet" name="addItemButton" candidateClass="UIButton"/>
@@ -950,7 +947,6 @@
         <class className="ListViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ListViewController.h"/>
             <relationships>
-                <relationship kind="action" name="backToList:" candidateClass="UIStoryboardSegue"/>
                 <relationship kind="outlet" name="listOnLists" candidateClass="UITableView"/>
             </relationships>
         </class>
