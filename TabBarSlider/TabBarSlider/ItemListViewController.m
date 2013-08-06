@@ -110,7 +110,7 @@
                                       self.list.identifier, @"list_id",
                                       nil];
                 
-                NSLog(@"%@", self.list.identifier);
+                NSLog(@"parameters: %@", parameters);
                 
                 AuthAPIClient *client = [AuthAPIClient sharedClient];
                 
