@@ -23,8 +23,13 @@
     NSMutableArray *listList = [[NSMutableArray alloc] init];
     self.listList = listList;
     
+    //Set parameters for request
+    NSString *currentGroupId = [[NSUserDefaults standardUserDefaults] stringForKey:@"currentGroupId"];
+    NSLog(@"current group id = %@", currentGroupId);
+    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:currentGroupId, @"currentGroupId", nil];
+    
     [[AuthAPIClient sharedClient] getPath:@"group/app/lists"
-                               parameters:nil
+                               parameters:parameters
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                       NSError *error = nil;
                                       NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];

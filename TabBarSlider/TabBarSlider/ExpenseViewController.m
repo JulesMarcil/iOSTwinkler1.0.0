@@ -119,20 +119,19 @@
                                                        sourceViewController];
             if (addController.expense) {
                 
-                // initialize the expense
-                NSDictionary *expense = [NSDictionary dictionaryWithObjectsAndKeys:
+                // initialize the request parameters
+                NSString *currentGroupId = [[NSUserDefaults standardUserDefaults] stringForKey:@"currentGroupId"];
+                NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:
                                          addController.expense.name, @"name",
                                          addController.expense.amount, @"amount",
-                                         @"an owner_id", @"owner_id",
-                                         @"a date", @"date",
-                                         @"some member_ids", @"member_ids",
+                                         currentGroupId, @"currentGroupId",
                                          nil];
                 
                 AuthAPIClient *client = [AuthAPIClient sharedClient];
                 
                 NSMutableURLRequest *request = [client requestWithMethod:@"POST"
                                                                     path:@"group/app/expenses"
-                                                              parameters:expense];
+                                                              parameters:parameters];
                 
                 //Add your request object to an AFHTTPRequestOperation
                 AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc]
