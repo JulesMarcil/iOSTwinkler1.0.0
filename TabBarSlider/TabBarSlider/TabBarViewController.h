@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIView *topWhiteBar;
 @property (weak, nonatomic) IBOutlet UIView *toolbar;
 
-
+-(void)goToExpenses;
+-(void)goToTimeline;
 
 @end

@@ -58,7 +58,8 @@
     [self.main setFrame:CGRectMake(15,
                                     -15,
                                     frame.size.width,
-                                    frame.size.height)];
+                                   frame.size.height)];
+    
     
     //-------------Expandable Button----------------------------
     // initialize ExpandableNavigation object with an array of buttons.

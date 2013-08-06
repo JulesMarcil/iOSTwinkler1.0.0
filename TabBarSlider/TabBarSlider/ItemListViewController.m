@@ -106,11 +106,11 @@
                 
                 // prepare request parameters
                 NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:
-                                            @"hello", @"name",
-                                            self.list.identifier, @"list_id",
-                                            nil];
+                                      addController.item[@"name"], @"name",
+                                      self.list.identifier, @"list_id",
+                                      nil];
                 
-                NSLog(@"%@", addController.item[@"name"]);
+                NSLog(@"%@", self.list.identifier);
                 
                 AuthAPIClient *client = [AuthAPIClient sharedClient];
                 

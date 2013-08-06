@@ -47,24 +47,25 @@
     [self.placeholderView setFrame:CGRectMake(0,
                                           144,
                                           frame.size.width,
-                                          screenHeight - 100)];
+                                          screenHeight - 144)];
     frame= [self.toolbar frame];
     [self.toolbar setFrame:CGRectMake(0,
                                               100,
                                               frame.size.width,
                                               44)];
     
+    UIStoryboard *timelineStoryboard=[UIStoryboard storyboardWithName:@"timelineStoryboard" bundle:nil];
+    UIViewController *dst=[timelineStoryboard instantiateInitialViewController];
+    self.currentViewController =dst;
+    [self.placeholderView addSubview:dst.view];
     
-    TabBarViewController *src= self.navigationController.visibleViewController;
-    UIViewController *dst =[self.storyboard instantiateViewControllerWithIdentifier:@"timelineTab"];
-    src.currentViewController =dst;
-    [src.placeholderView addSubview:dst.view];
-    
-    [src addChildViewController:dst];
+    [self addChildViewController:dst];
     [self.timelineButton setSelected:YES];
     
     [self.expenseButton addTarget:self action:@selector(expenseButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.expenseButton addTarget:self action:@selector(goToExpenses) forControlEvents:UIControlEventTouchUpInside];
     [self.timelineButton addTarget:self action:@selector(timelineButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.timelineButton addTarget:self action:@selector(goToTimeline) forControlEvents:UIControlEventTouchUpInside];
     [self.listButton addTarget:self action:@selector(listButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
     
@@ -96,7 +97,6 @@
     [self.listButton setSelected:NO];
     
     [UIView commitAnimations];
-    [self performSegueWithIdentifier: @"expenseSegue" sender: self];
 }
 - (void)timelineButtonPressed:(UIButton *)sender {
     CGPoint pt = {107,0};
@@ -113,7 +113,6 @@
     [self.expenseButton setSelected:NO];
     
     [UIView commitAnimations];
-    [self performSegueWithIdentifier: @"timelineSegue" sender: self];
 }
 - (void)listButtonPressed:(UIButton *)sender {
     CGPoint pt = {214,0};
@@ -133,6 +132,40 @@
     [self performSegueWithIdentifier: @"listSegue" sender: self];
 }
 
+-(void)goToExpenses{
+    UIStoryboard *expenseStoryboard=[UIStoryboard storyboardWithName:@"expenseStoryboard" bundle:nil];
+    UIViewController *dst=[expenseStoryboard instantiateInitialViewController];
+    
+    for (UIView *view in self.placeholderView.subviews){
+        [view removeFromSuperview];
+    }
+    self.currentViewController =dst;
+    [self.placeholderView addSubview:dst.view];
+    
+    for (UIViewController *vc in self.childViewControllers) {
+        [vc.view removeFromSuperview];
+        [vc removeFromParentViewController];
+    }
+    
+    [self addChildViewController:dst];
+}
 
+-(void)goToTimeline{
+    UIStoryboard *timelineStoryboard=[UIStoryboard storyboardWithName:@"timelineStoryboard" bundle:nil];
+    UIViewController *dst=[timelineStoryboard instantiateInitialViewController];
+    
+    for (UIView *view in self.placeholderView.subviews){
+        [view removeFromSuperview];
+    }
+    self.currentViewController =dst;
+    [self.placeholderView addSubview:dst.view];
+    
+    for (UIViewController *vc in self.childViewControllers) {
+        [vc.view removeFromSuperview];
+        [vc removeFromParentViewController];
+    }
+    
+    [self addChildViewController:dst];
+}
 
 @end

@@ -20,6 +20,8 @@
 		8901CED117B05DB50084E749 /* user-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8901CECC17B05DB50084E749 /* user-button.png */; };
 		8901CED217B05DB50084E749 /* uservoice-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8901CECD17B05DB50084E749 /* uservoice-button.png */; };
 		8911839717B0E3AA00B28ABE /* ExpenseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8911839617B0E3AA00B28ABE /* ExpenseDetailViewController.m */; };
+		8911839917B10A6600B28ABE /* expenseStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8911839817B10A6600B28ABE /* expenseStoryboard.storyboard */; };
+		8911839B17B10D5400B28ABE /* timelineStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8911839A17B10D5400B28ABE /* timelineStoryboard.storyboard */; };
 		895C4E3A17AA77D2004EC590 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3917AA77D2004EC590 /* UIKit.framework */; };
 		895C4E3C17AA77D2004EC590 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3B17AA77D2004EC590 /* Foundation.framework */; };
 		895C4E3E17AA77D2004EC590 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3D17AA77D2004EC590 /* CoreGraphics.framework */; };
@@ -118,6 +120,8 @@
 		8901CECD17B05DB50084E749 /* uservoice-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uservoice-button.png"; sourceTree = "<group>"; };
 		8911839517B0E3AA00B28ABE /* ExpenseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseDetailViewController.h; sourceTree = "<group>"; };
 		8911839617B0E3AA00B28ABE /* ExpenseDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseDetailViewController.m; sourceTree = "<group>"; };
+		8911839817B10A6600B28ABE /* expenseStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = expenseStoryboard.storyboard; sourceTree = "<group>"; };
+		8911839A17B10D5400B28ABE /* timelineStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = timelineStoryboard.storyboard; sourceTree = "<group>"; };
 		895C4E3617AA77D2004EC590 /* TabBarSlider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabBarSlider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		895C4E3917AA77D2004EC590 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		895C4E3B17AA77D2004EC590 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -264,6 +268,7 @@
 		8901CE4A17AD0A5A0084E749 /* Expense */ = {
 			isa = PBXGroup;
 			children = (
+				8911839817B10A6600B28ABE /* expenseStoryboard.storyboard */,
 				BA9C6DF017B062A200C50CC2 /* ExpenseViewController.h */,
 				BA9C6DF117B062A200C50CC2 /* ExpenseViewController.m */,
 				BA9C6DF217B062A200C50CC2 /* Expense.h */,
@@ -282,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				8901CE9B17B044D80084E749 /* ExpandableNavigationButton */,
+				8911839A17B10D5400B28ABE /* timelineStoryboard.storyboard */,
 				8901CE4417AD09E20084E749 /* TimelineViewController.h */,
 				8901CE4517AD09E20084E749 /* TimelineViewController.m */,
 				8901CE7917AD19180084E749 /* Message.h */,
@@ -617,6 +623,8 @@
 				8901CED017B05DB50084E749 /* money-button.png in Resources */,
 				8901CED117B05DB50084E749 /* user-button.png in Resources */,
 				8901CED217B05DB50084E749 /* uservoice-button.png in Resources */,
+				8911839917B10A6600B28ABE /* expenseStoryboard.storyboard in Resources */,
+				8911839B17B10D5400B28ABE /* timelineStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
