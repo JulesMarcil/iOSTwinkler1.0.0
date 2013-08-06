@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class Expense;
+
 @interface ExpenseDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>  {
     IBOutlet UITableView* expenseDetailMemberTable;
 }
 
+@property (strong, nonatomic) Expense *expense;
 @property (weak, nonatomic) IBOutlet UITableView *expenseDetailMemberTable;
 @property (weak, nonatomic) IBOutlet UILabel *expenseName;
 @property (weak, nonatomic) IBOutlet UILabel *expenseAmount;

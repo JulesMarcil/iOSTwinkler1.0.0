@@ -9,6 +9,7 @@
 #import "ExpenseViewController.h"
 #import "ExpenseDataController.h"
 #import "Expense.h"
+#import "ExpenseDetailViewController.h"
 #import "AddExpenseViewController.h"
 #import "AuthAPIClient.h"
 #import "AFHTTPRequestOperation.h"
@@ -97,9 +98,15 @@
     Expense *expenseAtIndex = [self.expenseDataController
                                objectInListAtIndex:indexPath.row];
     [[cell textLabel] setText:expenseAtIndex.name];
-    [[cell detailTextLabel] setText:[formatter stringFromDate:(NSDate
-                                                               *)expenseAtIndex.date]];
+    [[cell detailTextLabel] setText:[formatter stringFromDate:(NSDate *)expenseAtIndex.date]];
     return cell;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"viewExpenseSegue"]) {
+        ExpenseDetailViewController *edvc = [segue destinationViewController];
+        edvc.expense = [self.expenseDataController objectInListAtIndex:[self.expenseListTable indexPathForSelectedRow].row];
+    }
 }
 
 - (IBAction)addExpenseButton:(id)sender {

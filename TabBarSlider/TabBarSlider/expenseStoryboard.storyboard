@@ -176,7 +176,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <segue destination="TLd-9n-pDM" kind="push" id="7ZA-BX-w75"/>
+                                            <segue destination="TLd-9n-pDM" kind="push" identifier="viewExpenseSegue" id="7ZA-BX-w75"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -367,6 +367,44 @@
             <point key="canvasLocation" x="1695" y="-1338"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="AddExpenseViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddExpenseViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="showPicker:"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="expenseAmount" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="expenseMemberPicker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="expenseName" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ExpenseDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExpenseDetailViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backToExpenseList:"/>
+                <relationship kind="outlet" name="expenseAmount" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="expenseAuthor" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="expenseDate" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="expenseDetailMemberTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="expenseName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="expenseOwner" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="navBar" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
+        <class className="ExpenseViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExpenseViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addExpenseButton:"/>
+                <relationship kind="action" name="cancelAddMember:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="doneAddMember:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="outlet" name="addItemToolbar" candidateClass="UIView"/>
+                <relationship kind="outlet" name="expenseListTable" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="UIStoryboardSegue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
