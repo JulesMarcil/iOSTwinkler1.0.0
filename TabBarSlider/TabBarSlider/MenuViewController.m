@@ -12,6 +12,8 @@
 #import "Group.h"
 #import "AddGroupViewController.h"
 #import "SWRevealViewController.h"
+#import "GroupListCell.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface MenuViewController ()
 
@@ -33,7 +35,6 @@
 
 - (void)viewDidLoad
 {
-    NSLog(@"viewDidLoad");
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [[NSNotificationCenter defaultCenter]
@@ -41,6 +42,34 @@
      selector:@selector(dataRetrieved)
      name:@"groupsWithJSONFinishedLoading"
      object:nil];
+    
+    
+    
+    //-----------DESIGN---------------//
+    UIColor *borderColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1.0];
+
+    [self setRoundedView:self.profilePic toDiameter:70.0];
+    UIImageView *imageView = [[UIImageView alloc]init];
+    CGRect frame= [self.profilePic frame];
+    [imageView setFrame:CGRectMake(frame.origin.x,
+                                   frame.origin.y,
+                                   frame.size.width,
+                                   frame.size.height)];
+    
+    [self setRoundedView:imageView toDiameter:71.0];
+    [imageView.layer setBorderColor:borderColor.CGColor];
+    [imageView.layer setBorderWidth:3.0];
+    [self.tableViewHeader addSubview: imageView];
+    
+    
+    borderColor = [UIColor colorWithRed:(231/255.0) green:(231/255.0) blue:(231/255.0) alpha:1] ;
+    [self.addGroupButton.layer setBorderColor:borderColor.CGColor];
+    [self.addGroupButton.layer setBorderWidth:1.0];
+    
+    
+    groupOnMenu.separatorColor = [UIColor colorWithRed:(231/255.0) green:(231/255.0) blue:(231/255.0) alpha:1] ;
+    
+    
 }
 
 - (void)dataRetrieved {
@@ -71,11 +100,14 @@
         formatter = [[NSDateFormatter alloc] init];
         [formatter setDateStyle:NSDateFormatterMediumStyle];
     }
-    UITableViewCell *cell = [tableView
+    GroupListCell *cell = [tableView
                              dequeueReusableCellWithIdentifier:CellIdentifier];
     Group *groupAtIndex = [self.groupDataController
                                objectInListAtIndex:indexPath.row];
-    [[cell textLabel] setText:groupAtIndex.name];
+    cell.groupNameLabel.text=groupAtIndex.name;
+    cell.detailLabel.text=@"yo, what's up?";
+    cell.dateLabel.text=@"Mon";
+    cell.contentView.backgroundColor = [UIColor colorWithRed:(249/255.0) green:(249/255.0) blue:(249/255.0) alpha:1] ;
     return cell;
 }
 
@@ -142,6 +174,17 @@
     if ([[segue identifier] isEqualToString:@"CancelAddGroupInput"]) {
         [self dismissViewControllerAnimated:YES completion:NULL];
     }
+}
+
+
+//--------DESIGN------------//
+-(void)setRoundedView:(UIImageView *)roundedView toDiameter:(float)newSize;
+{
+    CGPoint saveCenter = roundedView.center;
+    CGRect newFrame = CGRectMake(roundedView.frame.origin.x, roundedView.frame.origin.y, newSize, newSize);
+    roundedView.frame = newFrame;
+    roundedView.layer.cornerRadius = newSize / 2.0;
+    roundedView.center = saveCenter;
 }
 
 @end
