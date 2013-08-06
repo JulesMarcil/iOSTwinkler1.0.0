@@ -10,6 +10,8 @@
 #import "ListDataController.h"
 #import "List.h"
 #import "AddItemListViewController.h"
+#import "AuthAPIClient.h"
+#import "AFHTTPRequestOperation.h"
 
 @interface ItemListViewController ()
 
@@ -82,7 +84,7 @@
     }
     
     // Configure the cell ...
-    cell.textLabel.text = @"test";
+    cell.textLabel.text = self.list.items[indexPath.row][@"name"];
    
     return cell;
 }
@@ -99,10 +101,36 @@
 - (IBAction)doneAddItem:(UIStoryboardSegue *)segue {
     {
         if ([[segue identifier] isEqualToString:@"ReturnInput"]) {
-            AddItemListViewController *addController = [segue
-                                                        sourceViewController];
-            if (addController.itemInput) {
-                //Code to add expense here
+            AddItemListViewController *addController = [segue sourceViewController];
+            if (addController.item) {
+                
+                AuthAPIClient *client = [AuthAPIClient sharedClient];
+                
+                NSMutableURLRequest *request = [client requestWithMethod:@"POST"
+                                                                    path:@"group/app/items"
+                                                              parameters:addController.item];
+                
+                //Add your request object to an AFHTTPRequestOperation
+                AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc]
+                                                     initWithRequest:request];
+                
+                [client registerHTTPOperationClass:[AFHTTPRequestOperation class]];
+                
+                [operation setCompletionBlockWithSuccess:
+                 ^(AFHTTPRequestOperation *operation, id responseObject) {
+                     NSString *response = [operation responseString];
+                     NSLog(@"response: %@",response);
+                     [self.itemListTableView reloadData];
+                 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                     NSLog(@"error: %@", [operation error]);
+                 }];
+                
+                //call start on your request operation
+                [operation start];
+                
+                NSMutableArray *temp = [[NSMutableArray alloc] initWithArray:self.list.items];
+                [temp addObject:addController.item];
+                self.list.items = temp;
             }
             [self dismissViewControllerAnimated:YES completion:NULL];
         }
@@ -114,8 +142,6 @@
         [self dismissViewControllerAnimated:YES completion:NULL];
     }
 }
-
-
 
 - (IBAction)backToList:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];

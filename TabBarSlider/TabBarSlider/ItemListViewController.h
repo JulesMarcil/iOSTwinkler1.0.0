@@ -18,5 +18,8 @@
 @property (weak, nonatomic) List *list;
 @property (weak, nonatomic) IBOutlet UIView *bottomToolbar;
 
+
+- (IBAction)doneAddItem:(UIStoryboardSegue *)segue;
+- (IBAction)cancelAddItem:(UIStoryboardSegue *)segue;
 - (IBAction)backToList:(id)sender;
 @end

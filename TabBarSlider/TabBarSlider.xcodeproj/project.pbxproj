@@ -11,7 +11,6 @@
 		8901CE4617AD09E20084E749 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8901CE4517AD09E20084E749 /* TimelineViewController.m */; };
 		8901CE7817AD18FD0084E749 /* TimelineDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8901CE7717AD18FD0084E749 /* TimelineDataController.m */; };
 		8901CE7B17AD191A0084E749 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 8901CE7A17AD19180084E749 /* Message.m */; };
-		8901CE9117B033F40084E749 /* AddItemListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8901CE9017B033F40084E749 /* AddItemListViewController.m */; };
 		8901CE9317B03C940084E749 /* Arnaud copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 8901CE9217B03C940084E749 /* Arnaud copy.png */; };
 		8901CE9917B043EE0084E749 /* ExpandableNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8901CE9817B043EE0084E749 /* ExpandableNavigation.m */; };
 		8901CE9A17B043EE0084E749 /* ExpandableNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8901CE9817B043EE0084E749 /* ExpandableNavigation.m */; };
@@ -78,7 +77,8 @@
 		BA403FCB17B008CB00BE5282 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA403FCA17B008CB00BE5282 /* SystemConfiguration.framework */; };
 		BA403FD017B00C5800BE5282 /* AuthAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BA403FCD17B00C5800BE5282 /* AuthAPIClient.m */; };
 		BA403FD117B00C5800BE5282 /* CredentialStore.m in Sources */ = {isa = PBXBuildFile; fileRef = BA403FCF17B00C5800BE5282 /* CredentialStore.m */; };
-		BA4CB84317B0E7B400521584 /* ItemListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4CB84217B0E7B400521584 /* ItemListViewController.m */; };
+		BA4CB84817B0F47D00521584 /* AddItemListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4CB84517B0F47D00521584 /* AddItemListViewController.m */; };
+		BA4CB84917B0F47D00521584 /* ItemListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4CB84717B0F47D00521584 /* ItemListViewController.m */; };
 		BA9C6DEC17B0627E00C50CC2 /* AddGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9C6DE517B0627E00C50CC2 /* AddGroupViewController.m */; };
 		BA9C6DED17B0627E00C50CC2 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9C6DE717B0627E00C50CC2 /* Group.m */; };
 		BA9C6DEE17B0627E00C50CC2 /* GroupDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9C6DE917B0627E00C50CC2 /* GroupDataController.m */; };
@@ -108,9 +108,6 @@
 		8901CE7717AD18FD0084E749 /* TimelineDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineDataController.m; sourceTree = "<group>"; };
 		8901CE7917AD19180084E749 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		8901CE7A17AD19180084E749 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
-		8901CE8617B024A80084E749 /* ItemListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemListViewController.h; sourceTree = "<group>"; };
-		8901CE8F17B033F40084E749 /* AddItemListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemListViewController.h; sourceTree = "<group>"; };
-		8901CE9017B033F40084E749 /* AddItemListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemListViewController.m; sourceTree = "<group>"; };
 		8901CE9217B03C940084E749 /* Arnaud copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arnaud copy.png"; sourceTree = "<group>"; };
 		8901CE9717B043EE0084E749 /* ExpandableNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpandableNavigation.h; sourceTree = "<group>"; };
 		8901CE9817B043EE0084E749 /* ExpandableNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpandableNavigation.m; sourceTree = "<group>"; };
@@ -201,7 +198,10 @@
 		BA403FCD17B00C5800BE5282 /* AuthAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthAPIClient.m; sourceTree = "<group>"; };
 		BA403FCE17B00C5800BE5282 /* CredentialStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CredentialStore.h; sourceTree = "<group>"; };
 		BA403FCF17B00C5800BE5282 /* CredentialStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialStore.m; sourceTree = "<group>"; };
-		BA4CB84217B0E7B400521584 /* ItemListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemListViewController.m; sourceTree = "<group>"; };
+		BA4CB84417B0F47D00521584 /* AddItemListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemListViewController.h; sourceTree = "<group>"; };
+		BA4CB84517B0F47D00521584 /* AddItemListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemListViewController.m; sourceTree = "<group>"; };
+		BA4CB84617B0F47D00521584 /* ItemListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemListViewController.h; sourceTree = "<group>"; };
+		BA4CB84717B0F47D00521584 /* ItemListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemListViewController.m; sourceTree = "<group>"; };
 		BA9C6DE417B0627E00C50CC2 /* AddGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGroupViewController.h; sourceTree = "<group>"; };
 		BA9C6DE517B0627E00C50CC2 /* AddGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddGroupViewController.m; sourceTree = "<group>"; };
 		BA9C6DE617B0627E00C50CC2 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
@@ -496,10 +496,10 @@
 				BA24D4C617B016CE0042C7A4 /* ListDataController.m */,
 				BA24D4C717B016CE0042C7A4 /* ListViewController.h */,
 				BA24D4C817B016CE0042C7A4 /* ListViewController.m */,
-				8901CE8F17B033F40084E749 /* AddItemListViewController.h */,
-				8901CE9017B033F40084E749 /* AddItemListViewController.m */,
-				8901CE8617B024A80084E749 /* ItemListViewController.h */,
-				BA4CB84217B0E7B400521584 /* ItemListViewController.m */,
+				BA4CB84417B0F47D00521584 /* AddItemListViewController.h */,
+				BA4CB84517B0F47D00521584 /* AddItemListViewController.m */,
+				BA4CB84617B0F47D00521584 /* ItemListViewController.h */,
+				BA4CB84717B0F47D00521584 /* ItemListViewController.m */,
 			);
 			name = Lists;
 			sourceTree = "<group>";
@@ -675,7 +675,6 @@
 				BA24D4E817B017120042C7A4 /* UIImageView+AFNetworking.m in Sources */,
 				BA24D4F117B0171C0042C7A4 /* SSKeychain.m in Sources */,
 				BA24D4F217B0171C0042C7A4 /* SSKeychainQuery.m in Sources */,
-				8901CE9117B033F40084E749 /* AddItemListViewController.m in Sources */,
 				8901CE9917B043EE0084E749 /* ExpandableNavigation.m in Sources */,
 				BA9C6DEC17B0627E00C50CC2 /* AddGroupViewController.m in Sources */,
 				BA9C6DED17B0627E00C50CC2 /* Group.m in Sources */,
@@ -686,7 +685,8 @@
 				BA9C6DFA17B062A200C50CC2 /* ExpenseDataController.m in Sources */,
 				BA9C6DFB17B062A200C50CC2 /* AddExpenseViewController.m in Sources */,
 				8911839717B0E3AA00B28ABE /* ExpenseDetailViewController.m in Sources */,
-				BA4CB84317B0E7B400521584 /* ItemListViewController.m in Sources */,
+				BA4CB84817B0F47D00521584 /* AddItemListViewController.m in Sources */,
+				BA4CB84917B0F47D00521584 /* ItemListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

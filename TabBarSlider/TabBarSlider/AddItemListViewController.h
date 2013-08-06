@@ -9,9 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface AddItemListViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UITextField *itemInput;
 
-- (IBAction)doneAddItem:(UIStoryboardSegue *)segue;
-- (IBAction)cancelAddItem:(UIStoryboardSegue *)segue;
+@property (strong, nonatomic) NSDictionary *item;
+@property (weak, nonatomic) IBOutlet UITextField *itemInput;
 
 @end

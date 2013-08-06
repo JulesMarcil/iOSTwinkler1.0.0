@@ -35,4 +35,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == self.itemInput) {
+        [textField resignFirstResponder];
+    }
+    return YES;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"ReturnInput"]) {
+        if ([self.itemInput.text length]) {
+            self.item = [[NSDictionary alloc] initWithObjectsAndKeys: nil, @"id", self.itemInput.text, @"name", @"incomplete", @"status", nil];
+        }
+    }
+}
+
 @end
