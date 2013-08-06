@@ -9,9 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface ExpenseDetailViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>  {
-    IBOutlet UITableView* expenseDetailTable;
+    IBOutlet UITableView* expenseDetailMemberTable;
 }
 
-@property (weak, nonatomic) IBOutlet UITableView *expenseDetailTable;
+@property (weak, nonatomic) IBOutlet UITableView *expenseDetailMemberTable;
+@property (weak, nonatomic) IBOutlet UILabel *expenseName;
+@property (weak, nonatomic) IBOutlet UILabel *expenseAmount;
+@property (weak, nonatomic) IBOutlet UILabel *expenseDate;
+@property (weak, nonatomic) IBOutlet UILabel *expenseOwner;
+@property (weak, nonatomic) IBOutlet UILabel *expenseAuthor;
 
 @end
