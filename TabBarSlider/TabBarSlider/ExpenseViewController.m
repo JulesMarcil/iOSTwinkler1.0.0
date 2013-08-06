@@ -9,6 +9,7 @@
 #import "ExpenseViewController.h"
 #import "ExpenseDataController.h"
 #import "Expense.h"
+#import "ExpenseDetailViewController.h"
 #import "AddExpenseViewController.h"
 #import "AuthAPIClient.h"
 #import "AFHTTPRequestOperation.h"
@@ -97,9 +98,15 @@
     Expense *expenseAtIndex = [self.expenseDataController
                                objectInListAtIndex:indexPath.row];
     [[cell textLabel] setText:expenseAtIndex.name];
-    [[cell detailTextLabel] setText:[formatter stringFromDate:(NSDate
-                                                               *)expenseAtIndex.date]];
+    [[cell detailTextLabel] setText:[formatter stringFromDate:(NSDate *)expenseAtIndex.date]];
     return cell;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"viewExpenseSegue"]) {
+        ExpenseDetailViewController *edvc = [segue destinationViewController];
+        edvc.expense = [self.expenseDataController objectInListAtIndex:[self.expenseListTable indexPathForSelectedRow].row];
+    }
 }
 
 - (IBAction)addExpenseButton:(id)sender {
@@ -112,20 +119,19 @@
                                                        sourceViewController];
             if (addController.expense) {
                 
-                // initialize the expense
-                NSDictionary *expense = [NSDictionary dictionaryWithObjectsAndKeys:
+                // initialize the request parameters
+                NSString *currentGroupId = [[NSUserDefaults standardUserDefaults] stringForKey:@"currentGroupId"];
+                NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:
                                          addController.expense.name, @"name",
                                          addController.expense.amount, @"amount",
-                                         @"an owner_id", @"owner_id",
-                                         @"a date", @"date",
-                                         @"some member_ids", @"member_ids",
+                                         currentGroupId, @"currentGroupId",
                                          nil];
                 
                 AuthAPIClient *client = [AuthAPIClient sharedClient];
                 
                 NSMutableURLRequest *request = [client requestWithMethod:@"POST"
                                                                     path:@"group/app/expenses"
-                                                              parameters:expense];
+                                                              parameters:parameters];
                 
                 //Add your request object to an AFHTTPRequestOperation
                 AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc]

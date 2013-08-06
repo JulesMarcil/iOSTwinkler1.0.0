@@ -97,7 +97,6 @@
         
         ItemListViewController *ilvc = [segue destinationViewController];
         ilvc.list = listAtIndex;
-        NSLog(@"%@", listAtIndex);
     }
 }
 

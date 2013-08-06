@@ -45,7 +45,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"ReturnInput"]) {
         if ([self.itemInput.text length]) {
-            self.item = [[NSDictionary alloc] initWithObjectsAndKeys: nil, @"id", self.itemInput.text, @"name", @"incomplete", @"status", nil];
+            self.item = [[NSDictionary alloc] initWithObjectsAndKeys: @0, @"id", self.itemInput.text, @"name", @"incomplete", @"status", nil];
         }
     }
 }

@@ -281,9 +281,9 @@
 				BA9C6DF017B062A200C50CC2 /* ExpenseViewController.h */,
 				BA9C6DF117B062A200C50CC2 /* ExpenseViewController.m */,
 				BA9C6DF217B062A200C50CC2 /* Expense.h */,
+				BA9C6DF317B062A200C50CC2 /* Expense.m */,
 				8911839517B0E3AA00B28ABE /* ExpenseDetailViewController.h */,
 				8911839617B0E3AA00B28ABE /* ExpenseDetailViewController.m */,
-				BA9C6DF317B062A200C50CC2 /* Expense.m */,
 				BA9C6DF417B062A200C50CC2 /* ExpenseDataController.h */,
 				BA9C6DF517B062A200C50CC2 /* ExpenseDataController.m */,
 				BA9C6DF617B062A200C50CC2 /* AddExpenseViewController.h */,
@@ -509,8 +509,8 @@
 		BA403FB217B006E200BE5282 /* Lists */ = {
 			isa = PBXGroup;
 			children = (
-				BA24D4C317B016CE0042C7A4 /* List.h */,
 				8911839C17B1206B00B28ABE /* listStoryboard.storyboard */,
+				BA24D4C317B016CE0042C7A4 /* List.h */,
 				BA24D4C417B016CE0042C7A4 /* List.m */,
 				BA24D4C517B016CE0042C7A4 /* ListDataController.h */,
 				BA24D4C617B016CE0042C7A4 /* ListDataController.m */,
