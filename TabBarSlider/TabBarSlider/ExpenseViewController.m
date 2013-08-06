@@ -39,6 +39,7 @@
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
     
     CGRect screenRect = [[UIScreen mainScreen] bounds];
@@ -59,6 +60,7 @@
      selector:@selector(dataRetrieved)
      name:@"expensesWithJSONFinishedLoading"
      object:nil];
+    NSLog(@"yeaaaah");
 }
 
 - (void)dataRetrieved {
