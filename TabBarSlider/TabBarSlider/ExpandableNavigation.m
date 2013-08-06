@@ -57,7 +57,7 @@
     transition = YES;
     
     [UIView animateWithDuration:self.speed animations:^{
-        self.mainButton.transform = CGAffineTransformMakeRotation( 45.0 * M_PI/180 );
+        self.mainButton.transform = CGAffineTransformMakeRotation( 135.0 * M_PI/180 );
     }];
     
     for (UIView* view in self.menuItems) {
