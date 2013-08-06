@@ -55,7 +55,7 @@
                                               44)];
     
     UIStoryboard *timelineStoryboard=[UIStoryboard storyboardWithName:@"timelineStoryboard" bundle:nil];
-    UIViewController *dst=[timelineStoryboard instantiateInitialViewController];
+    TabBarViewController *dst=[timelineStoryboard instantiateInitialViewController];
     self.currentViewController =dst;
     [self.placeholderView addSubview:dst.view];
     
@@ -67,6 +67,7 @@
     [self.timelineButton addTarget:self action:@selector(timelineButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.timelineButton addTarget:self action:@selector(goToTimeline) forControlEvents:UIControlEventTouchUpInside];
     [self.listButton addTarget:self action:@selector(listButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.listButton addTarget:self action:@selector(goToList) forControlEvents:UIControlEventTouchUpInside];
     
     
     [self.revealButtonItem addTarget:self.revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
@@ -129,7 +130,6 @@
     [self.expenseButton setSelected:NO];
     
     [UIView commitAnimations];
-    [self performSegueWithIdentifier: @"listSegue" sender: self];
 }
 
 -(void)goToExpenses{
@@ -152,6 +152,24 @@
 
 -(void)goToTimeline{
     UIStoryboard *timelineStoryboard=[UIStoryboard storyboardWithName:@"timelineStoryboard" bundle:nil];
+    UIViewController *dst=[timelineStoryboard instantiateInitialViewController];
+    
+    for (UIView *view in self.placeholderView.subviews){
+        [view removeFromSuperview];
+    }
+    self.currentViewController =dst;
+    [self.placeholderView addSubview:dst.view];
+    
+    for (UIViewController *vc in self.childViewControllers) {
+        [vc.view removeFromSuperview];
+        [vc removeFromParentViewController];
+    }
+    
+    [self addChildViewController:dst];
+}
+
+-(void)goToList{
+    UIStoryboard *timelineStoryboard=[UIStoryboard storyboardWithName:@"listStoryboard" bundle:nil];
     UIViewController *dst=[timelineStoryboard instantiateInitialViewController];
     
     for (UIView *view in self.placeholderView.subviews){

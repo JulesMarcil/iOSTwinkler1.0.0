@@ -23,5 +23,6 @@
 
 -(void)goToExpenses;
 -(void)goToTimeline;
+-(void)goToList;
 
 @end

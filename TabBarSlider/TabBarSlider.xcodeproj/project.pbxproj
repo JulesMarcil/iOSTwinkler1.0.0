@@ -22,6 +22,7 @@
 		8911839717B0E3AA00B28ABE /* ExpenseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8911839617B0E3AA00B28ABE /* ExpenseDetailViewController.m */; };
 		8911839917B10A6600B28ABE /* expenseStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8911839817B10A6600B28ABE /* expenseStoryboard.storyboard */; };
 		8911839B17B10D5400B28ABE /* timelineStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8911839A17B10D5400B28ABE /* timelineStoryboard.storyboard */; };
+		8911839D17B1206B00B28ABE /* listStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8911839C17B1206B00B28ABE /* listStoryboard.storyboard */; };
 		895C4E3A17AA77D2004EC590 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3917AA77D2004EC590 /* UIKit.framework */; };
 		895C4E3C17AA77D2004EC590 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3B17AA77D2004EC590 /* Foundation.framework */; };
 		895C4E3E17AA77D2004EC590 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3D17AA77D2004EC590 /* CoreGraphics.framework */; };
@@ -122,6 +123,7 @@
 		8911839617B0E3AA00B28ABE /* ExpenseDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseDetailViewController.m; sourceTree = "<group>"; };
 		8911839817B10A6600B28ABE /* expenseStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = expenseStoryboard.storyboard; sourceTree = "<group>"; };
 		8911839A17B10D5400B28ABE /* timelineStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = timelineStoryboard.storyboard; sourceTree = "<group>"; };
+		8911839C17B1206B00B28ABE /* listStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = listStoryboard.storyboard; sourceTree = "<group>"; };
 		895C4E3617AA77D2004EC590 /* TabBarSlider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabBarSlider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		895C4E3917AA77D2004EC590 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		895C4E3B17AA77D2004EC590 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -497,6 +499,7 @@
 			isa = PBXGroup;
 			children = (
 				BA24D4C317B016CE0042C7A4 /* List.h */,
+				8911839C17B1206B00B28ABE /* listStoryboard.storyboard */,
 				BA24D4C417B016CE0042C7A4 /* List.m */,
 				BA24D4C517B016CE0042C7A4 /* ListDataController.h */,
 				BA24D4C617B016CE0042C7A4 /* ListDataController.m */,
@@ -625,6 +628,7 @@
 				8901CED217B05DB50084E749 /* uservoice-button.png in Resources */,
 				8911839917B10A6600B28ABE /* expenseStoryboard.storyboard in Resources */,
 				8911839B17B10D5400B28ABE /* timelineStoryboard.storyboard in Resources */,
+				8911839D17B1206B00B28ABE /* listStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
