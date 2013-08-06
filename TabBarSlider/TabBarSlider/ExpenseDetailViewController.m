@@ -27,13 +27,39 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    CGRect frame= [self.navBar frame];
+    [self.navBar setFrame:CGRectMake(0,
+                                               0,
+                                               frame.size.width,
+                                               44)];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CellIdentifier = @"expenseMemberCell";
+    UITableViewCell *cell = [tableView
+                             dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    };
+    
+
+    return cell;
 }
 
 - (IBAction)backToExpenseList:(id)sender {

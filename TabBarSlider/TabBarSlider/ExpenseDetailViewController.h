@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *expenseDate;
 @property (weak, nonatomic) IBOutlet UILabel *expenseOwner;
 @property (weak, nonatomic) IBOutlet UILabel *expenseAuthor;
+@property (weak, nonatomic) IBOutlet UIToolbar *navBar;
 
 - (IBAction)backToExpenseList:(id)sender;
 
