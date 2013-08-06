@@ -50,6 +50,7 @@
     
     
     NSLog(@"ceci est un nslog de jules");
+
 }
 
 - (void)dataRetrieved {
