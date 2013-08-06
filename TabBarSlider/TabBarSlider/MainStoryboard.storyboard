@@ -899,6 +899,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="itemInput" destination="IT6-oU-0UW" id="yzJ-M3-IE4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lrn-og-4Ie" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Py6-Ob-wTg" userLabel="Exit" sceneMemberID="exit"/>
