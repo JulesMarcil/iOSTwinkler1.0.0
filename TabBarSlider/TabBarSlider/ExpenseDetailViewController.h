@@ -19,4 +19,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *expenseOwner;
 @property (weak, nonatomic) IBOutlet UILabel *expenseAuthor;
 
+- (IBAction)backToExpenseList:(id)sender;
+
 @end

@@ -13,6 +13,7 @@
 @end
 
 @implementation ExpenseDetailViewController
+@synthesize expenseDetailMemberTable=_expenseDetailMemberTable;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,4 +36,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)backToExpenseList:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end
