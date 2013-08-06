@@ -79,7 +79,6 @@
 		BA403FD117B00C5800BE5282 /* CredentialStore.m in Sources */ = {isa = PBXBuildFile; fileRef = BA403FCF17B00C5800BE5282 /* CredentialStore.m */; };
 		BA4CB84817B0F47D00521584 /* AddItemListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4CB84517B0F47D00521584 /* AddItemListViewController.m */; };
 		BA4CB84917B0F47D00521584 /* ItemListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4CB84717B0F47D00521584 /* ItemListViewController.m */; };
-		BA4CB84B17B1048F00521584 /* .gitattributes in Resources */ = {isa = PBXBuildFile; fileRef = BA4CB84A17B1048F00521584 /* .gitattributes */; };
 		BA9C6DEC17B0627E00C50CC2 /* AddGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9C6DE517B0627E00C50CC2 /* AddGroupViewController.m */; };
 		BA9C6DED17B0627E00C50CC2 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9C6DE717B0627E00C50CC2 /* Group.m */; };
 		BA9C6DEE17B0627E00C50CC2 /* GroupDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9C6DE917B0627E00C50CC2 /* GroupDataController.m */; };
@@ -203,7 +202,6 @@
 		BA4CB84517B0F47D00521584 /* AddItemListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemListViewController.m; sourceTree = "<group>"; };
 		BA4CB84617B0F47D00521584 /* ItemListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemListViewController.h; sourceTree = "<group>"; };
 		BA4CB84717B0F47D00521584 /* ItemListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemListViewController.m; sourceTree = "<group>"; };
-		BA4CB84A17B1048F00521584 /* .gitattributes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
 		BA9C6DE417B0627E00C50CC2 /* AddGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGroupViewController.h; sourceTree = "<group>"; };
 		BA9C6DE517B0627E00C50CC2 /* AddGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddGroupViewController.m; sourceTree = "<group>"; };
 		BA9C6DE617B0627E00C50CC2 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
@@ -334,7 +332,6 @@
 		895C4E2D17AA77D2004EC590 = {
 			isa = PBXGroup;
 			children = (
-				BA4CB84A17B1048F00521584 /* .gitattributes */,
 				895C4E3F17AA77D2004EC590 /* TabBarSlider */,
 				895C4E5D17AA77D9004EC590 /* TabBarSliderTests */,
 				BA403FA717B0068000BE5282 /* Plugins */,
@@ -620,7 +617,6 @@
 				8901CED017B05DB50084E749 /* money-button.png in Resources */,
 				8901CED117B05DB50084E749 /* user-button.png in Resources */,
 				8901CED217B05DB50084E749 /* uservoice-button.png in Resources */,
-				BA4CB84B17B1048F00521584 /* .gitattributes in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
