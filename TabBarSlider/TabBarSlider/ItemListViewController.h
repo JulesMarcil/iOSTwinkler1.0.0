@@ -18,6 +18,5 @@
 @property (weak, nonatomic) List *list;
 @property (weak, nonatomic) IBOutlet UIView *bottomToolbar;
 
-- (IBAction)backToList:(UIStoryboardSegue *)segue;
 
 @end

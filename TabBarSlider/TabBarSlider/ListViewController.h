@@ -17,4 +17,6 @@
 @property (nonatomic, strong) ListDataController *listDataController;
 
 
+- (IBAction)backToList:(UIStoryboardSegue *)segue;
+
 @end
