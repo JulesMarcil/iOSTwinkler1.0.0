@@ -13,9 +13,11 @@
 @property (nonatomic, strong) NSNumber *identifier;
 @property (nonatomic, strong) NSArray *members;
 @property (nonatomic, strong) NSDictionary *activeMember;
+@property (nonatomic, strong) NSString *currency;
 
 -(id) initWithName:(NSString *)name
         identifier:(NSNumber *)identifier
            members:(NSArray *)members
-      activeMember:(NSDictionary *)activeMember;
+      activeMember:(NSDictionary *)activeMember
+          currency:(NSString *)currency;
 @end

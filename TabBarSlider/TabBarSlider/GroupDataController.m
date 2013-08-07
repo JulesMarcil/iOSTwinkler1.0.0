@@ -29,6 +29,7 @@
                                                                           identifier:key[@"id"]
                                                                              members:key[@"members"]
                                                                         activeMember:key[@"activeMember"]
+                                                                            currency:key[@"currency"]
                                                               ];
                                           
                                           [self addGroupWithGroup:group];

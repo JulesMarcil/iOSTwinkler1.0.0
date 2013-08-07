@@ -62,6 +62,7 @@
      selector:@selector(dataRetrieved)
      name:@"expensesWithJSONFinishedLoading"
      object:nil];
+    
 }
 
 - (void)dataRetrieved {
@@ -101,7 +102,8 @@
     cell.expenseNameLabel.text=expenseAtIndex.name;
     cell.expenseSubtitleLabel.text=[formatter stringFromDate:(NSDate *)expenseAtIndex.date];
     
-    cell.expenseAmountLabel.text= [expenseAtIndex.amount stringValue];
+    NSString *currency=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"];
+    cell.expenseAmountLabel.text=[NSString stringWithFormat:@"%@%@%@", [expenseAtIndex.amount stringValue], @" ",currency];
     return cell;
 }
 
