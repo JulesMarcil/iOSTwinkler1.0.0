@@ -398,8 +398,6 @@
 		895C4E2D17AA77D2004EC590 = {
 			isa = PBXGroup;
 			children = (
-				891ABEE717B271F800D507F7 /* QuartzCore.framework */,
-				891ABEE517B271DE00D507F7 /* Accelerate.framework */,
 				895C4E3F17AA77D2004EC590 /* TabBarSlider */,
 				895C4E5D17AA77D9004EC590 /* TabBarSliderTests */,
 				BA403FA717B0068000BE5282 /* Plugins */,
@@ -420,6 +418,8 @@
 		895C4E3817AA77D2004EC590 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				891ABEE717B271F800D507F7 /* QuartzCore.framework */,
+				891ABEE517B271DE00D507F7 /* Accelerate.framework */,
 				BA403FCA17B008CB00BE5282 /* SystemConfiguration.framework */,
 				BA403FC817B008BF00BE5282 /* MobileCoreServices.framework */,
 				BA403FC617B008B700BE5282 /* Security.framework */,

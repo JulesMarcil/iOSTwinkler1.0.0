@@ -47,6 +47,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
 	// Do any additional setup after loading the view.
 
     
@@ -76,6 +77,7 @@
     self.groupOnMenu.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     
+    NSLog(@"%@", self.title);
 }
 
 - (void)dataRetrieved {
@@ -106,9 +108,7 @@
     cell.detailLabel.text=@"yo, what's up?";
     cell.dateLabel.text=@"Mon";
     cell.contentView.backgroundColor = [UIColor clearColor];
-    
-    
-    
+
     
     cell.backgroundView = [UIView new];
     return cell;
@@ -128,6 +128,7 @@
         [sender isKindOfClass:[UIButton class]] )
     {
         TabBarViewController* cvc = segue.destinationViewController;
+        cvc.groupTitle.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"currentGroupName"];
         
         [cvc view];
     }
@@ -144,6 +145,7 @@
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.name forKey:@"currentGroupName"];
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.members forKey:@"currentGroupMembers"];
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.currency forKey:@"currentGroupCurrency"];
+        
         
         NSLog(@"active member = %@", selectedGroup.activeMember);
         
@@ -162,6 +164,24 @@
             [rvc setFrontViewPosition: FrontViewPositionLeft animated: YES];
         };
     }
+}
+
+- (IBAction)goToTimelineButton:(id)sender {
+    
+            UIStoryboard *mainStoryboard=[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+            UIViewController *dst=[mainStoryboard instantiateInitialViewController];
+    
+    Group *selectedGroup = [self.groupDataController objectInListAtIndex:[self.groupOnMenu indexPathForSelectedRow].row];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.identifier forKey:@"currentGroupId"];
+    [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.activeMember forKey:@"currentMember"];
+    [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.name forKey:@"currentGroupName"];
+    [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.members forKey:@"currentGroupMembers"];
+    [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.currency forKey:@"currentGroupCurrency"];
+    
+            // Then push the new view controller in the usual way:
+    [self.navigationController pushViewController:dst animated:YES];
+        
 }
 
 - (IBAction)doneAddGroup:(UIStoryboardSegue *)segue {
@@ -183,24 +203,6 @@
     }
 }
 
-
--(void)welcomeGroupCellPressed{
-    // Get the storyboard named secondStoryBoard from the main bundle:
-    UIStoryboard *secondStoryBoard = [UIStoryboard storyboardWithName:@"MainStoryBoard" bundle:nil];
-    
-    // Load the initial view controller from the storyboard.
-    // Set this by selecting 'Is Initial View Controller' on the appropriate view controller in the storyboard.
-    UIViewController *theInitialViewController = [secondStoryBoard instantiateInitialViewController];
-    //
-    // **OR**
-    //
-    // Load the view controller with the identifier string myTabBar
-    // Change UIViewController to the appropriate class
-    //UIViewController *theTabBar = (UIViewController *)[secondStoryBoard instantiateViewControllerWithIdentifier:@"myTabBar"];
-    
-    // Then push the new view controller in the usual way:
-    [self.navigationController pushViewController:theInitialViewController animated:YES];
-}
 
 //--------DESIGN------------//
 -(void)setRoundedView:(UIImageView *)roundedView toDiameter:(float)newSize;

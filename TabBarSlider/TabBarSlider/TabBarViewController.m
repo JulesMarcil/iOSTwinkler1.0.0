@@ -32,8 +32,6 @@
     [super viewDidLoad];
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
     
-    //Set the title with the current group name from nsuserdefaults
-    self.groupTitle.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"currentGroupName"];
     
     CGRect frame= [self.coverPic frame];
     CGRect screenRect = [[UIScreen mainScreen] bounds];
@@ -84,6 +82,8 @@
     DRNRealTimeBlurView *blurView = [[DRNRealTimeBlurView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     [self.view addSubview:blurView];
     [self.navigationController.view insertSubview:self.topBar aboveSubview:blurView];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -198,5 +198,6 @@
     
     [self addChildViewController:dst];
 }
+
 
 @end
