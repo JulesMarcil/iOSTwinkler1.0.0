@@ -30,10 +30,10 @@
 static const CGFloat kDRNRealTimeBlurViewScreenshotCompression = 0.01;
 
 //the blur radius
-static const CGFloat kDRNRealTimeBlurViewBlurRadius = 1.f;
+static const CGFloat kDRNRealTimeBlurViewBlurRadius = 0.2f;
 
 //the default corner radius for all the DRNRealTimeBlurViews
-static const CGFloat kDRNRealTimeBlurViewDefaultCornerRadius = 20.f;
+static const CGFloat kDRNRealTimeBlurViewDefaultCornerRadius = 0.f;
 
 //the view is rendered every kDRNRealTimeBlurViewRenderPeriod seconds
 //tweak this value to have a smoother or a more perfomant rendering

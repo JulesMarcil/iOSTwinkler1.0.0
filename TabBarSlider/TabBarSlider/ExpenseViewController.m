@@ -62,7 +62,7 @@
      selector:@selector(dataRetrieved)
      name:@"expensesWithJSONFinishedLoading"
      object:nil];
-    
+
 }
 
 - (void)dataRetrieved {

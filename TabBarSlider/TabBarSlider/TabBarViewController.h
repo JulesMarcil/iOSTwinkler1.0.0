@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *coverPic;
 @property (weak, nonatomic) IBOutlet UIView *topWhiteBar;
 @property (weak, nonatomic) IBOutlet UIView *toolbar;
+@property (weak, nonatomic) IBOutlet UIView *topBar;
 
 -(void)goToExpenses;
 -(void)goToTimeline;

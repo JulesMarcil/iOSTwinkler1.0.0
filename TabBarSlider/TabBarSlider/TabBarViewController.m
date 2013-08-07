@@ -10,6 +10,7 @@
 #import "CustomTabBarSegue.h"
 #import "AddExpenseViewController.h"
 #import "SWRevealViewController.h"
+#import "DRNRealTimeBlurView.h"
 
 @interface TabBarViewController ()
 
@@ -56,6 +57,11 @@
                                               100,
                                               frame.size.width,
                                               44)];
+    frame= [self.toolbar frame];
+    [self.toolbar setFrame:CGRectMake(0,
+                                      100,
+                                      frame.size.width,
+                                      44)];
     
     UIStoryboard *timelineStoryboard=[UIStoryboard storyboardWithName:@"timelineStoryboard" bundle:nil];
     TabBarViewController *dst=[timelineStoryboard instantiateInitialViewController];
@@ -74,6 +80,10 @@
     
     
     [self.revealButtonItem addTarget:self.revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+    
+    DRNRealTimeBlurView *blurView = [[DRNRealTimeBlurView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    [self.view addSubview:blurView];
+    [self.navigationController.view insertSubview:self.topBar aboveSubview:blurView];
 }
 
 - (void)didReceiveMemoryWarning
