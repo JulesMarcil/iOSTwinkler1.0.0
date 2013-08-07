@@ -233,6 +233,21 @@
                                             <segue destination="yPi-iB-hud" kind="modal" id="V62-Vf-oOK"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="p3f-t1-23j">
+                                        <rect key="frame" x="74" y="0.0" width="73" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="test:" destination="uss-B9-F3Z" eventType="touchUpInside" id="4Jo-UP-fpI"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </view>
                         </subviews>
@@ -242,6 +257,7 @@
                     <connections>
                         <outlet property="addItemToolbar" destination="GBb-rR-TS8" id="Cmv-fF-EU9"/>
                         <outlet property="expenseListTable" destination="H48-RZ-UpL" id="hcM-g7-UEp"/>
+                        <outlet property="viewContainer" destination="cz8-0D-50U" id="ivd-Re-djm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tlE-Di-v5p" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -438,8 +454,11 @@
                 <relationship kind="action" name="addExpenseButton:"/>
                 <relationship kind="action" name="cancelAddMember:" candidateClass="UIStoryboardSegue"/>
                 <relationship kind="action" name="doneAddMember:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="test:"/>
                 <relationship kind="outlet" name="addItemToolbar" candidateClass="UIView"/>
+                <relationship kind="outlet" name="celldsdsd" candidateClass="ExpenseItemCell"/>
                 <relationship kind="outlet" name="expenseListTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="viewContainer" candidateClass="UIView"/>
             </relationships>
         </class>
         <class className="UIStoryboardSegue" superclassName="NSObject">
