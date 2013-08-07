@@ -22,6 +22,17 @@
 @implementation MenuViewController
 @synthesize groupOnMenu=_groupOnMenu;
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(dataRetrieved)
+     name:@"groupsWithJSONFinishedLoading"
+     object:nil];
+    self.groupDataController=[[GroupDataController alloc] init];
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     NSLog(@"initWithNibName");
@@ -70,19 +81,6 @@
 - (void)dataRetrieved {
     [self.groupOnMenu reloadData];
 }
-
-- (void)awakeFromNib
-{
-    [super awakeFromNib];
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self
-     selector:@selector(dataRetrieved)
-     name:@"groupsWithJSONFinishedLoading"
-     object:nil];
-    self.groupDataController=[[GroupDataController alloc] init];
-}
-
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
