@@ -242,7 +242,7 @@
                                     <color key="backgroundColor" red="1" green="0.46274513006210327" blue="0.43529415130615234" alpha="1" colorSpace="deviceRGB"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="expenseCell" id="BO0-Hd-l2V" customClass="ExpenseItemCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="expenseCell" id="BO0-Hd-l2V" customClass="ExpenseItemCell">
                                         <rect key="frame" x="0.0" y="52" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">

@@ -11,6 +11,7 @@
 #import "AddExpenseViewController.h"
 #import "SWRevealViewController.h"
 #import "DRNRealTimeBlurView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface TabBarViewController ()
 
@@ -71,8 +72,8 @@
     
     [self.expenseButton addTarget:self action:@selector(expenseButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.expenseButton addTarget:self action:@selector(goToExpenses) forControlEvents:UIControlEventTouchUpInside];
-    [self.timelineButton addTarget:self action:@selector(timelineButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.timelineButton addTarget:self action:@selector(goToTimeline) forControlEvents:UIControlEventTouchUpInside];
+    [self.timelineButton addTarget:self action:@selector(timelineButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.listButton addTarget:self action:@selector(listButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.listButton addTarget:self action:@selector(goToList) forControlEvents:UIControlEventTouchUpInside];
     
@@ -159,7 +160,15 @@
         [vc removeFromParentViewController];
     }
     
+    CATransition *animation = [CATransition animation];
+    [animation setDuration:0.3];
+    [animation setType:kCATransitionPush];
+    [animation setSubtype:kCATransitionFromLeft];
+    [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+    
     [self addChildViewController:dst];
+    
+    [[self.placeholderView layer] addAnimation:animation forKey:@"showSecondViewController"];
 }
 
 -(void)goToTimeline{
@@ -177,7 +186,21 @@
         [vc removeFromParentViewController];
     }
     
+    
+    CATransition *animation = [CATransition animation];
+    [animation setDuration:0.3];
+    [animation setType:kCATransitionPush];
+    CGRect frame= [self.activeTabBarImage frame];
+    if (frame.origin.x == 0){
+        [animation setSubtype:kCATransitionFromRight];
+    }else{
+        [animation setSubtype:kCATransitionFromLeft];
+    }
+    [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+    
     [self addChildViewController:dst];
+    
+    [[self.placeholderView layer] addAnimation:animation forKey:@"showSecondViewController"];
 }
 
 -(void)goToList{
@@ -196,6 +219,16 @@
     }
     
     [self addChildViewController:dst];
+    
+    CATransition *animation = [CATransition animation];
+    [animation setDuration:0.3];
+    [animation setType:kCATransitionPush];
+    [animation setSubtype:kCATransitionFromRight];
+    [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+    
+    [self addChildViewController:dst];
+    
+    [[self.placeholderView layer] addAnimation:animation forKey:@"showSecondViewController"];
 }
 
 

@@ -15,6 +15,7 @@
 #import "AFHTTPRequestOperation.h"
 #import "ExpenseItemCell.h"
 #import "DRNRealTimeBlurView.h"
+#import "TabBarViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface ExpenseViewController ()
@@ -64,6 +65,12 @@
      selector:@selector(dataRetrieved)
      name:@"expensesWithJSONFinishedLoading"
      object:nil];
+    
+    
+    UISwipeGestureRecognizer* swipeLeftGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(goToTimeline)];
+    swipeLeftGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.view addGestureRecognizer:swipeLeftGestureRecognizer];
+    
 
 }
 
@@ -311,6 +318,48 @@
     [[self.view viewWithTag:1] removeFromSuperview];
     [[self.view viewWithTag:2] removeFromSuperview];
     [[self.view.superview.superview viewWithTag:3] removeFromSuperview];
+}
+
+
+-(void)goToTimeline{
+    UIStoryboard *timelineStoryboard=[UIStoryboard storyboardWithName:@"timelineStoryboard" bundle:nil];
+    UIViewController *dst=[timelineStoryboard instantiateInitialViewController];
+    
+    TabBarViewController *tbvc=self.parentViewController;
+    
+    for (UIView *view in tbvc.placeholderView.subviews){
+        [view removeFromSuperview];
+    }
+    tbvc.currentViewController =dst;
+    [tbvc.placeholderView addSubview:dst.view];
+    
+    
+    
+    CATransition *animation = [CATransition animation];
+    [animation setDuration:0.3];
+    [animation setType:kCATransitionPush];
+    [animation setSubtype:kCATransitionFromRight];
+    [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+    
+    [self.parentViewController addChildViewController:dst];
+    [self.view removeFromSuperview];
+    
+    [[tbvc.placeholderView layer] addAnimation:animation forKey:@"showSecondViewController"];
+    
+    CGPoint pt = {107,0};
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.1];
+    //you can change the setAnimationDuration value, it is in seconds.
+    
+    CGRect rect = CGRectMake(pt.x, pt.y, tbvc.activeTabBarImage.frame.size.width,tbvc.activeTabBarImage.frame.size.height);
+    
+    [tbvc.activeTabBarImage setFrame:rect];
+    [tbvc.listButton setSelected:NO];
+    [tbvc.timelineButton setSelected:YES];
+    [tbvc.expenseButton setSelected:NO];
+    
+    [UIView commitAnimations];
 }
 
 @end
