@@ -207,6 +207,10 @@
     [self.view.superview.superview addSubview:darkView];
     [self.view.superview.superview bringSubviewToFront:darkView];
     
+    UISwipeGestureRecognizer* swipeDownGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(dismissDetails)];
+    swipeDownGestureRecognizer.direction = UISwipeGestureRecognizerDirectionDown;
+    [self.view.superview.superview addGestureRecognizer:swipeDownGestureRecognizer];
+    
     CGRect buttonFrame = CGRectMake( 148, 0, 30, 30 );
     UIButton *button = [[UIButton alloc] initWithFrame: buttonFrame];
     [button setImage:[UIImage imageNamed:@"chevron-arrow.png"] forState:UIControlStateNormal];

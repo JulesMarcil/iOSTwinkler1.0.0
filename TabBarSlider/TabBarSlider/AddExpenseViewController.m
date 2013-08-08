@@ -6,8 +6,11 @@
 //  Copyright (c) 2013 Arnaud Drizard. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "AddExpenseViewController.h"
 #import "Expense.h"
+#import "FUIButton.h"
+#import "UIImage+FlatUI.h"
 
 @interface AddExpenseViewController ()
 
@@ -27,14 +30,49 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.view endEditing:YES];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    
+    self.expenseName.enablesReturnKeyAutomatically = NO;
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
+    [dateFormatter setDateFormat:@"MMM dd, yyy"];
     self.dateLabel.text=[dateFormatter stringFromDate:[NSDate date]];
     [self closePicker:nil];
     
     memberArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupMembers"];
     self.selectedExpenseOwner = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"];
+    self.expenseOwner.text=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"];
+    
+    self.cancelExpenseButton.buttonColor = [UIColor colorWithRed:(236/255.0) green:(240/255.0) blue:(241/255.0) alpha:1] ;
+    self.cancelExpenseButton.shadowColor = [UIColor colorWithRed:(185/255.0) green:(195/255.0) blue:(199/255.0) alpha:1] ;
+    self.cancelExpenseButton.shadowHeight = 3.0f;
+    self.cancelExpenseButton.cornerRadius = 6.0f;
+    [self.cancelExpenseButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.cancelExpenseButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+    
+    self.addExpenseButton.buttonColor = [UIColor colorWithRed:(242/255.0) green:(118/255.0) blue:(105/255.0) alpha:1] ;
+    self.addExpenseButton.shadowColor = [UIColor colorWithRed:(219/255.0) green:(106/255.0) blue:(93/255.0) alpha:1] ;
+    self.addExpenseButton.shadowHeight = 3.0f;
+    self.addExpenseButton.cornerRadius = 6.0f;
+    [self.addExpenseButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.addExpenseButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+    
+    self.expenseNameContainer.layer.cornerRadius = 6;
+    self.expenseNameContainer.layer.masksToBounds = YES;
+    self.expenseNameContainer.layer.borderColor = [UIColor colorWithRed:(235/255.0) green:(235/255.0) blue:(235/255.0) alpha:1].CGColor  ;
+    self.expenseNameContainer.layer.borderWidth = 2.0f;
+    
+    self.expenseAmountContainer.layer.cornerRadius = 6;
+    self.expenseAmountContainer.layer.masksToBounds = YES;
+    self.expenseAmountContainer.layer.borderColor = [UIColor colorWithRed:(235/255.0) green:(235/255.0) blue:(235/255.0) alpha:1].CGColor  ;
+    self.expenseAmountContainer.layer.borderWidth = 2.0f;
+    
+    self.amountLabelContainer.layer.cornerRadius = 6;
+    self.amountLabelContainer.layer.masksToBounds = YES;
+    self.amountLabelContainer.layer.borderColor = [UIColor colorWithRed:(235/255.0) green:(235/255.0) blue:(235/255.0) alpha:1].CGColor  ;
+    self.amountLabelContainer.layer.borderWidth = 2.0f;
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,12 +81,24 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.expenseName resignFirstResponder];
+    [self.expenseAmount resignFirstResponder];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    return YES;
+}
 
 - (void)changeDate:(UIDatePicker *)sender {
     
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"dd-MM-yyyy"];
+    [dateFormatter setDateFormat:@"MMM dd, yyy"];
     NSString *strDate = [dateFormatter stringFromDate:sender.date];
     
     self.dateLabel.text=strDate;
@@ -193,6 +243,8 @@
 - (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     
     self.selectedExpenseOwner = [memberArray objectAtIndex:row];
+    
+    self.expenseOwner.text= [memberArray objectAtIndex:row][@"name"];
     NSLog(@"%@", self.selectedExpenseOwner);
 }
 
@@ -224,4 +276,7 @@
         }
     }
 }
+
+
+
 @end

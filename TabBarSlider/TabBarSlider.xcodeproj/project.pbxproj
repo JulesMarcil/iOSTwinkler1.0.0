@@ -40,6 +40,11 @@
 		891ABEDE17B2713C00D507F7 /* UIImage+BoxBlur.m in Sources */ = {isa = PBXBuildFile; fileRef = 891ABEDA17B26DC500D507F7 /* UIImage+BoxBlur.m */; };
 		891ABEE617B271DE00D507F7 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 891ABEE517B271DE00D507F7 /* Accelerate.framework */; };
 		891ABEE817B271F800D507F7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 891ABEE717B271F800D507F7 /* QuartzCore.framework */; };
+		891F500817B3C6AE00361986 /* FUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 891F500717B3C6AE00361986 /* FUIButton.m */; };
+		891F500917B3C8F800361986 /* FUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 891F500717B3C6AE00361986 /* FUIButton.m */; };
+		891F500C17B3C96E00361986 /* UIImage+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 891F500B17B3C96E00361986 /* UIImage+FlatUI.m */; };
+		891F500D17B3C98300361986 /* UIImage+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 891F500B17B3C96E00361986 /* UIImage+FlatUI.m */; };
+		891F501417B3DFD000361986 /* edit-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 891F501317B3DFD000361986 /* edit-button.png */; };
 		895C4E3A17AA77D2004EC590 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3917AA77D2004EC590 /* UIKit.framework */; };
 		895C4E3C17AA77D2004EC590 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3B17AA77D2004EC590 /* Foundation.framework */; };
 		895C4E3E17AA77D2004EC590 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3D17AA77D2004EC590 /* CoreGraphics.framework */; };
@@ -160,6 +165,11 @@
 		891ABEDA17B26DC500D507F7 /* UIImage+BoxBlur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BoxBlur.m"; sourceTree = "<group>"; };
 		891ABEE517B271DE00D507F7 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		891ABEE717B271F800D507F7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		891F500617B3C6AE00361986 /* FUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUIButton.h; sourceTree = "<group>"; };
+		891F500717B3C6AE00361986 /* FUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUIButton.m; sourceTree = "<group>"; };
+		891F500A17B3C96E00361986 /* UIImage+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FlatUI.h"; sourceTree = "<group>"; };
+		891F500B17B3C96E00361986 /* UIImage+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FlatUI.m"; sourceTree = "<group>"; };
+		891F501317B3DFD000361986 /* edit-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit-button.png"; sourceTree = "<group>"; };
 		895C4E3617AA77D2004EC590 /* TabBarSlider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabBarSlider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		895C4E3917AA77D2004EC590 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		895C4E3B17AA77D2004EC590 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -386,6 +396,7 @@
 			children = (
 				8919DBDA17B2E8360005C67C /* chevron-arrow.png */,
 				8919DBE017B2F9280005C67C /* expense-detail-border.png */,
+				891F501317B3DFD000361986 /* edit-button.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -409,10 +420,22 @@
 			name = ImgBlurred;
 			sourceTree = "<group>";
 		};
+		891F500517B3C69000361986 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				891F500617B3C6AE00361986 /* FUIButton.h */,
+				891F500717B3C6AE00361986 /* FUIButton.m */,
+				891F500A17B3C96E00361986 /* UIImage+FlatUI.h */,
+				891F500B17B3C96E00361986 /* UIImage+FlatUI.m */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		895C4E2D17AA77D2004EC590 = {
 			isa = PBXGroup;
 			children = (
 				895C4E3F17AA77D2004EC590 /* TabBarSlider */,
+				891F500517B3C69000361986 /* Resources */,
 				895C4E5D17AA77D9004EC590 /* TabBarSliderTests */,
 				BA403FA717B0068000BE5282 /* Plugins */,
 				895C4E3817AA77D2004EC590 /* Frameworks */,
@@ -719,6 +742,7 @@
 				891ABECF17B252D200D507F7 /* welcomeStoryboard.storyboard in Resources */,
 				8919DBDB17B2E8360005C67C /* chevron-arrow.png in Resources */,
 				8919DBE117B2F9280005C67C /* expense-detail-border.png in Resources */,
+				891F501417B3DFD000361986 /* edit-button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -753,6 +777,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				891F500D17B3C98300361986 /* UIImage+FlatUI.m in Sources */,
+				891F500917B3C8F800361986 /* FUIButton.m in Sources */,
 				891ABEDE17B2713C00D507F7 /* UIImage+BoxBlur.m in Sources */,
 				891ABEDD17B2713600D507F7 /* DRNRealTimeBlurView.m in Sources */,
 				895C4EBB17AB1184004EC590 /* SWRevealViewController.m in Sources */,
@@ -805,6 +831,8 @@
 				8901CE9A17B043EE0084E749 /* ExpandableNavigation.m in Sources */,
 				891ABED817B26DA200D507F7 /* DRNRealTimeBlurView.m in Sources */,
 				891ABEDB17B26DC500D507F7 /* UIImage+BoxBlur.m in Sources */,
+				891F500817B3C6AE00361986 /* FUIButton.m in Sources */,
+				891F500C17B3C96E00361986 /* UIImage+FlatUI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
