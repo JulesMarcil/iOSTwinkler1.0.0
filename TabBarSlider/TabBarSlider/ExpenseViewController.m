@@ -116,6 +116,11 @@
     }
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [self showExpenseDetail:[self.expenseDataController objectInListAtIndex:[self.expenseListTable indexPathForSelectedRow].row] ];
+}
+
 - (IBAction)addExpenseButton:(id)sender {
 }
 
@@ -176,16 +181,14 @@
     }
 }
 
-- (IBAction)test:(id)sender {
+- (void)showExpenseDetail:(Expense*)expense {
     
-
-    
-    
-    DRNRealTimeBlurView *blurView = [[DRNRealTimeBlurView alloc] initWithFrame:CGRectMake(60, 0, 200, 200)];
+    DRNRealTimeBlurView *blurView = [[DRNRealTimeBlurView alloc] initWithFrame:CGRectMake(0, 1000, 320, 400)];
     [self.viewContainer addSubview:blurView];
     blurView.tag=2;
     
-    UIView *whiteView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 400)];
+    
+    UIView *whiteView = [[UIView alloc] initWithFrame:CGRectMake(0, 1000, 320, 400)];
     whiteView.tag=1;
     whiteView.backgroundColor = [UIColor clearColor];
     [blurView addSubview:whiteView];
@@ -194,6 +197,15 @@
     whiteBckView.alpha = 0.7;
     whiteBckView.backgroundColor = [UIColor whiteColor];
     [whiteView addSubview:whiteBckView];
+    
+    UIView *darkView = [[UIView alloc] initWithFrame:CGRectMake(0, -400, 320, 167)];
+    darkView.alpha = 0.5;
+    darkView.backgroundColor = [UIColor blackColor];
+    darkView.tag = 3;
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissDetails)] ;
+    [darkView addGestureRecognizer:tapGesture];
+    [self.view.superview.superview addSubview:darkView];
+    [self.view.superview.superview bringSubviewToFront:darkView];
     
     CGRect buttonFrame = CGRectMake( 148, 0, 30, 30 );
     UIButton *button = [[UIButton alloc] initWithFrame: buttonFrame];
@@ -214,7 +226,7 @@
     [expenseNameLabel setTextColor:textColor];
     [expenseNameLabel setBackgroundColor:[UIColor clearColor]];
     [expenseNameLabel setFont:[UIFont fontWithName: @"HelveticaNeue-Bold" size: 18.0f]];
-    expenseNameLabel.text=@"Essence/Peage aller";
+    expenseNameLabel.text=expense.name;
     expenseNameLabel.textAlignment = NSTextAlignmentCenter;
     [whiteView addSubview:expenseNameLabel];
     
@@ -223,7 +235,7 @@
     [expenseDescLabel setTextColor:textColor];
     [expenseDescLabel setBackgroundColor:[UIColor clearColor]];
     [expenseDescLabel setFont:[UIFont fontWithName: @"HelveticaNeue-Regular" size: 14.0f]];
-    expenseDescLabel.text=@"Julio paid 130€ on Aug 7th";
+    expenseDescLabel.text=[NSString stringWithFormat:@"%@ %@ %@ %@",expense.owner[@"name"],@"paid",expense.amount,@"€"];
     expenseDescLabel.textAlignment = NSTextAlignmentLeft;
     [whiteView addSubview:expenseDescLabel];
     
@@ -232,7 +244,9 @@
     [expenseDateLabel setTextColor:textColor];
     [expenseDateLabel setBackgroundColor:[UIColor clearColor]];
     [expenseDateLabel setFont:[UIFont fontWithName: @"HelveticaNeue-Light" size: 14.0f]];
-    expenseDateLabel.text=@"Your share: 26€";
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"MMM d, yyy";
+    expenseDateLabel.text=[NSString stringWithFormat:@"%@ %@",@"Your Share: 26€ - on",[dateFormatter stringFromDate:expense.date]];
     expenseDateLabel.textAlignment = NSTextAlignmentLeft;
     [whiteView addSubview:expenseDateLabel];
     
@@ -259,40 +273,40 @@
     deleteBtn.titleLabel.font = [UIFont fontWithName: @"HelveticaNeue-Light" size: 16.0f];
     [whiteView addSubview:deleteBtn];
     
-    UILabel *expenseAuthorLabel = [[UILabel alloc] initWithFrame:CGRectMake(170, 265, 180, 20)];
+    UILabel *expenseAuthorLabel = [[UILabel alloc] initWithFrame:CGRectMake(140, 265, 180, 20)];
     
     [expenseAuthorLabel setTextColor:textColor];
     [expenseAuthorLabel setBackgroundColor:[UIColor clearColor]];
     [expenseAuthorLabel setFont:[UIFont fontWithName: @"HelveticaNeue-LightItalic" size: 12.0f]];
-    expenseAuthorLabel.text=@"Added by Julio on Aug 8th";
+    expenseAuthorLabel.text=[NSString stringWithFormat:@"%@ %@ %@ %@",@"Added by",expense.author,@"on",[dateFormatter stringFromDate:expense.date]];
     expenseAuthorLabel.textAlignment = NSTextAlignmentLeft;
     [whiteView addSubview:expenseAuthorLabel];
+
     
-    blurView.frame = CGRectMake(0, 1000, 320, 400);
-    [UIView animateWithDuration:0.5
-                     animations:^{
-                         blurView.frame = CGRectMake(0, 0, 320, 400);
-                     }];
-    whiteView.frame = CGRectMake(0, 1000, 320, 400);
-    [UIView animateWithDuration:0.5
-                     animations:^{
-                         whiteView.frame = CGRectMake(0, 0, 320, 400);
-                     }];
+    
+    [UIView beginAnimations:@"MoveIn" context:nil];
+    blurView.frame = CGRectMake(0, 0, 320, 400);
+    whiteView.frame = CGRectMake(0, 0, 320, 400);
+    darkView.frame=CGRectMake(0, 0, 320, 167);
+    darkView.alpha = 0.5;
+    [UIView commitAnimations];
     
 }
 
 -(void)dismissDetails {
-    
-    [self.view viewWithTag:1].frame = CGRectMake(0, 0, 320, 400);
-    [UIView animateWithDuration:0.5
-                     animations:^{
-                         [self.view viewWithTag:1].frame = CGRectMake(0, 1000, 320, 400);
-                     }];
-    [self.view viewWithTag:2].frame = CGRectMake(0, 0, 320, 400);
-    [UIView animateWithDuration:0.5
-                     animations:^{
-                         [self.view viewWithTag:2].frame = CGRectMake(0, 1000, 320, 400);
-                     }];
+    [UIView beginAnimations:@"MoveOut" context:nil];
+    [self.view viewWithTag:1].frame = CGRectMake(0, 1000, 320, 400);
+    [self.view viewWithTag:2].frame = CGRectMake(0, 1000, 320, 400);
+    [self.view.superview.superview viewWithTag:3].alpha=0;
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(removeDetailsViews:)];
+    [UIView commitAnimations];
+}
+
+- (void)removeDetailsViews:(id)object {
+    [[self.view viewWithTag:1] removeFromSuperview];
+    [[self.view viewWithTag:2] removeFromSuperview];
+    [[self.view.superview.superview viewWithTag:3] removeFromSuperview];
 }
 
 @end

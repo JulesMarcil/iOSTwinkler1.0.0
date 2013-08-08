@@ -80,8 +80,7 @@
     [self.revealButtonItem addTarget:self.revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
     
     DRNRealTimeBlurView *blurView = [[DRNRealTimeBlurView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-    [self.view addSubview:blurView];
-    [self.navigationController.view insertSubview:self.topBar aboveSubview:blurView];
+    [self.coverPic addSubview:blurView];
     
     
 }

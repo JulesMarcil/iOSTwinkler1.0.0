@@ -22,7 +22,6 @@
 - (IBAction)addExpenseButton:(id)sender;
 - (IBAction)doneAddMember:(UIStoryboardSegue *)segue;
 - (IBAction)cancelAddMember:(UIStoryboardSegue *)segue;
-- (IBAction)test:(id)sender;
 
 
 @end
