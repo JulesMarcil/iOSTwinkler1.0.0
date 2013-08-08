@@ -83,7 +83,6 @@
     DRNRealTimeBlurView *blurView = [[DRNRealTimeBlurView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     [self.coverPic addSubview:blurView];
     
-    
 }
 
 - (void)didReceiveMemoryWarning

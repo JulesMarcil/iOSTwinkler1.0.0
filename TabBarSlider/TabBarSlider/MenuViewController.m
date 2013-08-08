@@ -121,6 +121,28 @@
     return NO;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([self.title isEqualToString:@"welcomeMenu"]){
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    Group   *selectedGroup=[self.groupDataController objectInListAtIndex:[self.groupOnMenu indexPathForSelectedRow].row] ;
+        
+        NSLog(selectedGroup.name);
+        
+        UIStoryboard *mainStoryboard=[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        UIViewController *dst=[mainStoryboard instantiateInitialViewController];
+        
+        
+        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.identifier forKey:@"currentGroupId"];
+        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.activeMember forKey:@"currentMember"];
+        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.name forKey:@"currentGroupName"];
+        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.members forKey:@"currentGroupMembers"];
+        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.currency forKey:@"currentGroupCurrency"];
+        
+        // Then push the new view controller in the usual way:
+        [self.navigationController pushViewController:dst animated:YES];
+    }
+}
+
 - (void) prepareForSegue: (UIStoryboardSegue *) segue sender: (id) sender
 {
     // configure the destination view controller:
@@ -145,7 +167,6 @@
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.name forKey:@"currentGroupName"];
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.members forKey:@"currentGroupMembers"];
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.currency forKey:@"currentGroupCurrency"];
-        
         
         NSLog(@"active member = %@", selectedGroup.activeMember);
         
