@@ -56,8 +56,10 @@
                                       
                                       NSLog(@"response: %@",response);
                                       NSString *authToken = [response objectForKey:@"access_token"];
+                                      NSString *refreshToken = [response objectForKey:@"refresh_token"];
                                       CredentialStore *store = [[CredentialStore alloc] init];
                                       [store setAuthToken:authToken];
+                                      [store setRefreshToken:refreshToken];
                                       
                                       [[NSNotificationCenter defaultCenter] postNotificationName:@"loginSuccess" object:nil];
                                       

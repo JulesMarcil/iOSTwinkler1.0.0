@@ -11,10 +11,13 @@
 @interface CredentialStore : NSObject
 
 extern const NSString *auth_token;
+extern const NSString *refresh_token;
 
 - (BOOL)isLoggedIn;
 - (void)clearSavedCredentials;
 - (NSString *)authToken;
+- (NSString *)refreshToken;
 - (void)setAuthToken:(NSString *)authToken;
+- (void)setRefreshToken:(NSString *)refreshToken;
 
 @end

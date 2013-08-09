@@ -25,6 +25,7 @@
         // should check for authentication token maybe ...
     }else if (authToken){
         //should refresh it maybe ...
+        [self refreshAuthToken];
     }else{
         [self showLoginView];
     }
@@ -176,6 +177,39 @@
          annotation:(id)annotation
 {
     return [FBSession.activeSession handleOpenURL:url];
+}
+
+// refresh authentication token with refresh token, if refresh token expired then send login view (tbc)
+
+-(void) refreshAuthToken {
+    
+    CredentialStore *store = [[CredentialStore alloc] init];
+    NSString *refreshToken = [store refreshToken];
+    
+    [[AuthAPIClient sharedClient] getPath:[NSString stringWithFormat:@"oauth/v2/token?client_id=9_2yfw4otqwgo4w4wc488gggsg4c0gk4gco8g00c48ggkwowk44w&client_secret=4miogk8bd56oo444kkk0gk4os4o0wwkks4osksws4o8k8wkw0c&grant_type=refresh_token&refresh_token=%@", refreshToken]
+                               parameters:nil
+                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                      NSError * error = nil;
+                                      NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                                      
+                                      NSLog(@"response: %@",response);
+                                      NSString *authToken = [response objectForKey:@"access_token"];
+                                      NSString *refreshToken = [response objectForKey:@"refresh_token"];
+                                      CredentialStore *store = [[CredentialStore alloc] init];
+                                      [store setAuthToken:authToken];
+                                      [store setRefreshToken:refreshToken];
+                                      
+                                      [[NSNotificationCenter defaultCenter] postNotificationName:@"loginSuccess" object:nil];
+                                      
+                                      UIViewController *rootViewController = (id) self.window.rootViewController;
+                                      
+                                      if ([[rootViewController presentedViewController] isKindOfClass:[LoginViewController class]]){
+                                          [[rootViewController presentedViewController] dismissViewControllerAnimated:NO completion:nil];
+                                      }
+                                      
+                                  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                      NSLog(@"error: %@", error);
+                                  }];
 }
 
 
