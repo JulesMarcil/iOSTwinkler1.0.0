@@ -12,9 +12,15 @@
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSNumber *friendNumber;
+@property (nonatomic, strong) NSString *picturePath;
 
 -(id) initWithName:(NSString *)name
-      friendNumber:(NSNumber *)friendNumber;
+      friendNumber:(NSNumber *)friendNumber
+       picturePath:(NSString *)picturePath;
+
+-(void) setName:(NSString *)name
+   friendNumber:(NSNumber *)friendNumber
+    picturePath:(NSString *)picturePath;
 
 -(void) loadProfile;
 

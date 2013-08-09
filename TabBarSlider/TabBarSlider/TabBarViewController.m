@@ -33,6 +33,8 @@
     [super viewDidLoad];
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
     
+    self.groupTitle.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupName"];
+    
     
     CGRect frame= [self.coverPic frame];
     CGRect screenRect = [[UIScreen mainScreen] bounds];

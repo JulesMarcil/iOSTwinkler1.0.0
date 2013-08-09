@@ -11,15 +11,7 @@
 
 @implementation Profile
 
-- (id)init {
-    if (self = [super init]) {
-        [self loadProfile];
-        return self;
-    }
-    return nil;
-}
-
--(id) initWithName:(NSString *)name friendNumber:(NSNumber *)friendNumber {
+-(id) initWithName:(NSString *)name friendNumber:(NSNumber *)friendNumber picturePath:(NSString *)picturePath {
     self=[super init];
     if(self){
         _name=name;
@@ -27,6 +19,14 @@
         return self;
     }
     return nil;
+}
+
+-(void) setName:(NSString *)name friendNumber:(NSNumber *)friendNumber picturePath:(NSString *)picturePath {
+    if(self){
+        _name=name;
+        _friendNumber=friendNumber;
+        _picturePath=picturePath;
+    }
 }
 
 -(void) loadProfile {
@@ -39,16 +39,17 @@
                                parameters:nil
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                       NSError *error = nil;
-                                      NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
-                                      NSLog(@"profile loaded");
-                                          
-                                      [self initWithName:response[@"name"] friendNumber:response[@"friendNumber"]];
+                                     NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                                      NSLog(@"profile loaded => %@", response);
+                                      
+                                      [self setName:response[@"name"] friendNumber:response[@"friendNumber"] picturePath:response[@"picturePath"]
+                                       ];   
                                       
                                       [[NSNotificationCenter defaultCenter] postNotificationName:@"profileWithJSONFinishedLoading" object:nil];
+                                      
                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                       NSLog(@"error: %@", error);
                                   }];
-    
 }
 
 @end

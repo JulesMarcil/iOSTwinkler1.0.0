@@ -216,7 +216,7 @@
                                             <rect key="frame" x="124" y="20" width="71" height="71"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="ARNAUD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kMY-DJ-jsl">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kMY-DJ-jsl">
                                             <rect key="frame" x="20" y="93" width="280" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
@@ -242,7 +242,7 @@
                                             <rect key="frame" x="113" y="118" width="18" height="15"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="17 Friends" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nyg-8Y-nT4">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="   Friends" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nyg-8Y-nT4">
                                             <rect key="frame" x="139" y="115" width="81" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
@@ -260,6 +260,9 @@
                                             <state key="highlighted">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="Logout:" destination="jM0-tw-YH4" eventType="touchUpInside" id="3nW-jh-cV8"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Add a New Group" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="icb-CE-ubc">
                                             <rect key="frame" x="69" y="157" width="181" height="22"/>
@@ -332,7 +335,9 @@
                     </view>
                     <connections>
                         <outlet property="addGroupButton" destination="n1G-RI-P1s" id="CIH-Cl-Ppb"/>
+                        <outlet property="friendNumberLabel" destination="Nyg-8Y-nT4" id="9yk-Bw-u22"/>
                         <outlet property="groupOnMenu" destination="WRD-Md-uSG" id="SNf-dM-25W"/>
+                        <outlet property="nameLabel" destination="kMY-DJ-jsl" id="Mg2-Gj-w9K"/>
                         <outlet property="profilePic" destination="sOi-uy-QA3" id="mQH-xI-sx4"/>
                         <outlet property="tableViewHeader" destination="h7j-Bc-Atg" id="2XU-vn-jhq"/>
                     </connections>

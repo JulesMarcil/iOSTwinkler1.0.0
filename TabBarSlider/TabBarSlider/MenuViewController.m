@@ -17,6 +17,7 @@
 #import "SWRevealViewController.h"
 #import "GroupListCell.h"
 #import "AppDelegate.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface MenuViewController ()
 
@@ -30,16 +31,24 @@
     [super awakeFromNib];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(groupDataRetrieved) name:@"groupsWithJSONFinishedLoading" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(profileDataRetrieved) name:@"profileWithJSONFinishedLoading" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:@"loginSuccess" object:nil];
+    if ([self.title isEqual: @"welcomeMenu"]){
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:@"loginSuccess" object:nil];
+    }
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    if (![self.title isEqual: @"welcomeMenu"]){
+        [self loadData];
+    }
+    
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 	// Do any additional setup after loading the view.
 
-    
+    NSLog(@"view did load from MenuViewController");
     
     
     //-----------DESIGN---------------//
@@ -64,14 +73,12 @@
     [self.addGroupButton.layer setBorderWidth:1.0];
     self.groupOnMenu.separatorColor = [UIColor clearColor];
     self.groupOnMenu.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-    
-    NSLog(@"%@", self.title);
 }
 
 -(void) loadData{
     self.groupDataController = [[GroupDataController alloc] init];
     self.profile = [[Profile alloc] init];
+    [self.profile loadProfile];
 }
 
 - (void)groupDataRetrieved {
@@ -80,6 +87,18 @@
 
 - (void)profileDataRetrieved {
     self.nameLabel.text = self.profile.name;
+    self.friendNumberLabel.text = [NSString stringWithFormat:@"%@ Friends", self.profile.friendNumber];
+    
+    NSString *facebookId =[[NSUserDefaults standardUserDefaults] objectForKey:@"facebookId"];
+    
+    if (facebookId) {
+        [self.profilePic setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=100&height=100", facebookId]] placeholderImage:[UIImage imageNamed:@"profile-pic.png"]];
+    } else {
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:8888/Twinkler1.2.3/web/%@", self.profile.picturePath]];
+        NSLog(@"calling image with url: %@", url);
+        [self.profilePic setImageWithURL:url
+                        placeholderImage:[UIImage imageNamed:@"profile-pic.png"]];
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -233,7 +252,16 @@
         NSLog(@"facebook session closed");
     }
     
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"facebookId"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"facebookName"];
+    
+    UIStoryboard *welcomeStoryboard = [UIStoryboard storyboardWithName:@"welcomeStoryboard" bundle: nil];
+    UINavigationController *navController = (UINavigationController*)[welcomeStoryboard instantiateViewControllerWithIdentifier:@"LoginNavController"];
+    
+    [navController popToRootViewControllerAnimated:NO];
+    
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+
     [appDelegate showLoginView];
 }
 

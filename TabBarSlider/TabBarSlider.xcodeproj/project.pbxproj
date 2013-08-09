@@ -115,6 +115,7 @@
 		BAAC681017B4D746006C69DE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAC680F17B4D746006C69DE /* LoginViewController.m */; };
 		BAAC681317B4E29D006C69DE /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAC681217B4E29D006C69DE /* Profile.m */; };
 		BAAC681817B4F4A1006C69DE /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAC681717B4F4A1006C69DE /* FacebookSDK.framework */; };
+		BAAC681A17B53C32006C69DE /* profile-pic.png in Resources */ = {isa = PBXBuildFile; fileRef = BAAC681917B53C32006C69DE /* profile-pic.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -278,6 +279,7 @@
 		BAAC681117B4E29D006C69DE /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
 		BAAC681217B4E29D006C69DE /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
 		BAAC681717B4F4A1006C69DE /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		BAAC681917B53C32006C69DE /* profile-pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile-pic.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -507,6 +509,7 @@
 				895C4E7017AA952B004EC590 /* check-icon.png */,
 				895C4E7117AA952B004EC590 /* coin-icon.png */,
 				891183B617B1AC7F00B28ABE /* timeline-line.png */,
+				BAAC681917B53C32006C69DE /* profile-pic.png */,
 				895C4E7217AA952B004EC590 /* tk-icon.png */,
 				895C4E4117AA77D3004EC590 /* TabBarSlider-Info.plist */,
 				895C4E4217AA77D3004EC590 /* InfoPlist.strings */,
@@ -757,6 +760,7 @@
 				8919DBDB17B2E8360005C67C /* chevron-arrow.png in Resources */,
 				8919DBE117B2F9280005C67C /* expense-detail-border.png in Resources */,
 				891F501417B3DFD000361986 /* edit-button.png in Resources */,
+				BAAC681A17B53C32006C69DE /* profile-pic.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *addGroupButton;
 @property (weak, nonatomic) IBOutlet UIView *tableViewHeader;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *friendNumberLabel;
 
 - (IBAction)goToTimelineButton:(id)sender;
 - (IBAction)doneAddGroup:(UIStoryboardSegue *)segue;
