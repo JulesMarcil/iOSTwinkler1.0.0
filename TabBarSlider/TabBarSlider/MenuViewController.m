@@ -54,7 +54,9 @@
     //-----------DESIGN---------------//
     UIColor *borderColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1.0];
 
-    [self setRoundedView:self.profilePic toDiameter:70.0];
+    [self setRoundedView:self.profilePic picture:self.profilePic.image toDiameter:70.0];
+    
+    
     UIImageView *imageView = [[UIImageView alloc]init];
     CGRect frame= [self.profilePic frame];
     [imageView setFrame:CGRectMake(frame.origin.x,
@@ -62,7 +64,7 @@
                                    frame.size.width,
                                    frame.size.height)];
     
-    [self setRoundedView:imageView toDiameter:71.0];
+    [self setRoundedBorder:imageView toDiameter:71.0];
     [imageView.layer setBorderColor:borderColor.CGColor];
     [imageView.layer setBorderWidth:2.0];
     [self.tableViewHeader addSubview: imageView];
@@ -83,6 +85,7 @@
 
 - (void)groupDataRetrieved {
     [self.groupOnMenu reloadData];
+    [self setRoundedView:self.profilePic picture:self.profilePic.image toDiameter:70.0];
 }
 
 - (void)profileDataRetrieved {
@@ -93,12 +96,16 @@
     
     if (facebookId) {
         [self.profilePic setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=100&height=100", facebookId]] placeholderImage:[UIImage imageNamed:@"profile-pic.png"]];
+        
     } else {
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:8888/Twinkler1.2.3/web/%@", self.profile.picturePath]];
         NSLog(@"calling image with url: %@", url);
         [self.profilePic setImageWithURL:url
                         placeholderImage:[UIImage imageNamed:@"profile-pic.png"]];
     }
+    
+    [self setRoundedView:self.profilePic picture:self.profilePic.image toDiameter:70.0];
+
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -125,6 +132,53 @@
     cell.detailLabel.text=@"yo, what's up?";
     cell.dateLabel.text=@"Mon";
     cell.contentView.backgroundColor = [UIColor clearColor];
+    
+    
+    NSInteger memberNumber=[groupAtIndex.members count];
+    
+    if(memberNumber==1){
+        UIImage *image = [[UIImage alloc] init];
+        image=[UIImage imageNamed:@"sasa.png"];
+        UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(5, 0, 41, 37)];
+        [iv setImage:image];
+        [cell.avatarView addSubview:iv];
+    }else if (memberNumber==2){
+        UIImage *image = [[UIImage alloc] init];
+        image=[UIImage imageNamed:@"sasa.png"];
+        UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(20, 0, 30, 30)];
+        UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(0, 20, 30, 30)];
+        [iv setImage:image];
+        [ivbis setImage:image];
+        [cell.avatarView addSubview:iv];
+        [cell.avatarView addSubview:ivbis];
+    }else if (memberNumber==3){
+        UIImage *image = [[UIImage alloc] init];
+        image=[UIImage imageNamed:@"sasa.png"];
+        UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(10, 0, 25, 25)];
+        UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(0, 25, 25, 25)];
+        UIImageView *ivtier = [[UIImageView alloc] initWithFrame:CGRectMake(20, 25, 25, 25)];
+        [iv setImage:image];
+        [ivbis setImage:image];
+        [ivtier setImage:image];
+        [cell.avatarView addSubview:iv];
+        [cell.avatarView addSubview:ivbis];
+        [cell.avatarView addSubview:ivtier];
+    }else if (memberNumber>3){
+        UIImage *image = [[UIImage alloc] init];
+        image=[UIImage imageNamed:@"sasa.png"];
+        UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+        UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(25, 0, 25, 25)];
+        UIImageView *ivtier = [[UIImageView alloc] initWithFrame:CGRectMake(0, 25, 25, 25)];
+        UIImageView *ivquatro = [[UIImageView alloc] initWithFrame:CGRectMake(25, 25, 25, 25)];
+        [iv setImage:image];
+        [ivbis setImage:image];
+        [ivtier setImage:image];
+        [ivquatro setImage:image];
+        [cell.avatarView addSubview:iv];
+        [cell.avatarView addSubview:ivbis];
+        [cell.avatarView addSubview:ivtier];
+        [cell.avatarView addSubview:ivquatro];
+    }
 
     cell.backgroundView = [UIView new];
     return cell;
@@ -200,6 +254,11 @@
     }
 }
 
+- (IBAction)test:(id)sender {
+    
+    [self setRoundedView:self.profilePic picture:self.profilePic.image toDiameter:70.0];
+}
+
 - (IBAction)goToTimelineButton:(id)sender {
     
             UIStoryboard *mainStoryboard=[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
@@ -266,7 +325,7 @@
 }
 
 //--------DESIGN------------//
--(void)setRoundedView:(UIImageView *)roundedView toDiameter:(float)newSize;
+-(void)setRoundedBorder:(UIImageView *)roundedView toDiameter:(float)newSize;
 {
     CGPoint saveCenter = roundedView.center;
     CGRect newFrame = CGRectMake(roundedView.frame.origin.x, roundedView.frame.origin.y, newSize, newSize);
@@ -275,4 +334,24 @@
     roundedView.center = saveCenter;
 }
 
+-(void) setRoundedView:(UIImageView *)imageView picture: (UIImage *)picture toDiameter:(float)newSize{
+// Begin a new image that will be the new image with the rounded corners
+// (here with the size of an UIImageView)
+UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, NO, 1.0);
+
+// Add a clip before drawing anything, in the shape of an rounded rect
+[[UIBezierPath bezierPathWithRoundedRect:imageView.bounds
+                            cornerRadius:100.0] addClip];
+// Draw your image
+CGRect frame=imageView.bounds;
+    frame.size.width=newSize;
+    frame.size.height=newSize;
+[picture drawInRect:frame];
+
+// Get the image, here setting the UIImageView image
+imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+
+// Lets forget about that we were drawing
+UIGraphicsEndImageContext();
+}
 @end
