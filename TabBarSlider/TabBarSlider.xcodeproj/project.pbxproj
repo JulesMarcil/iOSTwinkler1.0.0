@@ -83,6 +83,8 @@
 		895C4EBA17AB1178004EC590 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 895C4EB817AB1173004EC590 /* SWRevealViewController.m */; };
 		895C4EBB17AB1184004EC590 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 895C4EB817AB1173004EC590 /* SWRevealViewController.m */; };
 		89F71E1317B5494E00BC9C32 /* add-expense-bckgd.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F71E1217B5494E00BC9C32 /* add-expense-bckgd.png */; };
+		89F71E1517B54A2000BC9C32 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89F71E1417B54A2000BC9C32 /* FacebookSDK.framework */; };
+		89F71E1817B54E5600BC9C32 /* memberCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F71E1717B54E5600BC9C32 /* memberCollectionViewCell.m */; };
 		BA24D4C917B016CE0042C7A4 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4C417B016CE0042C7A4 /* List.m */; };
 		BA24D4CA17B016CE0042C7A4 /* ListDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4C617B016CE0042C7A4 /* ListDataController.m */; };
 		BA24D4CB17B016CE0042C7A4 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4C817B016CE0042C7A4 /* ListViewController.m */; };
@@ -115,7 +117,6 @@
 		BA9C6DFB17B062A200C50CC2 /* AddExpenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9C6DF717B062A200C50CC2 /* AddExpenseViewController.m */; };
 		BAAC681017B4D746006C69DE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAC680F17B4D746006C69DE /* LoginViewController.m */; };
 		BAAC681317B4E29D006C69DE /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAC681217B4E29D006C69DE /* Profile.m */; };
-		BAAC681817B4F4A1006C69DE /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAC681717B4F4A1006C69DE /* FacebookSDK.framework */; };
 		BAAC681A17B53C32006C69DE /* profile-pic.png in Resources */ = {isa = PBXBuildFile; fileRef = BAAC681917B53C32006C69DE /* profile-pic.png */; };
 /* End PBXBuildFile section */
 
@@ -219,6 +220,9 @@
 		895C4EB817AB1173004EC590 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = TabBarSlider/SWRevealViewController.m; sourceTree = "<group>"; };
 		895C4EB917AB1173004EC590 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = TabBarSlider/SWRevealViewController.h; sourceTree = "<group>"; };
 		89F71E1217B5494E00BC9C32 /* add-expense-bckgd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-expense-bckgd.png"; sourceTree = "<group>"; };
+		89F71E1417B54A2000BC9C32 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		89F71E1617B54E5600BC9C32 /* memberCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = memberCollectionViewCell.h; sourceTree = "<group>"; };
+		89F71E1717B54E5600BC9C32 /* memberCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = memberCollectionViewCell.m; sourceTree = "<group>"; };
 		BA24D4C317B016CE0042C7A4 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
 		BA24D4C417B016CE0042C7A4 /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
 		BA24D4C517B016CE0042C7A4 /* ListDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListDataController.h; sourceTree = "<group>"; };
@@ -280,7 +284,6 @@
 		BAAC680F17B4D746006C69DE /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		BAAC681117B4E29D006C69DE /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
 		BAAC681217B4E29D006C69DE /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
-		BAAC681717B4F4A1006C69DE /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		BAAC681917B53C32006C69DE /* profile-pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile-pic.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -297,7 +300,7 @@
 				895C4E3A17AA77D2004EC590 /* UIKit.framework in Frameworks */,
 				895C4E3C17AA77D2004EC590 /* Foundation.framework in Frameworks */,
 				895C4E3E17AA77D2004EC590 /* CoreGraphics.framework in Frameworks */,
-				BAAC681817B4F4A1006C69DE /* FacebookSDK.framework in Frameworks */,
+				89F71E1517B54A2000BC9C32 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +344,8 @@
 				8911839617B0E3AA00B28ABE /* ExpenseDetailViewController.m */,
 				BA9C6DF417B062A200C50CC2 /* ExpenseDataController.h */,
 				BA9C6DF517B062A200C50CC2 /* ExpenseDataController.m */,
+				89F71E1617B54E5600BC9C32 /* memberCollectionViewCell.h */,
+				89F71E1717B54E5600BC9C32 /* memberCollectionViewCell.m */,
 				891183B117B1A31200B28ABE /* ExpenseItemCell.h */,
 				891183B217B1A31200B28ABE /* ExpenseItemCell.m */,
 				BA9C6DF617B062A200C50CC2 /* AddExpenseViewController.h */,
@@ -473,7 +478,7 @@
 		895C4E3817AA77D2004EC590 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BAAC681717B4F4A1006C69DE /* FacebookSDK.framework */,
+				89F71E1417B54A2000BC9C32 /* FacebookSDK.framework */,
 				891ABEE717B271F800D507F7 /* QuartzCore.framework */,
 				891ABEE517B271DE00D507F7 /* Accelerate.framework */,
 				BA403FCA17B008CB00BE5282 /* SystemConfiguration.framework */,
@@ -857,6 +862,7 @@
 				891ABEDB17B26DC500D507F7 /* UIImage+BoxBlur.m in Sources */,
 				891F500817B3C6AE00361986 /* FUIButton.m in Sources */,
 				891F500C17B3C96E00361986 /* UIImage+FlatUI.m in Sources */,
+				89F71E1817B54E5600BC9C32 /* memberCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -960,6 +966,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iosTwinkler/TabBarSlider\"",
+					"\"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iOSTwinkler1.0.0/TabBarSlider\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TabBarSlider/TabBarSlider-Prefix.pch";
@@ -975,6 +982,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iosTwinkler/TabBarSlider\"",
+					"\"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iOSTwinkler1.0.0/TabBarSlider\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TabBarSlider/TabBarSlider-Prefix.pch";
