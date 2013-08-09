@@ -124,9 +124,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([self.title isEqualToString:@"welcomeMenu"]){
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    Group   *selectedGroup=[self.groupDataController objectInListAtIndex:[self.groupOnMenu indexPathForSelectedRow].row] ;
-        
-        NSLog(selectedGroup.name);
+        Group   *selectedGroup=[self.groupDataController objectInListAtIndex:indexPath.row] ;
         
         UIStoryboard *mainStoryboard=[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         UIViewController *dst=[mainStoryboard instantiateInitialViewController];
