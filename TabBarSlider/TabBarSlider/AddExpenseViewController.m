@@ -9,20 +9,21 @@
 #import <QuartzCore/QuartzCore.h>
 #import "AddExpenseViewController.h"
 #import "Expense.h"
-#import "FUIButton.h"
-#import "UIImage+FlatUI.h"
+#import "memberCollectionViewCell.h"
 
-@interface AddExpenseViewController ()
+@interface AddExpenseViewController () <UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @end
 
 @implementation AddExpenseViewController
 
+@synthesize collectionView=_collectionView;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        
     }
     return self;
 }
@@ -33,7 +34,13 @@
     [self.view endEditing:YES];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     
+    CGRect frame= [self.collectionView frame];
+    
+
+
     self.expenseName.enablesReturnKeyAutomatically = NO;
+    
+
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MMM dd, yyy"];
@@ -44,34 +51,49 @@
     self.selectedExpenseOwner = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"];
     self.expenseOwner.text=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"];
     
-    self.cancelExpenseButton.buttonColor = [UIColor colorWithRed:(236/255.0) green:(240/255.0) blue:(241/255.0) alpha:1] ;
-    self.cancelExpenseButton.shadowColor = [UIColor colorWithRed:(185/255.0) green:(195/255.0) blue:(199/255.0) alpha:1] ;
-    self.cancelExpenseButton.shadowHeight = 3.0f;
-    self.cancelExpenseButton.cornerRadius = 6.0f;
-    [self.cancelExpenseButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.cancelExpenseButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     
-    self.addExpenseButton.buttonColor = [UIColor colorWithRed:(242/255.0) green:(118/255.0) blue:(105/255.0) alpha:1] ;
-    self.addExpenseButton.shadowColor = [UIColor colorWithRed:(219/255.0) green:(106/255.0) blue:(93/255.0) alpha:1] ;
-    self.addExpenseButton.shadowHeight = 3.0f;
-    self.addExpenseButton.cornerRadius = 6.0f;
-    [self.addExpenseButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.addExpenseButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+    [self.collectionView setFrame:CGRectMake(0,
+                                             250,
+                                             frame.size.width,
+                                             (((int)([memberArray count]/4)) +1)* 90)];
+    frame= [self.bottomButtonContainer frame];
     
-    self.expenseNameContainer.layer.cornerRadius = 6;
-    self.expenseNameContainer.layer.masksToBounds = YES;
-    self.expenseNameContainer.layer.borderColor = [UIColor colorWithRed:(235/255.0) green:(235/255.0) blue:(235/255.0) alpha:1].CGColor  ;
-    self.expenseNameContainer.layer.borderWidth = 2.0f;
+    [self.bottomButtonContainer setFrame:CGRectMake(frame.origin.x,
+                                                    frame.origin.y+((int)([memberArray count]/4)-1)*80,
+                                                    frame.size.width,
+                                                    frame.size.height)];
     
-    self.expenseAmountContainer.layer.cornerRadius = 6;
-    self.expenseAmountContainer.layer.masksToBounds = YES;
-    self.expenseAmountContainer.layer.borderColor = [UIColor colorWithRed:(235/255.0) green:(235/255.0) blue:(235/255.0) alpha:1].CGColor  ;
-    self.expenseAmountContainer.layer.borderWidth = 2.0f;
+    self.scrollView.frame=CGRectMake(0,0,self.view.bounds.size.width, self.view.bounds.size.height);
+    self.scrollView.scrollEnabled = YES;
+    frame= [self.bottomButtonContainer frame];
+    self.scrollView.contentSize =CGSizeMake(320, frame.origin.y+55) ;
     
-    self.amountLabelContainer.layer.cornerRadius = 6;
-    self.amountLabelContainer.layer.masksToBounds = YES;
-    self.amountLabelContainer.layer.borderColor = [UIColor colorWithRed:(235/255.0) green:(235/255.0) blue:(235/255.0) alpha:1].CGColor  ;
-    self.amountLabelContainer.layer.borderWidth = 2.0f;
+    
+    self.expenseNameContainer.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:0.8];
+    self.expenseNameContainer.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor  ;
+    self.expenseNameContainer.layer.borderWidth = 1.0f;
+    
+    self.expenseAmountContainer.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:1];
+    self.expenseAmountContainer.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor  ;
+    self.expenseAmountContainer.layer.borderWidth = 1.0f;
+    
+    self.amountLabelContainer.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:0.8];
+    self.amountLabelContainer.layer.borderColor =  [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor  ;
+    self.amountLabelContainer.layer.borderWidth = 1.0f;
+    
+    
+    UIColor *borderColor = [UIColor colorWithRed:(200/255.0) green:(200/255.0) blue:(200/255.0) alpha:1] ;    
+    UIColor *textColor = [UIColor colorWithRed:(65/255.0) green:(65/255.0) blue:(65/255.0) alpha:1] ;
+    
+    [self.addExpenseButton setTitleColor: textColor forState: UIControlStateNormal];
+    [self.addExpenseButton.layer  setBorderColor:borderColor.CGColor];
+    [self.addExpenseButton.layer  setBorderWidth:1.0];
+    
+    [self.cancelExpenseButton setTitleColor: textColor forState: UIControlStateNormal];
+    [self.cancelExpenseButton.layer  setBorderColor:borderColor.CGColor];
+    [self.cancelExpenseButton.layer  setBorderWidth:1.0];
+    
+    self.collectionView.backgroundColor =[UIColor clearColor];
 
 }
 
@@ -181,7 +203,7 @@
 {
     [UIView animateWithDuration:0.3 animations:^{
         self.expenseMemberPicker.frame = CGRectMake(self.expenseMemberPicker.frame.origin.x,
-                                                    460, //Displays the view off the screen
+                                                    500, //Displays the view off the screen
                                                     self.expenseMemberPicker.frame.size.width,
                                                     self.expenseMemberPicker.frame.size.height);
     }];
@@ -245,7 +267,6 @@
     self.selectedExpenseOwner = [memberArray objectAtIndex:row];
     
     self.expenseOwner.text= [memberArray objectAtIndex:row][@"name"];
-    NSLog(@"%@", self.selectedExpenseOwner);
 }
 
 
@@ -272,11 +293,55 @@
                                                       author:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"]
                                                    addedDate:today];
             self.expense = expense;
-            NSLog(@"%@", self.selectedExpenseOwner);
         }
     }
 }
 
+#pragma mark - UICollectionView Datasource
+// 1
+- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
+    return [memberArray count];
+}
+// 2
+- (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
+    return 1;
+}
+// 3
+- (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    memberCollectionViewCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"memberCell" forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor clearColor];
+    cell.memberNameLabel.text=[memberArray objectAtIndex:indexPath.row][@"name"];
+    cell.memberNameLabel.backgroundColor=[UIColor clearColor];
+    return cell;
+}
+// 4
+/*- (UICollectionReusableView *)collectionView:
+ (UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+ {
+ return [[UICollectionReusableView alloc] init];
+ }*/
 
+#pragma mark - UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    // TODO: Select Item
+}
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+    // TODO: Deselect item
+}
+
+#pragma mark – UICollectionViewDelegateFlowLayout
+
+// 1
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    CGSize retval = CGSizeMake(80, 60);
+    return retval;
+}
+
+// 3
+- (UIEdgeInsets)collectionView:
+(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(0, 0, 0, 0);
+}
 
 @end

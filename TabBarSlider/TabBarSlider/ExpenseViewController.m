@@ -125,7 +125,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    [self showExpenseDetail:[self.expenseDataController objectInListAtIndex:[self.expenseListTable indexPathForSelectedRow].row] ];
+    [self showExpenseDetail:[self.expenseDataController objectInListAtIndex:indexPath.row] ];
 }
 
 - (IBAction)addExpenseButton:(id)sender {

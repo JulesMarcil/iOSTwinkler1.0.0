@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 
 
-@class FUIButton;
 @class Expense;
 
 @interface AddExpenseViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate,UITextFieldDelegate>{
-    NSArray *memberArray; }
+    NSArray *memberArray;}
 
+@property (strong, nonatomic) IBOutlet UIView *mainContainerView;
+@property (weak, nonatomic) IBOutlet UIView *bottomButtonContainer;
 @property (weak, nonatomic) IBOutlet UIPickerView *expenseMemberPicker;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UIView *expenseNameContainer;
@@ -25,8 +26,12 @@
 @property (weak, nonatomic) NSDictionary *selectedExpenseOwner;
 @property (weak, nonatomic) IBOutlet UILabel *expenseOwner;
 @property (strong, nonatomic) Expense *expense;
-@property (weak, nonatomic) IBOutlet FUIButton *addExpenseButton;
-@property (weak, nonatomic) IBOutlet FUIButton *cancelExpenseButton;
+@property (weak, nonatomic) IBOutlet UIButton *addExpenseButton;
+@property (weak, nonatomic) IBOutlet UIButton *cancelExpenseButton;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+
+
+@property(nonatomic, weak) IBOutlet UICollectionView *collectionView;
 
 - (IBAction)showPicker:(id)sender;
 
