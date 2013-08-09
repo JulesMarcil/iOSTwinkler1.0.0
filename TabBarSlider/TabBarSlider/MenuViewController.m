@@ -7,13 +7,16 @@
 //
 
 #import "MenuViewController.h"
+#import <QuartzCore/QuartzCore.h>
+#import <FacebookSDK/FacebookSDK.h>
 #import "TabBarViewController.h"
 #import "GroupDataController.h"
 #import "Group.h"
+#import "Profile.h"
 #import "AddGroupViewController.h"
 #import "SWRevealViewController.h"
 #import "GroupListCell.h"
-#import <QuartzCore/QuartzCore.h>
+#import "AppDelegate.h"
 
 @interface MenuViewController ()
 
@@ -25,23 +28,9 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self
-     selector:@selector(dataRetrieved)
-     name:@"groupsWithJSONFinishedLoading"
-     object:nil];
-    self.groupDataController=[[GroupDataController alloc] init];
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    NSLog(@"initWithNibName");
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-        self.groupDataController = [[GroupDataController alloc] init];
-    }
-    return self;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(groupDataRetrieved) name:@"groupsWithJSONFinishedLoading" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(profileDataRetrieved) name:@"profileWithJSONFinishedLoading" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:@"loginSuccess" object:nil];
 }
 
 - (void)viewDidLoad
@@ -80,8 +69,17 @@
     NSLog(@"%@", self.title);
 }
 
-- (void)dataRetrieved {
+-(void) loadData{
+    self.groupDataController = [[GroupDataController alloc] init];
+    self.profile = [[Profile alloc] init];
+}
+
+- (void)groupDataRetrieved {
     [self.groupOnMenu reloadData];
+}
+
+- (void)profileDataRetrieved {
+    self.nameLabel.text = self.profile.name;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -109,7 +107,6 @@
     cell.dateLabel.text=@"Mon";
     cell.contentView.backgroundColor = [UIColor clearColor];
 
-    
     cell.backgroundView = [UIView new];
     return cell;
 }
@@ -149,7 +146,6 @@
     {
         TabBarViewController* cvc = segue.destinationViewController;
         cvc.groupTitle.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"currentGroupName"];
-        
         [cvc view];
     }
     
@@ -222,6 +218,24 @@
     }
 }
 
+- (IBAction)Logout:(id)sender {
+    
+    CredentialStore *store = [[CredentialStore alloc] init];
+    NSString *authToken = [store authToken];
+    
+    if (authToken){
+        [store clearSavedCredentials];
+        NSLog(@"token cleared ! auth token = %@", authToken);
+    }
+    
+    if (FBSession.activeSession.isOpen){
+        [FBSession.activeSession closeAndClearTokenInformation];
+        NSLog(@"facebook session closed");
+    }
+    
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    [appDelegate showLoginView];
+}
 
 //--------DESIGN------------//
 -(void)setRoundedView:(UIImageView *)roundedView toDiameter:(float)newSize;

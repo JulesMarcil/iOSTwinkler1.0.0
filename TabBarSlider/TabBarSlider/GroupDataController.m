@@ -16,7 +16,7 @@
     NSMutableArray *GroupList = [[NSMutableArray alloc] init];
     self.groupList = GroupList;
     
-    [[AuthAPIClient sharedClient] getPath:@"app/groups"
+    [[AuthAPIClient sharedClient] getPath:@"api/groups"
                                parameters:nil
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                       NSError *error = nil;

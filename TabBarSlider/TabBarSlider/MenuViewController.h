@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "GroupDataController.h"
+#import "Profile.h"
 #import "SWRevealViewController.h"
 
 @class GroupListCell;
+@class Profile;
 
 @interface MenuViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>  {
     IBOutlet UITableView* groupOnMenu;
@@ -18,13 +20,16 @@
 
 @property (nonatomic, strong) UITableView *groupOnMenu;
 @property (nonatomic, strong) GroupDataController *groupDataController;
+@property (nonatomic, strong) Profile *profile;
 @property (weak, nonatomic) IBOutlet UIImageView *profilePic;
 @property (weak, nonatomic) IBOutlet UIButton *addGroupButton;
 @property (weak, nonatomic) IBOutlet UIView *tableViewHeader;
-- (IBAction)goToTimelineButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
+- (IBAction)goToTimelineButton:(id)sender;
 - (IBAction)doneAddGroup:(UIStoryboardSegue *)segue;
 - (IBAction)cancelAddGroup:(UIStoryboardSegue *)segue;
+- (IBAction)Logout:(id)sender;
 
 -(void)setRoundedView:(UIImageView *)roundedView toDiameter:(float)newSize;
 @end

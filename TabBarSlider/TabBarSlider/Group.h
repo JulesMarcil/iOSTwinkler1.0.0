@@ -20,4 +20,5 @@
            members:(NSArray *)members
       activeMember:(NSDictionary *)activeMember
           currency:(NSString *)currency;
+
 @end

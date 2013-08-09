@@ -48,4 +48,21 @@
     [self setAuthTokenHeader];
 }
 
+- (NSMutableURLRequest *)requestWithMethod:(NSString *)method
+                                      path:(NSString *)path
+                                parameters:(NSDictionary *)parameters {
+    
+    CredentialStore *store = [[CredentialStore alloc] init];
+    NSString *authToken = [store authToken];
+    
+    if (authToken) {
+        NSMutableDictionary *temp = [[NSMutableDictionary alloc] initWithDictionary:parameters];
+        [temp setObject:authToken forKey:@"access_token"];
+        parameters  = temp;
+    }
+    
+    return [super requestWithMethod:method path:path parameters:parameters];
+    
+}
+
 @end
