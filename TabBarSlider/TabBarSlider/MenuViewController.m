@@ -139,14 +139,14 @@
     if(memberNumber==1){
         UIImage *image = [[UIImage alloc] init];
         image=[UIImage imageNamed:@"sasa.png"];
-        UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(5, 0, 41, 37)];
+        UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 50, 45)];
         [iv setImage:image];
         [cell.avatarView addSubview:iv];
     }else if (memberNumber==2){
         UIImage *image = [[UIImage alloc] init];
         image=[UIImage imageNamed:@"sasa.png"];
-        UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(20, 0, 30, 30)];
-        UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(0, 20, 30, 30)];
+        UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(20, 0, 35, 35)];
+        UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(0, 20, 35, 35)];
         [iv setImage:image];
         [ivbis setImage:image];
         [cell.avatarView addSubview:iv];
@@ -166,10 +166,10 @@
     }else if (memberNumber>3){
         UIImage *image = [[UIImage alloc] init];
         image=[UIImage imageNamed:@"sasa.png"];
-        UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
-        UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(25, 0, 25, 25)];
-        UIImageView *ivtier = [[UIImageView alloc] initWithFrame:CGRectMake(0, 25, 25, 25)];
-        UIImageView *ivquatro = [[UIImageView alloc] initWithFrame:CGRectMake(25, 25, 25, 25)];
+        UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+        UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(25, 0, 30, 30)];
+        UIImageView *ivtier = [[UIImageView alloc] initWithFrame:CGRectMake(0, 25, 30, 30)];
+        UIImageView *ivquatro = [[UIImageView alloc] initWithFrame:CGRectMake(25, 25, 30, 30)];
         [iv setImage:image];
         [ivbis setImage:image];
         [ivtier setImage:image];
