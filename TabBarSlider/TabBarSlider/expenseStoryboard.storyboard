@@ -84,7 +84,7 @@
                                         <color key="backgroundColor" red="0.96078437566757202" green="0.96078437566757202" blue="0.96078437566757202" alpha="1" colorSpace="deviceRGB"/>
                                     </view>
                                     <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="gkR-mC-C7F">
-                                        <rect key="frame" x="0.0" y="250" width="320" height="176"/>
+                                        <rect key="frame" x="0.0" y="252" width="320" height="176"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="T3r-b7-IFM">
                                             <size key="itemSize" width="50" height="50"/>
@@ -207,7 +207,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Arnaud" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZqP-qD-GZs">
-                                                <rect key="frame" x="164" y="3" width="161" height="23"/>
+                                                <rect key="frame" x="162" y="3" width="161" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                 <color key="textColor" red="0.24313725489999999" green="0.2666666667" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -228,7 +228,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Aug 08, 2013" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5PL-32-aUs">
-                                                <rect key="frame" x="134" y="3" width="96" height="23"/>
+                                                <rect key="frame" x="134" y="3" width="89" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                                 <color key="textColor" red="0.24313725489999999" green="0.2666666667" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -259,6 +259,56 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
+                                    <view contentMode="scaleToFill" id="HUs-vF-CFo">
+                                        <rect key="frame" x="0.0" y="365" width="320" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="|" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qjT-bz-5Nz">
+                                                <rect key="frame" x="158" y="3" width="2" height="23"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                <color key="textColor" red="0.78431379795074463" green="0.78431379795074463" blue="0.78431379795074463" alpha="1" colorSpace="deviceRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qa3-uT-Xeg">
+                                                <rect key="frame" x="79" y="0.0" width="73" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                <state key="normal" title="Select All">
+                                                    <color key="titleColor" red="0.24313725489999999" green="0.2666666667" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <state key="selected">
+                                                    <color key="titleColor" red="0.78431379800000001" green="0.78431379800000001" blue="0.78431379800000001" alpha="1" colorSpace="deviceRGB"/>
+                                                </state>
+                                                <state key="highlighted">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="selectAll:" destination="SHS-Yz-Uve" eventType="touchUpInside" id="cjf-aV-sQR"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ScP-zi-XOe">
+                                                <rect key="frame" x="179" y="0.0" width="73" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                <state key="normal" title="Deselect All">
+                                                    <color key="titleColor" red="0.24313725489999999" green="0.2666666667" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <state key="selected">
+                                                    <color key="titleColor" red="0.78431379800000001" green="0.78431379800000001" blue="0.78431379800000001" alpha="1" colorSpace="deviceRGB"/>
+                                                </state>
+                                                <state key="highlighted">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="deselectAll:" destination="SHS-Yz-Uve" eventType="touchUpInside" id="PTz-cM-E7v"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -284,6 +334,7 @@
                         <outlet property="cancelExpenseButton" destination="2mq-MR-X5h" id="4ic-7P-Tuu"/>
                         <outlet property="collectionView" destination="gkR-mC-C7F" id="dd4-37-Y58"/>
                         <outlet property="dateLabel" destination="5PL-32-aUs" id="zHn-th-n0Z"/>
+                        <outlet property="deselectAllButton" destination="ScP-zi-XOe" id="JXn-kL-Awb"/>
                         <outlet property="expenseAmount" destination="6Yj-AJ-LqC" id="nVe-N2-7i9"/>
                         <outlet property="expenseAmountContainer" destination="4a5-me-jX1" id="PUV-qG-zSh"/>
                         <outlet property="expenseMemberPicker" destination="kfc-sa-OtF" id="wla-xC-SR0"/>
@@ -292,6 +343,8 @@
                         <outlet property="expenseOwner" destination="ZqP-qD-GZs" id="wBx-ol-Pid"/>
                         <outlet property="mainContainerView" destination="vWm-ZH-VfQ" id="RYr-F6-ftR"/>
                         <outlet property="scrollView" destination="dTm-Ib-1mm" id="lg2-S0-hMV"/>
+                        <outlet property="selectAllButton" destination="qa3-uT-Xeg" id="5iN-WM-Vi9"/>
+                        <outlet property="selectionButtonContainer" destination="HUs-vF-CFo" id="Kof-Tw-AgM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wom-gi-neC" userLabel="First Responder" sceneMemberID="firstResponder"/>

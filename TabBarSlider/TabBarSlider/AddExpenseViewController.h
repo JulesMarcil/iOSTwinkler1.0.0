@@ -16,6 +16,7 @@
 
 @property (strong, nonatomic) IBOutlet UIView *mainContainerView;
 @property (weak, nonatomic) IBOutlet UIView *bottomButtonContainer;
+@property (weak, nonatomic) IBOutlet UIView *selectionButtonContainer;
 @property (weak, nonatomic) IBOutlet UIPickerView *expenseMemberPicker;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UIView *expenseNameContainer;
@@ -29,10 +30,14 @@
 @property (weak, nonatomic) IBOutlet UIButton *addExpenseButton;
 @property (weak, nonatomic) IBOutlet UIButton *cancelExpenseButton;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIButton *selectAllButton;
+@property (weak, nonatomic) IBOutlet UIButton *deselectAllButton;
 
 
 @property(nonatomic, weak) IBOutlet UICollectionView *collectionView;
 
 - (IBAction)showPicker:(id)sender;
+- (IBAction)selectAll:(id)sender;
+- (IBAction)deselectAll:(id)sender;
 
 @end

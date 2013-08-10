@@ -7,6 +7,7 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
+#import <math.h>
 #import "AddExpenseViewController.h"
 #import "Expense.h"
 #import "memberCollectionViewCell.h"
@@ -53,13 +54,19 @@
     
     
     [self.collectionView setFrame:CGRectMake(0,
-                                             250,
+                                             240,
                                              frame.size.width,
-                                             (((int)([memberArray count]/4)) +1)* 90)];
-    frame= [self.bottomButtonContainer frame];
+                                             fmax(120,(((int)([memberArray count]/4)) +1)* 90))];
     
+    frame= [self.bottomButtonContainer frame];
     [self.bottomButtonContainer setFrame:CGRectMake(frame.origin.x,
-                                                    frame.origin.y+((int)([memberArray count]/4)-1)*80,
+                                                    frame.origin.y+fmax(0,((int)([memberArray count]/4)-1)*80),
+                                                    frame.size.width,
+                                                    frame.size.height)];
+    
+    frame= [self.selectionButtonContainer frame];
+    [self.selectionButtonContainer setFrame:CGRectMake(frame.origin.x,
+                                                    frame.origin.y+fmax(0,((int)([memberArray count]/4)-1)*80),
                                                     frame.size.width,
                                                     frame.size.height)];
     
@@ -262,6 +269,22 @@
     [self.expenseMemberPicker selectRow:0 inComponent:0 animated:YES];
 }
 
+- (IBAction)selectAll:(id)sender {
+    [self.deselectAllButton setSelected:NO];
+    [self.selectAllButton setSelected:YES];
+    
+    for(memberCollectionViewCell* cell in self.collectionView){
+        
+        cell.memberProfilePic.alpha=0.5;
+    }
+}
+
+- (IBAction)deselectAll:(id)sender {
+    [self.deselectAllButton setSelected:YES];
+    [self.selectAllButton setSelected:NO];
+}
+
+
 - (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     
     self.selectedExpenseOwner = [memberArray objectAtIndex:row];
@@ -308,9 +331,20 @@
 }
 // 3
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+
     memberCollectionViewCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"memberCell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor clearColor];
+    UIImageView *checkedMember=[[UIImageView alloc] initWithFrame:CGRectMake(45, 0, 16, 12)];
+    checkedMember.image=[UIImage imageNamed: @"green-check"];
+    checkedMember.tag=indexPath.row+1;
+    [cell addSubview:checkedMember];
+    cell.memberProfilePic.alpha=1;
+    cell.isSelected=YES;
+    [self.deselectAllButton setSelected:NO];
+    [self.selectAllButton setSelected:YES];
+
     cell.memberNameLabel.text=[memberArray objectAtIndex:indexPath.row][@"name"];
+
     cell.memberNameLabel.backgroundColor=[UIColor clearColor];
     return cell;
 }
@@ -324,10 +358,26 @@
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    // TODO: Select Item
+    memberCollectionViewCell *cell=[collectionView cellForItemAtIndexPath:indexPath];
+    
+    if (cell.isSelected){
+        [[self.view viewWithTag:indexPath.row+1] removeFromSuperview];
+        cell.memberProfilePic.alpha=0.5;
+        cell.isSelected=NO;
+        [self.selectAllButton setSelected:NO];
+
+    }else{
+        UIImageView *checkedMember=[[UIImageView alloc] initWithFrame:CGRectMake(45, 0, 16, 12)];
+        checkedMember.image=[UIImage imageNamed: @"green-check"];
+        checkedMember.tag=indexPath.row+1;
+        [cell addSubview:checkedMember];
+        cell.memberProfilePic.alpha=1;
+        cell.isSelected=YES;
+    }
+    
 }
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
-    // TODO: Deselect item
+
 }
 
 #pragma mark – UICollectionViewDelegateFlowLayout

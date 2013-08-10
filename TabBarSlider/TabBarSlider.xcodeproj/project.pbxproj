@@ -87,6 +87,8 @@
 		89F71E1817B54E5600BC9C32 /* memberCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F71E1717B54E5600BC9C32 /* memberCollectionViewCell.m */; };
 		89F71E1B17B5947B00BC9C32 /* login-bckgd.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F71E1A17B5947B00BC9C32 /* login-bckgd.png */; };
 		89F71E1C17B596DB00BC9C32 /* memberCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F71E1717B54E5600BC9C32 /* memberCollectionViewCell.m */; };
+		89F71E2617B6412B00BC9C32 /* everyone-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F71E2517B6412B00BC9C32 /* everyone-button.png */; };
+		89F71E2817B6431100BC9C32 /* green-check.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F71E2717B6431100BC9C32 /* green-check.png */; };
 		BA24D4C917B016CE0042C7A4 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4C417B016CE0042C7A4 /* List.m */; };
 		BA24D4CA17B016CE0042C7A4 /* ListDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4C617B016CE0042C7A4 /* ListDataController.m */; };
 		BA24D4CB17B016CE0042C7A4 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4C817B016CE0042C7A4 /* ListViewController.m */; };
@@ -226,6 +228,8 @@
 		89F71E1617B54E5600BC9C32 /* memberCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = memberCollectionViewCell.h; sourceTree = "<group>"; };
 		89F71E1717B54E5600BC9C32 /* memberCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = memberCollectionViewCell.m; sourceTree = "<group>"; };
 		89F71E1A17B5947B00BC9C32 /* login-bckgd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-bckgd.png"; sourceTree = "<group>"; };
+		89F71E2517B6412B00BC9C32 /* everyone-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "everyone-button.png"; sourceTree = "<group>"; };
+		89F71E2717B6431100BC9C32 /* green-check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green-check.png"; sourceTree = "<group>"; };
 		BA24D4C317B016CE0042C7A4 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
 		BA24D4C417B016CE0042C7A4 /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
 		BA24D4C517B016CE0042C7A4 /* ListDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListDataController.h; sourceTree = "<group>"; };
@@ -417,6 +421,8 @@
 		8919DBD917B2E8070005C67C /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				89F71E2517B6412B00BC9C32 /* everyone-button.png */,
+				89F71E2717B6431100BC9C32 /* green-check.png */,
 				8919DBDA17B2E8360005C67C /* chevron-arrow.png */,
 				89F71E1217B5494E00BC9C32 /* add-expense-bckgd.png */,
 				8919DBE017B2F9280005C67C /* expense-detail-border.png */,
@@ -783,6 +789,8 @@
 				BAAC681A17B53C32006C69DE /* profile-pic.png in Resources */,
 				89F71E1317B5494E00BC9C32 /* add-expense-bckgd.png in Resources */,
 				89F71E1B17B5947B00BC9C32 /* login-bckgd.png in Resources */,
+				89F71E2617B6412B00BC9C32 /* everyone-button.png in Resources */,
+				89F71E2817B6431100BC9C32 /* green-check.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
