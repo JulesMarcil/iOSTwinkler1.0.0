@@ -133,6 +133,13 @@
     cell.dateLabel.text=@"Mon";
     cell.contentView.backgroundColor = [UIColor clearColor];
     
+    UIView *groupPicPlaceholder = [[UIView alloc] init];
+    [groupPicPlaceholder setFrame:CGRectMake(5,
+                                               0,
+                                               55,
+                                               55)];
+    [cell addSubview:groupPicPlaceholder];
+    
     
     NSInteger memberNumber=[groupAtIndex.members count];
     
@@ -141,7 +148,7 @@
         image=[UIImage imageNamed:@"sasa.png"];
         UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 50, 45)];
         [iv setImage:image];
-        [cell.avatarView addSubview:iv];
+        [groupPicPlaceholder addSubview:iv];
     }else if (memberNumber==2){
         UIImage *image = [[UIImage alloc] init];
         image=[UIImage imageNamed:@"sasa.png"];
@@ -149,8 +156,8 @@
         UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(0, 20, 35, 35)];
         [iv setImage:image];
         [ivbis setImage:image];
-        [cell.avatarView addSubview:iv];
-        [cell.avatarView addSubview:ivbis];
+        [groupPicPlaceholder addSubview:iv];
+        [groupPicPlaceholder addSubview:ivbis];
     }else if (memberNumber==3){
         UIImage *image = [[UIImage alloc] init];
         image=[UIImage imageNamed:@"sasa.png"];
@@ -160,9 +167,9 @@
         [iv setImage:image];
         [ivbis setImage:image];
         [ivtier setImage:image];
-        [cell.avatarView addSubview:iv];
-        [cell.avatarView addSubview:ivbis];
-        [cell.avatarView addSubview:ivtier];
+        [groupPicPlaceholder  addSubview:iv];
+        [groupPicPlaceholder  addSubview:ivbis];
+        [groupPicPlaceholder  addSubview:ivtier];
     }else if (memberNumber>3){
         UIImage *image = [[UIImage alloc] init];
         image=[UIImage imageNamed:@"sasa.png"];
@@ -174,10 +181,10 @@
         [ivbis setImage:image];
         [ivtier setImage:image];
         [ivquatro setImage:image];
-        [cell.avatarView addSubview:iv];
-        [cell.avatarView addSubview:ivbis];
-        [cell.avatarView addSubview:ivtier];
-        [cell.avatarView addSubview:ivquatro];
+        [groupPicPlaceholder  addSubview:iv];
+        [groupPicPlaceholder  addSubview:ivbis];
+        [groupPicPlaceholder  addSubview:ivtier];
+        [groupPicPlaceholder  addSubview:ivquatro];
     }
 
     cell.backgroundView = [UIView new];
