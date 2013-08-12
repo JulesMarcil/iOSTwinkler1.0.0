@@ -42,6 +42,7 @@
 - (IBAction)EmailLogin:(id)sender {
     
     [self.spinner startAnimating];
+    [self textFieldShouldReturn:self.passwordInput];
     [sender setTitleColor:[UIColor colorWithRed:(78.0/255) green:(90.0/255) blue:(149.0/255) alpha:0.0] forState: UIControlStateNormal];
     
     NSString *username = self.usernameInput.text;
@@ -101,7 +102,7 @@
 
 - (void) animateTextField: (UITextField*) textField up: (BOOL) up
 {
-    int movement = (up ? -105 : 105);
+    int movement = (up ? -133 : 133);
     
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationBeginsFromCurrentState:YES];

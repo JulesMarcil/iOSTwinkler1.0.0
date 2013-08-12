@@ -444,9 +444,9 @@
 				891ABECE17B252D200D507F7 /* welcomeStoryboard.storyboard */,
 				BAAC680E17B4D746006C69DE /* LoginViewController.h */,
 				BAAC680F17B4D746006C69DE /* LoginViewController.m */,
-				89F71E1917B5946E00BC9C32 /* Images */,
 				892F997517B8F71700D86B4D /* welcomeViewController.h */,
 				892F997617B8F71700D86B4D /* welcomeViewController.m */,
+				89F71E1917B5946E00BC9C32 /* Images */,
 			);
 			name = WelcomeFlow;
 			sourceTree = "<group>";
