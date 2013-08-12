@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface welcomeViewController : UIViewController
+@interface WelcomeViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIButton *registerButton;
 @property (weak, nonatomic) IBOutlet UIButton *signinButton;
 @property (weak, nonatomic) IBOutlet UIImageView *bckgdImage;
