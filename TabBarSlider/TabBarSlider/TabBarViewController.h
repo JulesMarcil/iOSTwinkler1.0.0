@@ -22,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UIView *topWhiteBar;
 @property (weak, nonatomic) IBOutlet UIView *toolbar;
 @property (weak, nonatomic) IBOutlet UIView *topBar;
+@property (strong, nonatomic) NSArray *memberArray;
+@property(nonatomic, weak) IBOutlet UICollectionView *collectionView;
 
 -(void)goToExpenses;
 -(void)goToTimeline;

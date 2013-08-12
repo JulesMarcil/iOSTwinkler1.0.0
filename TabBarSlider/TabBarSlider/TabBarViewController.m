@@ -12,12 +12,15 @@
 #import "SWRevealViewController.h"
 #import "DRNRealTimeBlurView.h"
 #import <QuartzCore/QuartzCore.h>
+#import "memberCollectionViewCell.h"
 
-@interface TabBarViewController ()
+@interface TabBarViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @end
 
 @implementation TabBarViewController
+
+@synthesize collectionView=_collectionView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,6 +36,7 @@
     [super viewDidLoad];
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
     
+    self.memberArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupMembers"];
     self.groupTitle.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupName"];
     
     
@@ -63,6 +67,11 @@
                                       100,
                                       frame.size.width,
                                       44)];
+    [self.collectionView setFrame:CGRectMake(0,
+                                      45,
+                                      320,
+                                      55)];
+    self.collectionView.backgroundColor=[UIColor clearColor];
     
     UIStoryboard *timelineStoryboard=[UIStoryboard storyboardWithName:@"timelineStoryboard" bundle:nil];
     TabBarViewController *dst=[timelineStoryboard instantiateInitialViewController];
@@ -230,6 +239,53 @@
     [self addChildViewController:dst];
     
     [[self.placeholderView layer] addAnimation:animation forKey:@"showSecondViewController"];
+}
+#pragma mark - UICollectionView Datasource
+// 1
+- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
+    NSLog([NSString stringWithFormat:@"%d",[self.memberArray  count]]);
+    return [self.memberArray  count];
+}
+// 2
+- (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
+    return 1;
+}
+// 3
+- (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"memberCell" forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor clearColor];
+    UIImageView *memberView=[[UIImageView alloc] initWithFrame:CGRectMake(0,0,50,50)];
+    memberView.image=[UIImage imageNamed: @"sasa.png"];
+    [cell addSubview:memberView];
+    return cell;
+}
+// 4
+/*- (UICollectionReusableView *)collectionView:
+ (UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+ {
+ return [[UICollectionReusableView alloc] init];
+ }*/
+
+#pragma mark - UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    // TODO: Select Item
+}
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+    // TODO: Deselect item
+}
+#pragma mark – UICollectionViewDelegateFlowLayout
+
+// 1
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    CGSize retval = CGSizeMake(50, 50);
+    return retval;
+}
+
+// 3
+- (UIEdgeInsets)collectionView:
+(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(0,0,0,0);
 }
 
 
