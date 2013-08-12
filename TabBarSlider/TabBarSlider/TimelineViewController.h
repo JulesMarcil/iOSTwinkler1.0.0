@@ -27,12 +27,12 @@
 @property (strong, nonatomic) IBOutlet UIButton *button3;
 @property (strong, nonatomic) IBOutlet UIButton *button4;
 @property (retain) ExpandableNavigation* navigation;
-@property (weak, nonatomic) IBOutlet UIView *footerView;
 @property (weak, nonatomic) NSTimer *refreshTimer;
 
 @property (nonatomic, strong) UITableView *messageOnTimeline;
 @property (nonatomic, strong) TimelineDataController *messageDataController;
 @property (weak, nonatomic) IBOutlet UIView *actionBar;
+@property (weak, nonatomic) IBOutlet UIView *timelineTextBoxContainer;
 @property (weak, nonatomic) IBOutlet UITextField *timelineTextBox;
 @property (strong, nonatomic) IBOutlet UIView *timelineView;
 

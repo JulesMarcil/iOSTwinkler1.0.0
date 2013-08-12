@@ -85,7 +85,7 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
-                                        <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <size key="shadowOffset" width="0.0" height="1"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="crz-9H-jQT">
@@ -442,7 +442,6 @@
                 <relationship kind="action" name="cancelAddGroup:" candidateClass="UIStoryboardSegue"/>
                 <relationship kind="action" name="doneAddGroup:" candidateClass="UIStoryboardSegue"/>
                 <relationship kind="action" name="goToTimelineButton:"/>
-                <relationship kind="action" name="test:"/>
                 <relationship kind="outlet" name="addGroupButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="friendNumberLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="groupOnMenu" candidateClass="UITableView"/>

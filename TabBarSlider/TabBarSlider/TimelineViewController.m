@@ -34,9 +34,11 @@
     self.messageDataController = [[TimelineDataController alloc] init];
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataRetrieved) name:@"messagesWithJSONFinishedLoading" object:nil];
     
@@ -47,28 +49,32 @@
                                     repeats:YES];
     
     //-------------Position----------------------------
+    
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenHeight = screenRect.size.height;
     CGRect frame= [self.messageOnTimeline frame];
     [self.messageOnTimeline setFrame:CGRectMake(0,
                                                -20,
                                                frame.size.width,
-                                               screenHeight-208)];
+                                                screenHeight-208)];
+    
     frame= [self.actionBar frame];
     [self.actionBar setFrame:CGRectMake(0,
-                                       screenHeight-208,
+                                       screenHeight-228,
                                        frame.size.width,
                                        44)];
-    frame= [self.timelineTextBox frame];
-    [self.timelineTextBox setFrame:CGRectMake(50,
-                                        -20,
-                                        frame.size.width,
-                                        30)];
     frame= [self.main frame];
-    [self.main setFrame:CGRectMake(15,
-                                    -15,
+    [self.main setFrame:CGRectMake(10,
+                                   screenHeight-222,
                                     frame.size.width,
                                    frame.size.height)];
+    
+    self.actionBar.layer.borderWidth = 1.0f;
+    self.actionBar.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
+    self.timelineTextBoxContainer.layer.cornerRadius = 3;
+    self.timelineTextBoxContainer.layer.masksToBounds = YES;
+    self.timelineTextBoxContainer.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
+    self.timelineTextBoxContainer.layer.borderWidth = 1.0f;
     
     //------------TabBar Navigation------------------------------
     UISwipeGestureRecognizer* swipeRightGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(goToExpense)];
@@ -87,6 +93,10 @@
     NSArray* buttons = [NSArray arrayWithObjects:button1, button2, button3, button4, nil];
     
     self.navigation = [[ExpandableNavigation alloc] initWithMenuItems:buttons mainButton:self.main radius:120.0];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [self.messageOnTimeline setContentOffset:CGPointMake(0, CGFLOAT_MAX)];
 }
 
 - (void)dataRefresh{
@@ -325,12 +335,12 @@
 
 - (void) animateTextField: (UITextField*) textField up: (BOOL) up
 {
-    int movement = (up ? -205 : 205);
+    int movement = (up ? -215 : 215);
         
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationBeginsFromCurrentState:YES];
     [UIView setAnimationDuration:0.3f];
-    self.footerView.frame = CGRectOffset(self.footerView.frame, 0, movement);
+    self.view.superview.superview.frame = CGRectOffset(self.view.superview.superview.frame, 0, movement);
     [UIView commitAnimations];
 }
 
