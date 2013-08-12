@@ -138,9 +138,6 @@
                                                        sourceViewController];
             if (addController.expense) {
                 
-                
-                NSLog(@"selected owner = %@", addController.selectedExpenseOwner);
-                
                 // initialize the request parameters
                 NSString *currentGroupId = [[NSUserDefaults standardUserDefaults] stringForKey:@"currentGroupId"];
                 NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:
