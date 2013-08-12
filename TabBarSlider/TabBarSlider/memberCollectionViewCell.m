@@ -15,7 +15,10 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        self.checkIcon=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 16, 12)];
+        [self.checkIcon setFrame:CGRectMake(0, 0, 16, 12)];
+        self.checkIcon.image=[UIImage imageNamed: @"green-check"];
+        [self addSubview:self.checkIcon];
     }
     return self;
 }
@@ -28,5 +31,11 @@
     // Drawing code
 }
 */
+
+-(void)showCheck{
+
+    self.memberProfilePic.alpha=1;
+    self.isSelected=YES;
+}
 
 @end

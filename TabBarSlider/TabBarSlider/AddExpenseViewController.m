@@ -270,18 +270,26 @@
 }
 
 - (IBAction)selectAll:(id)sender {
-    [self.deselectAllButton setSelected:NO];
-    [self.selectAllButton setSelected:YES];
-    
-    for(memberCollectionViewCell* cell in self.collectionView){
-        
-        cell.memberProfilePic.alpha=0.5;
+    for(memberCollectionViewCell* cell in [self.collectionView visibleCells]){
+        UIImageView *checkedMember=[[UIImageView alloc] initWithFrame:CGRectMake(45, 0, 16, 12)];
+        checkedMember.image=[UIImage imageNamed: @"green-check"];
+        [cell addSubview:checkedMember];
+        cell.memberProfilePic.alpha=1;
+        NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
+        checkedMember.tag=indexPath.row+1;
+        cell.isSelected=YES;
     }
 }
 
 - (IBAction)deselectAll:(id)sender {
-    [self.deselectAllButton setSelected:YES];
-    [self.selectAllButton setSelected:NO];
+    for(memberCollectionViewCell* cell in [self.collectionView visibleCells]){
+        
+    NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
+    [[self.view viewWithTag:indexPath.row+1] removeFromSuperview];
+    cell.memberProfilePic.alpha=0.5;
+    cell.isSelected=NO;
+    }
+    
 }
 
 
@@ -340,8 +348,6 @@
     [cell addSubview:checkedMember];
     cell.memberProfilePic.alpha=1;
     cell.isSelected=YES;
-    [self.deselectAllButton setSelected:NO];
-    [self.selectAllButton setSelected:YES];
 
     cell.memberNameLabel.text=[memberArray objectAtIndex:indexPath.row][@"name"];
 
