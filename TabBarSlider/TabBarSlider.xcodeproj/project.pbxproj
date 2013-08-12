@@ -45,6 +45,7 @@
 		891F500C17B3C96E00361986 /* UIImage+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 891F500B17B3C96E00361986 /* UIImage+FlatUI.m */; };
 		891F500D17B3C98300361986 /* UIImage+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 891F500B17B3C96E00361986 /* UIImage+FlatUI.m */; };
 		891F501417B3DFD000361986 /* edit-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 891F501317B3DFD000361986 /* edit-button.png */; };
+		892F997017B8D59C00D86B4D /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 892F996F17B8D59C00D86B4D /* facebook.png */; };
 		895C4E3A17AA77D2004EC590 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3917AA77D2004EC590 /* UIKit.framework */; };
 		895C4E3C17AA77D2004EC590 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3B17AA77D2004EC590 /* Foundation.framework */; };
 		895C4E3E17AA77D2004EC590 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3D17AA77D2004EC590 /* CoreGraphics.framework */; };
@@ -180,6 +181,7 @@
 		891F500A17B3C96E00361986 /* UIImage+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FlatUI.h"; sourceTree = "<group>"; };
 		891F500B17B3C96E00361986 /* UIImage+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FlatUI.m"; sourceTree = "<group>"; };
 		891F501317B3DFD000361986 /* edit-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit-button.png"; sourceTree = "<group>"; };
+		892F996F17B8D59C00D86B4D /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		895C4E3617AA77D2004EC590 /* TabBarSlider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabBarSlider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		895C4E3917AA77D2004EC590 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		895C4E3B17AA77D2004EC590 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -580,6 +582,7 @@
 		89F71E1917B5946E00BC9C32 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				892F996F17B8D59C00D86B4D /* facebook.png */,
 				89F71E1A17B5947B00BC9C32 /* login-bckgd.png */,
 			);
 			name = Images;
@@ -791,6 +794,7 @@
 				89F71E1B17B5947B00BC9C32 /* login-bckgd.png in Resources */,
 				89F71E2617B6412B00BC9C32 /* everyone-button.png in Resources */,
 				89F71E2817B6431100BC9C32 /* green-check.png in Resources */,
+				892F997017B8D59C00D86B4D /* facebook.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -30,13 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIGraphicsBeginImageContext(self.view.frame.size);
-    [[UIImage imageNamed:@"login-bckgd.png"] drawInRect:self.view.bounds];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    self.view.backgroundColor = [UIColor colorWithPatternImage:image];
-	// Do any additional setup after loading the view.
+    [self.view endEditing:YES];// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,6 +42,7 @@
 - (IBAction)EmailLogin:(id)sender {
     
     [self.spinner startAnimating];
+    [sender setTitleColor:[UIColor colorWithRed:(78.0/255) green:(90.0/255) blue:(149.0/255) alpha:0.0] forState: UIControlStateNormal];
     
     NSString *username = self.usernameInput.text;
     NSString *password = self.passwordInput.text;
@@ -78,9 +73,40 @@
 
 - (IBAction)FacebookLogin:(id)sender {
     
-    [self.spinner startAnimating];
+    [self.FBspinner startAnimating];
+    
+    [sender setTitleColor:[UIColor colorWithRed:78/255 green:90/255 blue:149/255 alpha:0.0] forState: UIControlStateNormal];
     NSLog(@"login with facebook");
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     [appDelegate openSession];
+}
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+    
+    [textField resignFirstResponder];
+    return YES;
+}
+
+#pragma mark - Text View Delegate
+
+- (void) textFieldDidBeginEditing:(UITextField *)myTextField
+{
+    [self animateTextField:myTextField up:YES];
+}
+
+- (void) textFieldDidEndEditing:(UITextField *)myTextField
+{
+    [self animateTextField:myTextField up:NO];
+}
+
+- (void) animateTextField: (UITextField*) textField up: (BOOL) up
+{
+    int movement = (up ? -105 : 105);
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:0.3f];
+    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    [UIView commitAnimations];
 }
 @end
