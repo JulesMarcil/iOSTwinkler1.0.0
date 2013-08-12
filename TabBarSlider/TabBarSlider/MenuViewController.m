@@ -32,24 +32,28 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(groupDataRetrieved) name:@"groupsWithJSONFinishedLoading" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(profileDataRetrieved) name:@"profileWithJSONFinishedLoading" object:nil];
     if ([self.title isEqual: @"welcomeMenu"]){
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:@"loginSuccess" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:@"loginSuccess" object:nil];
     }
+}
+
+- (void)loginSuccess
+{
+    NSLog(@"login success function called");
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    [[NSNotificationCenter defaultCenter] addObserver:appDelegate selector:@selector(dismissLoginView) name:@"profileDisplayed" object:nil];
+    [self loadData];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    
     if (![self.title isEqual: @"welcomeMenu"]){
         [self loadData];
     }
     
     [self.navigationController setNavigationBarHidden:YES animated:NO];
-	// Do any additional setup after loading the view.
-
-    NSLog(@"view did load from MenuViewController");
-    
+	// Do any additional setup after loading the view.    
     
     //-----------DESIGN---------------//
     UIColor *borderColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1.0];
@@ -85,7 +89,6 @@
 
 - (void)groupDataRetrieved {
     [self.groupOnMenu reloadData];
-    [self setRoundedView:self.profilePic picture:self.profilePic.image toDiameter:70.0];
 }
 
 - (void)profileDataRetrieved {
@@ -94,18 +97,28 @@
     
     NSString *facebookId =[[NSUserDefaults standardUserDefaults] objectForKey:@"facebookId"];
     
+    NSURL *url;
     if (facebookId) {
-        [self.profilePic setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=100&height=100", facebookId]] placeholderImage:[UIImage imageNamed:@"profile-pic.png"]];
-        
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=100&height=100", facebookId]];
     } else {
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:8888/Twinkler1.2.3/web/%@", self.profile.picturePath]];
-        NSLog(@"calling image with url: %@", url);
-        [self.profilePic setImageWithURL:url
-                        placeholderImage:[UIImage imageNamed:@"profile-pic.png"]];
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:8888/Twinkler1.2.3/web/%@", self.profile.picturePath]];
     }
     
-    [self setRoundedView:self.profilePic picture:self.profilePic.image toDiameter:70.0];
-
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSLog(@"%@", url);
+    
+    [self.profilePic setImageWithURLRequest:request
+                           placeholderImage:[UIImage imageNamed:@"profile-pic.png"]
+                                    success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                        self.profilePic.image = image;
+                                        [self setRoundedView:self.profilePic picture:self.profilePic.image toDiameter:70.0];
+                                        
+                                        NSLog(@"profileDisplayed");
+                                        [[NSNotificationCenter defaultCenter] postNotificationName:@"profileDisplayed" object:nil];
+                                        
+                                   }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                         NSLog(@"Failed with error: %@", error);
+                                   }];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -134,10 +147,7 @@
     cell.contentView.backgroundColor = [UIColor clearColor];
     
     UIView *groupPicPlaceholder = [[UIView alloc] init];
-    [groupPicPlaceholder setFrame:CGRectMake(5,
-                                               0,
-                                               55,
-                                               55)];
+    [groupPicPlaceholder setFrame:CGRectMake(5, 0, 55, 55)];
     [cell addSubview:groupPicPlaceholder];
     
     
@@ -327,7 +337,6 @@
     [navController popToRootViewControllerAnimated:NO];
     
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-
     [appDelegate showLoginView];
 }
 
@@ -342,23 +351,23 @@
 }
 
 -(void) setRoundedView:(UIImageView *)imageView picture: (UIImage *)picture toDiameter:(float)newSize{
-// Begin a new image that will be the new image with the rounded corners
-// (here with the size of an UIImageView)
-UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, NO, 1.0);
+    // Begin a new image that will be the new image with the rounded corners
+    // (here with the size of an UIImageView)
+    UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, NO, 1.0);
 
-// Add a clip before drawing anything, in the shape of an rounded rect
-[[UIBezierPath bezierPathWithRoundedRect:imageView.bounds
+    // Add a clip before drawing anything, in the shape of an rounded rect
+    [[UIBezierPath bezierPathWithRoundedRect:imageView.bounds
                             cornerRadius:100.0] addClip];
-// Draw your image
-CGRect frame=imageView.bounds;
-    frame.size.width=newSize;
-    frame.size.height=newSize;
-[picture drawInRect:frame];
+    // Draw your image
+    CGRect frame=imageView.bounds;
+        frame.size.width=newSize;
+        frame.size.height=newSize;
+    [picture drawInRect:frame];
 
-// Get the image, here setting the UIImageView image
-imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+    // Get the image, here setting the UIImageView image
+    imageView.image = UIGraphicsGetImageFromCurrentImageContext();
 
-// Lets forget about that we were drawing
-UIGraphicsEndImageContext();
+    // Lets forget about that we were drawing
+    UIGraphicsEndImageContext();
 }
 @end

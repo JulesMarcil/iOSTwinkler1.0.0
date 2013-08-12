@@ -12,7 +12,8 @@
 @property (nonatomic,copy) NSString *content;
 @property (nonatomic,copy) NSString *author;
 @property (nonatomic, strong) NSDate *date;
+@property (nonatomic, strong) NSString *type;
 
--(id) initWithContent:(NSString *)content author:(NSString *)author date:(NSDate *)date;
+-(id) initWithContent:(NSString *)content author:(NSString *)author date:(NSDate *)date type:(NSString *)type;
 
 @end

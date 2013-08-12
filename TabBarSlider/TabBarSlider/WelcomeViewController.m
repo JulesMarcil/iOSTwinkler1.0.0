@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Arnaud Drizard. All rights reserved.
 //
 
-#import "welcomeViewController.h"
+#import "WelcomeViewController.h"
 
-@interface welcomeViewController ()
+@interface WelcomeViewController ()
 
 @end
 
-@implementation welcomeViewController
+@implementation WelcomeViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

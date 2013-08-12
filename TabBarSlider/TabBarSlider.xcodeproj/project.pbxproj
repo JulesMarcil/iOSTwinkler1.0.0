@@ -50,6 +50,7 @@
 		892F997417B8F1F600D86B4D /* tk-ihpone-icon-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 892F997317B8F1F600D86B4D /* tk-ihpone-icon-retina.png */; };
 		892F997717B8F71700D86B4D /* welcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 892F997617B8F71700D86B4D /* welcomeViewController.m */; };
 		892F99A417B93E6900D86B4D /* MemberCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 892F99A317B93E6800D86B4D /* MemberCollectionViewFlowLayout.m */; };
+		892F997717B8F71700D86B4D /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 892F997617B8F71700D86B4D /* WelcomeViewController.m */; };
 		895C4E3A17AA77D2004EC590 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3917AA77D2004EC590 /* UIKit.framework */; };
 		895C4E3C17AA77D2004EC590 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3B17AA77D2004EC590 /* Foundation.framework */; };
 		895C4E3E17AA77D2004EC590 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3D17AA77D2004EC590 /* CoreGraphics.framework */; };
@@ -191,6 +192,8 @@
 		892F997617B8F71700D86B4D /* welcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = welcomeViewController.m; sourceTree = "<group>"; };
 		892F99A217B93E6700D86B4D /* MemberCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		892F99A317B93E6800D86B4D /* MemberCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		892F997517B8F71700D86B4D /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
+		892F997617B8F71700D86B4D /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		895C4E3617AA77D2004EC590 /* TabBarSlider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabBarSlider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		895C4E3917AA77D2004EC590 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		895C4E3B17AA77D2004EC590 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -449,8 +452,8 @@
 				891ABECE17B252D200D507F7 /* welcomeStoryboard.storyboard */,
 				BAAC680E17B4D746006C69DE /* LoginViewController.h */,
 				BAAC680F17B4D746006C69DE /* LoginViewController.m */,
-				892F997517B8F71700D86B4D /* welcomeViewController.h */,
-				892F997617B8F71700D86B4D /* welcomeViewController.m */,
+				892F997517B8F71700D86B4D /* WelcomeViewController.h */,
+				892F997617B8F71700D86B4D /* WelcomeViewController.m */,
 				89F71E1917B5946E00BC9C32 /* Images */,
 			);
 			name = WelcomeFlow;
@@ -890,6 +893,7 @@
 				BAAC681317B4E29D006C69DE /* Profile.m in Sources */,
 				892F997717B8F71700D86B4D /* welcomeViewController.m in Sources */,
 				892F99A417B93E6900D86B4D /* MemberCollectionViewFlowLayout.m in Sources */,
+				892F997717B8F71700D86B4D /* WelcomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

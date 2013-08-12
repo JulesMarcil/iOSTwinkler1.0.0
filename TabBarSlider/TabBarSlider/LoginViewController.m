@@ -63,6 +63,7 @@
                                       [store setAuthToken:authToken];
                                       [store setRefreshToken:refreshToken];
                                       
+                                      NSLog(@"login success with email from login view controller");
                                       [[NSNotificationCenter defaultCenter] postNotificationName:@"loginSuccess" object:nil];
                                       
                                       [self dismissViewControllerAnimated:YES completion:nil];

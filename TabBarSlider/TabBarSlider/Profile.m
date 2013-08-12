@@ -40,11 +40,11 @@
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                       NSError *error = nil;
                                      NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
-                                      NSLog(@"profile loaded => %@", response);
                                       
                                       [self setName:response[@"name"] friendNumber:response[@"friendNumber"] picturePath:response[@"picturePath"]
                                        ];   
                                       
+                                      NSLog(@"profileWithJSONFinishedLoading");
                                       [[NSNotificationCenter defaultCenter] postNotificationName:@"profileWithJSONFinishedLoading" object:nil];
                                       
                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
