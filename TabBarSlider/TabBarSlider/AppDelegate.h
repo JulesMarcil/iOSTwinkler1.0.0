@@ -13,6 +13,7 @@
 @property (strong, nonatomic) UIWindow *window;
 
 - (void)showLoginView;
+- (void)dismissLoginView;
 - (void)openSession;
 
 @end

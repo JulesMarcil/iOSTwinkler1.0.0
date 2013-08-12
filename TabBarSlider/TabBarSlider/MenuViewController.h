@@ -26,12 +26,11 @@
 @property (weak, nonatomic) IBOutlet UIView *tableViewHeader;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *friendNumberLabel;
-- (IBAction)test:(id)sender;
 
 - (IBAction)goToTimelineButton:(id)sender;
 - (IBAction)doneAddGroup:(UIStoryboardSegue *)segue;
 - (IBAction)cancelAddGroup:(UIStoryboardSegue *)segue;
 - (IBAction)Logout:(id)sender;
+- (void)setRoundedView:(UIImageView *)roundedView toDiameter:(float)newSize;
 
--(void)setRoundedView:(UIImageView *)roundedView toDiameter:(float)newSize;
 @end

@@ -32,8 +32,9 @@
                                       for(id key in response) {
                                           
                                           Message *message = [[Message alloc] initWithContent:key[@"body"]
-                                                                                        author:key[@"author"]
-                                                                                          date:[NSDate dateWithTimeIntervalSince1970:[key[@"time"] doubleValue]]
+                                                                                       author:key[@"author"]
+                                                                                         date:[NSDate dateWithTimeIntervalSince1970:[key[@"time"] doubleValue]]
+                                                                                         type:key[@"type"]
                                                               ];
                                           
                                           [self addMessage:message];

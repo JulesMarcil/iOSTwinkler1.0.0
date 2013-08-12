@@ -111,6 +111,7 @@
                                               Message *message = [[Message alloc] initWithContent:response[i][@"body"]
                                                                                            author:response[i][@"author"]
                                                                                              date:[NSDate dateWithTimeIntervalSince1970:[response[i] doubleValue]]
+                                                                                             type:response[i][@"type"]
                                                                   ];
                                               [self.messageDataController addMessage:message];
                                           }
@@ -273,7 +274,8 @@
         // creating the corresponding message locally
         Message *message = [[Message alloc] initWithContent:textField.text
                                                      author:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMemberName"]
-                                                       date:[NSDate date]];
+                                                       date:[NSDate date]
+                                                       type:@"message"];
         
         [self.messageDataController addMessage:message];
         

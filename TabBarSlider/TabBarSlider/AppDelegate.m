@@ -64,10 +64,22 @@
 {
     UIStoryboard *welcomeStoryboard = [UIStoryboard storyboardWithName:@"welcomeStoryboard" bundle: nil];
     
-    LoginViewController* loginViewController = [welcomeStoryboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    LoginViewController* welcomeNavigationController = [welcomeStoryboard instantiateViewControllerWithIdentifier:@"WelcomeNavigationController"];
     
     [self.window makeKeyAndVisible];
-    [self.window.rootViewController presentViewController:loginViewController animated:YES completion:NULL];
+    [self.window.rootViewController presentViewController:welcomeNavigationController animated:YES completion:NULL];
+}
+
+- (void)dismissLoginView
+{
+    NSLog(@"dismissLogin called");
+    UIViewController *rootViewController = (id) self.window.rootViewController;
+    
+    Class class = [[rootViewController presentedViewController] class];
+    NSLog(@"%@", class);
+    
+    [[rootViewController presentedViewController] dismissViewControllerAnimated:NO completion:nil];
+    NSLog(@"dismissLogin completed");
 }
 
 // *** Facebook login actions ***
@@ -86,11 +98,7 @@
         {
             NSLog(@"FBSessionStateOpen");
             
-            UIViewController *rootViewController = (id) self.window.rootViewController;
-            
-            if ([[rootViewController presentedViewController] isKindOfClass:[LoginViewController class]]){
-                [[rootViewController presentedViewController] dismissViewControllerAnimated:NO completion:nil];
-            }
+            //[self dismissLoginView];
         }
             break;
         case FBSessionStateClosed:
@@ -162,7 +170,9 @@
                                               CredentialStore *store = [[CredentialStore alloc] init];
                                               [store setAuthToken:authToken];
                                               
+                                              NSLog(@"login success with facebook from appdelegate.m");
                                               [[NSNotificationCenter defaultCenter] postNotificationName:@"loginSuccess" object:nil];
+                                              [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dismissLoginView) name:@"groupsWithJSONFinishedLoading" object:nil];
                                               
                                           } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                               NSLog(@"error: %@", error);
@@ -200,6 +210,7 @@
                                       [store setRefreshToken:refreshToken];
                                       
                                       [[NSNotificationCenter defaultCenter] postNotificationName:@"loginSuccess" object:nil];
+                                      NSLog(@"loginsuccess after refresh token");
                                       
                                       UIViewController *rootViewController = (id) self.window.rootViewController;
                                       
