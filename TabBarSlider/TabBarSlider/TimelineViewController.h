@@ -11,7 +11,7 @@
 
 @class ExpandableNavigation;
 
-@interface TimelineViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>  {
+@interface TimelineViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>  {
     IBOutlet UITableView* messageOnTimeline;
     UIButton* button1;
     UIButton* button2;
@@ -27,6 +27,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *button3;
 @property (strong, nonatomic) IBOutlet UIButton *button4;
 @property (retain) ExpandableNavigation* navigation;
+@property (weak, nonatomic) IBOutlet UIView *footerView;
+@property (weak, nonatomic) NSTimer *refreshTimer;
 
 @property (nonatomic, strong) UITableView *messageOnTimeline;
 @property (nonatomic, strong) TimelineDataController *messageDataController;

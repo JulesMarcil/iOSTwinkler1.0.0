@@ -51,9 +51,6 @@
      name:@"listsWithJSONFinishedLoading"
      object:nil];
     
-    
-    NSLog(@"ceci est un nslog de jules");
-    
     UISwipeGestureRecognizer* swipeRightGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(goToTimeline)];
     swipeRightGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
     [self.view addGestureRecognizer:swipeRightGestureRecognizer];

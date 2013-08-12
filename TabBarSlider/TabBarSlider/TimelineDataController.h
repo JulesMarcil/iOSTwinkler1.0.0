@@ -15,6 +15,6 @@
 
 - (NSUInteger)countOfList;
 - (Message *)objectInListAtIndex:(NSUInteger)theIndex;
-- (void)addMessageWithMessageData:(Message *)message;
+- (void)addMessage:(Message *)message;
 
 @end
