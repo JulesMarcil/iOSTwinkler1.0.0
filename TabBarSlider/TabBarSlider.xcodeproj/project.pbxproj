@@ -49,6 +49,7 @@
 		892F997217B8F1A700D86B4D /* login-bckgd.png in Resources */ = {isa = PBXBuildFile; fileRef = 892F997117B8F1A700D86B4D /* login-bckgd.png */; };
 		892F997417B8F1F600D86B4D /* tk-ihpone-icon-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 892F997317B8F1F600D86B4D /* tk-ihpone-icon-retina.png */; };
 		892F99A417B93E6900D86B4D /* MemberCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 892F99A317B93E6800D86B4D /* MemberCollectionViewFlowLayout.m */; };
+		892F99A617B98B3A00D86B4D /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 892F997617B8F71700D86B4D /* WelcomeViewController.m */; };
 		895C4E3A17AA77D2004EC590 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3917AA77D2004EC590 /* UIKit.framework */; };
 		895C4E3C17AA77D2004EC590 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3B17AA77D2004EC590 /* Foundation.framework */; };
 		895C4E3E17AA77D2004EC590 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3D17AA77D2004EC590 /* CoreGraphics.framework */; };
@@ -842,6 +843,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				892F99A617B98B3A00D86B4D /* WelcomeViewController.m in Sources */,
 				89F71E1C17B596DB00BC9C32 /* memberCollectionViewCell.m in Sources */,
 				891F500D17B3C98300361986 /* UIImage+FlatUI.m in Sources */,
 				891F500917B3C8F800361986 /* FUIButton.m in Sources */,
