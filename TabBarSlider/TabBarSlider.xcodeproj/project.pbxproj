@@ -46,6 +46,9 @@
 		891F500D17B3C98300361986 /* UIImage+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 891F500B17B3C96E00361986 /* UIImage+FlatUI.m */; };
 		891F501417B3DFD000361986 /* edit-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 891F501317B3DFD000361986 /* edit-button.png */; };
 		892F997017B8D59C00D86B4D /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 892F996F17B8D59C00D86B4D /* facebook.png */; };
+		892F997217B8F1A700D86B4D /* login-bckgd.png in Resources */ = {isa = PBXBuildFile; fileRef = 892F997117B8F1A700D86B4D /* login-bckgd.png */; };
+		892F997417B8F1F600D86B4D /* tk-ihpone-icon-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 892F997317B8F1F600D86B4D /* tk-ihpone-icon-retina.png */; };
+		892F997717B8F71700D86B4D /* welcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 892F997617B8F71700D86B4D /* welcomeViewController.m */; };
 		895C4E3A17AA77D2004EC590 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3917AA77D2004EC590 /* UIKit.framework */; };
 		895C4E3C17AA77D2004EC590 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3B17AA77D2004EC590 /* Foundation.framework */; };
 		895C4E3E17AA77D2004EC590 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3D17AA77D2004EC590 /* CoreGraphics.framework */; };
@@ -86,7 +89,6 @@
 		89F71E1317B5494E00BC9C32 /* add-expense-bckgd.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F71E1217B5494E00BC9C32 /* add-expense-bckgd.png */; };
 		89F71E1517B54A2000BC9C32 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89F71E1417B54A2000BC9C32 /* FacebookSDK.framework */; };
 		89F71E1817B54E5600BC9C32 /* memberCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F71E1717B54E5600BC9C32 /* memberCollectionViewCell.m */; };
-		89F71E1B17B5947B00BC9C32 /* login-bckgd.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F71E1A17B5947B00BC9C32 /* login-bckgd.png */; };
 		89F71E1C17B596DB00BC9C32 /* memberCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F71E1717B54E5600BC9C32 /* memberCollectionViewCell.m */; };
 		89F71E2617B6412B00BC9C32 /* everyone-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F71E2517B6412B00BC9C32 /* everyone-button.png */; };
 		89F71E2817B6431100BC9C32 /* green-check.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F71E2717B6431100BC9C32 /* green-check.png */; };
@@ -182,6 +184,10 @@
 		891F500B17B3C96E00361986 /* UIImage+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FlatUI.m"; sourceTree = "<group>"; };
 		891F501317B3DFD000361986 /* edit-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit-button.png"; sourceTree = "<group>"; };
 		892F996F17B8D59C00D86B4D /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
+		892F997117B8F1A700D86B4D /* login-bckgd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-bckgd.png"; sourceTree = "<group>"; };
+		892F997317B8F1F600D86B4D /* tk-ihpone-icon-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tk-ihpone-icon-retina.png"; sourceTree = "<group>"; };
+		892F997517B8F71700D86B4D /* welcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = welcomeViewController.h; sourceTree = "<group>"; };
+		892F997617B8F71700D86B4D /* welcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = welcomeViewController.m; sourceTree = "<group>"; };
 		895C4E3617AA77D2004EC590 /* TabBarSlider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabBarSlider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		895C4E3917AA77D2004EC590 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		895C4E3B17AA77D2004EC590 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -229,7 +235,6 @@
 		89F71E1417B54A2000BC9C32 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		89F71E1617B54E5600BC9C32 /* memberCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = memberCollectionViewCell.h; sourceTree = "<group>"; };
 		89F71E1717B54E5600BC9C32 /* memberCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = memberCollectionViewCell.m; sourceTree = "<group>"; };
-		89F71E1A17B5947B00BC9C32 /* login-bckgd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-bckgd.png"; sourceTree = "<group>"; };
 		89F71E2517B6412B00BC9C32 /* everyone-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "everyone-button.png"; sourceTree = "<group>"; };
 		89F71E2717B6431100BC9C32 /* green-check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green-check.png"; sourceTree = "<group>"; };
 		BA24D4C317B016CE0042C7A4 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
@@ -440,6 +445,8 @@
 				BAAC680E17B4D746006C69DE /* LoginViewController.h */,
 				BAAC680F17B4D746006C69DE /* LoginViewController.m */,
 				89F71E1917B5946E00BC9C32 /* Images */,
+				892F997517B8F71700D86B4D /* welcomeViewController.h */,
+				892F997617B8F71700D86B4D /* welcomeViewController.m */,
 			);
 			name = WelcomeFlow;
 			sourceTree = "<group>";
@@ -582,8 +589,9 @@
 		89F71E1917B5946E00BC9C32 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				892F997117B8F1A700D86B4D /* login-bckgd.png */,
+				892F997317B8F1F600D86B4D /* tk-ihpone-icon-retina.png */,
 				892F996F17B8D59C00D86B4D /* facebook.png */,
-				89F71E1A17B5947B00BC9C32 /* login-bckgd.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -791,10 +799,11 @@
 				891F501417B3DFD000361986 /* edit-button.png in Resources */,
 				BAAC681A17B53C32006C69DE /* profile-pic.png in Resources */,
 				89F71E1317B5494E00BC9C32 /* add-expense-bckgd.png in Resources */,
-				89F71E1B17B5947B00BC9C32 /* login-bckgd.png in Resources */,
 				89F71E2617B6412B00BC9C32 /* everyone-button.png in Resources */,
 				89F71E2817B6431100BC9C32 /* green-check.png in Resources */,
 				892F997017B8D59C00D86B4D /* facebook.png in Resources */,
+				892F997217B8F1A700D86B4D /* login-bckgd.png in Resources */,
+				892F997417B8F1F600D86B4D /* tk-ihpone-icon-retina.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -874,6 +883,7 @@
 				891183B317B1A31200B28ABE /* ExpenseItemCell.m in Sources */,
 				BAAC681017B4D746006C69DE /* LoginViewController.m in Sources */,
 				BAAC681317B4E29D006C69DE /* Profile.m in Sources */,
+				892F997717B8F71700D86B4D /* welcomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
