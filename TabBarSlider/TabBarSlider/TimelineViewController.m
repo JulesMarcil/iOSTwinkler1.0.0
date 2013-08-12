@@ -40,7 +40,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataRetrieved) name:@"messagesWithJSONFinishedLoading" object:nil];
     
-    [NSTimer scheduledTimerWithTimeInterval:5.0
+    self.refreshTimer = [NSTimer scheduledTimerWithTimeInterval:5.0
                                      target:self
                                    selector:@selector(dataRefresh)
                                    userInfo:nil
@@ -128,9 +128,15 @@
     [self.messageOnTimeline reloadData];
 }
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.refreshTimer invalidate];
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    
     // Release any retained subviews of the main view.
     self.button1 = nil;
     self.button2 = nil;

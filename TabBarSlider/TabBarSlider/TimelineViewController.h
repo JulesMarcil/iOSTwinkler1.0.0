@@ -28,6 +28,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *button4;
 @property (retain) ExpandableNavigation* navigation;
 @property (weak, nonatomic) IBOutlet UIView *footerView;
+@property (weak, nonatomic) NSTimer *refreshTimer;
 
 @property (nonatomic, strong) UITableView *messageOnTimeline;
 @property (nonatomic, strong) TimelineDataController *messageDataController;
