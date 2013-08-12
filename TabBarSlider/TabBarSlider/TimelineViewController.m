@@ -10,6 +10,8 @@
 #import "ExpandableNavigation.h"
 #import "TabBarViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "AuthAPIClient.h"
+#import "AFHTTPRequestOperation.h"
 
 
 @interface TimelineViewController ()
@@ -26,18 +28,23 @@
 @synthesize main;
 @synthesize navigation;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (void)awakeFromNib
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    [super awakeFromNib];
+    self.messageDataController = [[TimelineDataController alloc] init];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataRetrieved) name:@"messagesWithJSONFinishedLoading" object:nil];
+    
+    [NSTimer scheduledTimerWithTimeInterval:5.0
+                                     target:self
+                                   selector:@selector(dataRefresh)
+                                   userInfo:nil
+                                    repeats:YES];
     
     //-------------Position----------------------------
     CGRect screenRect = [[UIScreen mainScreen] bounds];
@@ -80,8 +87,45 @@
     NSArray* buttons = [NSArray arrayWithObjects:button1, button2, button3, button4, nil];
     
     self.navigation = [[ExpandableNavigation alloc] initWithMenuItems:buttons mainButton:self.main radius:120.0];
+}
 
+- (void)dataRefresh{
+    
+    NSString *currentGroupId = [[NSUserDefaults standardUserDefaults] stringForKey:@"currentGroupId"];
+    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:currentGroupId, @"currentGroupId", nil];
+    
+    [[AuthAPIClient sharedClient] getPath:@"api/get/messages"
+                               parameters:parameters
+                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                      NSError *error = nil;
+                                      NSArray *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                                      
+                                      int n = response.count;
+                                      
+                                      NSUInteger diff = n - self.messageDataController.countOfList;
+                                      NSLog(@"diff = %u",diff);
+                                      
+                                      if (diff > 0){
+                                          
+                                          for (int i = n - diff; i<n; i++){
+                                              Message *message = [[Message alloc] initWithContent:response[i][@"body"]
+                                                                                           author:response[i][@"author"]
+                                                                                             date:[NSDate dateWithTimeIntervalSince1970:[response[i] doubleValue]]
+                                                                  ];
+                                              [self.messageDataController addMessage:message];
+                                          }
+                                          [self.messageOnTimeline reloadData];
+                                          NSLog(@"success: %u messages added", diff);
+                                      }else{
+                                          NSLog(@"success: data in sync");
+                                      }
+                                  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                      NSLog(@"error: %@", error);
+                                  }];
+}
 
+- (void)dataRetrieved {
+    [self.messageOnTimeline reloadData];
 }
 
 - (void)viewDidUnload
@@ -101,13 +145,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-- (void)awakeFromNib
-{
-    [super awakeFromNib];
-    self.messageDataController=[[TimelineDataController alloc] init];
-}
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -218,6 +255,74 @@
     [tbvc.timelineButton setSelected:NO];
     [tbvc.expenseButton setSelected:NO];
     
+    [UIView commitAnimations];
+}
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+    
+    [textField resignFirstResponder];
+    
+    if (textField.text.length>0) {
+        
+        // creating the corresponding message locally
+        Message *message = [[Message alloc] initWithContent:textField.text
+                                                     author:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMemberName"]
+                                                       date:[NSDate date]];
+        
+        [self.messageDataController addMessage:message];
+        
+        NSMutableArray *insertIndexPaths = [[NSMutableArray alloc] init];
+        NSIndexPath *newPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        [insertIndexPaths addObject:newPath];
+        [self.messageOnTimeline beginUpdates];
+        [self.messageOnTimeline insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationTop];
+        [self.messageOnTimeline endUpdates];
+        [self.messageOnTimeline reloadData];
+        
+        textField.text = nil;
+        [self dismissViewControllerAnimated:YES completion:NULL];
+        
+        // preparing the request parameters
+        NSArray *keys = [NSArray arrayWithObjects:@"currentMemberId", @"currentGroupId", @"messageBody", nil];
+        NSArray *objects = [NSArray arrayWithObjects:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"id"], [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupId"], message.content, nil];
+        NSDictionary *parameters = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
+        
+        // going for the parsing
+        [[AuthAPIClient sharedClient] getPath:@"api/post/message"
+                                   parameters:parameters
+                                      success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                          NSError *error = nil;
+                                          NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                                          NSLog(@"success: %@", response[@"message"]);
+                                          [[NSNotificationCenter defaultCenter] postNotificationName:@"addMessageSuccess" object:nil];
+                                      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                          NSLog(@"error: %@", error);
+                                      }];
+        
+    }
+    return NO;
+}
+
+#pragma mark - Text View Delegate
+
+- (void) textFieldDidBeginEditing:(UITextField *)myTextField
+{
+    [self animateTextField:myTextField up:YES];
+}
+
+- (void) textFieldDidEndEditing:(UITextField *)myTextField
+{
+    [self animateTextField:myTextField up:NO];
+}
+
+- (void) animateTextField: (UITextField*) textField up: (BOOL) up
+{
+    int movement = (up ? -205 : 205);
+        
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:0.3f];
+    self.footerView.frame = CGRectOffset(self.footerView.frame, 0, movement);
     [UIView commitAnimations];
 }
 

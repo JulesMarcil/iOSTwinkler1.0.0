@@ -8,17 +8,40 @@
 
 #import "TimelineDataController.h"
 #import "Message.h"
+#import "AuthAPIClient.h"
 
 @implementation TimelineDataController
 
 - (void)initializeDefaultDataList {
+    
     NSMutableArray *MessageList = [[NSMutableArray alloc] init];
     self.MessageList = MessageList;
-    Message *message;
-    NSDate *today = [NSDate date];
-    message= [[Message alloc]initWithContent:@"Yo, c'est la teuf ici?" author:@"Nonouch" date: today];
     
-    [self addMessageWithMessageData:message];
+    //Set parameters for request
+    NSString *currentGroupId = [[NSUserDefaults standardUserDefaults] stringForKey:@"currentGroupId"];
+    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:currentGroupId, @"currentGroupId", nil];
+    
+    
+    [[AuthAPIClient sharedClient] getPath:@"api/get/messages"
+                               parameters:parameters
+                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                      NSError *error = nil;
+                                      NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                                      NSLog(@"success: %@", response);
+                                      
+                                      for(id key in response) {
+                                          
+                                          Message *message = [[Message alloc] initWithContent:key[@"body"]
+                                                                                        author:key[@"author"]
+                                                                                          date:[NSDate dateWithTimeIntervalSince1970:[key[@"time"] doubleValue]]
+                                                              ];
+                                          
+                                          [self addMessage:message];
+                                      }
+                                      [[NSNotificationCenter defaultCenter] postNotificationName:@"messagesWithJSONFinishedLoading" object:nil];
+                                  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                      NSLog(@"error: %@", error);
+                                  }];
 }
 
 - (id)init {
@@ -43,7 +66,7 @@
     return [self.messageList objectAtIndex:theIndex];
 }
 
-- (void)addMessageWithMessageData:(Message *)message {
+- (void)addMessage:(Message *)message {
     [self.messageList addObject:message];
 }
 
