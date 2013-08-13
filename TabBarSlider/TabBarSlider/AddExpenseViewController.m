@@ -11,6 +11,7 @@
 #import "AddExpenseViewController.h"
 #import "Expense.h"
 #import "memberCollectionViewCell.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface AddExpenseViewController () <UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -289,7 +290,6 @@
     cell.memberProfilePic.alpha=0.5;
     cell.isSelected=NO;
     }
-    
 }
 
 
@@ -314,13 +314,23 @@
             NSDate *today = [NSDate date];
             
             //Create Member Array (to be completed)
-            NSArray *members = [[NSArray alloc] init];
+            NSMutableArray *selectedMembers = [[NSMutableArray alloc] init];
+            
+            //get selected members
+             for(memberCollectionViewCell* cell in [self.collectionView visibleCells]){
+                 
+                 NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
+                 if (cell.isSelected) {
+                     NSDictionary *member = [memberArray objectAtIndex:indexPath.row];
+                     [selectedMembers addObject:member];
+                 }
+             }
             
             Expense *expense = [[Expense alloc] initWithName:self.expenseName.text
                                                       amount:formattedAmount
                                                        owner:self.selectedExpenseOwner
                                                         date:today
-                                                     members:members
+                                                     members:selectedMembers
                                                       author:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"]
                                                    addedDate:today];
             self.expense = expense;
@@ -346,11 +356,38 @@
     checkedMember.image=[UIImage imageNamed: @"green-check"];
     checkedMember.tag=indexPath.row+1;
     [cell addSubview:checkedMember];
+    
+    NSDictionary *member = [memberArray objectAtIndex:indexPath.row];
+    NSLog(@"member = %@", member);
+    
+    NSString *path = member[@"picturePath"];
+    NSNumber *facebookId= [[[NSNumberFormatter alloc] init] numberFromString:path];
+    
+    NSURL *url;
+    if (facebookId) {
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=100&height=100", facebookId]];
+    } else if(![path isEqualToString:@"local"]) {
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:8888/Twinkler1.2.3/web/%@", path]];
+    }
+    
+    if(url) {
+    
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        NSLog(@"%@", url);
+    
+        [cell.memberProfilePic setImageWithURLRequest:request
+                                 placeholderImage:[UIImage imageNamed:@"profile-pic.png"]
+                                          success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                              cell.memberProfilePic.image = image;
+                                        
+                                          }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                              NSLog(@"Failed with error: %@", error);
+                                          }];
+    }
+    
     cell.memberProfilePic.alpha=1;
     cell.isSelected=YES;
-
     cell.memberNameLabel.text=[memberArray objectAtIndex:indexPath.row][@"name"];
-
     cell.memberNameLabel.backgroundColor=[UIColor clearColor];
     return cell;
 }
