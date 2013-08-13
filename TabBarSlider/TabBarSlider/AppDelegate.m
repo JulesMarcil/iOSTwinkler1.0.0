@@ -72,14 +72,14 @@
 
 - (void)dismissLoginView
 {
-    NSLog(@"dismissLogin called");
     UIViewController *rootViewController = (id) self.window.rootViewController;
     
     Class class = [[rootViewController presentedViewController] class];
-    NSLog(@"%@", class);
+    NSLog(@"dismiss login view, class of presentedviewcontroller = %@", class);
     
     [[rootViewController presentedViewController] dismissViewControllerAnimated:NO completion:nil];
-    NSLog(@"dismissLogin completed");
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"profileDisplayed" object:nil];
 }
 
 // *** Facebook login actions ***
@@ -172,7 +172,6 @@
                                               
                                               NSLog(@"login success with facebook from appdelegate.m");
                                               [[NSNotificationCenter defaultCenter] postNotificationName:@"loginSuccess" object:nil];
-                                              [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dismissLoginView) name:@"groupsWithJSONFinishedLoading" object:nil];
                                               
                                           } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                               NSLog(@"error: %@", error);

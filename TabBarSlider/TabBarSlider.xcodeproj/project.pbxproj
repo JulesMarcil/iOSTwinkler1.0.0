@@ -118,6 +118,7 @@
 		BA403FD117B00C5800BE5282 /* CredentialStore.m in Sources */ = {isa = PBXBuildFile; fileRef = BA403FCF17B00C5800BE5282 /* CredentialStore.m */; };
 		BA4CB84817B0F47D00521584 /* AddItemListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4CB84517B0F47D00521584 /* AddItemListViewController.m */; };
 		BA4CB84917B0F47D00521584 /* ItemListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4CB84717B0F47D00521584 /* ItemListViewController.m */; };
+		BA7FC7E317BA29D1001E3A3C /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7FC7E217BA29D1001E3A3C /* RegisterViewController.m */; };
 		BA9C6DEC17B0627E00C50CC2 /* AddGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9C6DE517B0627E00C50CC2 /* AddGroupViewController.m */; };
 		BA9C6DED17B0627E00C50CC2 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9C6DE717B0627E00C50CC2 /* Group.m */; };
 		BA9C6DEE17B0627E00C50CC2 /* GroupDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9C6DE917B0627E00C50CC2 /* GroupDataController.m */; };
@@ -288,6 +289,8 @@
 		BA4CB84517B0F47D00521584 /* AddItemListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemListViewController.m; sourceTree = "<group>"; };
 		BA4CB84617B0F47D00521584 /* ItemListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemListViewController.h; sourceTree = "<group>"; };
 		BA4CB84717B0F47D00521584 /* ItemListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemListViewController.m; sourceTree = "<group>"; };
+		BA7FC7E117BA29D1001E3A3C /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		BA7FC7E217BA29D1001E3A3C /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		BA9C6DE417B0627E00C50CC2 /* AddGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGroupViewController.h; sourceTree = "<group>"; };
 		BA9C6DE517B0627E00C50CC2 /* AddGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddGroupViewController.m; sourceTree = "<group>"; };
 		BA9C6DE617B0627E00C50CC2 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
@@ -470,6 +473,8 @@
 				892F997517B8F71700D86B4D /* WelcomeViewController.h */,
 				892F997617B8F71700D86B4D /* WelcomeViewController.m */,
 				89F71E1917B5946E00BC9C32 /* Images */,
+				BA7FC7E117BA29D1001E3A3C /* RegisterViewController.h */,
+				BA7FC7E217BA29D1001E3A3C /* RegisterViewController.m */,
 			);
 			name = WelcomeFlow;
 			sourceTree = "<group>";
@@ -912,6 +917,7 @@
 				BAAC681317B4E29D006C69DE /* Profile.m in Sources */,
 				892F99A417B93E6900D86B4D /* MemberCollectionViewFlowLayout.m in Sources */,
 				8919A9DF17BA19AF00778467 /* timelineBubbleCell.m in Sources */,
+				BA7FC7E317BA29D1001E3A3C /* RegisterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
