@@ -66,8 +66,6 @@
                                       NSLog(@"login success with email from login view controller");
                                       [[NSNotificationCenter defaultCenter] postNotificationName:@"loginSuccess" object:nil];
                                       
-                                      [self dismissViewControllerAnimated:YES completion:nil];
-                                      
                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                       NSLog(@"error: %@", error);
                                   }];
@@ -76,8 +74,8 @@
 - (IBAction)FacebookLogin:(id)sender {
     
     [self.FBspinner startAnimating];
-    
     [sender setTitleColor:[UIColor colorWithRed:78/255 green:90/255 blue:149/255 alpha:0.0] forState: UIControlStateNormal];
+    
     NSLog(@"login with facebook");
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     [appDelegate openSession];

@@ -57,9 +57,6 @@
     
     //-----------DESIGN---------------//
     UIColor *borderColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1.0];
-
-    [self setRoundedView:self.profilePic picture:self.profilePic.image toDiameter:70.0];
-    
     
     UIImageView *imageView = [[UIImageView alloc]init];
     CGRect frame= [self.profilePic frame];
@@ -330,6 +327,11 @@
     
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"facebookId"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"facebookName"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupId"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentMember"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupName"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupMembers"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupCurrency"];
     
     UIStoryboard *welcomeStoryboard = [UIStoryboard storyboardWithName:@"welcomeStoryboard" bundle: nil];
     UINavigationController *navController = (UINavigationController*)[welcomeStoryboard instantiateViewControllerWithIdentifier:@"LoginNavController"];
