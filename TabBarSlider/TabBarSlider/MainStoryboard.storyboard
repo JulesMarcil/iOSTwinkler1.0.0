@@ -35,7 +35,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="top-menu-background.png" id="CEJ-Kj-tyY">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="top-menu-bckgd-2.png" id="CEJ-Kj-tyY">
                                 <rect key="frame" x="0.0" y="448" width="320" height="100"/>
                             </imageView>
                             <view contentMode="scaleToFill" id="yLr-kz-sh4">
@@ -115,10 +115,15 @@
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="lPD-AU-Mgi">
                                 <rect key="frame" x="0.0" y="31" width="320" height="69"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <collectionViewLayout key="collectionViewLayout" id="BeA-rX-46I" customClass="MemberCollectionViewFlowLayout"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="u99-uP-JaJ">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="memberCell" id="CAQ-km-t7v">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="0.0" y="9" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -414,7 +419,7 @@
         <image name="tabbar-active.png" width="44" height="44"/>
         <image name="tk-icon-active.png" width="30" height="30"/>
         <image name="tk-icon-inactive.png" width="30" height="30"/>
-        <image name="top-menu-background.png" width="320" height="100"/>
+        <image name="top-menu-bckgd-2.png" width="320" height="100"/>
     </resources>
     <classes>
         <class className="AddGroupViewController" superclassName="UIViewController">
@@ -431,9 +436,6 @@
                 <relationship kind="outlet" name="detailLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="groupNameLabel" candidateClass="UILabel"/>
             </relationships>
-        </class>
-        <class className="MemberCollectionViewFlowLayout" superclassName="UICollectionViewFlowLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MemberCollectionViewFlowLayout.h"/>
         </class>
         <class className="MenuViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>

@@ -12,6 +12,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "AuthAPIClient.h"
 #import "AFHTTPRequestOperation.h"
+#import "timelineBubbleCell.h"
 
 
 @interface TimelineViewController ()
@@ -172,6 +173,13 @@
     return [self.messageDataController countOfList];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    Message *messageAtIndex = [self.messageDataController
+                               objectInListAtIndex:indexPath.row];
+    CGSize sz = [messageAtIndex.content sizeWithFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:14.0]constrainedToSize:CGSizeMake(200, 20000) lineBreakMode:UILineBreakModeWordWrap];
+    return sz.height+50;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"timelineCell";
     static NSDateFormatter *formatter = nil;
@@ -179,15 +187,39 @@
         formatter = [[NSDateFormatter alloc] init];
         [formatter setDateStyle:NSDateFormatterMediumStyle];
     }
-    UITableViewCell *cell = [tableView
+    timelineBubbleCell *cell = [tableView
                              dequeueReusableCellWithIdentifier:CellIdentifier];
+    cell.messageContainer.layer.cornerRadius = 3;
+    cell.messageContainer.layer.masksToBounds = YES;
+    
     Message *messageAtIndex = [self.messageDataController
                                    objectInListAtIndex:indexPath.row];
-    [[cell textLabel] setText:messageAtIndex.content];
-    [[cell detailTextLabel] setText:[formatter stringFromDate:(NSDate
-                                                               *)messageAtIndex.date]];
+    cell.messageLabel.text=messageAtIndex.content;
+    CGRect frame = cell.messageLabel.frame;
+    frame.size.height = cell.messageLabel.contentSize.height+20;
+    CGSize sz = [cell.messageLabel.text sizeWithFont:cell.messageLabel.font constrainedToSize:CGSizeMake(200, 20000) lineBreakMode:UILineBreakModeWordWrap];
+    cell.messageLabel.editable = NO;
+    cell.messageContainer.frame=frame;
+    [cell.messageContainer setFrame:CGRectMake(70,10,
+                                                sz.width+20,
+                                                sz.height+20)];
+    
+    [cell.bubbleTailImage setFrame:CGRectMake(52,sz.height,
+                                              cell.bubbleTailImage.frame.size.width,
+                                              cell.bubbleTailImage.frame.size.height)];
+    [cell.memberProfilePicImage setFrame:CGRectMake(5,(int) sz.height-15,
+                                              55,
+                                              47)];
+    
+    [cell.timelineTimeLabel setFrame:CGRectMake(sz.width+25+70,sz.height+5,
+                                              cell.timelineTimeLabel.frame.size.width,
+                                              cell.timelineTimeLabel.frame.size.height)];
+    
+    [formatter setDateFormat:@"HH:mm"];
+    cell.timelineTimeLabel.text=[formatter stringFromDate:(NSDate*)messageAtIndex.date];
     return cell;
 }
+
 
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
