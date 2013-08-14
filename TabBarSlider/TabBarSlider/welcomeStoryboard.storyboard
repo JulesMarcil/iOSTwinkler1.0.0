@@ -116,6 +116,11 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
+                                                <view contentMode="scaleToFill" id="RV6-1C-TaK">
+                                                    <rect key="frame" x="5" y="0.0" width="55" height="55"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -125,6 +130,7 @@
                                             <outlet property="dateLabel" destination="2fD-LM-PxX" id="PGk-5z-Blp"/>
                                             <outlet property="detailLabel" destination="Fc6-Fg-HsF" id="5oz-wc-khj"/>
                                             <outlet property="groupNameLabel" destination="5V8-Pw-esX" id="CN5-JS-R0l"/>
+                                            <outlet property="groupPicPlaceholder" destination="RV6-1C-TaK" id="Oev-2I-5kX"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -601,6 +607,7 @@
                 <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="detailLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="groupNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="groupPicPlaceholder" candidateClass="UIView"/>
             </relationships>
         </class>
         <class className="LoginViewController" superclassName="UIViewController">
