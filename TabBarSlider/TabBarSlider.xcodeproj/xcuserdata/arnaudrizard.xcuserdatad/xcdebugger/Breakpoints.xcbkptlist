@@ -173,11 +173,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TabBarSlider/TabBarViewController.m"
-         timestampString = "398158555.310118"
+         timestampString = "398170925.52839"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "197"
-         endingLineNumber = "197"
+         startingLineNumber = "233"
+         endingLineNumber = "233"
          landmarkName = "-goToTimeline"
          landmarkType = "5">
       </FileBreakpoint>
@@ -186,11 +186,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TabBarSlider/TabBarViewController.m"
-         timestampString = "398158555.310118"
+         timestampString = "398170925.52839"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "201"
-         endingLineNumber = "201"
+         startingLineNumber = "237"
+         endingLineNumber = "237"
          landmarkName = "-goToTimeline"
          landmarkType = "5">
       </FileBreakpoint>
@@ -199,11 +199,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TabBarSlider/TabBarViewController.m"
-         timestampString = "398158555.310118"
+         timestampString = "398170925.52839"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "196"
-         endingLineNumber = "196"
+         startingLineNumber = "232"
+         endingLineNumber = "232"
          landmarkName = "-goToTimeline"
          landmarkType = "5">
       </FileBreakpoint>
@@ -212,11 +212,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TabBarSlider/TabBarViewController.m"
-         timestampString = "398158555.310118"
+         timestampString = "398170925.52839"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "193"
-         endingLineNumber = "193"
+         startingLineNumber = "229"
+         endingLineNumber = "229"
          landmarkName = "-goToTimeline"
          landmarkType = "5">
       </FileBreakpoint>
@@ -225,11 +225,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TabBarSlider/TabBarViewController.m"
-         timestampString = "398158555.310118"
+         timestampString = "398170925.52839"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "203"
-         endingLineNumber = "203"
+         startingLineNumber = "239"
+         endingLineNumber = "239"
          landmarkName = "-goToTimeline"
          landmarkType = "5">
       </FileBreakpoint>

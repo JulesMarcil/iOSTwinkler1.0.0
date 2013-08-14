@@ -69,6 +69,41 @@
                                       320,
                                       55)];
     self.collectionView.backgroundColor=[UIColor clearColor];
+    switch ([self.memberArray  count]){
+        case 1:
+            [self.collectionView setFrame:CGRectMake(132,
+                                                     45,
+                                                     320,
+                                                     55)];
+            
+            break;
+            
+        case 2:
+            [self.collectionView setFrame:CGRectMake(100,
+                                                     45,
+                                                     320,
+                                                     55)];
+            break;
+        case 3:
+            [self.collectionView setFrame:CGRectMake(75,
+                                                     45,
+                                                     320,
+                                                     55)];
+            break;
+        case 4:
+            [self.collectionView setFrame:CGRectMake(45,
+                                                     45,
+                                                     320,
+                                                     55)];
+            break;
+        case 5:
+            [self.collectionView setFrame:CGRectMake(10,
+                                                     45,
+                                                     320,
+                                                     55)];
+            break;
+            
+    }
     
     UIStoryboard *timelineStoryboard=[UIStoryboard storyboardWithName:@"timelineStoryboard" bundle:nil];
     TabBarViewController *dst=[timelineStoryboard instantiateInitialViewController];
@@ -90,6 +125,8 @@
     
     DRNRealTimeBlurView *blurView = [[DRNRealTimeBlurView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     [self.coverPic addSubview:blurView];
+    
+
     
 }
 
