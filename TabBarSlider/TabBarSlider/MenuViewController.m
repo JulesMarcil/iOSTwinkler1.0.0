@@ -278,11 +278,6 @@
     }
 }
 
-- (IBAction)test:(id)sender {
-    
-    [self setRoundedView:self.profilePic picture:self.profilePic.image toDiameter:70.0];
-}
-
 - (IBAction)goToTimelineButton:(id)sender {
     
             UIStoryboard *mainStoryboard=[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];

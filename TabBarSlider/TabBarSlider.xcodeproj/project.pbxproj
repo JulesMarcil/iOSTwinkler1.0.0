@@ -115,6 +115,7 @@
 		BA24D4F017B0171C0042C7A4 /* SSKeychain.strings in Resources */ = {isa = PBXBuildFile; fileRef = BA24D4EA17B0171C0042C7A4 /* SSKeychain.strings */; };
 		BA24D4F117B0171C0042C7A4 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4ED17B0171C0042C7A4 /* SSKeychain.m */; };
 		BA24D4F217B0171C0042C7A4 /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4EF17B0171C0042C7A4 /* SSKeychainQuery.m */; };
+		BA2D793F17BB9ECE00B19C09 /* Member.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2D793E17BB9ECE00B19C09 /* Member.m */; };
 		BA403FC717B008B700BE5282 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA403FC617B008B700BE5282 /* Security.framework */; };
 		BA403FC917B008BF00BE5282 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA403FC817B008BF00BE5282 /* MobileCoreServices.framework */; };
 		BA403FCB17B008CB00BE5282 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA403FCA17B008CB00BE5282 /* SystemConfiguration.framework */; };
@@ -285,6 +286,8 @@
 		BA24D4ED17B0171C0042C7A4 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
 		BA24D4EE17B0171C0042C7A4 /* SSKeychainQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychainQuery.h; sourceTree = "<group>"; };
 		BA24D4EF17B0171C0042C7A4 /* SSKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainQuery.m; sourceTree = "<group>"; };
+		BA2D793D17BB9ECE00B19C09 /* Member.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Member.h; sourceTree = "<group>"; };
+		BA2D793E17BB9ECE00B19C09 /* Member.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Member.m; sourceTree = "<group>"; };
 		BA403FC617B008B700BE5282 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		BA403FC817B008BF00BE5282 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		BA403FCA17B008CB00BE5282 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -418,10 +421,12 @@
 				BA9C6DE717B0627E00C50CC2 /* Group.m */,
 				BA9C6DE817B0627E00C50CC2 /* GroupDataController.h */,
 				BA9C6DE917B0627E00C50CC2 /* GroupDataController.m */,
-				891183A017B13DD700B28ABE /* GroupListCell.h */,
-				891183A117B13DD700B28ABE /* GroupListCell.m */,
 				BAAC681117B4E29D006C69DE /* Profile.h */,
 				BAAC681217B4E29D006C69DE /* Profile.m */,
+				BA2D793D17BB9ECE00B19C09 /* Member.h */,
+				BA2D793E17BB9ECE00B19C09 /* Member.m */,
+				891183A017B13DD700B28ABE /* GroupListCell.h */,
+				891183A117B13DD700B28ABE /* GroupListCell.m */,
 			);
 			name = GroupMenu;
 			sourceTree = "<group>";
@@ -932,6 +937,7 @@
 				892F99A417B93E6900D86B4D /* MemberCollectionViewFlowLayout.m in Sources */,
 				8919A9DF17BA19AF00778467 /* timelineBubbleCell.m in Sources */,
 				BA7FC7E317BA29D1001E3A3C /* RegisterViewController.m in Sources */,
+				BA2D793F17BB9ECE00B19C09 /* Member.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
