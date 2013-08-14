@@ -239,8 +239,8 @@
                                                    sz.width+20,
                                                    sz.height+20)];
         
-        cell.messageContainer.backgroundColor=[UIColor colorWithRed:(243/255.0) green:(243/255.0) blue:(243/255.0) alpha:1];
-        cell.bubbleTailImage.image= [UIImage imageNamed:@"bubble-tail-grey"];
+        cell.messageContainer.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:1];
+        cell.bubbleTailImage.image= [UIImage imageNamed:@"bubble-tail-white"];
         
         [cell.bubbleTailImage setFrame:CGRectMake(52,sz.height,
                                                   cell.bubbleTailImage.frame.size.width,
