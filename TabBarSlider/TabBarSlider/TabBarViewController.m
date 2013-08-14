@@ -59,10 +59,10 @@
                                           screenHeight - 144)];
     frame= [self.toolbar frame];
     [self.toolbar setFrame:CGRectMake(0,
-                                      100,
+                                      0,
                                       frame.size.width,
-                                      44)];
-    self.toolbar.backgroundColor=[UIColor colorWithRed:(249/255.0) green:(249/255.0) blue:(249/255.0) alpha:1];
+                                      144)];
+    self.toolbar.backgroundColor=[UIColor colorWithRed:(252/255.0) green:(146/255.0) blue:(118/255.0) alpha:1];
 
     [self.collectionView setFrame:CGRectMake(0,
                                       45,
@@ -122,9 +122,6 @@
     
     
     [self.revealButtonItem addTarget:self.revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
-    
-    DRNRealTimeBlurView *blurView = [[DRNRealTimeBlurView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-    [self.coverPic addSubview:blurView];
     
 
     

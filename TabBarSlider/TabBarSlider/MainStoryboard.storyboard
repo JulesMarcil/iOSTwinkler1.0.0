@@ -35,17 +35,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="top-menu-background.png" id="CEJ-Kj-tyY">
-                                <rect key="frame" x="0.0" y="448" width="320" height="100"/>
-                            </imageView>
                             <view contentMode="scaleToFill" id="yLr-kz-sh4">
-                                <rect key="frame" x="0.0" y="97" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="141"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="tabbar-active.png" id="W14-Iv-0NE">
-                                        <rect key="frame" x="107" y="0.0" width="107" height="44"/>
+                                        <rect key="frame" x="107" y="97" width="107" height="44"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Sdr-S6-Ogv">
-                                        <rect key="frame" x="0.0" y="0.0" width="107" height="44"/>
+                                        <rect key="frame" x="0.0" y="97" width="107" height="44"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                                         <state key="normal" image="coin-icon-inactive.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -55,7 +52,7 @@
                                         <state key="highlighted" image="coin-icon-active.png"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7cJ-cX-HfO">
-                                        <rect key="frame" x="107" y="0.0" width="107" height="44"/>
+                                        <rect key="frame" x="107" y="97" width="107" height="44"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                                         <state key="normal" image="tk-icon-inactive.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -65,7 +62,7 @@
                                         <state key="highlighted" image="tk-icon-active.png"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2f3-R7-Uas">
-                                        <rect key="frame" x="213" y="0.0" width="107" height="44"/>
+                                        <rect key="frame" x="213" y="97" width="107" height="44"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                                         <state key="normal" image="check-icon-inactive.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -75,7 +72,7 @@
                                         <state key="highlighted" image="check-icon-active.png"/>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.57254904508590698" blue="0.48235297203063965" alpha="1" colorSpace="deviceRGB"/>
                             </view>
                             <view alpha="0.99999999999999989" contentMode="scaleToFill" id="bTU-o3-M9J">
                                 <rect key="frame" x="0.0" y="503" width="320" height="45"/>
@@ -86,7 +83,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                         <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <size key="shadowOffset" width="0.0" height="1"/>
+                                        <size key="shadowOffset" width="0.0" height="0.0"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="crz-9H-jQT">
                                         <rect key="frame" x="-10" y="5" width="70" height="35"/>
@@ -112,38 +109,11 @@
                                     </button>
                                 </subviews>
                             </view>
-                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="lPD-AU-Mgi">
-                                <rect key="frame" x="0.0" y="31" width="320" height="69"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="u99-uP-JaJ">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="memberCell" id="CAQ-km-t7v">
-                                        <rect key="frame" x="0.0" y="9" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="TSO-ay-kkC" id="eiH-8V-cZU"/>
-                                    <outlet property="delegate" destination="TSO-ay-kkC" id="PT9-Qs-2B0"/>
-                                </connections>
-                            </collectionView>
                         </subviews>
                     </view>
                     <navigationItem key="navigationItem" id="u2S-Tg-Me3"/>
                     <connections>
                         <outlet property="activeTabBarImage" destination="W14-Iv-0NE" id="Gp9-Re-AcS"/>
-                        <outlet property="collectionView" destination="lPD-AU-Mgi" id="XAx-Xs-ow8"/>
-                        <outlet property="coverPic" destination="CEJ-Kj-tyY" id="8sQ-GL-Zec"/>
                         <outlet property="expenseButton" destination="Sdr-S6-Ogv" id="i67-w2-7yk"/>
                         <outlet property="groupTitle" destination="A1f-cY-EFc" id="dwg-HO-Ydt"/>
                         <outlet property="listButton" destination="2f3-R7-Uas" id="w9i-im-QXT"/>
@@ -297,6 +267,21 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="VbT-fi-hRj">
+                                            <rect key="frame" x="9" y="90" width="73" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <state key="normal" title="Button">
+                                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <state key="highlighted">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <segue destination="J7Q-2g-8hh" kind="modal" id="DPF-iy-Gra"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </view>
                                 <prototypes>
@@ -419,14 +404,69 @@
         <image name="tabbar-active.png" width="44" height="44"/>
         <image name="tk-icon-active.png" width="30" height="30"/>
         <image name="tk-icon-inactive.png" width="30" height="30"/>
-        <image name="top-menu-background.png" width="320" height="100"/>
     </resources>
+    <classes>
+        <class className="AddGroupViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddGroupViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="groupCurrency" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="groupName" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="GroupListCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GroupListCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="detailLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="groupNameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MenuViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="Logout:"/>
+                <relationship kind="action" name="cancelAddGroup:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="doneAddGroup:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="goToTimelineButton:"/>
+                <relationship kind="outlet" name="addGroupButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="friendNumberLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="groupOnMenu" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="profilePic" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="tableViewHeader" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="SWRevealViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SWRevealViewController.h"/>
+        </class>
+        <class className="TabBarViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TabBarViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="activeTabBarImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="collectionView" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="coverPic" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="expenseButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="groupTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="listButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="placeholderView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="revealButtonItem" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="timelineButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIView"/>
+                <relationship kind="outlet" name="topBar" candidateClass="UIView"/>
+                <relationship kind="outlet" name="topWhiteBar" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="UIStoryboardSegue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="fre-ie-9eR"/>
         <segue reference="KLY-9e-DSX"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -204,7 +204,7 @@
     
     NSString *currentMemberName=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"];
     
-    if ([currentMemberName isEqualToString:messageAtIndex.author]){
+    if (![currentMemberName isEqualToString:messageAtIndex.author]){
     
     CGRect frame = cell.messageLabel.frame;
     frame.size.height = cell.messageLabel.contentSize.height+20;
