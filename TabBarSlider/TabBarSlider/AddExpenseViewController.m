@@ -101,6 +101,10 @@
     [self.cancelExpenseButton.layer  setBorderWidth:1.0];
     
     self.collectionView.backgroundColor =[UIColor clearColor];
+    
+    self.expenseAmount.keyboardType=UIKeyboardTypeDecimalPad;
+    self.expenseAmount.inputAccessoryView=[self toolBarForKeyboardAccessory];
+    
 
 }
 
@@ -206,7 +210,7 @@
     return [memberArray objectAtIndex:row][@"name"];
 }
 
--(IBAction)closePicker:(id)sender
+-(void)closePicker:(id)sender
 {
     [UIView animateWithDuration:0.3 animations:^{
         self.expenseMemberPicker.frame = CGRectMake(self.expenseMemberPicker.frame.origin.x,
@@ -244,7 +248,7 @@
     darkView.alpha = 0;
     darkView.backgroundColor = [UIColor blackColor];
     darkView.tag = 9;
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissDatePicker:)] ;
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissMemberPicker:)] ;
     [darkView addGestureRecognizer:tapGesture];
     [self.view addSubview:darkView];
     [self.view addSubview:self.expenseMemberPicker];
@@ -268,6 +272,30 @@
     [self.expenseMemberPicker reloadAllComponents];
     [self.expenseMemberPicker selectRow:0 inComponent:0 animated:YES];
 }
+
+
+-(UIToolbar *)toolBarForKeyboardAccessory
+{
+    UIToolbar *keyboardToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
+    keyboardToolbar.barStyle = UIBarStyleBlackTranslucent;
+    
+    UIBarButtonItem* flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    
+    
+    UIBarButtonItem* cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneButtonClicked:)];
+    
+    [keyboardToolbar setItems:[NSArray arrayWithObjects: flexSpace, flexSpace, flexSpace, flexSpace, flexSpace, cancelButton, nil] animated:NO];
+    
+    return keyboardToolbar;
+    
+}
+
+- (void) doneButtonClicked: (id) sender{
+    
+    [self textFieldShouldReturn:self.expenseAmount];
+}
+
+
 
 - (IBAction)selectAll:(id)sender {
     for(memberCollectionViewCell* cell in [self.collectionView visibleCells]){
