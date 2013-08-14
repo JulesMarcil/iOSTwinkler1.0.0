@@ -164,17 +164,17 @@
     
     if(memberNumber==0){
         UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(5, 9, 40,40)];
-        [self getImageForView:iv Member:tempActiveMember];
+        [self getImageForView:iv Member:tempActiveMember size:40.0];
         [groupPicPlaceholder addSubview:iv];
     }else if(memberNumber==1){
         UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(5, 9, 40,40)];
-        [self getImageForView:iv Member:groupMembers[0]];
+        [self getImageForView:iv Member:groupMembers[0] size:40.0];
         [groupPicPlaceholder addSubview:iv];
     }else if (memberNumber==2){
         UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(24, 6, 25, 25)];
         UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(4, 26, 25, 25)];
-        [self getImageForView:iv Member:groupMembers[0]];
-        [self getImageForView:ivbis Member:groupMembers[1]];
+        [self getImageForView:iv Member:groupMembers[0] size:25.0];
+        [self getImageForView:ivbis Member:groupMembers[1] size:25.0];
         [groupPicPlaceholder addSubview:iv];
         [groupPicPlaceholder addSubview:ivbis];
     }else if (memberNumber==3){
@@ -182,9 +182,9 @@
         UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(10, 0, 20,20)];
         UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(0, 25, 20,20)];
         UIImageView *ivtier = [[UIImageView alloc] initWithFrame:CGRectMake(20, 25, 20,20)];
-        [self getImageForView:iv Member:groupMembers[0]];
-        [self getImageForView:ivbis Member:groupMembers[1]];
-        [self getImageForView:ivtier Member:groupMembers[2]];
+        [self getImageForView:iv Member:groupMembers[0] size:20.0];
+        [self getImageForView:ivbis Member:groupMembers[1] size:20.0];
+        [self getImageForView:ivtier Member:groupMembers[2] size:20.0];
         [groupPicPlaceholder  addSubview:iv];
         [groupPicPlaceholder  addSubview:ivbis];
         [groupPicPlaceholder  addSubview:ivtier];
@@ -195,10 +195,10 @@
         UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(29, 5, 22,22)];
         UIImageView *ivtier = [[UIImageView alloc] initWithFrame:CGRectMake(4, 30, 22,22)];
         UIImageView *ivquatro = [[UIImageView alloc] initWithFrame:CGRectMake(29, 30, 22,22)];
-        [self getImageForView:iv Member:groupMembers[0]];
-        [self getImageForView:ivbis Member:groupMembers[1]];
-        [self getImageForView:ivtier Member:groupMembers[2]];
-        [self getImageForView:ivquatro Member:groupMembers[3]];
+        [self getImageForView:iv Member:groupMembers[0] size:22.0];
+        [self getImageForView:ivbis Member:groupMembers[1] size:22.0];
+        [self getImageForView:ivtier Member:groupMembers[2] size:22.0];
+        [self getImageForView:ivquatro Member:groupMembers[3] size:22.0];
         [groupPicPlaceholder  addSubview:iv];
         [groupPicPlaceholder  addSubview:ivbis];
         [groupPicPlaceholder  addSubview:ivtier];
@@ -209,7 +209,7 @@
     return cell;
 }
 
-- (void)getImageForView:(UIImageView *)view Member:(NSDictionary *)member {
+- (void)getImageForView:(UIImageView *)view Member:(NSDictionary *)member size:(NSInteger) size{
     
     NSLog(@"get image for member %@", member);
     
@@ -241,7 +241,8 @@
                                               }];
     } else {
         view.image = placeholderImage;
-        [self setRoundedView:view picture:view.image toDiameter:40.0];
+
+        [self setRoundedView:view picture:view.image toDiameter:size];
     }
 }
 
