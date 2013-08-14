@@ -152,38 +152,44 @@
     
     if(memberNumber==1){
         UIImage *image = [[UIImage alloc] init];
-        image=[UIImage imageNamed:@"sasa.png"];
-        UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 50, 45)];
+        image=[UIImage imageNamed:@"profile-pic-placeholder.png"];
+        UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(5, 9, 40,40)];
         [iv setImage:image];
         [groupPicPlaceholder addSubview:iv];
+        [self setRoundedView:iv picture:image toDiameter:40.0];
     }else if (memberNumber==2){
         UIImage *image = [[UIImage alloc] init];
-        image=[UIImage imageNamed:@"sasa.png"];
-        UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(20, 0, 35, 35)];
-        UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(0, 20, 35, 35)];
+        image=[UIImage imageNamed:@"profile-pic-placeholder.png"];
+        UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(24, 6, 25, 25)];
+        UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(4, 26, 25, 25)];
         [iv setImage:image];
         [ivbis setImage:image];
+        [self setRoundedView:iv picture:image toDiameter:25.0];
+        [self setRoundedView:ivbis picture:image toDiameter:25.0];
         [groupPicPlaceholder addSubview:iv];
         [groupPicPlaceholder addSubview:ivbis];
     }else if (memberNumber==3){
         UIImage *image = [[UIImage alloc] init];
-        image=[UIImage imageNamed:@"sasa.png"];
-        UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(10, 0, 25, 25)];
-        UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(0, 25, 25, 25)];
-        UIImageView *ivtier = [[UIImageView alloc] initWithFrame:CGRectMake(20, 25, 25, 25)];
+        image=[UIImage imageNamed:@"profile-pic-placeholder.png"];
+        UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(10, 0, 20,20)];
+        UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(0, 25, 20,20)];
+        UIImageView *ivtier = [[UIImageView alloc] initWithFrame:CGRectMake(20, 25, 20,20)];
         [iv setImage:image];
         [ivbis setImage:image];
         [ivtier setImage:image];
+        [self setRoundedView:ivbis picture:image toDiameter:20.0];
+        [self setRoundedView:ivtier picture:image toDiameter:20.0];
+        [self setRoundedView:iv picture:image toDiameter:20.0];
         [groupPicPlaceholder  addSubview:iv];
         [groupPicPlaceholder  addSubview:ivbis];
         [groupPicPlaceholder  addSubview:ivtier];
     }else if (memberNumber>3){
         UIImage *image = [[UIImage alloc] init];
-        image=[UIImage imageNamed:@"sasa.png"];
-        UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-        UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(25, 0, 30, 30)];
-        UIImageView *ivtier = [[UIImageView alloc] initWithFrame:CGRectMake(0, 25, 30, 30)];
-        UIImageView *ivquatro = [[UIImageView alloc] initWithFrame:CGRectMake(25, 25, 30, 30)];
+        image=[UIImage imageNamed:@"profile-pic-placeholder.png"];
+        UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(4, 5, 22,22)];
+        UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(29, 5, 22,22)];
+        UIImageView *ivtier = [[UIImageView alloc] initWithFrame:CGRectMake(4, 30, 22,22)];
+        UIImageView *ivquatro = [[UIImageView alloc] initWithFrame:CGRectMake(29, 30, 22,22)];
         [iv setImage:image];
         [ivbis setImage:image];
         [ivtier setImage:image];
@@ -192,6 +198,10 @@
         [groupPicPlaceholder  addSubview:ivbis];
         [groupPicPlaceholder  addSubview:ivtier];
         [groupPicPlaceholder  addSubview:ivquatro];
+        [self setRoundedView:iv picture:image toDiameter:22.0];
+        [self setRoundedView:ivbis picture:image toDiameter:22.0];
+        [self setRoundedView:ivtier picture:image toDiameter:22.0];
+        [self setRoundedView:ivquatro picture:image toDiameter:22.0];
     }
 
     cell.backgroundView = [UIView new];

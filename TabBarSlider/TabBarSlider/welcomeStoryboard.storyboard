@@ -493,67 +493,6 @@
         <image name="profile-pic.png" width="113" height="111"/>
         <image name="tk-ihpone-icon-retina.png" width="114" height="114"/>
     </resources>
-    <classes>
-        <class className="GroupListCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GroupListCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="detailLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="groupNameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="LoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="EmailLogin:"/>
-                <relationship kind="action" name="FacebookLogin:"/>
-                <relationship kind="outlet" name="FBspinner" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="passwordInput" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="usernameInput" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="MenuViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="Logout:"/>
-                <relationship kind="action" name="cancelAddGroup:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="doneAddGroup:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="goToTimelineButton:"/>
-                <relationship kind="outlet" name="addGroupButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="friendNumberLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="groupOnMenu" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="profilePic" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="tableViewHeader" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="RegisterViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RegisterViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="EmailRegister:"/>
-                <relationship kind="action" name="FacebookLogin:"/>
-                <relationship kind="outlet" name="FBspinner" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="confirmEmailInput" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="emailInput" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="passwordInput" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="usernameInput" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="UIStoryboardSegue" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
-        </class>
-        <class className="WelcomeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WelcomeViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="bckgdImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="registerButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="signinButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
