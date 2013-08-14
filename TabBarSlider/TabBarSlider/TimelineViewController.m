@@ -57,18 +57,18 @@
     [self.messageOnTimeline setFrame:CGRectMake(0,
                                                -20,
                                                frame.size.width,
-                                                screenHeight-208)];
+                                                screenHeight-208+44)];
     [self.messageOnTimeline setContentOffset:CGPointMake(0, 999999999999)];
     
     
     frame= [self.actionBar frame];
     [self.actionBar setFrame:CGRectMake(0,
-                                       screenHeight-228,
+                                       screenHeight-184,
                                        frame.size.width,
                                        44)];
     frame= [self.main frame];
     [self.main setFrame:CGRectMake(10,
-                                   screenHeight-222,
+                                   screenHeight-222+44,
                                     frame.size.width,
                                    frame.size.height)];
     

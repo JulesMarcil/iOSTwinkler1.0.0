@@ -54,15 +54,15 @@
                                        frame.size.height)];
     frame= [self.placeholderView frame];
     [self.placeholderView setFrame:CGRectMake(0,
-                                          144,
+                                          100,
                                           frame.size.width,
-                                          screenHeight - 144)];
+                                          screenHeight - 100)];
     frame= [self.toolbar frame];
     [self.toolbar setFrame:CGRectMake(0,
                                       0,
                                       frame.size.width,
-                                      144)];
-    self.toolbar.backgroundColor=[UIColor colorWithRed:(252/255.0) green:(146/255.0) blue:(118/255.0) alpha:1];
+                                      100)];
+    self.toolbar.backgroundColor=[UIColor colorWithRed:(229/255.0) green:(98/255.0) blue:(83/255.0) alpha:1];
 
     [self.collectionView setFrame:CGRectMake(0,
                                       45,
@@ -105,6 +105,11 @@
             
     }
     
+    self.tabBarBck.layer.cornerRadius = 3;
+    self.tabBarBck.layer.masksToBounds = YES;
+    self.activeTabBarImage.layer.cornerRadius = 3;
+    self.activeTabBarImage.layer.masksToBounds = YES;
+    
     UIStoryboard *timelineStoryboard=[UIStoryboard storyboardWithName:@"timelineStoryboard" bundle:nil];
     TabBarViewController *dst=[timelineStoryboard instantiateInitialViewController];
     self.currentViewController =dst;
@@ -135,7 +140,7 @@
 
 
 - (void)expenseButtonPressed:(UIButton *)sender {
-    CGPoint pt = {0,0};
+    CGPoint pt = {20,52};
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.1];
@@ -151,7 +156,7 @@
     [UIView commitAnimations];
 }
 - (void)timelineButtonPressed:(UIButton *)sender {
-    CGPoint pt = {107,0};
+    CGPoint pt = {114,52};
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.1];
@@ -167,7 +172,7 @@
     [UIView commitAnimations];
 }
 - (void)listButtonPressed:(UIButton *)sender {
-    CGPoint pt = {214,0};
+    CGPoint pt = {207,52};
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.1];
@@ -229,7 +234,7 @@
     [animation setDuration:0.3];
     [animation setType:kCATransitionPush];
     CGRect frame= [self.activeTabBarImage frame];
-    if (frame.origin.x == 0){
+    if (frame.origin.x <120){
         [animation setSubtype:kCATransitionFromRight];
     }else{
         [animation setSubtype:kCATransitionFromLeft];

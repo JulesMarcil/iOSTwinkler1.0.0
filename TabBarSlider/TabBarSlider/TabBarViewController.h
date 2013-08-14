@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *expenseButton;
 @property (weak, nonatomic) IBOutlet UIButton *timelineButton;
 @property (weak, nonatomic) IBOutlet UIButton *listButton;
-@property (weak, nonatomic) IBOutlet UIImageView *activeTabBarImage;
+@property (weak, nonatomic) IBOutlet UIView *activeTabBarImage;
 @property (weak, nonatomic) IBOutlet UIButton *revealButtonItem;
 @property (weak, nonatomic) IBOutlet UIView *placeholderView;
 @property (nonatomic, weak) UIViewController *currentViewController;
@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIView *topBar;
 @property (strong, nonatomic) NSArray *memberArray;
 @property(nonatomic, weak) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIView *tabBarBck;
 
 -(void)goToExpenses;
 -(void)goToTimeline;

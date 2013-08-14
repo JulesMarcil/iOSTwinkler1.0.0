@@ -31,20 +31,27 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="at9-FK-ZVX">
-                                <rect key="frame" x="0.0" y="132" width="320" height="417"/>
+                                <rect key="frame" x="0.0" y="100" width="320" height="449"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="yLr-kz-sh4">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="141"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="tabbar-active.png" id="W14-Iv-0NE">
-                                        <rect key="frame" x="107" y="97" width="107" height="44"/>
-                                    </imageView>
+                                    <view contentMode="scaleToFill" id="ba0-cD-7ZI">
+                                        <rect key="frame" x="20" y="52" width="280" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.81176477670669556" green="0.29411765933036804" blue="0.25098040699958801" alpha="1" colorSpace="deviceRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" id="upL-xD-hup">
+                                        <rect key="frame" x="113.5" y="52" width="93" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Sdr-S6-Ogv">
-                                        <rect key="frame" x="0.0" y="97" width="107" height="44"/>
+                                        <rect key="frame" x="11" y="45" width="107" height="44"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                                        <state key="normal" image="coin-icon-inactive.png">
+                                        <state key="normal" image="coin-icon.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -52,9 +59,9 @@
                                         <state key="highlighted" image="coin-icon-active.png"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7cJ-cX-HfO">
-                                        <rect key="frame" x="107" y="97" width="107" height="44"/>
+                                        <rect key="frame" x="107" y="45" width="107" height="44"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                                        <state key="normal" image="tk-icon-inactive.png">
+                                        <state key="normal" image="tk-icon.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -62,9 +69,9 @@
                                         <state key="highlighted" image="tk-icon-active.png"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2f3-R7-Uas">
-                                        <rect key="frame" x="213" y="97" width="107" height="44"/>
+                                        <rect key="frame" x="201" y="45" width="107" height="44"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                                        <state key="normal" image="check-icon-inactive.png">
+                                        <state key="normal" image="check-icon.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -72,7 +79,7 @@
                                         <state key="highlighted" image="check-icon-active.png"/>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.57254904508590698" blue="0.48235297203063965" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view alpha="0.99999999999999989" contentMode="scaleToFill" id="bTU-o3-M9J">
                                 <rect key="frame" x="0.0" y="503" width="320" height="45"/>
@@ -113,12 +120,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="u2S-Tg-Me3"/>
                     <connections>
-                        <outlet property="activeTabBarImage" destination="W14-Iv-0NE" id="Gp9-Re-AcS"/>
+                        <outlet property="activeTabBarImage" destination="upL-xD-hup" id="KYK-FZ-bhl"/>
                         <outlet property="expenseButton" destination="Sdr-S6-Ogv" id="i67-w2-7yk"/>
                         <outlet property="groupTitle" destination="A1f-cY-EFc" id="dwg-HO-Ydt"/>
                         <outlet property="listButton" destination="2f3-R7-Uas" id="w9i-im-QXT"/>
                         <outlet property="placeholderView" destination="at9-FK-ZVX" id="GWa-6j-Wwa"/>
                         <outlet property="revealButtonItem" destination="crz-9H-jQT" id="ssC-xQ-kbt"/>
+                        <outlet property="tabBarBck" destination="ba0-cD-7ZI" id="5DT-Pn-Zvr"/>
                         <outlet property="timelineButton" destination="7cJ-cX-HfO" id="KkI-rs-QQY"/>
                         <outlet property="toolbar" destination="yLr-kz-sh4" id="Nzn-gw-5VZ"/>
                         <outlet property="topBar" destination="bTU-o3-M9J" id="39y-1e-dHy"/>
@@ -394,72 +402,16 @@
         <image name="Arnaud copy.png" width="637" height="637"/>
         <image name="bckgd-2.png" width="1626" height="3000"/>
         <image name="check-icon-active.png" width="30" height="30"/>
-        <image name="check-icon-inactive.png" width="30" height="30"/>
+        <image name="check-icon.png" width="30" height="30"/>
         <image name="coin-icon-active.png" width="30" height="30"/>
-        <image name="coin-icon-inactive.png" width="30" height="30"/>
+        <image name="coin-icon.png" width="30" height="30"/>
         <image name="dashboard-button-white.png" width="36" height="36"/>
         <image name="gear.png" width="95" height="99"/>
         <image name="heart-icon.png" width="23" height="20"/>
         <image name="menu-button-white.png" width="36" height="36"/>
-        <image name="tabbar-active.png" width="44" height="44"/>
         <image name="tk-icon-active.png" width="30" height="30"/>
-        <image name="tk-icon-inactive.png" width="30" height="30"/>
+        <image name="tk-icon.png" width="30" height="30"/>
     </resources>
-    <classes>
-        <class className="AddGroupViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddGroupViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="groupCurrency" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="groupName" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="GroupListCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GroupListCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="detailLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="groupNameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MenuViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="Logout:"/>
-                <relationship kind="action" name="cancelAddGroup:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="doneAddGroup:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="goToTimelineButton:"/>
-                <relationship kind="outlet" name="addGroupButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="friendNumberLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="groupOnMenu" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="profilePic" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="tableViewHeader" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="SWRevealViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SWRevealViewController.h"/>
-        </class>
-        <class className="TabBarViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TabBarViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="activeTabBarImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="collectionView" candidateClass="UICollectionView"/>
-                <relationship kind="outlet" name="coverPic" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="expenseButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="groupTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="listButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="placeholderView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="revealButtonItem" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="timelineButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="toolbar" candidateClass="UIView"/>
-                <relationship kind="outlet" name="topBar" candidateClass="UIView"/>
-                <relationship kind="outlet" name="topWhiteBar" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="UIStoryboardSegue" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

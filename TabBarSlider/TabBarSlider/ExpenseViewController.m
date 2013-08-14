@@ -54,10 +54,10 @@
     [self.expenseListTable setFrame:CGRectMake(0,
                                                -20,
                                                frame.size.width,
-                                               screenHeight-164)];
+                                               screenHeight-164+44)];
     frame= [self.addItemToolbar frame];
     [self.addItemToolbar setFrame:CGRectMake(0,
-                                             screenHeight-228,
+                                             screenHeight-228+44,
                                              frame.size.width,
                                              44)];
     [[NSNotificationCenter defaultCenter]
