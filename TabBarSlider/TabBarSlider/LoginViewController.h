@@ -18,5 +18,6 @@
 
 - (IBAction)EmailLogin:(id)sender;
 - (IBAction)FacebookLogin:(id)sender;
+- (IBAction)backToHP:(id)sender;
 
 @end

@@ -42,6 +42,8 @@
     [self.FBspinner startAnimating];
     [sender setTitleColor:[UIColor colorWithRed:78/255 green:90/255 blue:149/255 alpha:0.0] forState: UIControlStateNormal];
     
+    [sender setTitleColor:[UIColor colorWithRed:78/255 green:90/255 blue:149/255 alpha:0.0] forState: UIControlStateNormal];
+    
     NSLog(@"login with facebook");
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     [appDelegate openSession];
@@ -50,6 +52,7 @@
 - (IBAction)EmailRegister:(id)sender {
     
     [self.spinner startAnimating];
+    [sender setTitleColor:[UIColor colorWithRed:78/255 green:90/255 blue:149/255 alpha:0.0] forState: UIControlStateNormal];
     
     NSString *username = self.usernameInput.text;
     NSString *email = self.emailInput.text;
@@ -57,20 +60,26 @@
     NSString *password = self.passwordInput.text;
     
     if (username.length == 0){
-        NSLog(@"You must choose a username");
+        self.usernameInput.text=@"Please choose a username first";
         [self.spinner stopAnimating];
+        [sender setTitleColor:[UIColor colorWithRed:78/255 green:90/255 blue:149/255 alpha:1.0] forState: UIControlStateNormal];
     } else if (email.length == 0) {
-        NSLog(@"You must enter your email");
+        self.emailInput.text=@"Please enter a valid email address first";
         [self.spinner stopAnimating];
+        [sender setTitleColor:[UIColor colorWithRed:78/255 green:90/255 blue:149/255 alpha:1.0] forState: UIControlStateNormal];
     } else if (password.length == 0) {
-        NSLog(@"You must choose a password");
+        self.passwordInput.text=@"Please choose a password first";
         [self.spinner stopAnimating];
+        [sender setTitleColor:[UIColor colorWithRed:78/255 green:90/255 blue:149/255 alpha:1.0] forState: UIControlStateNormal];
     } else if (![email isEqualToString:confirmEmail]) {
+        self.emailInput.text=@"Oops, make sure your emails match first!";
         NSLog(@"Your emails do not match");
         [self.spinner stopAnimating];
+        [sender setTitleColor:[UIColor colorWithRed:78/255 green:90/255 blue:149/255 alpha:1.0] forState: UIControlStateNormal];
     } else if (![self NSStringIsValidEmail:email]) {
-        NSLog(@"Please enter a valid email");
+        self.emailInput.text=@"Please enter a valid email address first";
         [self.spinner stopAnimating];
+        [sender setTitleColor:[UIColor colorWithRed:78/255 green:90/255 blue:149/255 alpha:1.0] forState: UIControlStateNormal];
     } else {
     
     NSLog(@"Register with email => username = %@, email = %@, confirmEmail = %@, password = %@", username, email, confirmEmail, password);
@@ -97,6 +106,10 @@
     }    
 }
 
+- (IBAction)backToHP:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 -(BOOL) NSStringIsValidEmail:(NSString *)checkString {
     
     BOOL stricterFilter = YES; // Discussion http://blog.logichigh.com/2010/09/02/validating-an-e-mail-address/
@@ -105,6 +118,35 @@
     NSString *emailRegex = stricterFilter ? stricterFilterString : laxString;
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
     return [emailTest evaluateWithObject:checkString];
+}
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+    
+    [textField resignFirstResponder];
+    return YES;
+}
+
+#pragma mark - Text View Delegate
+
+- (void) textFieldDidBeginEditing:(UITextField *)myTextField
+{
+    [self animateTextField:myTextField up:YES];
+}
+
+- (void) textFieldDidEndEditing:(UITextField *)myTextField
+{
+    [self animateTextField:myTextField up:NO];
+}
+
+- (void) animateTextField: (UITextField*) textField up: (BOOL) up
+{
+    int movement = (up ? -165 : 165);
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:0.3f];
+    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    [UIView commitAnimations];
 }
 
 @end

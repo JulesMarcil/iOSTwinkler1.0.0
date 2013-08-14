@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RegisterViewController : UIViewController
+@interface RegisterViewController : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *usernameInput;
 @property (weak, nonatomic) IBOutlet UITextField *emailInput;
@@ -19,5 +19,6 @@
 
 - (IBAction)FacebookLogin:(id)sender;
 - (IBAction)EmailRegister:(id)sender;
+- (IBAction)backToHP:(id)sender;
 
 @end

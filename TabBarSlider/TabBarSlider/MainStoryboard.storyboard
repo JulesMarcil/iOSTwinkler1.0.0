@@ -290,7 +290,7 @@
                                                 <action selector="Logout:" destination="jM0-tw-YH4" eventType="touchUpInside" id="3nW-jh-cV8"/>
                                             </connections>
                                         </button>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Add a New Group" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="icb-CE-ubc">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Current Groups" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="icb-CE-ubc">
                                             <rect key="frame" x="69" y="157" width="181" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
@@ -421,70 +421,6 @@
         <image name="tk-icon-inactive.png" width="30" height="30"/>
         <image name="top-menu-background.png" width="320" height="100"/>
     </resources>
-    <classes>
-        <class className="AddGroupViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddGroupViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="groupCurrency" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="groupName" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="GroupListCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GroupListCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="detailLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="groupNameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="MenuViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="Logout:"/>
-                <relationship kind="action" name="cancelAddGroup:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="doneAddGroup:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="goToTimelineButton:"/>
-                <relationship kind="outlet" name="addGroupButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="friendNumberLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="groupOnMenu" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="profilePic" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="tableViewHeader" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="SWRevealViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SWRevealViewController.h"/>
-        </class>
-        <class className="TabBarViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TabBarViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="activeTabBarImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="collectionView" candidateClass="UICollectionView"/>
-                <relationship kind="outlet" name="coverPic" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="expenseButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="groupTitle" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="listButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="placeholderView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="revealButtonItem" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="timelineButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="toolbar" candidateClass="UIView"/>
-                <relationship kind="outlet" name="topBar" candidateClass="UIView"/>
-                <relationship kind="outlet" name="topWhiteBar" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="UICollectionReusableView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
-        </class>
-        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UIStoryboardSegue" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
