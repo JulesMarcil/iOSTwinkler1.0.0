@@ -402,7 +402,7 @@
                                                     <color key="textColor" red="0.5450980392" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="sasa.png" id="1VS-NO-sBr">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="profile-pic-placeholder.png" id="1VS-NO-sBr">
                                                     <rect key="frame" x="15" y="12" width="43" height="37"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -420,6 +420,7 @@
                                             <outlet property="expenseAmountLabel" destination="lbS-MY-wLa" id="xGv-yU-1A2"/>
                                             <outlet property="expenseNameLabel" destination="PF4-aS-AQT" id="lrL-K3-MN5"/>
                                             <outlet property="expenseSubtitleLabel" destination="YOq-2C-SDl" id="Ttt-xa-wDc"/>
+                                            <outlet property="memberProfilePic" destination="1VS-NO-sBr" id="cbu-n1-izS"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -489,15 +490,12 @@
         <image name="edit-button.png" width="30" height="26"/>
         <image name="main-button.png" width="34" height="34"/>
         <image name="profile-pic-placeholder.png" width="113" height="111"/>
-        <image name="sasa.png" width="64" height="59"/>
         <image name="timeline-line.png" width="6" height="11"/>
     </resources>
     <classes>
         <class className="AddExpenseViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AddExpenseViewController.h"/>
             <relationships>
-                <relationship kind="action" name="callDP:"/>
-                <relationship kind="action" name="closePicker:"/>
                 <relationship kind="action" name="deselectAll:"/>
                 <relationship kind="action" name="selectAll:"/>
                 <relationship kind="action" name="showPicker:"/>
@@ -526,6 +524,7 @@
                 <relationship kind="outlet" name="expenseAmountLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="expenseNameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="expenseSubtitleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="memberProfilePic" candidateClass="UIImageView"/>
             </relationships>
         </class>
         <class className="ExpenseViewController" superclassName="UIViewController">
@@ -547,9 +546,6 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
         <class className="UIStoryboardSegue" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>

@@ -101,6 +101,9 @@
     }
     ExpenseItemCell *cell = [tableView
                              dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    [cell.memberProfilePic setFrame:CGRectMake(18,12,35,35)];
+    [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:35.0];
     if (cell == nil){
         cell = (ExpenseItemCell*) [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     };
@@ -357,6 +360,28 @@
     [tbvc.expenseButton setSelected:NO];
     
     [UIView commitAnimations];
+}
+
+//----------DESIGN----------
+-(void) setRoundedView:(UIImageView *)imageView picture: (UIImage *)picture toDiameter:(float)newSize{
+    // Begin a new image that will be the new image with the rounded corners
+    // (here with the size of an UIImageView)
+    UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, NO, 1.0);
+    
+    // Add a clip before drawing anything, in the shape of an rounded rect
+    [[UIBezierPath bezierPathWithRoundedRect:imageView.bounds
+                                cornerRadius:100.0] addClip];
+    // Draw your image
+    CGRect frame=imageView.bounds;
+    frame.size.width=newSize;
+    frame.size.height=newSize;
+    [picture drawInRect:frame];
+    
+    // Get the image, here setting the UIImageView image
+    imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    // Lets forget about that we were drawing
+    UIGraphicsEndImageContext();
 }
 
 @end
