@@ -166,7 +166,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="1MH-Wh-DLt" kind="unwind" unwindAction="cancelAddMember:" id="Odt-CM-oQi"/>
+                                                    <segue destination="1MH-Wh-DLt" kind="unwind" identifier="ReturnInput" unwindAction="doneAddMember:" id="bg7-FY-MQ2"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2mq-MR-X5h">
@@ -181,7 +181,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="1MH-Wh-DLt" kind="unwind" unwindAction="cancelAddMember:" id="Kkt-BO-wMb"/>
+                                                    <segue destination="1MH-Wh-DLt" kind="unwind" identifier="CancelInput" unwindAction="cancelAddMember:" id="0tq-dm-3ub"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -314,18 +314,8 @@
                         </subviews>
                     </view>
                     <navigationItem key="navigationItem" title="Add an expense" id="mvW-Lo-LQq">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="b7L-SK-48T">
-                            <connections>
-                                <action selector="cancelAddMember:" destination="SHS-Yz-Uve" id="GOy-6J-bTj"/>
-                                <segue destination="1MH-Wh-DLt" kind="unwind" identifier="CancelInput" unwindAction="cancelAddMember:" id="4dA-fV-Qab"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="i93-2F-keq">
-                            <connections>
-                                <action selector="doneAddMember:" destination="SHS-Yz-Uve" id="Wcj-ea-z4R"/>
-                                <segue destination="1MH-Wh-DLt" kind="unwind" identifier="ReturnInput" unwindAction="doneAddMember:" id="Xbx-W2-8dv"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="b7L-SK-48T"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="i93-2F-keq"/>
                     </navigationItem>
                     <connections>
                         <outlet property="addExpenseButton" destination="r9k-cV-zLk" id="Fkx-AZ-Xch"/>

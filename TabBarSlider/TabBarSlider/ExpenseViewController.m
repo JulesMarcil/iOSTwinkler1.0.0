@@ -134,9 +134,15 @@
 - (IBAction)doneAddMember:(UIStoryboardSegue *)segue {
     {
         if ([[segue identifier] isEqualToString:@"ReturnInput"]) {
-            AddExpenseViewController *addController = [segue
-                                                       sourceViewController];
+            AddExpenseViewController *addController = [segue sourceViewController];
             if (addController.expense) {
+                
+                //create selected member ids array
+                NSMutableArray *selectedIds = [[NSMutableArray alloc] init];
+                for(NSDictionary *member in addController.expense.members){
+                    [selectedIds addObject:member[@"id"]];
+                }
+                
                 
                 // initialize the request parameters
                 NSString *currentGroupId = [[NSUserDefaults standardUserDefaults] stringForKey:@"currentGroupId"];
@@ -145,6 +151,7 @@
                                          addController.expense.amount, @"amount",
                                          currentGroupId, @"currentGroupId",
                                          addController.selectedExpenseOwner[@"id"], @"owner_id",
+                                         selectedIds, @"member_ids",
                                          [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"id"], @"author_id",
                                          nil];
                 
