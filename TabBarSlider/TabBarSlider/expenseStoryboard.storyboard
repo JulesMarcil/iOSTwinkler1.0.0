@@ -100,7 +100,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="80" height="60"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="sasa.png" id="fCm-0K-CCJ">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="profile-pic-placeholder.png" id="fCm-0K-CCJ">
                                                             <rect key="frame" x="16" y="-5" width="48" height="45"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         </imageView>
@@ -488,6 +488,7 @@
         <image name="balance-knob.png" width="30" height="30"/>
         <image name="edit-button.png" width="30" height="26"/>
         <image name="main-button.png" width="34" height="34"/>
+        <image name="profile-pic-placeholder.png" width="113" height="111"/>
         <image name="sasa.png" width="64" height="59"/>
         <image name="timeline-line.png" width="6" height="11"/>
     </resources>
@@ -546,6 +547,9 @@
         </class>
         <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UICollectionViewLayout" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
         </class>
         <class className="UIStoryboardSegue" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>

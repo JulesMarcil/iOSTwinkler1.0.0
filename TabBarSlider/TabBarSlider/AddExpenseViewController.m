@@ -76,7 +76,6 @@
     frame= [self.bottomButtonContainer frame];
     self.scrollView.contentSize =CGSizeMake(320, frame.origin.y+55) ;
     
-    
     self.expenseNameContainer.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:0.8];
     self.expenseNameContainer.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
     self.expenseNameContainer.layer.borderWidth = 1.0f;
@@ -352,6 +351,8 @@
 
     memberCollectionViewCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"memberCell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor clearColor];
+    [cell.memberProfilePic setFrame:CGRectMake(22,0,35,35)];
+    [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:35.0];
     UIImageView *checkedMember=[[UIImageView alloc] initWithFrame:CGRectMake(45, 0, 16, 12)];
     checkedMember.image=[UIImage imageNamed: @"green-check"];
     checkedMember.tag=indexPath.row+1;
@@ -379,7 +380,8 @@
                                  placeholderImage:[UIImage imageNamed:@"profile-pic.png"]
                                           success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                               cell.memberProfilePic.image = image;
-                                              [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:50.0];
+                                              [cell.memberProfilePic setFrame:CGRectMake(22,0,35,35)];
+                                              [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:35.0];
                                         
                                           }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                               NSLog(@"Failed with error: %@", error);
