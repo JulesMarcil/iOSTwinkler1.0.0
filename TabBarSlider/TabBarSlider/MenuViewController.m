@@ -139,7 +139,7 @@
     Group *groupAtIndex = [self.groupDataController
                                objectInListAtIndex:indexPath.row];
     cell.groupNameLabel.text=groupAtIndex.name;
-    cell.detailLabel.text=@"yo, what's up?";
+    cell.detailLabel.text=[NSString stringWithFormat:@"You and %d friends", groupAtIndex.members.count-1];
     cell.dateLabel.text=@"Mon";
     cell.contentView.backgroundColor = [UIColor clearColor];
     
@@ -148,38 +148,43 @@
     [cell addSubview:groupPicPlaceholder];
     
     
-    NSInteger memberNumber=[groupAtIndex.members count];
     
-    if(memberNumber==1){
-        UIImage *image = [[UIImage alloc] init];
-        image=[UIImage imageNamed:@"profile-pic-placeholder.png"];
+    NSMutableArray *groupMembers = [[NSMutableArray alloc] init];
+    NSDictionary *tempActiveMember;
+    
+    for (NSDictionary *member in groupAtIndex.members) {
+        if ([member[@"id"] intValue] != [groupAtIndex.activeMember[@"id"] intValue]) {
+            [groupMembers addObject:member];
+        } else {
+             tempActiveMember = member;
+        }
+    }
+    
+    NSInteger memberNumber=[groupMembers count];
+    
+    if(memberNumber==0){
         UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(5, 9, 40,40)];
-        [iv setImage:image];
+        [self getImageForView:iv Member:tempActiveMember];
         [groupPicPlaceholder addSubview:iv];
-        [self setRoundedView:iv picture:image toDiameter:40.0];
+    }else if(memberNumber==1){
+        UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(5, 9, 40,40)];
+        [self getImageForView:iv Member:groupMembers[0]];
+        [groupPicPlaceholder addSubview:iv];
     }else if (memberNumber==2){
-        UIImage *image = [[UIImage alloc] init];
-        image=[UIImage imageNamed:@"profile-pic-placeholder.png"];
         UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(24, 6, 25, 25)];
         UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(4, 26, 25, 25)];
-        [iv setImage:image];
-        [ivbis setImage:image];
-        [self setRoundedView:iv picture:image toDiameter:25.0];
-        [self setRoundedView:ivbis picture:image toDiameter:25.0];
+        [self getImageForView:iv Member:groupMembers[0]];
+        [self getImageForView:ivbis Member:groupMembers[1]];
         [groupPicPlaceholder addSubview:iv];
         [groupPicPlaceholder addSubview:ivbis];
     }else if (memberNumber==3){
-        UIImage *image = [[UIImage alloc] init];
-        image=[UIImage imageNamed:@"profile-pic-placeholder.png"];
+        NSLog(@"%@, group of 3+1 members to be loaded", groupAtIndex.name);
         UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(10, 0, 20,20)];
         UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(0, 25, 20,20)];
         UIImageView *ivtier = [[UIImageView alloc] initWithFrame:CGRectMake(20, 25, 20,20)];
-        [iv setImage:image];
-        [ivbis setImage:image];
-        [ivtier setImage:image];
-        [self setRoundedView:ivbis picture:image toDiameter:20.0];
-        [self setRoundedView:ivtier picture:image toDiameter:20.0];
-        [self setRoundedView:iv picture:image toDiameter:20.0];
+        [self getImageForView:iv Member:groupMembers[0]];
+        [self getImageForView:ivbis Member:groupMembers[1]];
+        [self getImageForView:ivtier Member:groupMembers[2]];
         [groupPicPlaceholder  addSubview:iv];
         [groupPicPlaceholder  addSubview:ivbis];
         [groupPicPlaceholder  addSubview:ivtier];
@@ -190,22 +195,54 @@
         UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(29, 5, 22,22)];
         UIImageView *ivtier = [[UIImageView alloc] initWithFrame:CGRectMake(4, 30, 22,22)];
         UIImageView *ivquatro = [[UIImageView alloc] initWithFrame:CGRectMake(29, 30, 22,22)];
-        [iv setImage:image];
-        [ivbis setImage:image];
-        [ivtier setImage:image];
-        [ivquatro setImage:image];
+        [self getImageForView:iv Member:groupMembers[0]];
+        [self getImageForView:ivbis Member:groupMembers[1]];
+        [self getImageForView:ivtier Member:groupMembers[2]];
+        [self getImageForView:ivquatro Member:groupMembers[3]];
         [groupPicPlaceholder  addSubview:iv];
         [groupPicPlaceholder  addSubview:ivbis];
         [groupPicPlaceholder  addSubview:ivtier];
         [groupPicPlaceholder  addSubview:ivquatro];
-        [self setRoundedView:iv picture:image toDiameter:22.0];
-        [self setRoundedView:ivbis picture:image toDiameter:22.0];
-        [self setRoundedView:ivtier picture:image toDiameter:22.0];
-        [self setRoundedView:ivquatro picture:image toDiameter:22.0];
     }
 
     cell.backgroundView = [UIView new];
     return cell;
+}
+
+- (void)getImageForView:(UIImageView *)view Member:(NSDictionary *)member {
+    
+    NSLog(@"get image for member %@", member);
+    
+    UIImage *placeholderImage = [[UIImage alloc] init];
+    placeholderImage = [UIImage imageNamed:@"profile-pic-placeholder.png"];
+    
+    NSString *path = member[@"picturePath"];
+    NSNumber *facebookId= [[[NSNumberFormatter alloc] init] numberFromString:path];
+    
+    NSURL *url;
+    if (facebookId) {
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=100&height=100", facebookId]];
+    } else if(![path isEqualToString:@"local"]) {
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:8888/Twinkler1.2.3/web/%@", path]];
+    }
+    
+    if(url) {
+        
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        NSLog(@" requesting image for url: %@", url);
+        
+        [view setImageWithURLRequest:request
+                                     placeholderImage:placeholderImage
+                                              success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                                  view.image = image;
+                                                  [self setRoundedView:view picture:view.image toDiameter:40.0];
+                                              }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                                  NSLog(@"Failed with error: %@", error);
+                                              }];
+    } else {
+        view.image = placeholderImage;
+        [self setRoundedView:view picture:view.image toDiameter:40.0];
+    }
 }
 
 

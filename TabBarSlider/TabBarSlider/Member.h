@@ -10,4 +10,11 @@
 
 @interface Member : NSObject
 
+@property (nonatomic, strong) NSNumber *identifier;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *picturePath;
+
+-(id) initWithName:(NSString *)name
+       picturePath:(NSString *)picturePath;
+
 @end
