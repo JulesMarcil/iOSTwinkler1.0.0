@@ -35,13 +35,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="top-menu-bckgd-2.png" id="CEJ-Kj-tyY">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="top-menu-background.png" id="CEJ-Kj-tyY">
                                 <rect key="frame" x="0.0" y="448" width="320" height="100"/>
                             </imageView>
                             <view contentMode="scaleToFill" id="yLr-kz-sh4">
                                 <rect key="frame" x="0.0" y="97" width="320" height="44"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" alpha="0.70000000000000007" contentMode="scaleToFill" image="tabbar-active.png" id="W14-Iv-0NE">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="tabbar-active.png" id="W14-Iv-0NE">
                                         <rect key="frame" x="107" y="0.0" width="107" height="44"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Sdr-S6-Ogv">
@@ -419,7 +419,7 @@
         <image name="tabbar-active.png" width="44" height="44"/>
         <image name="tk-icon-active.png" width="30" height="30"/>
         <image name="tk-icon-inactive.png" width="30" height="30"/>
-        <image name="top-menu-bckgd-2.png" width="320" height="100"/>
+        <image name="top-menu-background.png" width="320" height="100"/>
     </resources>
     <classes>
         <class className="AddGroupViewController" superclassName="UIViewController">

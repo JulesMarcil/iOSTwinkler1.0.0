@@ -46,7 +46,7 @@
     [self.coverPic setFrame:CGRectMake(0,
                                                 0,
                                                 frame.size.width,
-                                                144)];
+                                                100)];
     frame= [self.topWhiteBar frame];
     [self.topWhiteBar setFrame:CGRectMake(0,
                                        0,
@@ -62,7 +62,7 @@
                                       100,
                                       frame.size.width,
                                       44)];
-    self.toolbar.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:0.6];
+    self.toolbar.backgroundColor=[UIColor colorWithRed:(249/255.0) green:(249/255.0) blue:(249/255.0) alpha:1];
 
     [self.collectionView setFrame:CGRectMake(0,
                                       45,
@@ -89,8 +89,7 @@
     [self.revealButtonItem addTarget:self.revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
     
     DRNRealTimeBlurView *blurView = [[DRNRealTimeBlurView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-    DRNRealTimeBlurView *blurViewBottom = [[DRNRealTimeBlurView alloc] initWithFrame:CGRectMake(0, 100, 320, 44)];
-    [self.coverPic addSubview:blurViewBottom];
+    [self.coverPic addSubview:blurView];
     
 }
 
