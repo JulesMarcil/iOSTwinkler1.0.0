@@ -247,8 +247,12 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"memberCell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor clearColor];
-    UIImageView *memberView=[[UIImageView alloc] initWithFrame:CGRectMake(0,0,50,50)];
-    memberView.image=[UIImage imageNamed: @"sasa.png"];
+    UIImageView *memberView=[[UIImageView alloc] initWithFrame:CGRectMake(10,8,35,35)];
+    memberView.image=[UIImage imageNamed: @"profile-pic-placeholder"];
+    
+    [self setRoundedView:memberView picture:memberView.image toDiameter:35.0];
+    
+    
     [cell addSubview:memberView];
     return cell;
 }
@@ -281,5 +285,26 @@
     return UIEdgeInsetsMake(0,0,0,0);
 }
 
+//--------DESGIN---------
+-(void) setRoundedView:(UIImageView *)imageView picture: (UIImage *)picture toDiameter:(float)newSize{
+    // Begin a new image that will be the new image with the rounded corners
+    // (here with the size of an UIImageView)
+    UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, NO, 1.0);
+    
+    // Add a clip before drawing anything, in the shape of an rounded rect
+    [[UIBezierPath bezierPathWithRoundedRect:imageView.bounds
+                                cornerRadius:100.0] addClip];
+    // Draw your image
+    CGRect frame=imageView.bounds;
+    frame.size.width=newSize;
+    frame.size.height=newSize;
+    [picture drawInRect:frame];
+    
+    // Get the image, here setting the UIImageView image
+    imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    // Lets forget about that we were drawing
+    UIGraphicsEndImageContext();
+}
 
 @end
