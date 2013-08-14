@@ -243,8 +243,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "391"
          endingLineNumber = "391"
-         landmarkName = "@implementation AddExpenseViewController"
-         landmarkType = "3">
+         landmarkName = "-collectionView:cellForItemAtIndexPath:"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -269,8 +269,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "331"
          endingLineNumber = "331"
-         landmarkName = "@implementation AddExpenseViewController"
-         landmarkType = "3">
+         landmarkName = "-prepareForSegue:sender:"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -283,19 +283,6 @@
          startingLineNumber = "352"
          endingLineNumber = "352"
          landmarkName = "-collectionView:cellForItemAtIndexPath:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "TabBarSlider/TabBarViewController.m"
-         timestampString = "398158555.310118"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "240"
-         endingLineNumber = "240"
-         landmarkName = "-collectionView:numberOfItemsInSection:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

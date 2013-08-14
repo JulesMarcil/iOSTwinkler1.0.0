@@ -402,7 +402,7 @@
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    memberCollectionViewCell *cell=[collectionView cellForItemAtIndexPath:indexPath];
+    memberCollectionViewCell *cell= (memberCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
     
     if (cell.isSelected){
         [[self.view viewWithTag:indexPath.row+1] removeFromSuperview];

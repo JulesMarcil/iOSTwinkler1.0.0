@@ -13,7 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *memberProfilePic;
 @property (weak, nonatomic) IBOutlet UILabel *memberNameLabel;
 @property (assign, nonatomic) BOOL isSelected;
-@property (weak, nonatomic) UIImageView *checkIcon;
+@property (strong, nonatomic) UIImageView *checkIcon;
 
 -(void) showCheck;
 

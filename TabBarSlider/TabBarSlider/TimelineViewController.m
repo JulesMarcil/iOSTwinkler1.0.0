@@ -181,7 +181,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     Message *messageAtIndex = [self.messageDataController
                                objectInListAtIndex:indexPath.row];
-    CGSize sz = [messageAtIndex.content sizeWithFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:14.0]constrainedToSize:CGSizeMake(200, 20000) lineBreakMode:UILineBreakModeWordWrap];
+    CGSize sz = [messageAtIndex.content sizeWithFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:14.0]constrainedToSize:CGSizeMake(200, 20000) lineBreakMode:NSLineBreakByWordWrapping];
     return sz.height+50;
 }
 
@@ -203,15 +203,12 @@
     
     
     NSString *currentMemberName=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"];
-    NSLog(messageAtIndex.author);
-    NSLog(currentMemberName);
-    NSLog(@"Is Kind of NSString: %i",[currentMemberName isEqualToString:messageAtIndex.author]);
     
     if ([currentMemberName isEqualToString:messageAtIndex.author]){
     
     CGRect frame = cell.messageLabel.frame;
     frame.size.height = cell.messageLabel.contentSize.height+20;
-    CGSize sz = [cell.messageLabel.text sizeWithFont:cell.messageLabel.font constrainedToSize:CGSizeMake(200, 20000) lineBreakMode:UILineBreakModeWordWrap];
+    CGSize sz = [cell.messageLabel.text sizeWithFont:cell.messageLabel.font constrainedToSize:CGSizeMake(200, 20000) lineBreakMode:NSLineBreakByWordWrapping];
     cell.messageLabel.editable = NO;
     cell.messageContainer.frame=frame;
     [cell.messageContainer setFrame:CGRectMake(320-sz.width-20-20,10,
@@ -235,7 +232,7 @@
         
         CGRect frame = cell.messageLabel.frame;
         frame.size.height = cell.messageLabel.contentSize.height+20;
-        CGSize sz = [cell.messageLabel.text sizeWithFont:cell.messageLabel.font constrainedToSize:CGSizeMake(200, 20000) lineBreakMode:UILineBreakModeWordWrap];
+        CGSize sz = [cell.messageLabel.text sizeWithFont:cell.messageLabel.font constrainedToSize:CGSizeMake(200, 20000) lineBreakMode:NSLineBreakByWordWrapping];
         cell.messageLabel.editable = NO;
         cell.messageContainer.frame=frame;
         [cell.messageContainer setFrame:CGRectMake(70,10,
@@ -275,7 +272,7 @@
     UIStoryboard *timelineStoryboard=[UIStoryboard storyboardWithName:@"expenseStoryboard" bundle:nil];
     UIViewController *dst=[timelineStoryboard instantiateInitialViewController];
     
-    TabBarViewController *tbvc=self.parentViewController;
+    TabBarViewController *tbvc=(TabBarViewController *) self.parentViewController;
     
     for (UIView *view in tbvc.placeholderView.subviews){
         [view removeFromSuperview];
@@ -315,7 +312,7 @@
 -(void)goToList{
     UIViewController *dst=[[UIStoryboard storyboardWithName:@"listStoryboard" bundle:nil] instantiateInitialViewController];
     
-    TabBarViewController *tbvc=self.parentViewController;
+    TabBarViewController *tbvc= (TabBarViewController *) self.parentViewController;
     
     for (UIView *view in tbvc.placeholderView.subviews){
         [view removeFromSuperview];

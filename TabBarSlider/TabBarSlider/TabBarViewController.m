@@ -237,7 +237,6 @@
 #pragma mark - UICollectionView Datasource
 // 1
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
-    NSLog([NSString stringWithFormat:@"%d",[self.memberArray  count]]);
     return [self.memberArray  count];
 }
 // 2

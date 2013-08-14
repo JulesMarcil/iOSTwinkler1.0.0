@@ -118,7 +118,7 @@
     UIStoryboard *timelineStoryboard=[UIStoryboard storyboardWithName:@"timelineStoryboard" bundle:nil];
     UIViewController *dst=[timelineStoryboard instantiateInitialViewController];
     
-    TabBarViewController *tbvc=self.parentViewController;
+    TabBarViewController *tbvc=(TabBarViewController *) self.parentViewController;
     
     for (UIView *view in tbvc.placeholderView.subviews){
         [view removeFromSuperview];

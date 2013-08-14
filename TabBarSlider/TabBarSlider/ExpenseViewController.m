@@ -9,7 +9,6 @@
 #import "ExpenseViewController.h"
 #import "ExpenseDataController.h"
 #import "Expense.h"
-#import "ExpenseDetailViewController.h"
 #import "AddExpenseViewController.h"
 #import "AuthAPIClient.h"
 #import "AFHTTPRequestOperation.h"
@@ -103,7 +102,7 @@
     ExpenseItemCell *cell = [tableView
                              dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell = (ExpenseItemCell*) [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     };
     
     Expense *expenseAtIndex = [self.expenseDataController
@@ -116,12 +115,6 @@
     return cell;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"viewExpenseSegue"]) {
-        ExpenseDetailViewController *edvc = [segue destinationViewController];
-        edvc.expense = [self.expenseDataController objectInListAtIndex:[self.expenseListTable indexPathForSelectedRow].row];
-    }
-}
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
@@ -329,7 +322,7 @@
     UIStoryboard *timelineStoryboard=[UIStoryboard storyboardWithName:@"timelineStoryboard" bundle:nil];
     UIViewController *dst=[timelineStoryboard instantiateInitialViewController];
     
-    TabBarViewController *tbvc=self.parentViewController;
+    TabBarViewController *tbvc=(TabBarViewController *) self.parentViewController;
     
     for (UIView *view in tbvc.placeholderView.subviews){
         [view removeFromSuperview];
