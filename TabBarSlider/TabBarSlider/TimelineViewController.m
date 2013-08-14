@@ -182,7 +182,7 @@
     Message *messageAtIndex = [self.messageDataController
                                objectInListAtIndex:indexPath.row];
     CGSize sz = [messageAtIndex.content sizeWithFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:14.0]constrainedToSize:CGSizeMake(200, 20000) lineBreakMode:NSLineBreakByWordWrapping];
-    return sz.height+50;
+    return sz.height+36;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -355,7 +355,7 @@
         
         // creating the corresponding message locally
         Message *message = [[Message alloc] initWithContent:textField.text
-                                                     author:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMemberName"]
+                                                     author:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"]
                                                        date:[NSDate date]
                                                        type:@"message"];
         
@@ -364,6 +364,7 @@
         NSMutableArray *insertIndexPaths = [[NSMutableArray alloc] init];
         NSIndexPath *newPath = [NSIndexPath indexPathForRow:0 inSection:0];
         [insertIndexPaths addObject:newPath];
+        
         [self.messageOnTimeline beginUpdates];
         [self.messageOnTimeline insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationTop];
         [self.messageOnTimeline endUpdates];
