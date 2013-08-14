@@ -125,7 +125,7 @@
                                           for (int i = n - diff; i<n; i++){
                                               Message *message = [[Message alloc] initWithContent:response[i][@"body"]
                                                                                            author:response[i][@"author"]
-                                                                                             date:[NSDate dateWithTimeIntervalSince1970:[response[i] doubleValue]]
+                                                                                             date:[NSDate dateWithTimeIntervalSince1970:[response[i][@"time"] doubleValue]]
                                                                                              type:response[i][@"type"]
                                                                   ];
                                               [self.messageDataController addMessage:message];
