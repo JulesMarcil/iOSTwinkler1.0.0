@@ -12,6 +12,7 @@
 #import "AddExpenseViewController.h"
 #import "AuthAPIClient.h"
 #import "AFHTTPRequestOperation.h"
+#import "UIImageView+AFNetworking.h"
 #import "ExpenseItemCell.h"
 #import "DRNRealTimeBlurView.h"
 #import "TabBarViewController.h"
@@ -102,8 +103,6 @@
     ExpenseItemCell *cell = [tableView
                              dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    [cell.memberProfilePic setFrame:CGRectMake(18,12,35,35)];
-    [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:35.0];
     if (cell == nil){
         cell = (ExpenseItemCell*) [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     };
@@ -115,6 +114,44 @@
     
     NSString *currency=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"];
     cell.expenseAmountLabel.text=[NSString stringWithFormat:@"%@%@%@", [expenseAtIndex.amount stringValue], @" ",currency];
+    
+    //Set picture
+    NSArray *memberArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupMembers"];
+    NSNumber *memberId = expenseAtIndex.owner[@"id"];
+    
+    NSDictionary *member = [self returnObjectFromArray:memberArray
+                                                withId:memberId];
+    NSLog(@"member = %@", member);
+    
+    NSString *path = member[@"picturePath"];
+    NSNumber *facebookId= [[[NSNumberFormatter alloc] init] numberFromString:path];
+    
+    NSURL *url;
+    if (facebookId) {
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=100&height=100", facebookId]];
+    } else if(![path isEqualToString:@"local"]) {
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:8888/Twinkler1.2.3/web/%@", path]];
+    }
+    
+    if(url) {
+        
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        NSLog(@"%@", url);
+        
+        [cell.memberProfilePic setImageWithURLRequest:request
+                                     placeholderImage:[UIImage imageNamed:@"profile-pic.png"]
+                                              success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                                  cell.memberProfilePic.image = image;
+                                                  [cell.memberProfilePic setFrame:CGRectMake(18,12,35,35)];
+                                                  [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:35.0];
+                                              }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                                  NSLog(@"Failed with error: %@", error);
+                                              }];
+    }
+    
+    [cell.memberProfilePic setFrame:CGRectMake(18,12,35,35)];
+    [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:35.0];
+    
     return cell;
 }
 
@@ -382,6 +419,17 @@
     
     // Lets forget about that we were drawing
     UIGraphicsEndImageContext();
+}
+
+-(NSDictionary *) returnObjectFromArray:(NSArray *)array withId:(NSNumber *)identifier {
+    
+    NSDictionary *member;
+    for (int i=0; i < [array count]; i++){
+        if([array objectAtIndex:i][@"id"] == identifier){
+            member = [array objectAtIndex:i];
+        }
+    }
+    return member;
 }
 
 @end
