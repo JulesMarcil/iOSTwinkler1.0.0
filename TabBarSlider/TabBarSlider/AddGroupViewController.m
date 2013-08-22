@@ -139,15 +139,22 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"ReturnInput"]) {
+    if ([[segue identifier] isEqualToString:@"ReturnAddGroupInput"]) {
         if ([self.groupName.text length]) {
+            
+            NSDictionary *currentMember = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"];
+            NSArray *members = [[NSArray alloc] initWithObjects:currentMember, nil];
+            
+            NSLog(@"current member = %@", currentMember);
+            NSLog(@"members = %@", members);
             
             Group *group = [[Group alloc] initWithName:self.groupName.text
                                             identifier:nil
-                                               members:nil
-                                          activeMember:nil
-                                              currency:self.selectedCurrency[@"id"]];
+                                               members:members
+                                          activeMember:currentMember
+                                              currency:self.selectedCurrency[@"symbol"]];
             self.group = group;
+            NSLog(@"group = %@", self.group);
         }
     }
 }

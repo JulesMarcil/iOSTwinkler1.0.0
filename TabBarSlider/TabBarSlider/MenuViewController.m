@@ -18,6 +18,7 @@
 #import "GroupListCell.h"
 #import "AppDelegate.h"
 #import "UIImageView+AFNetworking.h"
+#import "AuthAPIClient.h"
 
 @interface MenuViewController ()
 
@@ -53,7 +54,7 @@
     }
     
     [self.navigationController setNavigationBarHidden:YES animated:NO];
-	// Do any additional setup after loading the view.    
+	// Do any additional setup after loading the view.
     
     //-----------DESIGN---------------//
     UIColor *borderColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1.0];
@@ -102,7 +103,6 @@
     }
     
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    NSLog(@"%@", url);
     
     [self.profilePic setImageWithURLRequest:request
                            placeholderImage:[UIImage imageNamed:@"profile-pic.png"]
@@ -113,9 +113,9 @@
                                         NSLog(@"profileDisplayed");
                                         [[NSNotificationCenter defaultCenter] postNotificationName:@"profileDisplayed" object:nil];
                                         
-                                   }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-                                         NSLog(@"Failed with error: %@", error);
-                                   }];
+                                    }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                        NSLog(@"Failed with error: %@", error);
+                                    }];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -135,17 +135,13 @@
         [formatter setDateStyle:NSDateFormatterMediumStyle];
     }
     GroupListCell *cell = [tableView
-                             dequeueReusableCellWithIdentifier:CellIdentifier];
+                           dequeueReusableCellWithIdentifier:CellIdentifier];
     Group *groupAtIndex = [self.groupDataController
-                               objectInListAtIndex:indexPath.row];
+                           objectInListAtIndex:indexPath.row];
     cell.groupNameLabel.text=groupAtIndex.name;
     cell.detailLabel.text=[NSString stringWithFormat:@"You and %d friends", groupAtIndex.members.count-1];
     cell.dateLabel.text=@"Mon";
     cell.contentView.backgroundColor = [UIColor clearColor];
-    
-
-    
-    
     
     NSMutableArray *groupMembers = [[NSMutableArray alloc] init];
     NSDictionary *tempActiveMember;
@@ -154,7 +150,7 @@
         if ([member[@"id"] intValue] != [groupAtIndex.activeMember[@"id"] intValue]) {
             [groupMembers addObject:member];
         } else {
-             tempActiveMember = member;
+            tempActiveMember = member;
         }
     }
     
@@ -177,7 +173,6 @@
         [cell.groupPicPlaceholder addSubview:iv];
         [cell.groupPicPlaceholder addSubview:ivbis];
     }else if (memberNumber==3){
-        NSLog(@"%@, group of 3+1 members to be loaded", groupAtIndex.name);
         UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(16, 8, 20,20)];
         UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(4, 29, 20,20)];
         UIImageView *ivtier = [[UIImageView alloc] initWithFrame:CGRectMake(29, 29, 20,20)];
@@ -188,8 +183,6 @@
         [cell.groupPicPlaceholder  addSubview:ivbis];
         [cell.groupPicPlaceholder  addSubview:ivtier];
     }else if (memberNumber>3){
-        UIImage *image = [[UIImage alloc] init];
-        image=[UIImage imageNamed:@"profile-pic-placeholder.png"];
         UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(4, 5, 22,22)];
         UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(29, 5, 22,22)];
         UIImageView *ivtier = [[UIImageView alloc] initWithFrame:CGRectMake(4, 30, 22,22)];
@@ -203,14 +196,12 @@
         [cell.groupPicPlaceholder  addSubview:ivtier];
         [cell.groupPicPlaceholder  addSubview:ivquatro];
     }
-
+    
     cell.backgroundView = [UIView new];
     return cell;
 }
 
 - (void)getImageForView:(UIImageView *)view Member:(NSDictionary *)member size:(NSInteger) size{
-    
-    NSLog(@"get image for member %@", member);
     
     UIImage *placeholderImage = [[UIImage alloc] init];
     placeholderImage = [UIImage imageNamed:@"profile-pic-placeholder.png"];
@@ -225,19 +216,18 @@
         url = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:8888/Twinkler1.2.3/web/%@", path]];
     }
     
-    if(url) {
+    if (url) {
         
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        NSLog(@" requesting image for url: %@", url);
         
         [view setImageWithURLRequest:request
-                                     placeholderImage:placeholderImage
-                                              success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                                  view.image = image;
-                                                  [self setRoundedView:view picture:view.image toDiameter:size];
-                                              }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-                                                  NSLog(@"Failed with error: %@", error);
-                                              }];
+                    placeholderImage:placeholderImage
+                             success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                 view.image = image;
+                                 [self setRoundedView:view picture:view.image toDiameter:size];
+                             }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                 NSLog(@"Failed with error: %@", error);
+                             }];
     } else {
         
         view.image = placeholderImage;
@@ -255,12 +245,11 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([self.title isEqualToString:@"welcomeMenu"]){
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+        [tableView deselectRowAtIndexPath:indexPath animated:NO];
         Group   *selectedGroup=[self.groupDataController objectInListAtIndex:indexPath.row] ;
         
         UIStoryboard *mainStoryboard=[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         UIViewController *dst=[mainStoryboard instantiateInitialViewController];
-        
         
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.identifier forKey:@"currentGroupId"];
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.activeMember forKey:@"currentMember"];
@@ -297,8 +286,6 @@
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.members forKey:@"currentGroupMembers"];
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.currency forKey:@"currentGroupCurrency"];
         
-        NSLog(@"active member = %@", selectedGroup.activeMember);
-        
         SWRevealViewControllerSegue* rvcs = (SWRevealViewControllerSegue*) segue;
         
         SWRevealViewController* rvc = self.revealViewController;
@@ -318,8 +305,8 @@
 
 - (IBAction)goToTimelineButton:(id)sender {
     
-            UIStoryboard *mainStoryboard=[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-            UIViewController *dst=[mainStoryboard instantiateInitialViewController];
+    UIStoryboard *mainStoryboard=[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    UIViewController *dst=[mainStoryboard instantiateInitialViewController];
     
     Group *selectedGroup = [self.groupDataController objectInListAtIndex:[self.groupOnMenu indexPathForSelectedRow].row];
     
@@ -329,20 +316,35 @@
     [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.members forKey:@"currentGroupMembers"];
     [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.currency forKey:@"currentGroupCurrency"];
     
-            // Then push the new view controller in the usual way:
+    // Then push the new view controller in the usual way:
     [self.navigationController pushViewController:dst animated:YES];
-        
+    
 }
 
 - (IBAction)doneAddGroup:(UIStoryboardSegue *)segue {
-    {
-        if ([[segue identifier] isEqualToString:@"ReturnAddGroupInput"]) {
-            AddGroupViewController *addController = [segue
-                                                       sourceViewController];
-            if (addController.groupName) {
-                //Code to add expense here
-            }
-            [self dismissViewControllerAnimated:YES completion:NULL];
+    
+    if ([[segue identifier] isEqualToString:@"ReturnAddGroupInput"]) {
+        
+        AddGroupViewController *addController = [segue sourceViewController];
+        Group *group = addController.group;
+        
+        if (group) {
+            
+            //Code to add group here
+            NSDictionary *parameters = [[NSDictionary alloc] initWithObjectsAndKeys:addController.group.name, @"group_name", addController.selectedCurrency[@"id"], @"currency_id", nil];
+            
+            [[AuthAPIClient sharedClient] getPath:@"api/add/group"
+                                       parameters:parameters
+                                          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                              NSString *response = [operation responseString];
+                                              NSLog(@"response: %@",response);
+                                              [self.groupDataController addGroupWithGroup:group];
+                                              [self.groupOnMenu reloadData];
+                                              [[NSNotificationCenter defaultCenter] postNotificationName:@"groupsWithJSONFinishedLoading" object:nil];
+                                              [self dismissViewControllerAnimated:YES completion:NULL];
+                                          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                              NSLog(@"error: %@", error);
+                                          }];
         }
     }
 }
@@ -399,19 +401,19 @@
     // Begin a new image that will be the new image with the rounded corners
     // (here with the size of an UIImageView)
     UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, NO, 1.0);
-
+    
     // Add a clip before drawing anything, in the shape of an rounded rect
     [[UIBezierPath bezierPathWithRoundedRect:imageView.bounds
-                            cornerRadius:100.0] addClip];
+                                cornerRadius:100.0] addClip];
     // Draw your image
     CGRect frame=imageView.bounds;
-        frame.size.width=newSize;
-        frame.size.height=newSize;
+    frame.size.width=newSize;
+    frame.size.height=newSize;
     [picture drawInRect:frame];
-
+    
     // Get the image, here setting the UIImageView image
     imageView.image = UIGraphicsGetImageFromCurrentImageContext();
-
+    
     // Lets forget about that we were drawing
     UIGraphicsEndImageContext();
 }
