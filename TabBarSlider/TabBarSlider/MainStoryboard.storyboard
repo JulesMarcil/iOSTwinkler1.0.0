@@ -151,12 +151,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="qtK-95-Qd0">
-                                <rect key="frame" x="112" y="110" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Currency" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Hat-ah-ecP">
                                 <rect key="frame" x="126" y="81" width="69" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -166,6 +160,36 @@
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Choose a Group name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cbf-uR-cTQ">
                                 <rect key="frame" x="74" y="14" width="172" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" id="va2-2c-dpq">
+                                <rect key="frame" x="0.0" y="504" width="320" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="H0e-wS-OWo" id="bh9-qD-GfK"/>
+                                    <outlet property="delegate" destination="H0e-wS-OWo" id="hyZ-Bd-u1h"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Wlj-B3-WZd">
+                                <rect key="frame" x="122" y="132" width="73" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showPicker:" destination="H0e-wS-OWo" eventType="touchUpInside" id="p0u-Z4-Tcw"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3li-Xu-o5U">
+                                <rect key="frame" x="42" y="183" width="232" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -187,7 +211,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="groupCurrency" destination="qtK-95-Qd0" id="aZb-zQ-ann"/>
+                        <outlet property="currencyPicker" destination="va2-2c-dpq" id="Uma-lj-mH8"/>
+                        <outlet property="currentCurrency" destination="3li-Xu-o5U" id="5uO-jP-HEd"/>
                         <outlet property="groupName" destination="Flt-va-ZB2" id="9sl-61-HbZ"/>
                     </connections>
                 </viewController>
@@ -418,6 +443,65 @@
         <image name="tk-icon-active.png" width="30" height="30"/>
         <image name="tk-icon.png" width="30" height="30"/>
     </resources>
+    <classes>
+        <class className="AddGroupViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddGroupViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="showPicker:"/>
+                <relationship kind="outlet" name="currencyPicker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="currentCurrency" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="groupName" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="GroupListCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GroupListCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="detailLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="groupNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="groupPicPlaceholder" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="MenuViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="Logout:"/>
+                <relationship kind="action" name="cancelAddGroup:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="doneAddGroup:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="goToTimelineButton:"/>
+                <relationship kind="outlet" name="addGroupButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="friendNumberLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="groupOnMenu" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="profilePic" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="tableViewHeader" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="SWRevealViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SWRevealViewController.h"/>
+        </class>
+        <class className="TabBarViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TabBarViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="activeTabBarImage" candidateClass="UIView"/>
+                <relationship kind="outlet" name="collectionView" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="coverPic" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="expenseButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="groupTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="listButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="placeholderView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="revealButtonItem" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tabBarBck" candidateClass="UIView"/>
+                <relationship kind="outlet" name="timelineButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIView"/>
+                <relationship kind="outlet" name="topBar" candidateClass="UIView"/>
+                <relationship kind="outlet" name="topWhiteBar" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="UIStoryboardSegue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

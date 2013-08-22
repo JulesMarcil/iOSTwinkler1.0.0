@@ -10,10 +10,14 @@
 
 @class Group;
 
-@interface AddGroupViewController : UIViewController
+@interface AddGroupViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>{
+    NSArray *currencies;}
 @property (weak, nonatomic) IBOutlet UITextField *groupName;
-@property (weak, nonatomic) IBOutlet UITextField *groupCurrency;
 @property (weak, nonatomic) Group *group;
 @property (weak, nonatomic) NSDictionary *selectedCurrency;
+@property (weak, nonatomic) IBOutlet UIPickerView *currencyPicker;
+@property (weak, nonatomic) IBOutlet UILabel *currentCurrency;
+
+- (IBAction)showPicker:(id)sender;
 
 @end
