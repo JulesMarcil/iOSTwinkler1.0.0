@@ -445,7 +445,6 @@
                 <relationship kind="outlet" name="addGroupButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="friendNumberLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="groupOnMenu" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="groupPicPlaceholder" candidateClass="UIView"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="profilePic" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="tableViewHeader" candidateClass="UIView"/>
