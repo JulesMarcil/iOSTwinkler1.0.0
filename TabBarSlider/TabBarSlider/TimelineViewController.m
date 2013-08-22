@@ -12,6 +12,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "AuthAPIClient.h"
 #import "AFHTTPRequestOperation.h"
+#import "UIImageView+AFNetworking.h"
 #import "timelineBubbleCell.h"
 #import "DRNRealTimeBlurView.h"
 
@@ -108,8 +109,8 @@
 
 - (void)dataRefresh{
     
-    NSString *currentGroupId = [[NSUserDefaults standardUserDefaults] stringForKey:@"currentGroupId"];
-    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:currentGroupId, @"currentGroupId", nil];
+    NSDictionary *currentMember = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"];
+    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:currentMember[@"id"], @"currentMemberId", nil];
     
     [[AuthAPIClient sharedClient] getPath:@"api/get/messages"
                                parameters:parameters
@@ -125,11 +126,18 @@
                                       if (diff > 0){
                                           
                                           for (int i = n - diff; i<n; i++){
-                                              Message *message = [[Message alloc] initWithContent:response[i][@"body"]
-                                                                                           author:response[i][@"author"]
-                                                                                             date:[NSDate dateWithTimeIntervalSince1970:[response[i][@"time"] doubleValue]]
-                                                                                             type:response[i][@"type"]
+                                              
+                                              Message *message = [[Message alloc] initWithType:response[i][@"type"]
+                                                                                        author:response[i][@"author"]
+                                                                                          date:[NSDate dateWithTimeIntervalSince1970:[response[i][@"time"] doubleValue]]
+                                                                                          body:response[i][@"body"]
+                                                                                         owner:response[i][@"owner"]
+                                                                                        amount:response[i][@"amount"]
+                                                                                          name:response[i][@"name"]
+                                                                                         share:response[i][@"share"]
+                                                                                   picturePath:response[i][@"picturePath"]
                                                                   ];
+                                              
                                               [self.messageDataController addMessage:message];
                                           }
                                           [self.messageOnTimeline reloadData];
@@ -183,7 +191,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     Message *messageAtIndex = [self.messageDataController
                                objectInListAtIndex:indexPath.row];
-    CGSize sz = [messageAtIndex.content sizeWithFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:14.0]constrainedToSize:CGSizeMake(200, 20000) lineBreakMode:NSLineBreakByWordWrapping];
+    CGSize sz = [messageAtIndex.body sizeWithFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:14.0]constrainedToSize:CGSizeMake(200, 20000) lineBreakMode:NSLineBreakByWordWrapping];
     return sz.height+36;
 }
 
@@ -204,7 +212,7 @@
     
     Message *messageAtIndex = [self.messageDataController
                                objectInListAtIndex:indexPath.row];
-    cell.messageLabel.text=messageAtIndex.content;
+    cell.messageLabel.text=messageAtIndex.body;
     
     
     NSString *currentMemberName=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"];
@@ -243,22 +251,47 @@
             frame.size.height = cell.messageLabel.contentSize.height+20;
             CGSize sz = [cell.messageLabel.text sizeWithFont:cell.messageLabel.font constrainedToSize:CGSizeMake(200, 20000) lineBreakMode:NSLineBreakByWordWrapping];
             cell.messageLabel.editable = NO;
+            
             cell.messageContainer.frame=frame;
-            [cell.messageContainer setFrame:CGRectMake(70,10,
-                                                       sz.width+20,
-                                                       sz.height+20)];
-            
+            [cell.messageContainer setFrame:CGRectMake(70,10, sz.width+20, sz.height+20)];
             cell.messageContainer.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:1];
-            cell.bubbleTailImage.image= [UIImage imageNamed:@"bubble-tail-white"];
-            cell.bubbleTailImage.alpha=1;
             
+            cell.bubbleTailImage.alpha=1;
+            cell.bubbleTailImage.image= [UIImage imageNamed:@"bubble-tail-white"];
             [cell.bubbleTailImage setFrame:CGRectMake(52,sz.height,
                                                       cell.bubbleTailImage.frame.size.width,
                                                       cell.bubbleTailImage.frame.size.height)];
-            [cell.memberProfilePicImage setFrame:CGRectMake(5,(int) sz.height-15,
-                                                            55,
-                                                            47)];
+            
             cell.memberProfilePicImage.alpha=1;
+            
+            // Set image of the member who wrote the message
+            
+            UIImage *placeholderImage = [[UIImage alloc] init];
+            placeholderImage = [UIImage imageNamed:@"profile-pic-placeholder.png"];
+            
+            NSString *path = messageAtIndex.picturePath;
+            NSNumber *facebookId= [[[NSNumberFormatter alloc] init] numberFromString:path];
+            
+            NSURL *url;
+            if (facebookId) {
+                url = [NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=100&height=100", facebookId]];
+            } else if(![path isEqualToString:@"local"]) {
+                url = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:8888/Twinkler1.2.3/web/%@", path]];
+            }
+            
+            if (url) {
+                
+                NSURLRequest *request = [NSURLRequest requestWithURL:url];
+                
+                [cell.memberProfilePicImage setImageWithURLRequest:request
+                                                  placeholderImage:placeholderImage
+                                                           success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                                               cell.memberProfilePicImage.image = image;
+                                                               [cell.memberProfilePicImage setFrame:CGRectMake(5,(int) sz.height-15, 55, 47)];
+                                                           }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                                               NSLog(@"Failed with error: %@", error);
+                                                           }];
+            }
             
             [cell.timelineTimeLabel setFrame:CGRectMake(sz.width+25+70,sz.height+5,
                                                         cell.timelineTimeLabel.frame.size.width,
@@ -389,10 +422,16 @@
     if (textField.text.length>0) {
         
         // creating the corresponding message locally
-        Message *message = [[Message alloc] initWithContent:textField.text
-                                                     author:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"]
-                                                       date:[NSDate date]
-                                                       type:@"message"];
+        
+        Message *message = [[Message alloc] initWithType:@"message"
+                                                  author:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"]
+                                                    date:[NSDate date]
+                                                    body:textField.text
+                                                   owner:nil
+                                                  amount:nil
+                                                    name:nil
+                                                   share:nil
+                                             picturePath:nil];
         
         [self.messageDataController addMessage:message];
         
@@ -410,7 +449,7 @@
         
         // preparing the request parameters
         NSArray *keys = [NSArray arrayWithObjects:@"currentMemberId", @"currentGroupId", @"messageBody", nil];
-        NSArray *objects = [NSArray arrayWithObjects:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"id"], [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupId"], message.content, nil];
+        NSArray *objects = [NSArray arrayWithObjects:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"id"], [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupId"], message.body, nil];
         NSDictionary *parameters = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
         
         // going for the parsing

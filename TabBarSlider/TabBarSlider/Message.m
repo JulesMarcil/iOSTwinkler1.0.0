@@ -9,13 +9,19 @@
 #import "Message.h"
 
 @implementation Message
--(id)initWithContent:(NSString *)content author:(NSString *)author date:(NSDate *)date type:(NSString *)type{
+
+-(id)initWithType:(NSString *)type author:(NSString *)author date:(NSDate *)date body:(NSString *)body owner:(NSString *)owner amount:(NSNumber *)amount name:(NSString *)name share:(NSNumber *)share picturePath:(NSString *)picturePath {
     self=[super init];
     if(self){
-        _content=content;
+        _type=type;
         _author=author;
         _date=date;
-        _type=type;
+        _body=body;
+        _owner=owner;
+        _amount=amount;
+        _name=name;
+        _share=share;
+        _picturePath=picturePath;
         return self;
     }
     return nil;

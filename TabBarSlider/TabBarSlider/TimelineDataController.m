@@ -18,9 +18,8 @@
     self.MessageList = MessageList;
     
     //Set parameters for request
-    NSString *currentGroupId = [[NSUserDefaults standardUserDefaults] stringForKey:@"currentGroupId"];
-    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:currentGroupId, @"currentGroupId", nil];
-    
+    NSDictionary *currentMember = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"];
+    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:currentMember[@"id"], @"currentMemberId", nil];
     
     [[AuthAPIClient sharedClient] getPath:@"api/get/messages"
                                parameters:parameters
@@ -31,10 +30,15 @@
                                       
                                       for(id key in response) {
                                           
-                                          Message *message = [[Message alloc] initWithContent:key[@"body"]
-                                                                                       author:key[@"author"]
-                                                                                         date:[NSDate dateWithTimeIntervalSince1970:[key[@"time"] doubleValue]]
-                                                                                         type:key[@"type"]
+                                          Message *message = [[Message alloc] initWithType:key[@"type"]
+                                                                                    author:key[@"author"]
+                                                                                      date:[NSDate dateWithTimeIntervalSince1970:[key[@"time"] doubleValue]]
+                                                                                      body:key[@"body"]
+                                                                                     owner:key[@"owner"]
+                                                                                    amount:key[@"amount"]
+                                                                                      name:key[@"name"]
+                                                                                     share:key[@"share"]
+                                                                               picturePath:key[@"picturePath"]
                                                               ];
                                           
                                           [self addMessage:message];
