@@ -333,9 +333,9 @@
     
     
     [UIView beginAnimations:@"MoveIn" context:nil];
-    blurView.frame = CGRectMake(0, 0, 320, 400);
-    whiteView.frame = CGRectMake(0, 0, 320, 400);
-    darkView.frame=CGRectMake(0, 0, 320, 167);
+    blurView.frame = CGRectMake(0, 80, 320, self.view.frame.size.height-100);
+    whiteView.frame = CGRectMake(0, 0, 320, self.view.frame.size.height-100);
+    darkView.frame=CGRectMake(0, 0, 320,  100);
     darkView.alpha = 0.5;
     [UIView commitAnimations];
     
@@ -344,6 +344,7 @@
 -(void)dismissDetails {
     [UIView beginAnimations:@"MoveOut" context:nil];
     [self.view viewWithTag:1].frame = CGRectMake(0, 1000, 320, 400);
+    [self.view viewWithTag:2].frame = CGRectMake(0, 1000, 320, 400);
     [self.view viewWithTag:2].frame = CGRectMake(0, 1000, 320, 400);
     [self.view.superview.superview viewWithTag:3].alpha=0;
     [UIView setAnimationDelegate:self];
