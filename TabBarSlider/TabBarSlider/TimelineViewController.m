@@ -57,7 +57,7 @@
     [self.messageOnTimeline setFrame:CGRectMake(0,
                                                -20,
                                                frame.size.width,
-                                                screenHeight-60)];
+                                                screenHeight-64)];
     [self.messageOnTimeline setContentOffset:CGPointMake(0, 999999999999)];
     
     
@@ -74,6 +74,7 @@
     
     self.actionBar.layer.borderWidth = 1.0f;
     self.actionBar.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
+    
     self.timelineTextBoxContainer.layer.cornerRadius = 3;
     self.timelineTextBoxContainer.layer.masksToBounds = YES;
     self.timelineTextBoxContainer.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
@@ -196,6 +197,10 @@
                              dequeueReusableCellWithIdentifier:CellIdentifier];
     cell.messageContainer.layer.cornerRadius = 3;
     cell.messageContainer.layer.masksToBounds = YES;
+    cell.messageContainer.layer.masksToBounds = NO;
+    cell.messageContainer.layer.shadowOffset = CGSizeMake(0, 0.6);
+    cell.messageContainer.layer.shadowRadius = 0.8;
+    cell.messageContainer.layer.shadowOpacity = 0.1;
     
     Message *messageAtIndex = [self.messageDataController
                                    objectInListAtIndex:indexPath.row];

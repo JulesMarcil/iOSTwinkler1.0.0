@@ -39,22 +39,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="ba0-cD-7ZI">
-                                        <rect key="frame" x="20" y="47" width="280" height="40"/>
+                                        <rect key="frame" x="20" y="52" width="280" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.81176477670669556" green="0.29411765933036804" blue="0.25098040699958801" alpha="1" colorSpace="deviceRGB"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" id="tFJ-ww-Uiz">
-                                        <rect key="frame" x="204" y="47" width="2" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.89803928136825562" green="0.38431376218795776" blue="0.32549020648002625" alpha="1" colorSpace="deviceRGB"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" id="dMC-qE-Gr1">
-                                        <rect key="frame" x="114" y="47" width="2" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.8980392814" green="0.38431376220000002" blue="0.32549020649999999" alpha="1" colorSpace="deviceRGB"/>
+                                        <color key="backgroundColor" red="0.81176477670669556" green="0.29411765933036804" blue="0.25098040699958801" alpha="0.59999999999999998" colorSpace="deviceRGB"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="upL-xD-hup">
-                                        <rect key="frame" x="112.5" y="47" width="95" height="40"/>
+                                        <rect key="frame" x="114" y="52" width="95" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
@@ -88,6 +78,11 @@
                                         <state key="selected" image="check-icon-active.png"/>
                                         <state key="highlighted" image="check-icon-active.png"/>
                                     </button>
+                                    <view clearsContextBeforeDrawing="NO" alpha="0.30000000000000016" contentMode="scaleToFill" id="T4e-6O-OIX">
+                                        <rect key="frame" x="0.0" y="99" width="320" height="1"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.80000007152557373" green="0.27058824896812439" blue="0.25098040699958801" alpha="1" colorSpace="deviceRGB"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -442,16 +437,16 @@
     <resources>
         <image name="Arnaud copy.png" width="637" height="637"/>
         <image name="bckgd-2.png" width="1626" height="3000"/>
-        <image name="check-icon-active.png" width="30" height="30"/>
-        <image name="check-icon.png" width="30" height="30"/>
-        <image name="coin-icon-active.png" width="30" height="30"/>
-        <image name="coin-icon.png" width="30" height="30"/>
+        <image name="check-icon-active.png" width="20" height="20"/>
+        <image name="check-icon.png" width="20" height="20"/>
+        <image name="coin-icon-active.png" width="20" height="20"/>
+        <image name="coin-icon.png" width="20" height="20"/>
         <image name="dashboard-button-white.png" width="36" height="36"/>
         <image name="gear.png" width="95" height="99"/>
         <image name="heart-icon.png" width="23" height="20"/>
         <image name="menu-button-white.png" width="36" height="36"/>
-        <image name="tk-icon-active.png" width="30" height="30"/>
-        <image name="tk-icon.png" width="30" height="30"/>
+        <image name="tk-icon-active.png" width="20" height="20"/>
+        <image name="tk-icon.png" width="20" height="20"/>
     </resources>
     <classes>
         <class className="AddGroupViewController" superclassName="UIViewController">

@@ -10,9 +10,9 @@
 #define TabBarSlider_AppConstants_h
 
 
-#define expenseCGPoint  {20,47}
-#define listCGPoint {205,47}
-#define timelineCGPoint {114,47}
+#define expenseCGPoint  {20,52}
+#define listCGPoint {205,52}
+#define timelineCGPoint {114,52}
 
 
 #endif
