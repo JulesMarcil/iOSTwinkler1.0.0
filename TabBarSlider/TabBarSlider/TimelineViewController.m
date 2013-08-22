@@ -13,6 +13,7 @@
 #import "AuthAPIClient.h"
 #import "AFHTTPRequestOperation.h"
 #import "timelineBubbleCell.h"
+#import "DRNRealTimeBlurView.h"
 
 
 @interface TimelineViewController ()
@@ -44,10 +45,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataRetrieved) name:@"messagesWithJSONFinishedLoading" object:nil];
     
     self.refreshTimer = [NSTimer scheduledTimerWithTimeInterval:5.0
-                                     target:self
-                                   selector:@selector(dataRefresh)
-                                   userInfo:nil
-                                    repeats:YES];
+                                                         target:self
+                                                       selector:@selector(dataRefresh)
+                                                       userInfo:nil
+                                                        repeats:YES];
     
     //-------------Position----------------------------
     
@@ -55,21 +56,21 @@
     CGFloat screenHeight = screenRect.size.height;
     CGRect frame= [self.messageOnTimeline frame];
     [self.messageOnTimeline setFrame:CGRectMake(0,
-                                               -20,
-                                               frame.size.width,
+                                                -20,
+                                                frame.size.width,
                                                 screenHeight-64)];
     [self.messageOnTimeline setContentOffset:CGPointMake(0, 999999999999)];
     
     
     frame= [self.actionBar frame];
     [self.actionBar setFrame:CGRectMake(0,
-                                       screenHeight-84,
-                                       frame.size.width,
-                                       44)];
+                                        screenHeight-84,
+                                        frame.size.width,
+                                        44)];
     frame= [self.main frame];
     [self.main setFrame:CGRectMake(10,
                                    screenHeight-222+44+100,
-                                    frame.size.width,
+                                   frame.size.width,
                                    frame.size.height)];
     
     self.actionBar.layer.borderWidth = 1.0f;
@@ -80,9 +81,9 @@
     self.timelineTextBoxContainer.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
     self.timelineTextBoxContainer.layer.borderWidth = 1.0f;
     
-
     
-  
+    
+    
     //------------TabBar Navigation------------------------------
     UISwipeGestureRecognizer* swipeRightGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(goToExpense)];
     swipeRightGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
@@ -139,7 +140,7 @@
                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                       NSLog(@"error: %@", error);
                                   }];
-
+    
 }
 
 - (void)dataRetrieved {
@@ -194,72 +195,101 @@
         [formatter setDateStyle:NSDateFormatterMediumStyle];
     }
     timelineBubbleCell *cell = [tableView
-                             dequeueReusableCellWithIdentifier:CellIdentifier];
+                                dequeueReusableCellWithIdentifier:CellIdentifier];
     cell.messageContainer.layer.cornerRadius = 3;
-    cell.messageContainer.layer.masksToBounds = YES;
     cell.messageContainer.layer.masksToBounds = NO;
     cell.messageContainer.layer.shadowOffset = CGSizeMake(0, 0.6);
     cell.messageContainer.layer.shadowRadius = 0.8;
     cell.messageContainer.layer.shadowOpacity = 0.1;
     
     Message *messageAtIndex = [self.messageDataController
-                                   objectInListAtIndex:indexPath.row];
+                               objectInListAtIndex:indexPath.row];
     cell.messageLabel.text=messageAtIndex.content;
     
     
     NSString *currentMemberName=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"];
     
-    if (![currentMemberName isEqualToString:messageAtIndex.author]){
-    
-    CGRect frame = cell.messageLabel.frame;
-    frame.size.height = cell.messageLabel.contentSize.height+20;
-    CGSize sz = [cell.messageLabel.text sizeWithFont:cell.messageLabel.font constrainedToSize:CGSizeMake(200, 20000) lineBreakMode:NSLineBreakByWordWrapping];
-    cell.messageLabel.editable = NO;
-    cell.messageContainer.frame=frame;
-    [cell.messageContainer setFrame:CGRectMake(320-sz.width-20-20,10,
-                                                sz.width+20,
-                                                sz.height+20)];
-    
-    [cell.bubbleTailImage setFrame:CGRectMake(320-21,sz.height,
-                                              cell.bubbleTailImage.frame.size.width,
-                                              cell.bubbleTailImage.frame.size.height)];
+    if	([messageAtIndex.type isEqual:@"message"]){
         
-    [cell.memberProfilePicImage removeFromSuperview];
-    
-    [cell.timelineTimeLabel setFrame:CGRectMake(320-sz.width-20-20-45,sz.height+5,
-                                              cell.timelineTimeLabel.frame.size.width,
-                                              cell.timelineTimeLabel.frame.size.height)];
-    
-    [formatter setDateFormat:@"HH:mm"];
-    cell.timelineTimeLabel.text=[formatter stringFromDate:(NSDate*)messageAtIndex.date];
-        
-    }else{
-        
+        if (![currentMemberName isEqualToString:messageAtIndex.author]){
+            
+            CGRect frame = cell.messageLabel.frame;
+            frame.size.height = cell.messageLabel.contentSize.height+20;
+            CGSize sz = [cell.messageLabel.text sizeWithFont:cell.messageLabel.font constrainedToSize:CGSizeMake(200, 20000) lineBreakMode:NSLineBreakByWordWrapping];
+            cell.messageLabel.editable = NO;
+            
+            cell.memberProfilePicImage.alpha=0;
+            cell.bubbleTailImage.alpha=1;
+            cell.messageContainer.frame=frame;
+            [cell.messageContainer setFrame:CGRectMake(320-sz.width-20-20,10,
+                                                       sz.width+20,
+                                                       sz.height+20)];
+            
+            [cell.bubbleTailImage setFrame:CGRectMake(320-21,sz.height,
+                                                      cell.bubbleTailImage.frame.size.width,
+                                                      cell.bubbleTailImage.frame.size.height)];
+            
+            
+            [cell.timelineTimeLabel setFrame:CGRectMake(320-sz.width-20-20-45,sz.height+5,
+                                                        cell.timelineTimeLabel.frame.size.width,
+                                                        cell.timelineTimeLabel.frame.size.height)];
+            
+            [formatter setDateFormat:@"HH:mm"];
+            cell.timelineTimeLabel.text=[formatter stringFromDate:(NSDate*)messageAtIndex.date];
+            
+        }else{
+            
+            CGRect frame = cell.messageLabel.frame;
+            frame.size.height = cell.messageLabel.contentSize.height+20;
+            CGSize sz = [cell.messageLabel.text sizeWithFont:cell.messageLabel.font constrainedToSize:CGSizeMake(200, 20000) lineBreakMode:NSLineBreakByWordWrapping];
+            cell.messageLabel.editable = NO;
+            cell.messageContainer.frame=frame;
+            [cell.messageContainer setFrame:CGRectMake(70,10,
+                                                       sz.width+20,
+                                                       sz.height+20)];
+            
+            cell.messageContainer.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:1];
+            cell.bubbleTailImage.image= [UIImage imageNamed:@"bubble-tail-white"];
+            cell.bubbleTailImage.alpha=1;
+            
+            [cell.bubbleTailImage setFrame:CGRectMake(52,sz.height,
+                                                      cell.bubbleTailImage.frame.size.width,
+                                                      cell.bubbleTailImage.frame.size.height)];
+            [cell.memberProfilePicImage setFrame:CGRectMake(5,(int) sz.height-15,
+                                                            55,
+                                                            47)];
+            cell.memberProfilePicImage.alpha=1;
+            
+            [cell.timelineTimeLabel setFrame:CGRectMake(sz.width+25+70,sz.height+5,
+                                                        cell.timelineTimeLabel.frame.size.width,
+                                                        cell.timelineTimeLabel.frame.size.height)];
+            
+            [formatter setDateFormat:@"HH:mm"];
+            cell.timelineTimeLabel.text=[formatter stringFromDate:(NSDate*)messageAtIndex.date];
+        }
+    }
+    else{
         CGRect frame = cell.messageLabel.frame;
         frame.size.height = cell.messageLabel.contentSize.height+20;
         CGSize sz = [cell.messageLabel.text sizeWithFont:cell.messageLabel.font constrainedToSize:CGSizeMake(200, 20000) lineBreakMode:NSLineBreakByWordWrapping];
         cell.messageLabel.editable = NO;
         cell.messageContainer.frame=frame;
-        [cell.messageContainer setFrame:CGRectMake(70,10,
-                                                   sz.width+20,
+        [cell.messageContainer setFrame:CGRectMake(0,10,
+                                                   320,
                                                    sz.height+20)];
+        cell.messageContainer.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:0.6];
+
         
-        cell.messageContainer.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:1];
-        cell.bubbleTailImage.image= [UIImage imageNamed:@"bubble-tail-white"];
+        cell.bubbleTailImage.alpha=0;
+        cell.memberProfilePicImage.alpha=0;
         
-        [cell.bubbleTailImage setFrame:CGRectMake(52,sz.height,
-                                                  cell.bubbleTailImage.frame.size.width,
-                                                  cell.bubbleTailImage.frame.size.height)];
-        [cell.memberProfilePicImage setFrame:CGRectMake(5,(int) sz.height-15,
-                                                        55,
-                                                        47)];
-        
-        [cell.timelineTimeLabel setFrame:CGRectMake(sz.width+25+70,sz.height+5,
+        [cell.timelineTimeLabel setFrame:CGRectMake(320-sz.width-20-20-45,sz.height+5,
                                                     cell.timelineTimeLabel.frame.size.width,
                                                     cell.timelineTimeLabel.frame.size.height)];
         
         [formatter setDateFormat:@"HH:mm"];
         cell.timelineTimeLabel.text=[formatter stringFromDate:(NSDate*)messageAtIndex.date];
+        
     }
     
     return cell;
@@ -416,14 +446,14 @@
 - (void) animateTextField: (UITextField*) textField up: (BOOL) up
 {
     int movement = (up ? -215 : 215);
-        
+    
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationBeginsFromCurrentState:YES];
     [UIView setAnimationDuration:0.3f];
     self.view.superview.superview.frame = CGRectOffset(self.view.superview.superview.frame, 0, movement);
     [UIView commitAnimations];
     
-
+    
 }
 
 @end
