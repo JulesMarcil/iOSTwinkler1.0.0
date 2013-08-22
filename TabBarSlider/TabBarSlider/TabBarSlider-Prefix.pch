@@ -16,4 +16,5 @@
     #import <MobileCoreServices/MobileCoreServices.h>
     #import <Security/Security.h>
     #import "CredentialStore.h"
+    #import "AppConstants.h"
 #endif

@@ -140,7 +140,7 @@
 
 
 - (void)expenseButtonPressed:(UIButton *)sender {
-    CGPoint pt = {20,52};
+    CGPoint pt = expenseCGPoint;
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.1];
@@ -156,7 +156,7 @@
     [UIView commitAnimations];
 }
 - (void)timelineButtonPressed:(UIButton *)sender {
-    CGPoint pt = {114,52};
+    CGPoint pt = timelineCGPoint;
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.1];
@@ -172,7 +172,7 @@
     [UIView commitAnimations];
 }
 - (void)listButtonPressed:(UIButton *)sender {
-    CGPoint pt = {207,52};
+    CGPoint pt = listCGPoint;
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.1];
