@@ -96,6 +96,8 @@
 		897B77C217BB8E0D00D00C49 /* left-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 897B77C117BB8E0D00D00C49 /* left-arrow.png */; };
 		897B77C417BBDD2100D00C49 /* bubble-tail-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 897B77C317BBDD2100D00C49 /* bubble-tail-white.png */; };
 		89CEBC8117C61F7800DF7085 /* chat-bck.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CEBC8017C61F7800DF7085 /* chat-bck.png */; };
+		89CEBC8417C6634000DF7085 /* AddGroupStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89CEBC8317C6634000DF7085 /* AddGroupStoryboard.storyboard */; };
+		89CEBC8D17C668A900DF7085 /* GroupMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CEBC8C17C668A900DF7085 /* GroupMemberViewController.m */; };
 		89F71E1317B5494E00BC9C32 /* add-expense-bckgd.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F71E1217B5494E00BC9C32 /* add-expense-bckgd.png */; };
 		89F71E1517B54A2000BC9C32 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89F71E1417B54A2000BC9C32 /* FacebookSDK.framework */; };
 		89F71E1817B54E5600BC9C32 /* memberCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F71E1717B54E5600BC9C32 /* memberCollectionViewCell.m */; };
@@ -255,6 +257,9 @@
 		897B77C317BBDD2100D00C49 /* bubble-tail-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bubble-tail-white.png"; sourceTree = "<group>"; };
 		8993880217C5FE7B00B5A9BE /* AppConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConstants.h; sourceTree = "<group>"; };
 		89CEBC8017C61F7800DF7085 /* chat-bck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat-bck.png"; sourceTree = "<group>"; };
+		89CEBC8317C6634000DF7085 /* AddGroupStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddGroupStoryboard.storyboard; sourceTree = "<group>"; };
+		89CEBC8B17C668A900DF7085 /* GroupMemberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupMemberViewController.h; sourceTree = "<group>"; };
+		89CEBC8C17C668A900DF7085 /* GroupMemberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupMemberViewController.m; sourceTree = "<group>"; };
 		89F71E1217B5494E00BC9C32 /* add-expense-bckgd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-expense-bckgd.png"; sourceTree = "<group>"; };
 		89F71E1417B54A2000BC9C32 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		89F71E1617B54E5600BC9C32 /* memberCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = memberCollectionViewCell.h; sourceTree = "<group>"; };
@@ -418,10 +423,9 @@
 		8901CE8217AF8A200084E749 /* GroupMenu */ = {
 			isa = PBXGroup;
 			children = (
+				89CEBC8217C6631F00DF7085 /* AddMember */,
 				BA9C6DEA17B0627E00C50CC2 /* MenuViewController.h */,
 				BA9C6DEB17B0627E00C50CC2 /* MenuViewController.m */,
-				BA9C6DE417B0627E00C50CC2 /* AddGroupViewController.h */,
-				BA9C6DE517B0627E00C50CC2 /* AddGroupViewController.m */,
 				BA9C6DE617B0627E00C50CC2 /* Group.h */,
 				BA9C6DE717B0627E00C50CC2 /* Group.m */,
 				BA9C6DE817B0627E00C50CC2 /* GroupDataController.h */,
@@ -635,6 +639,18 @@
 				895C4E6017AA77D9004EC590 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		89CEBC8217C6631F00DF7085 /* AddMember */ = {
+			isa = PBXGroup;
+			children = (
+				89CEBC8317C6634000DF7085 /* AddGroupStoryboard.storyboard */,
+				89CEBC8B17C668A900DF7085 /* GroupMemberViewController.h */,
+				89CEBC8C17C668A900DF7085 /* GroupMemberViewController.m */,
+				BA9C6DE417B0627E00C50CC2 /* AddGroupViewController.h */,
+				BA9C6DE517B0627E00C50CC2 /* AddGroupViewController.m */,
+			);
+			name = AddMember;
 			sourceTree = "<group>";
 		};
 		89F71E1917B5946E00BC9C32 /* Images */ = {
@@ -865,6 +881,7 @@
 				897B77C217BB8E0D00D00C49 /* left-arrow.png in Resources */,
 				897B77C417BBDD2100D00C49 /* bubble-tail-white.png in Resources */,
 				89CEBC8117C61F7800DF7085 /* chat-bck.png in Resources */,
+				89CEBC8417C6634000DF7085 /* AddGroupStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -948,6 +965,7 @@
 				8919A9DF17BA19AF00778467 /* timelineBubbleCell.m in Sources */,
 				BA7FC7E317BA29D1001E3A3C /* RegisterViewController.m in Sources */,
 				BA2D793F17BB9ECE00B19C09 /* Member.m in Sources */,
+				89CEBC8D17C668A900DF7085 /* GroupMemberViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
