@@ -11,7 +11,7 @@
 @implementation Expense
 
 
--(id)initWithName:(NSString *)name amount:(NSNumber *)amount owner:(NSDictionary *)owner date:(NSDate *)date members:(NSArray *)members author:(NSString *)author addedDate:(NSDate *)addedDate {
+-(id)initWithName:(NSString *)name amount:(NSNumber *)amount owner:(NSDictionary *)owner date:(NSDate *)date members:(NSArray *)members author:(NSString *)author addedDate:(NSDate *)addedDate share:(NSNumber *)share {
     self=[super init];
     if(self){
         _name = name;
@@ -21,6 +21,7 @@
         _members = members;
         _author = author;
         _addedDate = addedDate;
+        _share=share;
         return self;
     }
     return nil;

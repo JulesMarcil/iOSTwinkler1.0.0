@@ -29,10 +29,9 @@
     self.expenseList = expenseList;
     
     //Set parameters for request
-    NSString *currentGroupId = [[NSUserDefaults standardUserDefaults] stringForKey:@"currentGroupId"];
-    NSLog(@"current group id = %@", currentGroupId);
-    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:currentGroupId, @"currentGroupId", nil];
-
+    NSDictionary *currentMember = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"];
+    NSLog(@"current member id = %@", currentMember[@"id"]);
+    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:currentMember[@"id"], @"currentMemberId", nil];
     
     [[AuthAPIClient sharedClient] getPath:@"group/app/expenses"
                                parameters:parameters
@@ -58,6 +57,7 @@
                                                                                    members:key[@"members"]
                                                                                     author:key[@"author"]
                                                                                  addedDate:[NSDate dateWithTimeIntervalSince1970:interval2]
+                                                                                     share:key[@"share"]
                                                               ];
                                           
                                           [self addExpenseWithExpense:expense];

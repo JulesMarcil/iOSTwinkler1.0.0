@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSArray *members;
 @property (nonatomic, strong) NSString *author;
 @property (nonatomic, strong) NSDate *addedDate;
+@property (nonatomic, strong) NSNumber *share;
 
 - (id)initWithName:(NSString *)name
             amount:(NSNumber *)amount
@@ -24,5 +25,6 @@
               date:(NSDate *)date
            members:(NSArray *)members
             author:(NSString *)author
-         addedDate:(NSDate *)addedDate;
+         addedDate:(NSDate *)addedDate
+             share:(NSNumber *)share;
 @end

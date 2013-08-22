@@ -294,14 +294,37 @@
     [expenseDateLabel setFont:[UIFont fontWithName: @"HelveticaNeue-Light" size: 14.0f]];
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"MMM d, yyy";
-    expenseDateLabel.text=[NSString stringWithFormat:@"%@ %@",@"Your Share: 26€ - on",[dateFormatter stringFromDate:expense.date]];
+    expenseDateLabel.text=[NSString stringWithFormat:@"On %@ - Your share = %@ %@",[dateFormatter stringFromDate:expense.date], expense.share, [[NSUserDefaults standardUserDefaults] stringForKey:@"currentGroupCurrency"]];
     expenseDateLabel.textAlignment = NSTextAlignmentLeft;
     [whiteView addSubview:expenseDateLabel];
     
     UIImageView *ownerPic = [[UIImageView alloc] initWithFrame:CGRectMake(20, 70, 41, 37)];
-    ownerPic.image = [UIImage imageNamed:@"sasa.png"];
-    [whiteView addSubview:ownerPic];
+    ownerPic.image = [UIImage imageNamed:@"profile-pic-placeholder.png"];
+    NSString *path = expense.owner[@"picturePath"];
+    NSNumber *facebookId= [[[NSNumberFormatter alloc] init] numberFromString:path];
     
+    NSURL *url;
+    if (facebookId) {
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=100&height=100", facebookId]];
+    } else if(![path isEqualToString:@"local"]) {
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:8888/Twinkler1.2.3/web/%@", path]];
+    }
+    
+    if(url) {
+        
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        NSLog(@"%@", url);
+        
+        [ownerPic setImageWithURLRequest:request
+                                     placeholderImage:[UIImage imageNamed:@"profile-pic-placeholder.png"]
+                                              success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                                  ownerPic.image = image;
+                                                  [self setRoundedView:ownerPic picture:ownerPic.image toDiameter:41];
+                                              }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                                  NSLog(@"Failed with error: %@", error);
+                                              }];
+    }
+    [whiteView addSubview:ownerPic];
     
     UIColor *borderColor = [UIColor colorWithRed:(200/255.0) green:(200/255.0) blue:(200/255.0) alpha:1] ;
     

@@ -344,14 +344,18 @@
             NSMutableArray *selectedMembers = [[NSMutableArray alloc] init];
             
             //get selected members
-             for(memberCollectionViewCell* cell in [self.collectionView visibleCells]){
+            for(memberCollectionViewCell* cell in [self.collectionView visibleCells]){
                  
-                 NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
-                 if (cell.isSelected) {
-                     NSDictionary *member = [memberArray objectAtIndex:indexPath.row];
-                     [selectedMembers addObject:member];
-                 }
-             }
+                NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
+                if (cell.isSelected) {
+                    NSDictionary *member = [memberArray objectAtIndex:indexPath.row];
+                    [selectedMembers addObject:member];
+                }
+            }
+            
+            //calculate share (to be done with nspredicate - waiting for it to be displayed) /Jules
+            NSDictionary *currentMember = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"];
+            NSNumber *share = @-1;
             
             Expense *expense = [[Expense alloc] initWithName:self.expenseName.text
                                                       amount:formattedAmount
@@ -359,7 +363,9 @@
                                                         date:today
                                                      members:selectedMembers
                                                       author:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"]
-                                                   addedDate:today];
+                                                   addedDate:today
+                                                       share:share
+                                ];
             self.expense = expense;
         }
     }
