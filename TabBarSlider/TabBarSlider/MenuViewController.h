@@ -34,4 +34,5 @@
 - (void)setRoundedView:(UIImageView *)roundedView toDiameter:(float)newSize;
 - (UIImage *)getImageForMember:(NSDictionary *)member;
 
+
 @end

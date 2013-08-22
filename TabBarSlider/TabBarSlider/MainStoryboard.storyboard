@@ -326,6 +326,11 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
+                                                <view contentMode="scaleToFill" id="KGZ-cN-tTM">
+                                                    <rect key="frame" x="5" y="0.0" width="55" height="55"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -335,6 +340,7 @@
                                             <outlet property="dateLabel" destination="ANE-uy-dwp" id="vLV-9J-UI4"/>
                                             <outlet property="detailLabel" destination="0sh-AO-oIg" id="wZD-iA-7lp"/>
                                             <outlet property="groupNameLabel" destination="QOn-aG-6Zv" id="jZN-EX-BqK"/>
+                                            <outlet property="groupPicPlaceholder" destination="KGZ-cN-tTM" id="eYv-1L-FNK"/>
                                             <segue destination="TSO-ay-kkC" kind="custom" customClass="SWRevealViewControllerSegue" id="KLY-9e-DSX"/>
                                         </connections>
                                     </tableViewCell>
@@ -426,6 +432,7 @@
                 <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="detailLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="groupNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="groupPicPlaceholder" candidateClass="UIView"/>
             </relationships>
         </class>
         <class className="MenuViewController" superclassName="UIViewController">

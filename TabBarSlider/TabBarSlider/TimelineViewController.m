@@ -293,7 +293,7 @@
     
     [[tbvc.placeholderView layer] addAnimation:animation forKey:@"showSecondViewController"];
     
-    CGPoint pt = {0,0};
+    CGPoint pt = {20,52};
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.1];
@@ -331,7 +331,7 @@
     
     [[tbvc.placeholderView layer] addAnimation:animation forKey:@"showSecondViewController"];
     
-    CGPoint pt = {214,0};
+    CGPoint pt = {207,52};
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.1];
