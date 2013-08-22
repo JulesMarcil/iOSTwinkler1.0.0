@@ -105,9 +105,9 @@
             
     }
     
-    self.tabBarBck.layer.cornerRadius = 3;
+    self.tabBarBck.layer.cornerRadius = 2;
     self.tabBarBck.layer.masksToBounds = YES;
-    self.activeTabBarImage.layer.cornerRadius = 3;
+    self.activeTabBarImage.layer.cornerRadius = 2;
     self.activeTabBarImage.layer.masksToBounds = YES;
     
     UIStoryboard *timelineStoryboard=[UIStoryboard storyboardWithName:@"timelineStoryboard" bundle:nil];
