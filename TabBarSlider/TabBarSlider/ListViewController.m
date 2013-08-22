@@ -41,7 +41,7 @@
     [self.listOnLists setFrame:CGRectMake(0,
                                           -20,
                                           frame.size.width,
-                                          screenHeight-208+44+44)];
+                                          screenHeight-208+44+44+100)];
     
     
     

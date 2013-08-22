@@ -31,7 +31,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="at9-FK-ZVX">
-                                <rect key="frame" x="0.0" y="100" width="320" height="449"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="549"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -39,12 +39,22 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="ba0-cD-7ZI">
-                                        <rect key="frame" x="20" y="52" width="280" height="30"/>
+                                        <rect key="frame" x="20" y="47" width="280" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.81176477670669556" green="0.29411765933036804" blue="0.25098040699958801" alpha="1" colorSpace="deviceRGB"/>
                                     </view>
+                                    <view contentMode="scaleToFill" id="tFJ-ww-Uiz">
+                                        <rect key="frame" x="204" y="47" width="2" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.89803928136825562" green="0.38431376218795776" blue="0.32549020648002625" alpha="1" colorSpace="deviceRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" id="dMC-qE-Gr1">
+                                        <rect key="frame" x="114" y="47" width="2" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.8980392814" green="0.38431376220000002" blue="0.32549020649999999" alpha="1" colorSpace="deviceRGB"/>
+                                    </view>
                                     <view contentMode="scaleToFill" id="upL-xD-hup">
-                                        <rect key="frame" x="113.5" y="52" width="93" height="30"/>
+                                        <rect key="frame" x="112.5" y="47" width="95" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
@@ -79,7 +89,7 @@
                                         <state key="highlighted" image="check-icon-active.png"/>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.80000000000000004" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view alpha="0.99999999999999989" contentMode="scaleToFill" id="bTU-o3-M9J">
                                 <rect key="frame" x="0.0" y="503" width="320" height="45"/>
@@ -206,7 +216,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="fqH-4F-PkS">
                             <connections>
-                                <segue destination="gr0-8d-zJH" kind="unwind" identifier="ReturnAddGroupInput" unwindAction="doneAddGroup:" id="q8m-bA-aIX"/>
+                                <segue destination="gr0-8d-zJH" kind="unwind" identifier="ReturnAddGroupInput" unwindAction="doneAddGroup:" id="F4X-Av-duJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -508,7 +518,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="fre-ie-9eR"/>
         <segue reference="KLY-9e-DSX"/>
+        <segue reference="fre-ie-9eR"/>
     </inferredMetricsTieBreakers>
 </document>

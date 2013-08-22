@@ -54,16 +54,20 @@
                                        frame.size.height)];
     frame= [self.placeholderView frame];
     [self.placeholderView setFrame:CGRectMake(0,
-                                          100,
+                                          0,
                                           frame.size.width,
-                                          screenHeight - 100)];
+                                          screenHeight)];
     frame= [self.toolbar frame];
     [self.toolbar setFrame:CGRectMake(0,
                                       0,
                                       frame.size.width,
                                       100)];
-    self.toolbar.backgroundColor=[UIColor colorWithRed:(229/255.0) green:(98/255.0) blue:(83/255.0) alpha:1];
-
+    self.toolbar.backgroundColor=[UIColor colorWithRed:(229/255.0) green:(98/255.0) blue:(83/255.0) alpha:0.6];
+    
+    DRNRealTimeBlurView *blurView = [[DRNRealTimeBlurView alloc] initWithFrame:CGRectMake(0, 0,320, 100)];
+    [self.view addSubview:blurView];
+    [self.view insertSubview:blurView belowSubview:self.toolbar];
+    
     [self.collectionView setFrame:CGRectMake(0,
                                       45,
                                       320,
