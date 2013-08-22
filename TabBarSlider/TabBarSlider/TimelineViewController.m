@@ -274,10 +274,10 @@
         CGSize sz = [cell.messageLabel.text sizeWithFont:cell.messageLabel.font constrainedToSize:CGSizeMake(200, 20000) lineBreakMode:NSLineBreakByWordWrapping];
         cell.messageLabel.editable = NO;
         cell.messageContainer.frame=frame;
-        [cell.messageContainer setFrame:CGRectMake(0,10,
-                                                   320,
+        [cell.messageContainer setFrame:CGRectMake(10,10,
+                                                   300,
                                                    sz.height+20)];
-        cell.messageContainer.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:0.6];
+        cell.messageContainer.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:0.8];
 
         
         cell.bubbleTailImage.alpha=0;
