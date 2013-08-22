@@ -7,6 +7,7 @@
 //
 
 #import "GroupMemberViewController.h"
+#import "Group.h"
 
 @interface GroupMemberViewController ()
 
@@ -32,6 +33,8 @@
                                                     frame.size.width,
                                                     frame.size.height)];
 	// Do any additional setup after loading the view.
+    
+    NSLog(@"group = %@", self.group.name);
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,21 +48,24 @@
     if (tableView.tag == 1) {
         return 1;
     }else{
-            return 1;
+        return 1;
     }
         
 }
 
-- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     if (tableView.tag == 1) {
-        return 1;
+        return self.group.members.count;
     }else{
-    return 1;
+        return 2;
     }
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{    
     if (tableView.tag == 1) {
+        
         static NSString *CellIdentifier = @"memberCell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier];
         if (cell == nil)
@@ -68,30 +74,21 @@
                                           reuseIdentifier:  CellIdentifier];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
-        cell.textLabel.text=@"Arnaud";
+        cell.textLabel.text=[self.group.members objectAtIndex:indexPath.row][@"name"];
         return cell;
-    }else if (tableView.tag == 2){
-    static NSString *CellIdentifier = @"memberSuggestionCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier];
-    if (cell == nil)
-    {
-        cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
-                                       reuseIdentifier:  CellIdentifier];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }
-    cell.textLabel.text=@"Julio";
-    return cell;
-    }else {
+        
+    } else {
+        
         static NSString *CellIdentifier = @"memberSuggestionCell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier];
-        if (cell == nil)
-        {
+        if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
-                                          reuseIdentifier:  CellIdentifier];
+                                      reuseIdentifier: CellIdentifier];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
-        cell.textLabel.text=@"";
+        cell.textLabel.text=@"amigos";
         return cell;
+        
     }
 }
 - (IBAction)goToTimeline:(id)sender {

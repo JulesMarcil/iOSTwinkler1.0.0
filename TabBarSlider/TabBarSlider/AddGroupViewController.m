@@ -7,6 +7,7 @@
 //
 
 #import "AddGroupViewController.h"
+#import "GroupMemberViewController.h"
 #import "Group.h"
 
 @interface AddGroupViewController ()
@@ -139,22 +140,22 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"ReturnAddGroupInput"]) {
+    if ([[segue identifier] isEqualToString:@"GroupToMembers"]) {
         if ([self.groupName.text length]) {
             
             NSDictionary *currentMember = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"];
             NSArray *members = [[NSArray alloc] initWithObjects:currentMember, nil];
-            
-            NSLog(@"current member = %@", currentMember);
-            NSLog(@"members = %@", members);
             
             Group *group = [[Group alloc] initWithName:self.groupName.text
                                             identifier:nil
                                                members:members
                                           activeMember:currentMember
                                               currency:self.selectedCurrency[@"symbol"]];
-            self.group = group;
-            NSLog(@"group = %@", self.group);
+            
+            GroupMemberViewController *gmvc = [segue destinationViewController];
+            gmvc.group = group;
+            
+            NSLog(@"group from addGroup = %@", self.group.name);
         }
     }
 }

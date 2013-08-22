@@ -73,7 +73,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add Members" id="vcA-hA-qR0">
                             <connections>
-                                <segue destination="xwu-3j-5Ge" kind="push" id="rFg-X8-c5b"/>
+                                <segue destination="xwu-3j-5Ge" kind="push" identifier="GroupToMembers" id="rFg-X8-c5b"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -250,6 +250,27 @@
             <point key="canvasLocation" x="659" y="-1338"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="AddGroupViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddGroupViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="showPicker:"/>
+                <relationship kind="outlet" name="currencyPicker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="currentCurrency" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="groupName" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="GroupMemberViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GroupMemberViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="goToTimeline:"/>
+                <relationship kind="outlet" name="memberNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="memberSuggestionTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="memberTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
