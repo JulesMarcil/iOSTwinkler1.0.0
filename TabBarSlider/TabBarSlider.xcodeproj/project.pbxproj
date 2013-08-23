@@ -140,6 +140,7 @@
 		BAAC681017B4D746006C69DE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAC680F17B4D746006C69DE /* LoginViewController.m */; };
 		BAAC681317B4E29D006C69DE /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAC681217B4E29D006C69DE /* Profile.m */; };
 		BAAC681A17B53C32006C69DE /* profile-pic.png in Resources */ = {isa = PBXBuildFile; fileRef = BAAC681917B53C32006C69DE /* profile-pic.png */; };
+		BAC9294017C77DF60067F5B0 /* DashboardMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC9293F17C77DF60067F5B0 /* DashboardMemberCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -335,6 +336,8 @@
 		BAAC681117B4E29D006C69DE /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
 		BAAC681217B4E29D006C69DE /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
 		BAAC681917B53C32006C69DE /* profile-pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile-pic.png"; sourceTree = "<group>"; };
+		BAC9293E17C77DF60067F5B0 /* DashboardMemberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardMemberCell.h; sourceTree = "<group>"; };
+		BAC9293F17C77DF60067F5B0 /* DashboardMemberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardMemberCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -662,6 +665,8 @@
 			children = (
 				89CEBC9217C6B5C400DF7085 /* DashboardViewController.h */,
 				89CEBC9317C6B5C400DF7085 /* DashboardViewController.m */,
+				BAC9293E17C77DF60067F5B0 /* DashboardMemberCell.h */,
+				BAC9293F17C77DF60067F5B0 /* DashboardMemberCell.m */,
 			);
 			name = Dashboard;
 			sourceTree = "<group>";
@@ -980,6 +985,7 @@
 				BA2D793F17BB9ECE00B19C09 /* Member.m in Sources */,
 				89CEBC8D17C668A900DF7085 /* GroupMemberViewController.m in Sources */,
 				89CEBC9417C6B5C400DF7085 /* DashboardViewController.m in Sources */,
+				BAC9294017C77DF60067F5B0 /* DashboardMemberCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

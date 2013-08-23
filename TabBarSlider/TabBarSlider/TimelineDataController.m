@@ -26,7 +26,7 @@
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                       NSError *error = nil;
                                       NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
-                                      NSLog(@"success: %@", response);
+                                      //NSLog(@"success: %@", response);
                                       
                                       for(id key in response) {
                                           

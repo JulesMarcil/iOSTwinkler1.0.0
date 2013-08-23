@@ -121,7 +121,7 @@
                                       int n = response.count;
                                       
                                       NSUInteger diff = n - self.messageDataController.countOfList;
-                                      NSLog(@"diff = %u",diff);
+                                      //NSLog(@"diff = %u",diff);
                                       
                                       if (diff > 0){
                                           
@@ -143,7 +143,7 @@
                                           [self.messageOnTimeline reloadData];
                                           NSLog(@"success: %u messages added", diff);
                                       }else{
-                                          NSLog(@"success: data in sync");
+                                          //NSLog(@"success: data in sync");
                                       }
                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                       NSLog(@"error: %@", error);

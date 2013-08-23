@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DashboardViewController : UIViewController
+@interface DashboardViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>  {
+    IBOutlet UITableView* mainTableView;
+}
 
-@property (weak, nonatomic) IBOutlet UICollectionView *memberCollectionView;
+@property (weak, nonatomic) IBOutlet UITableView *mainTableView;
+@property (strong, nonatomic) NSDictionary *dashboardInfo;
 
 @end

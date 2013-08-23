@@ -7,16 +7,42 @@
 //
 
 #import "DashboardViewController.h"
-#import "memberCollectionViewCell.h"
+#import "AuthAPIClient.h"
 #import "UIImageView+AFNetworking.h"
+#import "DashboardMemberCell.h"
 
-@interface DashboardViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>{
-    NSArray *memberArray;
-}
+
+@interface DashboardViewController ()
 
 @end
 
 @implementation DashboardViewController
+
+@synthesize mainTableView=_mainTableView;
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    
+    //load dashboard info
+    
+    NSNumber *currentMemberId = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"id"];
+    NSDictionary *parameters = [[NSDictionary alloc] initWithObjectsAndKeys:currentMemberId, @"currentMemberId", nil];
+    
+    [[AuthAPIClient sharedClient] getPath:@"api/dashboard"
+                               parameters:parameters
+                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                      NSError *error = nil;
+                                      NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                                      
+                                      self.dashboardInfo = response;
+                                      NSLog(@"dashboard info : %@", self.dashboardInfo);
+                                      
+                                  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                      NSLog(@"error: %@", error);
+                                  }];
+}
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,7 +56,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    memberArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupMembers"];
 	// Do any additional setup after loading the view.
 }
 
@@ -41,28 +66,43 @@
 }
 
 
-#pragma mark - UICollectionView Datasource
-// 1
-- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
-    NSLog(@"member: %u",[memberArray count]);
-    return [memberArray count];
-}
-// 2
-- (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
     return 1;
 }
-// 3
-- (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.dashboardInfo[@"members"] count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"memberCell";
     
-    memberCollectionViewCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"memberCell" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor clearColor];
-    [cell.memberProfilePic setFrame:CGRectMake(22,0,35,35)];
-    [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:35.0];
+    DashboardMemberCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier];
     
-    NSDictionary *member = [memberArray objectAtIndex:indexPath.row];
-    NSLog(@"member = %@", member);
+    if (!cell) {
+        cell = (DashboardMemberCell*) [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
+                                      reuseIdentifier:  CellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
     
-    NSString *path = member[@"picturePath"];
+    NSDictionary *memberAtIndex = [self.dashboardInfo[@"members"] objectAtIndex:indexPath.row];
+    
+    cell.nameLabel.text = memberAtIndex[@"name"];
+    
+    NSString *currency=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"];
+    cell.balanceLabel.text = [NSString stringWithFormat:@"%@ %@", [memberAtIndex[@"balance"] stringValue],currency];
+    if ([memberAtIndex[@"balance"] doubleValue] > 0) {
+        cell.balanceLabel.textColor = [UIColor colorWithRed:0 green:255 blue:0 alpha:0.8];
+    } else if ([memberAtIndex[@"balance"] doubleValue] < 0) {
+        cell.balanceLabel.textColor = [UIColor colorWithRed:255 green:0 blue:0 alpha:0.8];
+    } else {
+        cell.balanceLabel.textColor = [UIColor colorWithRed:100 green:100 blue:100 alpha:0.5];
+    }
+    
+    NSString *path = memberAtIndex[@"picturePath"];
     NSNumber *facebookId= [[[NSNumberFormatter alloc] init] numberFromString:path];
     
     NSURL *url;
@@ -81,46 +121,19 @@
                                      placeholderImage:[UIImage imageNamed:@"profile-pic.png"]
                                               success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                                   cell.memberProfilePic.image = image;
-                                                  [cell.memberProfilePic setFrame:CGRectMake(22,0,35,35)];
-                                                  [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:35.0];
-                                                  
+                                                  [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:25.0];
                                               }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                                   NSLog(@"Failed with error: %@", error);
                                               }];
     }
     
-    cell.memberProfilePic.alpha=1;
-    cell.isSelected=YES;
-    cell.memberNameLabel.text=[memberArray objectAtIndex:indexPath.row][@"name"];
-    cell.memberNameLabel.backgroundColor=[UIColor clearColor];
-    return cell;
-}
-// 4
-/*- (UICollectionReusableView *)collectionView:
- (UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
- {
- return [[UICollectionReusableView alloc] init];
- }*/
-
-#pragma mark - UICollectionViewDelegate
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    memberCollectionViewCell *cell= (memberCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    
+    [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:25.0];
 
     
-}
-- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    return cell;    
 }
 
-#pragma mark – UICollectionViewDelegateFlowLayout
-
-// 1
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CGSize retval = CGSizeMake(80, 60);
-    return retval;
-}
+// Design function !!!
 
 -(void) setRoundedView:(UIImageView *)imageView picture: (UIImage *)picture toDiameter:(float)newSize{
     // Begin a new image that will be the new image with the rounded corners
@@ -142,4 +155,5 @@
     // Lets forget about that we were drawing
     UIGraphicsEndImageContext();
 }
+
 @end
