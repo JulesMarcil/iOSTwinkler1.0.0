@@ -228,14 +228,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hAB-em-0RR">
-                                                    <rect key="frame" x="65" y="10" width="106" height="21"/>
+                                                    <rect key="frame" x="65" y="10" width="105" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1wO-2G-xLq">
-                                                    <rect key="frame" x="189" y="10" width="62" height="21"/>
+                                                    <rect key="frame" x="170" y="10" width="85" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="13"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -618,7 +618,6 @@
                 <relationship kind="action" name="cancelAddGroup:" candidateClass="UIStoryboardSegue"/>
                 <relationship kind="action" name="createGroup:"/>
                 <relationship kind="action" name="doneAddGroup:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="goToTimelineButton:"/>
                 <relationship kind="outlet" name="addGroupButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="friendNumberLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="groupOnMenu" candidateClass="UITableView"/>

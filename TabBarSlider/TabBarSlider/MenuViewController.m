@@ -257,6 +257,8 @@
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.members forKey:@"currentGroupMembers"];
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.currency forKey:@"currentGroupCurrency"];
         
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"newGroupSelected" object:nil];
+        
         // Then push the new view controller in the usual way:
         [self.navigationController pushViewController:dst animated:YES];
     }
@@ -286,6 +288,8 @@
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.members forKey:@"currentGroupMembers"];
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.currency forKey:@"currentGroupCurrency"];
         
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"newGroupSelected" object:nil];
+        
         SWRevealViewControllerSegue* rvcs = (SWRevealViewControllerSegue*) segue;
         
         SWRevealViewController* rvc = self.revealViewController;
@@ -302,7 +306,7 @@
         };
     }
 }
-
+/*
 - (IBAction)goToTimelineButton:(id)sender {
     
     UIStoryboard *mainStoryboard=[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
@@ -320,7 +324,7 @@
     [self.navigationController pushViewController:dst animated:YES];
     
 }
-
+*/
 - (IBAction)doneAddGroup:(UIStoryboardSegue *)segue {
     
     if ([[segue identifier] isEqualToString:@"ReturnAddGroupInput"]) {

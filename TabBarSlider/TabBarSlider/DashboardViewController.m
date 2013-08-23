@@ -24,8 +24,16 @@
 {
     [super awakeFromNib];
     
-    //load dashboard info
+    //Set notification listener for new group selected
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadDashboardInfo) name:@"newGroupSelected" object:nil];
+    [self loadDashboardInfo];
+    
+    }
+
+- (void) loadDashboardInfo{
+    
+    //load dashboard info
     NSNumber *currentMemberId = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"id"];
     NSDictionary *parameters = [[NSDictionary alloc] initWithObjectsAndKeys:currentMemberId, @"currentMemberId", nil];
     
@@ -36,13 +44,13 @@
                                       NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
                                       
                                       self.dashboardInfo = response;
+                                      [self.mainTableView reloadData];
                                       NSLog(@"dashboard info : %@", self.dashboardInfo);
                                       
                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                       NSLog(@"error: %@", error);
                                   }];
 }
-
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
