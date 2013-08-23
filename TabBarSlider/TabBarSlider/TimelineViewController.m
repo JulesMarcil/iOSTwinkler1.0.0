@@ -287,10 +287,14 @@
                                                   placeholderImage:placeholderImage
                                                            success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                                                cell.memberProfilePicImage.image = image;
-                                                               [cell.memberProfilePicImage setFrame:CGRectMake(5,(int) sz.height-15, 55, 47)];
+                                                               [cell.memberProfilePicImage setFrame:CGRectMake(10,(int) sz.height-10, 35, 35)];
+                                                               [self setRoundedView:cell.memberProfilePicImage picture:cell.memberProfilePicImage.image toDiameter:35];
                                                            }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                                                NSLog(@"Failed with error: %@", error);
                                                            }];
+            } else {
+                [cell.memberProfilePicImage setFrame:CGRectMake(10,(int) sz.height-10, 35, 35)];
+                [self setRoundedView:cell.memberProfilePicImage picture:cell.memberProfilePicImage.image toDiameter:35];
             }
             
             [cell.timelineTimeLabel setFrame:CGRectMake(sz.width+25+70,sz.height+5,
@@ -319,6 +323,7 @@
         [cell.timelineTimeLabel setFrame:CGRectMake(320-sz.width-20-20-45,sz.height+5,
                                                     cell.timelineTimeLabel.frame.size.width,
                                                     cell.timelineTimeLabel.frame.size.height)];
+        
         
         [formatter setDateFormat:@"HH:mm"];
         cell.timelineTimeLabel.text=[formatter stringFromDate:(NSDate*)messageAtIndex.date];
@@ -491,8 +496,29 @@
     [UIView setAnimationDuration:0.3f];
     self.view.superview.superview.frame = CGRectOffset(self.view.superview.superview.frame, 0, movement);
     [UIView commitAnimations];
+}
+
+//----------DESIGN----------
+
+-(void) setRoundedView:(UIImageView *)imageView picture: (UIImage *)picture toDiameter:(float)newSize{
+    // Begin a new image that will be the new image with the rounded corners
+    // (here with the size of an UIImageView)
+    UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, NO, 1.0);
     
+    // Add a clip before drawing anything, in the shape of an rounded rect
+    [[UIBezierPath bezierPathWithRoundedRect:imageView.bounds
+                                cornerRadius:100.0] addClip];
+    // Draw your image
+    CGRect frame=imageView.bounds;
+    frame.size.width=newSize;
+    frame.size.height=newSize;
+    [picture drawInRect:frame];
     
+    // Get the image, here setting the UIImageView image
+    imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    // Lets forget about that we were drawing
+    UIGraphicsEndImageContext();
 }
 
 @end
