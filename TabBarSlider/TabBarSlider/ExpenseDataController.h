@@ -13,6 +13,7 @@
 @interface ExpenseDataController : NSObject
 
 @property (nonatomic, copy) NSMutableArray *expenseList;
+@property (nonatomic, copy) NSNumber *balance;
 
 - (NSUInteger)countOfList;
 - (Expense *)objectInListAtIndex:(NSUInteger)theIndex;

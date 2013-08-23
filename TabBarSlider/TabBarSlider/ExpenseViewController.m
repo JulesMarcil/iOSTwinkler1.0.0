@@ -71,11 +71,13 @@
     swipeLeftGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.view addGestureRecognizer:swipeLeftGestureRecognizer];
     
-
 }
 
 - (void)dataRetrieved {
     [self.expenseListTable reloadData];
+    self.balanceLabel.text = [NSString stringWithFormat:@"%@ %@", self.expenseDataController.balance, [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"]];
+    
+    NSLog(@"balance from vc= %@", self.expenseDataController.balance);
 }
 
 - (void)didReceiveMemoryWarning
@@ -107,23 +109,12 @@
         cell = (ExpenseItemCell*) [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     };
     
+    //Set expense
     Expense *expenseAtIndex = [self.expenseDataController
                                objectInListAtIndex:indexPath.row];
-    cell.expenseNameLabel.text=expenseAtIndex.name;
-    cell.expenseSubtitleLabel.text=[formatter stringFromDate:(NSDate *)expenseAtIndex.date];
-    
-    NSString *currency=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"];
-    cell.expenseAmountLabel.text=[NSString stringWithFormat:@"%@%@%@", [expenseAtIndex.amount stringValue], @" ",currency];
     
     //Set picture
-    NSArray *memberArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupMembers"];
-    NSNumber *memberId = expenseAtIndex.owner[@"id"];
-    
-    NSDictionary *member = [self returnObjectFromArray:memberArray
-                                                withId:memberId];
-    NSLog(@"member = %@", member);
-    
-    NSString *path = member[@"picturePath"];
+    NSString *path = expenseAtIndex.owner[@"picturePath"];
     NSNumber *facebookId= [[[NSNumberFormatter alloc] init] numberFromString:path];
     
     NSURL *url;
@@ -142,15 +133,32 @@
                                      placeholderImage:[UIImage imageNamed:@"profile-pic.png"]
                                               success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                                   cell.memberProfilePic.image = image;
-                                                  [cell.memberProfilePic setFrame:CGRectMake(18,12,35,35)];
-                                                  [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:35.0];
+                                                  [cell.memberProfilePic setFrame:CGRectMake(14,13,44,44)];
+                                                  [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:44.0];
                                               }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                                   NSLog(@"Failed with error: %@", error);
                                               }];
     }
     
-    [cell.memberProfilePic setFrame:CGRectMake(18,12,35,35)];
-    [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:35.0];
+    [cell.memberProfilePic setFrame:CGRectMake(14,13,44,44)];
+    [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:44.0];
+    
+    //Set labels
+    
+    cell.expenseNameLabel.text=expenseAtIndex.name;
+    
+    NSString *currency=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"];
+    cell.expenseSubtitleLabel.text=[NSString stringWithFormat:@"%@ paid %@ %@ - on %@", expenseAtIndex.owner[@"name"],[expenseAtIndex.amount stringValue],currency, [formatter stringFromDate:(NSDate *)expenseAtIndex.date]];
+    
+    if ([expenseAtIndex.owner[@"name"] isEqual: @"You"]) {
+        cell.getLabel.text = @"You get";
+        cell.shareLabel.text = [NSString stringWithFormat:@"%@ %@", expenseAtIndex.share, currency];
+        cell.shareLabel.textColor = [UIColor colorWithRed:0 green:200 blue:0 alpha: 0.8];
+    } else {
+        cell.getLabel.text = @"You owe";
+        cell.shareLabel.text = [NSString stringWithFormat:@"%@ %@", expenseAtIndex.share, currency];
+        cell.shareLabel.textColor = [UIColor colorWithRed:255 green:0 blue:0 alpha: 0.8];
+    }
     
     return cell;
 }
@@ -294,9 +302,22 @@
     [expenseDateLabel setFont:[UIFont fontWithName: @"HelveticaNeue-Light" size: 14.0f]];
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"MMM d, yyy";
-    expenseDateLabel.text=[NSString stringWithFormat:@"On %@ - Your share = %@ %@",[dateFormatter stringFromDate:expense.date], expense.share, [[NSUserDefaults standardUserDefaults] stringForKey:@"currentGroupCurrency"]];
+    expenseDateLabel.text=[NSString stringWithFormat:@"On %@",[dateFormatter stringFromDate:expense.date]];
     expenseDateLabel.textAlignment = NSTextAlignmentLeft;
     [whiteView addSubview:expenseDateLabel];
+    
+    UILabel *shareLabel = [[UILabel alloc] initWithFrame:CGRectMake(70, 110, 320, 20)];
+    
+    [shareLabel setTextColor:textColor];
+    [shareLabel setBackgroundColor:[UIColor clearColor]];
+    [shareLabel setFont:[UIFont fontWithName: @"HelveticaNeue-Light" size: 14.0f]];
+    if ([expense.owner[@"name"] isEqual: @"You"]) {
+        shareLabel.text=[NSString stringWithFormat:@"Your get %@ %@", expense.share, [[NSUserDefaults standardUserDefaults] stringForKey:@"currentGroupCurrency"]];
+    } else {
+        shareLabel.text=[NSString stringWithFormat:@"Your owe %@ %@", expense.share, [[NSUserDefaults standardUserDefaults] stringForKey:@"currentGroupCurrency"]];
+    }
+    shareLabel.textAlignment = NSTextAlignmentLeft;
+    [whiteView addSubview:shareLabel];
     
     UIImageView *ownerPic = [[UIImageView alloc] initWithFrame:CGRectMake(20, 70, 41, 37)];
     ownerPic.image = [UIImage imageNamed:@"profile-pic-placeholder.png"];

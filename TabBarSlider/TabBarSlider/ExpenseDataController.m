@@ -8,7 +8,6 @@
 
 #import "ExpenseDataController.h"
 
-
 #import "ExpenseDataController.h"
 #import "Expense.h"
 #import "AuthAPIClient.h"
@@ -33,7 +32,7 @@
     NSLog(@"current member id = %@", currentMember[@"id"]);
     NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:currentMember[@"id"], @"currentMemberId", nil];
     
-    [[AuthAPIClient sharedClient] getPath:@"group/app/expenses"
+    [[AuthAPIClient sharedClient] getPath:@"api/expenses"
                                parameters:parameters
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                       NSError *error = nil;
@@ -44,7 +43,10 @@
                                       NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
                                       [f setNumberStyle:NSNumberFormatterDecimalStyle];
                                       
-                                      for(id key in response) {
+                                      self.balance = response[@"balance"];
+                                      NSLog(@"balance from dc = %@", self.balance);
+                                      
+                                      for(id key in response[@"expenses"]) {
                                           
                                           NSNumber *formattedAmount = [f numberFromString:key[@"amount"]];
                                           NSTimeInterval interval1 = [key[@"date"] doubleValue];

@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface ExpenseItemCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *memberProfilePic;
 @property (weak, nonatomic) IBOutlet UILabel *expenseNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *expenseSubtitleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *expenseAmountLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *memberProfilePic;
+@property (weak, nonatomic) IBOutlet UILabel *getLabel;
+@property (weak, nonatomic) IBOutlet UILabel *shareLabel;
 
 @end
