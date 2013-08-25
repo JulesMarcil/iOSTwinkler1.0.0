@@ -157,6 +157,7 @@
             
             GroupMemberViewController *gmvc = [segue destinationViewController];
             gmvc.group = group;
+            gmvc.memberArray = [[NSMutableArray alloc] initWithArray:group.members];
             
             NSLog(@"group from addGroup = %@", self.group.name);
         }

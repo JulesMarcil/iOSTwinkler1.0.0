@@ -56,7 +56,7 @@
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView.tag == 1) {
-        return self.group.members.count;
+        return self.memberArray.count;
     }else{
         return 2;
     }
@@ -76,7 +76,7 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         
-        NSDictionary *memberAtIndex = [self.group.members objectAtIndex:indexPath.row];
+        NSDictionary *memberAtIndex = [self.memberArray objectAtIndex:indexPath.row];
         
         cell.nameLabel.text = memberAtIndex[@"name"];
         
@@ -128,8 +128,27 @@
         
     }
 }
+
+// Old function from Arnaud, kept in case of need again ...
+/*
 - (IBAction)goToTimeline:(id)sender {
     [self presentModalViewController:[[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateInitialViewController] animated:YES];
+}
+*/
+
+- (IBAction)manualAddMember:(id)sender {
+    
+    if (self.memberNameTextField.text.length >0) {
+        NSArray *objects = @[@0, self.memberNameTextField.text, @"local", @"0"];
+        NSArray *keys = @[@"id", @"name", @"picturePath", @"balance"];
+        NSDictionary *member = [[NSDictionary alloc] initWithObjects:objects
+                                                         forKeys:keys];
+        
+        [self.memberArray addObject:member];
+        [self.memberTableView reloadData];
+        self.memberNameTextField.text = @"";
+    }
+    [self dismissKeyboard:nil];
 }
 
 - (IBAction)dismissKeyboard:(id)sender {

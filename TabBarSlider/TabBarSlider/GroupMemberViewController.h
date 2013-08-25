@@ -18,8 +18,9 @@
 @property (weak, nonatomic) IBOutlet UITableView *memberTableView;
 @property (weak, nonatomic) IBOutlet UITextField *memberNameTextField;
 @property (strong, nonatomic) Group *group;
+@property (strong, nonatomic) NSMutableArray *memberArray;
 
-- (IBAction)goToTimeline:(id)sender;
+- (IBAction)manualAddMember:(id)sender;
 - (IBAction)dismissKeyboard:(id)sender;
 
 @end

@@ -152,6 +152,8 @@
                                       currency:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"]];
     
     dst.group = group;
+    dst.memberArray = [[NSMutableArray alloc] initWithArray:group.members];
+    
     [self presentModalViewController:dst animated:YES];
 }
 
