@@ -15,4 +15,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *mainTableView;
 @property (strong, nonatomic) NSDictionary *dashboardInfo;
 
+- (IBAction)AddMemberAction:(id)sender;
+
 @end

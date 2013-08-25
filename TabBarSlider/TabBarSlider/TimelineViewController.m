@@ -324,7 +324,6 @@
                                                     cell.timelineTimeLabel.frame.size.width,
                                                     cell.timelineTimeLabel.frame.size.height)];
         
-        
         [formatter setDateFormat:@"HH:mm"];
         cell.timelineTimeLabel.text=[formatter stringFromDate:(NSDate*)messageAtIndex.date];
         

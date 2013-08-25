@@ -244,6 +244,9 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSLog(@"didselectrowatindexpath from menuviewcontroller");
+    
     if ([self.title isEqualToString:@"welcomeMenu"]){
         [tableView deselectRowAtIndexPath:indexPath animated:NO];
         Group   *selectedGroup=[self.groupDataController objectInListAtIndex:indexPath.row] ;
@@ -252,9 +255,9 @@
         UIViewController *dst=[mainStoryboard instantiateInitialViewController];
         
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.identifier forKey:@"currentGroupId"];
-        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.activeMember forKey:@"currentMember"];
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.name forKey:@"currentGroupName"];
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.members forKey:@"currentGroupMembers"];
+        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.activeMember forKey:@"currentMember"];
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.currency forKey:@"currentGroupCurrency"];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"newGroupSelected" object:nil];
@@ -266,6 +269,8 @@
 
 - (void) prepareForSegue: (UIStoryboardSegue *) segue sender: (id) sender
 {
+    NSLog(@"prepareforsegue from menuviecontroller");
+    
     // configure the destination view controller:
     if ( [segue.destinationViewController isKindOfClass: [TabBarViewController class]] &&
         [sender isKindOfClass:[UIButton class]] )
@@ -283,9 +288,9 @@
         Group *selectedGroup = [self.groupDataController objectInListAtIndex:[self.groupOnMenu indexPathForSelectedRow].row];
         
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.identifier forKey:@"currentGroupId"];
-        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.activeMember forKey:@"currentMember"];
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.name forKey:@"currentGroupName"];
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.members forKey:@"currentGroupMembers"];
+        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.activeMember forKey:@"currentMember"];
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.currency forKey:@"currentGroupCurrency"];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"newGroupSelected" object:nil];
@@ -306,8 +311,10 @@
         };
     }
 }
-/*
+
 - (IBAction)goToTimelineButton:(id)sender {
+    
+    NSLog(@"goToTimelineButton from menuviewcontroller");
     
     UIStoryboard *mainStoryboard=[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     UIViewController *dst=[mainStoryboard instantiateInitialViewController];
@@ -315,16 +322,18 @@
     Group *selectedGroup = [self.groupDataController objectInListAtIndex:[self.groupOnMenu indexPathForSelectedRow].row];
     
     [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.identifier forKey:@"currentGroupId"];
-    [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.activeMember forKey:@"currentMember"];
     [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.name forKey:@"currentGroupName"];
     [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.members forKey:@"currentGroupMembers"];
+    [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.activeMember forKey:@"currentMember"];
     [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.currency forKey:@"currentGroupCurrency"];
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"newGroupSelected" object:nil];
+ 
     // Then push the new view controller in the usual way:
     [self.navigationController pushViewController:dst animated:YES];
     
 }
-*/
+
 - (IBAction)doneAddGroup:(UIStoryboardSegue *)segue {
     
     if ([[segue identifier] isEqualToString:@"ReturnAddGroupInput"]) {
@@ -377,9 +386,9 @@
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"facebookId"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"facebookName"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupId"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentMember"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupName"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupMembers"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentMember"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupCurrency"];
     
     UIStoryboard *welcomeStoryboard = [UIStoryboard storyboardWithName:@"welcomeStoryboard" bundle: nil];
@@ -389,6 +398,11 @@
     
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     [appDelegate showLoginView];
+}
+
+- (IBAction)createGroup:(id)sender {
+    UIViewController *dst=[[UIStoryboard storyboardWithName:@"AddGroupStoryboard" bundle:nil] instantiateInitialViewController];
+    [self presentModalViewController:dst animated:YES];
 }
 
 //--------DESIGN------------//
@@ -422,9 +436,4 @@
     UIGraphicsEndImageContext();
 }
 
-
-- (IBAction)createGroup:(id)sender {
-        UIViewController *dst=[[UIStoryboard storyboardWithName:@"AddGroupStoryboard" bundle:nil] instantiateInitialViewController];
-    [self presentModalViewController:dst animated:YES];
-}
 @end

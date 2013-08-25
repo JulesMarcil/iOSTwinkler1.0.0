@@ -43,6 +43,9 @@
     NSDictionary *BrazilianReal = [[NSDictionary alloc] initWithObjectsAndKeys:@"Brazilian Real", @"name", @"R$", @"Symbol", @11, @"id", nil];
     
     currencies = [[NSArray alloc] initWithObjects:Euro,USDollar,BritishPound,IndianRupee,AustralianDollar,CanadianDollar,SwissFranc,ChineseYuanRenminbi,JapaneseYen,ColombianPeso,BrazilianReal, nil];
+    
+    self.selectedCurrency = Euro;
+    self.currentCurrency.text = @"Euro";
 }
 
 - (void)didReceiveMemoryWarning

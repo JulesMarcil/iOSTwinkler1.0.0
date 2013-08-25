@@ -10,6 +10,8 @@
 #import "AuthAPIClient.h"
 #import "UIImageView+AFNetworking.h"
 #import "DashboardMemberCell.h"
+#import "Group.h"
+#import "GroupMemberViewController.h"
 
 
 @interface DashboardViewController ()
@@ -123,7 +125,6 @@
     if(url) {
         
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        NSLog(@"%@", url);
         
         [cell.memberProfilePic setImageWithURLRequest:request
                                      placeholderImage:[UIImage imageNamed:@"profile-pic.png"]
@@ -137,8 +138,21 @@
     
     [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:25.0];
 
-    
     return cell;    
+}
+
+- (IBAction)AddMemberAction:(id)sender {
+    
+    GroupMemberViewController *dst=[[UIStoryboard storyboardWithName:@"AddGroupStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"AddMemberViewController"];
+    
+    Group *group = [[Group alloc] initWithName:[[NSUserDefaults standardUserDefaults]               objectForKey:@"currentGroupName"]
+                                    identifier:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupId"]
+                                       members:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupMembers"]
+                                  activeMember:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"]
+                                      currency:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"]];
+    
+    dst.group = group;
+    [self presentModalViewController:dst animated:YES];
 }
 
 // Design function !!!

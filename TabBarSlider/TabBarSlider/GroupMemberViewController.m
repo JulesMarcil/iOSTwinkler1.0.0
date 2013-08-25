@@ -8,6 +8,8 @@
 
 #import "GroupMemberViewController.h"
 #import "Group.h"
+#import "AddMemberCell.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface GroupMemberViewController ()
 
@@ -33,8 +35,6 @@
                                                     frame.size.width,
                                                     frame.size.height)];
 	// Do any additional setup after loading the view.
-    
-    NSLog(@"group = %@", self.group.name);
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,14 +67,51 @@
     if (tableView.tag == 1) {
         
         static NSString *CellIdentifier = @"memberCell";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier];
-        if (cell == nil)
-        {
-            cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
-                                          reuseIdentifier:  CellIdentifier];
+        
+        AddMemberCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier];
+        
+        if (!cell) {
+            cell = (AddMemberCell*) [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
+                                                                 reuseIdentifier:  CellIdentifier];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
-        cell.textLabel.text=[self.group.members objectAtIndex:indexPath.row][@"name"];
+        
+        NSDictionary *memberAtIndex = [self.group.members objectAtIndex:indexPath.row];
+        
+        cell.nameLabel.text = memberAtIndex[@"name"];
+        
+        if ([memberAtIndex[@"balance"] doubleValue] != 0) {
+            cell.memberButton.hidden = YES;
+        } else {
+            cell.memberButton.hidden = NO;
+        }
+        
+        NSString *path = memberAtIndex[@"picturePath"];
+        NSNumber *facebookId= [[[NSNumberFormatter alloc] init] numberFromString:path];
+        
+        NSURL *url;
+        if (facebookId) {
+            url = [NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=100&height=100", facebookId]];
+        } else if(![path isEqualToString:@"local"]) {
+            url = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:8888/Twinkler1.2.3/web/%@", path]];
+        }
+        
+        if(url) {
+            
+            NSURLRequest *request = [NSURLRequest requestWithURL:url];
+            
+            [cell.memberProfilePic setImageWithURLRequest:request
+                                         placeholderImage:[UIImage imageNamed:@"profile-pic.png"]
+                                                  success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                                      cell.memberProfilePic.image = image;
+                                                      [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:25.0];
+                                                  }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                                      NSLog(@"Failed with error: %@", error);
+                                                  }];
+        }
+        
+        [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:25.0];
+        
         return cell;
         
     } else {
@@ -137,4 +174,28 @@
     
     return YES;
 }
+
+// Design function !!!
+
+-(void) setRoundedView:(UIImageView *)imageView picture: (UIImage *)picture toDiameter:(float)newSize{
+    // Begin a new image that will be the new image with the rounded corners
+    // (here with the size of an UIImageView)
+    UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, NO, 1.0);
+    
+    // Add a clip before drawing anything, in the shape of an rounded rect
+    [[UIBezierPath bezierPathWithRoundedRect:imageView.bounds
+                                cornerRadius:100.0] addClip];
+    // Draw your image
+    CGRect frame=imageView.bounds;
+    frame.size.width=newSize;
+    frame.size.height=newSize;
+    [picture drawInRect:frame];
+    
+    // Get the image, here setting the UIImageView image
+    imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    // Lets forget about that we were drawing
+    UIGraphicsEndImageContext();
+}
+
 @end
