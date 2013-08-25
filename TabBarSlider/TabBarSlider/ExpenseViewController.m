@@ -148,7 +148,7 @@
     cell.expenseNameLabel.text=expenseAtIndex.name;
     
     NSString *currency=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"];
-    cell.expenseSubtitleLabel.text=[NSString stringWithFormat:@"%@ paid %@ %@ - on %@", expenseAtIndex.owner[@"name"],[expenseAtIndex.amount stringValue],currency, [formatter stringFromDate:(NSDate *)expenseAtIndex.date]];
+    cell.expenseSubtitleLabel.text=[NSString stringWithFormat:@"%@ paid %@ %@ - %@", expenseAtIndex.owner[@"name"],[expenseAtIndex.amount stringValue],currency, [formatter stringFromDate:(NSDate *)expenseAtIndex.date]];
     
     if ([expenseAtIndex.owner[@"name"] isEqual: @"You"]) {
         cell.getLabel.text = @"You get";
