@@ -9,7 +9,7 @@
 #import "Group.h"
 
 @implementation Group
--(id)initWithName:(NSString *)name identifier:(NSNumber *)identifier members:(NSArray *)members activeMember:(NSDictionary *)activeMember currency:(NSString *)currency{
+-(id)initWithName:(NSString *)name identifier:(NSNumber *)identifier members:(NSArray *)members activeMember:(NSDictionary *)activeMember currency:(NSDictionary *)currency{
     self=[super init];
     if(self){
         _name=name;

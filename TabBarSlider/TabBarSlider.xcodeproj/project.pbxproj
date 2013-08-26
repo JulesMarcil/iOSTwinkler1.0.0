@@ -141,6 +141,7 @@
 		BAAC681317B4E29D006C69DE /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAC681217B4E29D006C69DE /* Profile.m */; };
 		BAAC681A17B53C32006C69DE /* profile-pic.png in Resources */ = {isa = PBXBuildFile; fileRef = BAAC681917B53C32006C69DE /* profile-pic.png */; };
 		BABC149317CA7568004AF222 /* AddMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BABC149217CA7568004AF222 /* AddMemberCell.m */; };
+		BABC149617CB52D6004AF222 /* InviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BABC149517CB52D6004AF222 /* InviteViewController.m */; };
 		BAC9294017C77DF60067F5B0 /* DashboardMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC9293F17C77DF60067F5B0 /* DashboardMemberCell.m */; };
 /* End PBXBuildFile section */
 
@@ -339,6 +340,8 @@
 		BAAC681917B53C32006C69DE /* profile-pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile-pic.png"; sourceTree = "<group>"; };
 		BABC149117CA7568004AF222 /* AddMemberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMemberCell.h; sourceTree = "<group>"; };
 		BABC149217CA7568004AF222 /* AddMemberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMemberCell.m; sourceTree = "<group>"; };
+		BABC149417CB52D6004AF222 /* InviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteViewController.h; sourceTree = "<group>"; };
+		BABC149517CB52D6004AF222 /* InviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteViewController.m; sourceTree = "<group>"; };
 		BAC9293E17C77DF60067F5B0 /* DashboardMemberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardMemberCell.h; sourceTree = "<group>"; };
 		BAC9293F17C77DF60067F5B0 /* DashboardMemberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardMemberCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -661,6 +664,8 @@
 				BA9C6DE517B0627E00C50CC2 /* AddGroupViewController.m */,
 				BABC149117CA7568004AF222 /* AddMemberCell.h */,
 				BABC149217CA7568004AF222 /* AddMemberCell.m */,
+				BABC149417CB52D6004AF222 /* InviteViewController.h */,
+				BABC149517CB52D6004AF222 /* InviteViewController.m */,
 			);
 			name = AddMember;
 			sourceTree = "<group>";
@@ -992,6 +997,7 @@
 				89CEBC9417C6B5C400DF7085 /* DashboardViewController.m in Sources */,
 				BAC9294017C77DF60067F5B0 /* DashboardMemberCell.m in Sources */,
 				BABC149317CA7568004AF222 /* AddMemberCell.m in Sources */,
+				BABC149617CB52D6004AF222 /* InviteViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

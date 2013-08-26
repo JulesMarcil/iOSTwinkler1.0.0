@@ -55,10 +55,12 @@
     CredentialStore *store = [[CredentialStore alloc] init];
     NSString *authToken = [store authToken];
     
-    if (authToken) {
+    if (authToken && [method isEqualToString:@"GET"]) {
         NSMutableDictionary *temp = [[NSMutableDictionary alloc] initWithDictionary:parameters];
         [temp setObject:authToken forKey:@"access_token"];
         parameters  = temp;
+    } else if (authToken && [method isEqualToString:@"POST"]) {
+        path = [NSString stringWithFormat:@"%@?access_token=%@", path, authToken];
     }
     
     return [super requestWithMethod:method path:path parameters:parameters];

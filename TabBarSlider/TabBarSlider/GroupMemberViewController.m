@@ -10,6 +10,7 @@
 #import "Group.h"
 #import "AddMemberCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "InviteViewController.h"
 
 @interface GroupMemberViewController ()
 
@@ -192,6 +193,15 @@
     [textField resignFirstResponder];
     
     return YES;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"MembersToInvite"]) {
+        
+        self.group.members = self.memberArray;
+        InviteViewController *ivc = [segue destinationViewController];
+        ivc.group = self.group;
+    }
 }
 
 // Design function !!!

@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class Group;
+
 @interface InviteViewController : UIViewController
+@property (strong, nonatomic) Group *group;
+
+- (IBAction)doneAdd:(id)sender;
 
 @end

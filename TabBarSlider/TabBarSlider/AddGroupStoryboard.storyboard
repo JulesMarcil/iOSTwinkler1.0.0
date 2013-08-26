@@ -63,7 +63,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zOK-PX-A8k">
-                                <rect key="frame" x="165" y="400" width="145" height="44"/>
+                                <rect key="frame" x="85" y="137" width="145" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Next">
@@ -74,11 +74,11 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="xwu-3j-5Ge" kind="push" id="7rJ-M1-96T"/>
+                                    <segue destination="xwu-3j-5Ge" kind="push" identifier="GroupToMembers" id="7rJ-M1-96T"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wel-tE-c1b">
-                                <rect key="frame" x="10" y="400" width="145" height="44"/>
+                                <rect key="frame" x="10" y="350" width="145" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Cancel">
@@ -226,7 +226,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="tNB-5P-bto" kind="push" id="FSU-aF-uRC"/>
+                                    <segue destination="tNB-5P-bto" kind="push" identifier="MembersToInvite" id="FSU-aF-uRC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Eln-cZ-qZh">
@@ -274,10 +274,10 @@
             </objects>
             <point key="canvasLocation" x="1737" y="-1338"/>
         </scene>
-        <!--View Controller - Send invites-->
+        <!--Invite View Controller - Send invites-->
         <scene sceneID="Pw0-X7-4GK">
             <objects>
-                <viewController id="tNB-5P-bto" sceneMemberID="viewController">
+                <viewController id="tNB-5P-bto" customClass="InviteViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="j95-OQ-luz">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -294,7 +294,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="djC-Bi-au7" kind="unwind" unwindAction="cancelAddGroup:" id="Z31-BF-0Yx"/>
+                                    <action selector="doneAdd:" destination="tNB-5P-bto" eventType="touchUpInside" id="ufk-oQ-fs3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YYf-ev-z8R">
@@ -344,6 +344,42 @@
     <resources>
         <image name="profile-pic-placeholder.png" width="113" height="111"/>
     </resources>
+    <classes>
+        <class className="AddGroupViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddGroupViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="showPicker:"/>
+                <relationship kind="outlet" name="currencyPicker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="currentCurrency" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="groupName" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="AddMemberCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddMemberCell.h"/>
+            <relationships>
+                <relationship kind="action" name="memberAction:"/>
+                <relationship kind="outlet" name="memberButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="memberProfilePic" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="GroupMemberViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GroupMemberViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="manualAddMember:"/>
+                <relationship kind="outlet" name="memberNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="memberSuggestionTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="memberTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="InviteViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InviteViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="doneAdd:"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

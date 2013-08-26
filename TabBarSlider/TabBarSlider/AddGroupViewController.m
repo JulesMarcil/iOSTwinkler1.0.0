@@ -30,17 +30,17 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    NSDictionary *Euro = [[NSDictionary alloc] initWithObjectsAndKeys:@"Euro", @"name", @"€", @"Symbol", @1, @"id", nil];
-    NSDictionary *USDollar = [[NSDictionary alloc] initWithObjectsAndKeys:@"US Dollar", @"name", @"$", @"Symbol", @2, @"id", nil];
-    NSDictionary *BritishPound = [[NSDictionary alloc] initWithObjectsAndKeys:@"BritishPound", @"name", @"£", @"Symbol", @3, @"id", nil];
-    NSDictionary *IndianRupee = [[NSDictionary alloc] initWithObjectsAndKeys:@"Indian Rupee", @"name", @"Rs", @"Symbol", @4, @"id", nil];
-    NSDictionary *AustralianDollar = [[NSDictionary alloc] initWithObjectsAndKeys:@"Australian Dollar", @"name", @"AU$", @"Symbol", @5, @"id", nil];
-    NSDictionary *CanadianDollar = [[NSDictionary alloc] initWithObjectsAndKeys:@"Canadian Dollar", @"name", @"CA$", @"Symbol", @6, @"id", nil];
-    NSDictionary *SwissFranc = [[NSDictionary alloc] initWithObjectsAndKeys:@"Swiss Franc", @"name", @"CHF", @"Symbol", @7, @"id", nil];
-    NSDictionary *ChineseYuanRenminbi = [[NSDictionary alloc] initWithObjectsAndKeys:@"Chinese Yuan Renminbi", @"name", @"CN¥", @"Symbol", @8, @"id", nil];
-    NSDictionary *JapaneseYen = [[NSDictionary alloc] initWithObjectsAndKeys:@"Japanese Yen", @"name", @"¥", @"Symbol", @9, @"id", nil];
-    NSDictionary *ColombianPeso = [[NSDictionary alloc] initWithObjectsAndKeys:@"Colombian Peso", @"name", @"$", @"Symbol", @10, @"id", nil];
-    NSDictionary *BrazilianReal = [[NSDictionary alloc] initWithObjectsAndKeys:@"Brazilian Real", @"name", @"R$", @"Symbol", @11, @"id", nil];
+    NSDictionary *Euro = [[NSDictionary alloc] initWithObjectsAndKeys:@"Euro", @"name", @"€", @"symbol", @1, @"id", nil];
+    NSDictionary *USDollar = [[NSDictionary alloc] initWithObjectsAndKeys:@"US Dollar", @"name", @"$", @"symbol", @2, @"id", nil];
+    NSDictionary *BritishPound = [[NSDictionary alloc] initWithObjectsAndKeys:@"BritishPound", @"name", @"£", @"symbol", @3, @"id", nil];
+    NSDictionary *IndianRupee = [[NSDictionary alloc] initWithObjectsAndKeys:@"Indian Rupee", @"name", @"Rs", @"symbol", @4, @"id", nil];
+    NSDictionary *AustralianDollar = [[NSDictionary alloc] initWithObjectsAndKeys:@"Australian Dollar", @"name", @"AU$", @"symbol", @5, @"id", nil];
+    NSDictionary *CanadianDollar = [[NSDictionary alloc] initWithObjectsAndKeys:@"Canadian Dollar", @"name", @"CA$", @"symbol", @6, @"id", nil];
+    NSDictionary *SwissFranc = [[NSDictionary alloc] initWithObjectsAndKeys:@"Swiss Franc", @"name", @"CHF", @"symbol", @7, @"id", nil];
+    NSDictionary *ChineseYuanRenminbi = [[NSDictionary alloc] initWithObjectsAndKeys:@"Chinese Yuan Renminbi", @"name", @"CN¥", @"symbol", @8, @"id", nil];
+    NSDictionary *JapaneseYen = [[NSDictionary alloc] initWithObjectsAndKeys:@"Japanese Yen", @"name", @"¥", @"symbol", @9, @"id", nil];
+    NSDictionary *ColombianPeso = [[NSDictionary alloc] initWithObjectsAndKeys:@"Colombian Peso", @"name", @"$", @"symbol", @10, @"id", nil];
+    NSDictionary *BrazilianReal = [[NSDictionary alloc] initWithObjectsAndKeys:@"Brazilian Real", @"name", @"R$", @"symbol", @11, @"id", nil];
     
     currencies = [[NSArray alloc] initWithObjects:Euro,USDollar,BritishPound,IndianRupee,AustralianDollar,CanadianDollar,SwissFranc,ChineseYuanRenminbi,JapaneseYen,ColombianPeso,BrazilianReal, nil];
     
@@ -153,7 +153,7 @@
                                             identifier:nil
                                                members:members
                                           activeMember:currentMember
-                                              currency:self.selectedCurrency[@"symbol"]];
+                                              currency:self.selectedCurrency];
             
             GroupMemberViewController *gmvc = [segue destinationViewController];
             gmvc.group = group;
