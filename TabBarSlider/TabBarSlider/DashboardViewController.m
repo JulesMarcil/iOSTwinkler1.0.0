@@ -102,8 +102,8 @@
     
     cell.nameLabel.text = memberAtIndex[@"name"];
     
-    NSString *currency=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"];
-    cell.balanceLabel.text = [NSString stringWithFormat:@"%@ %@", [memberAtIndex[@"balance"] stringValue],currency];
+    NSDictionary *currency=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"];
+    cell.balanceLabel.text = [NSString stringWithFormat:@"%@ %@", [memberAtIndex[@"balance"] stringValue],currency[@"symbol"]];
     if ([memberAtIndex[@"balance"] doubleValue] > 0) {
         cell.balanceLabel.textColor = [UIColor colorWithRed:0 green:255 blue:0 alpha:0.8];
     } else if ([memberAtIndex[@"balance"] doubleValue] < 0) {
@@ -145,7 +145,7 @@
     
     GroupMemberViewController *dst=[[UIStoryboard storyboardWithName:@"AddGroupStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"AddMemberViewController"];
     
-    Group *group = [[Group alloc] initWithName:[[NSUserDefaults standardUserDefaults]               objectForKey:@"currentGroupName"]
+    Group *group = [[Group alloc] initWithName:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupName"]
                                     identifier:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupId"]
                                        members:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupMembers"]
                                   activeMember:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"]

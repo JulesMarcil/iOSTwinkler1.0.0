@@ -75,9 +75,7 @@
 
 - (void)dataRetrieved {
     [self.expenseListTable reloadData];
-    self.balanceLabel.text = [NSString stringWithFormat:@"%@ %@", self.expenseDataController.balance, [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"]];
-    
-    NSLog(@"balance from vc= %@", self.expenseDataController.balance);
+    self.balanceLabel.text = [NSString stringWithFormat:@"%@ %@", self.expenseDataController.balance, [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"][@"symbol"]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -147,16 +145,16 @@
     
     cell.expenseNameLabel.text=expenseAtIndex.name;
     
-    NSString *currency=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"];
-    cell.expenseSubtitleLabel.text=[NSString stringWithFormat:@"%@ paid %@ %@ - %@", expenseAtIndex.owner[@"name"],[expenseAtIndex.amount stringValue],currency, [formatter stringFromDate:(NSDate *)expenseAtIndex.date]];
+    NSDictionary *currency=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"];
+    cell.expenseSubtitleLabel.text=[NSString stringWithFormat:@"%@ paid %@ %@ - %@", expenseAtIndex.owner[@"name"],[expenseAtIndex.amount stringValue],currency[@"symbol"], [formatter stringFromDate:(NSDate *)expenseAtIndex.date]];
     
     if ([expenseAtIndex.owner[@"name"] isEqual: @"You"]) {
         cell.getLabel.text = @"You get";
-        cell.shareLabel.text = [NSString stringWithFormat:@"%@ %@", expenseAtIndex.share, currency];
+        cell.shareLabel.text = [NSString stringWithFormat:@"%@ %@", expenseAtIndex.share, currency[@"symbol"]];
         cell.shareLabel.textColor = [UIColor colorWithRed:0 green:200 blue:0 alpha: 0.8];
     } else {
         cell.getLabel.text = @"You owe";
-        cell.shareLabel.text = [NSString stringWithFormat:@"%@ %@", expenseAtIndex.share, currency];
+        cell.shareLabel.text = [NSString stringWithFormat:@"%@ %@", expenseAtIndex.share, currency[@"symbol"]];
         cell.shareLabel.textColor = [UIColor colorWithRed:255 green:0 blue:0 alpha: 0.8];
     }
     
@@ -235,6 +233,8 @@
 
 - (void)showExpenseDetail:(Expense*)expense {
     
+    NSDictionary *currency=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"];
+    
     DRNRealTimeBlurView *blurView = [[DRNRealTimeBlurView alloc] initWithFrame:CGRectMake(0, 1000, 320, 400)];
     [self.viewContainer addSubview:blurView];
     blurView.tag=2;
@@ -291,7 +291,7 @@
     [expenseDescLabel setTextColor:textColor];
     [expenseDescLabel setBackgroundColor:[UIColor clearColor]];
     [expenseDescLabel setFont:[UIFont fontWithName: @"HelveticaNeue-Regular" size: 14.0f]];
-    expenseDescLabel.text=[NSString stringWithFormat:@"%@ %@ %@ %@",expense.owner[@"name"],@"paid",expense.amount,@"€"];
+    expenseDescLabel.text=[NSString stringWithFormat:@"%@ %@ %@ %@",expense.owner[@"name"],@"paid",expense.amount, currency[@"symbol"]];
     expenseDescLabel.textAlignment = NSTextAlignmentLeft;
     [whiteView addSubview:expenseDescLabel];
     
@@ -312,9 +312,9 @@
     [shareLabel setBackgroundColor:[UIColor clearColor]];
     [shareLabel setFont:[UIFont fontWithName: @"HelveticaNeue-Light" size: 14.0f]];
     if ([expense.owner[@"name"] isEqual: @"You"]) {
-        shareLabel.text=[NSString stringWithFormat:@"Your get %@ %@", expense.share, [[NSUserDefaults standardUserDefaults] stringForKey:@"currentGroupCurrency"]];
+        shareLabel.text=[NSString stringWithFormat:@"Your get %@ %@", expense.share, currency[@"symbol"]];
     } else {
-        shareLabel.text=[NSString stringWithFormat:@"Your owe %@ %@", expense.share, [[NSUserDefaults standardUserDefaults] stringForKey:@"currentGroupCurrency"]];
+        shareLabel.text=[NSString stringWithFormat:@"Your owe %@ %@", expense.share, currency[@"symbol"]];
     }
     shareLabel.textAlignment = NSTextAlignmentLeft;
     [whiteView addSubview:shareLabel];
