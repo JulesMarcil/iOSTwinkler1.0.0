@@ -39,6 +39,23 @@
 
 - (IBAction)doneAdd:(id)sender {
     
+    NSMutableArray *addMembers = [[NSMutableArray alloc] init];
+    NSMutableArray *removeMembers = [[NSMutableArray alloc] init];
+    
+    NSLog(@"members = %@", self.group.members);
+    
+    for (id member in self.group.members) {
+        if ([member[@"status"] isEqualToString:@"manualAdd"]) {
+            NSString *name = member[@"name"];
+            NSLog(@"add member with name: %@", name);
+            [addMembers addObject:name];
+        } else if ([member[@"status"] isEqualToString:@"remove"] && [member[@"id"] doubleValue]>0) {
+            [removeMembers addObject:member[@"id"]];
+        } else {
+            NSLog(@"nothing happens to %@ (%@)", member[@"name"], member[@"id"]);
+        }
+    }
+    
     NSNumber *identifier;
     if (self.group.identifier) {
         identifier = self.group.identifier;
@@ -46,8 +63,8 @@
         identifier = @0;
     }
     
-    NSArray *keys = @[@"id", @"name", @"members", @"currency"];
-    NSArray *objects = @[identifier, self.group.name, self.group.members, self.group.currency[@"id"]];
+    NSArray *keys = @[@"id", @"name", @"currency", @"addMembers"];
+    NSArray *objects = @[identifier, self.group.name, self.group.currency[@"id"], addMembers];
     
     NSDictionary *parameters = [[NSDictionary alloc] initWithObjects:objects
                                                              forKeys:keys];
@@ -57,12 +74,37 @@
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                       NSError *error = nil;
                                       NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                                      NSLog(@"%@", response);
                                       
-                                      NSLog(@"postgroup response = %@", response);
+                                      self.group.identifier = response[@"id"];
+                                      self.group.name = response[@"name"];
+                                      self.group.members = response[@"members"];
+                                      self.group.activeMember = response[@"activeMember"];
+                                      self.group.currency = response[@"currency"];
+                                      
+                                      UIStoryboard *mainStoryboard=[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+                                      UIViewController *dst=[mainStoryboard instantiateInitialViewController];
+                                      
+                                      [[NSUserDefaults standardUserDefaults] setObject:self.group.identifier forKey:@"currentGroupId"];
+                                      [[NSUserDefaults standardUserDefaults] setObject:self.group.name forKey:@"currentGroupName"];
+                                      [[NSUserDefaults standardUserDefaults] setObject:self.group.members forKey:@"currentGroupMembers"];
+                                      [[NSUserDefaults standardUserDefaults] setObject:self.group.activeMember forKey:@"currentMember"];
+                                      [[NSUserDefaults standardUserDefaults] setObject:self.group.currency forKey:@"currentGroupCurrency"];
+                                      
+                                      [[NSNotificationCenter defaultCenter] postNotificationName:@"newGroupSelected" object:nil];
+                                      [self.navigationController pushViewController:dst animated:YES];
+                                      
                                       
                                   }
                                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                       NSLog(@"error: %@", error);
                                   }];
 }
+
+// Old function from Arnaud, kept in case of need again ...
+/*
+ - (IBAction)goToTimeline:(id)sender {
+ [self presentModalViewController:[[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateInitialViewController] animated:YES];
+ }
+ */
 @end

@@ -130,18 +130,11 @@
     }
 }
 
-// Old function from Arnaud, kept in case of need again ...
-/*
-- (IBAction)goToTimeline:(id)sender {
-    [self presentModalViewController:[[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateInitialViewController] animated:YES];
-}
-*/
-
 - (IBAction)manualAddMember:(id)sender {
     
     if (self.memberNameTextField.text.length >0) {
-        NSArray *objects = @[@0, self.memberNameTextField.text, @"local", @"0"];
-        NSArray *keys = @[@"id", @"name", @"picturePath", @"balance"];
+        NSArray *objects = @[@0, self.memberNameTextField.text, @"local", @"0", @"manualAdd"];
+        NSArray *keys = @[@"id", @"name", @"picturePath", @"balance", @"status"];
         NSDictionary *member = [[NSDictionary alloc] initWithObjects:objects
                                                          forKeys:keys];
         

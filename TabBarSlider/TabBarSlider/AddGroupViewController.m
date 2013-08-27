@@ -146,20 +146,18 @@
     if ([[segue identifier] isEqualToString:@"GroupToMembers"]) {
         if ([self.groupName.text length]) {
             
-            NSDictionary *currentMember = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"];
+            NSDictionary *currentMember = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"];                                
             NSArray *members = [[NSArray alloc] initWithObjects:currentMember, nil];
             
             Group *group = [[Group alloc] initWithName:self.groupName.text
                                             identifier:nil
                                                members:members
-                                          activeMember:currentMember
+                                          activeMember:nil
                                               currency:self.selectedCurrency];
             
             GroupMemberViewController *gmvc = [segue destinationViewController];
             gmvc.group = group;
             gmvc.memberArray = [[NSMutableArray alloc] initWithArray:group.members];
-            
-            NSLog(@"group from addGroup = %@", self.group.name);
         }
     }
 }
