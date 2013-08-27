@@ -40,20 +40,29 @@
 - (IBAction)doneAdd:(id)sender {
     
     NSMutableArray *addMembers = [[NSMutableArray alloc] init];
+    NSMutableArray *addFriends = [[NSMutableArray alloc] init];
     NSMutableArray *removeMembers = [[NSMutableArray alloc] init];
     
     NSLog(@"members = %@", self.group.members);
     
     for (id member in self.group.members) {
         if ([member[@"status"] isEqualToString:@"manualAdd"]) {
-            NSString *name = member[@"name"];
-            NSLog(@"add member with name: %@", name);
-            [addMembers addObject:name];
+            [addMembers addObject:member[@"name"]];
+        } else if([member[@"status"] isEqualToString:@"friendAdd"]) {
+            [addFriends addObject:member[@"id"]];
         } else if ([member[@"status"] isEqualToString:@"remove"] && [member[@"id"] doubleValue]>0) {
             [removeMembers addObject:member[@"id"]];
         } else {
             NSLog(@"nothing happens to %@ (%@)", member[@"name"], member[@"id"]);
         }
+    }
+    
+    if(addMembers.count == 0) {
+        [addMembers addObject:@"-1"];
+    }
+    
+    if(addFriends.count == 0) {
+        [addFriends addObject:@"-1"];
     }
     
     NSNumber *identifier;
@@ -63,8 +72,8 @@
         identifier = @0;
     }
     
-    NSArray *keys = @[@"id", @"name", @"currency", @"addMembers"];
-    NSArray *objects = @[identifier, self.group.name, self.group.currency[@"id"], addMembers];
+    NSArray *keys = @[@"id", @"name", @"currency", @"addMembers", @"addFriends", @"activeMember"];
+    NSArray *objects = @[identifier, self.group.name, self.group.currency[@"id"], addMembers, addFriends, self.group.activeMember[@"id"]];
     
     NSDictionary *parameters = [[NSDictionary alloc] initWithObjects:objects
                                                              forKeys:keys];

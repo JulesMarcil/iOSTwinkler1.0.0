@@ -152,7 +152,7 @@
             Group *group = [[Group alloc] initWithName:self.groupName.text
                                             identifier:nil
                                                members:members
-                                          activeMember:nil
+                                          activeMember:currentMember
                                               currency:self.selectedCurrency];
             
             GroupMemberViewController *gmvc = [segue destinationViewController];

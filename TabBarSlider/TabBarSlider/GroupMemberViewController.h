@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *memberNameTextField;
 @property (strong, nonatomic) Group *group;
 @property (strong, nonatomic) NSMutableArray *memberArray;
+@property (strong, nonatomic) NSMutableArray *friends;
 
 - (IBAction)manualAddMember:(id)sender;
 - (IBAction)dismissKeyboard:(id)sender;

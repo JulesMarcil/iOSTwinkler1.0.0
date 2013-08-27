@@ -11,6 +11,7 @@
 #import "AddMemberCell.h"
 #import "UIImageView+AFNetworking.h"
 #import "InviteViewController.h"
+#import "AuthAPIClient.h"
 
 @interface GroupMemberViewController ()
 
@@ -18,13 +19,22 @@
 
 @implementation GroupMemberViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (void)awakeFromNib
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    [super awakeFromNib];
+    
+    [[AuthAPIClient sharedClient] getPath:@"api/friends"
+                               parameters:nil
+                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                      NSError *error = nil;
+                                      NSMutableArray *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                                      NSLog(@"%@", response);
+                                      self.friends = response;
+                                      [self.memberSuggestionTableView reloadData];
+                                  }
+                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                      NSLog(@"error: %@", error);
+                                  }];
 }
 
 - (void)viewDidLoad
@@ -32,9 +42,9 @@
     [super viewDidLoad];
     CGRect frame= [self.memberSuggestionTableView frame];
     [self.memberSuggestionTableView setFrame:CGRectMake(frame.origin.x,
-                                                    1000,
-                                                    frame.size.width,
-                                                    frame.size.height)];
+                                                        1000,
+                                                        frame.size.width,
+                                                        frame.size.height)];
 	// Do any additional setup after loading the view.
 }
 
@@ -48,23 +58,23 @@
 {
     if (tableView.tag == 1) {
         return 1;
-    }else{
+    } else {
         return 1;
     }
-        
+    
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView.tag == 1) {
         return self.memberArray.count;
-    }else{
-        return 2;
+    } else {
+        return self.friends.count;
     }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{    
+{
     if (tableView.tag == 1) {
         
         static NSString *CellIdentifier = @"memberCell";
@@ -73,7 +83,7 @@
         
         if (!cell) {
             cell = (AddMemberCell*) [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
-                                                                 reuseIdentifier:  CellIdentifier];
+                                                           reuseIdentifier:  CellIdentifier];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         
@@ -118,16 +128,71 @@
     } else {
         
         static NSString *CellIdentifier = @"memberSuggestionCell";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
-                                      reuseIdentifier: CellIdentifier];
+        
+        AddMemberCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier];
+        
+        if (!cell) {
+            cell = (AddMemberCell*) [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
+                                                           reuseIdentifier:  CellIdentifier];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
-        cell.textLabel.text=@"amigos";
+        
+        NSDictionary *memberAtIndex = [self.friends objectAtIndex:indexPath.row];
+        
+        cell.nameLabel.text = memberAtIndex[@"name"];
+        
+        NSString *path = memberAtIndex[@"picturePath"];
+        NSNumber *facebookId= [[[NSNumberFormatter alloc] init] numberFromString:path];
+        
+        NSURL *url;
+        if (facebookId) {
+            url = [NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=100&height=100", facebookId]];
+        } else if(![path isEqualToString:@"local"]) {
+            url = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:8888/Twinkler1.2.3/web/%@", path]];
+        }
+        
+        if(url) {
+            
+            NSURLRequest *request = [NSURLRequest requestWithURL:url];
+            
+            [cell.memberProfilePic setImageWithURLRequest:request
+                                         placeholderImage:[UIImage imageNamed:@"profile-pic.png"]
+                                                  success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                                      cell.memberProfilePic.image = image;
+                                                      [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:25.0];
+                                                  }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                                      NSLog(@"Failed with error: %@", error);
+                                                  }];
+        }
+        
+        [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:25.0];
+        
         return cell;
         
     }
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSLog(@"did select row at index path");
+    
+    if (tableView.tag == 2) {
+        
+        [tableView deselectRowAtIndexPath:indexPath animated:NO];
+        NSDictionary *friend = [self.friends objectAtIndex:indexPath.row];
+        
+        NSLog(@"selected friend = %@", friend);
+        
+        NSArray *objects = @[friend[@"id"], friend[@"name"], friend[@"picturePath"], @"0", @"friendAdd"];
+        NSArray *keys = @[@"id", @"name", @"picturePath", @"balance", @"status"];
+        NSDictionary *member = [[NSDictionary alloc] initWithObjects:objects
+                                                             forKeys:keys];
+        
+        [self.memberArray addObject:member];
+        [self.memberTableView reloadData];
+    }
+    self.memberNameTextField.text = @"";
+    [self dismissKeyboard:nil];
 }
 
 - (IBAction)manualAddMember:(id)sender {
@@ -136,7 +201,7 @@
         NSArray *objects = @[@0, self.memberNameTextField.text, @"local", @"0", @"manualAdd"];
         NSArray *keys = @[@"id", @"name", @"picturePath", @"balance", @"status"];
         NSDictionary *member = [[NSDictionary alloc] initWithObjects:objects
-                                                         forKeys:keys];
+                                                             forKeys:keys];
         
         [self.memberArray addObject:member];
         [self.memberTableView reloadData];
