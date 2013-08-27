@@ -45,10 +45,6 @@
     if (self.group) {
         NSLog(@"group detected");
         
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"AddGroupStoryboard" bundle:nil];
-        GroupMemberViewController *gmvc = [[GroupMemberViewController alloc] init];
-        gmvc.group = self.group;
-        gmvc.memberArray = [[NSMutableArray alloc] initWithArray:self.group.members];
         if (self.group) {
             NSLog(@"group detected");
             
@@ -56,6 +52,7 @@
             GroupMemberViewController *gmvc = (GroupMemberViewController *)[storyboard instantiateViewControllerWithIdentifier:@"AddMemberViewController"];
             gmvc.group = self.group;
             gmvc.memberArray = [[NSMutableArray alloc] initWithArray:self.group.members];
+            [gmvc.memberTableView reloadData];
             [self.navigationController pushViewController:gmvc animated:NO];
         }
 

@@ -91,9 +91,6 @@
                                       self.group.activeMember = response[@"activeMember"];
                                       self.group.currency = response[@"currency"];
                                       
-                                      UIStoryboard *mainStoryboard=[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-                                      UIViewController *dst=[mainStoryboard instantiateInitialViewController];
-                                      
                                       [[NSUserDefaults standardUserDefaults] setObject:self.group.identifier forKey:@"currentGroupId"];
                                       [[NSUserDefaults standardUserDefaults] setObject:self.group.name forKey:@"currentGroupName"];
                                       [[NSUserDefaults standardUserDefaults] setObject:self.group.members forKey:@"currentGroupMembers"];
@@ -101,7 +98,9 @@
                                       [[NSUserDefaults standardUserDefaults] setObject:self.group.currency forKey:@"currentGroupCurrency"];
                                       
                                       [[NSNotificationCenter defaultCenter] postNotificationName:@"newGroupSelected" object:nil];
-                                      [self.navigationController pushViewController:dst animated:YES];
+                                      
+                                      //[self.navigationController pushViewController:dst animated:YES];
+                                      [self dismissViewControllerAnimated:YES completion:NULL];
                                       
                                       
                                   }
@@ -110,10 +109,4 @@
                                   }];
 }
 
-// Old function from Arnaud, kept in case of need again ...
-/*
- - (IBAction)goToTimeline:(id)sender {
- [self presentModalViewController:[[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateInitialViewController] animated:YES];
- }
- */
 @end
