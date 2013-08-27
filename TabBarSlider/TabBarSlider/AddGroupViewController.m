@@ -16,18 +16,11 @@
 
 @implementation AddGroupViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 	// Do any additional setup after loading the view.
     
     NSDictionary *Euro = [[NSDictionary alloc] initWithObjectsAndKeys:@"Euro", @"name", @"€", @"symbol", @1, @"id", nil];
@@ -46,6 +39,28 @@
     
     self.selectedCurrency = Euro;
     self.currentCurrency.text = @"Euro";
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    if (self.group) {
+        NSLog(@"group detected");
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"AddGroupStoryboard" bundle:nil];
+        GroupMemberViewController *gmvc = [[GroupMemberViewController alloc] init];
+        gmvc.group = self.group;
+        gmvc.memberArray = [[NSMutableArray alloc] initWithArray:self.group.members];
+        if (self.group) {
+            NSLog(@"group detected");
+            
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"AddGroupStoryboard" bundle:nil];
+            GroupMemberViewController *gmvc = (GroupMemberViewController *)[storyboard instantiateViewControllerWithIdentifier:@"AddMemberViewController"];
+            gmvc.group = self.group;
+            gmvc.memberArray = [[NSMutableArray alloc] initWithArray:self.group.members];
+            [self.navigationController pushViewController:gmvc animated:NO];
+        }
+
+    }
+
 }
 
 - (void)didReceiveMemoryWarning

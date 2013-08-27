@@ -269,8 +269,6 @@
 
 - (void) prepareForSegue: (UIStoryboardSegue *) segue sender: (id) sender
 {
-    NSLog(@"prepareforsegue from menuviecontroller");
-    
     // configure the destination view controller:
     if ( [segue.destinationViewController isKindOfClass: [TabBarViewController class]] &&
         [sender isKindOfClass:[UIButton class]] )

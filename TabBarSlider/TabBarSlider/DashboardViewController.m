@@ -11,7 +11,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "DashboardMemberCell.h"
 #import "Group.h"
-#import "GroupMemberViewController.h"
+#import "AddGroupViewController.h"
 
 
 @interface DashboardViewController ()
@@ -143,7 +143,8 @@
 
 - (IBAction)AddMemberAction:(id)sender {
     
-    GroupMemberViewController *dst=[[UIStoryboard storyboardWithName:@"AddGroupStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"AddMemberViewController"];
+    UINavigationController *navigationController = [[UIStoryboard storyboardWithName:@"AddGroupStoryboard" bundle:nil] instantiateInitialViewController];
+    AddGroupViewController *agvc = (AddGroupViewController *)[navigationController topViewController];
     
     Group *group = [[Group alloc] initWithName:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupName"]
                                     identifier:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupId"]
@@ -151,10 +152,9 @@
                                   activeMember:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"]
                                       currency:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"]];
     
-    dst.group = group;
-    dst.memberArray = [[NSMutableArray alloc] initWithArray:group.members];
+    agvc.group = group;
     
-    [self presentModalViewController:dst animated:YES];
+    [self presentModalViewController:navigationController animated:NO];
 }
 
 // Design function !!!
