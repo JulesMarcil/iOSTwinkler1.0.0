@@ -98,8 +98,8 @@
                                       [[NSUserDefaults standardUserDefaults] setObject:self.group.currency forKey:@"currentGroupCurrency"];
                                       
                                       [[NSNotificationCenter defaultCenter] postNotificationName:@"newGroupSelected" object:nil];
+                                      [[NSNotificationCenter defaultCenter] postNotificationName:@"doneAddMember" object:nil];
                                       
-                                      //[self.navigationController pushViewController:dst animated:YES];
                                       [self dismissViewControllerAnimated:YES completion:NULL];
                                       
                                       

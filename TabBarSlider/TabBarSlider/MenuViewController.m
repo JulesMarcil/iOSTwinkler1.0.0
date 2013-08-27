@@ -32,6 +32,7 @@
     [super awakeFromNib];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(groupDataRetrieved) name:@"groupsWithJSONFinishedLoading" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(profileDataRetrieved) name:@"profileWithJSONFinishedLoading" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:@"doneAddMember" object:nil];
     if ([self.title isEqual: @"welcomeMenu"]){
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:@"loginSuccess" object:nil];
     }
@@ -80,6 +81,7 @@
 }
 
 -(void) loadData{
+    NSLog(@"load data");
     self.groupDataController = [[GroupDataController alloc] init];
     self.profile = [[Profile alloc] init];
     [self.profile loadProfile];
