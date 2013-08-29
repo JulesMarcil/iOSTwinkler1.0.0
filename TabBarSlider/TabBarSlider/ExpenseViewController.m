@@ -151,11 +151,11 @@
     if ([expenseAtIndex.owner[@"name"] isEqual: @"You"]) {
         cell.getLabel.text = @"You get";
         cell.shareLabel.text = [NSString stringWithFormat:@"%@ %@", expenseAtIndex.share, currency[@"symbol"]];
-        cell.shareLabel.textColor = [UIColor colorWithRed:0 green:200 blue:0 alpha: 0.8];
+        cell.shareLabel.textColor = [UIColor colorWithRed:(116/255.0) green:(178/255.0) blue:(20/255.0) alpha: 1];
     } else {
         cell.getLabel.text = @"You owe";
         cell.shareLabel.text = [NSString stringWithFormat:@"%@ %@", expenseAtIndex.share, currency[@"symbol"]];
-        cell.shareLabel.textColor = [UIColor colorWithRed:255 green:0 blue:0 alpha: 0.8];
+        cell.shareLabel.textColor = [UIColor colorWithRed:(202/255.0) green:(73/255.0) blue:(60/255.0) alpha: 1];
     }
     
     return cell;

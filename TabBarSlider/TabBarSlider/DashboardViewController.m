@@ -12,6 +12,7 @@
 #import "DashboardMemberCell.h"
 #import "Group.h"
 #import "AddGroupViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 
 @interface DashboardViewController ()
@@ -67,6 +68,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    
+    self.mainTableView.separatorColor = [UIColor clearColor];
+    self.mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 - (void)didReceiveMemoryWarning
@@ -105,12 +110,16 @@
     NSDictionary *currency=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"];
     cell.balanceLabel.text = [NSString stringWithFormat:@"%@ %@", [memberAtIndex[@"balance"] stringValue],currency[@"symbol"]];
     if ([memberAtIndex[@"balance"] doubleValue] > 0) {
-        cell.balanceLabel.textColor = [UIColor colorWithRed:0 green:255 blue:0 alpha:0.8];
+        cell.balanceLabel.textColor = [UIColor colorWithRed:(116/255.0) green:(178/255.0) blue:(20/255.0) alpha: 1];
     } else if ([memberAtIndex[@"balance"] doubleValue] < 0) {
-        cell.balanceLabel.textColor = [UIColor colorWithRed:255 green:0 blue:0 alpha:0.8];
+        cell.balanceLabel.textColor = [UIColor colorWithRed:(202/255.0) green:(73/255.0) blue:(60/255.0) alpha: 1];
     } else {
         cell.balanceLabel.textColor = [UIColor colorWithRed:100 green:100 blue:100 alpha:0.5];
     }
+    
+    cell.balanceContainerView.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha: 0.6];
+    cell.balanceContainerView.layer.cornerRadius = 10;
+    cell.balanceContainerView.layer.masksToBounds = YES;
     
     NSString *path = memberAtIndex[@"picturePath"];
     NSNumber *facebookId= [[[NSNumberFormatter alloc] init] numberFromString:path];
