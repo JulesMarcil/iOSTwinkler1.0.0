@@ -9,6 +9,7 @@
 #import "AddGroupViewController.h"
 #import "GroupMemberViewController.h"
 #import "Group.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface AddGroupViewController ()
 
@@ -39,6 +40,24 @@
     
     self.selectedCurrency = Euro;
     self.currentCurrency.text = @"Euro";
+    
+    
+    //-----DESIGN------//
+    
+    UIColor *borderColor = [UIColor colorWithRed:(200/255.0) green:(200/255.0) blue:(200/255.0) alpha:1] ;
+    UIColor *textColor = [UIColor colorWithRed:(65/255.0) green:(65/255.0) blue:(65/255.0) alpha:1] ;
+    
+    [self.nextButton setTitleColor: textColor forState: UIControlStateNormal];
+    [self.nextButton.layer  setBorderColor:borderColor.CGColor];
+    [self.nextButton.layer  setBorderWidth:1.0];
+    
+    [self.cancelButton setTitleColor: textColor forState: UIControlStateNormal];
+    [self.cancelButton.layer  setBorderColor:borderColor.CGColor];
+    [self.cancelButton.layer  setBorderWidth:1.0];
+    
+    self.groupNameContainer.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:0.8];
+    self.groupNameContainer.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
+    self.groupNameContainer.layer.borderWidth = 1.0f;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -88,8 +107,8 @@
 -(void)closePicker:(id)sender
 {
     [UIView animateWithDuration:0.3 animations:^{
-        self.currencyPicker.frame = CGRectMake(self.currencyPicker.frame.origin.x,
-                                                    500, //Displays the view off the screen
+        self.currencyPicker.frame = CGRectMake(0,
+                                                    560, //Displays the view off the screen
                                                     self.currencyPicker.frame.size.width,
                                                     self.currencyPicker.frame.size.height);
     }];
@@ -107,6 +126,10 @@
     [UIView setAnimationDidStopSelector:@selector(removeViews:)];
     [UIView commitAnimations];
     [self closePicker:nil];
+    
+    [[self.view viewWithTag:9] removeFromSuperview];
+    [[self.view viewWithTag:10] removeFromSuperview];
+    [[self.view viewWithTag:11] removeFromSuperview];
 }
 
 
@@ -123,7 +146,7 @@
     darkView.alpha = 0;
     darkView.backgroundColor = [UIColor blackColor];
     darkView.tag = 9;
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissMemberPicker:)] ;
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissCurrencyPicker:)] ;
     [darkView addGestureRecognizer:tapGesture];
     [self.view addSubview:darkView];
     [self.view addSubview:self.currencyPicker];
@@ -152,6 +175,15 @@
 - (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     self.selectedCurrency = [currencies objectAtIndex:row];
     self.currentCurrency.text=self.selectedCurrency[@"name"];
+}
+
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    return YES;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
