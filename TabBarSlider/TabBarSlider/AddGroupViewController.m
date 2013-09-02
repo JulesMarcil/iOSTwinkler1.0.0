@@ -22,7 +22,7 @@
 {
     [super viewDidLoad];
     
-	// Do any additional setup after loading the view.
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
     
     NSDictionary *Euro = [[NSDictionary alloc] initWithObjectsAndKeys:@"Euro", @"name", @"€", @"symbol", @1, @"id", nil];
     NSDictionary *USDollar = [[NSDictionary alloc] initWithObjectsAndKeys:@"US Dollar", @"name", @"$", @"symbol", @2, @"id", nil];
@@ -40,6 +40,7 @@
     
     self.selectedCurrency = Euro;
     self.currentCurrency.text = @"Euro";
+
     
     
     //-----DESIGN------//
@@ -58,6 +59,14 @@
     self.groupNameContainer.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:0.8];
     self.groupNameContainer.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
     self.groupNameContainer.layer.borderWidth = 1.0f;
+    
+    
+    CGRect frame= [self.actionBarContainer frame];
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    [self.actionBarContainer setFrame:CGRectMake(frame.origin.x,
+                                                        screenRect.size.height-frame.size.height-40,
+                                                        frame.size.width,
+                                                        frame.size.height)];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

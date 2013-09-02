@@ -20,6 +20,9 @@
 @property (strong, nonatomic) Group *group;
 @property (strong, nonatomic) NSMutableArray *memberArray;
 @property (strong, nonatomic) NSMutableArray *friends;
+@property (weak, nonatomic) IBOutlet UIView *actionBarContainer;
+@property (weak, nonatomic) IBOutlet UIButton *nextButton;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 
 - (IBAction)manualAddMember:(id)sender;
 - (IBAction)dismissKeyboard:(id)sender;

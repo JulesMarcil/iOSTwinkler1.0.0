@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UIView *groupNameContainer;
+@property (weak, nonatomic) IBOutlet UIView *actionBarContainer;
 
 - (IBAction)showPicker:(id)sender;
 

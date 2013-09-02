@@ -12,6 +12,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "InviteViewController.h"
 #import "AuthAPIClient.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface GroupMemberViewController ()
 
@@ -45,7 +46,27 @@
                                                         1000,
                                                         frame.size.width,
                                                         frame.size.height)];
-	// Do any additional setup after loading the view.
+    
+    frame= [self.actionBarContainer frame];
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    [self.actionBarContainer setFrame:CGRectMake(frame.origin.x,
+                                                 screenRect.size.height-frame.size.height-40,
+                                                 frame.size.width,
+                                                 frame.size.height)];
+    
+    self.nextButton.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:0.8];
+    self.nextButton.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
+    self.nextButton.layer.borderWidth = 1.0f;
+    
+    self.cancelButton.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:0.8];
+    self.cancelButton.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
+    self.cancelButton.layer.borderWidth = 1.0f;
+    
+    self.memberTableView.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:0.8];
+    self.memberTableView.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
+    self.memberTableView.layer.borderWidth = 1.0f;
+    
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
 - (void)didReceiveMemoryWarning
@@ -166,6 +187,8 @@
         }
         
         [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:25.0];
+        
+    
         
         return cell;
         

@@ -12,15 +12,19 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="add-expense-bckgd.png" id="Xro-jR-LYi">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Currency:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lkg-LI-l4Y">
-                                <rect key="frame" x="97" y="135" width="74" height="21"/>
+                                <rect key="frame" x="97" y="214" width="74" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Choose a Group name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="I7b-c5-eaB">
-                                <rect key="frame" x="0.0" y="14" width="321" height="21"/>
+                                <rect key="frame" x="0.0" y="20" width="321" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -35,7 +39,7 @@
                                 </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="D5k-uV-Kev">
-                                <rect key="frame" x="71" y="137.5" width="18" height="17"/>
+                                <rect key="frame" x="71" y="216.5" width="18" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="edit-button.png">
@@ -50,7 +54,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yVn-Lp-ZcL">
-                                <rect key="frame" x="177" y="135" width="110" height="21"/>
+                                <rect key="frame" x="177" y="214" width="110" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -94,7 +98,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="VIH-Bb-QnF">
-                                <rect key="frame" x="20" y="66" width="280" height="44"/>
+                                <rect key="frame" x="20" y="150" width="280" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your Group Name" textAlignment="center" minimumFontSize="17" id="2AD-6o-Cjt">
@@ -110,7 +114,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="MRZ-wP-xUh">
-                                <rect key="frame" x="0.0" y="43" width="320" height="1"/>
+                                <rect key="frame" x="0.0" y="59.5" width="320" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.80392163989999998" green="0.80392163989999998" blue="0.80392163989999998" alpha="1" colorSpace="deviceRGB"/>
                             </view>
@@ -119,6 +123,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="New Group" id="Iwl-rF-dY9"/>
                     <connections>
+                        <outlet property="actionBarContainer" destination="SuD-nS-wB3" id="fqA-U5-4gT"/>
                         <outlet property="cancelButton" destination="G0z-mZ-VVv" id="02W-4q-WBg"/>
                         <outlet property="currencyPicker" destination="PuN-0V-19u" id="95y-bW-7Lj"/>
                         <outlet property="currentCurrency" destination="yVn-Lp-ZcL" id="nb5-wg-P7h"/>
@@ -140,16 +145,93 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="add-expense-bckgd.png" id="jqf-cc-1eP">
+                                <rect key="frame" x="0.0" y="-6" width="320" height="510"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" id="00q-21-Kp3">
+                                <rect key="frame" x="0.0" y="-6" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Member's Name" minimumFontSize="17" id="Qxv-35-VaN">
+                                        <rect key="frame" x="8" y="13" width="250" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="xwu-3j-5Ge" id="Myq-Ip-wNj"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="88q-ga-8HO">
+                                        <rect key="frame" x="261" y="6" width="53" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                        <state key="normal" title="Add">
+                                            <color key="titleColor" red="0.91372555489999996" green="0.7254902124" blue="0.70980393890000004" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="manualAddMember:" destination="xwu-3j-5Ge" eventType="touchUpInside" id="ymX-U9-388"/>
+                                        </connections>
+                                    </button>
+                                    <view alpha="0.40000000596046448" contentMode="scaleToFill" id="HV8-5o-ZGP">
+                                        <rect key="frame" x="257" y="13" width="1" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="I0c-br-Npn">
+                                <rect key="frame" x="0.0" y="455" width="321" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cTd-60-6mo">
+                                        <rect key="frame" x="159" y="0.0" width="162" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                        <state key="normal" title="Next">
+                                            <color key="titleColor" red="0.24313725489999999" green="0.2666666667" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.85882359740000003" green="0.41176474089999998" blue="0.36470589040000001" alpha="1" colorSpace="deviceRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="tNB-5P-bto" kind="push" id="qBH-C3-V6X"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Rir-Da-ug8">
+                                        <rect key="frame" x="-1" y="0.0" width="161" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" red="0.7254902124" green="0.76470595600000002" blue="0.78039222959999999" alpha="1" colorSpace="deviceRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="ejo-fn-XiR" kind="unwind" unwindAction="cancelAddGroup:" id="Jc6-e8-ma9"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                             <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="aXt-Mw-xlI">
-                                <rect key="frame" x="0.0" y="68" width="320" height="324"/>
+                                <rect key="frame" x="20" y="104" width="280" height="308"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" restorationIdentifier="memberCell" selectionStyle="blue" indentationWidth="10" reuseIdentifier="memberCell" rowHeight="42" id="EUt-da-45D" customClass="AddMemberCell">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="42"/>
+                                        <rect key="frame" x="0.0" y="22" width="280" height="42"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="41"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="41"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="profile-pic-placeholder.png" id="dQD-Gr-ZnA">
@@ -163,11 +245,11 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BbI-fY-pmK">
-                                                    <rect key="frame" x="275" y="9" width="25" height="25"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BbI-fY-pmK">
+                                                    <rect key="frame" x="236" y="9" width="25" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <state key="normal" title="-">
+                                                    <state key="normal" image="remove-button.png">
                                                         <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -181,6 +263,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="memberButton" destination="BbI-fY-pmK" id="UCU-bt-lQP"/>
                                             <outlet property="memberProfilePic" destination="dQD-Gr-ZnA" id="PZO-HP-H2F"/>
@@ -194,22 +277,13 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Members of this group" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oF0-sD-DVz">
-                                <rect key="frame" x="0.0" y="43" width="320" height="27"/>
+                                <rect key="frame" x="0.0" y="71" width="320" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.24313725489999999" green="0.2666666667" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Start typing to add a member ..." minimumFontSize="17" id="41v-Iv-0pg">
-                                <rect key="frame" x="13" y="5" width="256" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="xwu-3j-5Ge" id="Fpc-ke-ark"/>
-                                </connections>
-                            </textField>
                             <tableView clipsSubviews="YES" tag="2" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="tAE-Ed-awD">
                                 <rect key="frame" x="0.0" y="200" width="320" height="252"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -236,6 +310,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="memberProfilePic" destination="Na2-UD-xsd" id="YcS-92-J2i"/>
                                             <outlet property="nameLabel" destination="CRh-jm-aPI" id="EkG-UN-ElK"/>
@@ -247,59 +322,22 @@
                                     <outlet property="delegate" destination="xwu-3j-5Ge" id="TWd-af-QqQ"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mwB-QF-1Tr">
-                                <rect key="frame" x="165" y="350" width="145" height="44"/>
+                            <view contentMode="scaleToFill" id="XZd-0F-NKh">
+                                <rect key="frame" x="0.0" y="43" width="320" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="tNB-5P-bto" kind="push" identifier="MembersToInvite" id="FSU-aF-uRC"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Eln-cZ-qZh">
-                                <rect key="frame" x="10" y="350" width="145" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="ejo-fn-XiR" kind="unwind" unwindAction="cancelAddGroup:" id="V80-PM-auS"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" id="F6w-9L-wOe">
-                                <rect key="frame" x="274" y="6" width="29" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="manualAddMember:" destination="xwu-3j-5Ge" eventType="touchUpInside" id="rmX-0G-TC2"/>
-                                </connections>
-                            </button>
+                                <color key="backgroundColor" red="0.80392156862745101" green="0.80392156862745101" blue="0.80392156862745101" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Members" id="v5J-ly-pE9"/>
                     <connections>
-                        <outlet property="memberNameTextField" destination="41v-Iv-0pg" id="gOa-EZ-SBh"/>
+                        <outlet property="actionBarContainer" destination="I0c-br-Npn" id="CK0-cB-fmM"/>
+                        <outlet property="cancelButton" destination="Rir-Da-ug8" id="SYd-PX-dCp"/>
+                        <outlet property="memberNameTextField" destination="Qxv-35-VaN" id="O37-qd-hqF"/>
                         <outlet property="memberSuggestionTableView" destination="tAE-Ed-awD" id="fSR-T5-3im"/>
                         <outlet property="memberTableView" destination="aXt-Mw-xlI" id="EyR-ke-kcP"/>
+                        <outlet property="nextButton" destination="cTd-60-6mo" id="crW-KA-Svs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wMU-Eu-Un3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -375,9 +413,54 @@
         </scene>
     </scenes>
     <resources>
+        <image name="add-expense-bckgd.png" width="320" height="460"/>
         <image name="edit-button.png" width="30" height="26"/>
         <image name="profile-pic-placeholder.png" width="113" height="111"/>
+        <image name="remove-button.png" width="25" height="25"/>
     </resources>
+    <classes>
+        <class className="AddGroupViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddGroupViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="showPicker:"/>
+                <relationship kind="outlet" name="actionBarContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="currencyPicker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="currentCurrency" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="groupName" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="groupNameContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="nextButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="AddMemberCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddMemberCell.h"/>
+            <relationships>
+                <relationship kind="action" name="memberAction:"/>
+                <relationship kind="outlet" name="memberButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="memberProfilePic" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="GroupMemberViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GroupMemberViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="manualAddMember:"/>
+                <relationship kind="outlet" name="actionBarContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="memberNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="memberSuggestionTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="memberTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="nextButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="InviteViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InviteViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="doneAdd:"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

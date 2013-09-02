@@ -423,7 +423,11 @@
     
     [textField resignFirstResponder];
     
-    if (textField.text.length>0) {
+    NSString *trimmedString = [self.timelineTextBox.text stringByTrimmingCharactersInSet:
+                               [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+    
+    if (trimmedString.length > 0) {
         
         // creating the corresponding message locally
         
