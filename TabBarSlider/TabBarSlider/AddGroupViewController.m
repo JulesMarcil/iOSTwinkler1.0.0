@@ -40,7 +40,7 @@
     
     self.selectedCurrency = Euro;
     self.currentCurrency.text = @"Euro";
-
+    
     
     
     //-----DESIGN------//
@@ -64,28 +64,23 @@
     CGRect frame= [self.actionBarContainer frame];
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     [self.actionBarContainer setFrame:CGRectMake(frame.origin.x,
-                                                        screenRect.size.height-frame.size.height-40,
-                                                        frame.size.width,
-                                                        frame.size.height)];
+                                                 screenRect.size.height-frame.size.height-40,
+                                                 frame.size.width,
+                                                 frame.size.height)];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    
     if (self.group) {
         NSLog(@"group detected");
         
-        if (self.group) {
-            NSLog(@"group detected");
-            
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"AddGroupStoryboard" bundle:nil];
-            GroupMemberViewController *gmvc = (GroupMemberViewController *)[storyboard instantiateViewControllerWithIdentifier:@"AddMemberViewController"];
-            gmvc.group = self.group;
-            gmvc.memberArray = [[NSMutableArray alloc] initWithArray:self.group.members];
-            [gmvc.memberTableView reloadData];
-            [self.navigationController pushViewController:gmvc animated:NO];
-        }
-
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"AddGroupStoryboard" bundle:nil];
+        GroupMemberViewController *gmvc = (GroupMemberViewController *)[storyboard instantiateViewControllerWithIdentifier:@"AddMemberViewController"];
+        gmvc.group = self.group;
+        gmvc.memberArray = [[NSMutableArray alloc] initWithArray:self.group.members];
+        [gmvc.memberTableView reloadData];
+        [self.navigationController pushViewController:gmvc animated:NO];
     }
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -117,9 +112,9 @@
 {
     [UIView animateWithDuration:0.3 animations:^{
         self.currencyPicker.frame = CGRectMake(0,
-                                                    560, //Displays the view off the screen
-                                                    self.currencyPicker.frame.size.width,
-                                                    self.currencyPicker.frame.size.height);
+                                               560, //Displays the view off the screen
+                                               self.currencyPicker.frame.size.width,
+                                               self.currencyPicker.frame.size.height);
     }];
 }
 
@@ -186,8 +181,6 @@
     self.currentCurrency.text=self.selectedCurrency[@"name"];
 }
 
-
-
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
@@ -195,23 +188,29 @@
     return YES;
 }
 
+- (IBAction)nextButton:(id)sender {
+    
+    if ([self.groupName.text length]) {
+        [self performSegueWithIdentifier: @"GroupToMembers" sender: self];
+    }
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
     if ([[segue identifier] isEqualToString:@"GroupToMembers"]) {
-        if ([self.groupName.text length]) {
-            
-            NSDictionary *currentMember = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"];                                
-            NSArray *members = [[NSArray alloc] initWithObjects:currentMember, nil];
-            
-            Group *group = [[Group alloc] initWithName:self.groupName.text
-                                            identifier:nil
-                                               members:members
-                                          activeMember:currentMember
-                                              currency:self.selectedCurrency];
-            
-            GroupMemberViewController *gmvc = [segue destinationViewController];
-            gmvc.group = group;
-            gmvc.memberArray = [[NSMutableArray alloc] initWithArray:group.members];
-        }
+        
+        NSDictionary *currentMember = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"];
+        NSArray *members = [[NSArray alloc] initWithObjects:currentMember, nil];
+        
+        Group *group = [[Group alloc] initWithName:self.groupName.text
+                                        identifier:nil
+                                           members:members
+                                      activeMember:currentMember
+                                          currency:self.selectedCurrency];
+        
+        GroupMemberViewController *gmvc = [segue destinationViewController];
+        gmvc.group = group;
+        gmvc.memberArray = [[NSMutableArray alloc] initWithArray:group.members];
     }
 }
 

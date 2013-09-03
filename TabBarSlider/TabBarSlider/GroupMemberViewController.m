@@ -309,13 +309,88 @@
     return YES;
 }
 
+- (IBAction)doneButton:(id)sender {
+    
+    self.group.members = self.memberArray;
+    
+    NSMutableArray *addMembers = [[NSMutableArray alloc] init];
+    NSMutableArray *addFriends = [[NSMutableArray alloc] init];
+    NSMutableArray *removeMembers = [[NSMutableArray alloc] init];
+    
+    NSLog(@"members = %@", self.group.members);
+    
+    for (id member in self.group.members) {
+        if ([member[@"status"] isEqualToString:@"manualAdd"]) {
+            [addMembers addObject:member[@"name"]];
+        } else if([member[@"status"] isEqualToString:@"friendAdd"]) {
+            [addFriends addObject:member[@"id"]];
+        } else if ([member[@"status"] isEqualToString:@"remove"] && [member[@"id"] doubleValue]>0) {
+            [removeMembers addObject:member[@"id"]];
+        } else {
+            NSLog(@"nothing happens to %@ (%@)", member[@"name"], member[@"id"]);
+        }
+    }
+    
+    if(addMembers.count == 0) {
+        [addMembers addObject:@"-1"];
+    }
+    
+    if(addFriends.count == 0) {
+        [addFriends addObject:@"-1"];
+    }
+    
+    NSNumber *identifier;
+    if (self.group.identifier) {
+        identifier = self.group.identifier;
+    } else {
+        identifier = @0;
+    }
+    
+    NSArray *keys = @[@"id", @"name", @"currency", @"addMembers", @"addFriends", @"activeMember"];
+    NSArray *objects = @[identifier, self.group.name, self.group.currency[@"id"], addMembers, addFriends, self.group.activeMember[@"id"]];
+    
+    NSDictionary *parameters = [[NSDictionary alloc] initWithObjects:objects
+                                                             forKeys:keys];
+    
+    [[AuthAPIClient sharedClient] postPath:@"api/post/group"
+                                parameters:parameters
+                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                       NSError *error = nil;
+                                       NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                                       NSLog(@"%@", response);
+                                       
+                                       self.group.identifier = response[@"id"];
+                                       self.group.name = response[@"name"];
+                                       self.group.members = response[@"members"];
+                                       self.group.activeMember = response[@"activeMember"];
+                                       self.group.currency = response[@"currency"];
+
+                                       self.link = response[@"link"];
+                                       
+                                       [[NSUserDefaults standardUserDefaults] setObject:self.group.identifier forKey:@"currentGroupId"];
+                                       [[NSUserDefaults standardUserDefaults] setObject:self.group.name forKey:@"currentGroupName"];
+                                       [[NSUserDefaults standardUserDefaults] setObject:self.group.members forKey:@"currentGroupMembers"];
+                                       [[NSUserDefaults standardUserDefaults] setObject:self.group.activeMember forKey:@"currentMember"];
+                                       [[NSUserDefaults standardUserDefaults] setObject:self.group.currency forKey:@"currentGroupCurrency"];
+                                       
+                                       [[NSNotificationCenter defaultCenter] postNotificationName:@"newGroupSelected" object:nil];
+                                       [[NSNotificationCenter defaultCenter] postNotificationName:@"doneAddMember" object:nil];
+                                       
+                                       [self performSegueWithIdentifier: @"MembersToInvite" sender: self];
+                                   }
+                                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                       NSLog(@"error: %@", error);
+                                   }];
+}
+
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
     if ([[segue identifier] isEqualToString:@"MembersToInvite"]) {
-        
-        self.group.members = self.memberArray;
         InviteViewController *ivc = [segue destinationViewController];
         ivc.group = self.group;
+        ivc.link = self.link;
     }
 }
 

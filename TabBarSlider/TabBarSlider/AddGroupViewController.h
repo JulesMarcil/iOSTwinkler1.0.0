@@ -25,5 +25,6 @@
 @property (weak, nonatomic) IBOutlet UIView *actionBarContainer;
 
 - (IBAction)showPicker:(id)sender;
+- (IBAction)nextButton:(id)sender;
 
 @end

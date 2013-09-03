@@ -11,7 +11,6 @@
 @class Group;
 
 @interface GroupMemberViewController : UIViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDataSource>  {
-
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *memberSuggestionTableView;
@@ -20,6 +19,7 @@
 @property (strong, nonatomic) Group *group;
 @property (strong, nonatomic) NSMutableArray *memberArray;
 @property (strong, nonatomic) NSMutableArray *friends;
+@property (strong, nonatomic) NSString *link;
 @property (weak, nonatomic) IBOutlet UIView *actionBarContainer;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
@@ -30,5 +30,6 @@
 - (IBAction)manualAddMember:(id)sender;
 - (IBAction)dismissKeyboard:(id)sender;
 - (IBAction)backButton:(id)sender;
+- (IBAction)doneButton:(id)sender;
 
 @end
