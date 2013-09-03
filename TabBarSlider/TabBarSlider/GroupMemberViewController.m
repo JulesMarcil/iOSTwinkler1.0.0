@@ -41,6 +41,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.groupNameTextField.text = self.group.name;
+    
     CGRect frame= [self.memberSuggestionTableView frame];
     [self.memberSuggestionTableView setFrame:CGRectMake(frame.origin.x,
                                                         1000,

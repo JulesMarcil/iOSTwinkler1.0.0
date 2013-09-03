@@ -17,4 +17,5 @@
     #import <Security/Security.h>
     #import "CredentialStore.h"
     #import "AppConstants.h"
+    #import <MessageUI/MessageUI.h>
 #endif

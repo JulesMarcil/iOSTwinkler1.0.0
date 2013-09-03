@@ -9,6 +9,7 @@
 #import "InviteViewController.h"
 #import "AuthAPIClient.h"
 #import "Group.h"
+#import <MessageUI/MessageUI.h>
 
 @interface InviteViewController ()
 
@@ -39,9 +40,25 @@
 }
 
 - (IBAction)shareViaSMS:(id)sender {
+    
+	if([MFMessageComposeViewController canSendText]){
+        MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
+		controller.body = [NSString stringWithFormat:@"Hello, I added you to a group on Twinkler, follow this link to access it: http://www.twinkler.co/invitation/%@/%@", self.group.identifier, self.link];
+		controller.messageComposeDelegate = self;
+		[self presentViewController:controller animated:YES completion:nil];
+	}
 }
 
 - (IBAction)shareViaEmail:(id)sender {
+    
+    if ([MFMailComposeViewController canSendMail]) {
+        MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
+        controller.subject = @"I added you to a group on Twinkler";
+        [controller setMessageBody:[NSString stringWithFormat:@"Hello, I added you to a group on Twinkler, follow this link to access it: http://www.twinkler.co/invitation/%@/%@", self.group.identifier, self.link] isHTML:NO];
+        
+        [controller setMailComposeDelegate:self];
+        [self presentViewController:controller animated:YES completion:nil];
+    }
 }
 
 - (IBAction)shareViaFacebook:(id)sender {
