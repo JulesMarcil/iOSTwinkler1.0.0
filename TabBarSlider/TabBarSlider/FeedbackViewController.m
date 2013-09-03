@@ -42,6 +42,10 @@
     self.cancelButton.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:0.8];
     self.cancelButton.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
     self.cancelButton.layer.borderWidth = 1.0f;
+    
+    self.feedbackTextView.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:0.8];
+    self.feedbackTextView.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
+    self.feedbackTextView.layer.borderWidth = 1.0f;
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,4 +54,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if([text isEqualToString:@"\n"])
+        [textView resignFirstResponder];
+    return YES;
+}
+- (IBAction)cancel:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (IBAction)send:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
 @end

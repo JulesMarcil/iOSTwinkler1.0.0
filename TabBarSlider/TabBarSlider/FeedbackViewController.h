@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FeedbackViewController : UIViewController
+@interface FeedbackViewController : UIViewController <UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *actionBarContainer;
 @property (weak, nonatomic) IBOutlet UIView *nextButton;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+@property (weak, nonatomic) IBOutlet UITextView *feedbackTextView;
+- (IBAction)cancel:(id)sender;
+- (IBAction)send:(id)sender;
 
 @end
