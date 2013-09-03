@@ -10,7 +10,7 @@
 #import "ExpenseDataController.h"
 #import "AddExpenseViewController.h"
 
-@interface ExpenseViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>  {
+@interface ExpenseViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout> {
     IBOutlet UITableView* expenseListTable;
 }
 
@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIView *addItemToolbar;
 @property (strong, nonatomic) IBOutlet UIView *viewContainer;
 @property (weak, nonatomic) IBOutlet UILabel *balanceLabel;
+@property (weak, nonatomic) IBOutlet UICollectionView *memberCollectionView;
 
 - (IBAction)addExpenseButton:(id)sender;
 - (IBAction)doneAddMember:(UIStoryboardSegue *)segue;
