@@ -14,5 +14,7 @@
 #define listCGPoint {205,52}
 #define timelineCGPoint {114,52}
 
+#define appBaseURL @"http://localhost:8888/Twinkler1.2.3/"
+
 
 #endif
