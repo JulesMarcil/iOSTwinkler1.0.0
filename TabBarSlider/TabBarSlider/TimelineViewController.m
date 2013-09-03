@@ -14,6 +14,7 @@
 #import "AFHTTPRequestOperation.h"
 #import "UIImageView+AFNetworking.h"
 #import "timelineBubbleCell.h"
+#import "notificationCell.h"
 #import "DRNRealTimeBlurView.h"
 
 
@@ -192,32 +193,42 @@
     Message *messageAtIndex = [self.messageDataController
                                objectInListAtIndex:indexPath.row];
     CGSize sz = [messageAtIndex.body sizeWithFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:14.0]constrainedToSize:CGSizeMake(200, 20000) lineBreakMode:NSLineBreakByWordWrapping];
-    return sz.height+36;
+    
+    if	([messageAtIndex.type isEqual:@"message"]){
+        return sz.height+36;
+    }
+    else{
+        return sz.height+60;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"timelineCell";
-    static NSDateFormatter *formatter = nil;
-    if (formatter == nil) {
-        formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateStyle:NSDateFormatterMediumStyle];
-    }
-    timelineBubbleCell *cell = [tableView
-                                dequeueReusableCellWithIdentifier:CellIdentifier];
-    cell.messageContainer.layer.cornerRadius = 3;
-    cell.messageContainer.layer.masksToBounds = NO;
-    cell.messageContainer.layer.shadowOffset = CGSizeMake(0, 0.6);
-    cell.messageContainer.layer.shadowRadius = 0.8;
-    cell.messageContainer.layer.shadowOpacity = 0.1;
     
     Message *messageAtIndex = [self.messageDataController
                                objectInListAtIndex:indexPath.row];
-    cell.messageLabel.text=messageAtIndex.body;
+    
+    
     
     
     NSString *currentMemberName=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"];
     
+    
     if	([messageAtIndex.type isEqual:@"message"]){
+        static NSString *CellIdentifier = @"timelineCell";
+        static NSDateFormatter *formatter = nil;
+        if (formatter == nil) {
+            formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateStyle:NSDateFormatterMediumStyle];
+        }
+        timelineBubbleCell *cell = [tableView
+                                    dequeueReusableCellWithIdentifier:CellIdentifier];
+        cell.messageContainer.layer.cornerRadius = 3;
+        cell.messageContainer.layer.masksToBounds = NO;
+        cell.messageContainer.layer.shadowOffset = CGSizeMake(0, 0.6);
+        cell.messageContainer.layer.shadowRadius = 0.8;
+        cell.messageContainer.layer.shadowOpacity = 0.1;
+        
+        cell.messageLabel.text=messageAtIndex.body;
         
         if (![currentMemberName isEqualToString:messageAtIndex.author]){
             
@@ -304,32 +315,54 @@
             [formatter setDateFormat:@"HH:mm"];
             cell.timelineTimeLabel.text=[formatter stringFromDate:(NSDate*)messageAtIndex.date];
         }
+        return cell;
     }
     else{
+        static NSString *CellIdentifier = @"notificationCell";
+        static NSDateFormatter *formatter = nil;
+        if (formatter == nil) {
+            formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateStyle:NSDateFormatterMediumStyle];
+        }
+        notificationCell *cell = [tableView
+                                  dequeueReusableCellWithIdentifier:CellIdentifier];
+        cell.messageContainer.layer.cornerRadius = 3;
+        cell.messageContainer.layer.masksToBounds = NO;
+        cell.messageContainer.layer.shadowOffset = CGSizeMake(0, 0.6);
+        cell.messageContainer.layer.shadowRadius = 0.8;
+        cell.messageContainer.layer.shadowOpacity = 0.1;
+        
+        cell.messageLabel.text=messageAtIndex.body;
+        
         CGRect frame = cell.messageLabel.frame;
+        cell.messageLabel.text=[NSString stringWithFormat:@"%@%@", messageAtIndex.owner,@" added an expense:" ];
         frame.size.height = cell.messageLabel.contentSize.height+20;
         CGSize sz = [cell.messageLabel.text sizeWithFont:cell.messageLabel.font constrainedToSize:CGSizeMake(200, 20000) lineBreakMode:NSLineBreakByWordWrapping];
         cell.messageLabel.editable = NO;
         cell.messageContainer.frame=frame;
         [cell.messageContainer setFrame:CGRectMake(10,10,
                                                    300,
-                                                   sz.height+20)];
+                                                   sz.height+50)];
         cell.messageContainer.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:0.8];
-
         
-        cell.bubbleTailImage.alpha=0;
-        cell.memberProfilePicImage.alpha=0;
+        NSDictionary *currency=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"];
         
-        [cell.timelineTimeLabel setFrame:CGRectMake(320-sz.width-20-20-45,sz.height+5,
-                                                    cell.timelineTimeLabel.frame.size.width,
-                                                    cell.timelineTimeLabel.frame.size.height)];
+        if ([messageAtIndex.owner isEqual: @"You"]) {
+            cell.getLabel.text = @"You get";
+            cell.shareLabel.text = [NSString stringWithFormat:@"%@ %@", messageAtIndex.share, currency[@"symbol"]];
+            cell.shareLabel.textColor = [UIColor colorWithRed:(116/255.0) green:(178/255.0) blue:(20/255.0) alpha: 1];
+        } else {
+            cell.getLabel.text = @"You owe";
+            cell.shareLabel.text = [NSString stringWithFormat:@"%@ %@", messageAtIndex.share, currency[@"symbol"]];
+            cell.shareLabel.textColor = [UIColor colorWithRed:(202/255.0) green:(73/255.0) blue:(60/255.0) alpha: 1];
+        }
         
-        [formatter setDateFormat:@"HH:mm"];
-        cell.timelineTimeLabel.text=[formatter stringFromDate:(NSDate*)messageAtIndex.date];
+        cell.expenseName.text =messageAtIndex.name;
         
+        return cell;
     }
     
-    return cell;
+    
 }
 
 
