@@ -16,6 +16,8 @@
 #import "timelineBubbleCell.h"
 #import "notificationCell.h"
 #import "DRNRealTimeBlurView.h"
+#import "AddGroupViewController.h"
+#import "Group.h"
 
 
 @interface TimelineViewController ()
@@ -198,7 +200,7 @@
         return sz.height+36;
     }
     else{
-        return sz.height+60;
+        return sz.height+80;
     }
 }
 
@@ -555,6 +557,29 @@
     
     // Lets forget about that we were drawing
     UIGraphicsEndImageContext();
+}
+
+- (IBAction)addExpenseButton:(id)sender {
+    UIStoryboard *timelineStoryboard=[UIStoryboard storyboardWithName:@"expenseStoryboard" bundle:nil];
+    UIViewController *dst=[timelineStoryboard instantiateViewControllerWithIdentifier:@"addExpenseViewController"];
+    
+    [self presentViewController:dst animated:YES completion:nil];
+    [self.navigation collapse];
+}
+
+- (IBAction)addUserButton:(id)sender {
+    UINavigationController *navigationController = [[UIStoryboard storyboardWithName:@"AddGroupStoryboard" bundle:nil] instantiateInitialViewController];
+    AddGroupViewController *agvc = (AddGroupViewController *)[navigationController topViewController];
+    
+    Group *group = [[Group alloc] initWithName:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupName"]
+                                    identifier:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupId"]
+                                       members:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupMembers"]
+                                  activeMember:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"]
+                                      currency:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"]];
+    
+    agvc.group = group;
+    
+    [self presentModalViewController:navigationController animated:YES];
 }
 
 @end

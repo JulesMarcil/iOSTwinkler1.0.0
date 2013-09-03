@@ -36,4 +36,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *timelineTextBox;
 @property (strong, nonatomic) IBOutlet UIView *timelineView;
 
+- (IBAction)addExpenseButton:(id)sender;
+- (IBAction)addUserButton:(id)sender;
+
 @end

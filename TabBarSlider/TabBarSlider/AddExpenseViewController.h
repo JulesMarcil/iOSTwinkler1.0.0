@@ -39,5 +39,7 @@
 - (IBAction)showPicker:(id)sender;
 - (IBAction)selectAll:(id)sender;
 - (IBAction)deselectAll:(id)sender;
+- (IBAction)addExpense:(id)sender;
+- (IBAction)cancelAddExpense:(id)sender;
 
 @end

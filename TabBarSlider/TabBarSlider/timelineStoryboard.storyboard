@@ -187,6 +187,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="addExpenseButton:" destination="pIH-GI-KlT" eventType="touchUpInside" id="zVQ-4E-QfB"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9DQ-0c-dqL">
                                 <rect key="frame" x="0.0" y="375" width="48" height="44"/>
@@ -211,6 +214,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="addUserButton:" destination="pIH-GI-KlT" eventType="touchUpInside" id="pms-aH-BUc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bFJ-7F-Khs">
                                 <rect key="frame" x="0.0" y="375" width="48" height="44"/>

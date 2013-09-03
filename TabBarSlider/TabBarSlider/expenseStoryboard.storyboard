@@ -7,7 +7,7 @@
         <!--Add Expense View Controller - Add an expense-->
         <scene sceneID="RZ8-Tk-89t">
             <objects>
-                <viewController id="SHS-Yz-Uve" customClass="AddExpenseViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="" id="SHS-Yz-Uve" customClass="AddExpenseViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vWm-ZH-VfQ">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -166,7 +166,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="1MH-Wh-DLt" kind="unwind" identifier="ReturnInput" unwindAction="doneAddMember:" id="bg7-FY-MQ2"/>
+                                                    <action selector="addExpense:" destination="SHS-Yz-Uve" eventType="touchUpInside" id="zAC-a7-gTt"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2mq-MR-X5h">
@@ -181,7 +181,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="1MH-Wh-DLt" kind="unwind" identifier="CancelInput" unwindAction="cancelAddMember:" id="0tq-dm-3ub"/>
+                                                    <action selector="cancelAddExpense:" destination="SHS-Yz-Uve" eventType="touchUpInside" id="NFG-qq-89c"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -338,7 +338,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wom-gi-neC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="1MH-Wh-DLt" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2221" y="-1338"/>
         </scene>
@@ -468,7 +467,7 @@
                                         </state>
                                         <connections>
                                             <action selector="addExpenseButton:" destination="uss-B9-F3Z" eventType="touchUpInside" id="QVd-Aj-cZg"/>
-                                            <segue destination="yPi-iB-hud" kind="modal" id="V62-Vf-oOK"/>
+                                            <segue destination="yPi-iB-hud" kind="modal" identifier="addExpenseSegue" id="V62-Vf-oOK"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -491,7 +490,7 @@
         <!--Navigation Controller-->
         <scene sceneID="lzB-SC-Jqf">
             <objects>
-                <navigationController id="yPi-iB-hud" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="addExpenseViewController" id="yPi-iB-hud" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="EGe-hp-ARR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

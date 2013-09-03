@@ -38,11 +38,11 @@
     
     CGRect frame= [self.collectionView frame];
     
-
-
+    
+    
     self.expenseName.enablesReturnKeyAutomatically = NO;
     
-
+    
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MMM dd, yyy"];
@@ -67,9 +67,9 @@
     
     frame= [self.selectionButtonContainer frame];
     [self.selectionButtonContainer setFrame:CGRectMake(frame.origin.x,
-                                                    frame.origin.y+fmax(0,((int)([memberArray count]/4)-1)*80),
-                                                    frame.size.width,
-                                                    frame.size.height)];
+                                                       frame.origin.y+fmax(0,((int)([memberArray count]/4)-1)*80),
+                                                       frame.size.width,
+                                                       frame.size.height)];
     
     self.scrollView.frame=CGRectMake(0,0,self.view.bounds.size.width, self.view.bounds.size.height);
     self.scrollView.scrollEnabled = YES;
@@ -89,7 +89,7 @@
     self.amountLabelContainer.layer.borderWidth = 1.0f;
     
     
-    UIColor *borderColor = [UIColor colorWithRed:(200/255.0) green:(200/255.0) blue:(200/255.0) alpha:1] ;    
+    UIColor *borderColor = [UIColor colorWithRed:(200/255.0) green:(200/255.0) blue:(200/255.0) alpha:1] ;
     UIColor *textColor = [UIColor colorWithRed:(65/255.0) green:(65/255.0) blue:(65/255.0) alpha:1] ;
     
     [self.addExpenseButton setTitleColor: textColor forState: UIControlStateNormal];
@@ -105,7 +105,7 @@
     self.expenseAmount.keyboardType=UIKeyboardTypeDecimalPad;
     self.expenseAmount.inputAccessoryView=[self toolBarForKeyboardAccessory];
     
-
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -312,11 +312,19 @@
 - (IBAction)deselectAll:(id)sender {
     for(memberCollectionViewCell* cell in [self.collectionView visibleCells]){
         
-    NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
-    [[self.view viewWithTag:indexPath.row+1] removeFromSuperview];
-    cell.memberProfilePic.alpha=0.5;
-    cell.isSelected=NO;
+        NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
+        [[self.view viewWithTag:indexPath.row+1] removeFromSuperview];
+        cell.memberProfilePic.alpha=0.5;
+        cell.isSelected=NO;
     }
+}
+
+- (IBAction)addExpense:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)cancelAddExpense:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -345,7 +353,7 @@
             
             //get selected members
             for(memberCollectionViewCell* cell in [self.collectionView visibleCells]){
-                 
+                
                 NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
                 if (cell.isSelected) {
                     NSDictionary *member = [memberArray objectAtIndex:indexPath.row];
@@ -382,7 +390,7 @@
 }
 // 3
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-
+    
     memberCollectionViewCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"memberCell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor clearColor];
     [cell.memberProfilePic setFrame:CGRectMake(22,0,35,35)];
@@ -406,20 +414,20 @@
     }
     
     if(url) {
-    
+        
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         NSLog(@"%@", url);
-    
+        
         [cell.memberProfilePic setImageWithURLRequest:request
-                                 placeholderImage:[UIImage imageNamed:@"profile-pic.png"]
-                                          success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                              cell.memberProfilePic.image = image;
-                                              [cell.memberProfilePic setFrame:CGRectMake(22,0,35,35)];
-                                              [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:35.0];
-                                        
-                                          }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-                                              NSLog(@"Failed with error: %@", error);
-                                          }];
+                                     placeholderImage:[UIImage imageNamed:@"profile-pic.png"]
+                                              success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                                  cell.memberProfilePic.image = image;
+                                                  [cell.memberProfilePic setFrame:CGRectMake(22,0,35,35)];
+                                                  [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:35.0];
+                                                  
+                                              }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                                  NSLog(@"Failed with error: %@", error);
+                                              }];
     }
     
     cell.memberProfilePic.alpha=1;
@@ -445,7 +453,7 @@
         cell.memberProfilePic.alpha=0.5;
         cell.isSelected=NO;
         [self.selectAllButton setSelected:NO];
-
+        
     }else{
         UIImageView *checkedMember=[[UIImageView alloc] initWithFrame:CGRectMake(45, 0, 16, 12)];
         checkedMember.image=[UIImage imageNamed: @"green-check"];
@@ -457,7 +465,7 @@
     
 }
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
-
+    
 }
 
 #pragma mark – UICollectionViewDelegateFlowLayout
