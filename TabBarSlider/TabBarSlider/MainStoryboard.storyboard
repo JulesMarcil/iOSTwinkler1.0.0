@@ -219,6 +219,9 @@
                                             <state key="highlighted">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="CloseGroupAction:" destination="h0t-J3-1mi" eventType="touchUpInside" id="hRd-gK-tUw"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </view>

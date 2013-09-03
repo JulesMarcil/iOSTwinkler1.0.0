@@ -163,7 +163,47 @@
     
     agvc.group = group;
     
-    [self presentModalViewController:navigationController animated:NO];
+    [self presentModalViewController:navigationController animated:YES];
+}
+
+- (IBAction)CloseGroupAction:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Are you sure ?"
+                                                    message:@"If you close this group, you and your friends will not have any access to it anymore"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"No"
+                                          otherButtonTitles:@"Yes", nil];
+    alert.delegate = self;
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+        if (buttonIndex == 0) {
+            //NO clicked
+            
+        } else if (buttonIndex == 1) {
+            
+            //YES clicekd
+            NSNumber *currentMemberId = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"id"];
+            NSDictionary *parameters = [[NSDictionary alloc] initWithObjectsAndKeys:currentMemberId, @"currentMemberId", nil];
+            
+            [[AuthAPIClient sharedClient] getPath:@"api/group/close"
+                                       parameters:parameters
+                                          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                              NSError *error = nil;
+                                              NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                                              
+                                              [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentMember"];
+                                              NSLog(@"response = %@", response);
+                                              
+                                              UINavigationController *navigationController = [[UIStoryboard storyboardWithName:@"welcomeStoryboard" bundle:nil] instantiateInitialViewController];
+                                              [[NSNotificationCenter defaultCenter] postNotificationName:@"doneAddMember" object:nil];
+                                              [self presentViewController:navigationController animated:YES completion:nil];
+                                              
+                                          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                              NSLog(@"error: %@", error);
+                                          }];
+    }
 }
 
 // Design function !!!

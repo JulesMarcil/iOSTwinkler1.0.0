@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DashboardViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>  {
+@interface DashboardViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate>  {
     IBOutlet UITableView* mainTableView;
 }
 
@@ -16,5 +16,6 @@
 @property (strong, nonatomic) NSDictionary *dashboardInfo;
 
 - (IBAction)AddMemberAction:(id)sender;
+- (IBAction)CloseGroupAction:(id)sender;
 
 @end

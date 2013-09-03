@@ -7,7 +7,7 @@
         <!--Menu View Controller - welcomeMenu-->
         <scene sceneID="Rsh-oR-MVY">
             <objects>
-                <viewController title="welcomeMenu" id="zjS-vU-Nrs" customClass="MenuViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuViewController" title="welcomeMenu" id="zjS-vU-Nrs" customClass="MenuViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bsQ-32-Lys">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
