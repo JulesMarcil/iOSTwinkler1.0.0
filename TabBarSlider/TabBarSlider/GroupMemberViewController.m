@@ -55,9 +55,9 @@
                                                  frame.size.height)];
     frame= [self.scrollView frame];
     [self.scrollView setFrame:CGRectMake(0,
-                                                 0,
-                                                 frame.size.width,
-                                                 frame.size.height)];
+                                         0,
+                                         frame.size.width,
+                                         frame.size.height)];
     
     self.nextButton.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:0.8];
     self.nextButton.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
@@ -201,7 +201,7 @@
         
         [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:25.0];
         
-    
+        
         
         return cell;
         
