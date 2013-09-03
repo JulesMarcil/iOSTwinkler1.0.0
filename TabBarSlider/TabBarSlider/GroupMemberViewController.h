@@ -10,7 +10,7 @@
 
 @class Group;
 
-@interface GroupMemberViewController : UIViewController<UITextFieldDelegate, UITableViewDataSource, UITableViewDataSource>  {
+@interface GroupMemberViewController : UIViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDataSource>  {
 
 }
 
@@ -23,8 +23,12 @@
 @property (weak, nonatomic) IBOutlet UIView *actionBarContainer;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+@property (weak, nonatomic) IBOutlet UIView *searchTextField;
+@property (weak, nonatomic) IBOutlet UILabel *groupNameTextField;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 - (IBAction)manualAddMember:(id)sender;
 - (IBAction)dismissKeyboard:(id)sender;
+- (IBAction)backButton:(id)sender;
 
 @end

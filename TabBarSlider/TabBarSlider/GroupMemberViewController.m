@@ -53,6 +53,11 @@
                                                  screenRect.size.height-frame.size.height-40,
                                                  frame.size.width,
                                                  frame.size.height)];
+    frame= [self.scrollView frame];
+    [self.scrollView setFrame:CGRectMake(0,
+                                                 0,
+                                                 frame.size.width,
+                                                 frame.size.height)];
     
     self.nextButton.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:0.8];
     self.nextButton.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
@@ -65,6 +70,14 @@
     self.memberTableView.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:0.8];
     self.memberTableView.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
     self.memberTableView.layer.borderWidth = 1.0f;
+    
+    self.searchTextField.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:0.8];
+    self.searchTextField.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
+    self.searchTextField.layer.borderWidth = 1.0f;
+    
+    self.memberSuggestionTableView.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:1];
+    self.memberSuggestionTableView.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
+    self.memberSuggestionTableView.layer.borderWidth = 1.0f;
     
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
@@ -244,14 +257,31 @@
     [UIView commitAnimations];
 }
 
+- (IBAction)backButton:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+
+- (void) animateTextField: (UITextField*) textField up: (BOOL) up
+{
+    int movement = (up ? -60 : 60);
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:0.3f];
+    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    [UIView commitAnimations];
+}
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField {
     [UIView beginAnimations:@"MoveIn" context:nil];
     CGRect frame= [self.memberSuggestionTableView frame];
     [self.memberSuggestionTableView setFrame:CGRectMake(frame.origin.x,
-                                                        40,
+                                                        109,
                                                         frame.size.width,
                                                         frame.size.height)];
+    [self animateTextField:textField up:YES];
     [UIView commitAnimations];
     
 }
@@ -259,6 +289,8 @@
     
     [[self.view viewWithTag:1]resignFirstResponder];
 }
+
+
 -(void)textFieldDidEndEditing:(UITextField *)textField {
     [UIView beginAnimations:@"MoveOut" context:nil];
     CGRect frame= [self.memberSuggestionTableView frame];
@@ -266,6 +298,7 @@
                                                         1000,
                                                         frame.size.width,
                                                         frame.size.height)];
+    [self animateTextField:textField up:NO];
     [UIView commitAnimations];
     
 }
@@ -276,6 +309,7 @@
     return YES;
 }
 
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"MembersToInvite"]) {
         
@@ -284,6 +318,8 @@
         ivc.group = self.group;
     }
 }
+
+
 
 // Design function !!!
 
@@ -307,5 +343,6 @@
     // Lets forget about that we were drawing
     UIGraphicsEndImageContext();
 }
+
 
 @end
