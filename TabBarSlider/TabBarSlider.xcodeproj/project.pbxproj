@@ -124,6 +124,7 @@
 		BA24D4F117B0171C0042C7A4 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4ED17B0171C0042C7A4 /* SSKeychain.m */; };
 		BA24D4F217B0171C0042C7A4 /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4EF17B0171C0042C7A4 /* SSKeychainQuery.m */; };
 		BA2D793F17BB9ECE00B19C09 /* Member.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2D793E17BB9ECE00B19C09 /* Member.m */; };
+		BA3F79D017D67B010094E658 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3F79CF17D67B010094E658 /* MessageUI.framework */; };
 		BA403FC717B008B700BE5282 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA403FC617B008B700BE5282 /* Security.framework */; };
 		BA403FC917B008BF00BE5282 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA403FC817B008BF00BE5282 /* MobileCoreServices.framework */; };
 		BA403FCB17B008CB00BE5282 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA403FCA17B008CB00BE5282 /* SystemConfiguration.framework */; };
@@ -312,6 +313,7 @@
 		BA24D4EF17B0171C0042C7A4 /* SSKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainQuery.m; sourceTree = "<group>"; };
 		BA2D793D17BB9ECE00B19C09 /* Member.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Member.h; sourceTree = "<group>"; };
 		BA2D793E17BB9ECE00B19C09 /* Member.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Member.m; sourceTree = "<group>"; };
+		BA3F79CF17D67B010094E658 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		BA403FC617B008B700BE5282 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		BA403FC817B008BF00BE5282 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		BA403FCA17B008CB00BE5282 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -359,6 +361,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA3F79D017D67B010094E658 /* MessageUI.framework in Frameworks */,
 				891ABEE817B271F800D507F7 /* QuartzCore.framework in Frameworks */,
 				891ABEE617B271DE00D507F7 /* Accelerate.framework in Frameworks */,
 				BA403FCB17B008CB00BE5282 /* SystemConfiguration.framework in Frameworks */,
@@ -572,6 +575,7 @@
 		895C4E3817AA77D2004EC590 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BA3F79CF17D67B010094E658 /* MessageUI.framework */,
 				89F71E1417B54A2000BC9C32 /* FacebookSDK.framework */,
 				891ABEE717B271F800D507F7 /* QuartzCore.framework */,
 				891ABEE517B271DE00D507F7 /* Accelerate.framework */,
@@ -679,10 +683,10 @@
 			isa = PBXGroup;
 			children = (
 				89CEBC8317C6634000DF7085 /* AddGroupStoryboard.storyboard */,
-				89CEBC8B17C668A900DF7085 /* GroupMemberViewController.h */,
-				89CEBC8C17C668A900DF7085 /* GroupMemberViewController.m */,
 				BA9C6DE417B0627E00C50CC2 /* AddGroupViewController.h */,
 				BA9C6DE517B0627E00C50CC2 /* AddGroupViewController.m */,
+				89CEBC8B17C668A900DF7085 /* GroupMemberViewController.h */,
+				89CEBC8C17C668A900DF7085 /* GroupMemberViewController.m */,
 				BABC149117CA7568004AF222 /* AddMemberCell.h */,
 				BABC149217CA7568004AF222 /* AddMemberCell.m */,
 				BABC149417CB52D6004AF222 /* InviteViewController.h */,
