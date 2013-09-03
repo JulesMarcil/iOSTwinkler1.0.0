@@ -97,6 +97,7 @@
 		897B77C217BB8E0D00D00C49 /* left-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 897B77C117BB8E0D00D00C49 /* left-arrow.png */; };
 		897B77C417BBDD2100D00C49 /* bubble-tail-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 897B77C317BBDD2100D00C49 /* bubble-tail-white.png */; };
 		89C54FF517D6494D007B8CEB /* notificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C54FF417D6494C007B8CEB /* notificationCell.m */; };
+		89C54FF917D67B03007B8CEB /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C54FF817D67B03007B8CEB /* FeedbackViewController.m */; };
 		89CEBC8117C61F7800DF7085 /* chat-bck.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CEBC8017C61F7800DF7085 /* chat-bck.png */; };
 		89CEBC8417C6634000DF7085 /* AddGroupStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89CEBC8317C6634000DF7085 /* AddGroupStoryboard.storyboard */; };
 		89CEBC8D17C668A900DF7085 /* GroupMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CEBC8C17C668A900DF7085 /* GroupMemberViewController.m */; };
@@ -265,6 +266,8 @@
 		8993880217C5FE7B00B5A9BE /* AppConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConstants.h; sourceTree = "<group>"; };
 		89C54FF317D6494C007B8CEB /* notificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = notificationCell.h; sourceTree = "<group>"; };
 		89C54FF417D6494C007B8CEB /* notificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = notificationCell.m; sourceTree = "<group>"; };
+		89C54FF717D67B03007B8CEB /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
+		89C54FF817D67B03007B8CEB /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
 		89CEBC8017C61F7800DF7085 /* chat-bck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat-bck.png"; sourceTree = "<group>"; };
 		89CEBC8317C6634000DF7085 /* AddGroupStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddGroupStoryboard.storyboard; sourceTree = "<group>"; };
 		89CEBC8B17C668A900DF7085 /* GroupMemberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupMemberViewController.h; sourceTree = "<group>"; };
@@ -666,6 +669,8 @@
 		89C54FF617D679AD007B8CEB /* Feedbacks */ = {
 			isa = PBXGroup;
 			children = (
+				89C54FF717D67B03007B8CEB /* FeedbackViewController.h */,
+				89C54FF817D67B03007B8CEB /* FeedbackViewController.m */,
 			);
 			name = Feedbacks;
 			sourceTree = "<group>";
@@ -1016,6 +1021,7 @@
 				BABC149317CA7568004AF222 /* AddMemberCell.m in Sources */,
 				BABC149617CB52D6004AF222 /* InviteViewController.m in Sources */,
 				89C54FF517D6494D007B8CEB /* notificationCell.m in Sources */,
+				89C54FF917D67B03007B8CEB /* FeedbackViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
