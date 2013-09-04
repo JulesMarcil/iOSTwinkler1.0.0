@@ -10,15 +10,13 @@
 #import "CredentialStore.h"
 #import "AFJSONRequestOperation.h"
 
-#define BASE_URL @"http://localhost:8888/Twinkler1.2.3/web/app_dev.php/"
-
 @implementation AuthAPIClient
 
 + (id)sharedClient {
     static AuthAPIClient *__instance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        NSURL *baseUrl = [NSURL URLWithString:BASE_URL];
+        NSURL *baseUrl = [NSURL URLWithString:appBaseURL];
         __instance = [[AuthAPIClient alloc] initWithBaseURL:baseUrl];
     });
     return __instance;
