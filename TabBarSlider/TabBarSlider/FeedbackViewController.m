@@ -8,6 +8,7 @@
 
 #import "FeedbackViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "AuthAPIClient.h"
 
 @interface FeedbackViewController ()
 
@@ -65,6 +66,24 @@
 }
 
 - (IBAction)send:(id)sender {
+    
     [self dismissViewControllerAnimated:YES completion:NULL];
+    
+    NSArray *keys = @[@"type", @"text", @"group_id"];
+    NSArray *objects = @[ @"feedback", self.feedbackTextView.text, [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupId"]];
+    
+    NSDictionary *parameters = [[NSDictionary alloc] initWithObjects:objects
+                                                             forKeys:keys];
+    
+    [[AuthAPIClient sharedClient] postPath:@"api/feedback"
+                                parameters:parameters
+                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                       NSError *error = nil;
+                                       NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                                       NSLog(@"%@", response);
+                                   }
+                                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                       NSLog(@"error: %@", error);
+                                   }];
 }
 @end
