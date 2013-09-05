@@ -47,9 +47,15 @@
 		892F997017B8D59C00D86B4D /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 892F996F17B8D59C00D86B4D /* facebook.png */; };
 		892F997217B8F1A700D86B4D /* login-bckgd.png in Resources */ = {isa = PBXBuildFile; fileRef = 892F997117B8F1A700D86B4D /* login-bckgd.png */; };
 		892F997417B8F1F600D86B4D /* tk-ihpone-icon-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 892F997317B8F1F600D86B4D /* tk-ihpone-icon-retina.png */; };
-		892F99A417B93E6900D86B4D /* MemberCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 892F99A317B93E6800D86B4D /* MemberCollectionViewFlowLayout.m */; };
 		892F99A617B98B3A00D86B4D /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 892F997617B8F71700D86B4D /* WelcomeViewController.m */; };
 		894D1CD217D89FFA002A48EB /* ExpenseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 894D1CD117D89FFA002A48EB /* ExpenseDetailViewController.m */; };
+		895913B317D934380039CF72 /* splash-screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 895913B217D934380039CF72 /* splash-screen.png */; };
+		895913B517D934980039CF72 /* app-icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 895913B417D934980039CF72 /* app-icon-small.png */; };
+		895913B717D934A80039CF72 /* app-icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 895913B617D934A80039CF72 /* app-icon-small.png */; };
+		895913B917D934E30039CF72 /* app-icon-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 895913B817D934E30039CF72 /* app-icon-retina.png */; };
+		895913BB17D934EB0039CF72 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 895913BA17D934EB0039CF72 /* Default.png */; };
+		895913BD17D934F70039CF72 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 895913BC17D934F70039CF72 /* Default@2x.png */; };
+		895913BF17D934FD0039CF72 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 895913BE17D934FD0039CF72 /* Default-568h@2x.png */; };
 		895C4E3A17AA77D2004EC590 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3917AA77D2004EC590 /* UIKit.framework */; };
 		895C4E3C17AA77D2004EC590 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3B17AA77D2004EC590 /* Foundation.framework */; };
 		895C4E3E17AA77D2004EC590 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3D17AA77D2004EC590 /* CoreGraphics.framework */; };
@@ -193,10 +199,15 @@
 		892F997317B8F1F600D86B4D /* tk-ihpone-icon-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tk-ihpone-icon-retina.png"; sourceTree = "<group>"; };
 		892F997517B8F71700D86B4D /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		892F997617B8F71700D86B4D /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
-		892F99A217B93E6700D86B4D /* MemberCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemberCollectionViewFlowLayout.h; sourceTree = "<group>"; };
-		892F99A317B93E6800D86B4D /* MemberCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		894D1CD017D89FFA002A48EB /* ExpenseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseDetailViewController.h; sourceTree = "<group>"; };
 		894D1CD117D89FFA002A48EB /* ExpenseDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseDetailViewController.m; sourceTree = "<group>"; };
+		895913B217D934380039CF72 /* splash-screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-screen.png"; sourceTree = "<group>"; };
+		895913B417D934980039CF72 /* app-icon-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon-small.png"; sourceTree = "<group>"; };
+		895913B617D934A80039CF72 /* app-icon-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon-small.png"; sourceTree = "<group>"; };
+		895913B817D934E30039CF72 /* app-icon-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon-retina.png"; sourceTree = "<group>"; };
+		895913BA17D934EB0039CF72 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		895913BC17D934F70039CF72 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		895913BE17D934FD0039CF72 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		895C4E3617AA77D2004EC590 /* Twinkler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twinkler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		895C4E3917AA77D2004EC590 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		895C4E3B17AA77D2004EC590 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -361,8 +372,6 @@
 			children = (
 				895C4E7E17AA9FA3004EC590 /* TabBarViewController.h */,
 				895C4E7F17AA9FA3004EC590 /* TabBarViewController.m */,
-				892F99A217B93E6700D86B4D /* MemberCollectionViewFlowLayout.h */,
-				892F99A317B93E6800D86B4D /* MemberCollectionViewFlowLayout.m */,
 				8901CE3D17AD072A0084E749 /* CustomTabBarSegue.h */,
 				8901CE3E17AD072A0084E749 /* CustomTabBarSegue.m */,
 				BA403FB217B006E200BE5282 /* Lists */,
@@ -523,6 +532,11 @@
 		895C4E2D17AA77D2004EC590 = {
 			isa = PBXGroup;
 			children = (
+				895913BE17D934FD0039CF72 /* Default-568h@2x.png */,
+				895913BC17D934F70039CF72 /* Default@2x.png */,
+				895913BA17D934EB0039CF72 /* Default.png */,
+				895913B817D934E30039CF72 /* app-icon-retina.png */,
+				895913B617D934A80039CF72 /* app-icon-small.png */,
 				895C4E3F17AA77D2004EC590 /* TabBarSlider */,
 				891F500517B3C69000361986 /* Resources */,
 				895C4E5D17AA77D9004EC590 /* TabBarSliderTests */,
@@ -589,6 +603,8 @@
 				8911839E17B12D9C00B28ABE /* heart-icon.png */,
 				895C4E7017AA952B004EC590 /* check-icon.png */,
 				895C4E7117AA952B004EC590 /* coin-icon.png */,
+				895913B417D934980039CF72 /* app-icon-small.png */,
+				895913B217D934380039CF72 /* splash-screen.png */,
 				891183B617B1AC7F00B28ABE /* timeline-line.png */,
 				BAAC681917B53C32006C69DE /* profile-pic.png */,
 				895C4E7217AA952B004EC590 /* tk-icon.png */,
@@ -873,6 +889,13 @@
 				89CEBC8117C61F7800DF7085 /* chat-bck.png in Resources */,
 				89CEBC8417C6634000DF7085 /* AddGroupStoryboard.storyboard in Resources */,
 				89131B2917D54536008F9950 /* remove-button.png in Resources */,
+				895913B317D934380039CF72 /* splash-screen.png in Resources */,
+				895913B517D934980039CF72 /* app-icon-small.png in Resources */,
+				895913B717D934A80039CF72 /* app-icon-small.png in Resources */,
+				895913B917D934E30039CF72 /* app-icon-retina.png in Resources */,
+				895913BB17D934EB0039CF72 /* Default.png in Resources */,
+				895913BD17D934F70039CF72 /* Default@2x.png in Resources */,
+				895913BF17D934FD0039CF72 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -952,7 +975,6 @@
 				891183B317B1A31200B28ABE /* ExpenseItemCell.m in Sources */,
 				BAAC681017B4D746006C69DE /* LoginViewController.m in Sources */,
 				BAAC681317B4E29D006C69DE /* Profile.m in Sources */,
-				892F99A417B93E6900D86B4D /* MemberCollectionViewFlowLayout.m in Sources */,
 				8919A9DF17BA19AF00778467 /* timelineBubbleCell.m in Sources */,
 				BA7FC7E317BA29D1001E3A3C /* RegisterViewController.m in Sources */,
 				BA2D793F17BB9ECE00B19C09 /* Member.m in Sources */,

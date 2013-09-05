@@ -143,6 +143,8 @@
                                               [self.messageDataController addMessage:message];
                                           }
                                           [self.messageOnTimeline reloadData];
+                                          NSIndexPath* ipath = [NSIndexPath indexPathForRow: [self.messageOnTimeline numberOfRowsInSection:0]-1 inSection: 0];
+                                          [self.messageOnTimeline scrollToRowAtIndexPath: ipath atScrollPosition: UITableViewScrollPositionTop animated: NO];
                                           NSLog(@"success: %u messages added", diff);
                                       }else{
                                           //NSLog(@"success: data in sync");
@@ -212,6 +214,7 @@
     
     
     if	([messageAtIndex.type isEqual:@"message"]){
+<<<<<<< HEAD
         static NSString *CellIdentifier = @"timelineCell";
         static NSDateFormatter *formatter = nil;
         if (formatter == nil) {
@@ -229,6 +232,27 @@
         cell.messageLabel.text=messageAtIndex.body;
         
         if ([currentMemberName isEqualToString:messageAtIndex.author]){
+=======
+        if ([currentMemberName isEqualToString:messageAtIndex.author]){
+            
+            static NSString *CellIdentifier = @"myMessageCell";
+            static NSDateFormatter *formatter = nil;
+            if (formatter == nil) {
+                formatter = [[NSDateFormatter alloc] init];
+                [formatter setDateStyle:NSDateFormatterMediumStyle];
+            }
+            timelineBubbleCell *cell = [tableView
+                                        dequeueReusableCellWithIdentifier:CellIdentifier];
+            cell.messageContainer.layer.cornerRadius = 3;
+            cell.messageContainer.layer.masksToBounds = NO;
+            cell.messageContainer.layer.shadowOffset = CGSizeMake(0, 0.6);
+            cell.messageContainer.layer.shadowRadius = 0.8;
+            cell.messageContainer.layer.shadowOpacity = 0.1;
+            
+            cell.messageLabel.text=messageAtIndex.body;
+            
+            
+>>>>>>> 0f0b9a6b7798c70aa3a29e008a734c8f42640b78
             
             CGRect frame = cell.messageLabel.frame;
             frame.size.height = cell.messageLabel.contentSize.height+20;
@@ -254,7 +278,23 @@
             [formatter setDateFormat:@"HH:mm"];
             cell.timelineTimeLabel.text=[formatter stringFromDate:(NSDate*)messageAtIndex.date];
             
+            return cell;
         }else{
+            static NSString *CellIdentifier = @"timelineCell";
+            static NSDateFormatter *formatter = nil;
+            if (formatter == nil) {
+                formatter = [[NSDateFormatter alloc] init];
+                [formatter setDateStyle:NSDateFormatterMediumStyle];
+            }
+            timelineBubbleCell *cell = [tableView
+                                        dequeueReusableCellWithIdentifier:CellIdentifier];
+            cell.messageContainer.layer.cornerRadius = 3;
+            cell.messageContainer.layer.masksToBounds = NO;
+            cell.messageContainer.layer.shadowOffset = CGSizeMake(0, 0.6);
+            cell.messageContainer.layer.shadowRadius = 0.8;
+            cell.messageContainer.layer.shadowOpacity = 0.1;
+            
+            cell.messageLabel.text=messageAtIndex.body;
             
             CGRect frame = cell.messageLabel.frame;
             frame.size.height = cell.messageLabel.contentSize.height+20;
@@ -270,8 +310,6 @@
             [cell.bubbleTailImage setFrame:CGRectMake(52,sz.height,
                                                       cell.bubbleTailImage.frame.size.width,
                                                       cell.bubbleTailImage.frame.size.height)];
-            
-            cell.memberProfilePicImage.alpha=1;
             
             // Set image of the member who wrote the message
             
@@ -312,8 +350,10 @@
             
             [formatter setDateFormat:@"HH:mm"];
             cell.timelineTimeLabel.text=[formatter stringFromDate:(NSDate*)messageAtIndex.date];
+            return cell;
         }
-        return cell;
+        
+        
     }
     else{
         static NSString *CellIdentifier = @"notificationCell";
@@ -576,6 +616,10 @@
     agvc.group = group;
     
     [self presentViewController:navigationController animated:YES completion:nil];
+}
+
+- (IBAction)sendMessage:(id)sender {
+    [self textFieldShouldReturn:self.timelineTextBox];
 }
 
 @end
