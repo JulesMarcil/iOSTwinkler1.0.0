@@ -56,6 +56,7 @@
 		895913BB17D934EB0039CF72 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 895913BA17D934EB0039CF72 /* Default.png */; };
 		895913BD17D934F70039CF72 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 895913BC17D934F70039CF72 /* Default@2x.png */; };
 		895913BF17D934FD0039CF72 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 895913BE17D934FD0039CF72 /* Default-568h@2x.png */; };
+		895913C117D9378A0039CF72 /* splash-screen-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 895913C017D9378A0039CF72 /* splash-screen-small.png */; };
 		895C4E3A17AA77D2004EC590 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3917AA77D2004EC590 /* UIKit.framework */; };
 		895C4E3C17AA77D2004EC590 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3B17AA77D2004EC590 /* Foundation.framework */; };
 		895C4E3E17AA77D2004EC590 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3D17AA77D2004EC590 /* CoreGraphics.framework */; };
@@ -208,6 +209,7 @@
 		895913BA17D934EB0039CF72 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		895913BC17D934F70039CF72 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		895913BE17D934FD0039CF72 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		895913C017D9378A0039CF72 /* splash-screen-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "splash-screen-small.png"; path = "../../../../../Users/arnaudrizard/Dropbox/Twinkler - Start Up/Twinkler/Design App/splash-screen-small.png"; sourceTree = "<group>"; };
 		895C4E3617AA77D2004EC590 /* Twinkler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twinkler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		895C4E3917AA77D2004EC590 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		895C4E3B17AA77D2004EC590 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -535,6 +537,7 @@
 				895913BE17D934FD0039CF72 /* Default-568h@2x.png */,
 				895913BC17D934F70039CF72 /* Default@2x.png */,
 				895913BA17D934EB0039CF72 /* Default.png */,
+				895913C017D9378A0039CF72 /* splash-screen-small.png */,
 				895913B817D934E30039CF72 /* app-icon-retina.png */,
 				895913B617D934A80039CF72 /* app-icon-small.png */,
 				895C4E3F17AA77D2004EC590 /* TabBarSlider */,
@@ -896,6 +899,7 @@
 				895913BB17D934EB0039CF72 /* Default.png in Resources */,
 				895913BD17D934F70039CF72 /* Default@2x.png in Resources */,
 				895913BF17D934FD0039CF72 /* Default-568h@2x.png in Resources */,
+				895913C117D9378A0039CF72 /* splash-screen-small.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
