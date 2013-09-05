@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *expenseSubtitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *getLabel;
 @property (weak, nonatomic) IBOutlet UILabel *shareLabel;
+@property (weak, nonatomic) IBOutlet UIView *expenseContainer;
 
 @end

@@ -105,7 +105,10 @@
         if (cell == nil){
             cell = (ExpenseItemCell*) [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
         };
-        
+    
+    cell.expenseContainer.backgroundColor=[UIColor colorWithRed:(240/255.0) green:(240/255.0) blue:(240/255.0) alpha:0];
+    cell.backgroundColor=[UIColor colorWithRed:(210/255.0) green:(210/255.0) blue:(210/255.0) alpha:0];
+    
         //Set expense
         Expense *expenseAtIndex = [self.expenseDataController
                                    objectInListAtIndex:indexPath.row];
