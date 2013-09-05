@@ -43,6 +43,7 @@
     [super viewDidLoad];
     
     self.groupNameTextField.text = self.group.name;
+    self.backButton.hidden = self.hideBack;
     
     CGRect frame= [self.memberSuggestionTableView frame];
     [self.memberSuggestionTableView setFrame:CGRectMake(frame.origin.x,
@@ -421,6 +422,5 @@
     // Lets forget about that we were drawing
     UIGraphicsEndImageContext();
 }
-
 
 @end
