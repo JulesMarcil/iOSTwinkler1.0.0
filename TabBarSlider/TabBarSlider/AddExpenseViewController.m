@@ -307,6 +307,97 @@
     }
 }
 
+- (IBAction)addExpense:(id)sender {
+    
+    if ([self.expenseName.text length] || [self.expenseAmount.text length]) {
+        
+        //NSString to NSNumber formatter
+        NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+        [f setNumberStyle:NSNumberFormatterDecimalStyle];
+        NSNumber *formattedAmount = [f numberFromString:self.expenseAmount.text];
+        
+        //Get date of today
+        NSDate *today = [NSDate date];
+        
+        //Create Member Array (to be completed)
+        NSMutableArray *selectedMembers = [[NSMutableArray alloc] init];
+        
+        //get selected members
+        for(memberCollectionViewCell* cell in [self.collectionView visibleCells]){
+            
+            NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
+            if (cell.isSelected) {
+                NSDictionary *member = [memberArray objectAtIndex:indexPath.row];
+                [selectedMembers addObject:member];
+            }
+        }
+        
+        //calculate share (to be done with nspredicate - waiting for it to be displayed) /Jules
+        NSNumber *share = @-1;
+        
+        Expense *expense = [[Expense alloc] initWithName:self.expenseName.text
+                                                  amount:formattedAmount
+                                                   owner:self.selectedExpenseOwner
+                                                    date:today
+                                                 members:selectedMembers
+                                                  author:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"]
+                                               addedDate:today
+                                                   share:share
+                            ];
+        
+        self.expense = expense;
+        
+        //create selected member ids array
+        NSMutableArray *selectedIds = [[NSMutableArray alloc] init];
+        for(NSDictionary *member in self.expense.members){
+            [selectedIds addObject:member[@"id"]];
+        }
+        
+        
+        // initialize the request parameters
+        NSString *currentGroupId = [[NSUserDefaults standardUserDefaults] stringForKey:@"currentGroupId"];
+        NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    self.expense.name, @"name",
+                                    self.expense.amount, @"amount",
+                                    currentGroupId, @"currentGroupId",
+                                    self.selectedExpenseOwner[@"id"], @"owner_id",
+                                    selectedIds, @"member_ids",
+                                    [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"id"], @"author_id",
+                                    nil];
+        
+        [[AuthAPIClient sharedClient] postPath:@"api/post/expense"
+                                    parameters:parameters
+                                       success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                           NSError *error = nil;
+                                           NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                                           NSLog(@"%@", response);
+                                           
+                                           NSNumber *formattedAmount = [f numberFromString:response[@"amount"]];
+                                           NSTimeInterval interval1 = [response[@"date"] doubleValue];
+                                           NSTimeInterval interval2 = [response[@"addedDate"] doubleValue];
+                                           
+                                           Expense *expense = [[Expense alloc] initWithName:response[@"name"]
+                                                                                     amount:formattedAmount
+                                                                                      owner:response[@"owner"]
+                                                                                       date:[NSDate dateWithTimeIntervalSince1970:interval1]
+                                                                                    members:response[@"members"]
+                                                                                     author:response[@"author"]
+                                                                                  addedDate:[NSDate dateWithTimeIntervalSince1970:interval2]
+                                                                                      share:response[@"share"]
+                                                               ];
+                                           
+                                           self.expense = expense;
+                                           NSDictionary *dictionary = [NSDictionary dictionaryWithObject:expense forKey:@"expense"];
+                                           [[NSNotificationCenter defaultCenter] postNotificationName:@"expenseAddedSuccesfully" object:nil userInfo:dictionary];
+                                           NSLog(@"expense added notification");
+                                           [self dismissViewControllerAnimated:YES completion:nil];
+                                       }
+                                       failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                           NSLog(@"error: %@", error);
+                                       }];
+    }    
+}
+
 - (IBAction)deselectAll:(id)sender {
     for(memberCollectionViewCell* cell in [self.collectionView visibleCells]){
         
@@ -315,10 +406,6 @@
         cell.memberProfilePic.alpha=0.5;
         cell.isSelected=NO;
     }
-}
-
-- (IBAction)addExpense:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)cancelAddExpense:(id)sender {
@@ -338,91 +425,9 @@
     
     if ([[segue identifier] isEqualToString:@"ReturnInput"]) {
         
-        if ([self.expenseName.text length] || [self.expenseAmount.text length]) {
-            
-            //NSString to NSNumber formatter
-            NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
-            [f setNumberStyle:NSNumberFormatterDecimalStyle];
-            NSNumber *formattedAmount = [f numberFromString:self.expenseAmount.text];
-            
-            //Get date of today
-            NSDate *today = [NSDate date];
-            
-            //Create Member Array (to be completed)
-            NSMutableArray *selectedMembers = [[NSMutableArray alloc] init];
-            
-            //get selected members
-            for(memberCollectionViewCell* cell in [self.collectionView visibleCells]){
-                
-                NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
-                if (cell.isSelected) {
-                    NSDictionary *member = [memberArray objectAtIndex:indexPath.row];
-                    [selectedMembers addObject:member];
-                }
-            }
-            
-            //calculate share (to be done with nspredicate - waiting for it to be displayed) /Jules
-            NSNumber *share = @-1;
-            
-            Expense *expense = [[Expense alloc] initWithName:self.expenseName.text
-                                                      amount:formattedAmount
-                                                       owner:self.selectedExpenseOwner
-                                                        date:today
-                                                     members:selectedMembers
-                                                      author:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"]
-                                                   addedDate:today
-                                                       share:share
-                                ];
-            
-            self.expense = expense;
-            
-            //create selected member ids array
-            NSMutableArray *selectedIds = [[NSMutableArray alloc] init];
-            for(NSDictionary *member in self.expense.members){
-                [selectedIds addObject:member[@"id"]];
-            }
-            
-            
-            // initialize the request parameters
-            NSString *currentGroupId = [[NSUserDefaults standardUserDefaults] stringForKey:@"currentGroupId"];
-            NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:
-                                        self.expense.name, @"name",
-                                        self.expense.amount, @"amount",
-                                        currentGroupId, @"currentGroupId",
-                                        self.selectedExpenseOwner[@"id"], @"owner_id",
-                                        selectedIds, @"member_ids",
-                                        [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"id"], @"author_id",
-                                        nil];
-            
-            [[AuthAPIClient sharedClient] postPath:@"api/post/expense"
-                                        parameters:parameters
-                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                               NSError *error = nil;
-                                               NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
-                                               NSLog(@"%@", response);
-                                               
-                                               NSNumber *formattedAmount = [f numberFromString:response[@"amount"]];
-                                               NSTimeInterval interval1 = [response[@"date"] doubleValue];
-                                               NSTimeInterval interval2 = [response[@"addedDate"] doubleValue];
-                                               
-                                               Expense *expense = [[Expense alloc] initWithName:response[@"name"]
-                                                                                         amount:formattedAmount
-                                                                                          owner:response[@"owner"]
-                                                                                           date:[NSDate dateWithTimeIntervalSince1970:interval1]
-                                                                                        members:response[@"members"]
-                                                                                         author:response[@"author"]
-                                                                                      addedDate:[NSDate dateWithTimeIntervalSince1970:interval2]
-                                                                                          share:response[@"share"]
-                                                                   ];
-                                               
-                                               ExpenseViewController *evc = [segue destinationViewController];
-                                               [evc.expenseDataController addExpenseWithExpense:expense];
-                                               [evc.expenseListTable reloadData];
-                                           }
-                                           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                               NSLog(@"error: %@", error);
-                                           }];
-        }
+        
+        
+        
     }
 }
 
@@ -448,7 +453,6 @@
     [cell addSubview:checkedMember];
     
     NSDictionary *member = [memberArray objectAtIndex:indexPath.row];
-    NSLog(@"member = %@", member);
     
     NSString *path = member[@"picturePath"];
     NSNumber *facebookId= [[[NSNumberFormatter alloc] init] numberFromString:path];
@@ -463,7 +467,6 @@
     if(url) {
         
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        NSLog(@"%@", url);
         
         [cell.memberProfilePic setImageWithURLRequest:request
                                      placeholderImage:[UIImage imageNamed:@"profile-pic.png"]

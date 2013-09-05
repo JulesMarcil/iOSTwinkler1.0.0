@@ -166,7 +166,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="addExpense:" destination="SHS-Yz-Uve" eventType="touchUpInside" id="zAC-a7-gTt"/>
+                                                    <action selector="addExpense:" destination="SHS-Yz-Uve" eventType="touchUpInside" id="ezb-ul-1Ac"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2mq-MR-X5h">
@@ -318,7 +318,6 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="i93-2F-keq"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="addExpenseButton" destination="r9k-cV-zLk" id="Fkx-AZ-Xch"/>
                         <outlet property="amountLabelContainer" destination="J1E-gg-FYE" id="dTW-vJ-Uu6"/>
                         <outlet property="bottomButtonContainer" destination="sgW-0x-57I" id="fvE-g4-VM6"/>
                         <outlet property="cancelExpenseButton" destination="2mq-MR-X5h" id="4ic-7P-Tuu"/>
