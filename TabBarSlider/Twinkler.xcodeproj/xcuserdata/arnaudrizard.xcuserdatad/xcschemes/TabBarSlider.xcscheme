@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "895C4E3517AA77D2004EC590"
-               BuildableName = "TabBarSlider.app"
+               BuildableName = "Twinkler.app"
                BlueprintName = "Twinkler"
                ReferencedContainer = "container:Twinkler.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "895C4E5517AA77D9004EC590"
-               BuildableName = "TabBarSliderTests.octest"
+               BuildableName = "TwinklerTests.octest"
                BlueprintName = "TwinklerTests"
                ReferencedContainer = "container:Twinkler.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "895C4E3517AA77D2004EC590"
-            BuildableName = "TabBarSlider.app"
+            BuildableName = "Twinkler.app"
             BlueprintName = "Twinkler"
             ReferencedContainer = "container:Twinkler.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "895C4E3517AA77D2004EC590"
-            BuildableName = "TabBarSlider.app"
+            BuildableName = "Twinkler.app"
             BlueprintName = "Twinkler"
             ReferencedContainer = "container:Twinkler.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "895C4E3517AA77D2004EC590"
-            BuildableName = "TabBarSlider.app"
+            BuildableName = "Twinkler.app"
             BlueprintName = "Twinkler"
             ReferencedContainer = "container:Twinkler.xcodeproj">
          </BuildableReference>

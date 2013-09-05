@@ -68,6 +68,7 @@
     [self.view addGestureRecognizer:swipeLeftGestureRecognizer];
     
     self.expenseListTable.allowsSelectionDuringEditing = YES;
+    self.expenseListTable.separatorColor = [UIColor clearColor];
 }
 
 - (void)dataRetrieved {
@@ -87,79 +88,86 @@
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-        return [self.expenseDataController countOfList];
+    return [self.expenseDataController countOfList];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-        NSLog(@"datacontroller 1 = %@", self.expenseDataController);
-        
-        static NSString *CellIdentifier = @"expenseCell";
-        static NSDateFormatter *formatter = nil;
-        if (formatter == nil) {
-            formatter = [[NSDateFormatter alloc] init];
-            [formatter setDateStyle:NSDateFormatterMediumStyle];
-        }
-        ExpenseItemCell *cell = [tableView
-                                 dequeueReusableCellWithIdentifier:CellIdentifier];
-        
-        if (cell == nil){
-            cell = (ExpenseItemCell*) [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        };
+    NSLog(@"datacontroller 1 = %@", self.expenseDataController);
     
-    cell.expenseContainer.backgroundColor=[UIColor colorWithRed:(240/255.0) green:(240/255.0) blue:(240/255.0) alpha:0];
-    cell.backgroundColor=[UIColor colorWithRed:(210/255.0) green:(210/255.0) blue:(210/255.0) alpha:0];
+    static NSString *CellIdentifier = @"expenseCell";
+    static NSDateFormatter *formatter = nil;
+    if (formatter == nil) {
+        formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateStyle:NSDateFormatterMediumStyle];
+    }
+    ExpenseItemCell *cell = [tableView
+                             dequeueReusableCellWithIdentifier:CellIdentifier];
     
-        //Set expense
-        Expense *expenseAtIndex = [self.expenseDataController
-                                   objectInListAtIndex:indexPath.row];
+    if (cell == nil){
+        cell = (ExpenseItemCell*) [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    };
+    
+    
+    //Set expense
+    Expense *expenseAtIndex = [self.expenseDataController
+                               objectInListAtIndex:indexPath.row];
+    
+    //Set picture
+    NSString *path = expenseAtIndex.owner[@"picturePath"];
+    NSNumber *facebookId= [[[NSNumberFormatter alloc] init] numberFromString:path];
+    
+    NSURL *url;
+    if (facebookId) {
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=100&height=100", facebookId]];
+    } else if(![path isEqualToString:@"local"]) {
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:8888/Twinkler1.2.3/web/%@", path]];
+    }
+    
+    if(url) {
         
-        //Set picture
-        NSString *path = expenseAtIndex.owner[@"picturePath"];
-        NSNumber *facebookId= [[[NSNumberFormatter alloc] init] numberFromString:path];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        NSLog(@"%@", url);
         
-        NSURL *url;
-        if (facebookId) {
-            url = [NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=100&height=100", facebookId]];
-        } else if(![path isEqualToString:@"local"]) {
-            url = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:8888/Twinkler1.2.3/web/%@", path]];
-        }
-        
-        if(url) {
-            
-            NSURLRequest *request = [NSURLRequest requestWithURL:url];
-            NSLog(@"%@", url);
-            
-            [cell.memberProfilePic setImageWithURLRequest:request
-                                         placeholderImage:[UIImage imageNamed:@"profile-pic.png"]
-                                                  success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                                      cell.memberProfilePic.image = image;
-                                                      [cell.memberProfilePic setFrame:CGRectMake(14,13,44,44)];
-                                                      [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:44.0];
-                                                  }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-                                                      NSLog(@"Failed with error: %@", error);
-                                                  }];
-        }
-        
-        [cell.memberProfilePic setFrame:CGRectMake(14,13,44,44)];
-        [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:44.0];
-        
-        //Set labels
-        
-        cell.self.expenseNameLabel.text=expenseAtIndex.name;
-        
-        NSDictionary *currency=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"];
-        cell.expenseSubtitleLabel.text=[NSString stringWithFormat:@"%@ paid %@ %@ - %@", expenseAtIndex.owner[@"name"],[expenseAtIndex.amount stringValue],currency[@"symbol"], [formatter stringFromDate:(NSDate *)expenseAtIndex.date]];
-        
-        if ([expenseAtIndex.owner[@"name"] isEqual: @"You"]) {
-            cell.getLabel.text = @"You get";
-            cell.shareLabel.text = [NSString stringWithFormat:@"%@ %@", expenseAtIndex.share, currency[@"symbol"]];
-            cell.shareLabel.textColor = [UIColor colorWithRed:(116/255.0) green:(178/255.0) blue:(20/255.0) alpha: 1];
-        } else {
-            cell.getLabel.text = @"You owe";
-            cell.shareLabel.text = [NSString stringWithFormat:@"%@ %@", expenseAtIndex.share, currency[@"symbol"]];
-            cell.shareLabel.textColor = [UIColor colorWithRed:(202/255.0) green:(73/255.0) blue:(60/255.0) alpha: 1];
-        }
-        return cell;
+        [cell.memberProfilePic setImageWithURLRequest:request
+                                     placeholderImage:[UIImage imageNamed:@"profile-pic.png"]
+                                              success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                                  cell.memberProfilePic.image = image;
+                                                  [cell.memberProfilePic setFrame:CGRectMake(19,14,35,35)];
+                                                  [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:35.0];
+                                              }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                                  NSLog(@"Failed with error: %@", error);
+                                              }];
+    }
+    
+    [cell.memberProfilePic setFrame:CGRectMake(19,14,35,35)];
+    [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:35.0];
+    
+    //Set labels
+    
+    cell.self.expenseNameLabel.text=expenseAtIndex.name;
+    
+    NSDictionary *currency=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"];
+    cell.expenseSubtitleLabel.text=[NSString stringWithFormat:@"%@ paid %@ %@ - %@", expenseAtIndex.owner[@"name"],[expenseAtIndex.amount stringValue],currency[@"symbol"], [formatter stringFromDate:(NSDate *)expenseAtIndex.date]];
+    
+    if ([expenseAtIndex.owner[@"name"] isEqual: @"You"]) {
+        cell.getLabel.text = @"You get";
+        cell.shareLabel.text = [NSString stringWithFormat:@"%@ %@", expenseAtIndex.share, currency[@"symbol"]];
+        cell.shareLabel.textColor = [UIColor colorWithRed:(116/255.0) green:(178/255.0) blue:(20/255.0) alpha: 1];
+    } else {
+        cell.getLabel.text = @"You owe";
+        cell.shareLabel.text = [NSString stringWithFormat:@"%@ %@", expenseAtIndex.share, currency[@"symbol"]];
+        cell.shareLabel.textColor = [UIColor colorWithRed:(255/255.0) green:(146/255.0) blue:(123/255.0) alpha: 1];
+    }
+    
+    tableView.backgroundColor=[UIColor colorWithRed:(240/255.0) green:(240/255.0) blue:(240/255.0) alpha:1];
+    cell.expenseContainer.backgroundColor=[UIColor whiteColor];
+    cell.expenseContainer.layer.cornerRadius = 3;
+    cell.expenseContainer.layer.masksToBounds = NO;
+    cell.expenseContainer.layer.shadowOffset = CGSizeMake(0, 0.6);
+    cell.expenseContainer.layer.shadowRadius = 0.8;
+    cell.expenseContainer.layer.shadowOpacity = 0.1;
+    
+    return cell;
 }
 
 

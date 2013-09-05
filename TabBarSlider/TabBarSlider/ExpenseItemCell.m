@@ -14,8 +14,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.expenseContainer.backgroundColor=[UIColor colorWithRed:(240/255.0) green:(240/255.0) blue:(240/255.0) alpha:0];
-        self.backgroundColor=[UIColor colorWithRed:(210/255.0) green:(210/255.0) blue:(210/255.0) alpha:0];
+
     }
     
     return self;
