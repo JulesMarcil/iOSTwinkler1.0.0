@@ -12,6 +12,8 @@
 #import "Expense.h"
 #import "memberCollectionViewCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "AuthAPIClient.h"
+#import "ExpenseViewController.h"
 
 @interface AddExpenseViewController () <UITextFieldDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -220,7 +222,6 @@
     }];
 }
 
-
 - (void)dismissMemberPicker:(id)sender {
     CGRect toolbarTargetFrame = CGRectMake(0, self.view.bounds.size.height, 320, 44);
     CGRect datePickerTargetFrame = CGRectMake(0, self.expenseMemberPicker.bounds.size.height+44, 320, 216);
@@ -233,8 +234,6 @@
     [UIView commitAnimations];
     [self closePicker:nil];
 }
-
-
 
 - (IBAction)showPicker:(id)sender {
     if ([self.view viewWithTag:9]) {
@@ -295,8 +294,6 @@
     [self textFieldShouldReturn:self.expenseAmount];
 }
 
-
-
 - (IBAction)selectAll:(id)sender {
     
     for(memberCollectionViewCell* cell in [self.collectionView visibleCells]){
@@ -338,7 +335,9 @@
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
     if ([[segue identifier] isEqualToString:@"ReturnInput"]) {
+        
         if ([self.expenseName.text length] || [self.expenseAmount.text length]) {
             
             //NSString to NSNumber formatter
@@ -374,7 +373,55 @@
                                                    addedDate:today
                                                        share:share
                                 ];
+            
             self.expense = expense;
+            
+            //create selected member ids array
+            NSMutableArray *selectedIds = [[NSMutableArray alloc] init];
+            for(NSDictionary *member in self.expense.members){
+                [selectedIds addObject:member[@"id"]];
+            }
+            
+            
+            // initialize the request parameters
+            NSString *currentGroupId = [[NSUserDefaults standardUserDefaults] stringForKey:@"currentGroupId"];
+            NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:
+                                        self.expense.name, @"name",
+                                        self.expense.amount, @"amount",
+                                        currentGroupId, @"currentGroupId",
+                                        self.selectedExpenseOwner[@"id"], @"owner_id",
+                                        selectedIds, @"member_ids",
+                                        [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"id"], @"author_id",
+                                        nil];
+            
+            [[AuthAPIClient sharedClient] postPath:@"api/post/expense"
+                                        parameters:parameters
+                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                               NSError *error = nil;
+                                               NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                                               NSLog(@"%@", response);
+                                               
+                                               NSNumber *formattedAmount = [f numberFromString:response[@"amount"]];
+                                               NSTimeInterval interval1 = [response[@"date"] doubleValue];
+                                               NSTimeInterval interval2 = [response[@"addedDate"] doubleValue];
+                                               
+                                               Expense *expense = [[Expense alloc] initWithName:response[@"name"]
+                                                                                         amount:formattedAmount
+                                                                                          owner:response[@"owner"]
+                                                                                           date:[NSDate dateWithTimeIntervalSince1970:interval1]
+                                                                                        members:response[@"members"]
+                                                                                         author:response[@"author"]
+                                                                                      addedDate:[NSDate dateWithTimeIntervalSince1970:interval2]
+                                                                                          share:response[@"share"]
+                                                                   ];
+                                               
+                                               ExpenseViewController *evc = [segue destinationViewController];
+                                               [evc.expenseDataController addExpenseWithExpense:expense];
+                                               [evc.expenseListTable reloadData];
+                                           }
+                                           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                               NSLog(@"error: %@", error);
+                                           }];
         }
     }
 }
@@ -410,7 +457,7 @@
     if (facebookId) {
         url = [NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=100&height=100", facebookId]];
     } else if(![path isEqualToString:@"local"]) {
-        url = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:8888/Twinkler1.2.3/web/%@", path]];
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/web/%@", appBaseURL, path]];
     }
     
     if(url) {

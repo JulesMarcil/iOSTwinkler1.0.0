@@ -18,6 +18,7 @@
 #import "TabBarViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "AddMemberCell.h"
+#import "ExpenseDetailViewController.h"
 
 @interface ExpenseViewController ()
 
@@ -120,7 +121,7 @@
     if (facebookId) {
         url = [NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=100&height=100", facebookId]];
     } else if(![path isEqualToString:@"local"]) {
-        url = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:8888/Twinkler1.2.3/web/%@", path]];
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/web/%@", appBaseURL, path]];
     }
     
     if(url) {
@@ -235,7 +236,16 @@
     }
 }
 
-
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if([segue.identifier isEqualToString:@"expenseDetailSegue"]){
+        
+        NSIndexPath *indexPath = [self.expenseListTable indexPathForCell:sender];
+        Expense *expenseAtIndex = [self.expenseDataController objectInListAtIndex:indexPath.row];
+        ExpenseDetailViewController *edvc = [segue destinationViewController];
+        edvc.expense = expenseAtIndex;
+    }
+}
 
 -(void)goToTimeline{
     UIStoryboard *timelineStoryboard=[UIStoryboard storyboardWithName:@"timelineStoryboard" bundle:nil];
@@ -278,6 +288,17 @@
     [UIView commitAnimations];
 }
 
+-(NSDictionary *) returnObjectFromArray:(NSArray *)array withId:(NSNumber *)identifier {
+    
+    NSDictionary *member;
+    for (int i=0; i < [array count]; i++){
+        if([array objectAtIndex:i][@"id"] == identifier){
+            member = [array objectAtIndex:i];
+        }
+    }
+    return member;
+}
+
 //----------DESIGN----------
 -(void) setRoundedView:(UIImageView *)imageView picture: (UIImage *)picture toDiameter:(float)newSize{
     // Begin a new image that will be the new image with the rounded corners
@@ -298,17 +319,6 @@
     
     // Lets forget about that we were drawing
     UIGraphicsEndImageContext();
-}
-
--(NSDictionary *) returnObjectFromArray:(NSArray *)array withId:(NSNumber *)identifier {
-    
-    NSDictionary *member;
-    for (int i=0; i < [array count]; i++){
-        if([array objectAtIndex:i][@"id"] == identifier){
-            member = [array objectAtIndex:i];
-        }
-    }
-    return member;
 }
 
 @end

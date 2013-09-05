@@ -45,7 +45,6 @@
 {
     [super viewDidLoad];
     
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataRetrieved) name:@"messagesWithJSONFinishedLoading" object:nil];
     
     self.refreshTimer = [NSTimer scheduledTimerWithTimeInterval:5.0
@@ -209,9 +208,6 @@
     Message *messageAtIndex = [self.messageDataController
                                objectInListAtIndex:indexPath.row];
     
-    
-    
-    
     NSString *currentMemberName=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"];
     
     
@@ -232,7 +228,7 @@
         
         cell.messageLabel.text=messageAtIndex.body;
         
-        if (![currentMemberName isEqualToString:messageAtIndex.author]){
+        if ([currentMemberName isEqualToString:messageAtIndex.author]){
             
             CGRect frame = cell.messageLabel.frame;
             frame.size.height = cell.messageLabel.contentSize.height+20;
