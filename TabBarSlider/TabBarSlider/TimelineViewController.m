@@ -262,6 +262,7 @@
         }else{
             static NSString *CellIdentifier = @"timelineCell";
             static NSDateFormatter *formatter = nil;
+            
             if (formatter == nil) {
                 formatter = [[NSDateFormatter alloc] init];
                 [formatter setDateStyle:NSDateFormatterMediumStyle];
@@ -278,16 +279,16 @@
             
             CGRect frame = cell.messageLabel.frame;
             frame.size.height = cell.messageLabel.contentSize.height+20;
-            CGSize sz = [cell.messageLabel.text sizeWithFont:cell.messageLabel.font constrainedToSize:CGSizeMake(200, 20000) lineBreakMode:NSLineBreakByWordWrapping];
+            CGSize sze = [cell.messageLabel.text sizeWithFont:cell.messageLabel.font constrainedToSize:CGSizeMake(200, 20000) lineBreakMode:NSLineBreakByWordWrapping];
             cell.messageLabel.editable = NO;
             
             cell.messageContainer.frame=frame;
-            [cell.messageContainer setFrame:CGRectMake(70,10, sz.width+20, sz.height+20)];
+            [cell.messageContainer setFrame:CGRectMake(70,10, sze.width+20, sze.height+20)];
             cell.messageContainer.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:1];
             
             cell.bubbleTailImage.alpha=1;
             cell.bubbleTailImage.image= [UIImage imageNamed:@"bubble-tail-white"];
-            [cell.bubbleTailImage setFrame:CGRectMake(52,sz.height,
+            [cell.bubbleTailImage setFrame:CGRectMake(52,sze.height,
                                                       cell.bubbleTailImage.frame.size.width,
                                                       cell.bubbleTailImage.frame.size.height)];
             
@@ -306,6 +307,12 @@
                 url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", appBaseURL, path]];
             }
             
+            NSLog(@"%ul",(int) sze.height-10);
+            
+            [cell.timelineTimeLabel setFrame:CGRectMake(sze.width+25+70,sze.height+5,
+                                                        cell.timelineTimeLabel.frame.size.width,
+                                                        cell.timelineTimeLabel.frame.size.height)];
+            
             if (url) {
                 
                 NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -314,22 +321,24 @@
                                                   placeholderImage:placeholderImage
                                                            success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                                                cell.memberProfilePicImage.image = image;
-                                                               [cell.memberProfilePicImage setFrame:CGRectMake(10,(int) sz.height-10, 35, 35)];
+                                                               [cell.memberProfilePicImage setFrame:CGRectMake(10,(int) sze.height-10, 35, 35)];
                                                                [self setRoundedView:cell.memberProfilePicImage picture:cell.memberProfilePicImage.image toDiameter:35];
                                                            }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                                                NSLog(@"Failed with error: %@", error);
                                                            }];
             } else {
-                [cell.memberProfilePicImage setFrame:CGRectMake(10,(int) sz.height-10, 35, 35)];
+                [cell.memberProfilePicImage setFrame:CGRectMake(10,(int) sze.height-10, 35, 35)];
                 [self setRoundedView:cell.memberProfilePicImage picture:cell.memberProfilePicImage.image toDiameter:35];
             }
             
-            [cell.timelineTimeLabel setFrame:CGRectMake(sz.width+25+70,sz.height+5,
-                                                        cell.timelineTimeLabel.frame.size.width,
-                                                        cell.timelineTimeLabel.frame.size.height)];
             
             [formatter setDateFormat:@"HH:mm"];
             cell.timelineTimeLabel.text=[formatter stringFromDate:(NSDate*)messageAtIndex.date];
+            
+            
+            [cell.memberProfilePicImage setFrame:CGRectMake(10,(int) sze.height-10, 35, 35)];
+            
+            NSLog(@"%f",cell.memberProfilePicImage.frame.origin.y);
             return cell;
         }
         
