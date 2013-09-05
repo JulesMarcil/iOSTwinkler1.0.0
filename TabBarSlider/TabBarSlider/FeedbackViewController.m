@@ -55,6 +55,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)textViewDidBeginEditing:(UITextView *)textView{
+    if([textView.text isEqualToString:@"Type in your feedbacks here!"]){
+        textView.text=@"";
+    }
+}
+
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
     if([text isEqualToString:@"\n"])
@@ -69,8 +75,22 @@
     
     [self dismissViewControllerAnimated:YES completion:NULL];
     
+    NSString *feedbackType=[[NSString alloc] init];
+    
+    switch (self.feedbackSegmentedControl.selectedSegmentIndex) {
+        case 1:
+            feedbackType=@"Bug";
+            break;
+        case 2:
+            feedbackType=@"Idea";
+            break;
+        case 3:
+            feedbackType=@"Suggestion";
+            break;
+    }
+    
     NSArray *keys = @[@"type", @"text", @"group_id"];
-    NSArray *objects = @[ @"feedback", self.feedbackTextView.text, [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupId"]];
+    NSArray *objects = @[feedbackType, self.feedbackTextView.text, [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupId"]];
     
     NSDictionary *parameters = [[NSDictionary alloc] initWithObjects:objects
                                                              forKeys:keys];

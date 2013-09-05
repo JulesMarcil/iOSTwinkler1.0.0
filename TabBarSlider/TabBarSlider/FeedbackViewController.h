@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UIView *nextButton;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UITextView *feedbackTextView;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *feedbackSegmentedControl;
+
 - (IBAction)cancel:(id)sender;
 - (IBAction)send:(id)sender;
 

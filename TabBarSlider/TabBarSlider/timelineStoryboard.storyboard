@@ -397,6 +397,7 @@
                     <connections>
                         <outlet property="actionBarContainer" destination="B8G-hC-ERH" id="uDw-lP-Z4a"/>
                         <outlet property="cancelButton" destination="H68-t6-WGK" id="1do-GL-BSq"/>
+                        <outlet property="feedbackSegmentedControl" destination="hSm-Bd-3sy" id="2g8-La-g8z"/>
                         <outlet property="feedbackTextView" destination="Rw2-iK-4Vw" id="r7v-nh-aRi"/>
                         <outlet property="nextButton" destination="B8G-hC-ERH" id="RWm-fV-M0q"/>
                     </connections>
