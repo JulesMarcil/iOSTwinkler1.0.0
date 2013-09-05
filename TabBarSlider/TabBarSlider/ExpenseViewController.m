@@ -56,16 +56,6 @@
                                                frame.size.width,
                                                screenHeight-164+44+100)];
     
-    [self.blurView setFrame:CGRectMake(0, 1000, 320, 400)];
-    [self.whiteView setFrame:CGRectMake(0, 1000, 320, 400)];
-    self.whiteView.backgroundColor = [UIColor clearColor];
-    
-    self.involvedMemberTableView.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:0.8];
-    self.involvedMemberTableView.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
-    self.involvedMemberTableView.layer.borderWidth = 1.0f;
-    [self.involvedMemberTableView setFrame:CGRectMake(30, 110, 260, 174)];
-    
-    
     [[NSNotificationCenter defaultCenter]
      addObserver:self
      selector:@selector(dataRetrieved)
@@ -77,6 +67,7 @@
     swipeLeftGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
     [self.view addGestureRecognizer:swipeLeftGestureRecognizer];
     
+    self.expenseListTable.allowsSelectionDuringEditing = YES;
 }
 
 - (void)dataRetrieved {
@@ -100,7 +91,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
         NSLog(@"datacontroller 1 = %@", self.expenseDataController);
         
         static NSString *CellIdentifier = @"expenseCell";
