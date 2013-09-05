@@ -25,6 +25,7 @@
 @end
 
 @implementation MenuViewController
+
 @synthesize groupOnMenu=_groupOnMenu;
 
 - (void)awakeFromNib
@@ -415,7 +416,7 @@
 
 - (IBAction)createGroup:(id)sender {
     UIViewController *dst=[[UIStoryboard storyboardWithName:@"AddGroupStoryboard" bundle:nil] instantiateInitialViewController];
-    [self presentModalViewController:dst animated:YES];
+    [self presentViewController:dst animated:YES completion:nil];
 }
 
 //--------DESIGN------------//

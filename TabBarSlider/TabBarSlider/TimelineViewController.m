@@ -579,7 +579,7 @@
     
     agvc.group = group;
     
-    [self presentModalViewController:navigationController animated:YES];
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 @end

@@ -298,6 +298,7 @@
 
 
 - (IBAction)selectAll:(id)sender {
+    
     for(memberCollectionViewCell* cell in [self.collectionView visibleCells]){
         UIImageView *checkedMember=[[UIImageView alloc] initWithFrame:CGRectMake(45, 0, 16, 12)];
         checkedMember.image=[UIImage imageNamed: @"green-check"];
@@ -362,7 +363,6 @@
             }
             
             //calculate share (to be done with nspredicate - waiting for it to be displayed) /Jules
-            NSDictionary *currentMember = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"];
             NSNumber *share = @-1;
             
             Expense *expense = [[Expense alloc] initWithName:self.expenseName.text

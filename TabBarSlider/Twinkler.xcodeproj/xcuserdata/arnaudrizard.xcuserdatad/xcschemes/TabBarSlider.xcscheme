@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "895C4E3517AA77D2004EC590"
                BuildableName = "TabBarSlider.app"
-               BlueprintName = "TabBarSlider"
-               ReferencedContainer = "container:TabBarSlider.xcodeproj">
+               BlueprintName = "Twinkler"
+               ReferencedContainer = "container:Twinkler.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "895C4E5517AA77D9004EC590"
                BuildableName = "TabBarSliderTests.octest"
-               BlueprintName = "TabBarSliderTests"
-               ReferencedContainer = "container:TabBarSlider.xcodeproj">
+               BlueprintName = "TwinklerTests"
+               ReferencedContainer = "container:Twinkler.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "895C4E3517AA77D2004EC590"
             BuildableName = "TabBarSlider.app"
-            BlueprintName = "TabBarSlider"
-            ReferencedContainer = "container:TabBarSlider.xcodeproj">
+            BlueprintName = "Twinkler"
+            ReferencedContainer = "container:Twinkler.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "895C4E3517AA77D2004EC590"
             BuildableName = "TabBarSlider.app"
-            BlueprintName = "TabBarSlider"
-            ReferencedContainer = "container:TabBarSlider.xcodeproj">
+            BlueprintName = "Twinkler"
+            ReferencedContainer = "container:Twinkler.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -81,8 +81,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "895C4E3517AA77D2004EC590"
             BuildableName = "TabBarSlider.app"
-            BlueprintName = "TabBarSlider"
-            ReferencedContainer = "container:TabBarSlider.xcodeproj">
+            BlueprintName = "Twinkler"
+            ReferencedContainer = "container:Twinkler.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
