@@ -61,7 +61,7 @@
                                       0,
                                       frame.size.width,
                                       100)];
-    self.toolbar.backgroundColor=[UIColor colorWithRed:(229/255.0) green:(98/255.0) blue:(83/255.0) alpha:0.6];
+    self.toolbar.backgroundColor=[UIColor colorWithRed:(236/255.0) green:(162/255.0) blue:(150/255.0) alpha:0.95];
     
     UIView *blurView = [[UIView alloc] initWithFrame:CGRectMake(0, 0,320, 100)];
     [self.view addSubview:blurView];
