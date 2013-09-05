@@ -217,7 +217,7 @@
 		892F99A317B93E6800D86B4D /* MemberCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MemberCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		894D1CD017D89FFA002A48EB /* ExpenseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseDetailViewController.h; sourceTree = "<group>"; };
 		894D1CD117D89FFA002A48EB /* ExpenseDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseDetailViewController.m; sourceTree = "<group>"; };
-		895C4E3617AA77D2004EC590 /* TabBarSlider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabBarSlider.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		895C4E3617AA77D2004EC590 /* Twinkler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twinkler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		895C4E3917AA77D2004EC590 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		895C4E3B17AA77D2004EC590 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		895C4E3D17AA77D2004EC590 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -571,7 +571,7 @@
 		895C4E3717AA77D2004EC590 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				895C4E3617AA77D2004EC590 /* TabBarSlider.app */,
+				895C4E3617AA77D2004EC590 /* Twinkler.app */,
 				895C4E5617AA77D9004EC590 /* TabBarSliderTests.octest */,
 			);
 			name = Products;
@@ -825,7 +825,7 @@
 			);
 			name = TabBarSlider;
 			productName = TabBarSlider;
-			productReference = 895C4E3617AA77D2004EC590 /* TabBarSlider.app */;
+			productReference = 895C4E3617AA77D2004EC590 /* Twinkler.app */;
 			productType = "com.apple.product-type.application";
 		};
 		895C4E5517AA77D9004EC590 /* TabBarSliderTests */ = {
@@ -1155,7 +1155,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TabBarSlider/TabBarSlider-Prefix.pch";
 				INFOPLIST_FILE = "TabBarSlider/TabBarSlider-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Twinkler;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1171,7 +1171,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TabBarSlider/TabBarSlider-Prefix.pch";
 				INFOPLIST_FILE = "TabBarSlider/TabBarSlider-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Twinkler;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
