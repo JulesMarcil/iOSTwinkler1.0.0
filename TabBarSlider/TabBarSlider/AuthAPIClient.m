@@ -16,7 +16,7 @@
     static AuthAPIClient *__instance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        NSURL *baseUrl = [NSURL URLWithString:appBaseURL];
+        NSURL *baseUrl = [NSURL URLWithString:appURL];
         __instance = [[AuthAPIClient alloc] initWithBaseURL:baseUrl];
     });
     return __instance;

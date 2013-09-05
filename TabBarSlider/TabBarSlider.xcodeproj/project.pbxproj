@@ -614,6 +614,11 @@
 		895C4E4017AA77D3004EC590 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8993880217C5FE7B00B5A9BE /* AppConstants.h */,
+				895C4E4717AA77D3004EC590 /* TabBarSlider-Prefix.pch */,
+				895C4E4117AA77D3004EC590 /* TabBarSlider-Info.plist */,
+				895C4E4217AA77D3004EC590 /* InfoPlist.strings */,
+				895C4E4517AA77D3004EC590 /* main.m */,
 				897B77BB17BA7DD400D00C49 /* top-menu-bckgd.png */,
 				891ABECB17B24AA100D507F7 /* gear.png */,
 				891ABEC917B2493D00D507F7 /* bckgd-2.png */,
@@ -624,10 +629,6 @@
 				891183B617B1AC7F00B28ABE /* timeline-line.png */,
 				BAAC681917B53C32006C69DE /* profile-pic.png */,
 				895C4E7217AA952B004EC590 /* tk-icon.png */,
-				895C4E4117AA77D3004EC590 /* TabBarSlider-Info.plist */,
-				895C4E4217AA77D3004EC590 /* InfoPlist.strings */,
-				895C4E4517AA77D3004EC590 /* main.m */,
-				895C4E4717AA77D3004EC590 /* TabBarSlider-Prefix.pch */,
 				8901CE9217B03C940084E749 /* Arnaud copy.png */,
 				895C4E8F17AAC527004EC590 /* dashboard-button.png */,
 				895C4E9117AAC532004EC590 /* menu-button.png */,
@@ -651,7 +652,6 @@
 				895C4E9F17AAD6D4004EC590 /* menu-button-dark-blue.png */,
 				895C4EAB17AAF7CA004EC590 /* menu-button-white.png */,
 				895C4E9417AAC749004EC590 /* menu-button-blue.png */,
-				8993880217C5FE7B00B5A9BE /* AppConstants.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
