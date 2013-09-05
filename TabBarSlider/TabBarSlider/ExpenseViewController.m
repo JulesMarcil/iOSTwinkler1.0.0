@@ -17,6 +17,7 @@
 #import "DRNRealTimeBlurView.h"
 #import "TabBarViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "AddMemberCell.h"
 
 @interface ExpenseViewController ()
 
@@ -44,7 +45,6 @@
 
 - (void)viewDidLoad
 {
-    
     [super viewDidLoad];
     
     CGRect screenRect = [[UIScreen mainScreen] bounds];
@@ -55,11 +55,17 @@
                                                -20,
                                                frame.size.width,
                                                screenHeight-164+44+100)];
-    frame= [self.addItemToolbar frame];
-    [self.addItemToolbar setFrame:CGRectMake(0,
-                                             screenHeight-228+44+100,
-                                             frame.size.width,
-                                             44)];
+    
+    [self.blurView setFrame:CGRectMake(0, 1000, 320, 400)];
+    [self.whiteView setFrame:CGRectMake(0, 1000, 320, 400)];
+    self.whiteView.backgroundColor = [UIColor clearColor];
+    
+    self.involvedMemberTableView.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:0.8];
+    self.involvedMemberTableView.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
+    self.involvedMemberTableView.layer.borderWidth = 1.0f;
+    [self.involvedMemberTableView setFrame:CGRectMake(30, 110, 260, 174)];
+    
+    
     [[NSNotificationCenter defaultCenter]
      addObserver:self
      selector:@selector(dataRetrieved)
@@ -90,82 +96,79 @@
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [self.expenseDataController countOfList];
+        return [self.expenseDataController countOfList];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"expenseCell";
-    static NSDateFormatter *formatter = nil;
-    if (formatter == nil) {
-        formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateStyle:NSDateFormatterMediumStyle];
-    }
-    ExpenseItemCell *cell = [tableView
-                             dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    if (cell == nil){
-        cell = (ExpenseItemCell*) [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-    };
-    
-    //Set expense
-    Expense *expenseAtIndex = [self.expenseDataController
-                               objectInListAtIndex:indexPath.row];
-    
-    //Set picture
-    NSString *path = expenseAtIndex.owner[@"picturePath"];
-    NSNumber *facebookId= [[[NSNumberFormatter alloc] init] numberFromString:path];
-    
-    NSURL *url;
-    if (facebookId) {
-        url = [NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=100&height=100", facebookId]];
-    } else if(![path isEqualToString:@"local"]) {
-        url = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:8888/Twinkler1.2.3/web/%@", path]];
-    }
-    
-    if(url) {
+
+        NSLog(@"datacontroller 1 = %@", self.expenseDataController);
         
-        NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        NSLog(@"%@", url);
+        static NSString *CellIdentifier = @"expenseCell";
+        static NSDateFormatter *formatter = nil;
+        if (formatter == nil) {
+            formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateStyle:NSDateFormatterMediumStyle];
+        }
+        ExpenseItemCell *cell = [tableView
+                                 dequeueReusableCellWithIdentifier:CellIdentifier];
         
-        [cell.memberProfilePic setImageWithURLRequest:request
-                                     placeholderImage:[UIImage imageNamed:@"profile-pic.png"]
-                                              success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                                  cell.memberProfilePic.image = image;
-                                                  [cell.memberProfilePic setFrame:CGRectMake(14,13,44,44)];
-                                                  [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:44.0];
-                                              }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-                                                  NSLog(@"Failed with error: %@", error);
-                                              }];
-    }
-    
-    [cell.memberProfilePic setFrame:CGRectMake(14,13,44,44)];
-    [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:44.0];
-    
-    //Set labels
-    
-    cell.expenseNameLabel.text=expenseAtIndex.name;
-    
-    NSDictionary *currency=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"];
-    cell.expenseSubtitleLabel.text=[NSString stringWithFormat:@"%@ paid %@ %@ - %@", expenseAtIndex.owner[@"name"],[expenseAtIndex.amount stringValue],currency[@"symbol"], [formatter stringFromDate:(NSDate *)expenseAtIndex.date]];
-    
-    if ([expenseAtIndex.owner[@"name"] isEqual: @"You"]) {
-        cell.getLabel.text = @"You get";
-        cell.shareLabel.text = [NSString stringWithFormat:@"%@ %@", expenseAtIndex.share, currency[@"symbol"]];
-        cell.shareLabel.textColor = [UIColor colorWithRed:(116/255.0) green:(178/255.0) blue:(20/255.0) alpha: 1];
-    } else {
-        cell.getLabel.text = @"You owe";
-        cell.shareLabel.text = [NSString stringWithFormat:@"%@ %@", expenseAtIndex.share, currency[@"symbol"]];
-        cell.shareLabel.textColor = [UIColor colorWithRed:(202/255.0) green:(73/255.0) blue:(60/255.0) alpha: 1];
-    }
-    
-    return cell;
+        if (cell == nil){
+            cell = (ExpenseItemCell*) [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        };
+        
+        //Set expense
+        Expense *expenseAtIndex = [self.expenseDataController
+                                   objectInListAtIndex:indexPath.row];
+        
+        //Set picture
+        NSString *path = expenseAtIndex.owner[@"picturePath"];
+        NSNumber *facebookId= [[[NSNumberFormatter alloc] init] numberFromString:path];
+        
+        NSURL *url;
+        if (facebookId) {
+            url = [NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=100&height=100", facebookId]];
+        } else if(![path isEqualToString:@"local"]) {
+            url = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:8888/Twinkler1.2.3/web/%@", path]];
+        }
+        
+        if(url) {
+            
+            NSURLRequest *request = [NSURLRequest requestWithURL:url];
+            NSLog(@"%@", url);
+            
+            [cell.memberProfilePic setImageWithURLRequest:request
+                                         placeholderImage:[UIImage imageNamed:@"profile-pic.png"]
+                                                  success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                                      cell.memberProfilePic.image = image;
+                                                      [cell.memberProfilePic setFrame:CGRectMake(14,13,44,44)];
+                                                      [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:44.0];
+                                                  }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                                      NSLog(@"Failed with error: %@", error);
+                                                  }];
+        }
+        
+        [cell.memberProfilePic setFrame:CGRectMake(14,13,44,44)];
+        [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:44.0];
+        
+        //Set labels
+        
+        cell.self.expenseNameLabel.text=expenseAtIndex.name;
+        
+        NSDictionary *currency=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"];
+        cell.expenseSubtitleLabel.text=[NSString stringWithFormat:@"%@ paid %@ %@ - %@", expenseAtIndex.owner[@"name"],[expenseAtIndex.amount stringValue],currency[@"symbol"], [formatter stringFromDate:(NSDate *)expenseAtIndex.date]];
+        
+        if ([expenseAtIndex.owner[@"name"] isEqual: @"You"]) {
+            cell.getLabel.text = @"You get";
+            cell.shareLabel.text = [NSString stringWithFormat:@"%@ %@", expenseAtIndex.share, currency[@"symbol"]];
+            cell.shareLabel.textColor = [UIColor colorWithRed:(116/255.0) green:(178/255.0) blue:(20/255.0) alpha: 1];
+        } else {
+            cell.getLabel.text = @"You owe";
+            cell.shareLabel.text = [NSString stringWithFormat:@"%@ %@", expenseAtIndex.share, currency[@"symbol"]];
+            cell.shareLabel.textColor = [UIColor colorWithRed:(202/255.0) green:(73/255.0) blue:(60/255.0) alpha: 1];
+        }
+        return cell;
 }
 
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    [self showExpenseDetail:[self.expenseDataController objectInListAtIndex:indexPath.row] ];
-}
 
 - (IBAction)addExpenseButton:(id)sender {
 }
@@ -186,13 +189,13 @@
                 // initialize the request parameters
                 NSString *currentGroupId = [[NSUserDefaults standardUserDefaults] stringForKey:@"currentGroupId"];
                 NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:
-                                         addController.expense.name, @"name",
-                                         addController.expense.amount, @"amount",
-                                         currentGroupId, @"currentGroupId",
-                                         addController.selectedExpenseOwner[@"id"], @"owner_id",
-                                         selectedIds, @"member_ids",
-                                         [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"id"], @"author_id",
-                                         nil];
+                                            addController.expense.name, @"name",
+                                            addController.expense.amount, @"amount",
+                                            currentGroupId, @"currentGroupId",
+                                            addController.selectedExpenseOwner[@"id"], @"owner_id",
+                                            selectedIds, @"member_ids",
+                                            [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"id"], @"author_id",
+                                            nil];
                 
                 AuthAPIClient *client = [AuthAPIClient sharedClient];
                 
@@ -231,176 +234,6 @@
     }
 }
 
-- (void)showExpenseDetail:(Expense*)expense {
-    
-    NSDictionary *currency=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"];
-    
-    DRNRealTimeBlurView *blurView = [[DRNRealTimeBlurView alloc] initWithFrame:CGRectMake(0, 1000, 320, 400)];
-    [self.viewContainer addSubview:blurView];
-    blurView.tag=2;
-    
-    
-    UIView *whiteView = [[UIView alloc] initWithFrame:CGRectMake(0, 1000, 320, 400)];
-    whiteView.tag=1;
-    whiteView.backgroundColor = [UIColor clearColor];
-    [blurView addSubview:whiteView];
-    
-    UIView *whiteBckView = [[UIView alloc] initWithFrame:CGRectMake(0, 3, 320, 400)];
-    whiteBckView.alpha = 0.7;
-    whiteBckView.backgroundColor = [UIColor whiteColor];
-    [whiteView addSubview:whiteBckView];
-    
-    UIView *darkView = [[UIView alloc] initWithFrame:CGRectMake(0, -400, 320, 167)];
-    darkView.alpha = 0.5;
-    darkView.backgroundColor = [UIColor blackColor];
-    darkView.tag = 3;
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissDetails)] ;
-    [darkView addGestureRecognizer:tapGesture];
-    [self.view.superview.superview addSubview:darkView];
-    [self.view.superview.superview bringSubviewToFront:darkView];
-    
-    UISwipeGestureRecognizer* swipeDownGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(dismissDetails)];
-    swipeDownGestureRecognizer.direction = UISwipeGestureRecognizerDirectionDown;
-    [self.view.superview.superview addGestureRecognizer:swipeDownGestureRecognizer];
-    
-    CGRect buttonFrame = CGRectMake( 148, 0, 30, 30 );
-    UIButton *button = [[UIButton alloc] initWithFrame: buttonFrame];
-    [button setImage:[UIImage imageNamed:@"chevron-arrow.png"] forState:UIControlStateNormal];
-    [button setTitleColor: [UIColor redColor] forState: UIControlStateNormal];
-    [whiteView addSubview:button];
-    [button addTarget:self action:@selector(dismissDetails) forControlEvents:UIControlEventTouchUpInside];
-    
-    UIImageView *border = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 10)];
-    border.image = [UIImage imageNamed:@"expense-detail-border.png"];
-    [whiteView addSubview:border];
-    
-    
-    UIColor *textColor = [UIColor colorWithRed:(65/255.0) green:(65/255.0) blue:(65/255.0) alpha:1] ;
-    
-    UILabel *expenseNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, 320, 20)];
-    
-    [expenseNameLabel setTextColor:textColor];
-    [expenseNameLabel setBackgroundColor:[UIColor clearColor]];
-    [expenseNameLabel setFont:[UIFont fontWithName: @"HelveticaNeue-Bold" size: 18.0f]];
-    expenseNameLabel.text=expense.name;
-    expenseNameLabel.textAlignment = NSTextAlignmentCenter;
-    [whiteView addSubview:expenseNameLabel];
-    
-    UILabel *expenseDescLabel = [[UILabel alloc] initWithFrame:CGRectMake(70, 70, 320, 20)];
-    
-    [expenseDescLabel setTextColor:textColor];
-    [expenseDescLabel setBackgroundColor:[UIColor clearColor]];
-    [expenseDescLabel setFont:[UIFont fontWithName: @"HelveticaNeue-Regular" size: 14.0f]];
-    expenseDescLabel.text=[NSString stringWithFormat:@"%@ %@ %@ %@",expense.owner[@"name"],@"paid",expense.amount, currency[@"symbol"]];
-    expenseDescLabel.textAlignment = NSTextAlignmentLeft;
-    [whiteView addSubview:expenseDescLabel];
-    
-    UILabel *expenseDateLabel = [[UILabel alloc] initWithFrame:CGRectMake(70, 90, 320, 20)];
-    
-    [expenseDateLabel setTextColor:textColor];
-    [expenseDateLabel setBackgroundColor:[UIColor clearColor]];
-    [expenseDateLabel setFont:[UIFont fontWithName: @"HelveticaNeue-Light" size: 14.0f]];
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = @"MMM d, yyy";
-    expenseDateLabel.text=[NSString stringWithFormat:@"On %@",[dateFormatter stringFromDate:expense.date]];
-    expenseDateLabel.textAlignment = NSTextAlignmentLeft;
-    [whiteView addSubview:expenseDateLabel];
-    
-    UILabel *shareLabel = [[UILabel alloc] initWithFrame:CGRectMake(70, 110, 320, 20)];
-    
-    [shareLabel setTextColor:textColor];
-    [shareLabel setBackgroundColor:[UIColor clearColor]];
-    [shareLabel setFont:[UIFont fontWithName: @"HelveticaNeue-Light" size: 14.0f]];
-    if ([expense.owner[@"name"] isEqual: @"You"]) {
-        shareLabel.text=[NSString stringWithFormat:@"Your get %@ %@", expense.share, currency[@"symbol"]];
-    } else {
-        shareLabel.text=[NSString stringWithFormat:@"Your owe %@ %@", expense.share, currency[@"symbol"]];
-    }
-    shareLabel.textAlignment = NSTextAlignmentLeft;
-    [whiteView addSubview:shareLabel];
-    
-    UIImageView *ownerPic = [[UIImageView alloc] initWithFrame:CGRectMake(20, 70, 41, 37)];
-    ownerPic.image = [UIImage imageNamed:@"profile-pic-placeholder.png"];
-    NSString *path = expense.owner[@"picturePath"];
-    NSNumber *facebookId= [[[NSNumberFormatter alloc] init] numberFromString:path];
-    
-    NSURL *url;
-    if (facebookId) {
-        url = [NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=100&height=100", facebookId]];
-    } else if(![path isEqualToString:@"local"]) {
-        url = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:8888/Twinkler1.2.3/web/%@", path]];
-    }
-    
-    if(url) {
-        
-        NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        NSLog(@"%@", url);
-        
-        [ownerPic setImageWithURLRequest:request
-                                     placeholderImage:[UIImage imageNamed:@"profile-pic-placeholder.png"]
-                                              success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                                  ownerPic.image = image;
-                                                  [self setRoundedView:ownerPic picture:ownerPic.image toDiameter:41];
-                                              }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-                                                  NSLog(@"Failed with error: %@", error);
-                                              }];
-    }
-    [whiteView addSubview:ownerPic];
-    
-    UIColor *borderColor = [UIColor colorWithRed:(200/255.0) green:(200/255.0) blue:(200/255.0) alpha:1] ;
-    
-    UIButton *editBtn = [[UIButton alloc] initWithFrame: CGRectMake(-1, 210, 161, 40)];
-    [editBtn setTitleColor: textColor forState: UIControlStateNormal];
-    [editBtn.layer setBorderColor:borderColor.CGColor];
-    [editBtn.layer setBorderWidth:1.0];
-    [editBtn setTitle:@"Edit" forState:UIControlStateNormal];
-    editBtn.titleLabel.font = [UIFont fontWithName: @"HelveticaNeue-Light" size: 16.0f];
-    [whiteView addSubview:editBtn];
-    
-    UIButton *deleteBtn = [[UIButton alloc] initWithFrame: CGRectMake(159, 210, 161, 40)];
-    [deleteBtn setTitleColor: textColor forState: UIControlStateNormal];
-    [deleteBtn.layer setBorderColor:borderColor.CGColor];
-    [deleteBtn.layer setBorderWidth:1.0];
-    [deleteBtn setTitle:@"Delete" forState:UIControlStateNormal];
-    deleteBtn.titleLabel.font = [UIFont fontWithName: @"HelveticaNeue-Light" size: 16.0f];
-    [whiteView addSubview:deleteBtn];
-    
-    UILabel *expenseAuthorLabel = [[UILabel alloc] initWithFrame:CGRectMake(140, 265, 180, 20)];
-    
-    [expenseAuthorLabel setTextColor:textColor];
-    [expenseAuthorLabel setBackgroundColor:[UIColor clearColor]];
-    [expenseAuthorLabel setFont:[UIFont fontWithName: @"HelveticaNeue-LightItalic" size: 12.0f]];
-    expenseAuthorLabel.text=[NSString stringWithFormat:@"%@ %@ %@ %@",@"Added by",expense.author,@"on",[dateFormatter stringFromDate:expense.date]];
-    expenseAuthorLabel.textAlignment = NSTextAlignmentLeft;
-    [whiteView addSubview:expenseAuthorLabel];
-
-    
-    
-    [UIView beginAnimations:@"MoveIn" context:nil];
-    blurView.frame = CGRectMake(0, 80, 320, self.view.frame.size.height-100);
-    whiteView.frame = CGRectMake(0, 0, 320, self.view.frame.size.height-100);
-    darkView.frame=CGRectMake(0, 0, 320,  100);
-    darkView.alpha = 0.5;
-    [UIView commitAnimations];
-    
-}
-
--(void)dismissDetails {
-    [UIView beginAnimations:@"MoveOut" context:nil];
-    [self.view viewWithTag:1].frame = CGRectMake(0, 1000, 320, 400);
-    [self.view viewWithTag:2].frame = CGRectMake(0, 1000, 320, 400);
-    [self.view viewWithTag:2].frame = CGRectMake(0, 1000, 320, 400);
-    [self.view.superview.superview viewWithTag:3].alpha=0;
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDidStopSelector:@selector(removeDetailsViews:)];
-    [UIView commitAnimations];
-}
-
-- (void)removeDetailsViews:(id)object {
-    [[self.view viewWithTag:1] removeFromSuperview];
-    [[self.view viewWithTag:2] removeFromSuperview];
-    [[self.view.superview.superview viewWithTag:3] removeFromSuperview];
-}
 
 
 -(void)goToTimeline{
@@ -475,41 +308,6 @@
         }
     }
     return member;
-}
-
-#pragma mark - UICollectionView Datasource
-// 1
-- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
-    return 1;
-}
-// 2
-- (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
-    return 1;
-}
-// 3
-- (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"FlickrCell " forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor whiteColor];
-    return cell;
-}
-// 4
-/*- (UICollectionReusableView *)collectionView:
- (UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
- {
- return [[UICollectionReusableView alloc] init];
- }*/
-
-#pragma mark – UICollectionViewDelegateFlowLayout
-
-// 1
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(100, 100);
-}
-
-// 3
-- (UIEdgeInsets)collectionView:
-(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(50, 20, 50, 20);
 }
 
 @end
