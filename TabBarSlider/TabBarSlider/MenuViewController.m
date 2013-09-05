@@ -81,7 +81,7 @@
 }
 
 -(void) loadData{
-    NSLog(@"load data");
+    NSLog(@"load data for MenuViewController");
     self.groupDataController = [[GroupDataController alloc] init];
     self.profile = [[Profile alloc] init];
     [self.profile loadProfile];
@@ -92,6 +92,19 @@
 }
 
 - (void)profileDataRetrieved {
+    
+    NSLog(@"current member 1 %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"]);
+    
+    //set a fictious current member if there is no to make sure the group creation process is not blocked
+    NSDictionary *currentMember = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"];
+    if(!currentMember) {
+        currentMember = [[NSDictionary alloc] initWithObjects:@[self.profile.name, self.profile.picturePath]  forKeys:@[@"name", @"picturePath"]];
+        [[NSUserDefaults standardUserDefaults] setObject:currentMember forKey:@"currentMember"];
+    }
+    
+    NSLog(@"current member 2 %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"]);
+    
+    // display profile information
     self.nameLabel.text = self.profile.name;
     self.friendNumberLabel.text = [NSString stringWithFormat:@"%@ Friends", self.profile.friendNumber];
     
