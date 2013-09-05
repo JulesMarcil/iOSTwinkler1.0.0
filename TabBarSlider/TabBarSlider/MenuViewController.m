@@ -115,7 +115,7 @@
     if (facebookId) {
         url = [NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=100&height=100", facebookId]];
     } else {
-        url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/web/%@", appBaseURL, self.profile.picturePath]];
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", appBaseURL, self.profile.picturePath]];
     }
     
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -229,7 +229,7 @@
     if (facebookId) {
         url = [NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=100&height=100", facebookId]];
     } else if(![path isEqualToString:@"local"]) {
-        url = [NSURL URLWithString:[NSString stringWithFormat:@"%@web/%@", appBaseURL, path]];
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", appBaseURL, path]];
     }
     
     if (url) {

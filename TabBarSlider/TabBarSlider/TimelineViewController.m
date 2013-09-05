@@ -214,25 +214,7 @@
     
     
     if	([messageAtIndex.type isEqual:@"message"]){
-<<<<<<< HEAD
-        static NSString *CellIdentifier = @"timelineCell";
-        static NSDateFormatter *formatter = nil;
-        if (formatter == nil) {
-            formatter = [[NSDateFormatter alloc] init];
-            [formatter setDateStyle:NSDateFormatterMediumStyle];
-        }
-        timelineBubbleCell *cell = [tableView
-                                    dequeueReusableCellWithIdentifier:CellIdentifier];
-        cell.messageContainer.layer.cornerRadius = 3;
-        cell.messageContainer.layer.masksToBounds = NO;
-        cell.messageContainer.layer.shadowOffset = CGSizeMake(0, 0.6);
-        cell.messageContainer.layer.shadowRadius = 0.8;
-        cell.messageContainer.layer.shadowOpacity = 0.1;
-        
-        cell.messageLabel.text=messageAtIndex.body;
-        
-        if ([currentMemberName isEqualToString:messageAtIndex.author]){
-=======
+
         if ([currentMemberName isEqualToString:messageAtIndex.author]){
             
             static NSString *CellIdentifier = @"myMessageCell";
@@ -251,8 +233,6 @@
             
             cell.messageLabel.text=messageAtIndex.body;
             
-            
->>>>>>> 0f0b9a6b7798c70aa3a29e008a734c8f42640b78
             
             CGRect frame = cell.messageLabel.frame;
             frame.size.height = cell.messageLabel.contentSize.height+20;
@@ -323,7 +303,7 @@
             if (facebookId) {
                 url = [NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=100&height=100", facebookId]];
             } else if(![path isEqualToString:@"local"]) {
-                url = [NSURL URLWithString:[NSString stringWithFormat:@"%@web/%@", appBaseURL, path]];
+                url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", appBaseURL, path]];
             }
             
             if (url) {

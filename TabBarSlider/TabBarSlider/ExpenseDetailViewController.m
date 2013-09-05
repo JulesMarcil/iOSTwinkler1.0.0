@@ -38,7 +38,7 @@
     if (facebookId) {
         url = [NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=100&height=100", facebookId]];
     } else if(![path isEqualToString:@"local"]) {
-        url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/web/%@", appBaseURL, path]];
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", appBaseURL, path]];
     }
     
     if(url) {
