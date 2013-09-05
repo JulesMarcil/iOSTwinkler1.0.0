@@ -369,7 +369,7 @@
         <image name="check-button.png" width="34" height="34"/>
         <image name="main-button.png" width="34" height="34"/>
         <image name="money-button.png" width="34" height="34"/>
-        <image name="sasa.png" width="64" height="59"/>
+        <image name="sasa.png" width="16" height="16"/>
         <image name="user-button.png" width="34" height="34"/>
         <image name="uservoice-button.png" width="34" height="34"/>
     </resources>

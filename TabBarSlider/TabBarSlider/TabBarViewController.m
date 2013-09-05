@@ -14,13 +14,12 @@
 #import <QuartzCore/QuartzCore.h>
 #import "memberCollectionViewCell.h"
 
-@interface TabBarViewController () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface TabBarViewController ()
 
 @end
 
 @implementation TabBarViewController
 
-@synthesize collectionView=_collectionView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -67,47 +66,6 @@
     DRNRealTimeBlurView *blurView = [[DRNRealTimeBlurView alloc] initWithFrame:CGRectMake(0, 0,320, 100)];
     [self.view addSubview:blurView];
     [self.view insertSubview:blurView belowSubview:self.toolbar];
-    
-    [self.collectionView setFrame:CGRectMake(0,
-                                      45,
-                                      320,
-                                      55)];
-    self.collectionView.backgroundColor=[UIColor clearColor];
-    switch ([self.memberArray  count]){
-        case 1:
-            [self.collectionView setFrame:CGRectMake(132,
-                                                     45,
-                                                     320,
-                                                     55)];
-            
-            break;
-            
-        case 2:
-            [self.collectionView setFrame:CGRectMake(100,
-                                                     45,
-                                                     320,
-                                                     55)];
-            break;
-        case 3:
-            [self.collectionView setFrame:CGRectMake(75,
-                                                     45,
-                                                     320,
-                                                     55)];
-            break;
-        case 4:
-            [self.collectionView setFrame:CGRectMake(45,
-                                                     45,
-                                                     320,
-                                                     55)];
-            break;
-        case 5:
-            [self.collectionView setFrame:CGRectMake(10,
-                                                     45,
-                                                     320,
-                                                     55)];
-            break;
-            
-    }
     
     self.tabBarBck.layer.cornerRadius = 2;
     self.tabBarBck.layer.masksToBounds = YES;
@@ -278,56 +236,6 @@
     [self addChildViewController:dst];
     
     [[self.placeholderView layer] addAnimation:animation forKey:@"showSecondViewController"];
-}
-#pragma mark - UICollectionView Datasource
-// 1
-- (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
-    return [self.memberArray  count];
-}
-// 2
-- (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
-    return 1;
-}
-// 3
-- (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"memberCell" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor clearColor];
-    UIImageView *memberView=[[UIImageView alloc] initWithFrame:CGRectMake(10,8,35,35)];
-    memberView.image=[UIImage imageNamed: @"profile-pic-placeholder"];
-    
-    [self setRoundedView:memberView picture:memberView.image toDiameter:35.0];
-    
-    
-    [cell addSubview:memberView];
-    return cell;
-}
-// 4
-/*- (UICollectionReusableView *)collectionView:
- (UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
- {
- return [[UICollectionReusableView alloc] init];
- }*/
-
-#pragma mark - UICollectionViewDelegate
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    // TODO: Select Item
-}
-- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
-    // TODO: Deselect item
-}
-#pragma mark – UICollectionViewDelegateFlowLayout
-
-// 1
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CGSize retval = CGSizeMake(50, 50);
-    return retval;
-}
-
-// 3
-- (UIEdgeInsets)collectionView:
-(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(0,0,0,0);
 }
 
 //--------DESGIN---------
