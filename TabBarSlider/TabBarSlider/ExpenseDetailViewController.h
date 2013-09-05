@@ -8,17 +8,23 @@
 
 #import <UIKit/UIKit.h>
 
+@class Expense;
+
 @interface ExpenseDetailViewController : UIViewController
+
 @property (weak, nonatomic) IBOutlet UIView *actionBarView;
-@property (weak, nonatomic) IBOutlet UIButton *editBtn;
-@property (weak, nonatomic) IBOutlet UIButton *dismissBtn;
-@property (weak, nonatomic) IBOutlet UITableView *memberTableView;
+@property (weak, nonatomic) IBOutlet UILabel *expenseNameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *ownerPic;
-@property (weak, nonatomic) IBOutlet UILabel *expenseAuthorLabel;
+@property (weak, nonatomic) IBOutlet UILabel *expenseOwnerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *expenseDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *getLabel;
 @property (weak, nonatomic) IBOutlet UILabel *shareLabel;
-@property (weak, nonatomic) IBOutlet UILabel *expenseNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *expenseMembersLabel;
+@property (weak, nonatomic) IBOutlet UITableView *memberTableView;
+@property (weak, nonatomic) IBOutlet UIButton *editBtn;
+@property (weak, nonatomic) IBOutlet UIButton *dismissBtn;
+@property (weak, nonatomic) IBOutlet UILabel *expenseAuthorLabel;
+@property (strong, nonatomic) Expense *expense;
 
 - (IBAction)editExpense:(id)sender;
 - (IBAction)dismissDetail:(id)sender;

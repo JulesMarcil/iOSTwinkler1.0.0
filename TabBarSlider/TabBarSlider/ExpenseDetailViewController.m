@@ -8,6 +8,8 @@
 
 #import "ExpenseDetailViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "Expense.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface ExpenseDetailViewController ()
 
@@ -27,6 +29,62 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //Set picture
+    NSString *path = self.expense.owner[@"picturePath"];
+    NSNumber *facebookId= [[[NSNumberFormatter alloc] init] numberFromString:path];
+    
+    NSURL *url;
+    if (facebookId) {
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=100&height=100", facebookId]];
+    } else if(![path isEqualToString:@"local"]) {
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"%@/web/%@", appBaseURL, path]];
+    }
+    
+    if(url) {
+        
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        NSLog(@"%@", url);
+        
+        [self.ownerPic setImageWithURLRequest:request
+                                     placeholderImage:[UIImage imageNamed:@"profile-pic.png"]
+                                              success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                                  self.ownerPic.image = image;
+                                                  [self.ownerPic setFrame:CGRectMake(19,14,35,35)];
+                                                  [self setRoundedView:self.ownerPic picture:self.ownerPic.image toDiameter:35.0];
+                                              }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                                  NSLog(@"Failed with error: %@", error);
+                                              }];
+    }
+    
+    [self.ownerPic setFrame:CGRectMake(19,14,35,35)];
+    [self setRoundedView:self.ownerPic picture:self.ownerPic.image toDiameter:35.0];
+    
+    //set labels
+    self.expenseNameLabel.text = self.expense.name;
+ 
+    NSDictionary *currency=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"];
+    static NSDateFormatter *formatter = nil;
+    if (formatter == nil) {
+        formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateStyle:NSDateFormatterMediumStyle];
+    }
+
+    self.expenseOwnerLabel.text = [NSString stringWithFormat:@"%@ paid %@ %@",self.expense.owner[@"name"], [self.expense.amount stringValue],currency[@"symbol"]];
+    self.expenseDateLabel.text = [formatter stringFromDate:(NSDate *)self.expense.date];
+    
+    if ([self.expense.owner[@"name"] isEqual: @"You"]) {
+        self.getLabel.text = @"You get";
+        self.shareLabel.text = [NSString stringWithFormat:@"%@ %@", self.expense.share, currency[@"symbol"]];
+        self.shareLabel.textColor = [UIColor colorWithRed:(116/255.0) green:(178/255.0) blue:(20/255.0) alpha: 1];
+    } else {
+        self.getLabel.text = @"You owe";
+        self.shareLabel.text = [NSString stringWithFormat:@"%@ %@", self.expense.share, currency[@"symbol"]];
+        self.shareLabel.textColor = [UIColor colorWithRed:(255/255.0) green:(146/255.0) blue:(123/255.0) alpha: 1];
+    }
+    
+    self.expenseMembersLabel.text = [NSString stringWithFormat:@"Friends involved (%lu)", (unsigned long)self.expense.members.count];
+    self.expenseAuthorLabel.text=[NSString stringWithFormat:@"Added by %@", self.expense.owner[@"name"]];
     
     CGRect frame= [self.actionBarView frame];
     CGRect screenRect = [[UIScreen mainScreen] bounds];
@@ -76,4 +134,27 @@
 - (IBAction)dismissDetail:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+//----------DESIGN----------
+-(void) setRoundedView:(UIImageView *)imageView picture: (UIImage *)picture toDiameter:(float)newSize{
+    // Begin a new image that will be the new image with the rounded corners
+    // (here with the size of an UIImageView)
+    UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, NO, 1.0);
+    
+    // Add a clip before drawing anything, in the shape of an rounded rect
+    [[UIBezierPath bezierPathWithRoundedRect:imageView.bounds
+                                cornerRadius:100.0] addClip];
+    // Draw your image
+    CGRect frame=imageView.bounds;
+    frame.size.width=newSize;
+    frame.size.height=newSize;
+    [picture drawInRect:frame];
+    
+    // Get the image, here setting the UIImageView image
+    imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    // Lets forget about that we were drawing
+    UIGraphicsEndImageContext();
+}
+
 @end
