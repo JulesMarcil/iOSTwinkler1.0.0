@@ -39,22 +39,16 @@
                                       NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
                                       NSLog(@"success: %@", response);
                                       
-                                      //NSString to NSNumber formatter
-                                      NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
-                                      [f setNumberStyle:NSNumberFormatterDecimalStyle];
-                                      
                                       self.balance = response[@"balance"];
-                                      NSLog(@"balance from dc = %@", self.balance);
                                       
                                       for(id key in response[@"expenses"]) {
                                           
-                                          NSNumber *formattedAmount = [f numberFromString:key[@"amount"]];
                                           NSTimeInterval interval1 = [key[@"date"] doubleValue];
                                           NSTimeInterval interval2 = [key[@"addedDate"] doubleValue];
                                           
                                           Expense *expense = [[Expense alloc] initWithIdentifier:key[@"id"]
                                                                                             name:key[@"name"]
-                                                                                          amount:formattedAmount
+                                                                                          amount:[NSNumber numberWithInteger: [key[@"amount"] integerValue]]
                                                                                            owner:key[@"owner"]
                                                                                             date:[NSDate dateWithTimeIntervalSince1970:interval1]
                                                                                          members:key[@"members"]

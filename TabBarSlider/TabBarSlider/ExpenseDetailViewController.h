@@ -25,7 +25,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *deleteBtn;
 @property (weak, nonatomic) IBOutlet UILabel *expenseAuthorLabel;
 @property (strong, nonatomic) Expense *expense;
-@property (strong, nonatomic) NSIndexPath *indexPath;
 
 - (IBAction)editExpense:(id)sender;
 - (IBAction)deleteExpense:(id)sender;

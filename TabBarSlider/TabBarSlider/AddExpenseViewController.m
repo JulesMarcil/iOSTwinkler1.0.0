@@ -342,11 +342,6 @@
     
     if ([self.expenseName.text length] || [self.expenseAmount.text length]) {
         
-        //NSString to NSNumber formatter
-        NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
-        [f setNumberStyle:NSNumberFormatterDecimalStyle];
-        NSNumber *formattedAmount = [f numberFromString:self.expenseAmount.text];
-        
         //Get date of today
         NSDate *today = [NSDate date];
         
@@ -368,7 +363,7 @@
         
         Expense *expense = [[Expense alloc] initWithIdentifier:@-1
                                                           name:self.expenseName.text
-                                                        amount:formattedAmount
+                                                        amount:[NSNumber numberWithInteger: [self.expenseAmount.text integerValue]]
                                                          owner:self.selectedExpenseOwner
                                                           date:today
                                                        members:selectedMembers
@@ -404,13 +399,12 @@
                                            NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
                                            NSLog(@"%@", response);
                                            
-                                           NSNumber *formattedAmount = [f numberFromString:response[@"amount"]];
                                            NSTimeInterval interval1 = [response[@"date"] doubleValue];
                                            NSTimeInterval interval2 = [response[@"addedDate"] doubleValue];
                                            
                                            Expense *expense = [[Expense alloc] initWithIdentifier:response[@"id"]
                                                                                              name:response[@"name"]
-                                                                                           amount:formattedAmount
+                                                                                           amount:[NSNumber numberWithInteger: [response[@"amount"] integerValue]]
                                                                                             owner:response[@"owner"]
                                                                                              date:[NSDate dateWithTimeIntervalSince1970:interval1]
                                                                                           members:response[@"members"]

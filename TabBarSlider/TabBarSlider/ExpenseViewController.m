@@ -163,10 +163,10 @@
     
     //Set labels
     
-    cell.self.expenseNameLabel.text=expenseAtIndex.name;
+    cell.self.expenseNameLabel.text = expenseAtIndex.name;
     
     NSDictionary *currency=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"];
-    cell.expenseSubtitleLabel.text=[NSString stringWithFormat:@"%@ paid %@ %@ - %@", expenseAtIndex.owner[@"name"],[expenseAtIndex.amount stringValue],currency[@"symbol"], [formatter stringFromDate:(NSDate *)expenseAtIndex.date]];
+    cell.expenseSubtitleLabel.text=[NSString stringWithFormat:@"%@ paid %@ %@ - %@", expenseAtIndex.owner[@"name"],[expenseAtIndex.amount stringValue], currency[@"symbol"], [formatter stringFromDate:(NSDate *)expenseAtIndex.date]];
     
     if ([expenseAtIndex.owner[@"name"] isEqual: @"You"]) {
         cell.getLabel.text = @"You get";
@@ -207,7 +207,6 @@
         NSIndexPath *indexPath = [self.expenseListTable indexPathForCell:sender];
         Expense *expenseAtIndex = [self.expenseDataController objectInListAtIndex:indexPath.row];
         ExpenseDetailViewController *edvc = [segue destinationViewController];
-        edvc.indexPath = indexPath;
         edvc.expense = expenseAtIndex;
     }
 }
