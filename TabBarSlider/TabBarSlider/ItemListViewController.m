@@ -12,6 +12,7 @@
 #import "AddItemListViewController.h"
 #import "AuthAPIClient.h"
 #import "AFHTTPRequestOperation.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface ItemListViewController ()
 
@@ -35,24 +36,33 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    CGRect frame= [self.bottomToolbar frame];
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenHeight = screenRect.size.height;
-    [self.bottomToolbar setFrame:CGRectMake(0,
-                                       screenHeight-300,
-                                       frame.size.width,
-                                       500)];
-    frame= [self.itemListTableView frame];
-    [self.itemListTableView setFrame:CGRectMake(0,
-                                          0,
-                                          frame.size.width,
-                                          screenHeight-200)];
     
-    frame= [self.addItemButton frame];
-    [self.addItemButton setFrame:CGRectMake(0,
-                                          0,
-                                          frame.size.width,
-                                          frame.size.height)];
+    [self.viewContainer setFrame:screenRect];
+    [self.backgroundImage setFrame:screenRect];
+    
+    CGRect frame= [self.itemListTableView frame];
+    [self.itemListTableView setFrame:CGRectMake(20,
+                                          120,
+                                          280,
+                                          screenHeight-150)];
+    
+    self.itemListTableView.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:1];
+    self.itemListTableView.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
+    self.itemListTableView.layer.borderWidth = 1.0f;
+    
+    frame= [self.textFieldContainer frame];
+    [self.textFieldContainer setFrame:CGRectMake(20,
+                                                52,
+                                                280,
+                                                frame.size.height)];
+    
+    self.textFieldContainer.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:1];
+    self.textFieldContainer.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
+    self.textFieldContainer.layer.borderWidth = 1.0f;
+    
+    self.listNameLabel.text=self.list.name;
 }
 
 - (void)didReceiveMemoryWarning
@@ -99,7 +109,12 @@
     return NO;
 }
 
-
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    
+    return YES;
+}
 
 - (IBAction)doneAddItem:(UIStoryboardSegue *)segue {
     {

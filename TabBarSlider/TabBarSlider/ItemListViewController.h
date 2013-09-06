@@ -9,14 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "List.h"
 
-@interface ItemListViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>  {
+@interface ItemListViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>  {
     IBOutlet UITableView* itemListTableView;
 }
 
+@property (strong, nonatomic) IBOutlet UIView *viewContainer;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
 @property (weak, nonatomic) IBOutlet UITableView *itemListTableView;
 @property (weak, nonatomic) IBOutlet UIButton *addItemButton;
 @property (weak, nonatomic) List *list;
-@property (weak, nonatomic) IBOutlet UIView *bottomToolbar;
+@property (weak, nonatomic) IBOutlet UIView *textFieldContainer;
+@property (weak, nonatomic) IBOutlet UILabel *listNameLabel;
 
 
 - (IBAction)doneAddItem:(UIStoryboardSegue *)segue;
