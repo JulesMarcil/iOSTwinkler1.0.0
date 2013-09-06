@@ -46,7 +46,7 @@
     [self.itemListTableView setFrame:CGRectMake(20,
                                           120,
                                           280,
-                                          screenHeight-150)];
+                                          screenHeight-152)];
     
     self.itemListTableView.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:1];
     self.itemListTableView.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
