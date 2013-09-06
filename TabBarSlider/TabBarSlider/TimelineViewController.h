@@ -42,6 +42,5 @@
 - (IBAction)sendMessage:(id)sender;
 - (IBAction)sendFeedbackButton:(id)sender;
 - (IBAction)addListButton:(id)sender;
-- (IBAction)smileyButton:(id)sender;
 
 @end
