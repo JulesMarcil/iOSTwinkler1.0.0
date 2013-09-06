@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "Expense.h"
 #import "UIImageView+AFNetworking.h"
+#import "AuthAPIClient.h"
 
 @interface ExpenseDetailViewController ()
 
@@ -112,9 +113,9 @@
     [self.editBtn.layer  setBorderColor:borderColor.CGColor];
     [self.editBtn.layer  setBorderWidth:1.0];
     
-    [self.dismissBtn setTitleColor: textColor forState: UIControlStateNormal];
-    [self.dismissBtn.layer  setBorderColor:borderColor.CGColor];
-    [self.dismissBtn.layer  setBorderWidth:1.0];
+    [self.deleteBtn setTitleColor: textColor forState: UIControlStateNormal];
+    [self.deleteBtn.layer  setBorderColor:borderColor.CGColor];
+    [self.deleteBtn.layer  setBorderWidth:1.0];
     
     self.memberTableView.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:0.8];
     self.memberTableView.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
@@ -131,8 +132,28 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)dismissDetail:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (IBAction)deleteExpense:(id)sender {
+    
+    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:self.expense.identifier, @"id", nil];
+    
+    [[AuthAPIClient sharedClient] postPath:@"api/delete/expense"
+                                parameters:parameters
+                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                       NSError *error = nil;
+                                       NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                                       
+                                       NSLog(@"success: %@", response[@"message"]);
+                                       
+                                       NSDictionary *dictionary = [NSDictionary dictionaryWithObject:self.expense forKey:@"expense"];
+                                       [[NSNotificationCenter defaultCenter] postNotificationName:@"expenseRemovedSuccesfully" object:nil userInfo:dictionary];
+                                       [self dismissViewControllerAnimated:YES completion:nil];
+                                   }
+                                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                       NSLog(@"error: %@", error);
+                                   }];
+
+    
+    
 }
 
 //----------DESIGN----------

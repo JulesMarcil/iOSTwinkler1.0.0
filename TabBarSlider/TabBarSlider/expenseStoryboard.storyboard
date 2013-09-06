@@ -522,7 +522,7 @@
                                         <rect key="frame" x="159" y="0.0" width="162" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
-                                        <state key="normal" title="Dismiss">
+                                        <state key="normal" title="Delete">
                                             <color key="titleColor" red="0.24313725489999999" green="0.2666666667" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" red="0.85882359740000003" green="0.41176474089999998" blue="0.36470589040000001" alpha="1" colorSpace="deviceRGB"/>
                                         </state>
@@ -530,8 +530,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="addExpense:" destination="SHS-Yz-Uve" eventType="touchUpInside" id="o9j-qw-Yh9"/>
-                                            <action selector="dismissDetail:" destination="vVv-RY-G07" eventType="touchUpInside" id="wIe-zr-rMz"/>
+                                            <action selector="deleteExpense:" destination="vVv-RY-G07" eventType="touchUpInside" id="mGf-lA-beJ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="s6H-yo-9gy">
@@ -628,7 +627,7 @@
                     </view>
                     <connections>
                         <outlet property="actionBarView" destination="WZU-Y3-OSF" id="7ZI-PC-ebg"/>
-                        <outlet property="dismissBtn" destination="BVS-0n-idw" id="XRH-ke-J6z"/>
+                        <outlet property="deleteBtn" destination="BVS-0n-idw" id="PNl-Bg-AiY"/>
                         <outlet property="editBtn" destination="s6H-yo-9gy" id="Z03-aw-o7f"/>
                         <outlet property="expenseAuthorLabel" destination="e9a-o9-pq5" id="SZH-Sl-SJF"/>
                         <outlet property="expenseDateLabel" destination="DD8-3z-1xB" id="W6I-Fd-bLB"/>

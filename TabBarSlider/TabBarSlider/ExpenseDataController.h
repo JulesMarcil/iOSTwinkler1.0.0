@@ -19,5 +19,6 @@
 - (Expense *)objectInListAtIndex:(NSUInteger)theIndex;
 - (void)addExpenseWithExpense:(Expense *)expense;
 - (void)addExpenseWithExpense:(Expense *)expense atIndex:(NSUInteger)index;
+- (void)removeExpenseWithExpense:(Expense *)expense;
 
 @end

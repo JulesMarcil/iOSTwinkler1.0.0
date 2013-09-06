@@ -33,6 +33,7 @@
     [super awakeFromNib];
     self.expenseDataController = [[ExpenseDataController alloc] init];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addExpense:) name:@"expenseAddedSuccesfully" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeExpense:) name:@"expenseRemovedSuccesfully" object:nil];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -90,6 +91,15 @@
     
     Expense *expense = [[note userInfo] valueForKey:@"expense"];
     [self.expenseDataController addExpenseWithExpense:expense atIndex:0];
+    [self.expenseListTable reloadData];
+}
+
+- (void) removeExpense:(NSNotification *)note{
+    
+    NSLog(@"remove expense function called");
+    
+    Expense *expense = [[note userInfo] valueForKey:@"expense"];
+    [self.expenseDataController removeExpenseWithExpense:expense];
     [self.expenseListTable reloadData];
 }
 
@@ -153,10 +163,10 @@
     
     //Set labels
     
-    cell.self.expenseNameLabel.text=expenseAtIndex.name;
+    cell.self.expenseNameLabel.text = expenseAtIndex.name;
     
     NSDictionary *currency=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"];
-    cell.expenseSubtitleLabel.text=[NSString stringWithFormat:@"%@ paid %@ %@ - %@", expenseAtIndex.owner[@"name"],[expenseAtIndex.amount stringValue],currency[@"symbol"], [formatter stringFromDate:(NSDate *)expenseAtIndex.date]];
+    cell.expenseSubtitleLabel.text=[NSString stringWithFormat:@"%@ paid %@ %@ - %@", expenseAtIndex.owner[@"name"],[expenseAtIndex.amount stringValue], currency[@"symbol"], [formatter stringFromDate:(NSDate *)expenseAtIndex.date]];
     
     if ([expenseAtIndex.owner[@"name"] isEqual: @"You"]) {
         cell.getLabel.text = @"You get";

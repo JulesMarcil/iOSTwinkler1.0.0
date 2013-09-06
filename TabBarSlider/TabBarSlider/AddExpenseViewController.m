@@ -342,11 +342,6 @@
     
     if ([self.expenseName.text length] || [self.expenseAmount.text length]) {
         
-        //NSString to NSNumber formatter
-        NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
-        [f setNumberStyle:NSNumberFormatterDecimalStyle];
-        NSNumber *formattedAmount = [f numberFromString:self.expenseAmount.text];
-        
         //Get date of today
         NSDate *today = [NSDate date];
         
@@ -366,14 +361,15 @@
         //calculate share (to be done with nspredicate - waiting for it to be displayed) /Jules
         NSNumber *share = @-1;
         
-        Expense *expense = [[Expense alloc] initWithName:self.expenseName.text
-                                                  amount:formattedAmount
-                                                   owner:self.selectedExpenseOwner
-                                                    date:today
-                                                 members:selectedMembers
-                                                  author:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"]
-                                               addedDate:today
-                                                   share:share
+        Expense *expense = [[Expense alloc] initWithIdentifier:@-1
+                                                          name:self.expenseName.text
+                                                        amount:[NSNumber numberWithInteger: [self.expenseAmount.text integerValue]]
+                                                         owner:self.selectedExpenseOwner
+                                                          date:today
+                                                       members:selectedMembers
+                                                        author:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"]
+                                                     addedDate:today
+                                                         share:share
                             ];
         
         self.expense = expense;
@@ -403,18 +399,18 @@
                                            NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
                                            NSLog(@"%@", response);
                                            
-                                           NSNumber *formattedAmount = [f numberFromString:response[@"amount"]];
                                            NSTimeInterval interval1 = [response[@"date"] doubleValue];
                                            NSTimeInterval interval2 = [response[@"addedDate"] doubleValue];
                                            
-                                           Expense *expense = [[Expense alloc] initWithName:response[@"name"]
-                                                                                     amount:formattedAmount
-                                                                                      owner:response[@"owner"]
-                                                                                       date:[NSDate dateWithTimeIntervalSince1970:interval1]
-                                                                                    members:response[@"members"]
-                                                                                     author:response[@"author"]
-                                                                                  addedDate:[NSDate dateWithTimeIntervalSince1970:interval2]
-                                                                                      share:response[@"share"]
+                                           Expense *expense = [[Expense alloc] initWithIdentifier:response[@"id"]
+                                                                                             name:response[@"name"]
+                                                                                           amount:[NSNumber numberWithInteger: [response[@"amount"] integerValue]]
+                                                                                            owner:response[@"owner"]
+                                                                                             date:[NSDate dateWithTimeIntervalSince1970:interval1]
+                                                                                          members:response[@"members"]
+                                                                                           author:response[@"author"]
+                                                                                        addedDate:[NSDate dateWithTimeIntervalSince1970:interval2]
+                                                                                            share:response[@"share"]
                                                                ];
                                            
                                            self.expense = expense;
