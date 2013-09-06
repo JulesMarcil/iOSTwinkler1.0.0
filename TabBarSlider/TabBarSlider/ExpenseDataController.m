@@ -22,52 +22,14 @@
 @implementation ExpenseDataController
 
 - (void)initializeDefaultDataList {
+    
     NSMutableArray *ExpenseList = [[NSMutableArray alloc] init];
     self.ExpenseList = ExpenseList;
     
-    NSMutableArray *expenseList = [[NSMutableArray alloc] init];
-    self.expenseList = expenseList;
-    
     //Set parameters for request
-    NSDictionary *currentMember = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"];
-    NSLog(@"current member id = %@", currentMember[@"id"]);
-    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:currentMember[@"id"], @"currentMemberId", nil];
-    
-    /*
-    [[AuthAPIClient sharedClient] getPath:@"api/expenses"
-                               parameters:parameters
-                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                      NSError *error = nil;
-                                      NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
-                                      NSLog(@"success: %@", response);
-                                      
-                                      self.balance = response[@"balance"];
-                                      
-                                      for(id key in response[@"expenses"]) {
-                                          
-                                          NSTimeInterval interval1 = [key[@"date"] doubleValue];
-                                          NSTimeInterval interval2 = [key[@"addedDate"] doubleValue];
-                                          
-                                          Expense *expense = [[Expense alloc] initWithIdentifier:key[@"id"]
-                                                                                            name:key[@"name"]
-                                                                                          amount:[NSNumber numberWithInteger: [key[@"amount"] integerValue]]
-                                                                                           owner:key[@"owner"]
-                                                                                            date:[NSDate dateWithTimeIntervalSince1970:interval1]
-                                                                                         members:key[@"members"]
-                                                                                          author:key[@"author"]
-                                                                                       addedDate:[NSDate dateWithTimeIntervalSince1970:interval2]
-                                                                                           share:key[@"share"]
-                                                              ];
-                                          
-                                          [self addExpenseWithExpense:expense];
-                                      }
-                                      [[NSNotificationCenter defaultCenter] postNotificationName:@"expensesWithJSONFinishedLoading" object:nil];
-                                  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                      NSLog(@"error: %@", error);
-                                  }];*/
-    
     CredentialStore *store = [[CredentialStore alloc] init];
     NSString *authToken = [store authToken];
+    NSDictionary *currentMember = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"];
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@api/expenses?access_token=%@&currentMemberId=%@", appURL, authToken, currentMember[@"id"]]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
