@@ -276,7 +276,7 @@
                 cell.timelineTimeLabel.text=[formatter stringFromDate:(NSDate*)messageAtIndex.date];
             }
             else if (round(dateDiff)/(3600)<24*7){
-                cell.timelineTimeLabel.text=@"yest";
+                cell.timelineTimeLabel.text=@"yest.";
             }
             else if (round(dateDiff)/(3600)<24*7){
                 cell.timelineTimeLabel.text=[[@(round(round(dateDiff)/(3600*24))) stringValue] stringByAppendingString:@"d ago"] ;
@@ -354,7 +354,7 @@
                 cell.timelineTimeLabel.text=[formatter stringFromDate:(NSDate*)messageAtIndex.date];
             }
             else if (round(dateDiff)/(3600)<24*7){
-                cell.timelineTimeLabel.text=@"yest";
+                cell.timelineTimeLabel.text=@"yest.";
             }
             else if (round(dateDiff)/(3600)<24*7){
                 cell.timelineTimeLabel.text=[[@(round(round(dateDiff)/(3600*24))) stringValue] stringByAppendingString:@"d ago"] ;
