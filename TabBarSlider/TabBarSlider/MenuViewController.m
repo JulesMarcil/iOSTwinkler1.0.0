@@ -170,25 +170,24 @@
         }
     }
     
-    NSInteger memberNumber=[groupMembers count];
     [cell.groupPicPlaceholder.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
     
-    if(memberNumber==0){
+    if([groupMembers count]==0){
         UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(5, 9, 40,40)];
         [self getImageForView:iv Member:tempActiveMember size:40.0];
         [cell.groupPicPlaceholder addSubview:iv];
-    }else if(memberNumber==1){
+    }else if([groupMembers count]==1){
         UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(5, 9, 40,40)];
         [self getImageForView:iv Member:groupMembers[0] size:40.0];
         [cell.groupPicPlaceholder addSubview:iv];
-    }else if (memberNumber==2){
+    }else if ([groupMembers count]==2){
         UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(24, 6, 25, 25)];
         UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(4, 26, 25, 25)];
         [self getImageForView:iv Member:groupMembers[0] size:25.0];
         [self getImageForView:ivbis Member:groupMembers[1] size:25.0];
         [cell.groupPicPlaceholder addSubview:iv];
         [cell.groupPicPlaceholder addSubview:ivbis];
-    }else if (memberNumber==3){
+    }else if ([groupMembers count]==3){
         UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(16, 8, 20,20)];
         UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(4, 29, 20,20)];
         UIImageView *ivtier = [[UIImageView alloc] initWithFrame:CGRectMake(29, 29, 20,20)];
@@ -198,7 +197,7 @@
         [cell.groupPicPlaceholder  addSubview:iv];
         [cell.groupPicPlaceholder  addSubview:ivbis];
         [cell.groupPicPlaceholder  addSubview:ivtier];
-    }else if (memberNumber>3){
+    }else if ([groupMembers count]>3){
         UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(4, 5, 22,22)];
         UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(29, 5, 22,22)];
         UIImageView *ivtier = [[UIImageView alloc] initWithFrame:CGRectMake(4, 30, 22,22)];
@@ -210,6 +209,7 @@
         [cell.groupPicPlaceholder  addSubview:iv];
         [cell.groupPicPlaceholder  addSubview:ivbis];
         [cell.groupPicPlaceholder  addSubview:ivtier];
+        
         [cell.groupPicPlaceholder  addSubview:ivquatro];
     }
     
