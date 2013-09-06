@@ -8,7 +8,8 @@
 
 #import "AppDelegate.h"
 #import <FacebookSDK/FacebookSDK.h>
-#import "LoginViewController.h"
+#import "WelcomeViewController.h"
+#import "MenuViewController.h"
 #import "CredentialStore.h"
 #import "AuthAPIClient.h"
 
@@ -17,6 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSLog(@"application didFinishLaunchingWithOptions");
     CredentialStore *store = [[CredentialStore alloc] init];
     NSString *authToken = [store authToken];
     
@@ -62,19 +64,22 @@
 
 - (void)showLoginView
 {
+    NSLog(@"showLoginView");
     UIStoryboard *welcomeStoryboard = [UIStoryboard storyboardWithName:@"welcomeStoryboard" bundle: nil];
     
-    LoginViewController* welcomeNavigationController = [welcomeStoryboard instantiateViewControllerWithIdentifier:@"WelcomeNavigationController"];
+    WelcomeViewController* welcomeViewController = [welcomeStoryboard instantiateViewControllerWithIdentifier:@"WelcomeNavigationController"];
     
     [self.window makeKeyAndVisible];
-    [self.window.rootViewController presentViewController:welcomeNavigationController animated:YES completion:NULL];
+    [self.window.rootViewController presentModalViewController:welcomeViewController animated:YES];
 }
 
 - (void)dismissLoginView
 {
-    UIViewController *rootViewController = (id) self.window.rootViewController;
+    NSLog(@"dismissLoginView");
     
+    UIViewController *rootViewController = (id) self.window.rootViewController;
     Class class = [[rootViewController presentedViewController] class];
+    
     NSLog(@"dismiss login view, class of presentedviewcontroller = %@", class);
     
     [[rootViewController presentedViewController] dismissViewControllerAnimated:NO completion:nil];
@@ -85,13 +90,11 @@
 // *** Facebook login actions ***
 
 
-- (void)sessionStateChanged:(FBSession *)session
-                      state:(FBSessionState) state
-                      error:(NSError *)error
+- (void)sessionStateChanged:(FBSession *)session state:(FBSessionState)state error:(NSError *)error
 {
     NSLog(@"Change state");
     UIStoryboard *welcomeStoryboard = [UIStoryboard storyboardWithName:@"welcomeStoryboard" bundle: nil];
-    UINavigationController *navController = (UINavigationController*)[welcomeStoryboard instantiateViewControllerWithIdentifier:@"LoginNavController"];
+    UINavigationController *navController = (UINavigationController*)[welcomeStoryboard instantiateViewControllerWithIdentifier:@"WelcomeNavigationController"];
     
     switch (state) {
         case FBSessionStateOpen:
@@ -137,6 +140,7 @@
 
 - (void)openSession
 {
+    NSLog(@"appdelegate: openSession");
     [FBSession openActiveSessionWithReadPermissions:nil
                                        allowLoginUI:YES
                                   completionHandler:
@@ -150,6 +154,7 @@
 }
 
 - (void)FbDidLogin {
+    NSLog(@"appdelegate: FbDidLogin");
     
     [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id<FBGraphUser> user, NSError *error) {
         if (!error) {
@@ -180,10 +185,7 @@
     }];
 }
 
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     return [FBSession.activeSession handleOpenURL:url];
 }
@@ -192,6 +194,7 @@
 
 -(void) refreshAuthToken {
     
+    NSLog(@"appdelegate: refreshAuthToken");
     CredentialStore *store = [[CredentialStore alloc] init];
     NSString *refreshToken = [store refreshToken];
     
@@ -209,13 +212,8 @@
                                       [store setRefreshToken:refreshToken];
                                       
                                       [[NSNotificationCenter defaultCenter] postNotificationName:@"loginSuccess" object:nil];
-                                      NSLog(@"loginsuccess after refresh token");
                                       
-                                      UIViewController *rootViewController = (id) self.window.rootViewController;
-                                      
-                                      if ([[rootViewController presentedViewController] isKindOfClass:[LoginViewController class]]){
-                                          [[rootViewController presentedViewController] dismissViewControllerAnimated:NO completion:nil];
-                                      }
+                                      [self dismissLoginView];
                                       
                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                       NSLog(@"error: %@", error);
