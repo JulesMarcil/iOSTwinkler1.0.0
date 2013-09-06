@@ -71,7 +71,10 @@
     [self.view addGestureRecognizer:swipeLeftGestureRecognizer];
     
     self.expenseListTable.allowsSelectionDuringEditing = YES;
-    self.expenseListTable.separatorColor = [UIColor clearColor];
+    
+    self.expenseListTable.separatorColor = [UIColor colorWithRed:(236/255.0) green:(231/255.0) blue:(223/255.0) alpha: 1];
+    self.expenseListTable.backgroundColor=[UIColor colorWithRed:(240/255.0) green:(240/255.0) blue:(240/255.0) alpha:1];
+    self.viewContainer.backgroundColor=[UIColor colorWithRed:(240/255.0) green:(240/255.0) blue:(240/255.0) alpha:1];
 }
 
 - (void)dataRetrieved {
@@ -158,8 +161,9 @@
                                               }];
     }
     
-    [cell.memberProfilePic setFrame:CGRectMake(19,14,35,35)];
-    [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:35.0];
+    [cell.memberProfilePic setFrame:CGRectMake(21,17,30,30)];
+    [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:30.0];
+    
     
     //Set labels
     
@@ -179,13 +183,8 @@
     }
     
     tableView.backgroundColor=[UIColor colorWithRed:(240/255.0) green:(240/255.0) blue:(240/255.0) alpha:1];
-    cell.expenseContainer.backgroundColor=[UIColor whiteColor];
-    cell.expenseContainer.layer.cornerRadius = 3;
-    cell.expenseContainer.layer.masksToBounds = NO;
-    cell.expenseContainer.layer.shadowOffset = CGSizeMake(0, 0.6);
-    cell.expenseContainer.layer.shadowRadius = 0.8;
-    cell.expenseContainer.layer.shadowOpacity = 0.1;
-    
+    cell.expenseContainer.backgroundColor=[UIColor colorWithRed:(240/255.0) green:(240/255.0) blue:(240/255.0) alpha:1];
+
     return cell;
 }
 
@@ -284,5 +283,12 @@
     // Lets forget about that we were drawing
     UIGraphicsEndImageContext();
 }
-
+-(void)setRoundedBorder:(UIImageView *)roundedView toDiameter:(float)newSize;
+{
+    CGPoint saveCenter = roundedView.center;
+    CGRect newFrame = CGRectMake(roundedView.frame.origin.x, roundedView.frame.origin.y, newSize, newSize);
+    roundedView.frame = newFrame;
+    roundedView.layer.cornerRadius = newSize / 2.0;
+    roundedView.center = saveCenter;
+}
 @end
