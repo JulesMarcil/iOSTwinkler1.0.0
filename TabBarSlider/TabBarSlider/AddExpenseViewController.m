@@ -61,6 +61,38 @@
                                              frame.size.width,
                                              fmax(120,(((int)([memberArray count]/4)) +1)* 90))];
     
+    switch ([memberArray count]) {
+        case 1:
+            frame= [self.collectionView frame];
+            [self.collectionView setFrame:CGRectMake(120,
+                                                     frame.origin.y,
+                                                     frame.size.width,
+                                                     frame.size.height)];
+            break;
+        case 2:
+            frame= [self.collectionView frame];
+            [self.collectionView setFrame:CGRectMake(80,
+                                                     frame.origin.y,
+                                                     frame.size.width,
+                                                     frame.size.height)];
+            break;
+        case 3:
+            frame= [self.collectionView frame];
+            [self.collectionView setFrame:CGRectMake(40,
+                                                     frame.origin.y,
+                                                     frame.size.width,
+                                                     frame.size.height)];
+            break;
+            
+        default:
+            frame= [self.collectionView frame];
+            [self.collectionView setFrame:CGRectMake(frame.origin.x,
+                                                     frame.origin.y,
+                                                     frame.size.width,
+                                                     frame.size.height)];
+            break;
+    }
+    
     frame= [self.bottomButtonContainer frame];
     [self.bottomButtonContainer setFrame:CGRectMake(frame.origin.x,
                                                     frame.origin.y+fmax(0,((int)([memberArray count]/4)-1)*80),
@@ -106,7 +138,6 @@
     
     self.expenseAmount.keyboardType=UIKeyboardTypeDecimalPad;
     self.expenseAmount.inputAccessoryView=[self toolBarForKeyboardAccessory];
-    
     
 }
 
