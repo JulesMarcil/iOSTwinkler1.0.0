@@ -451,17 +451,6 @@
     self.expenseOwner.text= [memberArray objectAtIndex:row][@"name"];
 }
 
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    if ([[segue identifier] isEqualToString:@"ReturnInput"]) {
-        
-        
-        
-        
-    }
-}
-
 #pragma mark - UICollectionView Datasource
 // 1
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
