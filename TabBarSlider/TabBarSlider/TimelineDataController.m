@@ -55,6 +55,7 @@
         NSError *error = nil;
         NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
         //NSLog(@"success: %@", response);
+        [self.messageList removeAllObjects];
         
         for(id key in response) {
             

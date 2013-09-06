@@ -73,6 +73,8 @@
         NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
         NSLog(@"success: %@", response);
         
+        [self.expenseList removeAllObjects];
+        
         self.balance = response[@"balance"];
         
         for(id key in response[@"expenses"]) {
