@@ -74,9 +74,17 @@
     
     self.expenseListTable.allowsSelectionDuringEditing = YES;
     
-    self.expenseListTable.separatorColor = [UIColor colorWithRed:(236/255.0) green:(231/255.0) blue:(223/255.0) alpha: 1];
-    self.expenseListTable.backgroundColor=[UIColor colorWithRed:(240/255.0) green:(240/255.0) blue:(240/255.0) alpha:1];
-    self.viewContainer.backgroundColor=[UIColor colorWithRed:(240/255.0) green:(240/255.0) blue:(240/255.0) alpha:1];
+    self.expenseListTable.separatorColor = [UIColor clearColor];
+    
+    
+    self.view.backgroundColor=[UIColor colorWithRed:(240/255.0) green:(240/255.0) blue:(240/255.0) alpha:1];
+    self.headerViewContainer.backgroundColor=[UIColor colorWithRed:(240/255.0) green:(240/255.0) blue:(240/255.0) alpha:1];
+    
+    frame= [self.timelineImage frame];
+    [self.timelineImage setFrame:CGRectMake(frame.origin.x,
+                                               0,
+                                               4,
+                                               screenHeight)];
 }
 
 - (void)dataRetrieved {
@@ -195,8 +203,8 @@
         cell.shareLabel.textColor = [UIColor colorWithRed:(255/255.0) green:(146/255.0) blue:(123/255.0) alpha: 1];
     }
     
-    tableView.backgroundColor=[UIColor colorWithRed:(240/255.0) green:(240/255.0) blue:(240/255.0) alpha:1];
-    cell.expenseContainer.backgroundColor=[UIColor colorWithRed:(240/255.0) green:(240/255.0) blue:(240/255.0) alpha:1];
+    
+    cell.cellSeparatorView.backgroundColor = [UIColor colorWithRed:(236/255.0) green:(231/255.0) blue:(223/255.0) alpha: 1];
 
     return cell;
 }
