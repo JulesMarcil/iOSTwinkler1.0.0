@@ -10,6 +10,7 @@
 
 @interface LoginViewController : UIViewController  <UITextFieldDelegate>
 
+@property (weak, nonatomic) IBOutlet UILabel *errorLabel;
 @property (weak, nonatomic) IBOutlet UITextField *usernameInput;
 @property (weak, nonatomic) IBOutlet UITextField *passwordInput;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;

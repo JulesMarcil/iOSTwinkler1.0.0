@@ -558,10 +558,10 @@
                                             <action selector="backToHP:" destination="TZK-DV-kkD" eventType="touchUpInside" id="Io5-Bo-O7T"/>
                                         </connections>
                                     </button>
-                                    <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Error message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WNL-tp-Y5U">
-                                        <rect key="frame" x="104" y="82" width="112" height="21"/>
+                                    <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Error message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WNL-tp-Y5U">
+                                        <rect key="frame" x="20" y="110" width="280" height="42"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -573,6 +573,7 @@
                     <navigationItem key="navigationItem" id="7Lt-et-GKe"/>
                     <connections>
                         <outlet property="FBspinner" destination="aAy-AQ-Jrf" id="Byg-x3-qhp"/>
+                        <outlet property="errorLabel" destination="WNL-tp-Y5U" id="ptF-Lu-Nyr"/>
                         <outlet property="passwordInput" destination="45e-ly-6zL" id="pms-w8-Tj7"/>
                         <outlet property="scrollView" destination="bze-KK-xms" id="QQG-7w-kUE"/>
                         <outlet property="spinner" destination="L0G-Jf-ndu" id="Wd5-q1-hwx"/>
@@ -647,6 +648,7 @@
                 <relationship kind="action" name="FacebookLogin:"/>
                 <relationship kind="action" name="backToHP:"/>
                 <relationship kind="outlet" name="FBspinner" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="errorLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="passwordInput" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="spinner" candidateClass="UIActivityIndicatorView"/>
@@ -660,6 +662,7 @@
                 <relationship kind="action" name="cancelAddGroup:" candidateClass="UIStoryboardSegue"/>
                 <relationship kind="action" name="createGroup:"/>
                 <relationship kind="action" name="doneAddGroup:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="goToTimelineButton:"/>
                 <relationship kind="outlet" name="addGroupButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="friendNumberLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="groupOnMenu" candidateClass="UITableView"/>
