@@ -38,6 +38,7 @@
         NSDictionary* response = [NSJSONSerialization JSONObjectWithData:cachedResponse.data options:kNilOptions error:&error];
         
         NSLog(@"cached data");
+        [self.listList removeAllObjects];
         
         for(id key in response) {
             

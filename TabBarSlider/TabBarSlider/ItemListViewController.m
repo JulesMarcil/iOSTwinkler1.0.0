@@ -7,6 +7,7 @@
 //
 
 #import "ItemListViewController.h"
+#import "ListViewController.h"
 #import "ListDataController.h"
 #import "List.h"
 #import "AuthAPIClient.h"
@@ -43,9 +44,9 @@
     
     CGRect frame= [self.itemListTableView frame];
     [self.itemListTableView setFrame:CGRectMake(20,
-                                          120,
-                                          280,
-                                          screenHeight-152)];
+                                                120,
+                                                280,
+                                                screenHeight-152)];
     
     self.itemListTableView.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:1];
     self.itemListTableView.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
@@ -53,9 +54,9 @@
     
     frame= [self.textFieldContainer frame];
     [self.textFieldContainer setFrame:CGRectMake(20,
-                                                52,
-                                                280,
-                                                frame.size.height)];
+                                                 52,
+                                                 280,
+                                                 frame.size.height)];
     
     self.textFieldContainer.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:1];
     self.textFieldContainer.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
@@ -87,7 +88,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"itemListCell";
-
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier
                                                             forIndexPath:indexPath];
     if(!cell) {
@@ -97,7 +98,7 @@
     
     // Configure the cell ...
     cell.textLabel.text = self.list.items[indexPath.row][@"name"];
-   
+    
     return cell;
 }
 
@@ -115,70 +116,37 @@
     return YES;
 }
 
-/*
-if ([self.itemInput.text length]) {
-    self.item = [[NSDictionary alloc] initWithObjectsAndKeys: @0, @"id", self.itemInput.text, @"name", @"incomplete", @"status", nil];
-}
-
-
-- (IBAction)doneAddItem:(UIStoryboardSegue *)segue {
-    {
-        if ([[segue identifier] isEqualToString:@"ReturnInput"]) {
-            AddItemListViewController *addController = [segue sourceViewController];
-            if (addController.item) {
-                
-                // prepare request parameters
-                NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:
-                                      addController.item[@"name"], @"name",
-                                      self.list.identifier, @"list_id",
-                                      nil];
-                
-                NSLog(@"parameters: %@", parameters);
-                
-                AuthAPIClient *client = [AuthAPIClient sharedClient];
-                
-                NSMutableURLRequest *request = [client requestWithMethod:@"POST"
-                                                                    path:@"group/app/items"
-                                                              parameters:parameters];
-                
-                //Add your request object to an AFHTTPRequestOperation
-                AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc]
-                                                     initWithRequest:request];
-                
-                [client registerHTTPOperationClass:[AFHTTPRequestOperation class]];
-                
-                [operation setCompletionBlockWithSuccess:
-                 ^(AFHTTPRequestOperation *operation, id responseObject) {
-                     NSString *response = [operation responseString];
-                     NSLog(@"response: %@",response);
-                     [self.itemListTableView reloadData];
-                 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                     NSLog(@"error: %@", [operation error]);
-                 }];
-                
-                //call start on your request operation
-                [operation start];
-                
-                NSMutableArray *temp = [[NSMutableArray alloc] initWithArray:self.list.items];
-                [temp addObject:addController.item];
-                self.list.items = temp;
-                
-                [self.itemListTableView reloadData];
-            }
-            [self dismissViewControllerAnimated:YES completion:NULL];
-        }
-    }
-}
-
-- (IBAction)cancelAddItem:(UIStoryboardSegue *)segue{
-    if ([[segue identifier] isEqualToString:@"CancelInput"]) {
-        [self dismissViewControllerAnimated:YES completion:NULL];
-    }
-}
- */
-
-- (IBAction)backToList:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+- (IBAction)addItem:(id)sender {
     
+    if (self.itemInput.text.length > 0) {
+        NSDictionary *item = [[NSDictionary alloc] initWithObjectsAndKeys: @0, @"id", self.itemInput.text , @"name", @"incomplete", @"status", nil];
+        
+        // prepare request parameters
+        NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:item[@"name"], @"name", self.list.identifier, @"list_id", nil];
+        
+        NSLog(@"parameters: %@", parameters);
+        
+        [[AuthAPIClient sharedClient] postPath:@"api/post/item"
+                                    parameters:parameters
+                                       success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                           NSLog(@"item added sucessfully");
+                                       }
+                                       failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                           NSLog(@"error: %@", [operation error]);
+                                       }];
+        
+        NSMutableArray *temp = [[NSMutableArray alloc] initWithArray:self.list.items];
+        [temp addObject:item];
+        self.list.items = temp;
+        [self.itemListTableView reloadData];
+        self.itemInput.text = nil;
+    }
 }
+
+- (IBAction)backToLists:(id)sender {
+    NSLog(@"back to list in itemlistview");
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+
 @end

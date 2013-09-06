@@ -13,16 +13,15 @@
     IBOutlet UITableView* itemListTableView;
 }
 
+@property (strong, nonatomic) List *list;
 @property (strong, nonatomic) IBOutlet UIView *viewContainer;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
-@property (weak, nonatomic) IBOutlet UITableView *itemListTableView;
-@property (weak, nonatomic) IBOutlet UIButton *addItemButton;
-@property (weak, nonatomic) List *list;
-@property (weak, nonatomic) IBOutlet UIView *textFieldContainer;
 @property (weak, nonatomic) IBOutlet UILabel *listNameLabel;
+@property (weak, nonatomic) IBOutlet UIButton *addItemButton;
+@property (weak, nonatomic) IBOutlet UIView *textFieldContainer;
+@property (weak, nonatomic) IBOutlet UITextField *itemInput;
+@property (weak, nonatomic) IBOutlet UITableView *itemListTableView;
 
-
-- (IBAction)doneAddItem:(UIStoryboardSegue *)segue;
-- (IBAction)cancelAddItem:(UIStoryboardSegue *)segue;
-- (IBAction)backToList:(id)sender;
+- (IBAction)addItem:(id)sender;
+- (IBAction)backToLists:(id)sender;
 @end
