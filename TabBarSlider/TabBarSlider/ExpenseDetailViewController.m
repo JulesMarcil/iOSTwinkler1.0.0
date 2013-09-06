@@ -120,6 +120,11 @@
     self.memberTableView.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:0.8];
     self.memberTableView.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
     self.memberTableView.layer.borderWidth = 1.0f;
+    
+    
+    UISwipeGestureRecognizer* swipeDownGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(dismissDetail:)];
+    swipeDownGestureRecognizer.direction = UISwipeGestureRecognizerDirectionDown;
+    [self.view addGestureRecognizer:swipeDownGestureRecognizer];
 }
 
 - (void)didReceiveMemoryWarning
@@ -154,6 +159,10 @@
 
     
     
+}
+
+- (IBAction)dismissDetail:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 //----------DESIGN----------

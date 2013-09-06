@@ -564,7 +564,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="dismissDetail:" destination="vVv-RY-G07" eventType="touchUpInside" id="vfj-ex-u7t"/>
+                                    <action selector="dismissDetail:" destination="vVv-RY-G07" eventType="touchUpInside" id="ZRo-fL-cDi"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xhL-g0-sAW">

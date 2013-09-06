@@ -28,5 +28,6 @@
 
 - (IBAction)editExpense:(id)sender;
 - (IBAction)deleteExpense:(id)sender;
+- (IBAction)dismissDetail:(id)sender;
 
 @end
