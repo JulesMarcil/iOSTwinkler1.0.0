@@ -349,10 +349,14 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="361"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="timeline-line.png" id="CTl-I7-soh">
+                                <rect key="frame" x="34" y="0.0" width="4" height="361"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <tableView clipsSubviews="YES" tag="5" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="63" sectionHeaderHeight="22" sectionFooterHeight="22" id="H48-RZ-UpL">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="361"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="xRb-VC-kfj">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -387,7 +391,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="0.0" colorSpace="deviceRGB"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell multipleTouchEnabled="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="expenseCell" rowHeight="63" id="BO0-Hd-l2V" customClass="ExpenseItemCell">
@@ -397,6 +401,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="timeline-line.png" id="9br-u6-htn">
+                                                    <rect key="frame" x="34" y="-0.5" width="4" height="63"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                                 <view contentMode="scaleToFill" id="uyM-kR-5FC">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -429,13 +437,14 @@
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </label>
+                                                        <view contentMode="scaleToFill" id="JaH-9d-fwC">
+                                                            <rect key="frame" x="0.0" y="63" width="320" height="1"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                        </view>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="timeline-line.png" id="tqB-Bg-Fh6">
-                                                    <rect key="frame" x="34" y="-4" width="4" height="70"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="profile-pic-placeholder.png" id="1VS-NO-sBr">
                                                     <rect key="frame" x="19" y="14" width="35" height="35"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -444,6 +453,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
+                                            <outlet property="cellSeparatorView" destination="JaH-9d-fwC" id="eBj-RI-6s2"/>
                                             <outlet property="expenseContainer" destination="uyM-kR-5FC" id="Ld1-Kt-a4s"/>
                                             <outlet property="expenseNameLabel" destination="PF4-aS-AQT" id="lrL-K3-MN5"/>
                                             <outlet property="expenseSubtitleLabel" destination="YOq-2C-SDl" id="TcW-2k-yaU"/>
@@ -482,6 +492,8 @@
                     <connections>
                         <outlet property="balanceLabel" destination="9eN-MS-ktE" id="UfO-Em-wZW"/>
                         <outlet property="expenseListTable" destination="H48-RZ-UpL" id="hcM-g7-UEp"/>
+                        <outlet property="headerViewContainer" destination="xRb-VC-kfj" id="DTq-mi-dYm"/>
+                        <outlet property="timelineImage" destination="CTl-I7-soh" id="sgm-ZD-DKk"/>
                         <outlet property="viewContainer" destination="cz8-0D-50U" id="ivd-Re-djm"/>
                     </connections>
                 </viewController>

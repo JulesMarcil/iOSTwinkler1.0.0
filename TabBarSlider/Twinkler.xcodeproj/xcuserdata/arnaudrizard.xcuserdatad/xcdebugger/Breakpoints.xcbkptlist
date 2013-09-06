@@ -243,8 +243,8 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "461"
          endingLineNumber = "461"
-         landmarkName = "@implementation AddExpenseViewController"
-         landmarkType = "3">
+         landmarkName = "-collectionView:cellForItemAtIndexPath:"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -256,7 +256,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "419"
          endingLineNumber = "419"
-         landmarkName = "-prepareForSegue:sender:"
+         landmarkName = "-addExpense:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -290,12 +290,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TabBarSlider/ExpenseViewController.m"
-         timestampString = "400184571.188737"
+         timestampString = "400203675.629721"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "98"
-         endingLineNumber = "98"
-         landmarkName = "-tableView:cellForRowAtIndexPath:"
+         startingLineNumber = "106"
+         endingLineNumber = "106"
+         landmarkName = "-setBalanceLabelValue:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -309,19 +309,6 @@
          startingLineNumber = "80"
          endingLineNumber = "80"
          landmarkName = "-send:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "TabBarSlider/TimelineViewController.m"
-         timestampString = "400199787.085784"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "282"
-         endingLineNumber = "282"
-         landmarkName = "-tableView:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

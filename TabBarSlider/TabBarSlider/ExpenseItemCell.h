@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *getLabel;
 @property (weak, nonatomic) IBOutlet UILabel *shareLabel;
 @property (weak, nonatomic) IBOutlet UIView *expenseContainer;
+@property (weak, nonatomic) IBOutlet UIView *cellSeparatorView;
 
 @end
