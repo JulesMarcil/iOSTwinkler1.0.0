@@ -9,7 +9,6 @@
 #import "ItemListViewController.h"
 #import "ListDataController.h"
 #import "List.h"
-#import "AddItemListViewController.h"
 #import "AuthAPIClient.h"
 #import "AFHTTPRequestOperation.h"
 #import <QuartzCore/QuartzCore.h>

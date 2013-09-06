@@ -102,6 +102,7 @@
 		89F7D7AC17DA51E8006BE7FD /* timeline-line.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F7D7AB17DA51E8006BE7FD /* timeline-line.png */; };
 		89F7D7AF17DA5A48006BE7FD /* ListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F7D7AE17DA5A48006BE7FD /* ListCell.m */; };
 		89F7D7B117DA6052006BE7FD /* right-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F7D7B017DA6052006BE7FD /* right-arrow.png */; };
+		89F7D7B317DA8694006BE7FD /* main-smiley.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F7D7B217DA8694006BE7FD /* main-smiley.png */; };
 		BA24D4C917B016CE0042C7A4 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4C417B016CE0042C7A4 /* List.m */; };
 		BA24D4CA17B016CE0042C7A4 /* ListDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4C617B016CE0042C7A4 /* ListDataController.m */; };
 		BA24D4CB17B016CE0042C7A4 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4C817B016CE0042C7A4 /* ListViewController.m */; };
@@ -124,7 +125,6 @@
 		BA403FCB17B008CB00BE5282 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA403FCA17B008CB00BE5282 /* SystemConfiguration.framework */; };
 		BA403FD017B00C5800BE5282 /* AuthAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BA403FCD17B00C5800BE5282 /* AuthAPIClient.m */; };
 		BA403FD117B00C5800BE5282 /* CredentialStore.m in Sources */ = {isa = PBXBuildFile; fileRef = BA403FCF17B00C5800BE5282 /* CredentialStore.m */; };
-		BA4CB84817B0F47D00521584 /* AddItemListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4CB84517B0F47D00521584 /* AddItemListViewController.m */; };
 		BA4CB84917B0F47D00521584 /* ItemListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA4CB84717B0F47D00521584 /* ItemListViewController.m */; };
 		BA7FC7E317BA29D1001E3A3C /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7FC7E217BA29D1001E3A3C /* RegisterViewController.m */; };
 		BA9C6DEC17B0627E00C50CC2 /* AddGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9C6DE517B0627E00C50CC2 /* AddGroupViewController.m */; };
@@ -270,6 +270,7 @@
 		89F7D7AD17DA5A48006BE7FD /* ListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListCell.h; sourceTree = "<group>"; };
 		89F7D7AE17DA5A48006BE7FD /* ListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListCell.m; sourceTree = "<group>"; };
 		89F7D7B017DA6052006BE7FD /* right-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow.png"; sourceTree = "<group>"; };
+		89F7D7B217DA8694006BE7FD /* main-smiley.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main-smiley.png"; sourceTree = "<group>"; };
 		BA24D4C317B016CE0042C7A4 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
 		BA24D4C417B016CE0042C7A4 /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
 		BA24D4C517B016CE0042C7A4 /* ListDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListDataController.h; sourceTree = "<group>"; };
@@ -310,8 +311,6 @@
 		BA403FCD17B00C5800BE5282 /* AuthAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthAPIClient.m; sourceTree = "<group>"; };
 		BA403FCE17B00C5800BE5282 /* CredentialStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CredentialStore.h; sourceTree = "<group>"; };
 		BA403FCF17B00C5800BE5282 /* CredentialStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CredentialStore.m; sourceTree = "<group>"; };
-		BA4CB84417B0F47D00521584 /* AddItemListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemListViewController.h; sourceTree = "<group>"; };
-		BA4CB84517B0F47D00521584 /* AddItemListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemListViewController.m; sourceTree = "<group>"; };
 		BA4CB84617B0F47D00521584 /* ItemListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemListViewController.h; sourceTree = "<group>"; };
 		BA4CB84717B0F47D00521584 /* ItemListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemListViewController.m; sourceTree = "<group>"; };
 		BA7FC7E117BA29D1001E3A3C /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
@@ -601,6 +600,7 @@
 				895C4E4117AA77D3004EC590 /* Twinkler-Info.plist */,
 				895C4E4217AA77D3004EC590 /* InfoPlist.strings */,
 				895C4E4517AA77D3004EC590 /* main.m */,
+				89F7D7B217DA8694006BE7FD /* main-smiley.png */,
 				895913BE17D934FD0039CF72 /* Default-568h@2x.png */,
 				895913BC17D934F70039CF72 /* Default@2x.png */,
 				895913BA17D934EB0039CF72 /* Default.png */,
@@ -768,8 +768,6 @@
 				BA24D4C617B016CE0042C7A4 /* ListDataController.m */,
 				BA24D4C717B016CE0042C7A4 /* ListViewController.h */,
 				BA24D4C817B016CE0042C7A4 /* ListViewController.m */,
-				BA4CB84417B0F47D00521584 /* AddItemListViewController.h */,
-				BA4CB84517B0F47D00521584 /* AddItemListViewController.m */,
 				BA4CB84617B0F47D00521584 /* ItemListViewController.h */,
 				BA4CB84717B0F47D00521584 /* ItemListViewController.m */,
 			);
@@ -913,6 +911,7 @@
 				89F7D7A817D9F0BC006BE7FD /* member-icon-placeholder.png in Resources */,
 				89F7D7AC17DA51E8006BE7FD /* timeline-line.png in Resources */,
 				89F7D7B117DA6052006BE7FD /* right-arrow.png in Resources */,
+				89F7D7B317DA8694006BE7FD /* main-smiley.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -986,7 +985,6 @@
 				BA9C6DF917B062A200C50CC2 /* Expense.m in Sources */,
 				BA9C6DFA17B062A200C50CC2 /* ExpenseDataController.m in Sources */,
 				BA9C6DFB17B062A200C50CC2 /* AddExpenseViewController.m in Sources */,
-				BA4CB84817B0F47D00521584 /* AddItemListViewController.m in Sources */,
 				BA4CB84917B0F47D00521584 /* ItemListViewController.m in Sources */,
 				891183A217B13DD700B28ABE /* GroupListCell.m in Sources */,
 				891183B317B1A31200B28ABE /* ExpenseItemCell.m in Sources */,

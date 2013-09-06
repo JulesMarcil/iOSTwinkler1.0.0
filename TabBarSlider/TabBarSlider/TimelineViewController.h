@@ -35,11 +35,13 @@
 @property (weak, nonatomic) IBOutlet UIView *timelineTextBoxContainer;
 @property (weak, nonatomic) IBOutlet UITextField *timelineTextBox;
 @property (strong, nonatomic) IBOutlet UIView *timelineView;
+@property (weak, nonatomic) IBOutlet UIButton *smiley;
 
 - (IBAction)addExpenseButton:(id)sender;
 - (IBAction)addUserButton:(id)sender;
 - (IBAction)sendMessage:(id)sender;
 - (IBAction)sendFeedbackButton:(id)sender;
 - (IBAction)addListButton:(id)sender;
+- (IBAction)smileyButton:(id)sender;
 
 @end

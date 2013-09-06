@@ -78,6 +78,10 @@
                                    screenHeight-222+44+100,
                                    frame.size.width,
                                    frame.size.height)];
+    [self.smiley setFrame:CGRectMake(10,
+                                     screenHeight-222+44+100,
+                                     frame.size.width,
+                                     frame.size.height)];
     
     self.actionBar.layer.borderWidth = 1.0f;
     self.actionBar.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
@@ -582,6 +586,8 @@
     }
     NSIndexPath* ipath = [NSIndexPath indexPathForRow: [self.messageOnTimeline numberOfRowsInSection:0]-1 inSection: 0];
     [self.messageOnTimeline scrollToRowAtIndexPath: ipath atScrollPosition: UITableViewScrollPositionTop animated: NO];
+    
+
     return NO;
 }
 
@@ -589,6 +595,7 @@
 
 - (void) textFieldDidBeginEditing:(UITextField *)myTextField
 {
+
     [self animateTextField:myTextField up:YES];
 }
 
@@ -665,6 +672,28 @@
 
 - (IBAction)addListButton:(id)sender {
     [self.navigation collapse];
+}
+
+- (IBAction)smileyButton:(id)sender {
+    
+    [UIView animateWithDuration:0.1 delay:0.0 options:UIViewAnimationOptionRepeat | UIViewAnimationOptionCurveLinear animations:^{
+        CGAffineTransform transform = CGAffineTransformMakeRotation(M_PI);
+        self.main.transform = transform;
+    } completion:NULL];
+    [UIView animateWithDuration:1.0 animations:^{self.main.alpha = 0.0;}];
+    [UIView animateWithDuration:0.1 delay:0.0 options:UIViewAnimationOptionCurveLinear animations:^{
+        CGAffineTransform transform = CGAffineTransformMakeRotation(M_PI);
+        self.smiley.transform = transform;
+    } completion:^(BOOL finished){
+        
+    }];
+    
+    
+    
+    
+    
+    
+
 }
 
 @end
