@@ -39,5 +39,7 @@
 - (IBAction)addExpenseButton:(id)sender;
 - (IBAction)addUserButton:(id)sender;
 - (IBAction)sendMessage:(id)sender;
+- (IBAction)sendFeedbackButton:(id)sender;
+- (IBAction)addListButton:(id)sender;
 
 @end

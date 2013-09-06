@@ -650,10 +650,19 @@
     agvc.group = group;
     
     [self presentViewController:navigationController animated:YES completion:nil];
+    [self.navigation collapse];
 }
 
 - (IBAction)sendMessage:(id)sender {
     [self textFieldShouldReturn:self.timelineTextBox];
+}
+
+- (IBAction)sendFeedbackButton:(id)sender {
+    [self.navigation collapse];
+}
+
+- (IBAction)addListButton:(id)sender {
+    [self.navigation collapse];
 }
 
 @end
