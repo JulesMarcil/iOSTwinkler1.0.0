@@ -68,6 +68,9 @@
                                       
                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                       NSLog(@"error: %@", error);
+                                      self.errorLabel.text = @"Impossible to login, verify your credentials and make sure you are connected to the internet";
+                                      self.errorLabel.hidden = NO;
+                                      [self.spinner stopAnimating];
                                       
                                   }];
 }

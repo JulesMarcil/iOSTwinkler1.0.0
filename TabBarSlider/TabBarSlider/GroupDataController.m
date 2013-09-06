@@ -32,6 +32,7 @@
                                                               ];
                                           
                                           [self addGroupWithGroup:group];
+                                          NSLog(@"group loaded = %@", group.name);
                                       }
                                       NSLog(@"groupsWithJSONFinishedLoading");
                                       [[NSNotificationCenter defaultCenter] postNotificationName:@"groupsWithJSONFinishedLoading" object:nil];

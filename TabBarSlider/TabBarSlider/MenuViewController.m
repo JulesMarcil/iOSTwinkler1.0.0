@@ -28,20 +28,18 @@
 
 @synthesize groupOnMenu=_groupOnMenu;
 
-- (void)awakeFromNib
-{
+- (void)awakeFromNib {
+    
+    NSLog(@"menuViewController: awakeFromNib");
     [super awakeFromNib];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(groupDataRetrieved) name:@"groupsWithJSONFinishedLoading" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(profileDataRetrieved) name:@"profileWithJSONFinishedLoading" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:@"doneAddMember" object:nil];
-    if ([self.title isEqual: @"welcomeMenu"]){
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:@"loginSuccess" object:nil];
-    }
+    
 }
 
 - (void)loginSuccess
 {
-    NSLog(@"login success function called");
+    NSLog(@"menuViewController: loginSuccess");
+    self.groupDataController = nil;
+    self.profile = nil;
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     [[NSNotificationCenter defaultCenter] addObserver:appDelegate selector:@selector(dismissLoginView) name:@"profileDisplayed" object:nil];
     [self loadData];
@@ -49,7 +47,15 @@
 
 - (void)viewDidLoad
 {
+    NSLog(@"menuViewController: viewDidLoad");
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(groupDataRetrieved) name:@"groupsWithJSONFinishedLoading" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(profileDataRetrieved) name:@"profileWithJSONFinishedLoading" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:@"doneAddMember" object:nil];
+    if ([self.title isEqual: @"welcomeMenu"]){
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:@"loginSuccess" object:nil];
+    }
     
     if (![self.title isEqual: @"welcomeMenu"]){
         [self loadData];
@@ -82,19 +88,21 @@
 }
 
 -(void) loadData{
-    NSLog(@"load data for MenuViewController");
+    
+    NSLog(@"menuViewController: loadData");
     self.groupDataController = [[GroupDataController alloc] init];
     self.profile = [[Profile alloc] init];
     [self.profile loadProfile];
 }
 
 - (void)groupDataRetrieved {
+    NSLog(@"menuViewController: groupDataRetrieved");
     [self.groupOnMenu reloadData];
 }
 
 - (void)profileDataRetrieved {
     
-    NSLog(@"current member 1 %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"]);
+    NSLog(@"menuViewController: profileDataRetrieved");
     
     //set a fictious current member if there is no to make sure the group creation process is not blocked
     NSDictionary *currentMember = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"];
@@ -103,15 +111,13 @@
         [[NSUserDefaults standardUserDefaults] setObject:currentMember forKey:@"currentMember"];
     }
     
-    NSLog(@"current member 2 %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"]);
-    
     // display profile information
     self.nameLabel.text = self.profile.name;
     self.friendNumberLabel.text = [NSString stringWithFormat:@"%@ Friends", self.profile.friendNumber];
     
     NSString *facebookId =[[NSUserDefaults standardUserDefaults] objectForKey:@"facebookId"];
     
-    NSURL *url;
+    NSURL *url = nil;
     if (facebookId) {
         url = [NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=100&height=100", facebookId]];
     } else {
@@ -119,6 +125,7 @@
     }
     
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSLog(@"url before loading profile pic = %@", url);
     
     [self.profilePic setImageWithURLRequest:request
                            placeholderImage:[UIImage imageNamed:@"profile-pic.png"]
@@ -134,16 +141,16 @@
                                     }];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
-- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.groupDataController countOfList];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     static NSString *CellIdentifier = @"groupCell";
     static NSDateFormatter *formatter = nil;
     if (formatter == nil) {
@@ -246,7 +253,7 @@
     NSString *path = member[@"picturePath"];
     NSNumber *facebookId= [[[NSNumberFormatter alloc] init] numberFromString:path];
     
-    NSURL *url;
+    NSURL *url = nil;
     if (facebookId) {
         url = [NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=100&height=100", facebookId]];
     } else if(![path isEqualToString:@"local"]) {
@@ -349,7 +356,7 @@
 
 - (IBAction)goToTimelineButton:(id)sender {
     
-    NSLog(@"goToTimelineButton from menuviewcontroller");
+    NSLog(@"menuViewController: goToTimelineButton");
     
     UIStoryboard *mainStoryboard=[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     UIViewController *dst=[mainStoryboard instantiateInitialViewController];
@@ -405,6 +412,8 @@
 
 - (IBAction)Logout:(id)sender {
     
+    NSLog(@"menuViewController: logout");
+    
     CredentialStore *store = [[CredentialStore alloc] init];
     NSString *authToken = [store authToken];
     
@@ -425,11 +434,6 @@
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupMembers"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentMember"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupCurrency"];
-    
-    UIStoryboard *welcomeStoryboard = [UIStoryboard storyboardWithName:@"welcomeStoryboard" bundle: nil];
-    UINavigationController *navController = (UINavigationController*)[welcomeStoryboard instantiateViewControllerWithIdentifier:@"LoginNavController"];
-    
-    [navController popToRootViewControllerAnimated:NO];
     
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     [appDelegate showLoginView];
