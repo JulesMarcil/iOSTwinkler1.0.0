@@ -13,6 +13,7 @@
 #import "AddItemListViewController.h"
 #import "TabBarViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "ListCell.h"
 
 
 @interface ListViewController ()
@@ -54,6 +55,10 @@
     UISwipeGestureRecognizer* swipeRightGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(goToTimeline)];
     swipeRightGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
     [self.view addGestureRecognizer:swipeRightGestureRecognizer];
+    
+    
+    self.listOnLists.backgroundColor=[UIColor colorWithRed:(240/255.0) green:(240/255.0) blue:(240/255.0) alpha:1];
+    self.listOnLists.separatorColor = [UIColor clearColor];
 
 }
 
@@ -83,16 +88,32 @@
     return [self.listDataController countOfList];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"listCell";
     
-    UITableViewCell *cell = [tableView
+    ListCell *cell = [tableView
                              dequeueReusableCellWithIdentifier:CellIdentifier];
     List *listAtIndex = [self.listDataController
                          objectInListAtIndex:indexPath.row];
-    [[cell textLabel] setText:listAtIndex.name];
+    cell.listTitleLabel.text=listAtIndex.name;
+    
+    cell.itemNumberLabel.text=[[@([listAtIndex.items count]) stringValue] stringByAppendingString:@" items"];;
+    
+    cell.viewContainer.layer.cornerRadius = 3;
+    cell.viewContainer.layer.masksToBounds = NO;
+    cell.viewContainer.layer.shadowOffset = CGSizeMake(0, 0.6);
+    cell.viewContainer.layer.shadowRadius = 0.8;
+    cell.viewContainer.layer.shadowOpacity = 0.1;
+    cell.viewContainer.backgroundColor=[UIColor whiteColor];
+    
     return cell;
 }
+
+
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"itemListSegue"]){

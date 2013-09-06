@@ -100,6 +100,8 @@
 		89F7D7A017D9D767006BE7FD /* bubble-tail-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F7D79F17D9D767006BE7FD /* bubble-tail-blue.png */; };
 		89F7D7A817D9F0BC006BE7FD /* member-icon-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F7D7A717D9F0BC006BE7FD /* member-icon-placeholder.png */; };
 		89F7D7AC17DA51E8006BE7FD /* timeline-line.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F7D7AB17DA51E8006BE7FD /* timeline-line.png */; };
+		89F7D7AF17DA5A48006BE7FD /* ListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F7D7AE17DA5A48006BE7FD /* ListCell.m */; };
+		89F7D7B117DA6052006BE7FD /* right-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F7D7B017DA6052006BE7FD /* right-arrow.png */; };
 		BA24D4C917B016CE0042C7A4 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4C417B016CE0042C7A4 /* List.m */; };
 		BA24D4CA17B016CE0042C7A4 /* ListDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4C617B016CE0042C7A4 /* ListDataController.m */; };
 		BA24D4CB17B016CE0042C7A4 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4C817B016CE0042C7A4 /* ListViewController.m */; };
@@ -265,6 +267,9 @@
 		89F7D79F17D9D767006BE7FD /* bubble-tail-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bubble-tail-blue.png"; sourceTree = "<group>"; };
 		89F7D7A717D9F0BC006BE7FD /* member-icon-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "member-icon-placeholder.png"; sourceTree = "<group>"; };
 		89F7D7AB17DA51E8006BE7FD /* timeline-line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timeline-line.png"; sourceTree = "<group>"; };
+		89F7D7AD17DA5A48006BE7FD /* ListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListCell.h; sourceTree = "<group>"; };
+		89F7D7AE17DA5A48006BE7FD /* ListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListCell.m; sourceTree = "<group>"; };
+		89F7D7B017DA6052006BE7FD /* right-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow.png"; sourceTree = "<group>"; };
 		BA24D4C317B016CE0042C7A4 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
 		BA24D4C417B016CE0042C7A4 /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
 		BA24D4C517B016CE0042C7A4 /* ListDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListDataController.h; sourceTree = "<group>"; };
@@ -623,6 +628,7 @@
 				895C4EAB17AAF7CA004EC590 /* menu-button-white.png */,
 				895913C817D938F90039CF72 /* splash-screen-small.png */,
 				89F7D7A717D9F0BC006BE7FD /* member-icon-placeholder.png */,
+				89F7D7B017DA6052006BE7FD /* right-arrow.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -754,6 +760,8 @@
 			isa = PBXGroup;
 			children = (
 				8911839C17B1206B00B28ABE /* listStoryboard.storyboard */,
+				89F7D7AD17DA5A48006BE7FD /* ListCell.h */,
+				89F7D7AE17DA5A48006BE7FD /* ListCell.m */,
 				BA24D4C317B016CE0042C7A4 /* List.h */,
 				BA24D4C417B016CE0042C7A4 /* List.m */,
 				BA24D4C517B016CE0042C7A4 /* ListDataController.h */,
@@ -904,6 +912,7 @@
 				89F7D7A017D9D767006BE7FD /* bubble-tail-blue.png in Resources */,
 				89F7D7A817D9F0BC006BE7FD /* member-icon-placeholder.png in Resources */,
 				89F7D7AC17DA51E8006BE7FD /* timeline-line.png in Resources */,
+				89F7D7B117DA6052006BE7FD /* right-arrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -994,6 +1003,7 @@
 				89C54FF517D6494D007B8CEB /* notificationCell.m in Sources */,
 				89C54FF917D67B03007B8CEB /* FeedbackViewController.m in Sources */,
 				894D1CD217D89FFA002A48EB /* ExpenseDetailViewController.m in Sources */,
+				89F7D7AF17DA5A48006BE7FD /* ListCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
