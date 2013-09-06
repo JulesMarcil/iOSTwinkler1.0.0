@@ -134,6 +134,7 @@
     [self.cancelExpenseButton.layer  setBorderColor:borderColor.CGColor];
     [self.cancelExpenseButton.layer  setBorderWidth:1.0];
     
+    
     self.collectionView.backgroundColor =[UIColor clearColor];
     
     self.expenseAmount.keyboardType=UIKeyboardTypeDecimalPad;

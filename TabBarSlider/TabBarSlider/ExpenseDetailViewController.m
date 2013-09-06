@@ -58,7 +58,7 @@
                                               }];
     }
     
-    [self.ownerPic setFrame:CGRectMake(19,14,35,35)];
+    [self.ownerPic setFrame:CGRectMake(19,82,35,35)];
     [self setRoundedView:self.ownerPic picture:self.ownerPic.image toDiameter:35.0];
     
     //set labels
