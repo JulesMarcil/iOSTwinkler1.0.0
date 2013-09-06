@@ -115,9 +115,11 @@
     return YES;
 }
 
+/*
 if ([self.itemInput.text length]) {
     self.item = [[NSDictionary alloc] initWithObjectsAndKeys: @0, @"id", self.itemInput.text, @"name", @"incomplete", @"status", nil];
 }
+
 
 - (IBAction)doneAddItem:(UIStoryboardSegue *)segue {
     {
@@ -173,6 +175,7 @@ if ([self.itemInput.text length]) {
         [self dismissViewControllerAnimated:YES completion:NULL];
     }
 }
+ */
 
 - (IBAction)backToList:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
