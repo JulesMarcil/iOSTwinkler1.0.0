@@ -197,7 +197,7 @@
         [cell.groupPicPlaceholder  addSubview:iv];
         [cell.groupPicPlaceholder  addSubview:ivbis];
         [cell.groupPicPlaceholder  addSubview:ivtier];
-    }else if ([groupMembers count]>3){
+    }else if ([groupMembers count]==4){
         UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(4, 5, 22,22)];
         UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(29, 5, 22,22)];
         UIImageView *ivtier = [[UIImageView alloc] initWithFrame:CGRectMake(4, 30, 22,22)];
@@ -209,10 +209,31 @@
         [cell.groupPicPlaceholder  addSubview:iv];
         [cell.groupPicPlaceholder  addSubview:ivbis];
         [cell.groupPicPlaceholder  addSubview:ivtier];
-        
         [cell.groupPicPlaceholder  addSubview:ivquatro];
     }
-    
+    else if ([groupMembers count]>3){
+        UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(4, 5, 22,22)];
+        UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(29, 5, 22,22)];
+        UIImageView *ivtier = [[UIImageView alloc] initWithFrame:CGRectMake(4, 30, 22,22)];
+        UIImageView *ivquatro = [[UIImageView alloc] initWithFrame:CGRectMake(29, 30, 22,22)];
+        [self getImageForView:iv Member:groupMembers[0] size:22.0];
+        [self getImageForView:ivbis Member:groupMembers[1] size:22.0];
+        [self getImageForView:ivtier Member:groupMembers[2] size:22.0];
+        [self getImageForView:ivquatro Member:groupMembers[3] size:22.0];
+        [cell.groupPicPlaceholder  addSubview:iv];
+        [cell.groupPicPlaceholder  addSubview:ivbis];
+        [cell.groupPicPlaceholder  addSubview:ivtier];
+        ivquatro.image=[UIImage imageNamed:@"member-icon-placeholder.png"];
+        UILabel* membersLabel = [[UILabel alloc] initWithFrame:CGRectMake(29, 30, 22,22)];
+        membersLabel.text= [NSString stringWithFormat:@"%i", (int) [groupMembers count]-3];
+        membersLabel.backgroundColor=[UIColor clearColor];
+        membersLabel.textAlignment = NSTextAlignmentCenter;
+        membersLabel.textColor=[UIColor whiteColor];
+        [membersLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Medium" size:14.0f]];
+        [cell.groupPicPlaceholder  addSubview:ivquatro];
+        [cell.groupPicPlaceholder  addSubview:membersLabel];
+    }
+
     cell.backgroundView = [UIView new];
     return cell;
 }
