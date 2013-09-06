@@ -53,6 +53,8 @@
                                                        userInfo:nil
                                                         repeats:YES];
     
+    self.timelineView.backgroundColor=[UIColor colorWithRed:(240/255.0) green:(240/255.0) blue:(240/255.0) alpha:1];
+    
     //-------------Position----------------------------
     
     CGRect screenRect = [[UIScreen mainScreen] bounds];
