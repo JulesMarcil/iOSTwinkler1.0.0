@@ -14,13 +14,8 @@
 #define listCGPoint {205,52}
 #define timelineCGPoint {114,52}
 
-<<<<<<< HEAD
 #define appURL @"http://www.twinkler.co/web/"
 #define appBaseURL @"http://www.twinkler.co/"
-=======
-//#define appURL @"http://www.twinkler.co/"
-//#define appBaseURL @"http://www.twinkler.co/"
->>>>>>> 5b8f9daf91f128678955321bf10b2329e1066886
 
 //#define appURL @"http://localhost:8888/Twinkler1.2.3/web/app_dev.php/"
 //#define appBaseURL @"http://localhost:8888/Twinkler1.2.3/web/"

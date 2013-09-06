@@ -262,12 +262,30 @@
                                                       cell.bubbleTailImage.frame.size.height)];
             
             
-            [cell.timelineTimeLabel setFrame:CGRectMake(320-sz.width-20-20-45,sz.height+5,
+            [cell.timelineTimeLabel setFrame:CGRectMake(320-sz.width-20-20-45,sz.height+10,
                                                         cell.timelineTimeLabel.frame.size.width,
                                                         cell.timelineTimeLabel.frame.size.height)];
             
-            [formatter setDateFormat:@"HH:mm"];
-            cell.timelineTimeLabel.text=[formatter stringFromDate:(NSDate*)messageAtIndex.date];
+            
+            NSTimeInterval todayDiff = [[NSDate date] timeIntervalSinceNow];
+            NSTimeInterval postDateDiff = [(NSDate*)messageAtIndex.date timeIntervalSinceNow];
+            NSTimeInterval dateDiff = todayDiff - postDateDiff;
+            
+            if (round(dateDiff/(3600*24))<1) {
+                [formatter setDateFormat:@"HH:mm"];
+                cell.timelineTimeLabel.text=[formatter stringFromDate:(NSDate*)messageAtIndex.date];
+            }
+            else if (round(dateDiff)/(3600)<24*7){
+                cell.timelineTimeLabel.text=@"yest";
+            }
+            else if (round(dateDiff)/(3600)<24*7){
+                cell.timelineTimeLabel.text=[[@(round(round(dateDiff)/(3600*24))) stringValue] stringByAppendingString:@"d ago"] ;
+            }
+            else{
+                [formatter setDateStyle:NSDateFormatterMediumStyle];
+                [formatter setDateFormat:@"MMM, dd"];
+                cell.timelineTimeLabel.text=[formatter stringFromDate:(NSDate*)messageAtIndex.date];
+            }
             
             return cell;
         }else{
@@ -324,11 +342,28 @@
                 url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", appBaseURL, path]];
             }
             
-            NSLog(@"%ul",(int) sze.height-10);
-            
-            [cell.timelineTimeLabel setFrame:CGRectMake(fmax(sze.width,szeName.width)+25+70,sze.height+5,
+            [cell.timelineTimeLabel setFrame:CGRectMake(fmax(sze.width,szeName.width)+25+70,sze.height+10,
                                                         cell.timelineTimeLabel.frame.size.width,
                                                         cell.timelineTimeLabel.frame.size.height)];
+            NSTimeInterval todayDiff = [[NSDate date] timeIntervalSinceNow];
+            NSTimeInterval postDateDiff = [(NSDate*)messageAtIndex.date timeIntervalSinceNow];
+            NSTimeInterval dateDiff = todayDiff - postDateDiff;
+            
+            if (round(dateDiff/(3600*24))<1) {
+                [formatter setDateFormat:@"HH:mm"];
+                cell.timelineTimeLabel.text=[formatter stringFromDate:(NSDate*)messageAtIndex.date];
+            }
+            else if (round(dateDiff)/(3600)<24*7){
+                cell.timelineTimeLabel.text=@"yest";
+            }
+            else if (round(dateDiff)/(3600)<24*7){
+                cell.timelineTimeLabel.text=[[@(round(round(dateDiff)/(3600*24))) stringValue] stringByAppendingString:@"d ago"] ;
+            }
+            else{
+                [formatter setDateStyle:NSDateFormatterMediumStyle];
+                [formatter setDateFormat:@"MMM, dd"];
+                cell.timelineTimeLabel.text=[formatter stringFromDate:(NSDate*)messageAtIndex.date];
+            }
             
             if (url) {
                 
@@ -348,13 +383,7 @@
                 [self setRoundedView:cell.memberProfilePicImage picture:cell.memberProfilePicImage.image toDiameter:35];
             }
             
-            
-            [formatter setDateFormat:@"HH:mm"];
-            cell.timelineTimeLabel.text=[formatter stringFromDate:(NSDate*)messageAtIndex.date];
-            
-            
             [cell.memberProfilePicImage setFrame:CGRectMake(10,(int) sze.height-10, 35, 35)];
-            
             
             return cell;
         }
