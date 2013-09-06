@@ -366,14 +366,15 @@
         //calculate share (to be done with nspredicate - waiting for it to be displayed) /Jules
         NSNumber *share = @-1;
         
-        Expense *expense = [[Expense alloc] initWithName:self.expenseName.text
-                                                  amount:formattedAmount
-                                                   owner:self.selectedExpenseOwner
-                                                    date:today
-                                                 members:selectedMembers
-                                                  author:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"]
-                                               addedDate:today
-                                                   share:share
+        Expense *expense = [[Expense alloc] initWithIdentifier:@-1
+                                                          name:self.expenseName.text
+                                                        amount:formattedAmount
+                                                         owner:self.selectedExpenseOwner
+                                                          date:today
+                                                       members:selectedMembers
+                                                        author:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"]
+                                                     addedDate:today
+                                                         share:share
                             ];
         
         self.expense = expense;
@@ -407,14 +408,15 @@
                                            NSTimeInterval interval1 = [response[@"date"] doubleValue];
                                            NSTimeInterval interval2 = [response[@"addedDate"] doubleValue];
                                            
-                                           Expense *expense = [[Expense alloc] initWithName:response[@"name"]
-                                                                                     amount:formattedAmount
-                                                                                      owner:response[@"owner"]
-                                                                                       date:[NSDate dateWithTimeIntervalSince1970:interval1]
-                                                                                    members:response[@"members"]
-                                                                                     author:response[@"author"]
-                                                                                  addedDate:[NSDate dateWithTimeIntervalSince1970:interval2]
-                                                                                      share:response[@"share"]
+                                           Expense *expense = [[Expense alloc] initWithIdentifier:response[@"id"]
+                                                                                             name:response[@"name"]
+                                                                                           amount:formattedAmount
+                                                                                            owner:response[@"owner"]
+                                                                                             date:[NSDate dateWithTimeIntervalSince1970:interval1]
+                                                                                          members:response[@"members"]
+                                                                                           author:response[@"author"]
+                                                                                        addedDate:[NSDate dateWithTimeIntervalSince1970:interval2]
+                                                                                            share:response[@"share"]
                                                                ];
                                            
                                            self.expense = expense;

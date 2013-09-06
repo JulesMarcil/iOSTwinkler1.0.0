@@ -33,6 +33,7 @@
     [super awakeFromNib];
     self.expenseDataController = [[ExpenseDataController alloc] init];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addExpense:) name:@"expenseAddedSuccesfully" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeExpense:) name:@"expenseRemovedSuccesfully" object:nil];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -90,6 +91,15 @@
     
     Expense *expense = [[note userInfo] valueForKey:@"expense"];
     [self.expenseDataController addExpenseWithExpense:expense atIndex:0];
+    [self.expenseListTable reloadData];
+}
+
+- (void) removeExpense:(NSNotification *)note{
+    
+    NSLog(@"remove expense function called");
+    
+    Expense *expense = [[note userInfo] valueForKey:@"expense"];
+    [self.expenseDataController removeExpenseWithExpense:expense];
     [self.expenseListTable reloadData];
 }
 
@@ -197,6 +207,7 @@
         NSIndexPath *indexPath = [self.expenseListTable indexPathForCell:sender];
         Expense *expenseAtIndex = [self.expenseDataController objectInListAtIndex:indexPath.row];
         ExpenseDetailViewController *edvc = [segue destinationViewController];
+        edvc.indexPath = indexPath;
         edvc.expense = expenseAtIndex;
     }
 }

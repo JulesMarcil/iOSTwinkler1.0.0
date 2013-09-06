@@ -52,14 +52,15 @@
                                           NSTimeInterval interval1 = [key[@"date"] doubleValue];
                                           NSTimeInterval interval2 = [key[@"addedDate"] doubleValue];
                                           
-                                          Expense *expense = [[Expense alloc] initWithName:key[@"name"]
-                                                                                    amount:formattedAmount
-                                                                                     owner:key[@"owner"]
-                                                                                      date:[NSDate dateWithTimeIntervalSince1970:interval1]
-                                                                                   members:key[@"members"]
-                                                                                    author:key[@"author"]
-                                                                                 addedDate:[NSDate dateWithTimeIntervalSince1970:interval2]
-                                                                                     share:key[@"share"]
+                                          Expense *expense = [[Expense alloc] initWithIdentifier:key[@"id"]
+                                                                                            name:key[@"name"]
+                                                                                          amount:formattedAmount
+                                                                                           owner:key[@"owner"]
+                                                                                            date:[NSDate dateWithTimeIntervalSince1970:interval1]
+                                                                                         members:key[@"members"]
+                                                                                          author:key[@"author"]
+                                                                                       addedDate:[NSDate dateWithTimeIntervalSince1970:interval2]
+                                                                                           share:key[@"share"]
                                                               ];
                                           
                                           [self addExpenseWithExpense:expense];
@@ -98,6 +99,10 @@
 
 - (void) addExpenseWithExpense:(Expense *)expense atIndex:(NSUInteger)index {
     [self.expenseList insertObject:expense atIndex:index];
+}
+
+- (void) removeExpenseWithExpense:(Expense *)expense {
+    [self.expenseList removeObject:expense];
 }
 
 @end

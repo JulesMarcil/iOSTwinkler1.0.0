@@ -11,9 +11,10 @@
 @implementation Expense
 
 
--(id)initWithName:(NSString *)name amount:(NSNumber *)amount owner:(NSDictionary *)owner date:(NSDate *)date members:(NSArray *)members author:(NSString *)author addedDate:(NSDate *)addedDate share:(NSNumber *)share {
+-(id)initWithIdentifier:(NSNumber *)identifier name:(NSString *)name amount:(NSNumber *)amount owner:(NSDictionary *)owner date:(NSDate *)date members:(NSArray *)members author:(NSString *)author addedDate:(NSDate *)addedDate share:(NSNumber *)share {
     self=[super init];
     if(self){
+        _identifier=identifier;
         _name = name;
         _amount = amount;
         _owner = owner;
