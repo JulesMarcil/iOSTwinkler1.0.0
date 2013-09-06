@@ -22,6 +22,17 @@
 {
     [super viewDidLoad];
     
+    if (self.group) {
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"AddGroupStoryboard" bundle:nil];
+        GroupMemberViewController *gmvc = (GroupMemberViewController *)[storyboard instantiateViewControllerWithIdentifier:@"AddMemberViewController"];
+        gmvc.group = self.group;
+        gmvc.memberArray = [[NSMutableArray alloc] initWithArray:self.group.members];
+        gmvc.hideBack = YES;
+        [gmvc.memberTableView reloadData];
+        [self.navigationController pushViewController:gmvc animated:NO];
+    }
+    
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     
     NSDictionary *Euro = [[NSDictionary alloc] initWithObjectsAndKeys:@"Euro", @"name", @"€", @"symbol", @1, @"id", nil];
@@ -67,20 +78,6 @@
                                                  screenRect.size.height-frame.size.height-40,
                                                  frame.size.width,
                                                  frame.size.height)];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    
-    if (self.group) {
-        NSLog(@"group detected");
-        
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"AddGroupStoryboard" bundle:nil];
-        GroupMemberViewController *gmvc = (GroupMemberViewController *)[storyboard instantiateViewControllerWithIdentifier:@"AddMemberViewController"];
-        gmvc.group = self.group;
-        gmvc.memberArray = [[NSMutableArray alloc] initWithArray:self.group.members];
-        [gmvc.memberTableView reloadData];
-        [self.navigationController pushViewController:gmvc animated:NO];
-    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -210,6 +207,7 @@
         
         GroupMemberViewController *gmvc = [segue destinationViewController];
         gmvc.group = group;
+        gmvc.hideBack = NO;
         gmvc.memberArray = [[NSMutableArray alloc] initWithArray:group.members];
     }
 }

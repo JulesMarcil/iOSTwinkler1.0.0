@@ -17,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *groupName;
 @property (weak, nonatomic) IBOutlet UIPickerView *currencyPicker;
 @property (weak, nonatomic) IBOutlet UILabel *currentCurrency;
-@property (weak, nonatomic) Group *group;
+@property (strong, nonatomic) Group *group;
 @property (weak, nonatomic) NSDictionary *selectedCurrency;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;

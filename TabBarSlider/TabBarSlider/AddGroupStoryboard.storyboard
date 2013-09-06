@@ -359,7 +359,7 @@
                                         <color key="textColor" red="0.24313725489999999" green="0.2666666667" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="47w-eD-cMh">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="47w-eD-cMh">
                                         <rect key="frame" x="5" y="9" width="35" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -382,6 +382,7 @@
                     <navigationItem key="navigationItem" title="Add Members" id="v5J-ly-pE9"/>
                     <connections>
                         <outlet property="actionBarContainer" destination="I0c-br-Npn" id="CK0-cB-fmM"/>
+                        <outlet property="backButton" destination="47w-eD-cMh" id="PYn-iC-mZz"/>
                         <outlet property="cancelButton" destination="Rir-Da-ug8" id="SYd-PX-dCp"/>
                         <outlet property="groupNameTextField" destination="SRM-ra-UWQ" id="hKk-oF-cze"/>
                         <outlet property="memberNameTextField" destination="Qxv-35-VaN" id="O37-qd-hqF"/>
@@ -734,63 +735,6 @@
         <image name="profile-pic-placeholder.png" width="113" height="111"/>
         <image name="remove-button.png" width="25" height="25"/>
     </resources>
-    <classes>
-        <class className="AddGroupViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddGroupViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="nextButton:"/>
-                <relationship kind="action" name="showPicker:"/>
-                <relationship kind="outlet" name="actionBarContainer" candidateClass="UIView"/>
-                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="currencyPicker" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="currentCurrency" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="groupName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="groupNameContainer" candidateClass="UIView"/>
-                <relationship kind="outlet" name="nextButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="AddMemberCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddMemberCell.h"/>
-            <relationships>
-                <relationship kind="action" name="memberAction:"/>
-                <relationship kind="outlet" name="memberButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="memberProfilePic" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="GroupMemberViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GroupMemberViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButton:"/>
-                <relationship kind="action" name="dismissKeyboard:"/>
-                <relationship kind="action" name="doneButton:"/>
-                <relationship kind="action" name="manualAddMember:"/>
-                <relationship kind="outlet" name="actionBarContainer" candidateClass="UIView"/>
-                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="groupNameTextField" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="memberNameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="memberSuggestionTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="memberTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="nextButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="searchTextField" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="InviteViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InviteViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="shareViaEmail:"/>
-                <relationship kind="action" name="shareViaFacebook:"/>
-                <relationship kind="action" name="shareViaSMS:"/>
-                <relationship kind="outlet" name="doneButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="linkContainer" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="linkLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="shareEmailButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="shareFacebookButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="shareSMSButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

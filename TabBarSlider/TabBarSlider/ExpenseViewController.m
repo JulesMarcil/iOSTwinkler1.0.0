@@ -32,6 +32,7 @@
 {
     [super awakeFromNib];
     self.expenseDataController = [[ExpenseDataController alloc] init];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addExpense:) name:@"expenseAddedSuccesfully" object:nil];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -83,6 +84,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) addExpense:(NSNotification *)note{
+    
+    NSLog(@"add expense function called");
+    
+    Expense *expense = [[note userInfo] valueForKey:@"expense"];
+    [self.expenseDataController addExpenseWithExpense:expense];
+    [self.expenseListTable reloadData];
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -93,7 +103,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"datacontroller 1 = %@", self.expenseDataController);
     
     static NSString *CellIdentifier = @"expenseCell";
     static NSDateFormatter *formatter = nil;
@@ -127,7 +136,6 @@
     if(url) {
         
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        NSLog(@"%@", url);
         
         [cell.memberProfilePic setImageWithURLRequest:request
                                      placeholderImage:[UIImage imageNamed:@"profile-pic.png"]
@@ -173,61 +181,7 @@
 
 
 - (IBAction)addExpenseButton:(id)sender {
-}
-
-- (IBAction)doneAddMember:(UIStoryboardSegue *)segue {
-    {
-        if ([[segue identifier] isEqualToString:@"ReturnInput"]) {
-            AddExpenseViewController *addController = [segue sourceViewController];
-            if (addController.expense) {
-                
-                //create selected member ids array
-                NSMutableArray *selectedIds = [[NSMutableArray alloc] init];
-                for(NSDictionary *member in addController.expense.members){
-                    [selectedIds addObject:member[@"id"]];
-                }
-                
-                
-                // initialize the request parameters
-                NSString *currentGroupId = [[NSUserDefaults standardUserDefaults] stringForKey:@"currentGroupId"];
-                NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:
-                                            addController.expense.name, @"name",
-                                            addController.expense.amount, @"amount",
-                                            currentGroupId, @"currentGroupId",
-                                            addController.selectedExpenseOwner[@"id"], @"owner_id",
-                                            selectedIds, @"member_ids",
-                                            [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"id"], @"author_id",
-                                            nil];
-                
-                AuthAPIClient *client = [AuthAPIClient sharedClient];
-                
-                NSMutableURLRequest *request = [client requestWithMethod:@"POST"
-                                                                    path:@"group/app/expenses"
-                                                              parameters:parameters];
-                
-                //Add your request object to an AFHTTPRequestOperation
-                AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc]
-                                                     initWithRequest:request];
-                
-                [client registerHTTPOperationClass:[AFHTTPRequestOperation class]];
-                
-                [operation setCompletionBlockWithSuccess:
-                 ^(AFHTTPRequestOperation *operation, id responseObject) {
-                     NSString *response = [operation responseString];
-                     NSLog(@"response: %@",response);
-                     [self.expenseListTable reloadData];
-                 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                     NSLog(@"error: %@", [operation error]);
-                 }];
-                
-                //call start on your request operation
-                [operation start];
-                
-                [self.expenseDataController addExpenseWithExpense:addController.expense];
-            }
-            [self dismissViewControllerAnimated:YES completion:NULL];
-        }
-    }
+    // to be kept for link to storyboard ...
 }
 
 - (IBAction)cancelAddMember:(UIStoryboardSegue *)segue{

@@ -20,7 +20,9 @@
 @property (strong, nonatomic) NSMutableArray *memberArray;
 @property (strong, nonatomic) NSMutableArray *friends;
 @property (strong, nonatomic) NSString *link;
+@property (nonatomic, assign) BOOL hideBack;
 @property (weak, nonatomic) IBOutlet UIView *actionBarContainer;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UIView *searchTextField;

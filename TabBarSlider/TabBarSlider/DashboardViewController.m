@@ -153,7 +153,6 @@
 - (IBAction)AddMemberAction:(id)sender {
     
     UINavigationController *navigationController = [[UIStoryboard storyboardWithName:@"AddGroupStoryboard" bundle:nil] instantiateInitialViewController];
-    AddGroupViewController *agvc = (AddGroupViewController *)[navigationController topViewController];
     
     Group *group = [[Group alloc] initWithName:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupName"]
                                     identifier:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupId"]
@@ -161,6 +160,7 @@
                                   activeMember:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"]
                                       currency:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"]];
     
+    AddGroupViewController *agvc = (AddGroupViewController *)[navigationController topViewController];
     agvc.group = group;
     
     [self presentViewController:navigationController animated:YES completion:nil];
