@@ -10,7 +10,6 @@
 #import "ListDataController.h"
 #import "List.h"
 #import "ItemListViewController.h"
-#import "AddItemListViewController.h"
 #import "TabBarViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "ListCell.h"
