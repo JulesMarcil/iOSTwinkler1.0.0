@@ -54,7 +54,7 @@
                                                        userInfo:nil
                                                         repeats:YES];
     
-    self.timelineView.backgroundColor=[UIColor colorWithRed:(240/255.0) green:(240/255.0) blue:(240/255.0) alpha:1];
+    self.timelineView.backgroundColor=[UIColor colorWithRed:(245/255.0) green:(245/255.0) blue:(245/255.0) alpha:1];
     
     //-------------Position----------------------------
     
@@ -212,7 +212,7 @@
         }
     }
     else{
-        return sz.height+80;
+        return sz.height+55;
     }
 }
 
@@ -380,13 +380,12 @@
         
         CGRect frame = cell.messageLabel.frame;
         cell.messageLabel.text=[NSString stringWithFormat:@"%@%@", messageAtIndex.owner,@" added an expense:" ];
-        frame.size.height = cell.messageLabel.contentSize.height+20;
+        frame.size.height = cell.messageLabel.frame.size.height+20;
         CGSize sz = [cell.messageLabel.text sizeWithFont:cell.messageLabel.font constrainedToSize:CGSizeMake(200, 20000) lineBreakMode:NSLineBreakByWordWrapping];
-        cell.messageLabel.editable = NO;
         cell.messageContainer.frame=frame;
         [cell.messageContainer setFrame:CGRectMake(10,10,
                                                    300,
-                                                   sz.height+50)];
+                                                   sz.height+30)];
         cell.messageContainer.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:0.8];
         
         NSDictionary *currency=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"];
