@@ -71,10 +71,8 @@
         
         NSError *error = nil;
         NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
-        NSLog(@"success: %@", response);
         
         [self.expenseList removeAllObjects];
-        
         self.balance = response[@"balance"];
         
         for(id key in response[@"expenses"]) {
@@ -96,6 +94,7 @@
             [self addExpenseWithExpense:expense];
         }
         [[NSNotificationCenter defaultCenter] postNotificationName:@"expensesWithJSONFinishedLoading" object:nil];
+        NSLog(@"expensesWithJSONFinishedLoading");
     }
     failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"error: %@",  operation.responseString);

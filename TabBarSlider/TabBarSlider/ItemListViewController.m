@@ -116,6 +116,10 @@
     return YES;
 }
 
+if ([self.itemInput.text length]) {
+    self.item = [[NSDictionary alloc] initWithObjectsAndKeys: @0, @"id", self.itemInput.text, @"name", @"incomplete", @"status", nil];
+}
+
 - (IBAction)doneAddItem:(UIStoryboardSegue *)segue {
     {
         if ([[segue identifier] isEqualToString:@"ReturnInput"]) {

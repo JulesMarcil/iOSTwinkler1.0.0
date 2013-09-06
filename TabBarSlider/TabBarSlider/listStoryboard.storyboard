@@ -186,62 +186,6 @@
             </objects>
             <point key="canvasLocation" x="2286" y="478"/>
         </scene>
-        <!--Add Item List View Controller - Add a New Item-->
-        <scene sceneID="Goa-XS-N7W">
-            <objects>
-                <viewController id="opc-b5-qrV" customClass="AddItemListViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hCa-3T-NR7">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="NNi-zd-dBs">
-                                <rect key="frame" x="28" y="140" width="272" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Add a New Item" id="G6j-L4-VgV">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="KGF-wf-t6d">
-                            <connections>
-                                <segue destination="6WC-IM-cL3" kind="unwind" identifier="CancelInput" unwindAction="cancelAddItem:" id="nfN-Ma-IH2"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="bsO-3J-X7s">
-                            <connections>
-                                <segue destination="6WC-IM-cL3" kind="unwind" identifier="ReturnInput" unwindAction="doneAddItem:" id="2tD-EF-qEM"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="itemInput" destination="NNi-zd-dBs" id="bvY-gJ-oDF"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bnq-xr-NsQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="6WC-IM-cL3" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="2747" y="1039"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="wnT-fZ-8NP">
-            <objects>
-                <navigationController id="WdF-DY-wnw" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="e6S-Xp-P0a">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="opc-b5-qrV" kind="relationship" relationship="rootViewController" id="gcz-PJ-50Y"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="R4F-Ae-OBm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2221" y="1039"/>
-        </scene>
     </scenes>
     <resources>
         <image name="add-expense-bckgd.png" width="320" height="460"/>
@@ -249,12 +193,6 @@
         <image name="right-arrow.png" width="20" height="20"/>
     </resources>
     <classes>
-        <class className="AddItemListViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddItemListViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="itemInput" candidateClass="UITextField"/>
-            </relationships>
-        </class>
         <class className="ItemListViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemListViewController.h"/>
             <relationships>

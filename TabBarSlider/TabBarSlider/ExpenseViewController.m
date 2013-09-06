@@ -50,6 +50,8 @@
 {
     [super viewDidLoad];
     
+    [self setBalanceLabelValue:self.expenseDataController.balance];
+    
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenHeight = screenRect.size.height;
     
@@ -79,13 +81,23 @@
 
 - (void)dataRetrieved {
     [self.expenseListTable reloadData];
-    self.balanceLabel.text = [NSString stringWithFormat:@"%@ %@", self.expenseDataController.balance, [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"][@"symbol"]];
+    [self setBalanceLabelValue:self.expenseDataController.balance];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+// data management function
+- (void) setBalanceLabelValue:(NSNumber *)balance {
+    
+    if ([balance intValue] > 0) {
+        self.balanceLabel.text = [NSString stringWithFormat:@"+%@ %@", balance, [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"][@"symbol"]];
+    } else {
+        self.balanceLabel.text = [NSString stringWithFormat:@"%@ %@", balance, [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"][@"symbol"]];
+    }
 }
 
 - (void) addExpense:(NSNotification *)note{
@@ -105,6 +117,7 @@
     [self.expenseDataController removeExpenseWithExpense:expense];
     [self.expenseListTable reloadData];
 }
+// end of data management function
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
