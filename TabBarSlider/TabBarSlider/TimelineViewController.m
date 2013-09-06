@@ -10,6 +10,7 @@
 #import "ExpandableNavigation.h"
 #import "TabBarViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import <math.h>
 #import "AuthAPIClient.h"
 #import "AFHTTPRequestOperation.h"
 #import "UIImageView+AFNetworking.h"
@@ -200,7 +201,15 @@
     CGSize sz = [messageAtIndex.body sizeWithFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:14.0]constrainedToSize:CGSizeMake(200, 20000) lineBreakMode:NSLineBreakByWordWrapping];
     
     if	([messageAtIndex.type isEqual:@"message"]){
-        return sz.height+36;
+        
+        NSString *currentMemberName=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"];
+        
+        if ([currentMemberName isEqualToString:messageAtIndex.author]){
+            return sz.height+36;
+        }
+        else{
+            return sz.height+42;
+        }
     }
     else{
         return sz.height+80;
@@ -216,7 +225,7 @@
     
     
     if	([messageAtIndex.type isEqual:@"message"]){
-
+        
         if ([currentMemberName isEqualToString:messageAtIndex.author]){
             
             static NSString *CellIdentifier = @"myMessageCell";
@@ -279,13 +288,19 @@
             
             cell.messageLabel.text=messageAtIndex.body;
             
+            
+            cell.memberNameLabel.text=messageAtIndex.author;
+            [cell.memberNameLabel setFrame:CGRectMake(8,0, cell.memberNameLabel.frame.size.width,cell.memberNameLabel.frame.size.height)];
+            
+            CGSize szeName = [cell.memberNameLabel.text sizeWithFont:cell.memberNameLabel.font constrainedToSize:CGSizeMake(190, 20000) lineBreakMode:NSLineBreakByWordWrapping];
+            
             CGRect frame = cell.messageLabel.frame;
             frame.size.height = cell.messageLabel.contentSize.height+20;
-            CGSize sze = [cell.messageLabel.text sizeWithFont:cell.messageLabel.font constrainedToSize:CGSizeMake(200, 20000) lineBreakMode:NSLineBreakByWordWrapping];
+            CGSize sze = [cell.messageLabel.text sizeWithFont:cell.messageLabel.font constrainedToSize:CGSizeMake(190, 20000) lineBreakMode:NSLineBreakByWordWrapping];
             cell.messageLabel.editable = NO;
             
             cell.messageContainer.frame=frame;
-            [cell.messageContainer setFrame:CGRectMake(70,10, sze.width+20, sze.height+20)];
+            [cell.messageContainer setFrame:CGRectMake(70,10, fmax(sze.width+20,szeName.width+20), sze.height+25)];
             cell.messageContainer.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:1];
             
             cell.bubbleTailImage.alpha=1;
@@ -311,7 +326,7 @@
             
             NSLog(@"%ul",(int) sze.height-10);
             
-            [cell.timelineTimeLabel setFrame:CGRectMake(sze.width+25+70,sze.height+5,
+            [cell.timelineTimeLabel setFrame:CGRectMake(fmax(sze.width,szeName.width)+25+70,sze.height+5,
                                                         cell.timelineTimeLabel.frame.size.width,
                                                         cell.timelineTimeLabel.frame.size.height)];
             
@@ -340,7 +355,7 @@
             
             [cell.memberProfilePicImage setFrame:CGRectMake(10,(int) sze.height-10, 35, 35)];
             
-            NSLog(@"%f",cell.memberProfilePicImage.frame.origin.y);
+            
             return cell;
         }
         

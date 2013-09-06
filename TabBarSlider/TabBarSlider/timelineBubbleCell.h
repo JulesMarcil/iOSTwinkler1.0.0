@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *timelineTimeLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *bubbleTailImage;
 @property (weak, nonatomic) IBOutlet UIImageView *memberProfilePicImage;
+@property (weak, nonatomic) IBOutlet UILabel *memberNameLabel;
 
 @end
