@@ -111,6 +111,8 @@
     NSArray* buttons = [NSArray arrayWithObjects:button1, button2, button3, button4, nil];
     
     self.navigation = [[ExpandableNavigation alloc] initWithMenuItems:buttons mainButton:self.main radius:120.0];
+    
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -587,7 +589,7 @@
     NSIndexPath* ipath = [NSIndexPath indexPathForRow: [self.messageOnTimeline numberOfRowsInSection:0]-1 inSection: 0];
     [self.messageOnTimeline scrollToRowAtIndexPath: ipath atScrollPosition: UITableViewScrollPositionTop animated: NO];
     
-
+    
     return NO;
 }
 
@@ -595,12 +597,47 @@
 
 - (void) textFieldDidBeginEditing:(UITextField *)myTextField
 {
-
+    
+    [UIView animateWithDuration:0.1 delay:0.0 options:UIViewAnimationOptionCurveLinear animations:^{
+        
+        [UIView setAnimationRepeatCount:3];
+        CGAffineTransform transform = CGAffineTransformMakeRotation(M_PI);
+        self.main.transform = transform;
+    } completion:^(BOOL finished){
+        
+    }];
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        [UIView setAnimationDelay:0.0];
+        self.main.alpha = 0.0;}];
+    [UIView animateWithDuration:0.1 delay:0.0 options:UIViewAnimationOptionCurveLinear animations:^{
+        
+        [UIView setAnimationRepeatCount:3];
+        CGAffineTransform transform = CGAffineTransformMakeRotation(M_PI);
+        self.smiley.transform = transform;
+    } completion:^(BOOL finished){
+        
+    }];
+    
     [self animateTextField:myTextField up:YES];
 }
 
 - (void) textFieldDidEndEditing:(UITextField *)myTextField
 {
+    [UIView animateWithDuration:0.1 delay:0.0 options:UIViewAnimationOptionRepeat | UIViewAnimationOptionCurveLinear animations:^{
+        CGAffineTransform transform = CGAffineTransformMakeRotation(-M_PI);
+        self.smiley.transform = transform;
+    } completion:NULL];
+    [UIView animateWithDuration:0.3 animations:^{
+        self.main.alpha = 1.0;}];
+    [UIView animateWithDuration:0.1 delay:0.0 options:UIViewAnimationOptionCurveLinear animations:^{
+        
+        [UIView setAnimationRepeatCount:3];
+        CGAffineTransform transform = CGAffineTransformMakeRotation(-M_PI);
+        self.main.transform = transform;
+    } completion:^(BOOL finished){
+        
+    }];
     [self animateTextField:myTextField up:NO];
 }
 
@@ -610,7 +647,7 @@
     
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationBeginsFromCurrentState:YES];
-    [UIView setAnimationDuration:0.3f];
+    [UIView setAnimationDuration:0.2f];
     self.view.superview.superview.frame = CGRectOffset(self.view.superview.superview.frame, 0, movement);
     [UIView commitAnimations];
 }
@@ -674,26 +711,5 @@
     [self.navigation collapse];
 }
 
-- (IBAction)smileyButton:(id)sender {
-    
-    [UIView animateWithDuration:0.1 delay:0.0 options:UIViewAnimationOptionRepeat | UIViewAnimationOptionCurveLinear animations:^{
-        CGAffineTransform transform = CGAffineTransformMakeRotation(M_PI);
-        self.main.transform = transform;
-    } completion:NULL];
-    [UIView animateWithDuration:1.0 animations:^{self.main.alpha = 0.0;}];
-    [UIView animateWithDuration:0.1 delay:0.0 options:UIViewAnimationOptionCurveLinear animations:^{
-        CGAffineTransform transform = CGAffineTransformMakeRotation(M_PI);
-        self.smiley.transform = transform;
-    } completion:^(BOOL finished){
-        
-    }];
-    
-    
-    
-    
-    
-    
-
-}
 
 @end
