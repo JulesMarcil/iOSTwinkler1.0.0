@@ -89,7 +89,7 @@
     NSLog(@"add expense function called");
     
     Expense *expense = [[note userInfo] valueForKey:@"expense"];
-    [self.expenseDataController addExpenseWithExpense:expense];
+    [self.expenseDataController addExpenseWithExpense:expense atIndex:0];
     [self.expenseListTable reloadData];
 }
 

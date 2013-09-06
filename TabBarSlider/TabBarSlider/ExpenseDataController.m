@@ -96,4 +96,8 @@
     [self.expenseList addObject:expense];
 }
 
+- (void) addExpenseWithExpense:(Expense *)expense atIndex:(NSUInteger)index {
+    [self.expenseList insertObject:expense atIndex:index];
+}
+
 @end
