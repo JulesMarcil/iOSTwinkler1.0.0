@@ -118,6 +118,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addItem:" destination="shz-zT-81T" eventType="touchUpInside" id="fsh-e1-j7i"/>
+                                        </connections>
                                     </button>
                                     <view alpha="0.40000000596046448" contentMode="scaleToFill" id="rKO-iA-sZ9">
                                         <rect key="frame" x="220" y="10" width="1" height="30"/>
@@ -159,7 +162,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="backToList:" destination="shz-zT-81T" eventType="touchUpInside" id="pMJ-r5-1mR"/>
+                                    <action selector="backToLists:" destination="shz-zT-81T" eventType="touchUpInside" id="nbd-pU-Koe"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xPV-fo-aQK">
@@ -176,6 +179,7 @@
                     <connections>
                         <outlet property="addItemButton" destination="uLT-BT-WVe" id="XyJ-4H-HxM"/>
                         <outlet property="backgroundImage" destination="UU8-DQ-mvo" id="zvv-Qh-Z1u"/>
+                        <outlet property="itemInput" destination="1ba-Ud-qCQ" id="4ft-5Y-Zk1"/>
                         <outlet property="itemListTableView" destination="Y35-Xx-f2T" id="aql-bC-4gc"/>
                         <outlet property="listNameLabel" destination="xPV-fo-aQK" id="9ka-uO-bJA"/>
                         <outlet property="textFieldContainer" destination="bfh-gq-znH" id="vZq-Jr-SI0"/>
@@ -192,39 +196,6 @@
         <image name="left-arrow.png" width="11" height="23"/>
         <image name="right-arrow.png" width="20" height="20"/>
     </resources>
-    <classes>
-        <class className="ItemListViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemListViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backToList:"/>
-                <relationship kind="action" name="cancelAddItem:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="doneAddItem:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="outlet" name="addItemButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="backgroundImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="itemListTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="listNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="textFieldContainer" candidateClass="UIView"/>
-                <relationship kind="outlet" name="viewContainer" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="ListCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ListCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="itemNumberLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="listTitleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="viewContainer" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="ListViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ListViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="listOnLists" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="UIStoryboardSegue" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

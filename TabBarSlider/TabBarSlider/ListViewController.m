@@ -35,6 +35,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"lists view did load");
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenHeight = screenRect.size.height;
     CGRect frame= [self.listOnLists frame];
@@ -112,8 +113,6 @@
     return cell;
 }
 
-
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if([segue.identifier isEqualToString:@"itemListSegue"]){
         NSIndexPath *indexPath = [self.listOnLists indexPathForCell:sender];
@@ -125,14 +124,11 @@
     }
 }
 
-
-
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
     return NO;
 }
-
 
 -(void)goToTimeline{
     UIStoryboard *timelineStoryboard=[UIStoryboard storyboardWithName:@"timelineStoryboard" bundle:nil];

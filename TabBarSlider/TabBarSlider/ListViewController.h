@@ -16,5 +16,4 @@
 @property (nonatomic, strong) UITableView *listOnLists;
 @property (nonatomic, strong) ListDataController *listDataController;
 
-
 @end
