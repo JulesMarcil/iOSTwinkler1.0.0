@@ -122,11 +122,15 @@
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                       NSError *error = nil;
                                       NSArray *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                                      NSLog(@"response = %@", response);
                                       
                                       int n = response.count;
+                                      NSLog(@"response count = %ul", n);
+                                      int m = self.messageDataController.countOfList;
+                                      NSLog(@"controller count = %u", m);
                                       
-                                      NSUInteger diff = n - self.messageDataController.countOfList;
-                                      //NSLog(@"diff = %u",diff);
+                                      int diff = n - m;
+                                      NSLog(@"diff = %u", diff);
                                       
                                       if (diff > 0){
                                           
@@ -456,8 +460,6 @@
     }
     tbvc.currentViewController =dst;
     [tbvc.placeholderView addSubview:dst.view];
-    
-    
     
     CATransition *animation = [CATransition animation];
     [animation setDuration:0.3];
