@@ -108,10 +108,18 @@
     cell.nameLabel.text = memberAtIndex[@"name"];
     
     NSDictionary *currency=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"];
-    cell.balanceLabel.text = [NSString stringWithFormat:@"%@ %@", [memberAtIndex[@"balance"] stringValue],currency[@"symbol"]];
-    if ([memberAtIndex[@"balance"] doubleValue] > 0) {
+    NSNumberFormatter *format = [[NSNumberFormatter alloc]init];
+    [format setNumberStyle:NSNumberFormatterDecimalStyle];
+    [format setRoundingMode:NSNumberFormatterRoundHalfUp];
+    [format setMaximumFractionDigits:2];
+    NSNumber *balance = [NSNumber numberWithFloat:[memberAtIndex[@"balance"] floatValue]];
+    
+    cell.balanceLabel.text = [NSString stringWithFormat:@"%@ %@", [balance stringValue] ,currency[@"symbol"]];
+    
+    
+    if ([balance doubleValue]> 0) {
         cell.balanceLabel.textColor = [UIColor colorWithRed:(116/255.0) green:(178/255.0) blue:(20/255.0) alpha: 1];
-    } else if ([memberAtIndex[@"balance"] doubleValue] < 0) {
+    } else if ([balance doubleValue] < 0) {
         cell.balanceLabel.textColor = [UIColor colorWithRed:(202/255.0) green:(73/255.0) blue:(60/255.0) alpha: 1];
     } else {
         cell.balanceLabel.textColor = [UIColor colorWithRed:(60/255.0) green:(60/255.0) blue:(60/255.0) alpha: 1];

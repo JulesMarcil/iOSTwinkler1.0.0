@@ -128,15 +128,14 @@
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                       NSError *error = nil;
                                       NSArray *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
-                                      NSLog(@"response = %@", response);
                                       
                                       int n = response.count;
-                                      NSLog(@"response count = %ul", n);
+                                      //NSLog(@"response count = %ul", n);
                                       int m = self.messageDataController.countOfList;
-                                      NSLog(@"controller count = %u", m);
+                                      //NSLog(@"controller count = %u", m);
                                       
                                       int diff = n - m;
-                                      NSLog(@"diff = %u", diff);
+                                      //NSLog(@"diff = %u", diff);
                                       
                                       if (diff > 0){
                                           
