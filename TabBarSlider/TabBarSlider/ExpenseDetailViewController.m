@@ -11,6 +11,7 @@
 #import "Expense.h"
 #import "UIImageView+AFNetworking.h"
 #import "AuthAPIClient.h"
+#import "AddMemberCell.h"
 
 @interface ExpenseDetailViewController ()
 
@@ -48,14 +49,14 @@
         NSLog(@"%@", url);
         
         [self.ownerPic setImageWithURLRequest:request
-                                     placeholderImage:[UIImage imageNamed:@"profile-pic.png"]
-                                              success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                                  self.ownerPic.image = image;
-                                                  [self.ownerPic setFrame:CGRectMake(19,14,35,35)];
-                                                  [self setRoundedView:self.ownerPic picture:self.ownerPic.image toDiameter:35.0];
-                                              }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-                                                  NSLog(@"Failed with error: %@", error);
-                                              }];
+                             placeholderImage:[UIImage imageNamed:@"profile-pic.png"]
+                                      success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                          self.ownerPic.image = image;
+                                          [self.ownerPic setFrame:CGRectMake(19,14,35,35)];
+                                          [self setRoundedView:self.ownerPic picture:self.ownerPic.image toDiameter:35.0];
+                                      }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                          NSLog(@"Failed with error: %@", error);
+                                      }];
     }
     
     [self.ownerPic setFrame:CGRectMake(19,82,35,35)];
@@ -63,14 +64,14 @@
     
     //set labels
     self.expenseNameLabel.text = self.expense.name;
- 
+    
     NSDictionary *currency=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"];
     static NSDateFormatter *formatter = nil;
     if (formatter == nil) {
         formatter = [[NSDateFormatter alloc] init];
         [formatter setDateStyle:NSDateFormatterMediumStyle];
     }
-
+    
     self.expenseOwnerLabel.text = [NSString stringWithFormat:@"%@ paid %@ %@",self.expense.owner[@"name"], [self.expense.amount stringValue],currency[@"symbol"]];
     self.expenseDateLabel.text = [formatter stringFromDate:(NSDate *)self.expense.date];
     
@@ -90,20 +91,20 @@
     CGRect frame= [self.actionBarView frame];
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     [self.actionBarView setFrame:CGRectMake(frame.origin.x,
-                                                 screenRect.size.height-frame.size.height-50,
-                                                 frame.size.width,
-                                                 frame.size.height)];
-    
-    frame= [self.expenseAuthorLabel frame];
-    [self.expenseAuthorLabel setFrame:CGRectMake(frame.origin.x,
-                                            screenRect.size.height-frame.size.height-25,
+                                            screenRect.size.height-frame.size.height-50,
                                             frame.size.width,
                                             frame.size.height)];
     
+    frame= [self.expenseAuthorLabel frame];
+    [self.expenseAuthorLabel setFrame:CGRectMake(frame.origin.x,
+                                                 screenRect.size.height-frame.size.height-25,
+                                                 frame.size.width,
+                                                 frame.size.height)];
+    
     frame= [self.memberTableView frame];
     [self.memberTableView setFrame:CGRectMake(frame.origin.x,
-                                                 frame.size.height,
-                                                 frame.size.width,
+                                              165,
+                                              frame.size.width,
                                               176)];
     
     UIColor *borderColor = [UIColor colorWithRed:(200/255.0) green:(200/255.0) blue:(200/255.0) alpha:1] ;
@@ -139,24 +140,8 @@
 
 - (IBAction)deleteExpense:(id)sender {
     
-    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:self.expense.identifier, @"id", nil];
     
-    [[AuthAPIClient sharedClient] postPath:@"api/delete/expense"
-                                parameters:parameters
-                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                       NSError *error = nil;
-                                       NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
-                                       
-                                       NSLog(@"success: %@", response[@"message"]);
-                                       
-                                       NSDictionary *dictionary = [NSDictionary dictionaryWithObject:self.expense forKey:@"expense"];
-                                       [[NSNotificationCenter defaultCenter] postNotificationName:@"expenseRemovedSuccesfully" object:nil userInfo:dictionary];
-                                       [self dismissViewControllerAnimated:YES completion:nil];
-                                   }
-                                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                       NSLog(@"error: %@", error);
-                                   }];
-
+    [self showConfirmAlert];
     
     
 }
@@ -164,6 +149,101 @@
 - (IBAction)dismissDetail:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (void)showConfirmAlert
+{
+    UIAlertView *alert = [[UIAlertView alloc] init];
+    [alert setTitle:@"Please, confirm"];
+    [alert setMessage:@"Are you sure you want to delete this expense?"];
+    [alert setDelegate:self];
+    [alert addButtonWithTitle:@"Yes"];
+    [alert addButtonWithTitle:@"No"];
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0)
+    {
+        NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:self.expense.identifier, @"id", nil];
+        
+        [[AuthAPIClient sharedClient] postPath:@"api/delete/expense"
+                                    parameters:parameters
+                                       success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                           NSError *error = nil;
+                                           NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                                           
+                                           NSLog(@"success: %@", response[@"message"]);
+                                           
+                                           NSDictionary *dictionary = [NSDictionary dictionaryWithObject:self.expense forKey:@"expense"];
+                                           [[NSNotificationCenter defaultCenter] postNotificationName:@"expenseRemovedSuccesfully" object:nil userInfo:dictionary];
+                                           [self dismissViewControllerAnimated:YES completion:nil];
+                                       }
+                                       failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                           NSLog(@"error: %@", error);
+                                       }];
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    else if (buttonIndex == 1)
+    {
+        // No
+    }
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+    
+}
+
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.expense.members.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *CellIdentifier = @"memberCell";
+    AddMemberCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier];
+    
+    if (!cell) {
+        cell = (AddMemberCell*) [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
+                                                       reuseIdentifier:  CellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    
+    NSDictionary *memberAtIndex = [self.expense.members objectAtIndex:indexPath.row];
+    
+    cell.nameLabel.text = memberAtIndex[@"name"];
+    
+    NSString *path = memberAtIndex[@"picturePath"];
+    NSNumber *facebookId= [[[NSNumberFormatter alloc] init] numberFromString:path];
+    
+    NSURL *url;
+    if (facebookId) {
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=100&height=100", facebookId]];
+    } else if(![path isEqualToString:@"local"]) {
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", appBaseURL, path]];
+    }
+    
+    if(url) {
+        
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        
+        [cell.memberProfilePic setImageWithURLRequest:request
+                                     placeholderImage:[UIImage imageNamed:@"profile-pic.png"]
+                                              success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                                  cell.memberProfilePic.image = image;
+                                                  [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:25.0];
+                                              }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                                  NSLog(@"Failed with error: %@", error);
+                                              }];
+    }
+    
+    return cell;
+    
+}
+
 
 //----------DESIGN----------
 -(void) setRoundedView:(UIImageView *)imageView picture: (UIImage *)picture toDiameter:(float)newSize{

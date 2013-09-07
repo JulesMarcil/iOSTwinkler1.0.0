@@ -10,7 +10,7 @@
 
 @class Expense;
 
-@interface ExpenseDetailViewController : UIViewController
+@interface ExpenseDetailViewController : UIViewController <UITableViewDataSource, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIView *actionBarView;
 @property (weak, nonatomic) IBOutlet UILabel *expenseNameLabel;
