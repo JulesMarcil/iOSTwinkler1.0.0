@@ -114,7 +114,7 @@
     } else if ([memberAtIndex[@"balance"] doubleValue] < 0) {
         cell.balanceLabel.textColor = [UIColor colorWithRed:(202/255.0) green:(73/255.0) blue:(60/255.0) alpha: 1];
     } else {
-        cell.balanceLabel.textColor = [UIColor colorWithRed:100 green:100 blue:100 alpha:0.5];
+        cell.balanceLabel.textColor = [UIColor colorWithRed:(60/255.0) green:(60/255.0) blue:(60/255.0) alpha: 1];
     }
     
     cell.balanceContainerView.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha: 0.6];

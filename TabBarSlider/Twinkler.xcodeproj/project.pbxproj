@@ -103,6 +103,7 @@
 		89F7D7AF17DA5A48006BE7FD /* ListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F7D7AE17DA5A48006BE7FD /* ListCell.m */; };
 		89F7D7B117DA6052006BE7FD /* right-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F7D7B017DA6052006BE7FD /* right-arrow.png */; };
 		89F7D7B717DA91DD006BE7FD /* main-smiley.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F7D7B617DA91DD006BE7FD /* main-smiley.png */; };
+		89F7D7B917DAA23E006BE7FD /* Twinkler_star.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F7D7B817DAA23D006BE7FD /* Twinkler_star.png */; };
 		BA24D4C917B016CE0042C7A4 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4C417B016CE0042C7A4 /* List.m */; };
 		BA24D4CA17B016CE0042C7A4 /* ListDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4C617B016CE0042C7A4 /* ListDataController.m */; };
 		BA24D4CB17B016CE0042C7A4 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4C817B016CE0042C7A4 /* ListViewController.m */; };
@@ -271,6 +272,7 @@
 		89F7D7AE17DA5A48006BE7FD /* ListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListCell.m; sourceTree = "<group>"; };
 		89F7D7B017DA6052006BE7FD /* right-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow.png"; sourceTree = "<group>"; };
 		89F7D7B617DA91DD006BE7FD /* main-smiley.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main-smiley.png"; sourceTree = "<group>"; };
+		89F7D7B817DAA23D006BE7FD /* Twinkler_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twinkler_star.png; sourceTree = "<group>"; };
 		BA24D4C317B016CE0042C7A4 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
 		BA24D4C417B016CE0042C7A4 /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
 		BA24D4C517B016CE0042C7A4 /* ListDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListDataController.h; sourceTree = "<group>"; };
@@ -629,6 +631,7 @@
 				89F7D7A717D9F0BC006BE7FD /* member-icon-placeholder.png */,
 				89F7D7B017DA6052006BE7FD /* right-arrow.png */,
 				89F7D7B617DA91DD006BE7FD /* main-smiley.png */,
+				89F7D7B817DAA23D006BE7FD /* Twinkler_star.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -912,6 +915,7 @@
 				89F7D7AC17DA51E8006BE7FD /* timeline-line.png in Resources */,
 				89F7D7B117DA6052006BE7FD /* right-arrow.png in Resources */,
 				89F7D7B717DA91DD006BE7FD /* main-smiley.png in Resources */,
+				89F7D7B917DAA23E006BE7FD /* Twinkler_star.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

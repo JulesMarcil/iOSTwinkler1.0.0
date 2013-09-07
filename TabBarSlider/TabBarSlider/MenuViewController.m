@@ -162,7 +162,24 @@
     Group *groupAtIndex = [self.groupDataController
                            objectInListAtIndex:indexPath.row];
     cell.groupNameLabel.text=groupAtIndex.name;
-    cell.detailLabel.text=[NSString stringWithFormat:@"You and %d friends", groupAtIndex.members.count-1];
+    
+    switch (groupAtIndex.members.count) {
+        case 1:
+            
+            cell.detailLabel.text=@"You are alone :'(";
+            break;
+        case 2:
+            if(![groupAtIndex.members[0][@"name"] isEqual:groupAtIndex.activeMember[@"name"]]){
+            cell.detailLabel.text=[NSString stringWithFormat:@"You and %@", groupAtIndex.members[0][@"name"]];
+            }else{
+                cell.detailLabel.text=[NSString stringWithFormat:@"You and %@", groupAtIndex.members[1][@"name"]];
+            }
+            break;
+        default:
+            cell.detailLabel.text=[NSString stringWithFormat:@"You and %d friends", groupAtIndex.members.count-1];
+    }
+    
+    
     cell.dateLabel.text=@"Mon";
     cell.contentView.backgroundColor = [UIColor clearColor];
     
