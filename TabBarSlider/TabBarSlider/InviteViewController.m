@@ -56,6 +56,8 @@
     [self.linkContainer.layer  setBorderColor:borderColor.CGColor];
     [self.linkContainer.layer  setBorderWidth:1.0];
     
+
+    
     
 }
 
@@ -93,4 +95,5 @@
 
 - (IBAction)shareViaFacebook:(id)sender {
 }
+
 @end

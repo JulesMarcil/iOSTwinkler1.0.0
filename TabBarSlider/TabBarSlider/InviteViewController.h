@@ -13,8 +13,8 @@
 @interface InviteViewController : UIViewController <MFMessageComposeViewControllerDelegate>
 @property (strong, nonatomic) Group *group;
 @property (strong, nonatomic) NSString *link;
-@property (weak, nonatomic) IBOutlet UILabel *linkLabel;
-@property (weak, nonatomic) IBOutlet UILabel *linkContainer;
+@property (weak, nonatomic) IBOutlet UITextView *linkLabel;
+@property (weak, nonatomic) IBOutlet UIView *linkContainer;
 @property (weak, nonatomic) IBOutlet UIButton *shareSMSButton;
 @property (weak, nonatomic) IBOutlet UIButton *shareEmailButton;
 @property (weak, nonatomic) IBOutlet UIButton *shareFacebookButton;
