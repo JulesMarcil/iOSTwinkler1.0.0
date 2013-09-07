@@ -140,10 +140,7 @@
 
 - (IBAction)deleteExpense:(id)sender {
     
-    
     [self showConfirmAlert];
-    
-    
 }
 
 - (IBAction)dismissDetail:(id)sender {
@@ -165,25 +162,29 @@
 {
     if (buttonIndex == 0)
     {
-        NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:self.expense.identifier, @"id", nil];
+        NSDictionary *parameters = [NSDictionary dictionaryWithObjects:@[self.expense.identifier, [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"id"]]
+                                    forKeys:@[@"id", @"currentMemberId"]];
         
         [[AuthAPIClient sharedClient] postPath:@"api/delete/expense"
                                     parameters:parameters
                                        success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                            NSError *error = nil;
                                            NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                                           NSLog(@"success, new balance =  %@", response[@"balance"]);
                                            
-                                           NSLog(@"success: %@", response[@"message"]);
+                                           NSNumberFormatter *format = [[NSNumberFormatter alloc]init];
+                                           [format setNumberStyle:NSNumberFormatterDecimalStyle];
+                                           [format setRoundingMode:NSNumberFormatterRoundHalfUp];
+                                           [format setMaximumFractionDigits:2];
+                                           NSNumber *balance = [NSNumber numberWithFloat:[response[@"balance"] floatValue]];
                                            
-                                           NSDictionary *dictionary = [NSDictionary dictionaryWithObject:self.expense forKey:@"expense"];
+                                           NSDictionary *dictionary = [NSDictionary dictionaryWithObjects:@[self.expense, balance] forKeys:@[@"expense", @"balance"]];
                                            [[NSNotificationCenter defaultCenter] postNotificationName:@"expenseRemovedSuccesfully" object:nil userInfo:dictionary];
                                            [self dismissViewControllerAnimated:YES completion:nil];
                                        }
                                        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                            NSLog(@"error: %@", error);
                                        }];
-        
-        [self dismissViewControllerAnimated:YES completion:nil];
     }
     else if (buttonIndex == 1)
     {
