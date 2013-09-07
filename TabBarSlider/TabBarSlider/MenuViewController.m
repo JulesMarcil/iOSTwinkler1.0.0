@@ -53,6 +53,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(groupDataRetrieved) name:@"groupsWithJSONFinishedLoading" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(profileDataRetrieved) name:@"profileWithJSONFinishedLoading" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:@"doneAddMember" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeCurrentGroup) name:@"groupClosedSuccessfully" object:nil];
     if ([self.title isEqual: @"welcomeMenu"]){
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:@"loginSuccess" object:nil];
     }
@@ -148,6 +149,12 @@
                                     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                         NSLog(@"Failed with error: %@", error);
                                     }];
+}
+
+-(void) removeCurrentGroup {
+    NSIndexPath *indexPath = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupIndex"];
+    Group *group = [self.groupDataController objectInListAtIndex:indexPath.row];
+    [self.groupDataController removeGroupWithGroup:group];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -324,11 +331,13 @@
         UIStoryboard *mainStoryboard=[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         UIViewController *dst=[mainStoryboard instantiateInitialViewController];
         
+        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.activeMember forKey:@"currentMember"];
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.identifier forKey:@"currentGroupId"];
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.name forKey:@"currentGroupName"];
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.members forKey:@"currentGroupMembers"];
-        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.activeMember forKey:@"currentMember"];
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.currency forKey:@"currentGroupCurrency"];
+        [[NSUserDefaults standardUserDefaults] setObject:[self.groupOnMenu indexPathForSelectedRow] forKey:@"currentGroupIndex"];
+        
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"newGroupSelected" object:nil];
         
@@ -360,6 +369,7 @@
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.members forKey:@"currentGroupMembers"];
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.activeMember forKey:@"currentMember"];
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.currency forKey:@"currentGroupCurrency"];
+        [[NSUserDefaults standardUserDefaults] setObject:[self.groupOnMenu indexPathForSelectedRow] forKey:@"currentGroupIndex"];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"newGroupSelected" object:nil];
         
@@ -389,11 +399,13 @@
     
     Group *selectedGroup = [self.groupDataController objectInListAtIndex:[self.groupOnMenu indexPathForSelectedRow].row];
     
+    
+    [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.activeMember forKey:@"currentMember"];
     [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.identifier forKey:@"currentGroupId"];
     [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.name forKey:@"currentGroupName"];
     [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.members forKey:@"currentGroupMembers"];
-    [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.activeMember forKey:@"currentMember"];
     [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.currency forKey:@"currentGroupCurrency"];
+    [[NSUserDefaults standardUserDefaults] setObject:[self.groupOnMenu indexPathForSelectedRow] forKey:@"currentGroupIndex"];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"newGroupSelected" object:nil];
  
@@ -455,14 +467,24 @@
     
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"facebookId"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"facebookName"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentMember"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupId"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupName"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupMembers"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentMember"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupCurrency"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupIndex"];
     
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-    [appDelegate showLoginView];
+    
+    if (![self.title isEqual: @"welcomeMenu"]){
+        
+        UINavigationController *navigationController = [[UIStoryboard storyboardWithName:@"welcomeStoryboard" bundle:nil] instantiateInitialViewController];
+        [self presentViewController:navigationController animated:NO completion:^{
+            [appDelegate showLoginView];
+        }];
+    } else {
+        [appDelegate showLoginView];
+    }
 }
 
 - (IBAction)createGroup:(id)sender {
