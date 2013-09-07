@@ -65,9 +65,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void) messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result{
-
-}
 
 - (IBAction)shareViaSMS:(id)sender {
     
@@ -76,7 +73,28 @@
 		controller.body = [NSString stringWithFormat:@"Hello, I added you to a group on Twinkler, follow this link to access it: http://www.twinkler.co/invitation/%@/%@", self.group.identifier, self.link];
 		controller.messageComposeDelegate = self;
 		[self presentViewController:controller animated:YES completion:nil];
+	} else {
+        [[[UIAlertView alloc] initWithTitle:@"Sorry" message:@"You cannot send sms on this device" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+    }
+}
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
+{
+	switch (result) {
+		case MessageComposeResultCancelled:
+			NSLog(@"Cancelled");
+			break;
+		case MessageComposeResultFailed:
+			NSLog(@"failed");
+			break;
+		case MessageComposeResultSent:
+            NSLog(@"sent");
+			break;
+		default:
+			break;
 	}
+    
+	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)shareViaEmail:(id)sender {
@@ -88,7 +106,33 @@
         
         controller.mailComposeDelegate = (id) self;
         [self presentViewController:controller animated:YES completion:nil];
+    } else {
+        [[[UIAlertView alloc] initWithTitle:@"Sorry" message:@"You cannot send emails on this device" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
     }
+}
+
+- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Mail cancelled");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Mail saved");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Mail sent");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail sent failure: %@", [error localizedDescription]);
+            break;
+        default:
+            break;
+    }
+    
+    // Close the Mail Interface
+	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)shareViaFacebook:(id)sender {
