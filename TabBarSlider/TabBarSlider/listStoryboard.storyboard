@@ -70,17 +70,121 @@
                                     <outlet property="delegate" destination="F6s-De-Vqg" id="Dot-zI-6Qy"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uMl-7f-NJV">
+                                <rect key="frame" x="0.0" y="166" width="34" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button" image="main-button.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="jd5-eO-OgW" kind="modal" id="FjD-9x-odG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="listOnLists" destination="d3i-an-R1Q" id="y1B-SC-dFY"/>
+                        <outlet property="mainButton" destination="uMl-7f-NJV" id="KWf-Nm-fPz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xYr-Qv-YZ0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1705" y="527"/>
+        </scene>
+        <!--Add List View Controller-->
+        <scene sceneID="Dce-TD-eg0">
+            <objects>
+                <viewController id="ytT-eg-dRG" customClass="AddListViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GYp-PH-43M">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" image="add-expense-bckgd.png" id="hkX-LZ-2aR">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" id="gkq-eU-IMH">
+                                <rect key="frame" x="20" y="140" width="280" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your List Name" textAlignment="center" minimumFontSize="17" id="pbq-aV-JGG">
+                                        <rect key="frame" x="5" y="0.0" width="270" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="ytT-eg-dRG" id="bKV-0z-GmW"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Choose a List Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iyk-eF-4Z5">
+                                <rect key="frame" x="0.0" y="10" width="321" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" id="k8d-Oc-WZG">
+                                <rect key="frame" x="0.0" y="50" width="320" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.80392163989999998" green="0.80392163989999998" blue="0.80392163989999998" alpha="1" colorSpace="deviceRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="20m-Fe-syv">
+                                <rect key="frame" x="0.0" y="289" width="321" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="B5S-Ag-OT5">
+                                        <rect key="frame" x="159" y="0.0" width="162" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleColor" red="0.24313725489999999" green="0.2666666667" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" red="0.85882359740000003" green="0.41176474089999998" blue="0.36470589040000001" alpha="1" colorSpace="deviceRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LdM-MS-amU">
+                                        <rect key="frame" x="-1" y="0.0" width="161" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" red="0.7254902124" green="0.76470595600000002" blue="0.78039222959999999" alpha="1" colorSpace="deviceRGB"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dismissView:" destination="ytT-eg-dRG" eventType="touchUpInside" id="HYU-qZ-nbx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="shW-TE-yHf"/>
+                    <connections>
+                        <outlet property="cancelButton" destination="LdM-MS-amU" id="p8H-sR-EWC"/>
+                        <outlet property="doneButton" destination="B5S-Ag-OT5" id="rgs-AR-Jv1"/>
+                        <outlet property="groupNameContainer" destination="gkq-eU-IMH" id="gxe-tX-7Bf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NqX-Pe-cnZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2231" y="-172"/>
         </scene>
         <!--Item List View Controller-->
         <scene sceneID="QWh-E5-4mt">
@@ -188,12 +292,31 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0cl-NI-Js5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2286" y="478"/>
+            <point key="canvasLocation" x="2812" y="478"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="q7A-hC-hSv">
+            <objects>
+                <navigationController id="jd5-eO-OgW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cY8-6K-G9V">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ytT-eg-dRG" kind="relationship" relationship="rootViewController" id="hjf-dR-ag2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kh4-BW-UxC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1705" y="-172"/>
         </scene>
     </scenes>
     <resources>
         <image name="add-expense-bckgd.png" width="320" height="460"/>
         <image name="left-arrow.png" width="11" height="23"/>
+        <image name="main-button.png" width="34" height="34"/>
         <image name="right-arrow.png" width="20" height="20"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

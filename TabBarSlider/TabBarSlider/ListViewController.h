@@ -15,5 +15,6 @@
 
 @property (nonatomic, strong) UITableView *listOnLists;
 @property (nonatomic, strong) ListDataController *listDataController;
+@property (weak, nonatomic) IBOutlet UIButton *mainButton;
 
 @end

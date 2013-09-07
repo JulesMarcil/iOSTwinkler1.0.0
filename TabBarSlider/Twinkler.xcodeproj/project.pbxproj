@@ -49,6 +49,7 @@
 		892F99A617B98B3A00D86B4D /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 892F997617B8F71700D86B4D /* WelcomeViewController.m */; };
 		894D1CD217D89FFA002A48EB /* ExpenseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 894D1CD117D89FFA002A48EB /* ExpenseDetailViewController.m */; };
 		894ED0CE17DB7EAD0007FF29 /* main-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 894ED0CD17DB7EAD0007FF29 /* main-arrow.png */; };
+		894ED0D117DB839A0007FF29 /* AddListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 894ED0D017DB839A0007FF29 /* AddListViewController.m */; };
 		895913B317D934380039CF72 /* splash-screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 895913B217D934380039CF72 /* splash-screen.png */; };
 		895913B517D934980039CF72 /* app-icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 895913B417D934980039CF72 /* app-icon-small.png */; };
 		895913B717D934A80039CF72 /* app-icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 895913B617D934A80039CF72 /* app-icon-small.png */; };
@@ -207,6 +208,8 @@
 		894D1CD017D89FFA002A48EB /* ExpenseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseDetailViewController.h; sourceTree = "<group>"; };
 		894D1CD117D89FFA002A48EB /* ExpenseDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseDetailViewController.m; sourceTree = "<group>"; };
 		894ED0CD17DB7EAD0007FF29 /* main-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main-arrow.png"; sourceTree = "<group>"; };
+		894ED0CF17DB839A0007FF29 /* AddListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddListViewController.h; sourceTree = "<group>"; };
+		894ED0D017DB839A0007FF29 /* AddListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddListViewController.m; sourceTree = "<group>"; };
 		895913B217D934380039CF72 /* splash-screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash-screen.png"; sourceTree = "<group>"; };
 		895913B417D934980039CF72 /* app-icon-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "app-icon-small.png"; sourceTree = "<group>"; };
 		895913B617D934A80039CF72 /* app-icon-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "app-icon-small.png"; path = "../app-icon-small.png"; sourceTree = "<group>"; };
@@ -766,6 +769,8 @@
 			isa = PBXGroup;
 			children = (
 				8911839C17B1206B00B28ABE /* listStoryboard.storyboard */,
+				894ED0CF17DB839A0007FF29 /* AddListViewController.h */,
+				894ED0D017DB839A0007FF29 /* AddListViewController.m */,
 				89F7D7AD17DA5A48006BE7FD /* ListCell.h */,
 				89F7D7AE17DA5A48006BE7FD /* ListCell.m */,
 				BA24D4C317B016CE0042C7A4 /* List.h */,
@@ -1010,6 +1015,7 @@
 				89C54FF917D67B03007B8CEB /* FeedbackViewController.m in Sources */,
 				894D1CD217D89FFA002A48EB /* ExpenseDetailViewController.m in Sources */,
 				89F7D7AF17DA5A48006BE7FD /* ListCell.m in Sources */,
+				894ED0D117DB839A0007FF29 /* AddListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

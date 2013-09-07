@@ -59,6 +59,13 @@
     
     self.listOnLists.backgroundColor=[UIColor colorWithRed:(240/255.0) green:(240/255.0) blue:(240/255.0) alpha:1];
     self.listOnLists.separatorColor = [UIColor clearColor];
+    
+    
+    frame= [self.mainButton frame];
+    [self.mainButton setFrame:CGRectMake(10,
+                                   screenHeight-222+44+100,
+                                   frame.size.width,
+                                   frame.size.height)];
 
 }
 
