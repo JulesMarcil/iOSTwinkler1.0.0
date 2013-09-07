@@ -197,6 +197,8 @@
     if ([[segue identifier] isEqualToString:@"GroupToMembers"]) {
         
         NSDictionary *currentMember = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"];
+        NSLog(@"current member id = %@", currentMember[@"id"]);
+        
         NSArray *members = [[NSArray alloc] initWithObjects:currentMember, nil];
         
         Group *group = [[Group alloc] initWithName:self.groupName.text

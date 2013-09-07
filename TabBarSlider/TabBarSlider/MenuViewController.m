@@ -106,10 +106,19 @@
     
     //set a fictious current member if there is no to make sure the group creation process is not blocked
     NSDictionary *currentMember = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"];
+    
+    NSLog(@"current member id before = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"id"]);
+    NSLog(@"current member name before = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"]);
+    NSLog(@"current member path before = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"picturePath"]);
+    
     if(!currentMember) {
-        currentMember = [[NSDictionary alloc] initWithObjects:@[self.profile.name, self.profile.picturePath]  forKeys:@[@"name", @"picturePath"]];
+        currentMember = [[NSDictionary alloc] initWithObjects:@[@-1, self.profile.name, self.profile.picturePath]  forKeys:@[@"id", @"name", @"picturePath"]];
         [[NSUserDefaults standardUserDefaults] setObject:currentMember forKey:@"currentMember"];
     }
+    
+    NSLog(@"current member id after = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"id"]);
+    NSLog(@"current member name after = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"]);
+    NSLog(@"current member path after = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"picturePath"]);
     
     // display profile information
     self.nameLabel.text = self.profile.name;
