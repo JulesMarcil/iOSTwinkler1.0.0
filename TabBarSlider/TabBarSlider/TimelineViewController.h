@@ -42,5 +42,6 @@
 - (IBAction)sendMessage:(id)sender;
 - (IBAction)sendFeedbackButton:(id)sender;
 - (IBAction)addListButton:(id)sender;
+- (IBAction)dismissKeyboard:(id)sender;
 
 @end

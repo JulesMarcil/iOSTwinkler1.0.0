@@ -533,8 +533,6 @@
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField{
     
-    [textField resignFirstResponder];
-    
     NSString *trimmedString = [self.timelineTextBox.text stringByTrimmingCharactersInSet:
                                [NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
@@ -586,7 +584,7 @@
         
     }
     NSIndexPath* ipath = [NSIndexPath indexPathForRow: [self.messageOnTimeline numberOfRowsInSection:0]-1 inSection: 0];
-    [self.messageOnTimeline scrollToRowAtIndexPath: ipath atScrollPosition: UITableViewScrollPositionTop animated: NO];
+    [self.messageOnTimeline scrollToRowAtIndexPath: ipath atScrollPosition: UITableViewScrollPositionTop animated: YES];
     
     
     return NO;
@@ -708,6 +706,10 @@
 
 - (IBAction)addListButton:(id)sender {
     [self.navigation collapse];
+}
+
+- (IBAction)dismissKeyboard:(id)sender {
+        [self.timelineTextBox resignFirstResponder];
 }
 
 
