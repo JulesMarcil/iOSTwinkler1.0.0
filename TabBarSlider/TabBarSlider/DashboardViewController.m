@@ -151,6 +151,8 @@
                                               }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                                   NSLog(@"Failed with error: %@", error);
                                               }];
+    } else {
+        cell.memberProfilePic.image = [UIImage imageNamed:@"profile-pic.png"];
     }
     
     [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:25.0];

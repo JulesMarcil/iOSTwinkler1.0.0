@@ -442,19 +442,14 @@
         
         return cell;
     }
-    
-    
 }
 
-
-
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     return NO;
 }
 
--(void)goToExpense{
+-(void)goToExpense {
     UIStoryboard *timelineStoryboard=[UIStoryboard storyboardWithName:@"expenseStoryboard" bundle:nil];
     UIViewController *dst=[timelineStoryboard instantiateInitialViewController];
     
@@ -493,14 +488,15 @@
     [UIView commitAnimations];
 }
 
--(void)goToList{
+-(void)goToList {
     UIViewController *dst=[[UIStoryboard storyboardWithName:@"listStoryboard" bundle:nil] instantiateInitialViewController];
     
     TabBarViewController *tbvc= (TabBarViewController *) self.parentViewController;
     
-    for (UIView *view in tbvc.placeholderView.subviews){
+    for (UIView *view in tbvc.placeholderView.subviews) {
         [view removeFromSuperview];
     }
+    
     tbvc.currentViewController =dst;
     [tbvc.placeholderView addSubview:dst.view];
     
@@ -531,11 +527,10 @@
     [UIView commitAnimations];
 }
 
--(BOOL) textFieldShouldReturn:(UITextField *)textField{
+-(BOOL) textFieldShouldReturn:(UITextField *)textField {
     
     NSString *trimmedString = [self.timelineTextBox.text stringByTrimmingCharactersInSet:
                                [NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    
     
     if (trimmedString.length > 0) {
         
@@ -709,8 +704,7 @@
 }
 
 - (IBAction)dismissKeyboard:(id)sender {
-        [self.timelineTextBox resignFirstResponder];
+    [self.timelineTextBox resignFirstResponder];
 }
-
 
 @end

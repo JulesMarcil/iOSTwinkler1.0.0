@@ -180,6 +180,8 @@
                                               }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                                   NSLog(@"Failed with error: %@", error);
                                               }];
+    } else {
+        cell.memberProfilePic.image = [UIImage imageNamed:@"profile-pic.png"];
     }
     
     [cell.memberProfilePic setFrame:CGRectMake(21,17,30,30)];
