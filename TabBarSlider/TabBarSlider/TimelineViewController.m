@@ -622,7 +622,7 @@
 - (void) textFieldDidEndEditing:(UITextField *)myTextField
 {
     [UIView animateWithDuration:0.1 delay:0.0 options:UIViewAnimationOptionRepeat | UIViewAnimationOptionCurveLinear animations:^{
-        CGAffineTransform transform = CGAffineTransformMakeRotation(-M_PI);
+        CGAffineTransform transform = CGAffineTransformRotate(self.smiley.transform, M_PI);
         self.smiley.transform = transform;
     } completion:NULL];
     [UIView animateWithDuration:0.3 animations:^{
@@ -630,7 +630,7 @@
     [UIView animateWithDuration:0.1 delay:0.0 options:UIViewAnimationOptionCurveLinear animations:^{
         
         [UIView setAnimationRepeatCount:3];
-        CGAffineTransform transform = CGAffineTransformMakeRotation(-M_PI);
+        CGAffineTransform transform = CGAffineTransformRotate(self.main.transform, M_PI);;
         self.main.transform = transform;
     } completion:^(BOOL finished){
         
