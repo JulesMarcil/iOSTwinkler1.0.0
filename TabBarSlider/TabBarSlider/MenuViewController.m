@@ -152,9 +152,11 @@
 }
 
 -(void) removeCurrentGroup {
-    NSIndexPath *indexPath = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupIndex"];
-    Group *group = [self.groupDataController objectInListAtIndex:indexPath.row];
+    NSNumber *index = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupIndex"];
+    NSLog(@"index path = %@", index);
+    Group *group = [self.groupDataController objectInListAtIndex:[index intValue]];
     [self.groupDataController removeGroupWithGroup:group];
+    [self.groupOnMenu reloadData];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -326,6 +328,7 @@
     
     if ([self.title isEqualToString:@"welcomeMenu"]){
         [tableView deselectRowAtIndexPath:indexPath animated:NO];
+        
         Group   *selectedGroup=[self.groupDataController objectInListAtIndex:indexPath.row] ;
         
         UIStoryboard *mainStoryboard=[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
@@ -336,8 +339,9 @@
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.name forKey:@"currentGroupName"];
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.members forKey:@"currentGroupMembers"];
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.currency forKey:@"currentGroupCurrency"];
-        [[NSUserDefaults standardUserDefaults] setObject:[self.groupOnMenu indexPathForSelectedRow] forKey:@"currentGroupIndex"];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:indexPath.row] forKey:@"currentGroupIndex"];
         
+        NSLog(@"set index at: %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupIndex"]);
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"newGroupSelected" object:nil];
         
@@ -369,7 +373,9 @@
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.members forKey:@"currentGroupMembers"];
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.activeMember forKey:@"currentMember"];
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.currency forKey:@"currentGroupCurrency"];
-        [[NSUserDefaults standardUserDefaults] setObject:[self.groupOnMenu indexPathForSelectedRow] forKey:@"currentGroupIndex"];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:[self.groupOnMenu indexPathForSelectedRow].row] forKey:@"currentGroupIndex"];
+        
+        NSLog(@"set index at: %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupIndex"]);
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"newGroupSelected" object:nil];
         
@@ -405,7 +411,9 @@
     [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.name forKey:@"currentGroupName"];
     [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.members forKey:@"currentGroupMembers"];
     [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.currency forKey:@"currentGroupCurrency"];
-    [[NSUserDefaults standardUserDefaults] setObject:[self.groupOnMenu indexPathForSelectedRow] forKey:@"currentGroupIndex"];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:[self.groupOnMenu indexPathForSelectedRow].row] forKey:@"currentGroupIndex"];
+    
+    NSLog(@"set index at: %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupIndex"]);
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"newGroupSelected" object:nil];
  
