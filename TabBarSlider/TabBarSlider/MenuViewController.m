@@ -482,17 +482,26 @@
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupCurrency"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupIndex"];
     
+    NSLog(@"logout: current member id = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"id"]);
+    NSLog(@"logout: current member name = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"]);
+    NSLog(@"logout: current member path = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"picturePath"]);
+    
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     
-    if (![self.title isEqual: @"welcomeMenu"]){
+    if (![self.title isEqual:@"welcomeMenu"]){
         
-        UINavigationController *navigationController = [[UIStoryboard storyboardWithName:@"welcomeStoryboard" bundle:nil] instantiateInitialViewController];
-        [self presentViewController:navigationController animated:NO completion:^{
-            [appDelegate showLoginView];
-        }];
-    } else {
-        [appDelegate showLoginView];
+        UINavigationController * navigationController = self.navigationController;
+        
+        
+        NSMutableArray *navigationArray = [navigationController.viewControllers mutableCopy];;
+        NSLog(@"viewcontrollers count = %u", navigationArray.count);
+        [navigationArray removeObjectAtIndex:1];
+        self.navigationController.viewControllers = navigationArray;
+        
+        
+        [navigationController popToRootViewControllerAnimated:NO];
     }
+    [appDelegate showLoginView];
 }
 
 - (IBAction)createGroup:(id)sender {
