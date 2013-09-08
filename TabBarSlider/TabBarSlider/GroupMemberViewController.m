@@ -205,8 +205,6 @@
         
         [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:25.0];
         
-        
-        
         return cell;
         
     }

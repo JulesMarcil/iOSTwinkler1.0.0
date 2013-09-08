@@ -53,6 +53,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(groupDataRetrieved) name:@"groupsWithJSONFinishedLoading" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(profileDataRetrieved) name:@"profileWithJSONFinishedLoading" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:@"doneAddMember" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeCurrentGroup) name:@"groupClosedSuccessfully" object:nil];
     if ([self.title isEqual: @"welcomeMenu"]){
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:@"loginSuccess" object:nil];
     }
@@ -106,10 +107,19 @@
     
     //set a fictious current member if there is no to make sure the group creation process is not blocked
     NSDictionary *currentMember = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"];
+    
+    NSLog(@"current member id before = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"id"]);
+    NSLog(@"current member name before = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"]);
+    NSLog(@"current member path before = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"picturePath"]);
+    
     if(!currentMember) {
-        currentMember = [[NSDictionary alloc] initWithObjects:@[self.profile.name, self.profile.picturePath]  forKeys:@[@"name", @"picturePath"]];
+        currentMember = [[NSDictionary alloc] initWithObjects:@[@-1, self.profile.name, self.profile.picturePath]  forKeys:@[@"id", @"name", @"picturePath"]];
         [[NSUserDefaults standardUserDefaults] setObject:currentMember forKey:@"currentMember"];
     }
+    
+    NSLog(@"current member id after = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"id"]);
+    NSLog(@"current member name after = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"]);
+    NSLog(@"current member path after = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"picturePath"]);
     
     // display profile information
     self.nameLabel.text = self.profile.name;
@@ -139,6 +149,14 @@
                                     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                         NSLog(@"Failed with error: %@", error);
                                     }];
+}
+
+-(void) removeCurrentGroup {
+    NSNumber *index = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupIndex"];
+    NSLog(@"index path = %@", index);
+    Group *group = [self.groupDataController objectInListAtIndex:[index intValue]];
+    [self.groupDataController removeGroupWithGroup:group];
+    [self.groupOnMenu reloadData];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -310,16 +328,20 @@
     
     if ([self.title isEqualToString:@"welcomeMenu"]){
         [tableView deselectRowAtIndexPath:indexPath animated:NO];
+        
         Group   *selectedGroup=[self.groupDataController objectInListAtIndex:indexPath.row] ;
         
         UIStoryboard *mainStoryboard=[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         UIViewController *dst=[mainStoryboard instantiateInitialViewController];
         
+        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.activeMember forKey:@"currentMember"];
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.identifier forKey:@"currentGroupId"];
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.name forKey:@"currentGroupName"];
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.members forKey:@"currentGroupMembers"];
-        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.activeMember forKey:@"currentMember"];
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.currency forKey:@"currentGroupCurrency"];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:indexPath.row] forKey:@"currentGroupIndex"];
+        
+        NSLog(@"set index at: %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupIndex"]);
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"newGroupSelected" object:nil];
         
@@ -351,6 +373,9 @@
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.members forKey:@"currentGroupMembers"];
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.activeMember forKey:@"currentMember"];
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.currency forKey:@"currentGroupCurrency"];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:[self.groupOnMenu indexPathForSelectedRow].row] forKey:@"currentGroupIndex"];
+        
+        NSLog(@"set index at: %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupIndex"]);
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"newGroupSelected" object:nil];
         
@@ -380,11 +405,15 @@
     
     Group *selectedGroup = [self.groupDataController objectInListAtIndex:[self.groupOnMenu indexPathForSelectedRow].row];
     
+    
+    [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.activeMember forKey:@"currentMember"];
     [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.identifier forKey:@"currentGroupId"];
     [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.name forKey:@"currentGroupName"];
     [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.members forKey:@"currentGroupMembers"];
-    [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.activeMember forKey:@"currentMember"];
     [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.currency forKey:@"currentGroupCurrency"];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:[self.groupOnMenu indexPathForSelectedRow].row] forKey:@"currentGroupIndex"];
+    
+    NSLog(@"set index at: %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupIndex"]);
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"newGroupSelected" object:nil];
  
@@ -446,13 +475,32 @@
     
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"facebookId"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"facebookName"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentMember"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupId"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupName"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupMembers"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentMember"];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupCurrency"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupIndex"];
+    
+    NSLog(@"logout: current member id = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"id"]);
+    NSLog(@"logout: current member name = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"]);
+    NSLog(@"logout: current member path = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"picturePath"]);
     
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    
+    if (![self.title isEqual:@"welcomeMenu"]){
+        
+        UINavigationController * navigationController = self.navigationController;
+        
+        
+        NSMutableArray *navigationArray = [navigationController.viewControllers mutableCopy];;
+        NSLog(@"viewcontrollers count = %u", navigationArray.count);
+        [navigationArray removeObjectAtIndex:1];
+        self.navigationController.viewControllers = navigationArray;
+        
+        
+        [navigationController popToRootViewControllerAnimated:NO];
+    }
     [appDelegate showLoginView];
 }
 

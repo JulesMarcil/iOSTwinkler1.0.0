@@ -67,4 +67,8 @@
     [self.groupList addObject:group];
 }
 
+- (void) removeGroupWithGroup:(Group *)group {
+    [self.groupList removeObject:group];
+}
+
 @end

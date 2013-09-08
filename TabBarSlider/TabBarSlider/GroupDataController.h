@@ -16,6 +16,6 @@
 - (NSUInteger)countOfList;
 - (Group *)objectInListAtIndex:(NSUInteger)theIndex;
 - (void)addGroupWithGroup:(Group *)group;
-
+- (void)removeGroupWithGroup:(Group *)group;
 
 @end

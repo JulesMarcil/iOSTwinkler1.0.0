@@ -400,22 +400,32 @@
                                            NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
                                            NSLog(@"%@", response);
                                            
-                                           NSTimeInterval interval1 = [response[@"date"] doubleValue];
-                                           NSTimeInterval interval2 = [response[@"addedDate"] doubleValue];
+                                           NSDictionary *expense_response = response[@"expense"];
                                            
-                                           Expense *expense = [[Expense alloc] initWithIdentifier:response[@"id"]
-                                                                                             name:response[@"name"]
-                                                                                           amount:[NSNumber numberWithInteger: [response[@"amount"] integerValue]]
-                                                                                            owner:response[@"owner"]
+                                           NSTimeInterval interval1 = [expense_response[@"date"] doubleValue];
+                                           NSTimeInterval interval2 = [expense_response[@"addedDate"] doubleValue];
+                                           
+                                           Expense *expense = [[Expense alloc] initWithIdentifier:expense_response[@"id"]
+                                                                                             name:expense_response[@"name"]
+                                                                                           amount:[NSNumber numberWithInteger: [expense_response[@"amount"] integerValue]]
+                                                                                            owner:expense_response[@"owner"]
                                                                                              date:[NSDate dateWithTimeIntervalSince1970:interval1]
-                                                                                          members:response[@"members"]
-                                                                                           author:response[@"author"]
+                                                                                          members:expense_response[@"members"]
+                                                                                           author:expense_response[@"author"]
                                                                                         addedDate:[NSDate dateWithTimeIntervalSince1970:interval2]
-                                                                                            share:response[@"share"]
+                                                                                            share:expense_response[@"share"]
                                                                ];
                                            
                                            self.expense = expense;
-                                           NSDictionary *dictionary = [NSDictionary dictionaryWithObject:expense forKey:@"expense"];
+                                           
+                                           NSNumberFormatter *format = [[NSNumberFormatter alloc]init];
+                                           [format setNumberStyle:NSNumberFormatterDecimalStyle];
+                                           [format setRoundingMode:NSNumberFormatterRoundHalfUp];
+                                           [format setMaximumFractionDigits:2];
+                                           NSNumber *balance = [NSNumber numberWithFloat:[response[@"balance"] floatValue]];
+                                           
+                                           NSDictionary *dictionary = [NSDictionary dictionaryWithObjects:@[expense, balance] forKeys:@[@"expense", @"balance"]];
+                                           
                                            [[NSNotificationCenter defaultCenter] postNotificationName:@"expenseAddedSuccesfully" object:nil userInfo:dictionary];
                                            NSLog(@"expense added notification");
                                            [self dismissViewControllerAnimated:YES completion:nil];

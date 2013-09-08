@@ -112,8 +112,8 @@
     
     NSLog(@"add expense function called");
     
-    Expense *expense = [[note userInfo] valueForKey:@"expense"];
-    [self.expenseDataController addExpenseWithExpense:expense atIndex:0];
+    [self.expenseDataController addExpenseWithExpense:[[note userInfo] valueForKey:@"expense"] atIndex:0];
+    [self setBalanceLabelValue:[[note userInfo] valueForKey:@"balance"]];
     [self.expenseListTable reloadData];
 }
 
@@ -121,8 +121,8 @@
     
     NSLog(@"remove expense function called");
     
-    Expense *expense = [[note userInfo] valueForKey:@"expense"];
-    [self.expenseDataController removeExpenseWithExpense:expense];
+    [self.expenseDataController removeExpenseWithExpense:[[note userInfo] valueForKey:@"expense"]];
+    [self setBalanceLabelValue:[[note userInfo] valueForKey:@"balance"]];
     [self.expenseListTable reloadData];
 }
 // end of data management function
@@ -180,6 +180,8 @@
                                               }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                                   NSLog(@"Failed with error: %@", error);
                                               }];
+    } else {
+        cell.memberProfilePic.image = [UIImage imageNamed:@"profile-pic.png"];
     }
     
     [cell.memberProfilePic setFrame:CGRectMake(21,17,30,30)];

@@ -151,6 +151,8 @@
                                               }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                                   NSLog(@"Failed with error: %@", error);
                                               }];
+    } else {
+        cell.memberProfilePic.image = [UIImage imageNamed:@"profile-pic.png"];
     }
     
     [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:25.0];
@@ -188,6 +190,8 @@
 {
         if (buttonIndex == 0) {
             //NO clicked
+            NSLog(@" il y a %u view controllers dans le navigation controller", self.navigationController.viewControllers.count);
+            [self.navigationController popToRootViewControllerAnimated:YES];
             
         } else if (buttonIndex == 1) {
             
@@ -204,9 +208,9 @@
                                               [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentMember"];
                                               NSLog(@"response = %@", response);
                                               
-                                              UINavigationController *navigationController = [[UIStoryboard storyboardWithName:@"welcomeStoryboard" bundle:nil] instantiateInitialViewController];
-                                              [[NSNotificationCenter defaultCenter] postNotificationName:@"doneAddMember" object:nil];
-                                              [self presentViewController:navigationController animated:YES completion:nil];
+                                              [[NSNotificationCenter defaultCenter] postNotificationName:@"groupClosedSuccessfully" object:nil];
+                                              
+                                              [self.navigationController popToRootViewControllerAnimated:YES];
                                               
                                           } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                               NSLog(@"error: %@", error);

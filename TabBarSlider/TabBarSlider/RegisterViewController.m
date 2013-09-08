@@ -42,8 +42,6 @@
     [self.FBspinner startAnimating];
     [sender setTitleColor:[UIColor colorWithRed:78/255 green:90/255 blue:149/255 alpha:0.0] forState: UIControlStateNormal];
     
-    [sender setTitleColor:[UIColor colorWithRed:78/255 green:90/255 blue:149/255 alpha:0.0] forState: UIControlStateNormal];
-    
     NSLog(@"login with facebook");
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     [appDelegate openSession];
