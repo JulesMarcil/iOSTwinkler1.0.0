@@ -20,6 +20,7 @@
 
 @implementation TabBarViewController
 
+@synthesize scrollView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,20 +43,23 @@
     CGRect frame= [self.coverPic frame];
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenHeight = screenRect.size.height;
+    
+    [self.mainView setFrame:screenRect];
+    
     [self.coverPic setFrame:CGRectMake(0,
-                                                0,
-                                                frame.size.width,
-                                                100)];
-    frame= [self.topWhiteBar frame];
-    [self.topWhiteBar setFrame:CGRectMake(0,
                                        0,
                                        frame.size.width,
-                                       frame.size.height)];
-    frame= [self.placeholderView frame];
-    [self.placeholderView setFrame:CGRectMake(0,
+                                       100)];
+    frame= [self.topWhiteBar frame];
+    [self.topWhiteBar setFrame:CGRectMake(0,
                                           0,
                                           frame.size.width,
-                                          screenHeight)];
+                                          frame.size.height)];
+    frame= [self.placeholderView frame];
+    [self.placeholderView setFrame:CGRectMake(0,
+                                              0,
+                                              frame.size.width,
+                                              screenHeight+20)];
     frame= [self.toolbar frame];
     [self.toolbar setFrame:CGRectMake(0,
                                       0,
@@ -63,21 +67,13 @@
                                       100)];
     self.toolbar.backgroundColor=[UIColor colorWithRed:(236/255.0) green:(162/255.0) blue:(150/255.0) alpha:0.95];
     
-    UIView *blurView = [[UIView alloc] initWithFrame:CGRectMake(0, 0,320, 100)];
-    [self.view addSubview:blurView];
-    [self.view insertSubview:blurView belowSubview:self.toolbar];
     
     self.tabBarBck.layer.cornerRadius = 2;
     self.tabBarBck.layer.masksToBounds = YES;
     self.activeTabBarImage.layer.cornerRadius = 2;
     self.activeTabBarImage.layer.masksToBounds = YES;
     
-    UIStoryboard *timelineStoryboard=[UIStoryboard storyboardWithName:@"timelineStoryboard" bundle:nil];
-    TabBarViewController *dst=[timelineStoryboard instantiateInitialViewController];
-    self.currentViewController =dst;
-    [self.placeholderView addSubview:dst.view];
     
-    [self addChildViewController:dst];
     [self.timelineButton setSelected:YES];
     
     [self.expenseButton addTarget:self action:@selector(expenseButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
@@ -92,7 +88,53 @@
     
     [self.revealRightButtonItem addTarget:self.revealViewController action:@selector(rightRevealToggle:) forControlEvents:UIControlEventTouchUpInside];
     
-
+    //-----ScrollView------//
+    frame= [self.scrollView frame];
+    [self.scrollView setFrame:CGRectMake(0,
+                                         0,
+                                         frame.size.width,
+                                         screenHeight+20)];
+    
+    self.scrollView.pagingEnabled = YES;
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * 3, self.scrollView.frame.size.height);
+    self.scrollView.showsHorizontalScrollIndicator = NO;
+    self.scrollView.showsVerticalScrollIndicator = NO;
+    self.scrollView.scrollsToTop = NO;
+    self.scrollView.delegate = self;
+    
+    
+    
+    UIStoryboard *timelineStoryboard=[UIStoryboard storyboardWithName:@"timelineStoryboard" bundle:nil];
+    TabBarViewController *dst=[timelineStoryboard instantiateInitialViewController];
+    self.currentViewController =dst;
+    [dst.view setFrame:CGRectMake(320, 20, dst.view.frame.size.width, dst.view.frame.size.height)];
+    
+    [self.scrollView addSubview:dst.view];
+    
+    [self addChildViewController:dst];
+    
+    UIStoryboard *expenseStoryboard=[UIStoryboard storyboardWithName:@"expenseStoryboard" bundle:nil];
+    TabBarViewController *leftVC=[expenseStoryboard instantiateInitialViewController];
+    self.leftViewController =leftVC;
+    [leftVC.view setFrame:CGRectMake(0, 20, leftVC.view.frame.size.width, leftVC.view.frame.size.height)];
+    
+    [self.scrollView addSubview:leftVC.view];
+    
+    [self addChildViewController:leftVC];
+    
+    
+    UIStoryboard *listStoryboard=[UIStoryboard storyboardWithName:@"listStoryboard" bundle:nil];
+    TabBarViewController *rightVC=[listStoryboard instantiateInitialViewController];
+    self.leftViewController =rightVC;
+    [rightVC.view setFrame:CGRectMake(640, 20, rightVC.view.frame.size.width, rightVC.view.frame.size.height)];
+    
+    [self.scrollView addSubview:rightVC.view];
+    
+    [self addChildViewController:rightVC];
+    
+    
+    
+    
     
 }
 
@@ -102,6 +144,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [self.scrollView setContentOffset:CGPointMake(320, 0) animated:NO];
+}
 
 - (void)expenseButtonPressed:(UIButton *)sender {
     CGPoint pt = expenseCGPoint;
@@ -153,89 +198,12 @@
 }
 
 -(void)goToExpenses{
-    UIStoryboard *expenseStoryboard=[UIStoryboard storyboardWithName:@"expenseStoryboard" bundle:nil];
-    UIViewController *dst=[expenseStoryboard instantiateInitialViewController];
-    
-    for (UIView *view in self.placeholderView.subviews){
-        [view removeFromSuperview];
-    }
-    self.currentViewController =dst;
-    [self.placeholderView addSubview:dst.view];
-    
-    for (UIViewController *vc in self.childViewControllers) {
-        [vc.view removeFromSuperview];
-        [vc removeFromParentViewController];
-    }
-    
-    CATransition *animation = [CATransition animation];
-    [animation setDuration:0.3];
-    [animation setType:kCATransitionPush];
-    [animation setSubtype:kCATransitionFromLeft];
-    [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
-    
-    [self addChildViewController:dst];
-    
-    [[self.placeholderView layer] addAnimation:animation forKey:@"showSecondViewController"];
 }
 
 -(void)goToTimeline{
-    UIStoryboard *timelineStoryboard=[UIStoryboard storyboardWithName:@"timelineStoryboard" bundle:nil];
-    UIViewController *dst=[timelineStoryboard instantiateInitialViewController];
-    
-    for (UIView *view in self.placeholderView.subviews){
-        [view removeFromSuperview];
-    }
-    self.currentViewController =dst;
-    [self.placeholderView addSubview:dst.view];
-    
-    for (UIViewController *vc in self.childViewControllers) {
-        [vc.view removeFromSuperview];
-        [vc removeFromParentViewController];
-    }
-    
-    
-    CATransition *animation = [CATransition animation];
-    [animation setDuration:0.3];
-    [animation setType:kCATransitionPush];
-    CGRect frame= [self.activeTabBarImage frame];
-    if (frame.origin.x <120){
-        [animation setSubtype:kCATransitionFromRight];
-    }else{
-        [animation setSubtype:kCATransitionFromLeft];
-    }
-    [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
-    
-    [self addChildViewController:dst];
-    
-    [[self.placeholderView layer] addAnimation:animation forKey:@"showSecondViewController"];
 }
 
 -(void)goToList{
-    UIStoryboard *timelineStoryboard=[UIStoryboard storyboardWithName:@"listStoryboard" bundle:nil];
-    UIViewController *dst=[timelineStoryboard instantiateInitialViewController];
-    
-    for (UIView *view in self.placeholderView.subviews){
-        [view removeFromSuperview];
-    }
-    self.currentViewController =dst;
-    [self.placeholderView addSubview:dst.view];
-    
-    for (UIViewController *vc in self.childViewControllers) {
-        [vc.view removeFromSuperview];
-        [vc removeFromParentViewController];
-    }
-    
-    [self addChildViewController:dst];
-    
-    CATransition *animation = [CATransition animation];
-    [animation setDuration:0.3];
-    [animation setType:kCATransitionPush];
-    [animation setSubtype:kCATransitionFromRight];
-    [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
-    
-    [self addChildViewController:dst];
-    
-    [[self.placeholderView layer] addAnimation:animation forKey:@"showSecondViewController"];
 }
 
 //--------DESGIN---------
@@ -259,5 +227,6 @@
     // Lets forget about that we were drawing
     UIGraphicsEndImageContext();
 }
+
 
 @end

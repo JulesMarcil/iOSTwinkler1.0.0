@@ -9,7 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "SWRevealViewController.h"
 
-@interface TabBarViewController : UIViewController
+@interface TabBarViewController : UIViewController <UIScrollViewDelegate>{
+	IBOutlet UIScrollView *scrollView;
+    
+}
+
+@property (strong, nonatomic) IBOutlet UIView *mainView;
 @property (weak, nonatomic) IBOutlet UILabel *groupTitle;
 @property (weak, nonatomic) IBOutlet UIButton *expenseButton;
 @property (weak, nonatomic) IBOutlet UIButton *timelineButton;
@@ -19,12 +24,15 @@
 @property (weak, nonatomic) IBOutlet UIButton *revealRightButtonItem;
 @property (weak, nonatomic) IBOutlet UIView *placeholderView;
 @property (nonatomic, weak) UIViewController *currentViewController;
+@property (nonatomic, weak) UIViewController *leftViewController;
+@property (nonatomic, weak) UIViewController *rightViewController;
 @property (weak, nonatomic) IBOutlet UIImageView *coverPic;
 @property (weak, nonatomic) IBOutlet UIView *topWhiteBar;
 @property (weak, nonatomic) IBOutlet UIView *toolbar;
 @property (weak, nonatomic) IBOutlet UIView *topBar;
 @property (strong, nonatomic) NSArray *memberArray;
 @property (weak, nonatomic) IBOutlet UIView *tabBarBck;
+@property (nonatomic, retain) UIScrollView *scrollView;
 
 -(void)goToExpenses;
 -(void)goToTimeline;
