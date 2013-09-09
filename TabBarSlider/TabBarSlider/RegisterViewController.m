@@ -60,20 +60,20 @@
     if (username.length == 0){
         self.usernameInput.text=@"Please choose a username first";
         [self.spinner stopAnimating];
-        [sender setTitleColor:[UIColor colorWithRed:78/255 green:90/255 blue:149/255 alpha:1.0] forState: UIControlStateNormal];
+        [sender setTitleColor:[UIColor colorWithRed:255/255 green:255/255 blue:255/255 alpha:1.0] forState: UIControlStateNormal];
     } else if (email.length == 0) {
         self.emailInput.text=@"Please enter a valid email address first";
         [self.spinner stopAnimating];
-        [sender setTitleColor:[UIColor colorWithRed:78/255 green:90/255 blue:149/255 alpha:1.0] forState: UIControlStateNormal];
+        [sender setTitleColor:[UIColor colorWithRed:255/255 green:255/255 blue:255/255 alpha:1.0] forState: UIControlStateNormal];
     } else if (password.length == 0) {
         self.passwordInput.text=@"Please choose a password first";
         [self.spinner stopAnimating];
-        [sender setTitleColor:[UIColor colorWithRed:78/255 green:90/255 blue:149/255 alpha:1.0] forState: UIControlStateNormal];
+        [sender setTitleColor:[UIColor colorWithRed:255/255 green:255/255 blue:255/255 alpha:1.0] forState: UIControlStateNormal];
     } else if (![email isEqualToString:confirmEmail]) {
         self.emailInput.text=@"Oops, make sure your emails match first!";
         NSLog(@"Your emails do not match");
         [self.spinner stopAnimating];
-        [sender setTitleColor:[UIColor colorWithRed:78/255 green:90/255 blue:149/255 alpha:1.0] forState: UIControlStateNormal];
+        [sender setTitleColor:[UIColor colorWithRed:255/255 green:255/255 blue:255/255 alpha:1.0] forState: UIControlStateNormal];
     } else if (![self NSStringIsValidEmail:email]) {
         self.emailInput.text=@"Please enter a valid email address first";
         [self.spinner stopAnimating];
