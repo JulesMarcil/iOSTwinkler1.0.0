@@ -171,8 +171,11 @@
 - (void)dataRetrieved {
     [self.messageOnTimeline reloadData];
     
+    if([self.messageDataController countOfList]>0){
     NSIndexPath *myIndexPath = [NSIndexPath indexPathForRow:[self.messageDataController countOfList]-1 inSection:0];
     [self.messageOnTimeline selectRowAtIndexPath:myIndexPath animated:NO scrollPosition:UITableViewScrollPositionBottom];
+    }
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
