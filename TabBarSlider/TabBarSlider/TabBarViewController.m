@@ -97,6 +97,7 @@
     
     self.scrollView.pagingEnabled = YES;
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * 3, self.scrollView.frame.size.height);
+    self.scrollView.backgroundColor=[UIColor colorWithRed:(245/255.0) green:(245/255.0) blue:(245/255.0) alpha:1];
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator = NO;
     self.scrollView.scrollsToTop = NO;
@@ -109,6 +110,8 @@
     self.currentViewController =dst;
     [dst.view setFrame:CGRectMake(320, 20, dst.view.frame.size.width, dst.view.frame.size.height)];
     
+    dst.view.layer.borderWidth = 1.0f;
+    dst.view.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
     [self.scrollView addSubview:dst.view];
     
     [self addChildViewController:dst];

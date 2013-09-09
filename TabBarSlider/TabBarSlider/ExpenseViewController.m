@@ -77,8 +77,8 @@
     self.expenseListTable.separatorColor = [UIColor clearColor];
     
     
-    self.view.backgroundColor=[UIColor colorWithRed:(240/255.0) green:(240/255.0) blue:(240/255.0) alpha:1];
-    self.headerViewContainer.backgroundColor=[UIColor colorWithRed:(240/255.0) green:(240/255.0) blue:(240/255.0) alpha:1];
+    self.view.backgroundColor=[UIColor colorWithRed:(245/255.0) green:(245/255.0) blue:(245/255.0) alpha:1];
+    self.headerViewContainer.backgroundColor=[UIColor colorWithRed:(245/255.0) green:(245/255.0) blue:(245/255.0) alpha:1];
     
     frame= [self.timelineImage frame];
     [self.timelineImage setFrame:CGRectMake(frame.origin.x,
