@@ -35,6 +35,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="549"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
+                                    <pageControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="Gs8-Il-yqp">
+                                        <rect key="frame" x="141" y="257" width="38" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </pageControl>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="keZ-7u-KZN">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="549"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -137,6 +141,7 @@
                         <outlet property="groupTitle" destination="A1f-cY-EFc" id="dwg-HO-Ydt"/>
                         <outlet property="listButton" destination="2f3-R7-Uas" id="w9i-im-QXT"/>
                         <outlet property="mainView" destination="jmI-jh-A5V" id="CPv-7a-PG9"/>
+                        <outlet property="pageControl" destination="Gs8-Il-yqp" id="hsC-RN-r73"/>
                         <outlet property="placeholderView" destination="at9-FK-ZVX" id="GWa-6j-Wwa"/>
                         <outlet property="revealButtonItem" destination="crz-9H-jQT" id="ssC-xQ-kbt"/>
                         <outlet property="revealRightButtonItem" destination="3yz-dF-xq3" id="D86-hP-LUa"/>

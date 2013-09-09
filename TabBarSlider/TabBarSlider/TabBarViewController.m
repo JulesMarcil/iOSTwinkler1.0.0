@@ -16,6 +16,8 @@
 
 @interface TabBarViewController ()
 
+- (void)scrollViewDidScroll:(UIScrollView *)sender;
+
 @end
 
 @implementation TabBarViewController
@@ -103,7 +105,8 @@
     self.scrollView.scrollsToTop = NO;
     self.scrollView.delegate = self;
     
-    
+    self.pageControl.numberOfPages=3;
+    self.pageControl.currentPage=1;
     
     UIStoryboard *timelineStoryboard=[UIStoryboard storyboardWithName:@"timelineStoryboard" bundle:nil];
     TabBarViewController *dst=[timelineStoryboard instantiateInitialViewController];
@@ -135,10 +138,7 @@
     
     [self addChildViewController:rightVC];
     
-    
-    
-    
-    
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -151,53 +151,68 @@
     [self.scrollView setContentOffset:CGPointMake(320, 0) animated:NO];
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)sender {
+    CGFloat pageWidth = 320;
+    int page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    self.pageControl.currentPage = page;
+    
+    if (page==0){
+        
+        CGPoint pt = expenseCGPoint;
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.1];
+        //you can change the setAnimationDuration value, it is in seconds.
+        
+        CGRect rect = CGRectMake(pt.x, pt.y, self.activeTabBarImage.frame.size.width,self.activeTabBarImage.frame.size.height);
+        
+        [self.activeTabBarImage setFrame:rect];
+        [self.expenseButton setSelected:YES];
+        [self.timelineButton setSelected:NO];
+        [self.listButton setSelected:NO];
+        
+        [UIView commitAnimations];
+    }
+    else if(page==1){
+        CGPoint pt = timelineCGPoint;
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.1];
+        //you can change the setAnimationDuration value, it is in seconds.
+        
+        CGRect rect = CGRectMake(pt.x, pt.y, self.activeTabBarImage.frame.size.width,self.activeTabBarImage.frame.size.height);
+        
+        [self.activeTabBarImage setFrame:rect];
+        [self.expenseButton setSelected:NO];
+        [self.timelineButton setSelected:YES];
+        [self.listButton setSelected:NO];
+        
+        [UIView commitAnimations];
+    }else{
+        CGPoint pt = listCGPoint;
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.1];
+        //you can change the setAnimationDuration value, it is in seconds.
+        
+        CGRect rect = CGRectMake(pt.x, pt.y, self.activeTabBarImage.frame.size.width,self.activeTabBarImage.frame.size.height);
+        
+        [self.activeTabBarImage setFrame:rect];
+        [self.expenseButton setSelected:NO];
+        [self.timelineButton setSelected:NO];
+        [self.listButton setSelected:YES];
+        
+        [UIView commitAnimations];
+    }
+    
+}
+
 - (void)expenseButtonPressed:(UIButton *)sender {
-    CGPoint pt = expenseCGPoint;
-    
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.1];
-    //you can change the setAnimationDuration value, it is in seconds.
-    
-    CGRect rect = CGRectMake(pt.x, pt.y, self.activeTabBarImage.frame.size.width,self.activeTabBarImage.frame.size.height);
-    
-    [self.activeTabBarImage setFrame:rect];
-    [sender setSelected:YES];
-    [self.timelineButton setSelected:NO];
-    [self.listButton setSelected:NO];
-    
-    [UIView commitAnimations];
+    [self.scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+   
 }
 - (void)timelineButtonPressed:(UIButton *)sender {
-    CGPoint pt = timelineCGPoint;
-    
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.1];
-    //you can change the setAnimationDuration value, it is in seconds.
-    
-    CGRect rect = CGRectMake(pt.x, pt.y, self.activeTabBarImage.frame.size.width,self.activeTabBarImage.frame.size.height);
-    
-    [self.activeTabBarImage setFrame:rect];
-    [sender setSelected:YES];
-    [self.listButton setSelected:NO];
-    [self.expenseButton setSelected:NO];
-    
-    [UIView commitAnimations];
+    [self.scrollView setContentOffset:CGPointMake(320, 0) animated:YES];
 }
 - (void)listButtonPressed:(UIButton *)sender {
-    CGPoint pt = listCGPoint;
-    
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.1];
-    //you can change the setAnimationDuration value, it is in seconds.
-    
-    CGRect rect = CGRectMake(pt.x, pt.y, self.activeTabBarImage.frame.size.width,self.activeTabBarImage.frame.size.height);
-    
-    [self.activeTabBarImage setFrame:rect];
-    [sender setSelected:YES];
-    [self.timelineButton setSelected:NO];
-    [self.expenseButton setSelected:NO];
-    
-    [UIView commitAnimations];
+    [self.scrollView setContentOffset:CGPointMake(640, 0) animated:YES];
 }
 
 -(void)goToExpenses{

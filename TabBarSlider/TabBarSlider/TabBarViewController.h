@@ -11,7 +11,7 @@
 
 @interface TabBarViewController : UIViewController <UIScrollViewDelegate>{
 	IBOutlet UIScrollView *scrollView;
-    
+    IBOutlet UIPageControl *pageControl;
 }
 
 @property (strong, nonatomic) IBOutlet UIView *mainView;
@@ -33,6 +33,7 @@
 @property (strong, nonatomic) NSArray *memberArray;
 @property (weak, nonatomic) IBOutlet UIView *tabBarBck;
 @property (nonatomic, retain) UIScrollView *scrollView;
+@property (nonatomic, weak) UIPageControl *pageControl;
 
 -(void)goToExpenses;
 -(void)goToTimeline;
