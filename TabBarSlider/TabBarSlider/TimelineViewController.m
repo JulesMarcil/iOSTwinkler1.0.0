@@ -577,12 +577,16 @@
                                           NSLog(@"error: %@", error);
                                       }];
         
+        NSIndexPath* ipath = [NSIndexPath indexPathForRow: [self.messageOnTimeline numberOfRowsInSection:0]-1 inSection: 0];
+        [self.messageOnTimeline scrollToRowAtIndexPath: ipath atScrollPosition: UITableViewScrollPositionTop animated: YES];
+        
     }
-    NSIndexPath* ipath = [NSIndexPath indexPathForRow: [self.messageOnTimeline numberOfRowsInSection:0]-1 inSection: 0];
-    [self.messageOnTimeline scrollToRowAtIndexPath: ipath atScrollPosition: UITableViewScrollPositionTop animated: YES];
+    else{
+        [textField resignFirstResponder];
+    }
     
     
-    return NO;
+    return YES;
 }
 
 #pragma mark - Text View Delegate

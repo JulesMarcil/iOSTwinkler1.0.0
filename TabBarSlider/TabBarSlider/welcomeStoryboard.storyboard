@@ -629,7 +629,7 @@
         <image name="heart-icon.png" width="23" height="20"/>
         <image name="left-arrow.png" width="11" height="23"/>
         <image name="login-bckgd.png" width="320" height="560"/>
-        <image name="profile-pic.png" width="113" height="111"/>
+        <image name="profile-pic.png" width="160" height="160"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
