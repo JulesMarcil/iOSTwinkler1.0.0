@@ -113,6 +113,9 @@
     self.navigation = [[ExpandableNavigation alloc] initWithMenuItems:buttons mainButton:self.main radius:120.0];
     
     
+    
+    
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -156,7 +159,7 @@
                                           }
                                           [self.messageOnTimeline reloadData];
                                           NSIndexPath* ipath = [NSIndexPath indexPathForRow: [self.messageOnTimeline numberOfRowsInSection:0]-1 inSection: 0];
-                                          [self.messageOnTimeline scrollToRowAtIndexPath: ipath atScrollPosition: UITableViewScrollPositionTop animated: NO];
+                                          [self.messageOnTimeline scrollToRowAtIndexPath: ipath atScrollPosition: UITableViewScrollPositionTop animated: YES];
                                           NSLog(@"success: %u messages added", diff);
                                       }else{
                                           //NSLog(@"success: data in sync");
@@ -225,7 +228,14 @@
     }
 }
 
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 1)];
+    return view;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
     
     Message *messageAtIndex = [self.messageDataController
                                objectInListAtIndex:indexPath.row];
