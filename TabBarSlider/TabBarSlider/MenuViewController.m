@@ -458,50 +458,70 @@
 
 - (IBAction)Logout:(id)sender {
     
-    NSLog(@"menuViewController: logout");
+    UIAlertView *alert = [[UIAlertView alloc] init];
+    [alert setTitle:@"You're about to leave :'("];
+    [alert setMessage:@"Are you sure you want to log out?"];
+    [alert setDelegate:self];
+    [alert addButtonWithTitle:@"Yes"];
+    [alert addButtonWithTitle:@"No"];
+    [alert show];
     
-    CredentialStore *store = [[CredentialStore alloc] init];
-    NSString *authToken = [store authToken];
-    
-    if (authToken){
-        [store clearSavedCredentials];
-        NSLog(@"token cleared ! auth token = %@", authToken);
+ 
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0)
+    {
+        NSLog(@"menuViewController: logout");
+        
+        CredentialStore *store = [[CredentialStore alloc] init];
+        NSString *authToken = [store authToken];
+        
+        if (authToken){
+            [store clearSavedCredentials];
+            NSLog(@"token cleared ! auth token = %@", authToken);
+        }
+        
+        if (FBSession.activeSession.isOpen){
+            [FBSession.activeSession closeAndClearTokenInformation];
+            NSLog(@"facebook session closed");
+        }
+        
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"facebookId"];
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"facebookName"];
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentMember"];
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupId"];
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupName"];
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupMembers"];
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupCurrency"];
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupIndex"];
+        
+        NSLog(@"logout: current member id = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"id"]);
+        NSLog(@"logout: current member name = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"]);
+        NSLog(@"logout: current member path = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"picturePath"]);
+        
+        AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+        
+        if (![self.title isEqual:@"welcomeMenu"]){
+            
+            UINavigationController * navigationController = self.navigationController;
+            
+            
+            NSMutableArray *navigationArray = [navigationController.viewControllers mutableCopy];;
+            NSLog(@"viewcontrollers count = %u", navigationArray.count);
+            [navigationArray removeObjectAtIndex:1];
+            self.navigationController.viewControllers = navigationArray;
+            
+            
+            [navigationController popToRootViewControllerAnimated:NO];
+        }
+        [appDelegate showLoginView];
     }
-    
-    if (FBSession.activeSession.isOpen){
-        [FBSession.activeSession closeAndClearTokenInformation];
-        NSLog(@"facebook session closed");
+    else if (buttonIndex == 1)
+    {
+        // No
     }
-    
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"facebookId"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"facebookName"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentMember"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupId"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupName"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupMembers"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupCurrency"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupIndex"];
-    
-    NSLog(@"logout: current member id = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"id"]);
-    NSLog(@"logout: current member name = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"]);
-    NSLog(@"logout: current member path = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"picturePath"]);
-    
-    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-    
-    if (![self.title isEqual:@"welcomeMenu"]){
-        
-        UINavigationController * navigationController = self.navigationController;
-        
-        
-        NSMutableArray *navigationArray = [navigationController.viewControllers mutableCopy];;
-        NSLog(@"viewcontrollers count = %u", navigationArray.count);
-        [navigationArray removeObjectAtIndex:1];
-        self.navigationController.viewControllers = navigationArray;
-        
-        
-        [navigationController popToRootViewControllerAnimated:NO];
-    }
-    [appDelegate showLoginView];
 }
 
 - (IBAction)createGroup:(id)sender {

@@ -78,6 +78,12 @@
                                                  screenRect.size.height-frame.size.height-40,
                                                  frame.size.width,
                                                  frame.size.height)];
+    
+    self.errorView.backgroundColor=[UIColor colorWithRed:(243/255.0) green:(221/255.0) blue:(221/255.0) alpha:1];
+    self.errorView.layer.borderColor = [UIColor colorWithRed:(237/255.0) green:(211/255.0) blue:(215/255.0) alpha:1].CGColor;
+    self.errorView.layer.borderWidth = 1.0f;
+    self.errorView.layer.cornerRadius = 5;
+    self.errorView.layer.masksToBounds = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -178,6 +184,18 @@
     self.currentCurrency.text=self.selectedCurrency[@"name"];
 }
 
+- (BOOL) textFieldShouldBeginEditing:(UITextField *)textField{
+    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height, 320, 44)] ;
+    toolBar.tag = 11;
+    toolBar.barStyle = UIBarStyleBlackTranslucent;
+    UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissMemberPicker:)];
+    [toolBar setItems:[NSArray arrayWithObjects:spacer, doneButton, nil]];
+    [self.view addSubview:toolBar];
+    
+    return YES;
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
@@ -185,15 +203,24 @@
     return YES;
 }
 
+-(void)dismissKeyboard{
+    [self.groupName resignFirstResponder];
+    
+}
+
 - (IBAction)nextButton:(id)sender {
     
     if ([self.groupName.text length]) {
         [self performSegueWithIdentifier: @"GroupToMembers" sender: self];
+    }else{
+        self.errorView.hidden=NO;
+        self.errorLabel.hidden=NO;
     }
 }
 
+
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
     if ([[segue identifier] isEqualToString:@"GroupToMembers"]) {
         
         NSDictionary *currentMember = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"];
@@ -213,5 +240,31 @@
         gmvc.memberArray = [[NSMutableArray alloc] initWithArray:group.members];
     }
 }
+
+-(void) textFieldDidBeginEditing:(UITextField *)textField{
+    if (!textField.inputAccessoryView) {
+        
+        textField.inputAccessoryView = [self keyboardToolBar];
+    }
+}
+
+- (UIToolbar *)keyboardToolBar {
+    
+    UIToolbar *toolbar = [[UIToolbar alloc] init];
+    [toolbar setBarStyle:UIBarStyleBlackTranslucent];
+    [toolbar sizeToFit];
+    
+    
+    
+    UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(nextButton:)];
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(dismissKeyboard)];
+    
+    [toolbar setItems:[NSArray arrayWithObjects:cancelButton,spacer,spacer,doneButton, nil]];
+    
+    
+    return toolbar;
+}
+
 
 @end

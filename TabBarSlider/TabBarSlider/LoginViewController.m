@@ -11,6 +11,7 @@
 #import "AFJSONRequestOperation.h"
 #import "CredentialStore.h"
 #import "AppDelegate.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface LoginViewController ()
 
@@ -31,6 +32,13 @@
 {
     [super viewDidLoad];
     [self.view endEditing:YES];// Do any additional setup after loading the view.
+    
+    self.errorView.backgroundColor=[UIColor colorWithRed:(243/255.0) green:(221/255.0) blue:(221/255.0) alpha:1];
+    self.errorView.layer.borderColor = [UIColor colorWithRed:(237/255.0) green:(211/255.0) blue:(215/255.0) alpha:1].CGColor;
+    self.errorView.layer.borderWidth = 1.0f;
+    self.errorView.layer.cornerRadius = 5;
+    self.errorView.layer.masksToBounds = YES;
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,9 +76,11 @@
                                       
                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                       NSLog(@"error: %@", error);
-                                      self.errorLabel.text = @"Impossible to login, verify your credentials and make sure you are connected to the internet";
+                                      self.firstErrorLabel.hidden = NO;
+                                      self.errorView.hidden = NO;
                                       self.errorLabel.hidden = NO;
                                       [self.spinner stopAnimating];
+                                      [sender setTitleColor:[UIColor colorWithRed:255/255 green:255/255 blue:255/255 alpha:1.0] forState: UIControlStateNormal];
                                       
                                   }];
 }
@@ -78,7 +88,7 @@
 - (IBAction)FacebookLogin:(id)sender {
     
     [self.FBspinner startAnimating];
-    [sender setTitleColor:[UIColor colorWithRed:78/255 green:90/255 blue:149/255 alpha:0.0] forState: UIControlStateNormal];
+    [sender setTitleColor:[UIColor colorWithRed:255/255 green:255/255 blue:149/255 alpha:0.0] forState: UIControlStateNormal];
     
     NSLog(@"login with facebook");
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;

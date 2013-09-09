@@ -112,7 +112,6 @@
     
     self.navigation = [[ExpandableNavigation alloc] initWithMenuItems:buttons mainButton:self.main radius:120.0];
     
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -156,7 +155,7 @@
                                           }
                                           [self.messageOnTimeline reloadData];
                                           NSIndexPath* ipath = [NSIndexPath indexPathForRow: [self.messageOnTimeline numberOfRowsInSection:0]-1 inSection: 0];
-                                          [self.messageOnTimeline scrollToRowAtIndexPath: ipath atScrollPosition: UITableViewScrollPositionTop animated: NO];
+                                          [self.messageOnTimeline scrollToRowAtIndexPath: ipath atScrollPosition: UITableViewScrollPositionTop animated: YES];
                                           NSLog(@"success: %u messages added", diff);
                                       }else{
                                           //NSLog(@"success: data in sync");
@@ -165,10 +164,15 @@
                                       NSLog(@"error: %@", error);
                                   }];
     
+    
+    
 }
 
 - (void)dataRetrieved {
     [self.messageOnTimeline reloadData];
+    
+    NSIndexPath *myIndexPath = [NSIndexPath indexPathForRow:[self.messageDataController countOfList]-1 inSection:0];
+    [self.messageOnTimeline selectRowAtIndexPath:myIndexPath animated:NO scrollPosition:UITableViewScrollPositionBottom];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -225,7 +229,14 @@
     }
 }
 
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 1)];
+    return view;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
     
     Message *messageAtIndex = [self.messageDataController
                                objectInListAtIndex:indexPath.row];
@@ -295,6 +306,7 @@
                 [formatter setDateFormat:@"MMM, dd"];
                 cell.timelineTimeLabel.text=[formatter stringFromDate:(NSDate*)messageAtIndex.date];
             }
+            
             
             return cell;
         }else{
@@ -394,6 +406,7 @@
             
             [cell.memberProfilePicImage setFrame:CGRectMake(10,(int) sze.height-10, 35, 35)];
             
+          
             return cell;
         }
         
@@ -439,6 +452,7 @@
         }
         
         cell.expenseName.text =messageAtIndex.name;
+
         
         return cell;
     }
@@ -577,12 +591,16 @@
                                           NSLog(@"error: %@", error);
                                       }];
         
+        NSIndexPath* ipath = [NSIndexPath indexPathForRow: [self.messageOnTimeline numberOfRowsInSection:0]-1 inSection: 0];
+        [self.messageOnTimeline scrollToRowAtIndexPath: ipath atScrollPosition: UITableViewScrollPositionTop animated: YES];
+        
     }
-    NSIndexPath* ipath = [NSIndexPath indexPathForRow: [self.messageOnTimeline numberOfRowsInSection:0]-1 inSection: 0];
-    [self.messageOnTimeline scrollToRowAtIndexPath: ipath atScrollPosition: UITableViewScrollPositionTop animated: YES];
+    else{
+        [textField resignFirstResponder];
+    }
     
     
-    return NO;
+    return YES;
 }
 
 #pragma mark - Text View Delegate
@@ -617,7 +635,7 @@
 - (void) textFieldDidEndEditing:(UITextField *)myTextField
 {
     [UIView animateWithDuration:0.1 delay:0.0 options:UIViewAnimationOptionRepeat | UIViewAnimationOptionCurveLinear animations:^{
-        CGAffineTransform transform = CGAffineTransformMakeRotation(-M_PI);
+        CGAffineTransform transform = CGAffineTransformRotate(self.smiley.transform, M_PI);
         self.smiley.transform = transform;
     } completion:NULL];
     [UIView animateWithDuration:0.3 animations:^{
@@ -625,7 +643,7 @@
     [UIView animateWithDuration:0.1 delay:0.0 options:UIViewAnimationOptionCurveLinear animations:^{
         
         [UIView setAnimationRepeatCount:3];
-        CGAffineTransform transform = CGAffineTransformMakeRotation(-M_PI);
+        CGAffineTransform transform = CGAffineTransformRotate(self.main.transform, M_PI);;
         self.main.transform = transform;
     } completion:^(BOOL finished){
         
