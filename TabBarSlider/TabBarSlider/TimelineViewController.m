@@ -306,6 +306,7 @@
                 cell.timelineTimeLabel.text=[formatter stringFromDate:(NSDate*)messageAtIndex.date];
             }
             
+            
             return cell;
         }else{
             static NSString *CellIdentifier = @"timelineCell";
@@ -404,6 +405,7 @@
             
             [cell.memberProfilePicImage setFrame:CGRectMake(10,(int) sze.height-10, 35, 35)];
             
+          
             return cell;
         }
         
@@ -449,6 +451,7 @@
         }
         
         cell.expenseName.text =messageAtIndex.name;
+
         
         return cell;
     }
