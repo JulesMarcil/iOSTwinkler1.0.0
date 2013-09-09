@@ -178,6 +178,19 @@
     self.currentCurrency.text=self.selectedCurrency[@"name"];
 }
 
+- (BOOL) textFieldShouldBeginEditing:(UITextField *)textField{
+    
+    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height, 320, 44)] ;
+    toolBar.tag = 11;
+    toolBar.barStyle = UIBarStyleBlackTranslucent;
+    UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissMemberPicker:)];
+    [toolBar setItems:[NSArray arrayWithObjects:spacer, doneButton, nil]];
+    [self.view addSubview:toolBar];
+    
+    return YES;
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
