@@ -112,10 +112,6 @@
     
     self.navigation = [[ExpandableNavigation alloc] initWithMenuItems:buttons mainButton:self.main radius:120.0];
     
-    
-    
-    
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -168,10 +164,15 @@
                                       NSLog(@"error: %@", error);
                                   }];
     
+    
+    
 }
 
 - (void)dataRetrieved {
     [self.messageOnTimeline reloadData];
+    
+    NSIndexPath *myIndexPath = [NSIndexPath indexPathForRow:[self.messageDataController countOfList]-1 inSection:0];
+    [self.messageOnTimeline selectRowAtIndexPath:myIndexPath animated:NO scrollPosition:UITableViewScrollPositionBottom];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
