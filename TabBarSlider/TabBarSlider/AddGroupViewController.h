@@ -23,7 +23,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UIView *groupNameContainer;
 @property (weak, nonatomic) IBOutlet UIView *actionBarContainer;
-@property (strong, nonatomic) UISegmentedControl *segControl;
+@property (weak, nonatomic) IBOutlet UIView *errorView;
+@property (weak, nonatomic) IBOutlet UILabel *errorLabel;
 
 - (IBAction)showPicker:(id)sender;
 - (IBAction)nextButton:(id)sender;

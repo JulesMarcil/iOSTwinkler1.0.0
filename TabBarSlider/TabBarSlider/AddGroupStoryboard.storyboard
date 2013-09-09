@@ -17,7 +17,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Currency:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lkg-LI-l4Y">
-                                <rect key="frame" x="97" y="214" width="74" height="21"/>
+                                <rect key="frame" x="97" y="168" width="74" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -39,7 +39,7 @@
                                 </connections>
                             </pickerView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yVn-Lp-ZcL">
-                                <rect key="frame" x="177" y="214" width="110" height="21"/>
+                                <rect key="frame" x="177" y="168" width="110" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -83,7 +83,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="VIH-Bb-QnF">
-                                <rect key="frame" x="20" y="150" width="280" height="44"/>
+                                <rect key="frame" x="20" y="106" width="280" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your Group Name" textAlignment="center" minimumFontSize="17" id="2AD-6o-Cjt">
@@ -104,11 +104,11 @@
                                 <color key="backgroundColor" red="0.80392163989999998" green="0.80392163989999998" blue="0.80392163989999998" alpha="1" colorSpace="deviceRGB"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="edit-button.png" id="Hi4-hC-VP5">
-                                <rect key="frame" x="65" y="216" width="22" height="20"/>
+                                <rect key="frame" x="65" y="169" width="22" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="D5k-uV-Kev">
-                                <rect key="frame" x="30" y="207" width="270" height="48"/>
+                                <rect key="frame" x="30" y="165" width="270" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
@@ -122,6 +122,21 @@
                                     <action selector="showPicker:" destination="CIg-Vp-Ncz" eventType="touchUpInside" id="pOc-Np-Rnd"/>
                                 </connections>
                             </button>
+                            <view hidden="YES" contentMode="scaleToFill" id="qeY-j7-ZvJ">
+                                <rect key="frame" x="20" y="68" width="280" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Find a cool name for your group first :)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="skl-2Z-5UQ">
+                                        <rect key="frame" x="0.0" y="3" width="280" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="0.71372549019999998" green="0.29803921570000003" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.61778539539999999" green="0.0" blue="0.0067035932410000002" alpha="0.14000000000000001" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -131,6 +146,8 @@
                         <outlet property="cancelButton" destination="G0z-mZ-VVv" id="02W-4q-WBg"/>
                         <outlet property="currencyPicker" destination="PuN-0V-19u" id="95y-bW-7Lj"/>
                         <outlet property="currentCurrency" destination="yVn-Lp-ZcL" id="nb5-wg-P7h"/>
+                        <outlet property="errorLabel" destination="skl-2Z-5UQ" id="nbx-kA-64U"/>
+                        <outlet property="errorView" destination="qeY-j7-ZvJ" id="Ung-k0-sJ9"/>
                         <outlet property="groupName" destination="2AD-6o-Cjt" id="gxR-ep-HDg"/>
                         <outlet property="groupNameContainer" destination="VIH-Bb-QnF" id="ahv-YG-x9M"/>
                         <outlet property="nextButton" destination="YbX-kg-wRI" id="f0x-fC-hGZ"/>
@@ -166,7 +183,7 @@
                                                 <rect key="frame" x="6" y="11" width="214" height="28"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="xwu-3j-5Ge" id="Myq-Ip-wNj"/>
                                                 </connections>
@@ -751,12 +768,13 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AddGroupViewController.h"/>
             <relationships>
                 <relationship kind="action" name="nextButton:"/>
-                <relationship kind="action" name="showKeyboard:"/>
                 <relationship kind="action" name="showPicker:"/>
                 <relationship kind="outlet" name="actionBarContainer" candidateClass="UIView"/>
                 <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="currencyPicker" candidateClass="UIPickerView"/>
                 <relationship kind="outlet" name="currentCurrency" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="errorLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="errorView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="groupName" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="groupNameContainer" candidateClass="UIView"/>
                 <relationship kind="outlet" name="nextButton" candidateClass="UIButton"/>
