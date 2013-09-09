@@ -146,6 +146,9 @@
         return;
     }
     
+    [self.groupName resignFirstResponder];
+    
+    
     CGRect toolbarTargetFrame = CGRectMake(0, self.view.bounds.size.height-216-44, 320, 44);
     CGRect datePickerTargetFrame = CGRectMake(0, self.view.bounds.size.height-216, 320, 216);
     
@@ -185,14 +188,6 @@
 }
 
 - (BOOL) textFieldShouldBeginEditing:(UITextField *)textField{
-    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height, 320, 44)] ;
-    toolBar.tag = 11;
-    toolBar.barStyle = UIBarStyleBlackTranslucent;
-    UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissMemberPicker:)];
-    [toolBar setItems:[NSArray arrayWithObjects:spacer, doneButton, nil]];
-    [self.view addSubview:toolBar];
-    
     return YES;
 }
 
@@ -205,7 +200,6 @@
 
 -(void)dismissKeyboard{
     [self.groupName resignFirstResponder];
-    
 }
 
 - (IBAction)nextButton:(id)sender {
@@ -243,16 +237,15 @@
 
 -(void) textFieldDidBeginEditing:(UITextField *)textField{
     if (!textField.inputAccessoryView) {
-        
         textField.inputAccessoryView = [self keyboardToolBar];
     }
 }
 
 - (UIToolbar *)keyboardToolBar {
-    
-    UIToolbar *toolbar = [[UIToolbar alloc] init];
+    UIToolbar *toolbar=[[UIToolbar alloc]init];
     [toolbar setBarStyle:UIBarStyleBlackTranslucent];
     [toolbar sizeToFit];
+    toolbar.tag=1;
     
     
     
