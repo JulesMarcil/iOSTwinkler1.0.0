@@ -227,4 +227,29 @@
     }
 }
 
+-(void) textFieldDidBeginEditing:(UITextField *)textField{
+    if (!textField.inputAccessoryView) {
+        
+        textField.inputAccessoryView = [self keyboardToolBar];
+    }
+}
+
+- (UIToolbar *)keyboardToolBar {
+    
+    UIToolbar *toolbar = [[UIToolbar alloc] init];
+    [toolbar setBarStyle:UIBarStyleBlackTranslucent];
+    [toolbar sizeToFit];
+    
+    
+    
+    UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(nextButton:)];
+    
+    [toolbar setItems:[NSArray arrayWithObjects:spacer,spacer,doneButton, nil]];
+    
+    
+    return toolbar;
+}
+
+
 @end
