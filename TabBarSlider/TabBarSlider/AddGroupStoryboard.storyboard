@@ -284,6 +284,7 @@
                                                             </state>
                                                             <connections>
                                                                 <action selector="memberAction:" destination="EUt-da-45D" eventType="touchUpInside" id="y1D-kB-ysX"/>
+                                                                <action selector="removeMember:" destination="xwu-3j-5Ge" eventType="touchUpInside" id="hN0-ei-dgd"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -796,6 +797,7 @@
                 <relationship kind="action" name="dismissKeyboard:"/>
                 <relationship kind="action" name="doneButton:"/>
                 <relationship kind="action" name="manualAddMember:"/>
+                <relationship kind="action" name="removeMember:"/>
                 <relationship kind="outlet" name="actionBarContainer" candidateClass="UIView"/>
                 <relationship kind="outlet" name="backButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
