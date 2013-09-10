@@ -20,8 +20,8 @@
 
 @implementation GroupMemberViewController
 
-- (void)awakeFromNib
-{
+- (void)awakeFromNib {
+    
     [super awakeFromNib];
     
     [[AuthAPIClient sharedClient] getPath:@"api/friends"
@@ -38,8 +38,8 @@
                                   }];
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
+    
     [super viewDidLoad];
     
     self.groupNameTextField.text = self.group.name;
@@ -86,14 +86,12 @@
     [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     if (tableView.tag == 1) {
         return 1;
     } else {
@@ -102,8 +100,7 @@
     
 }
 
-- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (tableView.tag == 1) {
         return self.memberArray.count;
     } else {
@@ -111,8 +108,7 @@
     }
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView.tag == 1) {
         
         static NSString *CellIdentifier = @"memberCell";
@@ -130,9 +126,9 @@
         cell.nameLabel.text = memberAtIndex[@"name"];
         
         if ([memberAtIndex[@"balance"] doubleValue] != 0) {
-            cell.memberButton.hidden = YES;
+            cell.memberButton.alpha = 0.2;
         } else {
-            cell.memberButton.hidden = NO;
+            cell.memberButton.alpha = 1;
         }
         
         NSString *path = memberAtIndex[@"picturePath"];
@@ -204,7 +200,6 @@
         }
         
         [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:25.0];
-        
         return cell;
         
     }
@@ -248,6 +243,23 @@
     [self dismissKeyboard:nil];
 }
 
+- (void)removeMember:(id)sender :(NSIndexPath *)indexPath{
+    
+    NSDictionary *memberAtIndex = [self.memberArray objectAtIndex:indexPath.row];
+    
+    if ([memberAtIndex[@"balance"] doubleValue] != 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"impossible"
+                                                        message:@"you cannot remove a member with a non null balance"
+                                                       delegate:self
+                                              cancelButtonTitle:@"ok"
+                                              otherButtonTitles:nil, nil];
+        [alert show];
+    } else {
+        [self.memberArray removeObject:memberAtIndex];
+        [self.memberTableView reloadData];
+    }
+}
+
 - (IBAction)dismissKeyboard:(id)sender {
     [self.memberNameTextField resignFirstResponder];
     [UIView beginAnimations:@"MoveOut" context:nil];
@@ -263,10 +275,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-
-
-- (void) animateTextField: (UITextField*) textField up: (BOOL) up
-{
+- (void) animateTextField: (UITextField*) textField up:(BOOL)up {
     int movement = (up ? -60 : 60);
     
     [UIView beginAnimations:nil context:nil];
@@ -287,8 +296,8 @@
     [UIView commitAnimations];
     
 }
--(void)textresign{
-    
+
+-(void)textresign {
     [[self.view viewWithTag:1]resignFirstResponder];
 }
 
@@ -304,8 +313,8 @@
     [UIView commitAnimations];
     
 }
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     
     return YES;
@@ -385,8 +394,6 @@
                                    }];
 }
 
-
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([[segue identifier] isEqualToString:@"MembersToInvite"]) {
@@ -395,8 +402,6 @@
         ivc.link = self.link;
     }
 }
-
-
 
 // Design function !!!
 

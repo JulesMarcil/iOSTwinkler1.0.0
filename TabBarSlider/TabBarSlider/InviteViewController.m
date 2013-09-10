@@ -11,6 +11,7 @@
 #import "Group.h"
 #import <MessageUI/MessageUI.h>
 #import <QuartzCore/QuartzCore.h>
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface InviteViewController ()
 
@@ -138,6 +139,20 @@
 }
 
 - (IBAction)shareViaFacebook:(id)sender {
+    
+    NSLog(@"share via facebook called");
+    
+    /*
+    NSURL* url = [NSURL URLWithString:@"https://developers.facebook.com/ios"];
+    [FBDialogs presentShareDialogWithLink:url
+                                  handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
+                                      if(error) {
+                                          NSLog(@"Error: %@", error.description);
+                                      } else {
+                                          NSLog(@"Success!");
+                                      }
+                                  }];
+     */
 }
 
 @end
