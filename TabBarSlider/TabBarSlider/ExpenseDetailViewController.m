@@ -126,17 +126,26 @@
     frame= [self.scrollView frame];
     
     self.scrollView.pagingEnabled = YES;
-    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, self.scrollView.frame.size.height+1);
+    self.scrollView.tag=10;
+    CGFloat screenHeight = [[UIScreen mainScreen] bounds].size.height;
+    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, self.scrollView.frame.size.height+screenHeight);
+    [self.containerView setFrame:CGRectMake(self.containerView.frame.origin.x,
+                                            self.containerView.frame.origin.y+screenHeight,
+                                            self.containerView.frame.size.width,
+                                            self.containerView.frame.size.height)];
+    
+    [self.scrollView setContentOffset:CGPointMake(0,screenHeight) animated:YES];
+    self.scrollView.bounces=YES;
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator = NO;
-    self.scrollView.scrollsToTop = NO;
+    self.scrollView.scrollsToTop = YES;
     self.scrollView.delegate = self;
     self.scrollView.backgroundColor=[UIColor clearColor];
-    
     self.view.backgroundColor=[UIColor clearColor];
+    self.containerView.backgroundColor=[UIColor clearColor];
     
     
-    UIGraphicsBeginImageContext(self.view.bounds.size);
+    UIGraphicsBeginImageContext(CGSizeMake([[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height+40));
     UIViewController *VC=[self presentingViewController];
     [VC.view.layer setFrame:CGRectMake(VC.view.layer.frame.origin.x,VC.view.layer.frame.origin.y, VC.view.layer.frame.size.width,  VC.view.layer.frame.size.height)];
     [VC.view.layer renderInContext:UIGraphicsGetCurrentContext()];
@@ -144,11 +153,19 @@
     UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-     viewImage=[self imageByScalingAndCroppingForSize:CGSizeMake(self.view.frame.size.width,self.view.frame.size.height-40) : viewImage];
+     viewImage=[self imageByScalingAndCroppingForSize:CGSizeMake(self.view.frame.size.width,[[UIScreen mainScreen] bounds].size.height) : viewImage];
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:viewImage];
     
 }
+
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+        if (self.scrollView.contentOffset.y<1) {
+            [self dismissViewControllerAnimated:NO completion:nil];
+        }
+}
+
 - (UIImage*)imageByScalingAndCroppingForSize:(CGSize)targetSize:(UIImage *)srcimage
 {
     UIImage *sourceImage = srcimage;
@@ -208,11 +225,9 @@
     
 }
 
-- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
-    NSLog(@"yooooo");  
-}
 - (void)scrollViewDidScroll:(UIScrollView *)sender {
     
+    NSLog(@"while %i",(int)self.scrollView.contentOffset.y);
     CGFloat pageHeight = self.view.frame.size.height;
     
     if(self.scrollView.contentOffset.y<-pageHeight/4){
