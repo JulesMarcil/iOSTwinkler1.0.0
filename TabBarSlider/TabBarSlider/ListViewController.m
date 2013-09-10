@@ -35,6 +35,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     NSLog(@"lists view did load");
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenHeight = screenRect.size.height;
@@ -67,6 +68,15 @@
                                    frame.size.width,
                                    frame.size.height)];
 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addList:) name:@"listAddedSuccesfully" object:nil];
+}
+
+- (void) addList:(NSNotification *)note{
+    
+    NSLog(@"add list function called");
+    
+    [self.listDataController addListWithList:[[note userInfo] valueForKey:@"list"]];
+    [self.listOnLists reloadData];
 }
 
 - (void)dataRetrieved {

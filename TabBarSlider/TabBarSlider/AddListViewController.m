@@ -8,6 +8,9 @@
 
 #import "AddListViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "AuthAPIClient.h"
+#import "ListViewController.h"
+#import "List.h"
 
 @interface AddListViewController ()
 
@@ -44,7 +47,6 @@
     self.groupNameContainer.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:0.8];
     self.groupNameContainer.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
     self.groupNameContainer.layer.borderWidth = 1.0f;
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,8 +58,37 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
-    
     return YES;
+}
+
+- (IBAction)doneButton:(id)sender {
+    
+    if (self.listNameTextField.text.length > 0) {
+    
+        NSDictionary *parameters = [[NSDictionary alloc] initWithObjectsAndKeys:self.listNameTextField.text, @"name", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupId"], @"group_id", nil];
+    
+        [[AuthAPIClient sharedClient] postPath:@"api/post/list"
+                                    parameters:parameters
+                                       success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                           NSError *error = nil;
+                                           NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                                           
+                                           List *list = [[List alloc] initWithName:response[@"name"]
+                                                                             items:@[]
+                                                                        identifier:response[@"id"]];
+                                           
+                                           NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:list,@"list", nil];
+                                           
+                                           [[NSNotificationCenter defaultCenter] postNotificationName:@"listAddedSuccesfully" object:nil userInfo:dictionary];
+                                           NSLog(@"list added notification");
+                                           [self dismissViewControllerAnimated:YES completion:nil];
+                                       }
+                                       failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                           NSLog(@"error: %@", error);
+                                       }];
+    } else {
+        // Show message: please enter a list name
+    }
 }
 
 - (IBAction)dismissView:(id)sender {

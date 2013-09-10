@@ -126,8 +126,8 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Choose a List Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iyk-eF-4Z5">
-                                <rect key="frame" x="0.0" y="10" width="321" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Create a new List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iyk-eF-4Z5">
+                                <rect key="frame" x="0.0" y="10" width="321" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -153,6 +153,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="doneButton:" destination="ytT-eg-dRG" eventType="touchUpInside" id="B2g-yH-Uyb"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LdM-MS-amU">
                                         <rect key="frame" x="-1" y="0.0" width="161" height="44"/>
@@ -180,6 +183,7 @@
                         <outlet property="cancelButton" destination="LdM-MS-amU" id="p8H-sR-EWC"/>
                         <outlet property="doneButton" destination="B5S-Ag-OT5" id="rgs-AR-Jv1"/>
                         <outlet property="groupNameContainer" destination="gkq-eU-IMH" id="gxe-tX-7Bf"/>
+                        <outlet property="listNameTextField" destination="pbq-aV-JGG" id="VTP-MY-9od"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NqX-Pe-cnZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
