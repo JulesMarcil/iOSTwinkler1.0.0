@@ -10,7 +10,9 @@
 
 @class Expense;
 
-@interface ExpenseDetailViewController : UIViewController <UITableViewDataSource, UITableViewDataSource>
+@interface ExpenseDetailViewController : UIViewController <UITableViewDataSource, UITableViewDataSource, UIScrollViewDelegate>{
+	IBOutlet UIScrollView *scrollView;
+}
 
 @property (weak, nonatomic) IBOutlet UIView *actionBarView;
 @property (weak, nonatomic) IBOutlet UILabel *expenseNameLabel;
@@ -25,6 +27,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *deleteBtn;
 @property (weak, nonatomic) IBOutlet UILabel *expenseAuthorLabel;
 @property (strong, nonatomic) Expense *expense;
+@property   (weak, nonatomic) UIImage * presentationImage;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 - (IBAction)editExpense:(id)sender;
 - (IBAction)deleteExpense:(id)sender;
