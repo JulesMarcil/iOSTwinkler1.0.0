@@ -661,7 +661,7 @@
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationBeginsFromCurrentState:YES];
     [UIView setAnimationDuration:0.2f];
-    self.view.superview.superview.superview.frame = CGRectOffset(self.view.superview.superview.frame, 0, movement);
+    self.view.superview.superview.superview.frame = CGRectOffset(self.view.superview.superview.superview.frame, 0, movement);
     [UIView commitAnimations];
 }
 
