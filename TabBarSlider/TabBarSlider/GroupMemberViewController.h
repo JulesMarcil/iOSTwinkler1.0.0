@@ -33,6 +33,6 @@
 - (IBAction)dismissKeyboard:(id)sender;
 - (IBAction)backButton:(id)sender;
 - (IBAction)doneButton:(id)sender;
-- (IBAction)removeMember:(id)sender :(NSIndexPath *)indexPath;
+- (IBAction)removeMember:(id)sender;
 
 @end

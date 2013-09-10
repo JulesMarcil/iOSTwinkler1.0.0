@@ -764,67 +764,6 @@
         <image name="profile-pic-placeholder.png" width="160" height="160"/>
         <image name="remove-button.png" width="25" height="25"/>
     </resources>
-    <classes>
-        <class className="AddGroupViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddGroupViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="nextButton:"/>
-                <relationship kind="action" name="showPicker:"/>
-                <relationship kind="outlet" name="actionBarContainer" candidateClass="UIView"/>
-                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="currencyPicker" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="currentCurrency" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="errorLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="errorView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="groupName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="groupNameContainer" candidateClass="UIView"/>
-                <relationship kind="outlet" name="nextButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="AddMemberCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddMemberCell.h"/>
-            <relationships>
-                <relationship kind="action" name="memberAction:"/>
-                <relationship kind="outlet" name="memberButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="memberProfilePic" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="GroupMemberViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GroupMemberViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backButton:"/>
-                <relationship kind="action" name="dismissKeyboard:"/>
-                <relationship kind="action" name="doneButton:"/>
-                <relationship kind="action" name="manualAddMember:"/>
-                <relationship kind="action" name="removeMember:"/>
-                <relationship kind="outlet" name="actionBarContainer" candidateClass="UIView"/>
-                <relationship kind="outlet" name="backButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="groupNameTextField" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="memberNameTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="memberSuggestionTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="memberTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="nextButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="searchTextField" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="InviteViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/InviteViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="shareViaEmail:"/>
-                <relationship kind="action" name="shareViaFacebook:"/>
-                <relationship kind="action" name="shareViaSMS:"/>
-                <relationship kind="outlet" name="doneButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="linkContainer" candidateClass="UIView"/>
-                <relationship kind="outlet" name="linkLabel" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="shareEmailButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="shareFacebookButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="shareSMSButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

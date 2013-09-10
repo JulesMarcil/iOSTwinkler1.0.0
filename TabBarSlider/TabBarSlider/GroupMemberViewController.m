@@ -243,7 +243,12 @@
     [self dismissKeyboard:nil];
 }
 
-- (void)removeMember:(id)sender :(NSIndexPath *)indexPath{
+- (IBAction)removeMember:(id)sender{
+    
+    UIButton *button = (UIButton *)sender;
+    AddMemberCell *cell = (AddMemberCell *)button.superview.superview;
+    UITableView *tableView = (UITableView *)cell.superview;
+    NSIndexPath *indexPath = [tableView indexPathForCell:cell];
     
     NSDictionary *memberAtIndex = [self.memberArray objectAtIndex:indexPath.row];
     
