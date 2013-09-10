@@ -256,7 +256,7 @@
                                 <color key="backgroundColor" white="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="HJj-gv-D4u">
-                                <rect key="frame" x="0.0" y="375" width="48" height="44"/>
+                                <rect key="frame" x="7" y="380" width="34" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="money-button.png">
@@ -271,7 +271,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9DQ-0c-dqL">
-                                <rect key="frame" x="0.0" y="375" width="48" height="44"/>
+                                <rect key="frame" x="7" y="380" width="34" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="check-button.png">
@@ -286,7 +286,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="R4Y-Ds-lXy">
-                                <rect key="frame" x="0.0" y="375" width="48" height="44"/>
+                                <rect key="frame" x="7" y="380" width="34" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="user-button.png">
@@ -301,7 +301,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="bFJ-7F-Khs">
-                                <rect key="frame" x="4" y="378" width="41" height="38"/>
+                                <rect key="frame" x="7" y="380" width="34" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" image="uservoice-button.png">
