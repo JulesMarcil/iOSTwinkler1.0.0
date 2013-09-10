@@ -52,14 +52,13 @@
                              placeholderImage:[UIImage imageNamed:@"profile-pic.png"]
                                       success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                           self.ownerPic.image = image;
-                                          [self.ownerPic setFrame:CGRectMake(19,14,35,35)];
                                           [self setRoundedView:self.ownerPic picture:self.ownerPic.image toDiameter:35.0];
                                       }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                           NSLog(@"Failed with error: %@", error);
                                       }];
     }
     
-    [self.ownerPic setFrame:CGRectMake(19,82,35,35)];
+    [self.ownerPic setFrame:CGRectMake(40,102,35,35)];
     [self setRoundedView:self.ownerPic picture:self.ownerPic.image toDiameter:35.0];
     
     //set labels
@@ -103,7 +102,7 @@
     
     frame= [self.memberTableView frame];
     [self.memberTableView setFrame:CGRectMake(frame.origin.x,
-                                              165,
+                                              185,
                                               frame.size.width,
                                               176)];
     
