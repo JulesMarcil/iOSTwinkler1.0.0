@@ -253,7 +253,7 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="memberCell" selectionStyle="blue" indentationWidth="10" reuseIdentifier="memberCell" rowHeight="42" id="EUt-da-45D" customClass="AddMemberCell">
+                                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="memberCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="memberCell" rowHeight="42" id="EUt-da-45D" customClass="AddMemberCell">
                                                 <rect key="frame" x="0.0" y="22" width="280" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">

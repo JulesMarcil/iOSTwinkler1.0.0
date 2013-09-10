@@ -199,11 +199,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TabBarSlider/DashboardViewController.m"
-         timestampString = "399464198.244456"
+         timestampString = "400539967.015473"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "60"
-         endingLineNumber = "60"
+         startingLineNumber = "61"
+         endingLineNumber = "61"
          landmarkName = "-initWithNibName:bundle:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -264,11 +264,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TabBarSlider/GroupMemberViewController.m"
-         timestampString = "400496924.10345"
+         timestampString = "400540378.383935"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "253"
-         endingLineNumber = "253"
+         startingLineNumber = "255"
+         endingLineNumber = "255"
          landmarkName = "-removeMember:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -277,11 +277,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TabBarSlider/GroupMemberViewController.m"
-         timestampString = "400497037.874383"
+         timestampString = "400540378.383935"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "251"
-         endingLineNumber = "251"
+         startingLineNumber = "253"
+         endingLineNumber = "253"
          landmarkName = "-removeMember:"
          landmarkType = "5">
       </FileBreakpoint>

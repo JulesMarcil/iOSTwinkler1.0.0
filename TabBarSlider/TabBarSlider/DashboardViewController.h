@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FUIAlertView.h"
 
-@interface DashboardViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate>  {
+@interface DashboardViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, FUIAlertViewDelegate>  {
     IBOutlet UITableView* mainTableView;
 }
 

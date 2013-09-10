@@ -228,7 +228,7 @@
         }
     }
     else{
-        return sz.height+55;
+        return sz.height+58;
     }
 }
 
@@ -437,7 +437,7 @@
         frame.size.height = cell.messageLabel.frame.size.height+20;
         CGSize sz = [cell.messageLabel.text sizeWithFont:cell.messageLabel.font constrainedToSize:CGSizeMake(200, 20000) lineBreakMode:NSLineBreakByWordWrapping];
         cell.messageContainer.frame=frame;
-        [cell.messageContainer setFrame:CGRectMake(10,10,
+        [cell.messageContainer setFrame:CGRectMake(10,5,
                                                    300,
                                                    sz.height+30)];
         cell.messageContainer.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:0.8];
