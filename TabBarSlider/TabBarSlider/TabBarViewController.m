@@ -36,6 +36,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
     
     self.memberArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupMembers"];
@@ -138,7 +139,7 @@
     
     [self addChildViewController:rightVC];
     
-
+    [self.scrollView setContentOffset:CGPointMake(320, 0) animated:NO];
 }
 
 - (void)didReceiveMemoryWarning
@@ -148,7 +149,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    [self.scrollView setContentOffset:CGPointMake(320, 0) animated:NO];
+    [super viewWillAppear:animated];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)sender {
