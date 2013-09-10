@@ -287,11 +287,17 @@
                                                                 <action selector="removeMember:" destination="xwu-3j-5Ge" eventType="touchUpInside" id="hN0-ei-dgd"/>
                                                             </connections>
                                                         </button>
+                                                        <view hidden="YES" contentMode="scaleToFill" id="eVC-K4-zv0">
+                                                            <rect key="frame" x="10" y="20" width="260" height="1"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <connections>
+                                                    <outlet property="deleteMemberView" destination="eVC-K4-zv0" id="ZKL-Ky-aHL"/>
                                                     <outlet property="memberButton" destination="BbI-fY-pmK" id="UCU-bt-lQP"/>
                                                     <outlet property="memberProfilePic" destination="dQD-Gr-ZnA" id="PZO-HP-H2F"/>
                                                     <outlet property="nameLabel" destination="QI0-DO-Bxx" id="lkC-1Q-tl9"/>
@@ -375,9 +381,16 @@
                                         </connections>
                                     </tableView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Group name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SRM-ra-UWQ">
-                                        <rect key="frame" x="48" y="20" width="222" height="29"/>
+                                        <rect key="frame" x="48" y="28" width="222" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="23"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <color key="textColor" red="0.24313725489999999" green="0.2666666667" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Add a New Member to" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9tA-Ba-kQz">
+                                        <rect key="frame" x="49" y="3" width="222" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
                                         <color key="textColor" red="0.24313725489999999" green="0.2666666667" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -396,7 +409,7 @@
                                             <action selector="backButton:" destination="xwu-3j-5Ge" eventType="touchUpInside" id="Cjg-Xb-flD"/>
                                         </connections>
                                     </button>
-                                    <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Click on save to keep chenges" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jU9-UV-4n1">
+                                    <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Click on save to keep changes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jU9-UV-4n1">
                                         <rect key="frame" x="10" y="435" width="300" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="10"/>
@@ -413,6 +426,7 @@
                         <outlet property="actionBarContainer" destination="I0c-br-Npn" id="CK0-cB-fmM"/>
                         <outlet property="backButton" destination="47w-eD-cMh" id="PYn-iC-mZz"/>
                         <outlet property="cancelButton" destination="Rir-Da-ug8" id="SYd-PX-dCp"/>
+                        <outlet property="groupMembersLabel" destination="oF0-sD-DVz" id="isW-bo-0cr"/>
                         <outlet property="groupNameTextField" destination="SRM-ra-UWQ" id="hKk-oF-cze"/>
                         <outlet property="memberNameTextField" destination="Qxv-35-VaN" id="O37-qd-hqF"/>
                         <outlet property="memberSuggestionTableView" destination="tAE-Ed-awD" id="fSR-T5-3im"/>
@@ -771,6 +785,71 @@
         <image name="profile-pic-placeholder.png" width="160" height="160"/>
         <image name="remove-button.png" width="25" height="25"/>
     </resources>
+    <classes>
+        <class className="AddGroupViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddGroupViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="nextButton:"/>
+                <relationship kind="action" name="showPicker:"/>
+                <relationship kind="outlet" name="actionBarContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="currencyPicker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="currentCurrency" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="errorLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="errorView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="groupName" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="groupNameContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="nextButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="AddMemberCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddMemberCell.h"/>
+            <relationships>
+                <relationship kind="action" name="memberAction:"/>
+                <relationship kind="outlet" name="deleteMemberView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="memberButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="memberProfilePic" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="GroupMemberViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GroupMemberViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backButton:"/>
+                <relationship kind="action" name="cancelButton:"/>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="doneButton:"/>
+                <relationship kind="action" name="manualAddMember:"/>
+                <relationship kind="action" name="removeMember:"/>
+                <relationship kind="outlet" name="actionBarContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="backButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="groupMembersLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="groupNameTextField" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="memberNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="memberSuggestionTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="memberTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="messageLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nextButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="searchTextField" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="InviteViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InviteViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="shareViaEmail:"/>
+                <relationship kind="action" name="shareViaFacebook:"/>
+                <relationship kind="action" name="shareViaSMS:"/>
+                <relationship kind="outlet" name="doneButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="linkContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="linkLabel" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="shareEmailButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="shareFacebookButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="shareSMSButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

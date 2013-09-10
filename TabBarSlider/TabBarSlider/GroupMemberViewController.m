@@ -86,6 +86,7 @@
     self.memberSuggestionTableView.layer.borderWidth = 1.0f;
     
     [self.navigationController setNavigationBarHidden:YES animated:NO];
+    self.groupMembersLabel.text=[NSString stringWithFormat:@"Members of this group (%@)", [@(self.memberArray.count) stringValue]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -126,6 +127,9 @@
         NSDictionary *memberAtIndex = [self.memberArray objectAtIndex:indexPath.row];
         
         cell.nameLabel.text = memberAtIndex[@"name"];
+        
+        cell.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:1];
+        cell.deleteMemberView.hidden=YES;
         
         if ([memberAtIndex[@"balance"] doubleValue] != 0) {
             cell.memberButton.alpha = 0.2;
@@ -245,6 +249,7 @@
         [self.memberTableView reloadData];
         self.memberNameTextField.text = @"";
         self.messageLabel.hidden = NO;
+        
     }
     [self dismissKeyboard:nil];
 }
@@ -278,6 +283,13 @@
         memberAtIndex[@"status"] = @"remove";
         [self.memberArray setObject:memberAtIndex atIndexedSubscript:indexPath.row];
         //Show the user has been removed here
+        
+        AddMemberCell *cell =(AddMemberCell *)[self.memberTableView cellForRowAtIndexPath:indexPath];
+        cell.deleteMemberView.hidden=NO;
+        cell.backgroundColor=[UIColor colorWithRed:(243/255.0) green:(221/255.0) blue:(221/255.0) alpha:1];
+        cell.deleteMemberView.backgroundColor = [UIColor colorWithRed:(185/255.0) green:(76/255.0) blue:(69/255.0) alpha:1];
+        cell.memberButton.alpha = 0;
+        
     }
 }
 

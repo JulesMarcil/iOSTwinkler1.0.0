@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *memberProfilePic;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *memberButton;
+@property (weak, nonatomic) IBOutlet UIView *deleteMemberView;
 
 - (IBAction)memberAction:(id)sender;
 
