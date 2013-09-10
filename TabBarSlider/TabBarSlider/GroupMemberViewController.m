@@ -28,9 +28,9 @@
                                parameters:nil
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                       NSError *error = nil;
-                                      NSMutableArray *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                                      NSArray *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
                                       NSLog(@"%@", response);
-                                      self.friends = response;
+                                      self.friends = [(NSMutableArray *)[NSMutableArray alloc] initWithArray:response];
                                       [self.memberSuggestionTableView reloadData];
                                   }
                                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -223,8 +223,11 @@
         
         [self.memberArray addObject:member];
         [self.memberTableView reloadData];
+        [self.friends removeObjectAtIndex:indexPath.row];
+        [self.memberSuggestionTableView reloadData];
     }
     self.memberNameTextField.text = @"";
+    self.messageLabel.hidden = NO;
     [self dismissKeyboard:nil];
 }
 
@@ -239,6 +242,7 @@
         [self.memberArray addObject:member];
         [self.memberTableView reloadData];
         self.memberNameTextField.text = @"";
+        self.messageLabel.hidden = NO;
     }
     [self dismissKeyboard:nil];
 }
@@ -250,7 +254,7 @@
     UITableView *tableView = (UITableView *)cell.superview;
     NSIndexPath *indexPath = [tableView indexPathForCell:cell];
     
-    NSDictionary *memberAtIndex = [self.memberArray objectAtIndex:indexPath.row];
+    NSMutableDictionary *memberAtIndex = [[NSMutableDictionary alloc] initWithDictionary:[self.memberArray objectAtIndex:indexPath.row]];
     
     if ([memberAtIndex[@"balance"] doubleValue] != 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"impossible"
@@ -260,8 +264,9 @@
                                               otherButtonTitles:nil, nil];
         [alert show];
     } else {
-        [self.memberArray removeObject:memberAtIndex];
-        [self.memberTableView reloadData];
+        memberAtIndex[@"status"] = @"remove";
+        [self.memberArray setObject:memberAtIndex atIndexedSubscript:indexPath.row];
+        //Show the user has been removed here
     }
 }
 
@@ -325,6 +330,53 @@
     return YES;
 }
 
+- (IBAction)cancelButton:(id)sender {
+    
+    BOOL changes = NO;
+    
+    if ([self.group.identifier intValue] == 0) {
+        changes = YES;
+    }
+    
+    for (id member in self.memberArray) {
+        if ([member[@"status"] isEqualToString:@"manualAdd"]) {
+            changes = YES;
+        } else if([member[@"status"] isEqualToString:@"friendAdd"]) {
+            changes = YES;
+        } else if ([member[@"status"] isEqualToString:@"remove"] && [member[@"id"] doubleValue]>0) {
+            changes = YES;
+        } else {
+            NSLog(@"nothing happens to %@ (%@)", member[@"name"], member[@"id"]);
+        }
+    }
+    
+    NSLog(@"here it is");
+    NSLog(changes ? @"some changes" : @"no changes");
+    
+    if (changes) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Are you sure?"
+                                                        message:@"Your changes to this group will be discarded"
+                                                       delegate:self
+                                              cancelButtonTitle:@"NO"
+                                              otherButtonTitles:@"YES", nil];
+        [alert show];
+    } else {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        //NO clicked
+        
+    } else if (buttonIndex == 1) {
+        
+        //YES clicekd
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+
 - (IBAction)doneButton:(id)sender {
     
     self.group.members = self.memberArray;
@@ -355,6 +407,10 @@
         [addFriends addObject:@"-1"];
     }
     
+    if(removeMembers.count == 0) {
+        [removeMembers addObject:@"-1"];
+    }
+    
     NSNumber *identifier;
     if (self.group.identifier) {
         identifier = self.group.identifier;
@@ -362,11 +418,13 @@
         identifier = @0;
     }
     
-    NSArray *keys = @[@"id", @"name", @"currency", @"addMembers", @"addFriends", @"activeMember"];
-    NSArray *objects = @[identifier, self.group.name, self.group.currency[@"id"], addMembers, addFriends, self.group.activeMember[@"id"]];
+    NSArray *keys = @[@"id", @"name", @"currency", @"addMembers", @"addFriends", @"removeMembers", @"activeMember"];
+    NSArray *objects = @[identifier, self.group.name, self.group.currency[@"id"], addMembers, addFriends, removeMembers, self.group.activeMember[@"id"]];
     
     NSDictionary *parameters = [[NSDictionary alloc] initWithObjects:objects
                                                              forKeys:keys];
+    
+    NSLog(@"parameters before posting group = %@", parameters);
     
     [[AuthAPIClient sharedClient] postPath:@"api/post/group"
                                 parameters:parameters
@@ -392,7 +450,13 @@
                                        [[NSNotificationCenter defaultCenter] postNotificationName:@"newGroupSelected" object:nil];
                                        [[NSNotificationCenter defaultCenter] postNotificationName:@"doneAddMember" object:nil];
                                        
-                                       [self performSegueWithIdentifier: @"MembersToInvite" sender: self];
+                                       
+                                       if(addMembers.count > 0) {
+                                           [self dismissViewControllerAnimated:YES completion:nil];
+                                       } else {
+                                           [self performSegueWithIdentifier: @"MembersToInvite" sender: self];
+                                       }
+                                       
                                    }
                                    failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                        NSLog(@"error: %@", error);

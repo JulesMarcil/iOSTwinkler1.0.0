@@ -28,10 +28,12 @@
 @property (weak, nonatomic) IBOutlet UIView *searchTextField;
 @property (weak, nonatomic) IBOutlet UILabel *groupNameTextField;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UILabel *messageLabel;
 
 - (IBAction)manualAddMember:(id)sender;
 - (IBAction)dismissKeyboard:(id)sender;
 - (IBAction)backButton:(id)sender;
+- (IBAction)cancelButton:(id)sender;
 - (IBAction)doneButton:(id)sender;
 - (IBAction)removeMember:(id)sender;
 
