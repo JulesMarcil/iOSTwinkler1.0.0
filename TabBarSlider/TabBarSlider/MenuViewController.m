@@ -60,6 +60,11 @@
     
     if (![self.title isEqual: @"welcomeMenu"]){
         [self loadData];
+        
+        UISwipeGestureRecognizer *recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(backToGroup)];
+        [recognizer setDirection:(UISwipeGestureRecognizerDirectionLeft)];
+        [[self view] addGestureRecognizer:recognizer];
+        
     }
     
     [self.navigationController setNavigationBarHidden:YES animated:NO];
@@ -86,6 +91,10 @@
     [self.addGroupButton.layer setBorderWidth:1.0];
     self.groupOnMenu.separatorColor = [UIColor clearColor];
     self.groupOnMenu.separatorStyle = UITableViewCellSeparatorStyleNone;
+}
+
+-(void) backToGroup{
+    [self performSegueWithIdentifier:@"goToGroupSegue" sender:self];
 }
 
 -(void) loadData{
