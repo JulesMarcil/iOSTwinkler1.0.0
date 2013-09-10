@@ -87,6 +87,12 @@
     
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     self.groupMembersLabel.text=[NSString stringWithFormat:@"Members of this group (%@)", [@(self.memberArray.count) stringValue]];
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self.memberTableView flashScrollIndicators];
 }
 
 - (void)didReceiveMemoryWarning {
