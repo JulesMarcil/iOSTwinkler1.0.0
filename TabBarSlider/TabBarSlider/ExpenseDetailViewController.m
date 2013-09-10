@@ -209,7 +209,7 @@
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
-    NSLog(@"yooooo");
+    NSLog(@"yooooo");  
 }
 - (void)scrollViewDidScroll:(UIScrollView *)sender {
     
