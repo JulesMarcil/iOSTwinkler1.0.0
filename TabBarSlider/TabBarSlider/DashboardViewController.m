@@ -190,8 +190,6 @@
 {
         if (buttonIndex == 0) {
             //NO clicked
-            NSLog(@" il y a %u view controllers dans le navigation controller", self.navigationController.viewControllers.count);
-            [self.navigationController popToRootViewControllerAnimated:YES];
             
         } else if (buttonIndex == 1) {
             
