@@ -89,6 +89,10 @@
 		897B77B217BA6A3E00D00C49 /* bubble-tail-grey.png in Resources */ = {isa = PBXBuildFile; fileRef = 897B77B117BA6A3E00D00C49 /* bubble-tail-grey.png */; };
 		897B77C217BB8E0D00D00C49 /* left-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 897B77C117BB8E0D00D00C49 /* left-arrow.png */; };
 		897B77C417BBDD2100D00C49 /* bubble-tail-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 897B77C317BBDD2100D00C49 /* bubble-tail-white.png */; };
+		89C4707817DF1BFC00468AD0 /* FUIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C4707717DF1BFC00468AD0 /* FUIAlertView.m */; };
+		89C4707917DF1C4100468AD0 /* FUIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C4707717DF1BFC00468AD0 /* FUIAlertView.m */; };
+		89C4707C17DF1FE400468AD0 /* UIColor+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C4707B17DF1FE400468AD0 /* UIColor+FlatUI.m */; };
+		89C4707D17DF201E00468AD0 /* UIColor+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C4707B17DF1FE400468AD0 /* UIColor+FlatUI.m */; };
 		89C54FF517D6494D007B8CEB /* notificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C54FF417D6494C007B8CEB /* notificationCell.m */; };
 		89C54FF917D67B03007B8CEB /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C54FF817D67B03007B8CEB /* FeedbackViewController.m */; };
 		89CEBC8117C61F7800DF7085 /* chat-bck.png in Resources */ = {isa = PBXBuildFile; fileRef = 89CEBC8017C61F7800DF7085 /* chat-bck.png */; };
@@ -256,6 +260,10 @@
 		897B77C117BB8E0D00D00C49 /* left-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-arrow.png"; sourceTree = "<group>"; };
 		897B77C317BBDD2100D00C49 /* bubble-tail-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bubble-tail-white.png"; sourceTree = "<group>"; };
 		8993880217C5FE7B00B5A9BE /* AppConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConstants.h; sourceTree = "<group>"; };
+		89C4707617DF1BFC00468AD0 /* FUIAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUIAlertView.h; sourceTree = "<group>"; };
+		89C4707717DF1BFC00468AD0 /* FUIAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUIAlertView.m; sourceTree = "<group>"; };
+		89C4707A17DF1FE400468AD0 /* UIColor+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FlatUI.h"; sourceTree = "<group>"; };
+		89C4707B17DF1FE400468AD0 /* UIColor+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FlatUI.m"; sourceTree = "<group>"; };
 		89C54FF317D6494C007B8CEB /* notificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = notificationCell.h; sourceTree = "<group>"; };
 		89C54FF417D6494C007B8CEB /* notificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = notificationCell.m; sourceTree = "<group>"; };
 		89C54FF717D67B03007B8CEB /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
@@ -536,6 +544,8 @@
 		891F500517B3C69000361986 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				89C4707617DF1BFC00468AD0 /* FUIAlertView.h */,
+				89C4707717DF1BFC00468AD0 /* FUIAlertView.m */,
 				891F500617B3C6AE00361986 /* FUIButton.h */,
 				891F500717B3C6AE00361986 /* FUIButton.m */,
 				891F500A17B3C96E00361986 /* UIImage+FlatUI.h */,
@@ -602,6 +612,8 @@
 		895C4E4017AA77D3004EC590 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				89C4707A17DF1FE400468AD0 /* UIColor+FlatUI.h */,
+				89C4707B17DF1FE400468AD0 /* UIColor+FlatUI.m */,
 				8993880217C5FE7B00B5A9BE /* AppConstants.h */,
 				895C4E4717AA77D3004EC590 /* Twinkler-Prefix.pch */,
 				895C4E4117AA77D3004EC590 /* Twinkler-Info.plist */,
@@ -959,6 +971,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89C4707D17DF201E00468AD0 /* UIColor+FlatUI.m in Sources */,
+				89C4707917DF1C4100468AD0 /* FUIAlertView.m in Sources */,
 				892F99A617B98B3A00D86B4D /* WelcomeViewController.m in Sources */,
 				89F71E1C17B596DB00BC9C32 /* memberCollectionViewCell.m in Sources */,
 				891F500D17B3C98300361986 /* UIImage+FlatUI.m in Sources */,
@@ -1031,6 +1045,8 @@
 				891F500817B3C6AE00361986 /* FUIButton.m in Sources */,
 				891F500C17B3C96E00361986 /* UIImage+FlatUI.m in Sources */,
 				89F71E1817B54E5600BC9C32 /* memberCollectionViewCell.m in Sources */,
+				89C4707817DF1BFC00468AD0 /* FUIAlertView.m in Sources */,
+				89C4707C17DF1FE400468AD0 /* UIColor+FlatUI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,6 +19,8 @@
 #import "AppDelegate.h"
 #import "UIImageView+AFNetworking.h"
 #import "AuthAPIClient.h"
+#import "FUIAlertView.h"
+#import "UIColor+FlatUI.h"
 
 @interface MenuViewController ()
 
@@ -467,13 +469,17 @@
 
 - (IBAction)Logout:(id)sender {
     
-    UIAlertView *alert = [[UIAlertView alloc] init];
-    [alert setTitle:@"You're about to leave :'("];
-    [alert setMessage:@"Are you sure you want to log out?"];
-    [alert setDelegate:self];
-    [alert addButtonWithTitle:@"Yes"];
-    [alert addButtonWithTitle:@"No"];
-    [alert show];
+    FUIAlertView *alertView = [[FUIAlertView alloc] initWithTitle:@"You're about to leave :(" message:@"Are you sure you want to log out?" delegate:nil cancelButtonTitle:@"Log Out" otherButtonTitles:@"Stay Logged In", nil];
+    alertView.delegate = self;
+    
+    alertView.titleLabel.textColor = [UIColor asbestosColor];
+    alertView.messageLabel.textColor = [UIColor asbestosColor];
+    alertView.backgroundOverlay.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.4];
+    alertView.alertContainer.backgroundColor = [[UIColor cloudsColor]colorWithAlphaComponent:1];
+    alertView.defaultButtonColor = [UIColor wetAsphaltColor];
+    alertView.defaultButtonShadowColor = [UIColor midnightBlueColor];
+    alertView.defaultButtonTitleColor = [UIColor cloudsColor];
+    [alertView show];
     
  
 }
