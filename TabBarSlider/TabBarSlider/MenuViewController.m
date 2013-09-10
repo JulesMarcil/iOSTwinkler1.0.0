@@ -469,16 +469,20 @@
 
 - (IBAction)Logout:(id)sender {
     
-    FUIAlertView *alertView = [[FUIAlertView alloc] initWithTitle:@"You're about to leave :(" message:@"Are you sure you want to log out?" delegate:nil cancelButtonTitle:@"Log Out" otherButtonTitles:@"Stay Logged In", nil];
+    FUIAlertView *alertView = [[FUIAlertView alloc] initWithTitle:@"You're about to leave :(" message:@"" delegate:nil cancelButtonTitle:@"Log Out" otherButtonTitles:@"Stay Logged In", nil];
     alertView.delegate = self;
     
     alertView.titleLabel.textColor = [UIColor asbestosColor];
+    [alertView.titleLabel setFont:[UIFont systemFontOfSize:14]];
     alertView.messageLabel.textColor = [UIColor asbestosColor];
+    [alertView.messageLabel setFont:[UIFont systemFontOfSize:14]];
     alertView.backgroundOverlay.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.4];
     alertView.alertContainer.backgroundColor = [[UIColor cloudsColor]colorWithAlphaComponent:1];
     alertView.defaultButtonColor = [UIColor wetAsphaltColor];
     alertView.defaultButtonShadowColor = [UIColor midnightBlueColor];
     alertView.defaultButtonTitleColor = [UIColor cloudsColor];
+    alertView.defaultButtonFont=[UIFont systemFontOfSize:14];
+    
     [alertView show];
     
  
