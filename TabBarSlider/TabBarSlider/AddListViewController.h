@@ -12,6 +12,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
 @property (weak, nonatomic) IBOutlet UIView *groupNameContainer;
+@property (weak, nonatomic) IBOutlet UITextField *listNameTextField;
+
+
+- (IBAction)doneButton:(id)sender;
 - (IBAction)dismissView:(id)sender;
 
 @end
