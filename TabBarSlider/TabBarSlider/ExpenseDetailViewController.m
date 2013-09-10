@@ -158,6 +158,10 @@
     
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self.memberTableView flashScrollIndicators];
+}
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
         if (self.scrollView.contentOffset.y<1) {
@@ -220,13 +224,9 @@
     UIGraphicsEndImageContext();
     return newImage;
 }
--(void)viewDidAppear:(BOOL)animated{
-    
-}
 
 - (void)scrollViewDidScroll:(UIScrollView *)sender {
     
-    NSLog(@"while %i",(int)self.scrollView.contentOffset.y);
     CGFloat pageHeight = self.view.frame.size.height;
     
     if(self.scrollView.contentOffset.y<-pageHeight/4){
