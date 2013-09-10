@@ -219,7 +219,7 @@
                                                 <rect key="frame" x="159" y="0.0" width="162" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
-                                                <state key="normal" title="Done">
+                                                <state key="normal" title="Save">
                                                     <color key="titleColor" red="0.24313725489999999" green="0.2666666667" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" red="0.85882359740000003" green="0.41176474089999998" blue="0.36470589040000001" alpha="1" colorSpace="deviceRGB"/>
                                                 </state>
@@ -242,7 +242,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="ejo-fn-XiR" kind="unwind" unwindAction="cancelAddGroup:" id="Jc6-e8-ma9"/>
+                                                    <action selector="cancelButton:" destination="xwu-3j-5Ge" eventType="touchUpInside" id="Mue-ee-V69"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -396,6 +396,13 @@
                                             <action selector="backButton:" destination="xwu-3j-5Ge" eventType="touchUpInside" id="Cjg-Xb-flD"/>
                                         </connections>
                                     </button>
+                                    <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Click on save to keep chenges" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jU9-UV-4n1">
+                                        <rect key="frame" x="10" y="435" width="300" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="10"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -410,6 +417,7 @@
                         <outlet property="memberNameTextField" destination="Qxv-35-VaN" id="O37-qd-hqF"/>
                         <outlet property="memberSuggestionTableView" destination="tAE-Ed-awD" id="fSR-T5-3im"/>
                         <outlet property="memberTableView" destination="aXt-Mw-xlI" id="EyR-ke-kcP"/>
+                        <outlet property="messageLabel" destination="jU9-UV-4n1" id="LCi-9M-SCp"/>
                         <outlet property="nextButton" destination="cTd-60-6mo" id="crW-KA-Svs"/>
                         <outlet property="scrollView" destination="qMA-E0-l6S" id="52a-HX-72l"/>
                         <outlet property="searchTextField" destination="00q-21-Kp3" id="frT-eN-j0k"/>
@@ -611,7 +619,6 @@
                     </connections>
                 </button>
                 <navigationItem title="Add Members" id="5A8-St-LQT"/>
-                <exit id="ejo-fn-XiR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1737" y="-1338"/>
         </scene>
