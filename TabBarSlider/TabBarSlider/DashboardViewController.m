@@ -13,8 +13,6 @@
 #import "Group.h"
 #import "AddGroupViewController.h"
 #import <QuartzCore/QuartzCore.h>
-#import "FUIAlertView.h"
-#import "UIColor+FlatUI.h"
 
 @interface DashboardViewController ()
 
@@ -178,22 +176,11 @@
 }
 
 - (IBAction)CloseGroupAction:(id)sender {
-    FUIAlertView *alertView = [[FUIAlertView alloc] initWithTitle:@"Are you sure?"
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Are you sure?"
                                                           message:@"If you close this group, you and your friends will not have any access to it anymore"
                                                          delegate:self
                                                 cancelButtonTitle:@"No"
                                                 otherButtonTitles:@"Yes", nil];
-    
-    alertView.titleLabel.textColor = [UIColor asbestosColor];
-    alertView.titleLabel.font = [UIFont systemFontOfSize:14];
-    alertView.messageLabel.textColor = [UIColor asbestosColor];
-    alertView.messageLabel.font = [UIFont systemFontOfSize:14];
-    alertView.backgroundOverlay.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.4];
-    alertView.alertContainer.backgroundColor = [[UIColor cloudsColor]colorWithAlphaComponent:1];
-    alertView.defaultButtonColor = [UIColor wetAsphaltColor];
-    alertView.defaultButtonShadowColor = [UIColor midnightBlueColor];
-    alertView.defaultButtonTitleColor = [UIColor cloudsColor];
-    alertView.defaultButtonFont = [UIFont systemFontOfSize:14];
     
     [alertView show];
 }

@@ -13,8 +13,6 @@
 #import "InviteViewController.h"
 #import "AuthAPIClient.h"
 #import <QuartzCore/QuartzCore.h>
-#import "FUIAlertView.h"
-#import "UIColor+FlatUI.h"
 
 @interface GroupMemberViewController ()
 
@@ -270,19 +268,8 @@
     NSMutableDictionary *memberAtIndex = [[NSMutableDictionary alloc] initWithDictionary:[self.memberArray objectAtIndex:indexPath.row]];
     
     if ([memberAtIndex[@"balance"] doubleValue] != 0) {
-        FUIAlertView *alertView = [[FUIAlertView alloc] initWithTitle:@"We cannot do this :(" message:@"You cannot remove a friend from your group if he has not settled all his debt." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil, nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"We cannot do this :(" message:@"You cannot remove a friend from your group if he has not settled all his debt." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil, nil];
         alertView.delegate = self;
-        
-        alertView.titleLabel.textColor = [UIColor asbestosColor];
-        [alertView.titleLabel setFont:[UIFont systemFontOfSize:14]];
-        alertView.messageLabel.textColor = [UIColor asbestosColor];
-        [alertView.messageLabel setFont:[UIFont systemFontOfSize:14]];
-        alertView.backgroundOverlay.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.4];
-        alertView.alertContainer.backgroundColor = [[UIColor cloudsColor]colorWithAlphaComponent:1];
-        alertView.defaultButtonColor = [UIColor wetAsphaltColor];
-        alertView.defaultButtonShadowColor = [UIColor midnightBlueColor];
-        alertView.defaultButtonTitleColor = [UIColor cloudsColor];
-        alertView.defaultButtonFont=[UIFont systemFontOfSize:14];
         
         [alertView show];
     } else {

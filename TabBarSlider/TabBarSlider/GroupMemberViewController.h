@@ -7,11 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FUIAlertView.h"
-
 @class Group;
 
-@interface GroupMemberViewController : UIViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDataSource, FUIAlertViewDelegate>  {
+@interface GroupMemberViewController : UIViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDataSource, UIAlertViewDelegate>  {
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *memberSuggestionTableView;

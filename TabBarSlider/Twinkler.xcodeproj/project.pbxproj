@@ -96,8 +96,6 @@
 		89AFFF0F17E084A20028F09A /* Default@2x1.png in Resources */ = {isa = PBXBuildFile; fileRef = 89AFFF0D17E084A20028F09A /* Default@2x1.png */; };
 		89AFFF1017E084A20028F09A /* Default1.png in Resources */ = {isa = PBXBuildFile; fileRef = 89AFFF0E17E084A20028F09A /* Default1.png */; };
 		89AFFF1217E0859A0028F09A /* Default-568h@2x1.png in Resources */ = {isa = PBXBuildFile; fileRef = 89AFFF1117E0859A0028F09A /* Default-568h@2x1.png */; };
-		89C4707817DF1BFC00468AD0 /* FUIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C4707717DF1BFC00468AD0 /* FUIAlertView.m */; };
-		89C4707917DF1C4100468AD0 /* FUIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C4707717DF1BFC00468AD0 /* FUIAlertView.m */; };
 		89C4707C17DF1FE400468AD0 /* UIColor+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C4707B17DF1FE400468AD0 /* UIColor+FlatUI.m */; };
 		89C4707D17DF201E00468AD0 /* UIColor+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C4707B17DF1FE400468AD0 /* UIColor+FlatUI.m */; };
 		89C54FF517D6494D007B8CEB /* notificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C54FF417D6494C007B8CEB /* notificationCell.m */; };
@@ -274,8 +272,6 @@
 		89AFFF0D17E084A20028F09A /* Default@2x1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x1.png"; sourceTree = "<group>"; };
 		89AFFF0E17E084A20028F09A /* Default1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default1.png; sourceTree = "<group>"; };
 		89AFFF1117E0859A0028F09A /* Default-568h@2x1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x1.png"; sourceTree = "<group>"; };
-		89C4707617DF1BFC00468AD0 /* FUIAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUIAlertView.h; sourceTree = "<group>"; };
-		89C4707717DF1BFC00468AD0 /* FUIAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUIAlertView.m; sourceTree = "<group>"; };
 		89C4707A17DF1FE400468AD0 /* UIColor+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FlatUI.h"; sourceTree = "<group>"; };
 		89C4707B17DF1FE400468AD0 /* UIColor+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FlatUI.m"; sourceTree = "<group>"; };
 		89C54FF317D6494C007B8CEB /* notificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = notificationCell.h; sourceTree = "<group>"; };
@@ -558,8 +554,6 @@
 		891F500517B3C69000361986 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				89C4707617DF1BFC00468AD0 /* FUIAlertView.h */,
-				89C4707717DF1BFC00468AD0 /* FUIAlertView.m */,
 				891F500617B3C6AE00361986 /* FUIButton.h */,
 				891F500717B3C6AE00361986 /* FUIButton.m */,
 				891F500A17B3C96E00361986 /* UIImage+FlatUI.h */,
@@ -1000,7 +994,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				89C4707D17DF201E00468AD0 /* UIColor+FlatUI.m in Sources */,
-				89C4707917DF1C4100468AD0 /* FUIAlertView.m in Sources */,
 				892F99A617B98B3A00D86B4D /* WelcomeViewController.m in Sources */,
 				89F71E1C17B596DB00BC9C32 /* memberCollectionViewCell.m in Sources */,
 				891F500D17B3C98300361986 /* UIImage+FlatUI.m in Sources */,
@@ -1073,7 +1066,6 @@
 				891F500817B3C6AE00361986 /* FUIButton.m in Sources */,
 				891F500C17B3C96E00361986 /* UIImage+FlatUI.m in Sources */,
 				89F71E1817B54E5600BC9C32 /* memberCollectionViewCell.m in Sources */,
-				89C4707817DF1BFC00468AD0 /* FUIAlertView.m in Sources */,
 				89C4707C17DF1FE400468AD0 /* UIColor+FlatUI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

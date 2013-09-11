@@ -10,12 +10,11 @@
 #import "GroupDataController.h"
 #import "Profile.h"
 #import "SWRevealViewController.h"
-#import "FUIAlertView.h"
 
 @class GroupListCell;
 @class Profile;
 
-@interface MenuViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, FUIAlertViewDelegate>  {
+@interface MenuViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate>  {
     IBOutlet UITableView* groupOnMenu;
 }
 
