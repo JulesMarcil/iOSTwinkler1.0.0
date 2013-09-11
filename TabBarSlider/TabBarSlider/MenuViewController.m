@@ -487,6 +487,8 @@
     alertView.defaultButtonFont=[UIFont systemFontOfSize:14];
     
     [alertView show];
+    
+    NSLog(@"zombie: %p",self);
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
