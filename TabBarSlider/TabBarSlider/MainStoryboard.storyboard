@@ -358,7 +358,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZzR-fo-Glg">
-                                            <rect key="frame" x="15" y="13" width="25" height="25"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                             <state key="normal" title="Button" image="gear.png">
@@ -504,7 +504,7 @@
         <image name="coin-icon-active.png" width="20" height="20"/>
         <image name="coin-icon.png" width="20" height="20"/>
         <image name="dashboard-button-white.png" width="36" height="36"/>
-        <image name="gear.png" width="95" height="99"/>
+        <image name="gear.png" width="156" height="156"/>
         <image name="heart-icon.png" width="23" height="20"/>
         <image name="menu-button-white.png" width="36" height="36"/>
         <image name="profile-pic-placeholder.png" width="160" height="160"/>
