@@ -211,13 +211,7 @@
     [UIView animateWithDuration:self.animationDuration animations:^{
         self.backgroundOverlay.alpha = 0.0f;
         self.alertContainer.transform = CGAffineTransformMakeScale(0.01, 0.01);
-    } completion:^(BOOL finished) {
-        [self removeFromSuperview];
-        _visible = NO;
-        if ([self.delegate respondsToSelector:@selector(alertView:didDismissWithButtonIndex:)]) {
-            [self.delegate alertView:self didDismissWithButtonIndex:buttonIndex];
-        }
-    }];
+    } completion:^(BOOL finished) {    }];
 }
 
 - (NSInteger)addButtonWithTitle:(NSString *)title {
