@@ -70,7 +70,7 @@
     WelcomeViewController* welcomeViewController = [welcomeStoryboard instantiateViewControllerWithIdentifier:@"WelcomeNavigationController"];
     
     [self.window makeKeyAndVisible];
-    [self.window.rootViewController presentModalViewController:welcomeViewController animated:YES];
+    [self.window.rootViewController presentViewController:welcomeViewController animated:YES completion:nil];
 }
 
 - (void)dismissLoginView
