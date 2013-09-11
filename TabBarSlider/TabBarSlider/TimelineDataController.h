@@ -12,6 +12,7 @@
 @interface TimelineDataController : NSObject
 
 @property (nonatomic, copy) NSMutableArray *messageList;
+@property (nonatomic, strong) NSNumber *count;
 
 - (NSUInteger)countOfList;
 - (Message *)objectInListAtIndex:(NSUInteger)theIndex;

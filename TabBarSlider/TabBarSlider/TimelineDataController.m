@@ -30,6 +30,9 @@
         // Get cached data
         NSError* error;
         NSDictionary* response = [NSJSONSerialization JSONObjectWithData:cachedResponse.data options:kNilOptions error:&error];
+        self.count = [NSNumber numberWithInt:response.count];
+        
+        NSLog(@" setting count at %@", self.count);
         
         for(id key in response) {
             
@@ -56,6 +59,9 @@
         NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
         //NSLog(@"success: %@", response);
         [self.messageList removeAllObjects];
+        self.count = [NSNumber numberWithInt:response.count];
+        
+        NSLog(@" setting count at %@", self.count);
         
         for(id key in response) {
             

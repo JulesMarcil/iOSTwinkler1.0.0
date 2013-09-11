@@ -120,25 +120,27 @@
 - (void)dataRefresh{
     
     NSDictionary *currentMember = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"];
-    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:currentMember[@"id"], @"currentMemberId", nil];
+    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:currentMember[@"id"], @"currentMemberId", self.messageDataController.count, @"count", nil];
     
-    [[AuthAPIClient sharedClient] getPath:@"api/get/messages"
+    NSLog(@"count before refresh = %@", self.messageDataController.count);
+    
+    [[AuthAPIClient sharedClient] getPath:[NSString stringWithFormat:@"api/get/messages/%@", self.messageDataController.count]
                                parameters:parameters
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                       NSError *error = nil;
                                       NSArray *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
                                       
-                                      int n = response.count;
-                                      //NSLog(@"response count = %ul", n);
-                                      int m = self.messageDataController.countOfList;
-                                      //NSLog(@"controller count = %u", m);
                                       
-                                      int diff = n - m;
-                                      //NSLog(@"diff = %u", diff);
+                                      int x = [self.messageDataController.count intValue];
+                                      NSLog(@"stocked count = %u", x);
+                                      int y = self.messageDataController.countOfList;
+                                      NSLog(@"controller count = %u", y);
+                                      int z = response.count;
+                                      NSLog(@"response count = %u", z);                        
                                       
-                                      if (diff > 0){
+                                      if (z > 0){
                                           
-                                          for (int i = n - diff; i<n; i++){
+                                          for (int i = x; i<z; i++){
                                               
                                               Message *message = [[Message alloc] initWithType:response[i][@"type"]
                                                                                         author:response[i][@"author"]
@@ -150,13 +152,18 @@
                                                                                          share:response[i][@"share"]
                                                                                    picturePath:response[i][@"picturePath"]
                                                                   ];
-                                              
-                                              [self.messageDataController addMessage:message];
+                                              if (i<y) {
+                                                  [self.messageDataController.messageList insertObject:message atIndex:i];
+                                              } else {
+                                                  [self.messageDataController addMessage:message];
+                                              } 
                                           }
+                                          
+                                          self.messageDataController.count = [NSNumber numberWithInt:[self.messageDataController.count intValue] + z];
                                           [self.messageOnTimeline reloadData];
                                           NSIndexPath* ipath = [NSIndexPath indexPathForRow: [self.messageOnTimeline numberOfRowsInSection:0]-1 inSection: 0];
                                           [self.messageOnTimeline scrollToRowAtIndexPath: ipath atScrollPosition: UITableViewScrollPositionTop animated: YES];
-                                          NSLog(@"success: %u messages added", diff);
+                                          NSLog(@"success: %u messages added", z);
                                       }else{
                                           //NSLog(@"success: data in sync");
                                       }
@@ -589,7 +596,6 @@
                                           NSError *error = nil;
                                           NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
                                           NSLog(@"success: %@", response[@"message"]);
-                                          [[NSNotificationCenter defaultCenter] postNotificationName:@"addMessageSuccess" object:nil];
                                       } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                           NSLog(@"error: %@", error);
                                       }];
@@ -601,7 +607,6 @@
     else{
         [textField resignFirstResponder];
     }
-    
     
     return YES;
 }
