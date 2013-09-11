@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *friendNumberLabel;
 
+
 /*
 - (IBAction)goToTimelineButton:(id)sender;
 */

@@ -71,6 +71,7 @@
     
     self.mainTableView.separatorColor = [UIColor clearColor];
     self.mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
 }
 
 - (void)didReceiveMemoryWarning
