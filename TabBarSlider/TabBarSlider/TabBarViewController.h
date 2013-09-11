@@ -34,6 +34,8 @@
 @property (weak, nonatomic) IBOutlet UIView *tabBarBck;
 @property (nonatomic, retain) UIScrollView *scrollView;
 @property (nonatomic, weak) UIPageControl *pageControl;
+@property (weak, nonatomic) IBOutlet UIButton *leftButton;
+@property (weak, nonatomic) IBOutlet UIButton *rightButton;
 
 -(void)goToExpenses;
 -(void)goToTimeline;

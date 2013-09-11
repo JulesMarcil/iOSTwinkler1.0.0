@@ -93,9 +93,6 @@
     self.groupOnMenu.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
--(void) viewDidAppear:(BOOL)animated{
-}
-
 -(void) backToGroup{
     [self performSegueWithIdentifier:@"goToGroupSegue" sender:self];
 }

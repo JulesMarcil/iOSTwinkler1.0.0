@@ -73,7 +73,11 @@
     self.mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
 }
-
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+    NSLog(@"YOoooOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
+    NSLog(@"%u", self.revealViewController.frontViewPosition);
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

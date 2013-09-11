@@ -86,8 +86,17 @@
     [self.listButton addTarget:self action:@selector(listButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.listButton addTarget:self action:@selector(goToList) forControlEvents:UIControlEventTouchUpInside];
     
-    
     [self.revealButtonItem addTarget:self.revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+    [self.leftButton addTarget:self.revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+    [self.rightButton addTarget:self.revealViewController action:@selector(rightRevealToggle:) forControlEvents:UIControlEventTouchUpInside];
+    [self.revealButtonItem addTarget:self action:@selector(hideLeftToggle) forControlEvents:UIControlEventTouchUpInside];
+    [self.revealRightButtonItem addTarget:self action:@selector(hideRightToggle) forControlEvents:UIControlEventTouchUpInside];
+    [self.leftButton addTarget:self action:@selector(hideLeftToggle) forControlEvents:UIControlEventTouchUpInside];
+    [self.rightButton addTarget:self action:@selector(hideRightToggle) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    
+    NSLog(@"The value of integer num is %i", (int) self.revealViewController.frontViewController.view.frame.origin.x);
     
     [self.revealRightButtonItem addTarget:self.revealViewController action:@selector(rightRevealToggle:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -142,6 +151,27 @@
     [self.scrollView setContentOffset:CGPointMake(320, 0) animated:NO];
 }
 
+-(void)hideLeftToggle{
+    if(self.leftButton.hidden==YES){
+        self.leftButton.hidden=NO;
+    }else {
+        self.leftButton.hidden=YES;
+    };
+}
+
+-(void)hideRightToggle{
+    if(self.rightButton.hidden==YES){
+        self.rightButton.hidden=NO;
+    } else {
+        self.rightButton.hidden=YES;
+    };
+}
+
+-(void)addRevealToggle{
+    
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -153,6 +183,7 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)sender {
+    
     CGFloat pageWidth = 320;
     int page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     self.pageControl.currentPage = page;
@@ -207,7 +238,7 @@
 
 - (void)expenseButtonPressed:(UIButton *)sender {
     [self.scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
-   
+    
 }
 - (void)timelineButtonPressed:(UIButton *)sender {
     [self.scrollView setContentOffset:CGPointMake(320, 0) animated:YES];
