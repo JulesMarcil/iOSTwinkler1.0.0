@@ -467,12 +467,7 @@
                                        [[NSNotificationCenter defaultCenter] postNotificationName:@"doneAddMember" object:nil];
                                        
                                        
-                                       if(addMembers.count > 0) {
-                                           [self dismissViewControllerAnimated:YES completion:nil];
-                                       } else {
-                                           [self performSegueWithIdentifier: @"MembersToInvite" sender: self];
-                                       }
-                                       
+                                        [self performSegueWithIdentifier: @"MembersToInvite" sender: self];
                                    }
                                    failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                        NSLog(@"error: %@", error);
