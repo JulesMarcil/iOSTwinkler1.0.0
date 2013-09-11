@@ -140,7 +140,7 @@
                                       
                                       if (z > 0){
                                           
-                                          for (int i = x; i<z; i++){
+                                          for (int i = 0; i<z; i++){
                                               
                                               Message *message = [[Message alloc] initWithType:response[i][@"type"]
                                                                                         author:response[i][@"author"]
@@ -152,14 +152,14 @@
                                                                                          share:response[i][@"share"]
                                                                                    picturePath:response[i][@"picturePath"]
                                                                   ];
-                                              if (i<y) {
-                                                  [self.messageDataController.messageList insertObject:message atIndex:i];
+                                              if (x+i<y) {
+                                                  [self.messageDataController.messageList replaceObjectAtIndex:x+i withObject:message];
                                               } else {
                                                   [self.messageDataController addMessage:message];
                                               } 
                                           }
                                           
-                                          self.messageDataController.count = [NSNumber numberWithInt:[self.messageDataController.count intValue] + z];
+                                          self.messageDataController.count = [NSNumber numberWithInt:self.messageDataController.countOfList];
                                           [self.messageOnTimeline reloadData];
                                           NSIndexPath* ipath = [NSIndexPath indexPathForRow: [self.messageOnTimeline numberOfRowsInSection:0]-1 inSection: 0];
                                           [self.messageOnTimeline scrollToRowAtIndexPath: ipath atScrollPosition: UITableViewScrollPositionTop animated: YES];
