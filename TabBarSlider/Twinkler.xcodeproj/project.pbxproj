@@ -149,6 +149,10 @@
 		BABC149317CA7568004AF222 /* AddMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BABC149217CA7568004AF222 /* AddMemberCell.m */; };
 		BABC149617CB52D6004AF222 /* InviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BABC149517CB52D6004AF222 /* InviteViewController.m */; };
 		BAC9294017C77DF60067F5B0 /* DashboardMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC9293F17C77DF60067F5B0 /* DashboardMemberCell.m */; };
+		BAF74DA117E0F52300B8E6DB /* Icon-app-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = BAF74D9F17E0F52200B8E6DB /* Icon-app-retina.png */; };
+		BAF74DA217E0F52300B8E6DB /* Icon-app.png in Resources */ = {isa = PBXBuildFile; fileRef = BAF74DA017E0F52300B8E6DB /* Icon-app.png */; };
+		BAF74DA417E0F54000B8E6DB /* Icon-app.png in Resources */ = {isa = PBXBuildFile; fileRef = BAF74DA317E0F54000B8E6DB /* Icon-app.png */; };
+		BAF74DA617E0F54C00B8E6DB /* Icon-app-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = BAF74DA517E0F54C00B8E6DB /* Icon-app-retina.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -359,6 +363,10 @@
 		BABC149517CB52D6004AF222 /* InviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteViewController.m; sourceTree = "<group>"; };
 		BAC9293E17C77DF60067F5B0 /* DashboardMemberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardMemberCell.h; sourceTree = "<group>"; };
 		BAC9293F17C77DF60067F5B0 /* DashboardMemberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardMemberCell.m; sourceTree = "<group>"; };
+		BAF74D9F17E0F52200B8E6DB /* Icon-app-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-app-retina.png"; sourceTree = "<group>"; };
+		BAF74DA017E0F52300B8E6DB /* Icon-app.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-app.png"; sourceTree = "<group>"; };
+		BAF74DA317E0F54000B8E6DB /* Icon-app.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-app.png"; path = "../Icon-app.png"; sourceTree = "<group>"; };
+		BAF74DA517E0F54C00B8E6DB /* Icon-app-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-app-retina.png"; path = "../Icon-app-retina.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -653,6 +661,10 @@
 				89F7D7B617DA91DD006BE7FD /* main-smiley.png */,
 				89F7D7B817DAA23D006BE7FD /* Twinkler_star.png */,
 				894ED0CD17DB7EAD0007FF29 /* main-arrow.png */,
+				BAF74DA517E0F54C00B8E6DB /* Icon-app-retina.png */,
+				BAF74DA317E0F54000B8E6DB /* Icon-app.png */,
+				BAF74D9F17E0F52200B8E6DB /* Icon-app-retina.png */,
+				BAF74DA017E0F52300B8E6DB /* Icon-app.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -943,6 +955,10 @@
 				89AFFF0F17E084A20028F09A /* Default@2x1.png in Resources */,
 				89AFFF1017E084A20028F09A /* Default1.png in Resources */,
 				89AFFF1217E0859A0028F09A /* Default-568h@2x1.png in Resources */,
+				BAF74DA117E0F52300B8E6DB /* Icon-app-retina.png in Resources */,
+				BAF74DA217E0F52300B8E6DB /* Icon-app.png in Resources */,
+				BAF74DA417E0F54000B8E6DB /* Icon-app.png in Resources */,
+				BAF74DA617E0F54C00B8E6DB /* Icon-app-retina.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
