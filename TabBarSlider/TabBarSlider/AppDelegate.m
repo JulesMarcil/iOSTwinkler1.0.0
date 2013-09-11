@@ -19,6 +19,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     NSLog(@"application didFinishLaunchingWithOptions");
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"]) {
+        // app already launched
+    }
+    else {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        // This is the first launch ever
+    }
+    
     CredentialStore *store = [[CredentialStore alloc] init];
     NSString *authToken = [store authToken];
     
@@ -84,7 +94,15 @@
     
     [[rootViewController presentedViewController] dismissViewControllerAnimated:NO completion:nil];
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"profileDisplayed" object:nil];
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"]) {
+        // app never launched
+        NSLog(@"showWalkthrough");
+        UIStoryboard *welcomeStoryboard = [UIStoryboard storyboardWithName:@"welcomeStoryboard" bundle: nil];
+        UIViewController *welcomeViewController = [welcomeStoryboard instantiateViewControllerWithIdentifier:@"Walkthrough"];
+    
+        [self.window makeKeyAndVisible];
+        [self.window.rootViewController presentViewController:welcomeViewController animated:YES completion:nil];
+    }
 }
 
 // *** Facebook login actions ***
