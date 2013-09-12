@@ -464,8 +464,9 @@
                                        [[NSUserDefaults standardUserDefaults] setObject:self.group.currency forKey:@"currentGroupCurrency"];
                                        
                                        [[NSNotificationCenter defaultCenter] postNotificationName:@"newGroupSelected" object:nil];
+                                       NSLog(@"GroupMemberViewController: post Notification newGroupSelected");
                                        [[NSNotificationCenter defaultCenter] postNotificationName:@"doneAddMember" object:nil];
-                                       
+                                       NSLog(@"GroupMemberViewController: post Notification doneAddMember");
                                        
                                         [self performSegueWithIdentifier: @"MembersToInvite" sender: self];
                                    }
@@ -476,6 +477,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
+    NSLog(@"GroupMemberViewController: prepareForSegue MembersToInvite");
     if ([[segue identifier] isEqualToString:@"MembersToInvite"]) {
         InviteViewController *ivc = [segue destinationViewController];
         ivc.group = self.group;

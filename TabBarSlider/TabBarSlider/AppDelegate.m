@@ -87,14 +87,11 @@
 {
     NSLog(@"dismissLoginView");
     
-    UIViewController *rootViewController = (id) self.window.rootViewController;
-    //Class class = [[rootViewController presentedViewController] class];
-    
-    
-    
-    BOOL flag = [[rootViewController presentedViewController].title isEqual: @"LoginViewController"];
+    UINavigationController *rootViewController = (UINavigationController *) self.window.rootViewController;
+    UIViewController *viewController = rootViewController.viewControllers[rootViewController.viewControllers.count-1];
+    NSLog(@"title = %@", viewController.title);
 
-    if (flag) {
+    if([viewController.title isEqual: @"welcomeMenu"]) {
         [[rootViewController presentedViewController] dismissViewControllerAnimated:NO completion:nil];
     }
     

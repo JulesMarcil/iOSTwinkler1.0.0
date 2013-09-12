@@ -47,7 +47,7 @@
                                       
                                       self.dashboardInfo = response;
                                       [self.mainTableView reloadData];
-                                      NSLog(@"dashboard info : %@", self.dashboardInfo);
+                                      NSLog(@"dashboard info loaded");
                                       
                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                       NSLog(@"error: %@", error);

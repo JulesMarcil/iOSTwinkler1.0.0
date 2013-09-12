@@ -30,14 +30,14 @@
 
 - (void)awakeFromNib {
     
-    NSLog(@"menuViewController: awakeFromNib");
+    NSLog(@"menuViewController %@: awakeFromNib", self.title);
     [super awakeFromNib];
     
 }
 
 - (void)loginSuccess
 {
-    NSLog(@"menuViewController: loginSuccess");
+    NSLog(@"menuViewController %@: loginSuccess", self.title);
     self.groupDataController = nil;
     self.profile = nil;
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
@@ -47,7 +47,7 @@
 
 - (void)viewDidLoad
 {
-    NSLog(@"menuViewController: viewDidLoad");
+    NSLog(@"menuViewController %@: viewDidLoad", self.title);
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(groupDataRetrieved) name:@"groupsWithJSONFinishedLoading" object:nil];
@@ -94,41 +94,35 @@
 }
 
 -(void) backToGroup{
+    NSLog(@"menuViewController %@: backToGroup", self.title);
+    
     [self performSegueWithIdentifier:@"goToGroupSegue" sender:self];
 }
 
 -(void) loadData{
+    NSLog(@"menuViewController %@: loadData", self.title);
     
-    NSLog(@"menuViewController: loadData");
     self.groupDataController = [[GroupDataController alloc] init];
     self.profile = [[Profile alloc] init];
     [self.profile loadProfile];
 }
 
 - (void)groupDataRetrieved {
-    NSLog(@"menuViewController: groupDataRetrieved");
+    NSLog(@"menuViewController %@: groupDataRetrieved", self.title);
+    
     [self.groupOnMenu reloadData];
 }
 
 - (void)profileDataRetrieved {
-    
-    NSLog(@"menuViewController: profileDataRetrieved");
+    NSLog(@"menuViewController %@: profileDataRetrieved", self.title);
     
     //set a fictious current member if there is no to make sure the group creation process is not blocked
     NSDictionary *currentMember = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"];
-    
-    NSLog(@"current member id before = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"id"]);
-    NSLog(@"current member name before = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"]);
-    NSLog(@"current member path before = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"picturePath"]);
     
     if(!currentMember) {
         currentMember = [[NSDictionary alloc] initWithObjects:@[@-1, self.profile.name, self.profile.picturePath]  forKeys:@[@"id", @"name", @"picturePath"]];
         [[NSUserDefaults standardUserDefaults] setObject:currentMember forKey:@"currentMember"];
     }
-    
-    NSLog(@"current member id after = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"id"]);
-    NSLog(@"current member name after = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"]);
-    NSLog(@"current member path after = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"picturePath"]);
     
     // display profile information
     self.nameLabel.text = self.profile.name;
@@ -152,7 +146,7 @@
                                         self.profilePic.image = image;
                                         [self setRoundedView:self.profilePic picture:self.profilePic.image toDiameter:70.0];
                                         
-                                        NSLog(@"profileDisplayed");
+                                        NSLog(@"menuViewController %@: profileDisplayed notification sent", self.title);
                                         [[NSNotificationCenter defaultCenter] postNotificationName:@"profileDisplayed" object:nil];
                                         
                                     }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
@@ -161,8 +155,9 @@
 }
 
 -(void) removeCurrentGroup {
+    
+    NSLog(@"MenuViewController %@: removeCurrentGroup", self.title);
     NSNumber *index = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupIndex"];
-    NSLog(@"index path = %@", index);
     Group *group = [self.groupDataController objectInListAtIndex:[index intValue]];
     [self.groupDataController removeGroupWithGroup:group];
     [self.groupOnMenu reloadData];
@@ -211,8 +206,6 @@
                 cell.detailLabel.text=[NSString stringWithFormat:@"You and %d friends", groupAtIndex.members.count-1];
         }
         
-        
-        cell.dateLabel.text=@"Mon";
         cell.contentView.backgroundColor = [UIColor clearColor];
         
         NSMutableArray *groupMembers = [[NSMutableArray alloc] init];
@@ -344,7 +337,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSLog(@"didselectrowatindexpath from menuviewcontroller");
+    NSLog(@"MenuViewController %@: didselectrowatindexpath", self.title);
     
     if ([self.title isEqualToString:@"welcomeMenu"]){
         [tableView deselectRowAtIndexPath:indexPath animated:NO];
@@ -361,9 +354,8 @@
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.currency forKey:@"currentGroupCurrency"];
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:indexPath.row] forKey:@"currentGroupIndex"];
         
-        NSLog(@"set index at: %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupIndex"]);
-        
         [[NSNotificationCenter defaultCenter] postNotificationName:@"newGroupSelected" object:nil];
+        NSLog(@"menuViewController %@: newGroupSelected post Notification", self.title);
         
         // Then push the new view controller in the usual way:
         [self.navigationController pushViewController:dst animated:YES];
@@ -373,9 +365,8 @@
 - (void) prepareForSegue: (UIStoryboardSegue *) segue sender: (id) sender
 {
     // configure the destination view controller:
-    if ( [segue.destinationViewController isKindOfClass: [TabBarViewController class]] &&
-        [sender isKindOfClass:[UIButton class]] )
-    {
+    if ( [segue.destinationViewController isKindOfClass: [TabBarViewController class]] && [sender isKindOfClass:[UIButton class]] ) {
+        
         TabBarViewController* cvc = segue.destinationViewController;
         cvc.groupTitle.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"currentGroupName"];
         [cvc view];
@@ -384,8 +375,8 @@
     // configure the segue.
     // in this case we dont swap out the front view controller, which is a UINavigationController.
     // but we could..
-    if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] )
-    {
+    if ( [segue isKindOfClass: [SWRevealViewControllerSegue class]] ) {
+        
         Group *selectedGroup = [self.groupDataController objectInListAtIndex:[self.groupOnMenu indexPathForSelectedRow].row];
         
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.identifier forKey:@"currentGroupId"];
@@ -395,9 +386,8 @@
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.currency forKey:@"currentGroupCurrency"];
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:[self.groupOnMenu indexPathForSelectedRow].row] forKey:@"currentGroupIndex"];
         
-        NSLog(@"set index at: %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupIndex"]);
-        
         [[NSNotificationCenter defaultCenter] postNotificationName:@"newGroupSelected" object:nil];
+        NSLog(@"menueViewController %@: newGroupSelected post Notification", self.title);
         
         SWRevealViewControllerSegue* rvcs = (SWRevealViewControllerSegue*) segue;
         
@@ -418,7 +408,7 @@
 
 - (IBAction)goToTimelineButton:(id)sender {
     
-    NSLog(@"menuViewController: goToTimelineButton");
+    NSLog(@"menuViewController %@: goToTimelineButton", self.title);
     
     UIStoryboard *mainStoryboard=[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     UIViewController *dst=[mainStoryboard instantiateInitialViewController];
@@ -433,9 +423,8 @@
     [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.currency forKey:@"currentGroupCurrency"];
     [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:[self.groupOnMenu indexPathForSelectedRow].row] forKey:@"currentGroupIndex"];
     
-    NSLog(@"set index at: %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupIndex"]);
-    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"newGroupSelected" object:nil];
+    NSLog(@"menuViewController %@: newGroupSelected notification sent", self.title);
     
     // Then push the new view controller in the usual way:
     [self.navigationController pushViewController:dst animated:YES];
@@ -443,6 +432,8 @@
 }
 
 - (IBAction)doneAddGroup:(UIStoryboardSegue *)segue {
+    
+    NSLog(@"MenuViewController %@: doneAddGroup", self.title);
     
     if ([[segue identifier] isEqualToString:@"ReturnAddGroupInput"]) {
         
@@ -478,6 +469,7 @@
 
 - (IBAction)Logout:(id)sender {
     
+    NSLog(@"MenuViewController %@: logout", self.title);
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"You're about to leave :("
                                                         message:@"Are you sure you want to log out?"
                                                        delegate:self
@@ -485,15 +477,13 @@
                                               otherButtonTitles:@"Stay Logged In", nil];
     
     [alertView show];
-    
-    NSLog(@"zombie: %p",self);
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 0)
-    {
-        NSLog(@"menuViewController: logout");
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (buttonIndex == 0) {
+        //YES
+        NSLog(@"menuViewController %@: logout effectively", self.title);
         
         CredentialStore *store = [[CredentialStore alloc] init];
         NSString *authToken = [store authToken];
@@ -533,13 +523,14 @@
         }
         [appDelegate showLoginView];
     }
-    else if (buttonIndex == 1)
-    {
+    else if (buttonIndex == 1) {
         // No
+        NSLog(@"menuViewController %@: cancelLogout", self.title);
     }
 }
 
 - (IBAction)createGroup:(id)sender {
+    NSLog(@"menuViewController: createGroup");
     UIViewController *dst=[[UIStoryboard storyboardWithName:@"AddGroupStoryboard" bundle:nil] instantiateInitialViewController];
     [self presentViewController:dst animated:YES completion:nil];
 }
