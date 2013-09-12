@@ -19,6 +19,7 @@
 #import "DRNRealTimeBlurView.h"
 #import "AddGroupViewController.h"
 #import "Group.h"
+#import "Expense.h"
 
 
 @interface TimelineViewController ()
@@ -39,6 +40,7 @@
 {
     [super awakeFromNib];
     self.messageDataController = [[TimelineDataController alloc] init];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addExpense:) name:@"expenseAddedSuccesfully" object:nil];
 }
 
 
@@ -114,9 +116,6 @@
     
 }
 
--(void)viewDidAppear:(BOOL)animated{
-}
-
 - (void)dataRefresh{
     
     NSDictionary *currentMember = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"];
@@ -182,7 +181,24 @@
     NSIndexPath *myIndexPath = [NSIndexPath indexPathForRow:[self.messageDataController countOfList]-1 inSection:0];
     [self.messageOnTimeline selectRowAtIndexPath:myIndexPath animated:NO scrollPosition:UITableViewScrollPositionBottom];
     }
+}
+
+- (void) addExpense:(NSNotification *)note{
+    NSLog(@"add expense function called");
     
+    Expense *expense = [[note userInfo] valueForKey:@"expense"];
+    Message *message = [[Message alloc] initWithType:@"expense"
+                                              author:expense.author
+                                                date:expense.date
+                                                body:nil
+                                               owner:expense.owner[@"name"]
+                                              amount:expense.amount
+                                                name:expense.name
+                                               share:expense.share
+                                         picturePath:expense.owner[@"picturePath"]];
+    
+    [self.messageDataController addMessage:message];
+    [self.messageOnTimeline reloadData];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{

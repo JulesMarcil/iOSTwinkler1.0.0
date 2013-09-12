@@ -52,8 +52,6 @@
 		894ED0D117DB839A0007FF29 /* AddListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 894ED0D017DB839A0007FF29 /* AddListViewController.m */; };
 		894F00D717DDBCEC00D368DD /* profile-pic-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 894F00D617DDBCEC00D368DD /* profile-pic-placeholder.png */; };
 		894F00D917DDBF9600D368DD /* profile-pic.png in Resources */ = {isa = PBXBuildFile; fileRef = 894F00D817DDBF9600D368DD /* profile-pic.png */; };
-		8953FBF317E13B97003683E0 /* app-icon-retina copy.png in Resources */ = {isa = PBXBuildFile; fileRef = 8953FBF117E13B93003683E0 /* app-icon-retina copy.png */; };
-		8953FBF417E13B97003683E0 /* app-icon-small 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8953FBF217E13B95003683E0 /* app-icon-small 1.png */; };
 		895913BF17D934FD0039CF72 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 895913BE17D934FD0039CF72 /* Default-568h@2x.png */; };
 		895913CA17D939050039CF72 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 895913BA17D934EB0039CF72 /* Default.png */; };
 		895913CB17D939080039CF72 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 895913BC17D934F70039CF72 /* Default@2x.png */; };
@@ -212,8 +210,6 @@
 		894ED0D017DB839A0007FF29 /* AddListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddListViewController.m; sourceTree = "<group>"; };
 		894F00D617DDBCEC00D368DD /* profile-pic-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile-pic-placeholder.png"; sourceTree = "<group>"; };
 		894F00D817DDBF9600D368DD /* profile-pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile-pic.png"; sourceTree = "<group>"; };
-		8953FBF117E13B93003683E0 /* app-icon-retina copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "app-icon-retina copy.png"; path = "../../../../../../Users/arnaudrizard/Desktop/app-icon-retina copy.png"; sourceTree = "<group>"; };
-		8953FBF217E13B95003683E0 /* app-icon-small 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "app-icon-small 1.png"; path = "../../../../../../Users/arnaudrizard/Desktop/app-icon-small 1.png"; sourceTree = "<group>"; };
 		895913BA17D934EB0039CF72 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		895913BC17D934F70039CF72 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		895913BE17D934FD0039CF72 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -636,8 +632,6 @@
 				89F7D7B617DA91DD006BE7FD /* main-smiley.png */,
 				89F7D7B817DAA23D006BE7FD /* Twinkler_star.png */,
 				894ED0CD17DB7EAD0007FF29 /* main-arrow.png */,
-				8953FBF117E13B93003683E0 /* app-icon-retina copy.png */,
-				8953FBF217E13B95003683E0 /* app-icon-small 1.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -921,8 +915,6 @@
 				89AFFF0F17E084A20028F09A /* Default@2x1.png in Resources */,
 				89AFFF1017E084A20028F09A /* Default1.png in Resources */,
 				89AFFF1217E0859A0028F09A /* Default-568h@2x1.png in Resources */,
-				8953FBF317E13B97003683E0 /* app-icon-retina copy.png in Resources */,
-				8953FBF417E13B97003683E0 /* app-icon-small 1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
