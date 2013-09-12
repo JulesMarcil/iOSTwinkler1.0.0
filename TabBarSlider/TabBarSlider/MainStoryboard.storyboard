@@ -28,7 +28,7 @@
             <objects>
                 <viewController title="tabBarVC" id="TSO-ay-kkC" customClass="TabBarViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jmI-jh-A5V">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="at9-FK-ZVX">
@@ -47,7 +47,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="yLr-kz-sh4">
-                                <rect key="frame" x="4" y="399" width="320" height="100"/>
+                                <rect key="frame" x="4" y="442" width="320" height="100"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="ba0-cD-7ZI">
                                         <rect key="frame" x="20" y="52" width="280" height="30"/>
@@ -98,7 +98,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view alpha="0.99999999999999989" contentMode="scaleToFill" id="bTU-o3-M9J">
-                                <rect key="frame" x="4" y="456" width="320" height="45"/>
+                                <rect key="frame" x="4" y="499" width="320" height="45"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Carnac Attitude" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="A1f-cY-EFc">
                                         <rect key="frame" x="40" y="6" width="239" height="34"/>
@@ -446,13 +446,6 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ANE-uy-dwp">
-                                                    <rect key="frame" x="223" y="10" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0sh-AO-oIg">
                                                     <rect key="frame" x="70" y="28" width="151" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -476,7 +469,6 @@
                                         <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                                         <accessibility key="accessibilityConfiguration" label=""/>
                                         <connections>
-                                            <outlet property="dateLabel" destination="ANE-uy-dwp" id="vLV-9J-UI4"/>
                                             <outlet property="detailLabel" destination="0sh-AO-oIg" id="wZD-iA-7lp"/>
                                             <outlet property="groupNameLabel" destination="QOn-aG-6Zv" id="jZN-EX-BqK"/>
                                             <outlet property="groupPicPlaceholder" destination="KGZ-cN-tTM" id="eYv-1L-FNK"/>
@@ -545,6 +537,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="dB0-O4-sD8"/>
+        <segue reference="KLY-9e-DSX"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -120,13 +120,6 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2fD-LM-PxX">
-                                                    <rect key="frame" x="251" y="9" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Fc6-Fg-HsF">
                                                     <rect key="frame" x="70" y="28" width="180" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -150,7 +143,6 @@
                                         <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <accessibility key="accessibilityConfiguration" label=""/>
                                         <connections>
-                                            <outlet property="dateLabel" destination="2fD-LM-PxX" id="PGk-5z-Blp"/>
                                             <outlet property="detailLabel" destination="Fc6-Fg-HsF" id="5oz-wc-khj"/>
                                             <outlet property="groupNameLabel" destination="5V8-Pw-esX" id="CN5-JS-R0l"/>
                                             <outlet property="groupPicPlaceholder" destination="RV6-1C-TaK" id="Oev-2I-5kX"/>
@@ -696,6 +688,7 @@
                 <relationship kind="action" name="cancelAddGroup:" candidateClass="UIStoryboardSegue"/>
                 <relationship kind="action" name="createGroup:"/>
                 <relationship kind="action" name="doneAddGroup:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="goToTimelineButton:"/>
                 <relationship kind="outlet" name="addGroupButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="friendNumberLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="groupOnMenu" candidateClass="UITableView"/>
