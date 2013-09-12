@@ -320,10 +320,10 @@
                                                             109,
                                                             frame.size.width,
                                                             frame.size.height)];
-        [self animateTextField:textField up:YES];
+
         [UIView commitAnimations];
     }
-    
+            [self animateTextField:textField up:YES];
 }
 
 -(void)textresign {
