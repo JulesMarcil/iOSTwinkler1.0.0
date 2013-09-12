@@ -94,6 +94,7 @@
 		8990D7FE17E1C9D400D89E81 /* check-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8990D7FD17E1C9D300D89E81 /* check-button@2x.png */; };
 		8990D80017E1CB4A00D89E81 /* uservoice-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8990D7FF17E1CB4A00D89E81 /* uservoice-button@2x.png */; };
 		8990D80217E1CCA900D89E81 /* user-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8990D80117E1CCA900D89E81 /* user-button@2x.png */; };
+		8990D80417E1F59D00D89E81 /* add-expense-bckgd.png in Resources */ = {isa = PBXBuildFile; fileRef = 8990D80317E1F59C00D89E81 /* add-expense-bckgd.png */; };
 		89AFFF0F17E084A20028F09A /* Default@2x1.png in Resources */ = {isa = PBXBuildFile; fileRef = 89AFFF0D17E084A20028F09A /* Default@2x1.png */; };
 		89AFFF1017E084A20028F09A /* Default1.png in Resources */ = {isa = PBXBuildFile; fileRef = 89AFFF0E17E084A20028F09A /* Default1.png */; };
 		89AFFF1217E0859A0028F09A /* Default-568h@2x1.png in Resources */ = {isa = PBXBuildFile; fileRef = 89AFFF1117E0859A0028F09A /* Default-568h@2x1.png */; };
@@ -104,7 +105,7 @@
 		89CEBC8417C6634000DF7085 /* AddGroupStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89CEBC8317C6634000DF7085 /* AddGroupStoryboard.storyboard */; };
 		89CEBC8D17C668A900DF7085 /* GroupMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CEBC8C17C668A900DF7085 /* GroupMemberViewController.m */; };
 		89CEBC9417C6B5C400DF7085 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CEBC9317C6B5C400DF7085 /* DashboardViewController.m */; };
-		89F71E1317B5494E00BC9C32 /* add-expense-bckgd.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F71E1217B5494E00BC9C32 /* add-expense-bckgd.png */; };
+		89F71E1317B5494E00BC9C32 /* add-expense-bckgd1.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F71E1217B5494E00BC9C32 /* add-expense-bckgd1.png */; };
 		89F71E1517B54A2000BC9C32 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89F71E1417B54A2000BC9C32 /* FacebookSDK.framework */; };
 		89F71E1817B54E5600BC9C32 /* memberCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F71E1717B54E5600BC9C32 /* memberCollectionViewCell.m */; };
 		89F71E1C17B596DB00BC9C32 /* memberCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F71E1717B54E5600BC9C32 /* memberCollectionViewCell.m */; };
@@ -269,6 +270,7 @@
 		8990D7FD17E1C9D300D89E81 /* check-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check-button@2x.png"; sourceTree = "<group>"; };
 		8990D7FF17E1CB4A00D89E81 /* uservoice-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uservoice-button@2x.png"; sourceTree = "<group>"; };
 		8990D80117E1CCA900D89E81 /* user-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "user-button@2x.png"; sourceTree = "<group>"; };
+		8990D80317E1F59C00D89E81 /* add-expense-bckgd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-expense-bckgd.png"; sourceTree = "<group>"; };
 		8993880217C5FE7B00B5A9BE /* AppConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConstants.h; sourceTree = "<group>"; };
 		89AFFF0D17E084A20028F09A /* Default@2x1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x1.png"; sourceTree = "<group>"; };
 		89AFFF0E17E084A20028F09A /* Default1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default1.png; sourceTree = "<group>"; };
@@ -284,7 +286,7 @@
 		89CEBC8C17C668A900DF7085 /* GroupMemberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupMemberViewController.m; sourceTree = "<group>"; };
 		89CEBC9217C6B5C400DF7085 /* DashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
 		89CEBC9317C6B5C400DF7085 /* DashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
-		89F71E1217B5494E00BC9C32 /* add-expense-bckgd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-expense-bckgd.png"; sourceTree = "<group>"; };
+		89F71E1217B5494E00BC9C32 /* add-expense-bckgd1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-expense-bckgd1.png"; sourceTree = "<group>"; };
 		89F71E1417B54A2000BC9C32 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		89F71E1617B54E5600BC9C32 /* memberCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = memberCollectionViewCell.h; sourceTree = "<group>"; };
 		89F71E1717B54E5600BC9C32 /* memberCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = memberCollectionViewCell.m; sourceTree = "<group>"; };
@@ -521,7 +523,8 @@
 			children = (
 				89F71E2717B6431100BC9C32 /* green-check.png */,
 				8919DBDA17B2E8360005C67C /* chevron-arrow.png */,
-				89F71E1217B5494E00BC9C32 /* add-expense-bckgd.png */,
+				89F71E1217B5494E00BC9C32 /* add-expense-bckgd1.png */,
+				8990D80317E1F59C00D89E81 /* add-expense-bckgd.png */,
 				8919DBE017B2F9280005C67C /* expense-detail-border.png */,
 				891F501317B3DFD000361986 /* edit-button.png */,
 				894F00D617DDBCEC00D368DD /* profile-pic-placeholder.png */,
@@ -922,7 +925,7 @@
 				8919DBDB17B2E8360005C67C /* chevron-arrow.png in Resources */,
 				8919DBE117B2F9280005C67C /* expense-detail-border.png in Resources */,
 				891F501417B3DFD000361986 /* edit-button.png in Resources */,
-				89F71E1317B5494E00BC9C32 /* add-expense-bckgd.png in Resources */,
+				89F71E1317B5494E00BC9C32 /* add-expense-bckgd1.png in Resources */,
 				89F71E2817B6431100BC9C32 /* green-check.png in Resources */,
 				892F997017B8D59C00D86B4D /* facebook.png in Resources */,
 				892F997217B8F1A700D86B4D /* login-bckgd.png in Resources */,
@@ -959,6 +962,7 @@
 				8990D7FE17E1C9D400D89E81 /* check-button@2x.png in Resources */,
 				8990D80017E1CB4A00D89E81 /* uservoice-button@2x.png in Resources */,
 				8990D80217E1CCA900D89E81 /* user-button@2x.png in Resources */,
+				8990D80417E1F59D00D89E81 /* add-expense-bckgd.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
