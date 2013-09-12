@@ -19,6 +19,8 @@
 				<string>app-icon-small 1.png</string>
 				<string>app-icon-retina copy.png</string>
 			</array>
+			<key>UIPrerenderedIcon</key>
+			<true/>
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
