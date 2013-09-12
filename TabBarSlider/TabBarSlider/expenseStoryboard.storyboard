@@ -111,11 +111,16 @@
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="green-check.png" id="r5d-7C-4wY">
+                                                            <rect key="frame" x="45" y="0.0" width="16" height="12"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <size key="customSize" width="80" height="60"/>
                                                 <connections>
+                                                    <outlet property="checkIcon" destination="r5d-7C-4wY" id="qVK-2W-laI"/>
                                                     <outlet property="memberNameLabel" destination="XjP-h7-tZR" id="CD9-tc-voO"/>
                                                     <outlet property="memberProfilePic" destination="fCm-0K-CCJ" id="HOy-Wr-TuU"/>
                                                 </connections>
@@ -725,6 +730,7 @@
         <image name="balance-knob.png" width="30" height="30"/>
         <image name="chevron-arrow.png" width="23" height="11"/>
         <image name="edit-button.png" width="30" height="26"/>
+        <image name="green-check.png" width="16" height="12"/>
         <image name="main-button.png" width="34" height="34"/>
         <image name="profile-pic-placeholder.png" width="160" height="160"/>
         <image name="timeline-line.png" width="6" height="11"/>

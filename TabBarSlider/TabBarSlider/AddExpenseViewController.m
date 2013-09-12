@@ -329,13 +329,11 @@
 - (IBAction)selectAll:(id)sender {
     
     for(memberCollectionViewCell* cell in [self.collectionView visibleCells]){
-        UIImageView *checkedMember=[[UIImageView alloc] initWithFrame:CGRectMake(45, 0, 16, 12)];
-        checkedMember.image=[UIImage imageNamed: @"green-check"];
-        [cell addSubview:checkedMember];
+        [UIView beginAnimations:@"fade in" context:nil];
+        [UIView setAnimationDuration:0.2];
+        cell.checkIcon.alpha=1;
         cell.memberProfilePic.alpha=1;
-        NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
-        checkedMember.tag=indexPath.row+1;
-        cell.isSelected=YES;
+        [UIView commitAnimations];
     }
 }
 
@@ -438,11 +436,11 @@
 
 - (IBAction)deselectAll:(id)sender {
     for(memberCollectionViewCell* cell in [self.collectionView visibleCells]){
-        
-        NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
-        [[self.view viewWithTag:indexPath.row+1] removeFromSuperview];
+        [UIView beginAnimations:@"fade in" context:nil];
+        [UIView setAnimationDuration:0.2];
+        cell.checkIcon.alpha=0;
         cell.memberProfilePic.alpha=0.5;
-        cell.isSelected=NO;
+        [UIView commitAnimations];
     }
 }
 
@@ -474,10 +472,8 @@
     cell.backgroundColor = [UIColor clearColor];
     [cell.memberProfilePic setFrame:CGRectMake(22,0,35,35)];
     [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:35.0];
-    UIImageView *checkedMember=[[UIImageView alloc] initWithFrame:CGRectMake(45, 0, 16, 12)];
-    checkedMember.image=[UIImage imageNamed: @"green-check"];
-    checkedMember.tag=indexPath.row+1;
-    [cell addSubview:checkedMember];
+    cell.checkIcon.alpha=1;
+    cell.memberProfilePic.alpha=1;
     
     NSDictionary *member = [memberArray objectAtIndex:indexPath.row];
     
@@ -525,19 +521,19 @@
 {
     memberCollectionViewCell *cell= (memberCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
     
-    if (cell.isSelected){
-        [[self.view viewWithTag:indexPath.row+1] removeFromSuperview];
+    if (cell.checkIcon.alpha==1){
+        [UIView beginAnimations:@"fade in" context:nil];
+        [UIView setAnimationDuration:0.2];
+        cell.checkIcon.alpha=0;
         cell.memberProfilePic.alpha=0.5;
-        cell.isSelected=NO;
-        [self.selectAllButton setSelected:NO];
+        [UIView commitAnimations];
         
     }else{
-        UIImageView *checkedMember=[[UIImageView alloc] initWithFrame:CGRectMake(45, 0, 16, 12)];
-        checkedMember.image=[UIImage imageNamed: @"green-check"];
-        checkedMember.tag=indexPath.row+1;
-        [cell addSubview:checkedMember];
+        [UIView beginAnimations:@"fade in" context:nil];
+        [UIView setAnimationDuration:0.2];
+        cell.checkIcon.alpha=1;
         cell.memberProfilePic.alpha=1;
-        cell.isSelected=YES;
+        [UIView commitAnimations];
     }
     
 }
