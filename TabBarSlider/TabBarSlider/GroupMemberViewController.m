@@ -29,7 +29,7 @@
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                       NSError *error = nil;
                                       NSArray *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
-                                      NSLog(@"%@", response);
+                                      //NSLog(@"%@", response);
                                       self.friends = [(NSMutableArray *)[NSMutableArray alloc] initWithArray:response];
                                       [self.memberSuggestionTableView reloadData];
                                   }
@@ -369,9 +369,6 @@
         }
     }
     
-    NSLog(@"here it is");
-    NSLog(changes ? @"some changes" : @"no changes");
-    
     if (changes) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Are you sure?"
                                                         message:@"Your changes to this group will be discarded"
@@ -404,7 +401,7 @@
     NSMutableArray *addFriends = [[NSMutableArray alloc] init];
     NSMutableArray *removeMembers = [[NSMutableArray alloc] init];
     
-    NSLog(@"members = %@", self.group.members);
+    //NSLog(@"members = %@", self.group.members);
     
     for (id member in self.group.members) {
         if ([member[@"status"] isEqualToString:@"manualAdd"]) {
@@ -443,14 +440,14 @@
     NSDictionary *parameters = [[NSDictionary alloc] initWithObjects:objects
                                                              forKeys:keys];
     
-    NSLog(@"parameters before posting group = %@", parameters);
+    //NSLog(@"parameters before posting group = %@", parameters);
     
     [[AuthAPIClient sharedClient] postPath:@"api/post/group"
                                 parameters:parameters
                                    success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                        NSError *error = nil;
                                        NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
-                                       NSLog(@"%@", response);
+                                       //NSLog(@"%@", response);
                                        
                                        self.group.identifier = response[@"id"];
                                        self.group.name = response[@"name"];
