@@ -104,6 +104,12 @@
                                    }
                                    failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                        NSLog(@"error: %@", error);
+                                       UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Feedback not added"
+                                                                                       message:@"Make sure data is enabled on your phone"
+                                                                                      delegate:self
+                                                                             cancelButtonTitle:@"OK"
+                                                                             otherButtonTitles:nil, nil];
+                                       [alert show];
                                    }];
 }
 @end

@@ -615,6 +615,12 @@
                                           NSLog(@"success: %@", response[@"message"]);
                                       } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                           NSLog(@"error: %@", error);
+                                          UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message not added"
+                                                                                          message:@"Make sure data is enabled on your phone"
+                                                                                         delegate:self
+                                                                                cancelButtonTitle:@"OK"
+                                                                                otherButtonTitles:nil, nil];
+                                          [alert show];
                                       }];
         
         NSIndexPath* ipath = [NSIndexPath indexPathForRow: [self.messageOnTimeline numberOfRowsInSection:0]-1 inSection: 0];

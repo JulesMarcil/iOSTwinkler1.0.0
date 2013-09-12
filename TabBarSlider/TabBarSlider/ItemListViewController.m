@@ -124,7 +124,11 @@
         // prepare request parameters
         NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:item[@"name"], @"name", self.list.identifier, @"list_id", nil];
         
-        NSLog(@"parameters: %@", parameters);
+        NSMutableArray *temp = [[NSMutableArray alloc] initWithArray:self.list.items];
+        [temp addObject:item];
+        self.list.items = temp;
+        [self.itemListTableView reloadData];
+        self.itemInput.text = nil;
         
         [[AuthAPIClient sharedClient] postPath:@"api/post/item"
                                     parameters:parameters
@@ -133,13 +137,21 @@
                                        }
                                        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                            NSLog(@"error: %@", [operation error]);
+                                           UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Item not added"
+                                                                                           message:@"Make sure data is enabled on your phone"
+                                                                                          delegate:self
+                                                                                 cancelButtonTitle:@"OK"
+                                                                                 otherButtonTitles:nil, nil];
+                                           
+                                           NSMutableArray *temp2 = [[NSMutableArray alloc] initWithArray:self.list.items];
+                                           [temp2 removeObject:item];
+                                           self.list.items = temp2;
+                                           [self.itemListTableView reloadData];
+                                           self.itemInput.text = nil;
+                                           
+                                           [alert show];
+                                           
                                        }];
-        
-        NSMutableArray *temp = [[NSMutableArray alloc] initWithArray:self.list.items];
-        [temp addObject:item];
-        self.list.items = temp;
-        [self.itemListTableView reloadData];
-        self.itemInput.text = nil;
     }
 }
 
