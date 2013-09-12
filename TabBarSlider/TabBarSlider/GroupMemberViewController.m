@@ -312,14 +312,17 @@
 }
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField {
-    [UIView beginAnimations:@"MoveIn" context:nil];
-    CGRect frame= [self.memberSuggestionTableView frame];
-    [self.memberSuggestionTableView setFrame:CGRectMake(frame.origin.x,
-                                                        109,
-                                                        frame.size.width,
-                                                        frame.size.height)];
-    [self animateTextField:textField up:YES];
-    [UIView commitAnimations];
+    
+    if(self.friends.count > 0) {
+        [UIView beginAnimations:@"MoveIn" context:nil];
+        CGRect frame= [self.memberSuggestionTableView frame];
+        [self.memberSuggestionTableView setFrame:CGRectMake(frame.origin.x,
+                                                            109,
+                                                            frame.size.width,
+                                                            frame.size.height)];
+        [self animateTextField:textField up:YES];
+        [UIView commitAnimations];
+    }
     
 }
 
