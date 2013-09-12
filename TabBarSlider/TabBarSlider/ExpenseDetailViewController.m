@@ -144,7 +144,7 @@
     self.containerView.backgroundColor=[UIColor clearColor];
     
     
-    UIGraphicsBeginImageContext(CGSizeMake([[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height+40));
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake([[UIScreen mainScreen] bounds].size.width, [[UIScreen mainScreen] bounds].size.height+40),YES,0.0f);
     UIViewController *VC=[self presentingViewController];
     [VC.view.layer setFrame:CGRectMake(VC.view.layer.frame.origin.x,VC.view.layer.frame.origin.y, VC.view.layer.frame.size.width,  VC.view.layer.frame.size.height)];
     [VC.view.layer renderInContext:UIGraphicsGetCurrentContext()];
