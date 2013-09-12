@@ -88,12 +88,17 @@
     NSLog(@"dismissLoginView");
     
     UIViewController *rootViewController = (id) self.window.rootViewController;
-    Class class = [[rootViewController presentedViewController] class];
+    //Class class = [[rootViewController presentedViewController] class];
     
-    NSLog(@"dismiss login view, class of presentedviewcontroller = %@", class);
     
-    [[rootViewController presentedViewController] dismissViewControllerAnimated:NO completion:nil];
     
+    BOOL flag = [[rootViewController presentedViewController].title isEqual: @"LoginViewController"];
+
+    if (flag) {
+        [[rootViewController presentedViewController] dismissViewControllerAnimated:NO completion:nil];
+    }
+    
+    /*
     if (![[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"]) {
         // app never launched
         NSLog(@"showWalkthrough");
@@ -102,7 +107,7 @@
     
         [self.window makeKeyAndVisible];
         [self.window.rootViewController presentViewController:welcomeViewController animated:YES completion:nil];
-    }
+    }*/
 }
 
 // *** Facebook login actions ***
