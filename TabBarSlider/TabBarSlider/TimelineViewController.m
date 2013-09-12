@@ -161,7 +161,7 @@
                                           self.messageDataController.count = [NSNumber numberWithInt:self.messageDataController.countOfList];
                                           [self.messageOnTimeline reloadData];
                                           NSIndexPath* ipath = [NSIndexPath indexPathForRow: [self.messageOnTimeline numberOfRowsInSection:0]-1 inSection: 0];
-                                          [self.messageOnTimeline scrollToRowAtIndexPath: ipath atScrollPosition: UITableViewScrollPositionTop animated: YES];
+                                          [self.messageOnTimeline scrollToRowAtIndexPath: ipath atScrollPosition: UITableViewScrollPositionTop animated: NO];
                                           NSLog(@"success: %u messages added", z);
                                       }else{
                                           //NSLog(@"success: data in sync");
@@ -590,10 +590,11 @@
         
         NSMutableArray *insertIndexPaths = [[NSMutableArray alloc] init];
         NSIndexPath *newPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        
         [insertIndexPaths addObject:newPath];
         
         [self.messageOnTimeline beginUpdates];
-        [self.messageOnTimeline insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationTop];
+        [self.messageOnTimeline insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationNone];
         [self.messageOnTimeline endUpdates];
         [self.messageOnTimeline reloadData];
         
@@ -617,7 +618,7 @@
                                       }];
         
         NSIndexPath* ipath = [NSIndexPath indexPathForRow: [self.messageOnTimeline numberOfRowsInSection:0]-1 inSection: 0];
-        [self.messageOnTimeline scrollToRowAtIndexPath: ipath atScrollPosition: UITableViewScrollPositionTop animated: YES];
+        [self.messageOnTimeline scrollToRowAtIndexPath: ipath atScrollPosition: UITableViewScrollPositionTop animated: NO];
         
     }
     else{
@@ -631,6 +632,8 @@
 
 - (void) textFieldDidBeginEditing:(UITextField *)myTextField
 {
+    
+    [self.navigation collapse];
     
     [UIView animateWithDuration:0.1 delay:0.0 options:UIViewAnimationOptionCurveLinear animations:^{
         
