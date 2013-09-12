@@ -163,7 +163,7 @@
                                                 <rect key="frame" x="159" y="0.0" width="162" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
-                                                <state key="normal" title="Add Expense">
+                                                <state key="normal" title="Add">
                                                     <color key="titleColor" red="0.24313725489999999" green="0.2666666667" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" red="0.85882359743118286" green="0.41176474094390869" blue="0.364705890417099" alpha="1" colorSpace="deviceRGB"/>
                                                 </state>
@@ -571,7 +571,7 @@
                                                         <rect key="frame" x="160" y="0.0" width="161" height="44"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
-                                                        <state key="normal" title="Dismiss">
+                                                        <state key="normal" title="OK">
                                                             <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             <color key="titleShadowColor" red="0.7254902124" green="0.76470595600000002" blue="0.78039222959999999" alpha="1" colorSpace="deviceRGB"/>
                                                         </state>
@@ -735,6 +735,112 @@
         <image name="profile-pic-placeholder.png" width="160" height="160"/>
         <image name="timeline-line.png" width="6" height="11"/>
     </resources>
+    <classes>
+        <class className="AddExpenseViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddExpenseViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addExpense:"/>
+                <relationship kind="action" name="cancelAddExpense:"/>
+                <relationship kind="action" name="deselectAll:"/>
+                <relationship kind="action" name="selectAll:"/>
+                <relationship kind="action" name="showPicker:"/>
+                <relationship kind="outlet" name="addExpenseButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="amountLabelContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="bottomButtonContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="cancelExpenseButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="collectionView" candidateClass="UICollectionView"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="deselectAllButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="expenseAmount" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="expenseAmountContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="expenseMemberPicker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="expenseName" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="expenseNameContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="expenseOwner" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mainContainerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="selectAllButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="selectionButtonContainer" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="AddMemberCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddMemberCell.h"/>
+            <relationships>
+                <relationship kind="action" name="memberAction:"/>
+                <relationship kind="outlet" name="deleteMemberView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="memberButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="memberProfilePic" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ExpenseDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExpenseDetailViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="deleteExpense:"/>
+                <relationship kind="action" name="dismissDetail:"/>
+                <relationship kind="action" name="editExpense:"/>
+                <relationship kind="outlet" name="actionBarView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="containerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="deleteBtn" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="editBtn" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="expenseAuthorLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="expenseDateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="expenseMembersLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="expenseNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="expenseOwnerLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="getLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="memberTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="ownerPic" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="shareLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ExpenseItemCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExpenseItemCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="cellSeparatorView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="expenseContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="expenseNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="expenseSubtitleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="getLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="memberProfilePic" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="shareLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ExpenseViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExpenseViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addExpenseButton:"/>
+                <relationship kind="action" name="cancelAddMember:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="doneAddMember:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="setBalanceLabelValue:" candidateClass="NSNumber"/>
+                <relationship kind="outlet" name="balanceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="expenseListTable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="headerViewContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="timelineImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="viewContainer" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="UIStoryboardSegue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
+        </class>
+        <class className="memberCollectionViewCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/memberCollectionViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="memberNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="memberProfilePic" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
