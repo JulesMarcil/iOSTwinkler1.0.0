@@ -61,7 +61,6 @@
 		895C4E4417AA77D3004EC590 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 895C4E4217AA77D3004EC590 /* InfoPlist.strings */; };
 		895C4E4617AA77D3004EC590 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 895C4E4517AA77D3004EC590 /* main.m */; };
 		895C4E4A17AA77D3004EC590 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 895C4E4917AA77D3004EC590 /* AppDelegate.m */; };
-		895C4E5017AA77D4004EC590 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 895C4E4F17AA77D4004EC590 /* Default-568h@2x.png */; };
 		895C4E5817AA77D9004EC590 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E5717AA77D9004EC590 /* SenTestingKit.framework */; };
 		895C4E5917AA77D9004EC590 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3917AA77D2004EC590 /* UIKit.framework */; };
 		895C4E5A17AA77D9004EC590 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3B17AA77D2004EC590 /* Foundation.framework */; };
@@ -119,8 +118,8 @@
 		89F7D7B117DA6052006BE7FD /* right-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F7D7B017DA6052006BE7FD /* right-arrow.png */; };
 		89F7D7B717DA91DD006BE7FD /* main-smiley.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F7D7B617DA91DD006BE7FD /* main-smiley.png */; };
 		89F7D7B917DAA23E006BE7FD /* Twinkler_star.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F7D7B817DAA23D006BE7FD /* Twinkler_star.png */; };
-		BA1292C717E2082D00213A8F /* Icon-app-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = BA1292C517E2082D00213A8F /* Icon-app-retina.png */; };
-		BA1292C817E2082D00213A8F /* Icon-app.png in Resources */ = {isa = PBXBuildFile; fileRef = BA1292C617E2082D00213A8F /* Icon-app.png */; };
+		BA1292CA17E20AF400213A8F /* Icon-app.png in Resources */ = {isa = PBXBuildFile; fileRef = BA1292C917E20AF400213A8F /* Icon-app.png */; };
+		BA1292CC17E20AFB00213A8F /* Icon-app-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = BA1292CB17E20AFB00213A8F /* Icon-app-retina.png */; };
 		BA24D4C917B016CE0042C7A4 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4C417B016CE0042C7A4 /* List.m */; };
 		BA24D4CA17B016CE0042C7A4 /* ListDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4C617B016CE0042C7A4 /* ListDataController.m */; };
 		BA24D4CB17B016CE0042C7A4 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4C817B016CE0042C7A4 /* ListViewController.m */; };
@@ -239,7 +238,6 @@
 		895C4E4717AA77D3004EC590 /* Twinkler-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Twinkler-Prefix.pch"; sourceTree = "<group>"; };
 		895C4E4817AA77D3004EC590 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		895C4E4917AA77D3004EC590 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		895C4E4F17AA77D4004EC590 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		895C4E5617AA77D9004EC590 /* TwinklerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwinklerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		895C4E5717AA77D9004EC590 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		895C4E5F17AA77D9004EC590 /* TwinklerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TwinklerTests-Info.plist"; sourceTree = "<group>"; };
@@ -305,8 +303,8 @@
 		89F7D7B017DA6052006BE7FD /* right-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow.png"; sourceTree = "<group>"; };
 		89F7D7B617DA91DD006BE7FD /* main-smiley.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main-smiley.png"; sourceTree = "<group>"; };
 		89F7D7B817DAA23D006BE7FD /* Twinkler_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twinkler_star.png; sourceTree = "<group>"; };
-		BA1292C517E2082D00213A8F /* Icon-app-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-app-retina.png"; sourceTree = "<group>"; };
-		BA1292C617E2082D00213A8F /* Icon-app.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-app.png"; sourceTree = "<group>"; };
+		BA1292C917E20AF400213A8F /* Icon-app.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-app.png"; sourceTree = "<group>"; };
+		BA1292CB17E20AFB00213A8F /* Icon-app-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-app-retina.png"; sourceTree = "<group>"; };
 		BA24D4C317B016CE0042C7A4 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
 		BA24D4C417B016CE0042C7A4 /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
 		BA24D4C517B016CE0042C7A4 /* ListDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListDataController.h; sourceTree = "<group>"; };
@@ -582,6 +580,8 @@
 		895C4E2D17AA77D2004EC590 = {
 			isa = PBXGroup;
 			children = (
+				BA1292CB17E20AFB00213A8F /* Icon-app-retina.png */,
+				BA1292C917E20AF400213A8F /* Icon-app.png */,
 				895C4E3F17AA77D2004EC590 /* TabBarSlider */,
 				891F500517B3C69000361986 /* Resources */,
 				895C4E5D17AA77D9004EC590 /* TabBarSliderTests */,
@@ -644,8 +644,6 @@
 				895C4E4117AA77D3004EC590 /* Twinkler-Info.plist */,
 				895C4E4217AA77D3004EC590 /* InfoPlist.strings */,
 				895C4E4517AA77D3004EC590 /* main.m */,
-				BA1292C517E2082D00213A8F /* Icon-app-retina.png */,
-				BA1292C617E2082D00213A8F /* Icon-app.png */,
 				895913BE17D934FD0039CF72 /* Default-568h@2x.png */,
 				895913BC17D934F70039CF72 /* Default@2x.png */,
 				895913BA17D934EB0039CF72 /* Default.png */,
@@ -662,7 +660,6 @@
 				894F00D817DDBF9600D368DD /* profile-pic.png */,
 				89F7D7AB17DA51E8006BE7FD /* timeline-line.png */,
 				89131B2817D54536008F9950 /* remove-button.png */,
-				895C4E4F17AA77D4004EC590 /* Default-568h@2x.png */,
 				895C4E8117AAA928004EC590 /* check-icon-active.png */,
 				895C4E8317AAA928004EC590 /* coin-icon-active.png */,
 				8990D7ED17E1BC1A00D89E81 /* check-icon-active@2x.png */,
@@ -910,7 +907,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				895C4E4417AA77D3004EC590 /* InfoPlist.strings in Resources */,
-				895C4E5017AA77D4004EC590 /* Default-568h@2x.png in Resources */,
 				895C4E6F17AA93CE004EC590 /* MainStoryboard.storyboard in Resources */,
 				895C4E7317AA952B004EC590 /* check-icon.png in Resources */,
 				895C4E7417AA952B004EC590 /* coin-icon.png in Resources */,
@@ -974,10 +970,11 @@
 				8990D7FE17E1C9D400D89E81 /* check-button@2x.png in Resources */,
 				8990D80017E1CB4A00D89E81 /* uservoice-button@2x.png in Resources */,
 				8990D80217E1CCA900D89E81 /* user-button@2x.png in Resources */,
-				BA1292C717E2082D00213A8F /* Icon-app-retina.png in Resources */,
-				BA1292C817E2082D00213A8F /* Icon-app.png in Resources */,
 				8990D80417E1F59D00D89E81 /* add-expense-bckgd.png in Resources */,
 				8990D80617E2005100D89E81 /* green-check@2x.png in Resources */,
+				8990D80817E206A600D89E81 /* chevron-arrow@2x.png in Resources */,
+				BA1292CA17E20AF400213A8F /* Icon-app.png in Resources */,
+				BA1292CC17E20AFB00213A8F /* Icon-app-retina.png in Resources */,
 				8990D80A17E2078200D89E81 /* chevron-arrow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1141,7 +1138,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Jules Marcilhacy (QKYH83LLB4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jules Marcilhacy (QKYH83LLB4)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1157,6 +1154,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "FE5721EC-AB1F-4E4D-B8E4-BB86E1629A46";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FE5721EC-AB1F-4E4D-B8E4-BB86E1629A46";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1174,7 +1172,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Jules Marcilhacy (QKYH83LLB4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jules Marcilhacy (QKYH83LLB4)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1183,6 +1181,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "FE5721EC-AB1F-4E4D-B8E4-BB86E1629A46";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FE5721EC-AB1F-4E4D-B8E4-BB86E1629A46";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1192,6 +1191,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iosTwinkler/TabBarSlider\"",
@@ -1202,6 +1202,7 @@
 				INFOPLIST_FILE = "TabBarSlider/Twinkler-Info.plist";
 				PRODUCT_NAME = Twinkler;
 				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1210,6 +1211,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iosTwinkler/TabBarSlider\"",
@@ -1220,6 +1222,7 @@
 				INFOPLIST_FILE = "TabBarSlider/Twinkler-Info.plist";
 				PRODUCT_NAME = Twinkler;
 				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
