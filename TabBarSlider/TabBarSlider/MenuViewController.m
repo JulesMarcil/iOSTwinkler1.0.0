@@ -557,7 +557,7 @@
 -(void) setRoundedView:(UIImageView *)imageView picture: (UIImage *)picture toDiameter:(float)newSize{
     // Begin a new image that will be the new image with the rounded corners
     // (here with the size of an UIImageView)
-    UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, NO, 1.0);
+    UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, NO, 0.0f);
     
     // Add a clip before drawing anything, in the shape of an rounded rect
     [[UIBezierPath bezierPathWithRoundedRect:imageView.bounds
