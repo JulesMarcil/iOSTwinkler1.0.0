@@ -173,120 +173,131 @@
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    if([self.groupDataController countOfList]>0){
     return [self.groupDataController countOfList];
+    }else{
+        return 1;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString *CellIdentifier = @"groupCell";
-    static NSDateFormatter *formatter = nil;
-    if (formatter == nil) {
-        formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateStyle:NSDateFormatterMediumStyle];
-    }
-    GroupListCell *cell = [tableView
-                           dequeueReusableCellWithIdentifier:CellIdentifier];
-    Group *groupAtIndex = [self.groupDataController
-                           objectInListAtIndex:indexPath.row];
-    cell.groupNameLabel.text=groupAtIndex.name;
-    
-    switch (groupAtIndex.members.count) {
-        case 1:
-            
-            cell.detailLabel.text=@"You are alone :'(";
-            break;
-        case 2:
-            if(![groupAtIndex.members[0][@"name"] isEqual:groupAtIndex.activeMember[@"name"]]){
-            cell.detailLabel.text=[NSString stringWithFormat:@"You and %@", groupAtIndex.members[0][@"name"]];
-            }else{
-                cell.detailLabel.text=[NSString stringWithFormat:@"You and %@", groupAtIndex.members[1][@"name"]];
-            }
-            break;
-        default:
-            cell.detailLabel.text=[NSString stringWithFormat:@"You and %d friends", groupAtIndex.members.count-1];
-    }
-    
-    
-    cell.dateLabel.text=@"Mon";
-    cell.contentView.backgroundColor = [UIColor clearColor];
-    
-    NSMutableArray *groupMembers = [[NSMutableArray alloc] init];
-    NSDictionary *tempActiveMember;
-    
-    for (NSDictionary *member in groupAtIndex.members) {
-        if ([member[@"id"] intValue] != [groupAtIndex.activeMember[@"id"] intValue]) {
-            [groupMembers addObject:member];
-        } else {
-            tempActiveMember = member;
+    if([self.groupDataController countOfList]>0){
+        static NSString *CellIdentifier = @"groupCell";
+        static NSDateFormatter *formatter = nil;
+        if (formatter == nil) {
+            formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateStyle:NSDateFormatterMediumStyle];
         }
+        GroupListCell *cell = [tableView
+                               dequeueReusableCellWithIdentifier:CellIdentifier];
+        Group *groupAtIndex = [self.groupDataController
+                               objectInListAtIndex:indexPath.row];
+        cell.groupNameLabel.text=groupAtIndex.name;
+        
+        switch (groupAtIndex.members.count) {
+            case 1:
+                
+                cell.detailLabel.text=@"You are alone :'(";
+                break;
+            case 2:
+                if(![groupAtIndex.members[0][@"name"] isEqual:groupAtIndex.activeMember[@"name"]]){
+                    cell.detailLabel.text=[NSString stringWithFormat:@"You and %@", groupAtIndex.members[0][@"name"]];
+                }else{
+                    cell.detailLabel.text=[NSString stringWithFormat:@"You and %@", groupAtIndex.members[1][@"name"]];
+                }
+                break;
+            default:
+                cell.detailLabel.text=[NSString stringWithFormat:@"You and %d friends", groupAtIndex.members.count-1];
+        }
+        
+        
+        cell.dateLabel.text=@"Mon";
+        cell.contentView.backgroundColor = [UIColor clearColor];
+        
+        NSMutableArray *groupMembers = [[NSMutableArray alloc] init];
+        NSDictionary *tempActiveMember;
+        
+        for (NSDictionary *member in groupAtIndex.members) {
+            if ([member[@"id"] intValue] != [groupAtIndex.activeMember[@"id"] intValue]) {
+                [groupMembers addObject:member];
+            } else {
+                tempActiveMember = member;
+            }
+        }
+        
+        [cell.groupPicPlaceholder.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
+        
+        if([groupMembers count]==0){
+            UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(5, 9, 40,40)];
+            [self getImageForView:iv Member:tempActiveMember size:40.0];
+            [cell.groupPicPlaceholder addSubview:iv];
+        }else if([groupMembers count]==1){
+            UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(5, 9, 40,40)];
+            [self getImageForView:iv Member:groupMembers[0] size:40.0];
+            [cell.groupPicPlaceholder addSubview:iv];
+        }else if ([groupMembers count]==2){
+            UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(24, 6, 25, 25)];
+            UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(4, 26, 25, 25)];
+            [self getImageForView:iv Member:groupMembers[0] size:25.0];
+            [self getImageForView:ivbis Member:groupMembers[1] size:25.0];
+            [cell.groupPicPlaceholder addSubview:iv];
+            [cell.groupPicPlaceholder addSubview:ivbis];
+        }else if ([groupMembers count]==3){
+            UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(16, 8, 20,20)];
+            UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(4, 29, 20,20)];
+            UIImageView *ivtier = [[UIImageView alloc] initWithFrame:CGRectMake(29, 29, 20,20)];
+            [self getImageForView:iv Member:groupMembers[0] size:20.0];
+            [self getImageForView:ivbis Member:groupMembers[1] size:20.0];
+            [self getImageForView:ivtier Member:groupMembers[2] size:20.0];
+            [cell.groupPicPlaceholder  addSubview:iv];
+            [cell.groupPicPlaceholder  addSubview:ivbis];
+            [cell.groupPicPlaceholder  addSubview:ivtier];
+        }else if ([groupMembers count]==4){
+            UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(4, 5, 22,22)];
+            UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(29, 5, 22,22)];
+            UIImageView *ivtier = [[UIImageView alloc] initWithFrame:CGRectMake(4, 30, 22,22)];
+            UIImageView *ivquatro = [[UIImageView alloc] initWithFrame:CGRectMake(29, 30, 22,22)];
+            [self getImageForView:iv Member:groupMembers[0] size:22.0];
+            [self getImageForView:ivbis Member:groupMembers[1] size:22.0];
+            [self getImageForView:ivtier Member:groupMembers[2] size:22.0];
+            [self getImageForView:ivquatro Member:groupMembers[3] size:22.0];
+            [cell.groupPicPlaceholder  addSubview:iv];
+            [cell.groupPicPlaceholder  addSubview:ivbis];
+            [cell.groupPicPlaceholder  addSubview:ivtier];
+            [cell.groupPicPlaceholder  addSubview:ivquatro];
+        }
+        else if ([groupMembers count]>3){
+            UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(4, 5, 22,22)];
+            UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(29, 5, 22,22)];
+            UIImageView *ivtier = [[UIImageView alloc] initWithFrame:CGRectMake(4, 30, 22,22)];
+            UIImageView *ivquatro = [[UIImageView alloc] initWithFrame:CGRectMake(29, 30, 22,22)];
+            [self getImageForView:iv Member:groupMembers[0] size:22.0];
+            [self getImageForView:ivbis Member:groupMembers[1] size:22.0];
+            [self getImageForView:ivtier Member:groupMembers[2] size:22.0];
+            [self getImageForView:ivquatro Member:groupMembers[3] size:22.0];
+            [cell.groupPicPlaceholder  addSubview:iv];
+            [cell.groupPicPlaceholder  addSubview:ivbis];
+            [cell.groupPicPlaceholder  addSubview:ivtier];
+            ivquatro.image=[UIImage imageNamed:@"member-icon-placeholder.png"];
+            UILabel* membersLabel = [[UILabel alloc] initWithFrame:CGRectMake(29, 30, 22,22)];
+            membersLabel.text= [NSString stringWithFormat:@"%i", (int) [groupMembers count]-3];
+            membersLabel.backgroundColor=[UIColor clearColor];
+            membersLabel.textAlignment = NSTextAlignmentCenter;
+            membersLabel.textColor=[UIColor whiteColor];
+            [membersLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Medium" size:14.0f]];
+            [cell.groupPicPlaceholder  addSubview:ivquatro];
+            [cell.groupPicPlaceholder  addSubview:membersLabel];
+        }
+        
+        cell.backgroundView = [UIView new];
+        return cell;
+    }else{
+        static NSString *CellIdentifier = @"emptyTable";
+        UITableViewCell *cell = [tableView
+                                 dequeueReusableCellWithIdentifier:CellIdentifier];
+        return cell;
     }
-    
-    [cell.groupPicPlaceholder.subviews makeObjectsPerformSelector: @selector(removeFromSuperview)];
-    
-    if([groupMembers count]==0){
-        UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(5, 9, 40,40)];
-        [self getImageForView:iv Member:tempActiveMember size:40.0];
-        [cell.groupPicPlaceholder addSubview:iv];
-    }else if([groupMembers count]==1){
-        UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(5, 9, 40,40)];
-        [self getImageForView:iv Member:groupMembers[0] size:40.0];
-        [cell.groupPicPlaceholder addSubview:iv];
-    }else if ([groupMembers count]==2){
-        UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(24, 6, 25, 25)];
-        UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(4, 26, 25, 25)];
-        [self getImageForView:iv Member:groupMembers[0] size:25.0];
-        [self getImageForView:ivbis Member:groupMembers[1] size:25.0];
-        [cell.groupPicPlaceholder addSubview:iv];
-        [cell.groupPicPlaceholder addSubview:ivbis];
-    }else if ([groupMembers count]==3){
-        UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(16, 8, 20,20)];
-        UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(4, 29, 20,20)];
-        UIImageView *ivtier = [[UIImageView alloc] initWithFrame:CGRectMake(29, 29, 20,20)];
-        [self getImageForView:iv Member:groupMembers[0] size:20.0];
-        [self getImageForView:ivbis Member:groupMembers[1] size:20.0];
-        [self getImageForView:ivtier Member:groupMembers[2] size:20.0];
-        [cell.groupPicPlaceholder  addSubview:iv];
-        [cell.groupPicPlaceholder  addSubview:ivbis];
-        [cell.groupPicPlaceholder  addSubview:ivtier];
-    }else if ([groupMembers count]==4){
-        UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(4, 5, 22,22)];
-        UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(29, 5, 22,22)];
-        UIImageView *ivtier = [[UIImageView alloc] initWithFrame:CGRectMake(4, 30, 22,22)];
-        UIImageView *ivquatro = [[UIImageView alloc] initWithFrame:CGRectMake(29, 30, 22,22)];
-        [self getImageForView:iv Member:groupMembers[0] size:22.0];
-        [self getImageForView:ivbis Member:groupMembers[1] size:22.0];
-        [self getImageForView:ivtier Member:groupMembers[2] size:22.0];
-        [self getImageForView:ivquatro Member:groupMembers[3] size:22.0];
-        [cell.groupPicPlaceholder  addSubview:iv];
-        [cell.groupPicPlaceholder  addSubview:ivbis];
-        [cell.groupPicPlaceholder  addSubview:ivtier];
-        [cell.groupPicPlaceholder  addSubview:ivquatro];
-    }
-    else if ([groupMembers count]>3){
-        UIImageView *iv = [[UIImageView alloc] initWithFrame:CGRectMake(4, 5, 22,22)];
-        UIImageView *ivbis = [[UIImageView alloc] initWithFrame:CGRectMake(29, 5, 22,22)];
-        UIImageView *ivtier = [[UIImageView alloc] initWithFrame:CGRectMake(4, 30, 22,22)];
-        UIImageView *ivquatro = [[UIImageView alloc] initWithFrame:CGRectMake(29, 30, 22,22)];
-        [self getImageForView:iv Member:groupMembers[0] size:22.0];
-        [self getImageForView:ivbis Member:groupMembers[1] size:22.0];
-        [self getImageForView:ivtier Member:groupMembers[2] size:22.0];
-        [self getImageForView:ivquatro Member:groupMembers[3] size:22.0];
-        [cell.groupPicPlaceholder  addSubview:iv];
-        [cell.groupPicPlaceholder  addSubview:ivbis];
-        [cell.groupPicPlaceholder  addSubview:ivtier];
-        ivquatro.image=[UIImage imageNamed:@"member-icon-placeholder.png"];
-        UILabel* membersLabel = [[UILabel alloc] initWithFrame:CGRectMake(29, 30, 22,22)];
-        membersLabel.text= [NSString stringWithFormat:@"%i", (int) [groupMembers count]-3];
-        membersLabel.backgroundColor=[UIColor clearColor];
-        membersLabel.textAlignment = NSTextAlignmentCenter;
-        membersLabel.textColor=[UIColor whiteColor];
-        [membersLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Medium" size:14.0f]];
-        [cell.groupPicPlaceholder  addSubview:ivquatro];
-        [cell.groupPicPlaceholder  addSubview:membersLabel];
-    }
-
-    cell.backgroundView = [UIView new];
-    return cell;
 }
 
 - (void)getImageForView:(UIImageView *)view Member:(NSDictionary *)member size:(NSInteger) size{
@@ -425,7 +436,7 @@
     NSLog(@"set index at: %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupIndex"]);
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"newGroupSelected" object:nil];
- 
+    
     // Then push the new view controller in the usual way:
     [self.navigationController pushViewController:dst animated:YES];
     
@@ -468,10 +479,10 @@
 - (IBAction)Logout:(id)sender {
     
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"You're about to leave :("
-                                                          message:@"Are you sure you want to log out?"
-                                                         delegate:self
-                                                cancelButtonTitle:@"Log Out"
-                                                otherButtonTitles:@"Stay Logged In", nil];
+                                                        message:@"Are you sure you want to log out?"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Log Out"
+                                              otherButtonTitles:@"Stay Logged In", nil];
     
     [alertView show];
     
