@@ -323,48 +323,6 @@
         <image name="main-button.png" width="34" height="34"/>
         <image name="right-arrow.png" width="20" height="20"/>
     </resources>
-    <classes>
-        <class className="AddListViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddListViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="dismissView:"/>
-                <relationship kind="action" name="doneButton:"/>
-                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="doneButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="groupNameContainer" candidateClass="UIView"/>
-                <relationship kind="outlet" name="listNameTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="ItemListViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ItemListViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addItem:"/>
-                <relationship kind="action" name="backToLists:"/>
-                <relationship kind="outlet" name="addItemButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="backgroundImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="itemInput" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="itemListTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="listNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="textFieldContainer" candidateClass="UIView"/>
-                <relationship kind="outlet" name="viewContainer" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="ListCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ListCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="itemNumberLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="listTitleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="viewContainer" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="ListViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ListViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="listOnLists" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="mainButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
