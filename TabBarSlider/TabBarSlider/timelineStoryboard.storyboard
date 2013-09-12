@@ -24,7 +24,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="190"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hey, welcome to your chat! Say hello to your friends and start having fun!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GtA-Pj-qjN">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Hey, welcome to your timeline! Use the plus button to add new items or leave a message " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GtA-Pj-qjN">
                                             <rect key="frame" x="20" y="107" width="280" height="46"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -37,7 +37,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" red="0.79215693470000004" green="0.8078432083" blue="0.82352948189999997" alpha="0.66000000000000003" colorSpace="deviceRGB"/>
                                         </view>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Use the plus button to quickly add new items!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2f9-0n-jmJ">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Swipe left to see the expense summary or right for the shared lists" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2f9-0n-jmJ">
                                             <rect key="frame" x="20" y="148" width="280" height="46"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -218,7 +218,7 @@
                                 <rect key="frame" x="0.0" y="317" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tap here to Type!" minimumFontSize="17" id="F2w-rj-eIh">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Type your message here" placeholder="Tap here to Type!" minimumFontSize="17" id="F2w-rj-eIh">
                                         <rect key="frame" x="65" y="8" width="193" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
@@ -432,14 +432,14 @@
                                     <outlet property="delegate" destination="x8y-gj-kgy" id="kX4-NY-cpM"/>
                                 </connections>
                             </textView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Feedbacks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="o4R-Ep-7N4">
-                                <rect key="frame" x="20" y="13" width="281" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Feedback" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="o4R-Ep-7N4">
+                                <rect key="frame" x="20" y="13" width="281" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="0.24313725489999999" green="0.2666666667" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Feel free to send us some feedbacks on any bugs, question you have or new features you would love to see on Twinkler!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8R8-QR-OXL">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Feel free to send us some feedback on any bug, question you have or new feature you would love to see on Twinkler!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8R8-QR-OXL">
                                 <rect key="frame" x="20" y="38" width="281" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
@@ -473,6 +473,63 @@
         <image name="user-button.png" width="34" height="34"/>
         <image name="uservoice-button.png" width="34" height="34"/>
     </resources>
+    <classes>
+        <class className="FeedbackViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FeedbackViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="send:"/>
+                <relationship kind="outlet" name="actionBarContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="feedbackSegmentedControl" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="feedbackTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="nextButton" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="TimelineViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TimelineViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addExpenseButton:"/>
+                <relationship kind="action" name="addListButton:"/>
+                <relationship kind="action" name="addUserButton:"/>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="sendFeedbackButton:"/>
+                <relationship kind="action" name="sendMessage:"/>
+                <relationship kind="outlet" name="actionBar" candidateClass="UIView"/>
+                <relationship kind="outlet" name="button1" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="button2" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="button3" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="button4" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="main" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="messageOnTimeline" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="smiley" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="timelineTextBox" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="timelineTextBoxContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="timelineView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="notificationCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/notificationCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="expenseName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="getLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="messageContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="messageLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="shareLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="timelineBubbleCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/timelineBubbleCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="bubbleTailImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="memberNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="memberProfilePicImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="messageContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="messageLabel" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="timelineTimeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

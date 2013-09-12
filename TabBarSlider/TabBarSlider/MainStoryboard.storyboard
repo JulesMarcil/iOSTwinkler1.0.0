@@ -28,7 +28,7 @@
             <objects>
                 <viewController title="tabBarVC" id="TSO-ay-kkC" customClass="TabBarViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jmI-jh-A5V">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="at9-FK-ZVX">
@@ -47,7 +47,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="yLr-kz-sh4">
-                                <rect key="frame" x="4" y="399" width="320" height="100"/>
+                                <rect key="frame" x="4" y="442" width="320" height="100"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="ba0-cD-7ZI">
                                         <rect key="frame" x="20" y="52" width="280" height="30"/>
@@ -98,7 +98,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view alpha="0.99999999999999989" contentMode="scaleToFill" id="bTU-o3-M9J">
-                                <rect key="frame" x="4" y="456" width="320" height="45"/>
+                                <rect key="frame" x="4" y="499" width="320" height="45"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Carnac Attitude" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="A1f-cY-EFc">
                                         <rect key="frame" x="40" y="6" width="239" height="34"/>
@@ -400,7 +400,7 @@
                                                 <action selector="Logout:" destination="jM0-tw-YH4" eventType="touchUpInside" id="3nW-jh-cV8"/>
                                             </connections>
                                         </button>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Current Groups" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="icb-CE-ubc">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Groups" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="icb-CE-ubc">
                                             <rect key="frame" x="69" y="157" width="181" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
@@ -539,12 +539,84 @@
         <image name="tk-icon-active.png" width="20" height="20"/>
         <image name="tk-icon.png" width="20" height="20"/>
     </resources>
+    <classes>
+        <class className="DashboardMemberCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DashboardMemberCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="balanceContainerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="balanceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="memberProfilePic" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="DashboardViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DashboardViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="AddMemberAction:"/>
+                <relationship kind="action" name="CloseGroupAction:"/>
+                <relationship kind="outlet" name="mainTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="GroupListCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GroupListCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="detailLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="groupNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="groupPicPlaceholder" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="MenuViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="Logout:"/>
+                <relationship kind="action" name="cancelAddGroup:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="createGroup:"/>
+                <relationship kind="action" name="doneAddGroup:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="outlet" name="addGroupButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="friendNumberLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="groupOnMenu" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="profilePic" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="tableViewHeader" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="SWRevealViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SWRevealViewController.h"/>
+        </class>
+        <class className="TabBarViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TabBarViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="activeTabBarImage" candidateClass="UIView"/>
+                <relationship kind="outlet" name="coverPic" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="expenseButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="groupTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="leftButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="listButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mainView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="pageControl" candidateClass="UIPageControl"/>
+                <relationship kind="outlet" name="placeholderView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="revealButtonItem" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="revealRightButtonItem" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="rightButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="tabBarBck" candidateClass="UIView"/>
+                <relationship kind="outlet" name="timelineButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="toolbar" candidateClass="UIView"/>
+                <relationship kind="outlet" name="topBar" candidateClass="UIView"/>
+                <relationship kind="outlet" name="topWhiteBar" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="UIStoryboardSegue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="dB0-O4-sD8"/>
+        <segue reference="KLY-9e-DSX"/>
     </inferredMetricsTieBreakers>
 </document>
