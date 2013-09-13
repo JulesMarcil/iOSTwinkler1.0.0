@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordInput;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *FBspinner;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property (weak, nonatomic) IBOutlet UIView *errorView;
+@property (weak, nonatomic) IBOutlet UILabel *errorLabel;
 
 - (IBAction)FacebookLogin:(id)sender;
 - (IBAction)EmailRegister:(id)sender;
