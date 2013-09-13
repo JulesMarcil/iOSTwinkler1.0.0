@@ -49,6 +49,10 @@
 
 - (IBAction)EmailRegister:(id)sender {
     
+    [self.usernameInput resignFirstResponder];
+    [self.emailInput resignFirstResponder];
+    [self.confirmEmailInput resignFirstResponder];
+    [self.passwordInput resignFirstResponder];
     [self.spinner startAnimating];
     [sender setTitleColor:[UIColor colorWithRed:78/255 green:90/255 blue:149/255 alpha:0.0] forState: UIControlStateNormal];
     
@@ -58,26 +62,32 @@
     NSString *password = self.passwordInput.text;
     
     if (username.length == 0){
-        self.usernameInput.text=@"Please choose a username first";
+        NSLog(@"Please choose a username");
+        self.usernameInput.placeholder=@"Please choose a username";
         [self.spinner stopAnimating];
         [sender setTitleColor:[UIColor colorWithRed:255/255 green:255/255 blue:255/255 alpha:1.0] forState: UIControlStateNormal];
     } else if (email.length == 0) {
-        self.emailInput.text=@"Please enter a valid email address first";
-        [self.spinner stopAnimating];
-        [sender setTitleColor:[UIColor colorWithRed:255/255 green:255/255 blue:255/255 alpha:1.0] forState: UIControlStateNormal];
-    } else if (password.length == 0) {
-        self.passwordInput.text=@"Please choose a password first";
+        NSLog(@"Please choose a username");
+        self.emailInput.placeholder=@"Please enter your email address";
         [self.spinner stopAnimating];
         [sender setTitleColor:[UIColor colorWithRed:255/255 green:255/255 blue:255/255 alpha:1.0] forState: UIControlStateNormal];
     } else if (![email isEqualToString:confirmEmail]) {
-        self.emailInput.text=@"Oops, make sure your emails match first!";
         NSLog(@"Your emails do not match");
+        self.confirmEmailInput.text=@"";
+        self.confirmEmailInput.placeholder=@"Make sure your emails match!";
+        [self.spinner stopAnimating];
+        [sender setTitleColor:[UIColor colorWithRed:255/255 green:255/255 blue:255/255 alpha:1.0] forState: UIControlStateNormal];
+    } else if (password.length == 0) {
+        NSLog(@"Please choose a password");
+        self.passwordInput.placeholder=@"Please choose a password";
         [self.spinner stopAnimating];
         [sender setTitleColor:[UIColor colorWithRed:255/255 green:255/255 blue:255/255 alpha:1.0] forState: UIControlStateNormal];
     } else if (![self NSStringIsValidEmail:email]) {
-        self.emailInput.text=@"Please enter a valid email address first";
+        self.emailInput.text=@"";
+        self.confirmEmailInput.text=@"";
+        self.emailInput.placeholder=@"Please enter a valid email address first";
         [self.spinner stopAnimating];
-        [sender setTitleColor:[UIColor colorWithRed:78/255 green:90/255 blue:149/255 alpha:1.0] forState: UIControlStateNormal];
+        [sender setTitleColor:[UIColor colorWithRed:255/255 green:255/255 blue:255/255 alpha:1.0] forState: UIControlStateNormal];
     } else {
     
     NSLog(@"Register with email => username = %@, email = %@, confirmEmail = %@, password = %@", username, email, confirmEmail, password);
@@ -99,7 +109,12 @@
                                       [[NSNotificationCenter defaultCenter] postNotificationName:@"loginSuccess" object:nil];
                                       
                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                      NSLog(@"error: %@", error);
+                                      NSLog(@"error: %@", error.userInfo);
+                                      self.errorLabel.text = error.userInfo[@"NSLocalizedRecoverySuggestion"];
+                                      self.errorView.hidden=NO;
+                                      self.errorLabel.hidden=NO;
+                                      [self.spinner stopAnimating];
+                                      [sender setTitleColor:[UIColor colorWithRed:255/255 green:255/255 blue:255/255 alpha:1.0] forState: UIControlStateNormal];
                                   }];
     }    
 }

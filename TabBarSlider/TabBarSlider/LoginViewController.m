@@ -76,12 +76,18 @@
                                       
                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                       NSLog(@"error: %@", error);
+                                      NSString *errorMessage = error.userInfo[@"NSLocalizedRecoverySuggestion"];
+                                      
+                                      if ([errorMessage isEqualToString:@"{\"error\":\"invalid_grant\"}"]) {
+                                          self.errorLabel.text = @"Invalid credentials";
+                                      } else {
+                                          self.errorLabel.text = @"Impossible to connect to the server";
+                                      }
                                       self.firstErrorLabel.hidden = NO;
                                       self.errorView.hidden = NO;
                                       self.errorLabel.hidden = NO;
                                       [self.spinner stopAnimating];
-                                      [sender setTitleColor:[UIColor colorWithRed:255/255 green:255/255 blue:255/255 alpha:1.0] forState: UIControlStateNormal];
-                                      
+                                      [sender setTitleColor:[UIColor colorWithRed:255/255 green:255/255 blue:255/255 alpha:1.0] forState: UIControlStateNormal];                                      
                                   }];
 }
 

@@ -369,7 +369,7 @@
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
-                                                    <outlet property="delegate" destination="yob-jf-MHu" id="AS3-DI-tSj"/>
+                                                    <outlet property="delegate" destination="yob-jf-MHu" id="EAM-hz-6BF"/>
                                                 </connections>
                                             </textField>
                                             <view contentMode="scaleToFill" id="pjL-ec-DLw">
@@ -403,12 +403,11 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="EmailLogin:" destination="TZK-DV-kkD" eventType="touchUpInside" id="dC3-6Y-0NT"/>
                                             <action selector="EmailRegister:" destination="yob-jf-MHu" eventType="touchUpInside" id="iXv-Db-K2H"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Sign up with" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UIJ-TY-Xgk">
-                                        <rect key="frame" x="80" y="71" width="161" height="50"/>
+                                        <rect key="frame" x="80" y="81" width="161" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
                                         <color key="textColor" red="0.24313725489999999" green="0.2666666667" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -437,6 +436,21 @@
                                         <rect key="frame" x="155" y="151" width="20" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </activityIndicatorView>
+                                    <view hidden="YES" contentMode="scaleToFill" id="G2r-S2-H2S">
+                                        <rect key="frame" x="20" y="59" width="280" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Undefined error, check your connection" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MN0-Vs-TOB">
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" red="0.71372549019999998" green="0.29803921570000003" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.61778539539999999" green="0.0" blue="0.0067035932410000002" alpha="0.14000000000000001" colorSpace="calibratedRGB"/>
+                                    </view>
                                 </subviews>
                             </scrollView>
                             <view contentMode="scaleToFill" id="lNK-4u-luY">
@@ -457,6 +471,8 @@
                         <outlet property="FBspinner" destination="jsO-bi-Yje" id="wNu-gA-qgz"/>
                         <outlet property="confirmEmailInput" destination="KQP-85-02K" id="lGU-RR-0c2"/>
                         <outlet property="emailInput" destination="A69-Ke-ooI" id="Itw-BN-WhF"/>
+                        <outlet property="errorLabel" destination="MN0-Vs-TOB" id="NTe-Fz-EOo"/>
+                        <outlet property="errorView" destination="G2r-S2-H2S" id="85q-c8-c4m"/>
                         <outlet property="passwordInput" destination="27T-GR-qkT" id="SNu-Nz-5ex"/>
                         <outlet property="spinner" destination="Xof-mt-k1N" id="bPX-Ba-AAN"/>
                         <outlet property="usernameInput" destination="d3R-3w-Sut" id="IyX-0r-Xxj"/>
@@ -680,6 +696,8 @@
         <image name="login-bckgd.png" width="320" height="560"/>
         <image name="profile-pic.png" width="160" height="160"/>
     </resources>
+<<<<<<< HEAD
+=======
     <classes>
         <class className="GroupListCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GroupListCell.h"/>
@@ -748,6 +766,7 @@
             </relationships>
         </class>
     </classes>
+>>>>>>> dc71f7410861e2be814b99a0158ffaa7be7c2abd
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
