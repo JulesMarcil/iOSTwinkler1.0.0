@@ -14,6 +14,9 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *mainTableView;
 @property (strong, nonatomic) NSDictionary *dashboardInfo;
+@property (weak, nonatomic) IBOutlet UIButton *actionButton;
+@property (weak, nonatomic) IBOutlet UIButton *closeGroupButton;
+@property (weak, nonatomic) IBOutlet UIButton *inviteButton;
 
 - (IBAction)AddMemberAction:(id)sender;
 - (IBAction)CloseGroupAction:(id)sender;

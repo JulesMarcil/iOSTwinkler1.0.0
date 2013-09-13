@@ -446,6 +446,7 @@
         [UIView setAnimationDuration:0.2];
         cell.checkIcon.alpha=0;
         cell.memberProfilePic.alpha=0.5;
+        cell.isSelected=NO;
         [UIView commitAnimations];
     }
 }
@@ -480,6 +481,7 @@
     [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:35.0];
     cell.checkIcon.alpha=1;
     cell.memberProfilePic.alpha=1;
+    cell.isSelected=YES;
     
     NSDictionary *member = [memberArray objectAtIndex:indexPath.row];
     
@@ -534,12 +536,16 @@
         cell.memberProfilePic.alpha=0.5;
         [UIView commitAnimations];
         
+        cell.isSelected=NO;
+        
     }else{
         [UIView beginAnimations:@"fade in" context:nil];
         [UIView setAnimationDuration:0.2];
         cell.checkIcon.alpha=1;
         cell.memberProfilePic.alpha=1;
         [UIView commitAnimations];
+        
+        cell.isSelected=YES;
     }
     
 }
