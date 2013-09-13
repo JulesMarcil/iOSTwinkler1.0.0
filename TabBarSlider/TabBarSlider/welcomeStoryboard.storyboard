@@ -148,7 +148,7 @@
                                             <outlet property="groupPicPlaceholder" destination="RV6-1C-TaK" id="Oev-2I-5kX"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="emptyTable" id="94D-Ca-zny">
+                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="emptyTable" id="94D-Ca-zny">
                                         <rect key="frame" x="0.0" y="267" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -713,6 +713,7 @@
                 <relationship kind="action" name="cancelAddGroup:" candidateClass="UIStoryboardSegue"/>
                 <relationship kind="action" name="createGroup:"/>
                 <relationship kind="action" name="doneAddGroup:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="goToTimelineButton:"/>
                 <relationship kind="outlet" name="addGroupButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="friendNumberLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="groupOnMenu" candidateClass="UITableView"/>

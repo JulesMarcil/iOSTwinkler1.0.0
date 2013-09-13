@@ -69,8 +69,7 @@
 	// Do any additional setup after loading the view.
     
     
-    self.mainTableView.separatorColor = [UIColor clearColor];
-    self.mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.mainTableView.separatorColor=[UIColor colorWithRed:(236/255.0) green:(231/255.0) blue:(223/255.0) alpha: 1];
     
 }
 - (void)didReceiveMemoryWarning
@@ -93,7 +92,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"memberCell";
-    
     DashboardMemberCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier];
     
     if (!cell) {

@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *balanceLabel;
 @property (weak, nonatomic) IBOutlet UIView *headerViewContainer;
 @property (weak, nonatomic) IBOutlet UIImageView *timelineImage;
+@property (weak, nonatomic) IBOutlet UIView *addExpenseView;
 
 - (IBAction)setBalanceLabelValue:(NSNumber *)balance;
 - (IBAction)addExpenseButton:(id)sender;
