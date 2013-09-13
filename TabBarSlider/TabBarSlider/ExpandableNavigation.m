@@ -66,8 +66,8 @@
         CGFloat indexOverCount = index * oneOverCount;
         CGFloat rad =(1.0 - indexOverCount) * 70.0 * M_PI/180;
         CGAffineTransform rotation = CGAffineTransformMakeRotation( rad+20* M_PI/180 );
-        CGFloat x = (self.radius + self.bounce * self.radius) * rotation.a;
-        CGFloat y = (self.radius + self.bounce * self.radius) * rotation.c;
+        CGFloat x = (self.radius + self.bounce * self.radius-15) * rotation.a;
+        CGFloat y = (self.radius + self.bounce * self.radius-15) * rotation.c;
         CGPoint center = CGPointMake( view.center.x + x , view.center.y + y);
         [UIView animateWithDuration: self.speed
                               delay: self.speed * indexOverCount

@@ -32,7 +32,7 @@
 @synthesize button1;
 @synthesize button2;
 @synthesize button3;
-@synthesize button4;
+
 @synthesize main;
 @synthesize navigation;
 
@@ -101,7 +101,7 @@
     
     //-------------Expandable Button----------------------------
     // initialize ExpandableNavigation object with an array of buttons.
-    NSArray* buttons = [NSArray arrayWithObjects:button1, button2, button3, button4, nil];
+    NSArray* buttons = [NSArray arrayWithObjects:button1, button2, button3, nil];
     
     self.navigation = [[ExpandableNavigation alloc] initWithMenuItems:buttons mainButton:self.main radius:120.0];
     
@@ -205,7 +205,6 @@
     self.button1 = nil;
     self.button2 = nil;
     self.button3 = nil;
-    self.button4 = nil;
     self.main = nil;
     self.navigation = nil;
 }

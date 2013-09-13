@@ -270,21 +270,6 @@
                                     <action selector="addExpenseButton:" destination="pIH-GI-KlT" eventType="touchUpInside" id="zVQ-4E-QfB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9DQ-0c-dqL">
-                                <rect key="frame" x="7" y="380" width="34" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="check-button.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="addListButton:" destination="pIH-GI-KlT" eventType="touchUpInside" id="2bV-TS-6UG"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="R4Y-Ds-lXy">
                                 <rect key="frame" x="7" y="380" width="34" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -348,9 +333,8 @@
                     <connections>
                         <outlet property="actionBar" destination="yta-0F-2uz" id="XTi-WN-F37"/>
                         <outlet property="button1" destination="HJj-gv-D4u" id="MLi-Gu-hE6"/>
-                        <outlet property="button2" destination="9DQ-0c-dqL" id="IN6-aa-4g7"/>
+                        <outlet property="button2" destination="bFJ-7F-Khs" id="Llc-84-rxf"/>
                         <outlet property="button3" destination="R4Y-Ds-lXy" id="IUa-yC-6By"/>
-                        <outlet property="button4" destination="bFJ-7F-Khs" id="hp0-kN-Yme"/>
                         <outlet property="main" destination="OXw-1Z-Umh" id="djw-JE-1fb"/>
                         <outlet property="messageOnTimeline" destination="v7W-NK-Fe6" id="vj5-dR-zmC"/>
                         <outlet property="smiley" destination="EYo-mG-EmF" id="PlW-xF-kQa"/>
@@ -466,13 +450,68 @@
         <image name="add-expense-bckgd.png" width="320" height="460"/>
         <image name="bubble-tail-blue.png" width="19" height="12"/>
         <image name="chat-bck.png" width="16" height="16"/>
-        <image name="check-button.png" width="34" height="34"/>
         <image name="main-arrow.png" width="34" height="34"/>
         <image name="main-button.png" width="34" height="34"/>
         <image name="money-button.png" width="34" height="34"/>
         <image name="user-button.png" width="34" height="34"/>
         <image name="uservoice-button.png" width="34" height="34"/>
     </resources>
+    <classes>
+        <class className="FeedbackViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FeedbackViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="send:"/>
+                <relationship kind="outlet" name="actionBarContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="feedbackSegmentedControl" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="feedbackTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="nextButton" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="TimelineViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TimelineViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addExpenseButton:"/>
+                <relationship kind="action" name="addListButton:"/>
+                <relationship kind="action" name="addUserButton:"/>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="sendFeedbackButton:"/>
+                <relationship kind="action" name="sendMessage:"/>
+                <relationship kind="outlet" name="actionBar" candidateClass="UIView"/>
+                <relationship kind="outlet" name="button1" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="button2" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="button3" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="main" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="messageOnTimeline" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="smiley" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="timelineTextBox" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="timelineTextBoxContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="timelineView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="notificationCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/notificationCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="expenseName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="getLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="messageContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="messageLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="shareLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="timelineBubbleCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/timelineBubbleCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="bubbleTailImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="memberNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="memberProfilePicImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="messageContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="messageLabel" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="timelineTimeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
