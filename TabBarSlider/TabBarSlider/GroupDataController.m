@@ -32,9 +32,8 @@
                                                               ];
                                           
                                           [self addGroupWithGroup:group];
-                                          NSLog(@"group loaded = %@", group.name);
                                       }
-                                      NSLog(@"groupsWithJSONFinishedLoading");
+                                      NSLog(@"GroupDataController: post Notification groupsWithJSONFinishedLoading");
                                       [[NSNotificationCenter defaultCenter] postNotificationName:@"groupsWithJSONFinishedLoading" object:nil];
                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                       NSLog(@"error: %@", error);

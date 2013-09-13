@@ -24,7 +24,7 @@
         // app already launched
     }
     else {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"HasLaunchedOnce"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         // This is the first launch ever
     }
@@ -190,7 +190,7 @@
                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                               NSError * error = nil;
                                               NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
-                                              NSLog(@"response: %@",response);
+                                              //NSLog(@"response: %@",response);
                                               NSString *authToken = [response objectForKey:@"access_token"];
                                               CredentialStore *store = [[CredentialStore alloc] init];
                                               [store setAuthToken:authToken];
@@ -205,8 +205,7 @@
     }];
 }
 
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
-{
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     return [FBSession.activeSession handleOpenURL:url];
 }
 
@@ -224,16 +223,14 @@
                                       NSError * error = nil;
                                       NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
                                       
-                                      NSLog(@"response: %@",response);
+                                      //NSLog(@"response: %@",response);
                                       NSString *authToken = [response objectForKey:@"access_token"];
                                       NSString *refreshToken = [response objectForKey:@"refresh_token"];
                                       CredentialStore *store = [[CredentialStore alloc] init];
                                       [store setAuthToken:authToken];
                                       [store setRefreshToken:refreshToken];
                                       
-                                      [[NSNotificationCenter defaultCenter] postNotificationName:@"loginSuccess" object:nil];
-                                      
-                                      [self dismissLoginView];
+                                      [[NSNotificationCenter defaultCenter] postNotificationName:@"loginSuccess" object:nil];                            
                                       
                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                       NSLog(@"error: %@", error);
