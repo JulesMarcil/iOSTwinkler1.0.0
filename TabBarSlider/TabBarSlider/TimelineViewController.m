@@ -657,6 +657,20 @@
     }];
     
     [self animateTextField:myTextField up:YES];
+    
+    UIView *darkView = [[UIView alloc] initWithFrame:[self.messageOnTimeline frame]];
+    darkView.alpha = 1;
+    darkView.backgroundColor = [UIColor clearColor];
+    darkView.tag = 9;
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)] ;
+    [darkView addGestureRecognizer:tapGesture];
+    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)] ;
+    [darkView addGestureRecognizer:panGesture];
+    UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard:)] ;
+    [darkView addGestureRecognizer:longPressGesture];
+    
+    [self.view addSubview:darkView];
+    [self.view bringSubviewToFront:darkView];
 }
 
 - (void) textFieldDidEndEditing:(UITextField *)myTextField
@@ -749,6 +763,10 @@
 }
 
 - (IBAction)dismissKeyboard:(id)sender {
+    if([self.view viewWithTag:9]!=nil){
+        [[self.view viewWithTag:9] removeFromSuperview];
+    }
+    
     [self.timelineTextBox resignFirstResponder];
 }
 
