@@ -123,33 +123,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TabBarSlider/ListViewController.m"
-         timestampString = "400263294.892412"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "156"
-         endingLineNumber = "156"
-         landmarkName = "-goToTimeline"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "TabBarSlider/ListViewController.m"
-         timestampString = "400263294.892412"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "157"
-         endingLineNumber = "157"
-         landmarkName = "-goToTimeline"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "TabBarSlider/ListViewController.m"
-         timestampString = "400263294.892412"
+         timestampString = "400760756.451946"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "152"
@@ -162,11 +136,39 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TabBarSlider/ListViewController.m"
-         timestampString = "400263294.892412"
+         timestampString = "400760756.451946"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "186"
-         endingLineNumber = "186">
+         startingLineNumber = "153"
+         endingLineNumber = "153"
+         landmarkName = "-goToTimeline"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "TabBarSlider/ListViewController.m"
+         timestampString = "400760756.451946"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "148"
+         endingLineNumber = "148"
+         landmarkName = "-goToTimeline"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "TabBarSlider/ListViewController.m"
+         timestampString = "400760756.451946"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "182"
+         endingLineNumber = "182"
+         landmarkName = "-goToTimeline"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -212,11 +214,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TabBarSlider/TimelineViewController.m"
-         timestampString = "400674694.520655"
+         timestampString = "400760706.083586"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "445"
-         endingLineNumber = "445"
+         startingLineNumber = "436"
+         endingLineNumber = "436"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -225,11 +227,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TabBarSlider/ExpenseViewController.m"
-         timestampString = "400203675.629721"
+         timestampString = "400760756.451946"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "106"
-         endingLineNumber = "106"
+         startingLineNumber = "102"
+         endingLineNumber = "102"
          landmarkName = "-setBalanceLabelValue:"
          landmarkType = "5">
       </FileBreakpoint>

@@ -53,10 +53,6 @@
      name:@"listsWithJSONFinishedLoading"
      object:nil];
     
-    UISwipeGestureRecognizer* swipeRightGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(goToTimeline)];
-    swipeRightGestureRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
-    [self.view addGestureRecognizer:swipeRightGestureRecognizer];
-    
     
     self.listOnLists.backgroundColor=[UIColor colorWithRed:(245/255.0) green:(245/255.0) blue:(245/255.0) alpha:1];
     self.listOnLists.separatorColor = [UIColor clearColor];

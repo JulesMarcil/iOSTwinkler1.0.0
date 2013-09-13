@@ -68,10 +68,6 @@
      object:nil];
     
     
-    UISwipeGestureRecognizer* swipeLeftGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(goToTimeline)];
-    swipeLeftGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
-    [self.view addGestureRecognizer:swipeLeftGestureRecognizer];
-    
     self.expenseListTable.allowsSelectionDuringEditing = YES;
     
     self.expenseListTable.separatorColor = [UIColor clearColor];
