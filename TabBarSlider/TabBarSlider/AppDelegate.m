@@ -234,6 +234,7 @@
                                       
                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                       NSLog(@"error: %@", error);
+                                      [self showLoginView];
                                   }];
 }
 

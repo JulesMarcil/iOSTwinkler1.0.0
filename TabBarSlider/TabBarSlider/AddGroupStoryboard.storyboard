@@ -672,7 +672,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Quz-lL-Lw2">
-                                <rect key="frame" x="10" y="186" width="300" height="44"/>
+                                <rect key="frame" x="10" y="218" width="300" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -688,7 +688,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IrG-MB-eI5">
-                                <rect key="frame" x="10" y="245" width="300" height="44"/>
+                                <rect key="frame" x="10" y="277" width="300" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -701,22 +701,6 @@
                                 </state>
                                 <connections>
                                     <action selector="shareViaEmail:" destination="tNB-5P-bto" eventType="touchUpInside" id="wwl-vg-z1s"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cJH-c0-BSO">
-                                <rect key="frame" x="10" y="307" width="300" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Share via Facebook">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="shareViaFacebook:" destination="tNB-5P-bto" eventType="touchUpInside" id="D31-Im-kuA"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Invite your friends!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CiC-Xf-dhf">
@@ -750,7 +734,6 @@
                         <outlet property="linkContainer" destination="KVE-wJ-ARK" id="PVN-ML-4mb"/>
                         <outlet property="linkLabel" destination="rF8-rS-a3L" id="eTf-dB-BsI"/>
                         <outlet property="shareEmailButton" destination="IrG-MB-eI5" id="NM7-q0-STp"/>
-                        <outlet property="shareFacebookButton" destination="cJH-c0-BSO" id="beq-s0-aAM"/>
                         <outlet property="shareSMSButton" destination="Quz-lL-Lw2" id="cAt-WU-hBs"/>
                     </connections>
                 </viewController>
@@ -785,6 +768,70 @@
         <image name="profile-pic-placeholder.png" width="160" height="160"/>
         <image name="remove-button.png" width="25" height="25"/>
     </resources>
+    <classes>
+        <class className="AddGroupViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddGroupViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="nextButton:"/>
+                <relationship kind="action" name="showPicker:"/>
+                <relationship kind="outlet" name="actionBarContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="currencyPicker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="currentCurrency" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="errorLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="errorView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="groupName" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="groupNameContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="nextButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="AddMemberCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddMemberCell.h"/>
+            <relationships>
+                <relationship kind="action" name="memberAction:"/>
+                <relationship kind="outlet" name="deleteMemberView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="memberButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="memberProfilePic" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="GroupMemberViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GroupMemberViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backButton:"/>
+                <relationship kind="action" name="cancelButton:"/>
+                <relationship kind="action" name="dismissKeyboard:"/>
+                <relationship kind="action" name="doneButton:"/>
+                <relationship kind="action" name="manualAddMember:"/>
+                <relationship kind="action" name="removeMember:"/>
+                <relationship kind="outlet" name="actionBarContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="backButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="cancelButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="groupMembersLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="groupNameTextField" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="memberNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="memberSuggestionTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="memberTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="messageLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nextButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="searchTextField" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="InviteViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InviteViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="shareViaEmail:"/>
+                <relationship kind="action" name="shareViaSMS:"/>
+                <relationship kind="outlet" name="doneButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="linkContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="linkLabel" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="shareEmailButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="shareFacebookButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="shareSMSButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
