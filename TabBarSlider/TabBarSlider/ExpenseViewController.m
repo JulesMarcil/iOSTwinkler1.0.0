@@ -51,15 +51,7 @@
     [super viewDidLoad];
     
     [self setBalanceLabelValue:self.expenseDataController.balance];
-    
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGFloat screenHeight = screenRect.size.height;
-    
-    CGRect frame= [self.expenseListTable frame];
-    [self.expenseListTable setFrame:CGRectMake(0,
-                                               -20,
-                                               frame.size.width,
-                                               screenHeight-164+44+100)];
+
     
     [[NSNotificationCenter defaultCenter]
      addObserver:self
@@ -76,11 +68,34 @@
     self.view.backgroundColor=[UIColor colorWithRed:(245/255.0) green:(245/255.0) blue:(245/255.0) alpha:1];
     self.headerViewContainer.backgroundColor=[UIColor colorWithRed:(245/255.0) green:(245/255.0) blue:(245/255.0) alpha:1];
     
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenHeight = screenRect.size.height;
+    
+    
+    CGRect frame= [self.view frame];
+    
+    frame= [self.expenseListTable frame];
+    [self.expenseListTable setFrame:CGRectMake(0,
+                                               -20,
+                                               frame.size.width,
+                                               screenHeight-164+44+100-44)];
+    
     frame= [self.timelineImage frame];
     [self.timelineImage setFrame:CGRectMake(frame.origin.x,
                                                0,
                                                4,
-                                               screenHeight)];
+                                            screenHeight-84)];
+    
+    frame= [self.addExpenseView frame];
+    [self.addExpenseView setFrame:CGRectMake(frame.origin.x,
+                                            screenHeight-84,
+                                            321,
+                                            frame.size.height)];
+    
+    
+    self.addExpenseView.layer.masksToBounds = YES;
+    self.addExpenseView.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
+    self.addExpenseView.layer.borderWidth = 1.0f;
 }
 
 - (void)dataRetrieved {

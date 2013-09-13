@@ -139,8 +139,8 @@
     [self addChildViewController:leftVC];
     
     
-    UIStoryboard *listStoryboard=[UIStoryboard storyboardWithName:@"listStoryboard" bundle:nil];
-    TabBarViewController *rightVC=[listStoryboard instantiateInitialViewController];
+    UIStoryboard *listStoryboard=[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    TabBarViewController *rightVC=[listStoryboard instantiateViewControllerWithIdentifier:@"dashboardVC"];
     self.leftViewController =rightVC;
     [rightVC.view setFrame:CGRectMake(640, 20, rightVC.view.frame.size.width, rightVC.view.frame.size.height)];
     

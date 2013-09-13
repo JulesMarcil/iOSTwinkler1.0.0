@@ -68,10 +68,15 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    self.mainTableView.separatorColor=[UIColor colorWithRed:(236/255.0) green:(231/255.0) blue:(223/255.0) alpha: 1];
     
-    self.mainTableView.separatorColor = [UIColor clearColor];
-    self.mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    self.actionButton.layer.masksToBounds = YES;
+    self.actionButton.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
+    self.actionButton.layer.borderWidth = 1.0f;
+    self.closeGroupButton.layer.masksToBounds = YES;
+    self.closeGroupButton.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
+    self.closeGroupButton.layer.borderWidth = 1.0f;
 }
 - (void)didReceiveMemoryWarning
 {
@@ -93,7 +98,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"memberCell";
-    
     DashboardMemberCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier];
     
     if (!cell) {

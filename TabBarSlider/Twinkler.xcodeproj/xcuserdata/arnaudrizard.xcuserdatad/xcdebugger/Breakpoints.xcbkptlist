@@ -175,13 +175,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TabBarSlider/AddExpenseViewController.m"
-         timestampString = "400686797.23372"
+         timestampString = "400789481.826918"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "459"
-         endingLineNumber = "459"
-         landmarkName = "@implementation AddExpenseViewController"
-         landmarkType = "3">
+         startingLineNumber = "460"
+         endingLineNumber = "460"
+         landmarkName = "-pickerView:didSelectRow:inComponent:"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -227,11 +227,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TabBarSlider/ExpenseViewController.m"
-         timestampString = "400760756.451946"
+         timestampString = "400779663.459539"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "102"
-         endingLineNumber = "102"
+         startingLineNumber = "117"
+         endingLineNumber = "117"
          landmarkName = "-setBalanceLabelValue:"
          landmarkType = "5">
       </FileBreakpoint>
