@@ -186,6 +186,10 @@
         }
         GroupListCell *cell = [tableView
                                dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        if (!cell) {
+            cell = [[GroupListCell  alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
         Group *groupAtIndex = [self.groupDataController
                                objectInListAtIndex:indexPath.row];
         cell.groupNameLabel.text=groupAtIndex.name;
@@ -289,6 +293,9 @@
         static NSString *CellIdentifier = @"emptyTable";
         UITableViewCell *cell = [tableView
                                  dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        }
         return cell;
     }
 }

@@ -357,12 +357,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TabBarSlider/MenuViewController.m"
-         timestampString = "400699064.190071"
+         timestampString = "400860360.725211"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "296"
-         endingLineNumber = "296"
-         landmarkName = "-tableView:cellForRowAtIndexPath:"
+         startingLineNumber = "303"
+         endingLineNumber = "303"
+         landmarkName = "-getImageForView:Member:size:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -370,12 +370,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TabBarSlider/MenuViewController.m"
-         timestampString = "400699064.190071"
+         timestampString = "400860360.725211"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "297"
-         endingLineNumber = "297"
-         landmarkName = "-tableView:cellForRowAtIndexPath:"
+         startingLineNumber = "304"
+         endingLineNumber = "304"
+         landmarkName = "-getImageForView:Member:size:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -389,6 +389,45 @@
          startingLineNumber = "186"
          endingLineNumber = "186"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "TabBarSlider/MenuViewController.m"
+         timestampString = "400860360.725211"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "293"
+         endingLineNumber = "293"
+         landmarkName = "-tableView:cellForRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "TabBarSlider/MenuViewController.m"
+         timestampString = "400860207.652269"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "181"
+         endingLineNumber = "181"
+         landmarkName = "-tableView:cellForRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "TabBarSlider/MenuViewController.m"
+         timestampString = "400860210.471692"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "173"
+         endingLineNumber = "173"
+         landmarkName = "-tableView:numberOfRowsInSection:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
