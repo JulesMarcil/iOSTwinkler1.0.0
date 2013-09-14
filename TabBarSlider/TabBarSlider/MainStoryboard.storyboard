@@ -16,7 +16,6 @@
                     <connections>
                         <segue destination="pIs-zf-hE6" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegue" id="ntz-za-ZpP"/>
                         <segue destination="jM0-tw-YH4" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegue" id="2fL-5k-uST"/>
-                        <segue destination="h0t-J3-1mi" kind="custom" identifier="sw_right" customClass="SWRevealViewControllerSegue" id="HMN-1E-lOQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6HB-ar-eKE" userLabel="First Responder" sceneMemberID="firstResponder"/>

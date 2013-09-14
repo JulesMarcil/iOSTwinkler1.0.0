@@ -341,6 +341,11 @@
     
     if ([self.expenseName.text length] || [self.expenseAmount.text length]) {
         
+        //show spinner
+        self.addExpenseButton.hidden=YES;
+        self.cancelExpenseButton.hidden=YES;
+        [self.spinnner startAnimating];
+        
         //Get date of today
         NSDate *today = [NSDate date];
         
@@ -430,8 +435,12 @@
                                        }
                                        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                            NSLog(@"error: %@", error);
+                                           [self.spinnner stopAnimating];
+                                           self.addExpenseButton.hidden=NO;
+                                           self.cancelExpenseButton.hidden=NO;
+                                           
                                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Expense not added"
-                                                                                           message:@"Make sure data is enabled on your phone"
+                                                                                           message:@"Make sure data is enabled on your iPhone"
                                                                                           delegate:self
                                                                                  cancelButtonTitle:@"OK"
                                                                                  otherButtonTitles:nil, nil];

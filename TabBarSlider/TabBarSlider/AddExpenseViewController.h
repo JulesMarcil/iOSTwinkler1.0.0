@@ -32,6 +32,7 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIButton *selectAllButton;
 @property (weak, nonatomic) IBOutlet UIButton *deselectAllButton;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinnner;
 
 
 @property(nonatomic, weak) IBOutlet UICollectionView *collectionView;

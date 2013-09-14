@@ -189,6 +189,11 @@
                                                     <action selector="cancelAddExpense:" destination="SHS-Yz-Uve" eventType="touchUpInside" id="NFG-qq-89c"/>
                                                 </connections>
                                             </button>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="gray" id="2dU-fY-s4W">
+                                                <rect key="frame" x="151" y="11" width="20" height="20"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="color" cocoaTouchSystemColor="darkTextColor"/>
+                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
@@ -348,6 +353,7 @@
                         <outlet property="scrollView" destination="dTm-Ib-1mm" id="lg2-S0-hMV"/>
                         <outlet property="selectAllButton" destination="qa3-uT-Xeg" id="5iN-WM-Vi9"/>
                         <outlet property="selectionButtonContainer" destination="HUs-vF-CFo" id="Kof-Tw-AgM"/>
+                        <outlet property="spinnner" destination="2dU-fY-s4W" id="Q9h-kh-uLD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wom-gi-neC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -779,6 +785,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AddExpenseViewController.h"/>
             <relationships>
                 <relationship kind="action" name="addExpense:"/>
+                <relationship kind="action" name="callDP:"/>
                 <relationship kind="action" name="cancelAddExpense:"/>
                 <relationship kind="action" name="deselectAll:"/>
                 <relationship kind="action" name="selectAll:"/>
@@ -800,6 +807,7 @@
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="selectAllButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="selectionButtonContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="spinnner" candidateClass="UIActivityIndicatorView"/>
             </relationships>
         </class>
         <class className="AddMemberCell" superclassName="UITableViewCell">

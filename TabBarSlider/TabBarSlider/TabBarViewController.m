@@ -88,17 +88,9 @@
     
     [self.revealButtonItem addTarget:self.revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
     [self.leftButton addTarget:self.revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
-    [self.rightButton addTarget:self.revealViewController action:@selector(rightRevealToggle:) forControlEvents:UIControlEventTouchUpInside];
     [self.revealButtonItem addTarget:self action:@selector(hideLeftToggle) forControlEvents:UIControlEventTouchUpInside];
-    [self.revealRightButtonItem addTarget:self action:@selector(hideRightToggle) forControlEvents:UIControlEventTouchUpInside];
     [self.leftButton addTarget:self action:@selector(hideLeftToggle) forControlEvents:UIControlEventTouchUpInside];
-    [self.rightButton addTarget:self action:@selector(hideRightToggle) forControlEvents:UIControlEventTouchUpInside];
     
-    
-    
-    NSLog(@"The value of integer num is %i", (int) self.revealViewController.frontViewController.view.frame.origin.x);
-    
-    [self.revealRightButtonItem addTarget:self.revealViewController action:@selector(rightRevealToggle:) forControlEvents:UIControlEventTouchUpInside];
     
     //-----ScrollView------//
     frame= [self.scrollView frame];
