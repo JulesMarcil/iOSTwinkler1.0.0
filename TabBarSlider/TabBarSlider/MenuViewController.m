@@ -103,8 +103,16 @@
     NSLog(@"menuViewController %@: loadData", self.title);
     
     self.groupDataController = [[GroupDataController alloc] init];
-    self.profile = [[Profile alloc] init];
-    [self.profile loadProfile];
+    
+    NSDictionary *defaultProfile = [[NSUserDefaults standardUserDefaults] objectForKey:@"profile"];
+    
+    if (defaultProfile) {
+        self.profile = [[Profile alloc] initWithName:defaultProfile[@"name"] friendNumber:defaultProfile[@"friendNumber"] picturePath:defaultProfile[@"picturePath"]];
+        [self profileDataRetrieved];
+    } else {
+        self.profile = [[Profile alloc] init];
+        [self.profile loadProfile];
+    }
 }
 
 - (void)groupDataRetrieved {
@@ -482,7 +490,6 @@
                                                        delegate:self
                                               cancelButtonTitle:@"Log Out"
                                               otherButtonTitles:@"Stay Logged In", nil];
-    
     [alertView show];
 }
 
@@ -513,6 +520,11 @@
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupMembers"];
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupCurrency"];
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupIndex"];
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"profile"];
+        
+        //remove the cache
+        NSCache *cache = [[NSCache alloc] init];
+        [cache removeAllObjects];
         
         AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
         
