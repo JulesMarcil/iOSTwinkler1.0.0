@@ -339,7 +339,7 @@
 
 - (IBAction)addExpense:(id)sender {
     
-    if ([self.expenseName.text length] || [self.expenseAmount.text length]) {
+    if ([self.expenseName.text length] && [self.expenseAmount.text length] && ([self.expenseAmount.text intValue]>0)) {
         
         //show spinner
         self.addExpenseButton.hidden=YES;
@@ -446,7 +446,21 @@
                                                                                  otherButtonTitles:nil, nil];
                                            [alert show];                                           
                                        }];
-    }    
+    } else if (![self.expenseName.text length]) {
+        
+        UIColor *color = [UIColor redColor];
+        self.expenseName.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"What has been paid?" attributes:@{NSForegroundColorAttributeName: color}];
+        
+    } else if (![self.expenseAmount.text length]) {
+        
+        UIColor *color = [UIColor redColor];
+        self.expenseAmount.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"0.00" attributes:@{NSForegroundColorAttributeName: color}];
+        
+    } else if ([self.expenseAmount.text intValue] == 0) {
+        UIColor *color = [UIColor redColor];
+        self.expenseAmount.text = @"";
+        self.expenseAmount.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"0.00" attributes:@{NSForegroundColorAttributeName: color}];
+    }
 }
 
 - (IBAction)deselectAll:(id)sender {
