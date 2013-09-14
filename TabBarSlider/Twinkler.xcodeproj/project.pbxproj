@@ -58,6 +58,7 @@
 		895913BF17D934FD0039CF72 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 895913BE17D934FD0039CF72 /* Default-568h@2x.png */; };
 		895913CA17D939050039CF72 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 895913BA17D934EB0039CF72 /* Default.png */; };
 		895913CB17D939080039CF72 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 895913BC17D934F70039CF72 /* Default@2x.png */; };
+		895A5C0817E4B42300BCC75F /* WalkthroughViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 895A5C0717E4B42300BCC75F /* WalkthroughViewController.m */; };
 		895C4E3A17AA77D2004EC590 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3917AA77D2004EC590 /* UIKit.framework */; };
 		895C4E3C17AA77D2004EC590 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3B17AA77D2004EC590 /* Foundation.framework */; };
 		895C4E3E17AA77D2004EC590 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3D17AA77D2004EC590 /* CoreGraphics.framework */; };
@@ -235,6 +236,8 @@
 		895913BA17D934EB0039CF72 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		895913BC17D934F70039CF72 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		895913BE17D934FD0039CF72 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		895A5C0617E4B42300BCC75F /* WalkthroughViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalkthroughViewController.h; sourceTree = "<group>"; };
+		895A5C0717E4B42300BCC75F /* WalkthroughViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalkthroughViewController.m; sourceTree = "<group>"; };
 		895C4E3617AA77D2004EC590 /* Twinkler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twinkler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		895C4E3917AA77D2004EC590 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		895C4E3B17AA77D2004EC590 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -552,6 +555,8 @@
 			isa = PBXGroup;
 			children = (
 				891ABECE17B252D200D507F7 /* welcomeStoryboard.storyboard */,
+				895A5C0617E4B42300BCC75F /* WalkthroughViewController.h */,
+				895A5C0717E4B42300BCC75F /* WalkthroughViewController.m */,
 				892F997517B8F71700D86B4D /* WelcomeViewController.h */,
 				892F997617B8F71700D86B4D /* WelcomeViewController.m */,
 				BAAC680E17B4D746006C69DE /* LoginViewController.h */,
@@ -1083,6 +1088,7 @@
 				894D1CD217D89FFA002A48EB /* ExpenseDetailViewController.m in Sources */,
 				89F7D7AF17DA5A48006BE7FD /* ListCell.m in Sources */,
 				894ED0D117DB839A0007FF29 /* AddListViewController.m in Sources */,
+				895A5C0817E4B42300BCC75F /* WalkthroughViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

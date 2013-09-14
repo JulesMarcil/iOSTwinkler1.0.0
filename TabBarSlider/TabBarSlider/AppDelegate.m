@@ -22,11 +22,15 @@
     
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"]) {
         // app already launched
+        
     }
     else {
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"HasLaunchedOnce"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];
         // This is the first launch ever
+        UIStoryboard *welcomeStoryboard = [UIStoryboard storyboardWithName:@"welcomeStoryboard" bundle: nil];
+        WelcomeViewController* welcomeViewController = [welcomeStoryboard instantiateViewControllerWithIdentifier:@"Walkthrough"];
+        [self.window makeKeyAndVisible];
+        [self.window.rootViewController presentViewController:welcomeViewController animated:YES completion:nil];
     }
     
     CredentialStore *store = [[CredentialStore alloc] init];
