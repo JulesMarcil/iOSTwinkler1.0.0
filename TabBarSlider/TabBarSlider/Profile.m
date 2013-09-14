@@ -16,6 +16,7 @@
     if(self){
         _name=name;
         _friendNumber=friendNumber;
+        _picturePath=picturePath;
         return self;
     }
     return nil;
@@ -39,10 +40,13 @@
                                parameters:nil
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                       NSError *error = nil;
-                                     NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                                      NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                                      NSLog(@"response = %@", response);
                                       
                                       [self setName:response[@"name"] friendNumber:response[@"friendNumber"] picturePath:response[@"picturePath"]
-                                       ];   
+                                       ];
+                                      
+                                      [[NSUserDefaults standardUserDefaults] setObject:response forKey:@"profile"];
                                       
                                       NSLog(@"profileWithJSONFinishedLoading");
                                       [[NSNotificationCenter defaultCenter] postNotificationName:@"profileWithJSONFinishedLoading" object:nil];
