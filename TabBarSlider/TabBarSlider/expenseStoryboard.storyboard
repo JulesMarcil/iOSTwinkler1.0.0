@@ -9,7 +9,7 @@
             <objects>
                 <viewController storyboardIdentifier="" id="SHS-Yz-Uve" customClass="AddExpenseViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vWm-ZH-VfQ">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" id="kfc-sa-OtF">
@@ -21,11 +21,11 @@
                                 </connections>
                             </pickerView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="add-expense-bckgd.png" id="y0i-Ip-plz">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="dTm-Ib-1mm">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Add a new expense" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mae-R1-m7h">
@@ -505,7 +505,7 @@
                                         </state>
                                         <connections>
                                             <action selector="addExpenseButton:" destination="uss-B9-F3Z" eventType="touchUpInside" id="3zv-S4-6Wi"/>
-                                            <segue destination="yPi-iB-hud" kind="modal" id="3kO-pQ-KO0"/>
+                                            <segue destination="SHS-Yz-Uve" kind="modal" id="IdC-dj-bcA"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qbV-u4-WN9">
@@ -520,7 +520,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="yPi-iB-hud" kind="modal" id="N4g-fF-2QI"/>
+                                            <segue destination="SHS-Yz-Uve" kind="modal" id="csZ-Ak-on7"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -750,24 +750,6 @@
             </objects>
             <point key="canvasLocation" x="2230" y="-677"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="lzB-SC-Jqf">
-            <objects>
-                <navigationController storyboardIdentifier="addExpenseViewController" id="yPi-iB-hud" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EGe-hp-ARR">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="SHS-Yz-Uve" kind="relationship" relationship="rootViewController" id="Joo-jf-YNk"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qty-Cl-ALn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1695" y="-1338"/>
-        </scene>
     </scenes>
     <resources>
         <image name="add-expense-bckgd.png" width="320" height="460"/>
@@ -896,6 +878,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="N4g-fF-2QI"/>
+        <segue reference="csZ-Ak-on7"/>
     </inferredMetricsTieBreakers>
 </document>

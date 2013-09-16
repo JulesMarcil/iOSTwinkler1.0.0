@@ -38,7 +38,20 @@
     [self.view endEditing:YES];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     
-    CGRect frame= [self.collectionView frame];
+    
+    CGRect frame= [self.view frame];
+    CGFloat screenHeight= [[UIScreen mainScreen] bounds].size.height;
+    [self.view setFrame:CGRectMake(frame.origin.x,
+                                                    0,
+                                                    frame.size.width,
+                                                    screenHeight)];
+    
+    
+    frame= [self.scrollView frame];
+    [self.scrollView setFrame:CGRectMake(frame.origin.x,
+                                                  20,
+                                                  frame.size.width,
+                                                  frame.size.height)];
     
     
     
@@ -95,17 +108,22 @@
     
     frame= [self.bottomButtonContainer frame];
     [self.bottomButtonContainer setFrame:CGRectMake(frame.origin.x,
-                                                    frame.origin.y+fmax(0,((int)([memberArray count]/4)-1)*80),
+                                                    fmax(screenHeight-frame.size.height-40,frame.origin.y+fmax(0,((int)([memberArray count]/4)-1)*80)),
                                                     frame.size.width,
                                                     frame.size.height)];
     
     frame= [self.selectionButtonContainer frame];
     [self.selectionButtonContainer setFrame:CGRectMake(frame.origin.x,
-                                                       frame.origin.y+fmax(0,((int)([memberArray count]/4)-1)*80),
+                                                       fmax(screenHeight-frame.size.height-self.bottomButtonContainer.frame.size.height-40,frame.origin.y+fmax(0,((int)([memberArray count]/4)-1)*80)),
                                                        frame.size.width,
                                                        frame.size.height)];
     
-    self.scrollView.frame=CGRectMake(0,0,self.view.bounds.size.width, self.view.bounds.size.height);
+    frame= [self.expenseMemberPicker frame];
+    [self.expenseMemberPicker setFrame:CGRectMake(frame.origin.x,
+                                                       600,
+                                                       frame.size.width,
+                                                       frame.size.height)];
+    
     self.scrollView.scrollEnabled = YES;
     frame= [self.bottomButtonContainer frame];
     self.scrollView.contentSize =CGSizeMake(320, frame.origin.y+55) ;
