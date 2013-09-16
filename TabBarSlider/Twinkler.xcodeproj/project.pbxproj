@@ -1211,8 +1211,8 @@
 		895C4E6917AA77D9004EC590 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jules Marcilhacy (QKYH83LLB4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jules Marcilhacy (QKYH83LLB4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iosTwinkler/TabBarSlider\"",
@@ -1222,8 +1222,8 @@
 				GCC_PREFIX_HEADER = "TabBarSlider/Twinkler-Prefix.pch";
 				INFOPLIST_FILE = "TabBarSlider/Twinkler-Info.plist";
 				PRODUCT_NAME = Twinkler;
-				PROVISIONING_PROFILE = "A25FB644-7029-4DF2-B569-7667EA6EA7FC";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A25FB644-7029-4DF2-B569-7667EA6EA7FC";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1231,8 +1231,8 @@
 		895C4E6A17AA77D9004EC590 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jules Marcilhacy (QKYH83LLB4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jules Marcilhacy (QKYH83LLB4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iosTwinkler/TabBarSlider\"",
@@ -1242,8 +1242,8 @@
 				GCC_PREFIX_HEADER = "TabBarSlider/Twinkler-Prefix.pch";
 				INFOPLIST_FILE = "TabBarSlider/Twinkler-Info.plist";
 				PRODUCT_NAME = Twinkler;
-				PROVISIONING_PROFILE = "A25FB644-7029-4DF2-B569-7667EA6EA7FC";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A25FB644-7029-4DF2-B569-7667EA6EA7FC";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

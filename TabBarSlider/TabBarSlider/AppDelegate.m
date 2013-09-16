@@ -23,30 +23,38 @@
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"]) {
         // app already launched
         
-    }
-    else {
+    } else {
+        
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];
         // This is the first launch ever
+        /*
         UIStoryboard *welcomeStoryboard = [UIStoryboard storyboardWithName:@"welcomeStoryboard" bundle: nil];
         WelcomeViewController* welcomeViewController = [welcomeStoryboard instantiateViewControllerWithIdentifier:@"Walkthrough"];
         [self.window makeKeyAndVisible];
         [self.window.rootViewController presentViewController:welcomeViewController animated:YES completion:nil];
+         */
     }
+    
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"defaultProfile"];
     
     CredentialStore *store = [[CredentialStore alloc] init];
     NSString *authToken = [store authToken];
     
     if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
         [self openSession];
-        // should check for authentication token maybe ...
     }else if (authToken){
-        //should refresh it maybe ...
         [self refreshAuthToken];
     }else{
         [self showLoginView];
     }
     
     return YES;
+}
+
+-(void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
+    //remove the cache
+    NSCache *cache = [[NSCache alloc] init];
+    [cache removeAllObjects];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
