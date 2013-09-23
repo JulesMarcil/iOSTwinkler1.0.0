@@ -113,9 +113,9 @@
 - (void) setBalanceLabelValue:(NSNumber *)balance {
     
     if ([balance intValue] > 0) {
-        self.balanceLabel.text = [NSString stringWithFormat:@"+%@ %@", balance, [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"][@"symbol"]];
+        self.balanceLabel.text = [NSString stringWithFormat:@"+%@", balance];
     } else {
-        self.balanceLabel.text = [NSString stringWithFormat:@"%@ %@", balance, [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"][@"symbol"]];
+        self.balanceLabel.text = [NSString stringWithFormat:@"%@", balance];
     }
 }
 
@@ -204,15 +204,19 @@
     cell.self.expenseNameLabel.text = expenseAtIndex.name;
     
     NSDictionary *currency=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"];
-    cell.expenseSubtitleLabel.text=[NSString stringWithFormat:@"%@ paid %@ %@ - %@", expenseAtIndex.owner[@"name"],[expenseAtIndex.amount stringValue], currency[@"symbol"], [formatter stringFromDate:(NSDate *)expenseAtIndex.date]];
+    cell.expenseSubtitleLabel.text=[NSString stringWithFormat:@"%@ paid %@ %@ - %@", expenseAtIndex.owner[@"name"], currency[@"symbol"], [expenseAtIndex.amount stringValue], [formatter stringFromDate:(NSDate *)expenseAtIndex.date]];
     
     if ([expenseAtIndex.owner[@"name"] isEqual: @"You"]) {
         cell.getLabel.text = @"You get";
-        cell.shareLabel.text = [NSString stringWithFormat:@"%@ %@", expenseAtIndex.share, currency[@"symbol"]];
+        cell.shareLabel.text = [NSString stringWithFormat:@"%@ %@", currency[@"symbol"], expenseAtIndex.share];
         cell.shareLabel.textColor = [UIColor colorWithRed:(116/255.0) green:(178/255.0) blue:(20/255.0) alpha: 1];
     } else {
         cell.getLabel.text = @"You owe";
-        cell.shareLabel.text = [NSString stringWithFormat:@"%@ %@", expenseAtIndex.share, currency[@"symbol"]];
+        if ([expenseAtIndex.share doubleValue] == 0) {
+            cell.shareLabel.text = [NSString stringWithFormat:@"%@ 0", currency[@"symbol"]];
+        } else {
+            cell.shareLabel.text = [NSString stringWithFormat:@"%@ %@", currency[@"symbol"], [NSNumber numberWithDouble:([expenseAtIndex.share doubleValue]*-1)]];
+        }
         cell.shareLabel.textColor = [UIColor colorWithRed:(255/255.0) green:(146/255.0) blue:(123/255.0) alpha: 1];
     }
     
