@@ -316,7 +316,7 @@
         [UIView beginAnimations:@"MoveIn" context:nil];
         CGRect frame= [self.memberSuggestionTableView frame];
         [self.memberSuggestionTableView setFrame:CGRectMake(frame.origin.x,
-                                                            109,
+                                                            129,
                                                             frame.size.width,
                                                             frame.size.height)];
 

@@ -66,7 +66,7 @@
     [self.messageOnTimeline setFrame:CGRectMake(0,
                                                 -20,
                                                 frame.size.width,
-                                                screenHeight-64)];
+                                                screenHeight-44)];
     [self.messageOnTimeline setContentOffset:CGPointMake(0, 999999999999)];
     
     

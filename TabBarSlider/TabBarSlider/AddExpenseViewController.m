@@ -231,7 +231,8 @@
     
     UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height, 320, 44)] ;
     toolBar.tag = 11;
-    toolBar.barStyle = UIBarStyleBlackTranslucent;
+    toolBar.tintColor= [UIColor blackColor];
+    toolBar.translucent=YES;
     UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissDatePicker:)];
     [toolBar setItems:[NSArray arrayWithObjects:spacer, doneButton, nil]];
@@ -304,7 +305,8 @@
     
     UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height, 320, 44)] ;
     toolBar.tag = 11;
-    toolBar.barStyle = UIBarStyleBlackTranslucent;
+    toolBar.tintColor= [UIColor blackColor];
+    toolBar.translucent=YES;
     UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissMemberPicker:)];
     [toolBar setItems:[NSArray arrayWithObjects:spacer, doneButton, nil]];
@@ -326,7 +328,8 @@
 -(UIToolbar *)toolBarForKeyboardAccessory
 {
     UIToolbar *keyboardToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 44)];
-    keyboardToolbar.barStyle = UIBarStyleBlackTranslucent;
+    keyboardToolbar.tintColor= [UIColor blackColor];
+    keyboardToolbar.translucent=YES;
     
     UIBarButtonItem* flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     

@@ -163,7 +163,8 @@
     
     UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height, 320, 44)] ;
     toolBar.tag = 11;
-    toolBar.barStyle = UIBarStyleBlackTranslucent;
+    toolBar.tintColor= [UIColor blackColor];
+    toolBar.translucent=YES;
     UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissCurrencyPicker:)];
     [toolBar setItems:[NSArray arrayWithObjects:spacer, doneButton, nil]];
@@ -243,7 +244,9 @@
 
 - (UIToolbar *)keyboardToolBar {
     UIToolbar *toolbar=[[UIToolbar alloc]init];
-    [toolbar setBarStyle:UIBarStyleBlackTranslucent];
+    
+    toolbar.tintColor= [UIColor blackColor];
+    toolbar.translucent=YES;
     [toolbar sizeToFit];
     toolbar.tag=1;
     
