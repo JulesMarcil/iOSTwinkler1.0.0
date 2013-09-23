@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="uss-B9-F3Z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="uss-B9-F3Z">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+        <deployment defaultVersion="1552" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
         <!--Add Expense View Controller - Add an expense-->
         <scene sceneID="RZ8-Tk-89t">
             <objects>
-                <viewController storyboardIdentifier="" id="SHS-Yz-Uve" customClass="AddExpenseViewController" sceneMemberID="viewController">
+                <viewController id="SHS-Yz-Uve" customClass="AddExpenseViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vWm-ZH-VfQ">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" id="kfc-sa-OtF">
@@ -21,11 +22,11 @@
                                 </connections>
                             </pickerView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="add-expense-bckgd.png" id="y0i-Ip-plz">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="dTm-Ib-1mm">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Add a new expense" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mae-R1-m7h">
@@ -335,6 +336,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="b7L-SK-48T"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="i93-2F-keq"/>
                     </navigationItem>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="addExpenseButton" destination="r9k-cV-zLk" id="O8o-0U-SEe"/>
                         <outlet property="amountLabelContainer" destination="J1E-gg-FYE" id="dTW-vJ-Uu6"/>
@@ -365,15 +367,15 @@
             <objects>
                 <viewController id="uss-B9-F3Z" customClass="ExpenseViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cz8-0D-50U">
-                        <rect key="frame" x="0.0" y="20" width="320" height="361"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="381"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="timeline-line.png" id="CTl-I7-soh">
                                 <rect key="frame" x="34" y="0.0" width="4" height="361"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" tag="5" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="63" sectionHeaderHeight="22" sectionFooterHeight="22" id="H48-RZ-UpL">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="312"/>
+                            <tableView clipsSubviews="YES" tag="5" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="63" sectionHeaderHeight="22" sectionFooterHeight="22" id="H48-RZ-UpL">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="332"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="xRb-VC-kfj">
@@ -416,12 +418,12 @@
                                     <tableViewCell multipleTouchEnabled="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="expenseCell" rowHeight="63" id="BO0-Hd-l2V" customClass="ExpenseItemCell">
                                         <rect key="frame" x="0.0" y="152" width="320" height="63"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BO0-Hd-l2V" id="xS1-BQ-5h5">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="62"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="timeline-line.png" id="9br-u6-htn">
-                                                    <rect key="frame" x="34" y="-0.5" width="4" height="63"/>
+                                                    <rect key="frame" x="34" y="-1" width="4" height="63"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" id="uyM-kR-5FC">
@@ -469,8 +471,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
+                                        </tableViewCellContentView>
                                         <connections>
                                             <outlet property="cellSeparatorView" destination="JaH-9d-fwC" id="eBj-RI-6s2"/>
                                             <outlet property="expenseContainer" destination="uyM-kR-5FC" id="Ld1-Kt-a4s"/>
@@ -529,6 +530,7 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="addExpenseView" destination="rSD-LK-zZB" id="ekC-33-qEI"/>
@@ -548,7 +550,7 @@
             <objects>
                 <viewController id="vVv-RY-G07" customClass="ExpenseDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6mx-Rf-H37">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="m6D-pB-q5f">
@@ -560,7 +562,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="add-expense-bckgd.png" id="DfC-Ud-NGI">
-                                                <rect key="frame" x="20" y="20" width="320" height="548"/>
+                                                <rect key="frame" x="20" y="20" width="320" height="568"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             </imageView>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Get/owe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Es9-AB-BEo">
@@ -637,7 +639,7 @@
                                                 <color key="textColor" red="0.24313725489999999" green="0.2666666667" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="hp7-Kd-el4">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="hp7-Kd-el4">
                                                 <rect key="frame" x="40" y="176" width="280" height="274"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -645,7 +647,7 @@
                                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="memberCell" id="Dge-FD-s72" customClass="AddMemberCell">
                                                         <rect key="frame" x="0.0" y="22" width="280" height="44"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dge-FD-s72" id="J7Q-yl-YcD">
                                                             <rect key="frame" x="0.0" y="0.0" width="280" height="43"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
@@ -661,8 +663,7 @@
                                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </label>
                                                             </subviews>
-                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        </view>
+                                                        </tableViewCellContentView>
                                                         <connections>
                                                             <outlet property="memberProfilePic" destination="czH-yZ-iU7" id="FTL-jz-FGs"/>
                                                             <outlet property="nameLabel" destination="bJZ-di-2BJ" id="Ldo-BQ-G2i"/>
@@ -762,116 +763,6 @@
         <image name="profile-pic-placeholder.png" width="160" height="160"/>
         <image name="timeline-line.png" width="6" height="11"/>
     </resources>
-    <classes>
-        <class className="AddExpenseViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddExpenseViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addExpense:"/>
-                <relationship kind="action" name="callDP:"/>
-                <relationship kind="action" name="cancelAddExpense:"/>
-                <relationship kind="action" name="deselectAll:"/>
-                <relationship kind="action" name="selectAll:"/>
-                <relationship kind="action" name="showPicker:"/>
-                <relationship kind="outlet" name="addExpenseButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="amountLabelContainer" candidateClass="UIView"/>
-                <relationship kind="outlet" name="bottomButtonContainer" candidateClass="UIView"/>
-                <relationship kind="outlet" name="cancelExpenseButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="collectionView" candidateClass="UICollectionView"/>
-                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="deselectAllButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="expenseAmount" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="expenseAmountContainer" candidateClass="UIView"/>
-                <relationship kind="outlet" name="expenseMemberPicker" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="expenseName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="expenseNameContainer" candidateClass="UIView"/>
-                <relationship kind="outlet" name="expenseOwner" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="mainContainerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="selectAllButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="selectionButtonContainer" candidateClass="UIView"/>
-                <relationship kind="outlet" name="spinnner" candidateClass="UIActivityIndicatorView"/>
-            </relationships>
-        </class>
-        <class className="AddMemberCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddMemberCell.h"/>
-            <relationships>
-                <relationship kind="action" name="memberAction:"/>
-                <relationship kind="outlet" name="deleteMemberView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="memberButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="memberProfilePic" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ExpenseDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExpenseDetailViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="deleteExpense:"/>
-                <relationship kind="action" name="dismissDetail:"/>
-                <relationship kind="action" name="editExpense:"/>
-                <relationship kind="outlet" name="actionBarView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="containerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="deleteBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="editBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="expenseAuthorLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="expenseDateLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="expenseMembersLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="expenseNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="expenseOwnerLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="getLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="memberTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="ownerPic" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="shareLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ExpenseItemCell" superclassName="UITableViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExpenseItemCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="cellSeparatorView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="expenseContainer" candidateClass="UIView"/>
-                <relationship kind="outlet" name="expenseNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="expenseSubtitleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="getLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="memberProfilePic" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="shareLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ExpenseViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ExpenseViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="addExpenseButton:"/>
-                <relationship kind="action" name="cancelAddMember:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="doneAddMember:" candidateClass="UIStoryboardSegue"/>
-                <relationship kind="action" name="setBalanceLabelValue:" candidateClass="NSNumber"/>
-                <relationship kind="outlet" name="addExpenseView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="balanceLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="expenseListTable" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="headerViewContainer" candidateClass="UIView"/>
-                <relationship kind="outlet" name="timelineImage" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="viewContainer" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="UICollectionReusableView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
-        </class>
-        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UIStoryboardSegue" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
-        </class>
-        <class className="memberCollectionViewCell" superclassName="UICollectionViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/memberCollectionViewCell.h"/>
-            <relationships>
-                <relationship kind="outlet" name="checkIcon" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="memberNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="memberProfilePic" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

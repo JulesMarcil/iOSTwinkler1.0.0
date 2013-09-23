@@ -19,6 +19,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     NSLog(@"application didFinishLaunchingWithOptions");
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
     
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"]) {
         // app already launched
@@ -34,6 +37,7 @@
         [self.window.rootViewController presentViewController:welcomeViewController animated:YES completion:nil];
          */
     }
+    
     
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"defaultProfile"];
     

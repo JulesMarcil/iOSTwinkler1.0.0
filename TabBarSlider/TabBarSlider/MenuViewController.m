@@ -305,6 +305,8 @@
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
+        
+        cell.backgroundColor=[UIColor clearColor];
         return cell;
     }
 }

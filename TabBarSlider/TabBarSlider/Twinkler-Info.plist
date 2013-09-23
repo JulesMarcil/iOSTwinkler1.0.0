@@ -44,6 +44,10 @@
 	<string>1.0.1</string>
 	<key>FacebookAppID</key>
 	<string>130641483808717</string>
+	<key>UIStatusBarHidden</key>
+	<true/>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 	<key>FacebookDisplayName</key>
 	<string>Twinkler</string>
 	<key>LSRequiresIPhoneOS</key>

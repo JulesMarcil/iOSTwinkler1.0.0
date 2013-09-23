@@ -78,17 +78,17 @@
     [self.expenseListTable setFrame:CGRectMake(0,
                                                -20,
                                                frame.size.width,
-                                               screenHeight-164+44+100-44)];
+                                               screenHeight-164+44+100-44+84-64)];
     
     frame= [self.timelineImage frame];
     [self.timelineImage setFrame:CGRectMake(frame.origin.x,
                                                0,
                                                4,
-                                            screenHeight-84)];
+                                            screenHeight-64)];
     
     frame= [self.addExpenseView frame];
     [self.addExpenseView setFrame:CGRectMake(frame.origin.x,
-                                            screenHeight-84,
+                                            screenHeight-64,
                                             321,
                                             frame.size.height)];
     

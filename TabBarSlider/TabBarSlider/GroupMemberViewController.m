@@ -44,6 +44,7 @@
     
     self.groupNameTextField.text = self.group.name;
     self.backButton.hidden = self.hideBack;
+    [UIApplication sharedApplication].statusBarHidden=YES;
     
     CGRect frame= [self.memberSuggestionTableView frame];
     [self.memberSuggestionTableView setFrame:CGRectMake(frame.origin.x,
@@ -57,11 +58,9 @@
                                                  screenRect.size.height-frame.size.height-40,
                                                  frame.size.width,
                                                  frame.size.height)];
+    [self.backgroundImage setFrame:screenRect];
     frame= [self.scrollView frame];
-    [self.scrollView setFrame:CGRectMake(0,
-                                         0,
-                                         frame.size.width,
-                                         frame.size.height)];
+    [self.scrollView setFrame:screenRect];
     
     self.nextButton.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:0.8];
     self.nextButton.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
