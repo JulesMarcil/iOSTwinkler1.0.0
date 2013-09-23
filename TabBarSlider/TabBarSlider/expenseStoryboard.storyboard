@@ -8,7 +8,7 @@
         <!--Add Expense View Controller - addExpenseViewController-->
         <scene sceneID="RZ8-Tk-89t">
             <objects>
-                <viewController title="addExpenseViewController" id="SHS-Yz-Uve" customClass="AddExpenseViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addExpenseViewController" title="addExpenseViewController" id="SHS-Yz-Uve" customClass="AddExpenseViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vWm-ZH-VfQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -754,13 +754,19 @@
     </scenes>
     <resources>
         <image name="add-expense-bckgd.png" width="320" height="460"/>
+        <image name="add-expense-bckgd.png" width="320" height="460"/>
         <image name="balance-knob.png" width="30" height="30"/>
         <image name="bin.png" width="50" height="50"/>
         <image name="chevron-arrow.png" width="23" height="11"/>
         <image name="edit-button.png" width="30" height="26"/>
+        <image name="edit-button.png" width="30" height="26"/>
         <image name="green-check.png" width="16" height="12"/>
         <image name="plus.png" width="21" height="21"/>
         <image name="profile-pic-placeholder.png" width="160" height="160"/>
+        <image name="profile-pic-placeholder.png" width="160" height="160"/>
+        <image name="profile-pic-placeholder.png" width="160" height="160"/>
+        <image name="timeline-line.png" width="6" height="11"/>
+        <image name="timeline-line.png" width="6" height="11"/>
         <image name="timeline-line.png" width="6" height="11"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
