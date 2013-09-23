@@ -56,10 +56,6 @@
     
     [self.linkContainer.layer  setBorderColor:borderColor.CGColor];
     [self.linkContainer.layer  setBorderWidth:1.0];
-    
-
-    
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -137,5 +133,30 @@
     // Close the Mail Interface
 	[self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (IBAction)doneAction:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:^(void){
+        
+        NSLog(@"menuViewController %@: goToTimelineButton", self.title);
+        
+        UIStoryboard *mainStoryboard=[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        UIViewController *dst=[mainStoryboard instantiateInitialViewController];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:self.group.activeMember forKey:@"currentMember"];
+        [[NSUserDefaults standardUserDefaults] setObject:self.group.identifier forKey:@"currentGroupId"];
+        [[NSUserDefaults standardUserDefaults] setObject:self.group.name forKey:@"currentGroupName"];
+        [[NSUserDefaults standardUserDefaults] setObject:self.group.members forKey:@"currentGroupMembers"];
+        [[NSUserDefaults standardUserDefaults] setObject:self.group.currency forKey:@"currentGroupCurrency"];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"newGroupSelected" object:nil];
+        NSLog(@"inviteViewController %@: newGroupSelected notification sent", self.title);
+        
+        // Then push the new view controller in the usual way:
+        [self.navigationController pushViewController:dst animated:NO];
+        
+    }];
+}
+
 
 @end

@@ -22,5 +22,6 @@
 
 - (IBAction)shareViaSMS:(id)sender;
 - (IBAction)shareViaEmail:(id)sender;
+- (IBAction)doneAction:(id)sender;
 
 @end

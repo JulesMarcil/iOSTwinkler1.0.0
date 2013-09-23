@@ -659,7 +659,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="djC-Bi-au7" kind="unwind" unwindAction="cancelAddGroup:" id="O5x-lU-rED"/>
+                                    <action selector="doneAction:" destination="tNB-5P-bto" eventType="touchUpInside" id="z5B-gP-gyj"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="To tell your friends to join your group just share this link with them" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="077-C0-IDh">
@@ -736,7 +736,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e34-Hb-4Cl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="djC-Bi-au7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2213" y="-1338"/>
         </scene>
