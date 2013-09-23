@@ -467,7 +467,25 @@
                                        [[NSNotificationCenter defaultCenter] postNotificationName:@"doneAddMember" object:nil];
                                        NSLog(@"GroupMemberViewController: post Notification doneAddMember");
                                        
-                                       [self performSegueWithIdentifier: @"MembersToInvite" sender: self];
+                                       
+                                       @try{
+                                           [self performSegueWithIdentifier: @"MembersToInvite" sender: self];
+                                       }
+                                       @catch (NSException * e) {
+                                           NSLog(@"Exception: %@", e);
+                                           @try{
+                                               [self.navigationController performSegueWithIdentifier: @"MembersToInvite" sender: self];
+                                           }
+                                           @catch (NSException * e) {
+                                               NSLog(@"Exception: %@", e);
+                                           }
+                                           @finally {
+                                               // Added to show finally works as well
+                                           }
+                                       }
+                                       @finally {
+                                           // Added to show finally works as well
+                                       }
                                    }
                                    failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                        NSLog(@"error: %@", error);
