@@ -194,6 +194,7 @@
         }
         GroupListCell *cell = [tableView
                                dequeueReusableCellWithIdentifier:CellIdentifier];
+        cell.backgroundColor=[UIColor clearColor];
         
         if (!cell) {
             cell = [[GroupListCell  alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];

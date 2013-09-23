@@ -158,6 +158,8 @@
     ExpenseItemCell *cell = [tableView
                              dequeueReusableCellWithIdentifier:CellIdentifier];
     
+    cell.backgroundColor=[UIColor clearColor];
+    
     if (cell == nil){
         cell = (ExpenseItemCell*) [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     };

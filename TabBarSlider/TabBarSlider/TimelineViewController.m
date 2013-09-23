@@ -272,6 +272,8 @@
             }
             timelineBubbleCell *cell = [tableView
                                         dequeueReusableCellWithIdentifier:CellIdentifier];
+            
+            cell.backgroundColor=[UIColor clearColor];
             cell.messageContainer.layer.cornerRadius = 3;
             cell.messageContainer.layer.masksToBounds = NO;
             cell.messageContainer.layer.shadowOffset = CGSizeMake(0, 0.6);
@@ -335,6 +337,8 @@
             }
             timelineBubbleCell *cell = [tableView
                                         dequeueReusableCellWithIdentifier:CellIdentifier];
+            
+            cell.backgroundColor=[UIColor clearColor];
             cell.messageContainer.layer.cornerRadius = 3;
             cell.messageContainer.layer.masksToBounds = NO;
             cell.messageContainer.layer.shadowOffset = CGSizeMake(0, 0.6);
@@ -437,6 +441,8 @@
         }
         notificationCell *cell = [tableView
                                   dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        cell.backgroundColor=[UIColor clearColor];
         cell.messageContainer.layer.cornerRadius = 3;
         cell.messageContainer.layer.masksToBounds = NO;
         cell.messageContainer.layer.shadowOffset = CGSizeMake(0, 0.6);
