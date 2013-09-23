@@ -71,16 +71,20 @@
         [formatter setDateStyle:NSDateFormatterMediumStyle];
     }
     
-    self.expenseOwnerLabel.text = [NSString stringWithFormat:@"%@ paid %@ %@",self.expense.owner[@"name"], [self.expense.amount stringValue],currency[@"symbol"]];
+    self.expenseOwnerLabel.text = [NSString stringWithFormat:@"%@ paid %@ %@",self.expense.owner[@"name"],currency[@"symbol"], [self.expense.amount stringValue]];
     self.expenseDateLabel.text = [formatter stringFromDate:(NSDate *)self.expense.date];
     
     if ([self.expense.owner[@"name"] isEqual: @"You"]) {
         self.getLabel.text = @"You get";
-        self.shareLabel.text = [NSString stringWithFormat:@"%@ %@", self.expense.share, currency[@"symbol"]];
+        self.shareLabel.text = [NSString stringWithFormat:@"%@ %@", currency[@"symbol"], self.expense.share];
         self.shareLabel.textColor = [UIColor colorWithRed:(116/255.0) green:(178/255.0) blue:(20/255.0) alpha: 1];
     } else {
         self.getLabel.text = @"You owe";
-        self.shareLabel.text = [NSString stringWithFormat:@"%@ %@", self.expense.share, currency[@"symbol"]];
+        if ([self.expense.share doubleValue] == 0) {
+            self.shareLabel.text = [NSString stringWithFormat:@"%@ 0", currency[@"symbol"]];
+        } else {
+            self.shareLabel.text = [NSString stringWithFormat:@"%@ %@", currency[@"symbol"], [NSNumber numberWithDouble:([self.expense.share doubleValue]*-1)]];
+        }
         self.shareLabel.textColor = [UIColor colorWithRed:(255/255.0) green:(146/255.0) blue:(123/255.0) alpha: 1];
     }
     

@@ -122,7 +122,7 @@
     [format setMaximumFractionDigits:2];
     NSNumber *balance = [NSNumber numberWithFloat:[memberAtIndex[@"balance"] floatValue]];
     
-    cell.balanceLabel.text = [NSString stringWithFormat:@"%@ %@", [balance stringValue] ,currency[@"symbol"]];
+    cell.balanceLabel.text = [NSString stringWithFormat:@"%@ %@" ,currency[@"symbol"], [balance stringValue]];
     
     
     if ([balance doubleValue]> 0) {

@@ -465,11 +465,15 @@
         
         if ([messageAtIndex.owner isEqual: @"You"]) {
             cell.getLabel.text = @"You get";
-            cell.shareLabel.text = [NSString stringWithFormat:@"%@ %@", messageAtIndex.share, currency[@"symbol"]];
+            cell.shareLabel.text = [NSString stringWithFormat:@"%@ %@", currency[@"symbol"], messageAtIndex.share];
             cell.shareLabel.textColor = [UIColor colorWithRed:(116/255.0) green:(178/255.0) blue:(20/255.0) alpha: 1];
         } else {
             cell.getLabel.text = @"You owe";
-            cell.shareLabel.text = [NSString stringWithFormat:@"%@ %@", messageAtIndex.share, currency[@"symbol"]];
+            if ([messageAtIndex.share doubleValue] == 0) {
+                cell.shareLabel.text = [NSString stringWithFormat:@"%@ 0", currency[@"symbol"]];
+            } else {
+                cell.shareLabel.text = [NSString stringWithFormat:@"%@ %@", currency[@"symbol"], [NSNumber numberWithDouble:([messageAtIndex.share doubleValue]*-1)]];
+            }
             cell.shareLabel.textColor = [UIColor colorWithRed:(202/255.0) green:(73/255.0) blue:(60/255.0) alpha: 1];
         }
         
