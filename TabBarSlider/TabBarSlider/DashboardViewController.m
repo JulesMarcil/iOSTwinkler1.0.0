@@ -103,6 +103,8 @@
     static NSString *CellIdentifier = @"memberCell";
     DashboardMemberCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier];
     
+    cell.backgroundColor=[UIColor clearColor];
+    
     if (!cell) {
         cell = (DashboardMemberCell*) [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
                                       reuseIdentifier:  CellIdentifier];
