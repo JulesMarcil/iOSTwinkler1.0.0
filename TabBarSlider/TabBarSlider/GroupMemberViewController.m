@@ -219,7 +219,7 @@
     NSLog(@"did select row at index path");
     
     if (tableView.tag == 2) {
-        
+        NSLog(@"%i", tableView.tag);
         [tableView deselectRowAtIndexPath:indexPath animated:NO];
         NSDictionary *friend = [self.friends objectAtIndex:indexPath.row];
         
@@ -260,9 +260,9 @@
 - (IBAction)removeMember:(id)sender{
     
     UIButton *button = (UIButton *)sender;
-    AddMemberCell *cell = (AddMemberCell *)button.superview.superview;
-    UITableView *tableView = (UITableView *)cell.superview;
-    NSIndexPath *indexPath = [tableView indexPathForCell:cell];
+    AddMemberCell *cell = (AddMemberCell *)button.superview.superview.superview;
+    
+    NSIndexPath *indexPath = [self.memberTableView indexPathForCell:cell];
     
     NSMutableDictionary *memberAtIndex = [[NSMutableDictionary alloc] initWithDictionary:[self.memberArray objectAtIndex:indexPath.row]];
     
