@@ -517,8 +517,9 @@
 
 - (IBAction)createGroup:(id)sender {
     NSLog(@"menuViewController: createGroup");
-    UIViewController *dst=[[UIStoryboard storyboardWithName:@"AddGroupStoryboard" bundle:nil] instantiateInitialViewController];
-    [self presentViewController:dst animated:YES completion:nil];
+    
+    UINavigationController *navigationController = [[UIStoryboard storyboardWithName:@"AddGroupStoryboard" bundle:nil] instantiateInitialViewController];
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 //--------DESIGN------------//
