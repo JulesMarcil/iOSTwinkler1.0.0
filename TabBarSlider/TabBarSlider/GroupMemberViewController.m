@@ -467,7 +467,7 @@
                                        [[NSNotificationCenter defaultCenter] postNotificationName:@"doneAddMember" object:nil];
                                        NSLog(@"GroupMemberViewController: post Notification doneAddMember");
                                        
-                                       if (identifier isEqualToNumber:@0){
+                                       if ([identifier isEqualToNumber:@0]){
                                            
                                        }
                                        

@@ -226,6 +226,7 @@
     UIDatePicker *datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height+44, 320, 216)] ;
     datePicker.tag = 10;
     datePicker.datePickerMode = UIDatePickerModeDate;
+    datePicker.backgroundColor=[UIColor whiteColor];
     [datePicker addTarget:self action:@selector(changeDate:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:datePicker];
     
@@ -267,7 +268,7 @@
 {
     [UIView animateWithDuration:0.3 animations:^{
         self.expenseMemberPicker.frame = CGRectMake(self.expenseMemberPicker.frame.origin.x,
-                                                    500, //Displays the view off the screen
+                                                    700, //Displays the view off the screen
                                                     self.expenseMemberPicker.frame.size.width,
                                                     self.expenseMemberPicker.frame.size.height);
     }];
@@ -275,11 +276,12 @@
 
 - (void)dismissMemberPicker:(id)sender {
     CGRect toolbarTargetFrame = CGRectMake(0, self.view.bounds.size.height, 320, 44);
-    CGRect datePickerTargetFrame = CGRectMake(0, self.expenseMemberPicker.bounds.size.height+44, 320, 216);
+    CGRect datePickerTargetFrame = CGRectMake(0, self.view.bounds.size.height+44, 320, 216);
     [UIView beginAnimations:@"MoveOut" context:nil];
     [self.view viewWithTag:9].alpha = 0;
     [self.view viewWithTag:10].frame = datePickerTargetFrame;
     [self.view viewWithTag:11].frame = toolbarTargetFrame;
+    self.expenseMemberPicker.frame=datePickerTargetFrame;
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDidStopSelector:@selector(removeViews:)];
     [UIView commitAnimations];
@@ -317,6 +319,8 @@
     self.expenseMemberPicker.frame = datePickerTargetFrame;
     darkView.alpha = 0.5;
     [UIView commitAnimations];
+    
+    self.expenseMemberPicker.backgroundColor=[UIColor whiteColor];
     
     //Set selected owner to the first one in the list (to be updated with current member)
     self.selectedExpenseOwner = [memberArray objectAtIndex:0];
