@@ -16,7 +16,6 @@
 #import "UIImageView+AFNetworking.h"
 #import "timelineBubbleCell.h"
 #import "notificationCell.h"
-#import "DRNRealTimeBlurView.h"
 #import "AddGroupViewController.h"
 #import "Group.h"
 #import "Expense.h"

@@ -34,7 +34,6 @@
 - (IBAction)doneAddGroup:(UIStoryboardSegue *)segue;
 - (IBAction)cancelAddGroup:(UIStoryboardSegue *)segue;
 - (IBAction)Logout:(id)sender;
-- (void)setRoundedView:(UIImageView *)roundedView toDiameter:(float)newSize;
 - (UIImage *)getImageForMember:(NSDictionary *)member;
 - (IBAction)createGroup:(id)sender;
 

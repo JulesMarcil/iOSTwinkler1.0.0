@@ -14,7 +14,6 @@
 #import "AFHTTPRequestOperation.h"
 #import "UIImageView+AFNetworking.h"
 #import "ExpenseItemCell.h"
-#import "DRNRealTimeBlurView.h"
 #import "TabBarViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "AddMemberCell.h"

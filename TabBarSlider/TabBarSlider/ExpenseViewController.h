@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "ExpenseDataController.h"
 #import "AddExpenseViewController.h"
-#import "DRNRealTimeBlurView.h"
 
 @interface ExpenseViewController : UIViewController<UITableViewDelegate, UITableViewDataSource> {
     IBOutlet UITableView* expenseListTable;
