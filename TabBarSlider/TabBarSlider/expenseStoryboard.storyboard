@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
-        <!--Add Expense View Controller - Add an expense-->
+        <!--Add Expense View Controller - addExpenseViewController-->
         <scene sceneID="RZ8-Tk-89t">
             <objects>
-                <viewController id="SHS-Yz-Uve" customClass="AddExpenseViewController" sceneMemberID="viewController">
+                <viewController title="addExpenseViewController" id="SHS-Yz-Uve" customClass="AddExpenseViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vWm-ZH-VfQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
