@@ -449,42 +449,6 @@
     
 }
 
-- (IBAction)doneAddGroup:(UIStoryboardSegue *)segue {
-    
-    NSLog(@"MenuViewController %@: doneAddGroup", self.title);
-    
-    if ([[segue identifier] isEqualToString:@"ReturnAddGroupInput"]) {
-        
-        AddGroupViewController *addController = [segue sourceViewController];
-        Group *group = addController.group;
-        
-        if (group) {
-            
-            //Code to add group here
-            NSDictionary *parameters = [[NSDictionary alloc] initWithObjectsAndKeys:addController.group.name, @"group_name", addController.selectedCurrency[@"id"], @"currency_id", nil];
-            
-            [[AuthAPIClient sharedClient] getPath:@"api/add/group"
-                                       parameters:parameters
-                                          success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                              NSString *response = [operation responseString];
-                                              NSLog(@"response: %@",response);
-                                              [self.groupDataController addGroupWithGroup:group];
-                                              [self.groupOnMenu reloadData];
-                                              [[NSNotificationCenter defaultCenter] postNotificationName:@"groupsWithJSONFinishedLoading" object:nil];
-                                              [self dismissViewControllerAnimated:YES completion:NULL];
-                                          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                              NSLog(@"error: %@", error);
-                                          }];
-        }
-    }
-}
-
-- (IBAction)cancelAddGroup:(UIStoryboardSegue *)segue{
-    if ([[segue identifier] isEqualToString:@"CancelAddGroupInput"]) {
-        [self dismissViewControllerAnimated:YES completion:NULL];
-    }
-}
-
 - (IBAction)Logout:(id)sender {
     
     NSLog(@"MenuViewController %@: logout", self.title);
