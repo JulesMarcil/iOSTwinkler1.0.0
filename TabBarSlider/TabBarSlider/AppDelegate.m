@@ -20,21 +20,6 @@
 {
     NSLog(@"application didFinishLaunchingWithOptions");
     
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"]) {
-        // app already launched
-        
-    } else {
-        
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];
-        // This is the first launch ever
-        /*
-        UIStoryboard *welcomeStoryboard = [UIStoryboard storyboardWithName:@"welcomeStoryboard" bundle: nil];
-        WelcomeViewController* welcomeViewController = [welcomeStoryboard instantiateViewControllerWithIdentifier:@"Walkthrough"];
-        [self.window makeKeyAndVisible];
-        [self.window.rootViewController presentViewController:welcomeViewController animated:YES completion:nil];
-         */
-    }
-    
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"defaultProfile"];
     
     CredentialStore *store = [[CredentialStore alloc] init];
@@ -93,6 +78,9 @@
     
     [self.window makeKeyAndVisible];
     [self.window.rootViewController presentViewController:welcomeViewController animated:YES completion:nil];
+    
+    NSCache *cache = [[NSCache alloc] init];
+    [cache removeAllObjects];
 }
 
 - (void)dismissLoginView
