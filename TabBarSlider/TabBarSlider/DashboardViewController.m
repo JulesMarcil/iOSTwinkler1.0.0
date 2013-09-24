@@ -199,6 +199,9 @@
         if (buttonIndex == 0) {
             //NO clicked
             NSLog(@"No clicked");
+            NSLog(@"nav array class = %@", self.navigationController.viewControllers.class);
+            NSLog(@"nav array count = %lu", (unsigned long)self.navigationController.viewControllers.count);
+            NSLog(@"root viewcontroller class = %@", self.navigationController.topViewController.class);
         } else if (buttonIndex == 1) {
             
             //YES clicekd
@@ -217,7 +220,9 @@
                                               
                                               [[NSNotificationCenter defaultCenter] postNotificationName:@"groupClosedSuccessfully" object:nil];
                                               
-                                              [self.navigationController popToRootViewControllerAnimated:YES];
+                                              UIStoryboard *welcomeStoryboard = [UIStoryboard storyboardWithName:@"welcomeStoryboard" bundle: nil];
+                                              UINavigationController *navController = (UINavigationController*)[welcomeStoryboard instantiateViewControllerWithIdentifier:@"MenuViewController"];
+                                              [self presentViewController:navController animated:YES completion:nil];
                                               
                                           } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                               NSLog(@"error: %@", error);

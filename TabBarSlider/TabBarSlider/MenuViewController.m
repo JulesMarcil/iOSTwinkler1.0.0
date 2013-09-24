@@ -60,6 +60,7 @@
     
     if (![self.title isEqual: @"welcomeMenu"]){
         [self loadData];
+        NSLog(@"load data because welcome menu title");
         
         UISwipeGestureRecognizer *recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(backToGroup)];
         [recognizer setDirection:(UISwipeGestureRecognizerDirectionLeft)];

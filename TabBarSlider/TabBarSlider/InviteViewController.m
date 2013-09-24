@@ -153,7 +153,7 @@
         NSLog(@"inviteViewController %@: newGroupSelected notification sent", self.title);
         NSLog(@"ready for push to new group");
         // Then push the new view controller in the usual way:
-        [self.navigationController pushViewController:dst animated:NO];
+        [dst.navigationController pushViewController:dst animated:NO];
     }];
 }
 
