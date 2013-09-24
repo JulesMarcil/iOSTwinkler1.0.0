@@ -12,6 +12,7 @@
 #import "SWRevealViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "memberCollectionViewCell.h"
+#import "ExpenseViewController.h"
 
 @interface TabBarViewController ()
 
@@ -30,9 +31,7 @@
         // Custom initialization
     }
     return self;
-}
-
-- (void)viewDidLoad
+}- (void)viewDidLoad
 {
     [super viewDidLoad];
     
@@ -95,11 +94,11 @@
     frame= [self.scrollView frame];
     [self.scrollView setFrame:CGRectMake(0,
                                          0,
-                                         frame.size.width,
+                                         320,
                                          screenHeight+20)];
     
     self.scrollView.pagingEnabled = YES;
-    self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * 3, self.scrollView.frame.size.height);
+    self.scrollView.contentSize = CGSizeMake(960, self.scrollView.frame.size.height);
     self.scrollView.backgroundColor=[UIColor colorWithRed:(245/255.0) green:(245/255.0) blue:(245/255.0) alpha:1];
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator = NO;
@@ -109,35 +108,38 @@
     self.pageControl.numberOfPages=3;
     self.pageControl.currentPage=1;
     
+    self.view.autoresizesSubviews=NO;
+    
+    //TIMELINE
     UIStoryboard *timelineStoryboard=[UIStoryboard storyboardWithName:@"timelineStoryboard" bundle:nil];
     TabBarViewController *dst=[timelineStoryboard instantiateInitialViewController];
-    self.currentViewController =dst;
+    
     [dst.view setFrame:CGRectMake(320, 20, dst.view.frame.size.width, dst.view.frame.size.height)];
     
     dst.view.layer.borderWidth = 1.0f;
     dst.view.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
+    
     [self.scrollView addSubview:dst.view];
+    [self addChildViewController:dst]; 
     
-    [self addChildViewController:dst];
-    
+    //EXPENSE
     UIStoryboard *expenseStoryboard=[UIStoryboard storyboardWithName:@"expenseStoryboard" bundle:nil];
-    TabBarViewController *leftVC=[expenseStoryboard instantiateInitialViewController];
-    self.leftViewController =leftVC;
+    ExpenseViewController*leftVC=[expenseStoryboard instantiateInitialViewController];
+    
     [leftVC.view setFrame:CGRectMake(0, 20, leftVC.view.frame.size.width, leftVC.view.frame.size.height)];
     
     [self.scrollView addSubview:leftVC.view];
-    
     [self addChildViewController:leftVC];
     
+    //DASHBOARD
+    UIStoryboard *dashboardStoryboard=[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    TabBarViewController  *rightVC=[dashboardStoryboard instantiateViewControllerWithIdentifier:@"dashboardVC"];
     
-    UIStoryboard *listStoryboard=[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    TabBarViewController *rightVC=[listStoryboard instantiateViewControllerWithIdentifier:@"dashboardVC"];
-    self.leftViewController =rightVC;
     [rightVC.view setFrame:CGRectMake(640, 20, rightVC.view.frame.size.width, rightVC.view.frame.size.height)];
     
     [self.scrollView addSubview:rightVC.view];
-    
     [self addChildViewController:rightVC];
+    
     
     [self.scrollView setContentOffset:CGPointMake(320, 0) animated:NO];
 }
@@ -169,9 +171,6 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-}
 
 - (void)scrollViewDidScroll:(UIScrollView *)sender {
     
