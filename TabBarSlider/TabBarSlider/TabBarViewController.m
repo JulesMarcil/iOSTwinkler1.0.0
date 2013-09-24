@@ -148,7 +148,7 @@
     [dashboardView setFrame:CGRectMake(640,
                                        20,
                                        320,
-                                       screenHeight+20)];
+                                       screenHeight)];
     
     [self.scrollView addSubview:dashboardView];
     [self addChildViewController:rightVC];

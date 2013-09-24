@@ -73,7 +73,6 @@
     
     self.mainTableView.separatorColor=[UIColor colorWithRed:(236/255.0) green:(231/255.0) blue:(223/255.0) alpha: 1];
     
-    
     self.actionButton.layer.masksToBounds = YES;
     self.actionButton.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
     self.actionButton.layer.borderWidth = 1.0f;
