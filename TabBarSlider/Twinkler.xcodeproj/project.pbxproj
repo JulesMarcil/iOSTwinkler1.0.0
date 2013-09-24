@@ -38,6 +38,8 @@
 		891F500C17B3C96E00361986 /* UIImage+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 891F500B17B3C96E00361986 /* UIImage+FlatUI.m */; };
 		891F500D17B3C98300361986 /* UIImage+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 891F500B17B3C96E00361986 /* UIImage+FlatUI.m */; };
 		891F501417B3DFD000361986 /* edit-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 891F501317B3DFD000361986 /* edit-button.png */; };
+		892C2A7317F2244F008F2875 /* remove-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 892C2A7217F2244F008F2875 /* remove-button@2x.png */; };
+		892C2A7517F224BB008F2875 /* member-icon-placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 892C2A7417F224BB008F2875 /* member-icon-placeholder@2x.png */; };
 		892F997017B8D59C00D86B4D /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 892F996F17B8D59C00D86B4D /* facebook.png */; };
 		892F997217B8F1A700D86B4D /* login-bckgd.png in Resources */ = {isa = PBXBuildFile; fileRef = 892F997117B8F1A700D86B4D /* login-bckgd.png */; };
 		892F997417B8F1F600D86B4D /* tk-ihpone-icon-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 892F997317B8F1F600D86B4D /* tk-ihpone-icon-retina.png */; };
@@ -201,6 +203,8 @@
 		891F500A17B3C96E00361986 /* UIImage+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FlatUI.h"; sourceTree = "<group>"; };
 		891F500B17B3C96E00361986 /* UIImage+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FlatUI.m"; sourceTree = "<group>"; };
 		891F501317B3DFD000361986 /* edit-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit-button.png"; sourceTree = "<group>"; };
+		892C2A7217F2244F008F2875 /* remove-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "remove-button@2x.png"; sourceTree = "<group>"; };
+		892C2A7417F224BB008F2875 /* member-icon-placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "member-icon-placeholder@2x.png"; sourceTree = "<group>"; };
 		892F996F17B8D59C00D86B4D /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		892F997117B8F1A700D86B4D /* login-bckgd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "login-bckgd.png"; sourceTree = "<group>"; };
 		892F997317B8F1F600D86B4D /* tk-ihpone-icon-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tk-ihpone-icon-retina.png"; sourceTree = "<group>"; };
@@ -628,6 +632,7 @@
 				8950232B17E3716F007A6B1E /* bin.png */,
 				89F7D7AB17DA51E8006BE7FD /* timeline-line.png */,
 				89131B2817D54536008F9950 /* remove-button.png */,
+				892C2A7217F2244F008F2875 /* remove-button@2x.png */,
 				895C4E8117AAA928004EC590 /* check-icon-active.png */,
 				895C4E8317AAA928004EC590 /* coin-icon-active.png */,
 				8990D7ED17E1BC1A00D89E81 /* check-icon-active@2x.png */,
@@ -641,6 +646,7 @@
 				895C4EAF17AAF8D3004EC590 /* dashboard-button-white.png */,
 				895C4EAB17AAF7CA004EC590 /* menu-button-white.png */,
 				89F7D7A717D9F0BC006BE7FD /* member-icon-placeholder.png */,
+				892C2A7417F224BB008F2875 /* member-icon-placeholder@2x.png */,
 				89F7D7B017DA6052006BE7FD /* right-arrow.png */,
 				89F7D7B617DA91DD006BE7FD /* main-smiley.png */,
 				89F7D7B817DAA23D006BE7FD /* Twinkler_star.png */,
@@ -881,8 +887,10 @@
 				8919DBDB17B2E8360005C67C /* chevron-arrow.png in Resources */,
 				8919DBE117B2F9280005C67C /* expense-detail-border.png in Resources */,
 				891F501417B3DFD000361986 /* edit-button.png in Resources */,
+				892C2A7317F2244F008F2875 /* remove-button@2x.png in Resources */,
 				89F71E1317B5494E00BC9C32 /* add-expense-bckgd1.png in Resources */,
 				89F71E2817B6431100BC9C32 /* green-check.png in Resources */,
+				892C2A7517F224BB008F2875 /* member-icon-placeholder@2x.png in Resources */,
 				892F997017B8D59C00D86B4D /* facebook.png in Resources */,
 				892F997217B8F1A700D86B4D /* login-bckgd.png in Resources */,
 				892F997417B8F1F600D86B4D /* tk-ihpone-icon-retina.png in Resources */,
