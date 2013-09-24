@@ -88,6 +88,7 @@
     
     [self.revealButtonItem addTarget:self.revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
     [self.leftButton addTarget:self.revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+    [self.leftButton addGestureRecognizer: self.revealViewController.panGestureRecognizer];
     [self.revealButtonItem addTarget:self action:@selector(hideLeftToggle) forControlEvents:UIControlEventTouchUpInside];
     [self.leftButton addTarget:self action:@selector(hideLeftToggle) forControlEvents:UIControlEventTouchUpInside];
     
@@ -153,21 +154,28 @@
     [self addChildViewController:rightVC];
     
     [self.scrollView setContentOffset:CGPointMake(320, 0) animated:NO];
+    
+    
 }
+
 
 -(void)hideLeftToggle{
     if(self.leftButton.hidden==YES){
         self.leftButton.hidden=NO;
+        NSLog(@"RevealView %i",self.revealViewController.frontViewPosition);
     }else {
         self.leftButton.hidden=YES;
+        NSLog(@"RevealView %i",self.revealViewController.frontViewPosition);
     };
 }
 
 -(void)hideRightToggle{
     if(self.rightButton.hidden==YES){
         self.rightButton.hidden=NO;
+        NSLog(@"RevealView %i",self.revealViewController.frontViewPosition);
     } else {
         self.rightButton.hidden=YES;
+        NSLog(@"RevealView %i",self.revealViewController.frontViewPosition);
     };
 }
 
