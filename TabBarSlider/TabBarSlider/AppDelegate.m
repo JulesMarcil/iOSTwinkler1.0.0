@@ -103,9 +103,12 @@
     
     UINavigationController *rootViewController = (UINavigationController *) self.window.rootViewController;
     UIViewController *viewController = rootViewController.viewControllers[rootViewController.viewControllers.count-1];
-    NSLog(@"title = %@", viewController.title);
-
-    if([viewController.title isEqual: @"welcomeMenu"]) {
+    
+    
+    NSLog(@"viewController.title = %@", viewController.title);
+    NSLog(@"presentedViewController.title = %@", rootViewController.presentedViewController.class);
+    
+    if([viewController.title isEqualToString:@"welcomeMenu"] && [rootViewController.presentedViewController.title isEqualToString:@"loginNavigationController"]) {
         [[rootViewController presentedViewController] dismissViewControllerAnimated:NO completion:nil];
     }
     
