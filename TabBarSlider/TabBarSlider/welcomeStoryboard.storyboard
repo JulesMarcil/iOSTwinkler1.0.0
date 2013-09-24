@@ -74,7 +74,7 @@
                                                 <action selector="Logout:" destination="zjS-vU-Nrs" eventType="touchUpInside" id="ymh-BW-7RE"/>
                                             </connections>
                                         </button>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Current Groups" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OAb-aG-u2e">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Groups" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OAb-aG-u2e">
                                             <rect key="frame" x="69" y="157" width="181" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
@@ -756,8 +756,10 @@
         <image name="Twinkler_star.png" width="300" height="286"/>
         <image name="bckgd-2.png" width="1626" height="3000"/>
         <image name="facebook.png" width="69" height="85"/>
+        <image name="facebook.png" width="69" height="85"/>
         <image name="gear.png" width="156" height="156"/>
         <image name="heart-icon.png" width="23" height="20"/>
+        <image name="left-arrow.png" width="11" height="23"/>
         <image name="left-arrow.png" width="11" height="23"/>
         <image name="login-bckgd.png" width="320" height="560"/>
         <image name="profile-pic.png" width="160" height="160"/>

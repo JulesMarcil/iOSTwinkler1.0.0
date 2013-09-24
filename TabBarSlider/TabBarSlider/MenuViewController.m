@@ -473,17 +473,14 @@
         
         if (![self.title isEqual:@"welcomeMenu"]){
             
-            UINavigationController * navigationController = self.navigationController;
-            
-            NSLog(@"nav controllers count1 = %u", self.navigationController.viewControllers.count);
-            
-            NSMutableArray *navigationArray = [navigationController.viewControllers mutableCopy];
+            NSMutableArray *navigationArray = [self.navigationController.viewControllers mutableCopy];
             [navigationArray removeObjectAtIndex:1];
+
+            UINavigationController * navigationController = [[UINavigationController alloc] init];
+            [navigationController setViewControllers:navigationArray];
             
-            [navigationController popToRootViewControllerAnimated:NO];
-            self.navigationController.viewControllers = navigationArray;
-            
-            
+            [self.navigationController setViewControllers:navigationController.viewControllers];
+            [self.navigationController popToRootViewControllerAnimated:NO];
         }
         [appDelegate showLoginView];
     }
