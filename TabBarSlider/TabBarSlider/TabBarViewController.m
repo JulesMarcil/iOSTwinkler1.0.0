@@ -133,6 +133,9 @@
                                       20,
                                       320,
                                       screenHeight+20)];
+    
+    expenseView.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
+    expenseView.layer.borderWidth = 1.0f;
      
      [self.scrollView addSubview:expenseView];
      [self addChildViewController:leftVC];
@@ -146,6 +149,9 @@
                                        20,
                                        320,
                                        screenHeight)];
+    
+    dashboardView.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
+    dashboardView.layer.borderWidth = 1.0f;
     
     [self.scrollView addSubview:dashboardView];
     [self addChildViewController:rightVC];

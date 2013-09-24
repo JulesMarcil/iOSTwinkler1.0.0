@@ -77,7 +77,7 @@
     [self.expenseListTable setFrame:CGRectMake(0,
                                                -20,
                                                frame.size.width,
-                                               screenHeight-164+44+100-44+84-64)];
+                                               screenHeight-164+44+100-44)];
     
     frame= [self.timelineImage frame];
     [self.timelineImage setFrame:CGRectMake(frame.origin.x,
