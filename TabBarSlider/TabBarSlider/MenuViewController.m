@@ -455,22 +455,6 @@
             NSLog(@"facebook session closed");
         }
         
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"facebookId"];
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"facebookName"];
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentMember"];
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupId"];
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupName"];
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupMembers"];
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupCurrency"];
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupIndex"];
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"profile"];
-        
-        //remove the cache
-        NSCache *cache = [[NSCache alloc] init];
-        [cache removeAllObjects];
-        
-        AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-        
         if (![self.title isEqual:@"welcomeMenu"]){
             
             NSMutableArray *navigationArray = [self.navigationController.viewControllers mutableCopy];
@@ -482,6 +466,8 @@
             [self.navigationController setViewControllers:navigationController.viewControllers];
             [self.navigationController popToRootViewControllerAnimated:NO];
         }
+        
+        AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
         [appDelegate showLoginView];
     }
     else if (buttonIndex == 1) {
