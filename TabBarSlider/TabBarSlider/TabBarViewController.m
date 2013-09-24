@@ -171,20 +171,6 @@
     };
 }
 
--(void)hideRightToggle{
-    if(self.rightButton.hidden==YES){
-        self.rightButton.hidden=NO;
-        NSLog(@"RevealView %i",self.revealViewController.frontViewPosition);
-    } else {
-        self.rightButton.hidden=YES;
-        NSLog(@"RevealView %i",self.revealViewController.frontViewPosition);
-    };
-}
-
--(void)addRevealToggle{
-    
-}
-
 
 - (void)didReceiveMemoryWarning
 {
