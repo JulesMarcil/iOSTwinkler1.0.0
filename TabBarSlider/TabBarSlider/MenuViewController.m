@@ -363,8 +363,8 @@
         
         Group   *selectedGroup=[self.groupDataController objectInListAtIndex:indexPath.row] ;
         
-        UIStoryboard *mainStoryboard=[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-        UIViewController *dst=[mainStoryboard instantiateInitialViewController];
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        UIViewController *dst = [mainStoryboard instantiateInitialViewController];
         
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.activeMember forKey:@"currentMember"];
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.identifier forKey:@"currentGroupId"];
@@ -374,7 +374,7 @@
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:indexPath.row] forKey:@"currentGroupIndex"];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"newGroupSelected" object:nil];
-        NSLog(@"menuViewController %@: newGroupSelected post Notification", self.title);
+        NSLog(@"menuViewController %@: newGroupSelected via select row post Notification", self.title);
         
         // Then push the new view controller in the usual way:
         [self.navigationController pushViewController:dst animated:YES];
@@ -406,7 +406,7 @@
         [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:[self.groupOnMenu indexPathForSelectedRow].row] forKey:@"currentGroupIndex"];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"newGroupSelected" object:nil];
-        NSLog(@"menueViewController %@: newGroupSelected post Notification", self.title);
+        NSLog(@"menueViewController %@: newGroupSelected via segue post Notification", self.title);
         
         SWRevealViewControllerSegue* rvcs = (SWRevealViewControllerSegue*) segue;
         
@@ -423,31 +423,6 @@
             [rvc setFrontViewPosition: FrontViewPositionLeft animated: YES];
         };
     }
-}
-
-- (IBAction)goToTimelineButton:(id)sender {
-    
-    NSLog(@"menuViewController %@: goToTimelineButton", self.title);
-    
-    UIStoryboard *mainStoryboard=[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    UIViewController *dst=[mainStoryboard instantiateInitialViewController];
-    
-    Group *selectedGroup = [self.groupDataController objectInListAtIndex:[self.groupOnMenu indexPathForSelectedRow].row];
-    
-    
-    [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.activeMember forKey:@"currentMember"];
-    [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.identifier forKey:@"currentGroupId"];
-    [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.name forKey:@"currentGroupName"];
-    [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.members forKey:@"currentGroupMembers"];
-    [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.currency forKey:@"currentGroupCurrency"];
-    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:[self.groupOnMenu indexPathForSelectedRow].row] forKey:@"currentGroupIndex"];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"newGroupSelected" object:nil];
-    NSLog(@"menuViewController %@: newGroupSelected notification sent", self.title);
-    
-    // Then push the new view controller in the usual way:
-    [self.navigationController pushViewController:dst animated:YES];
-    
 }
 
 - (IBAction)Logout:(id)sender {
@@ -500,13 +475,15 @@
             
             UINavigationController * navigationController = self.navigationController;
             
+            NSLog(@"nav controllers count1 = %u", self.navigationController.viewControllers.count);
             
-            NSMutableArray *navigationArray = [navigationController.viewControllers mutableCopy];;
-            NSLog(@"viewcontrollers count = %u", navigationArray.count);
+            NSMutableArray *navigationArray = [navigationController.viewControllers mutableCopy];
             [navigationArray removeObjectAtIndex:1];
-            self.navigationController.viewControllers = navigationArray;
             
             [navigationController popToRootViewControllerAnimated:NO];
+            self.navigationController.viewControllers = navigationArray;
+            
+            
         }
         [appDelegate showLoginView];
     }

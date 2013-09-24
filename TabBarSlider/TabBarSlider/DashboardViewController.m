@@ -220,9 +220,13 @@
                                               
                                               [[NSNotificationCenter defaultCenter] postNotificationName:@"groupClosedSuccessfully" object:nil];
                                               
-                                              UIStoryboard *welcomeStoryboard = [UIStoryboard storyboardWithName:@"welcomeStoryboard" bundle: nil];
-                                              UINavigationController *navController = (UINavigationController*)[welcomeStoryboard instantiateViewControllerWithIdentifier:@"MenuViewController"];
-                                              [self presentViewController:navController animated:YES completion:nil];
+                                              UINavigationController * navigationController = self.navigationController.navigationController;
+                                              
+                                              NSMutableArray *navigationArray = [navigationController.viewControllers mutableCopy];
+                                              [navigationArray removeObjectAtIndex:1];
+                                              self.navigationController.navigationController.viewControllers = navigationArray;
+                                              
+                                              [navigationController popToRootViewControllerAnimated:NO];
                                               
                                           } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                               NSLog(@"error: %@", error);
