@@ -27,14 +27,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *friendNumberLabel;
 
-
-/*
-- (IBAction)goToTimelineButton:(id)sender;
-*/
-- (IBAction)doneAddGroup:(UIStoryboardSegue *)segue;
-- (IBAction)cancelAddGroup:(UIStoryboardSegue *)segue;
 - (IBAction)Logout:(id)sender;
-- (UIImage *)getImageForMember:(NSDictionary *)member;
 - (IBAction)createGroup:(id)sender;
 
 

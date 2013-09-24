@@ -35,6 +35,8 @@
 {
     [super viewDidLoad];
     
+    NSLog(@"tabbarvc viewdidload navcontrollers count = %u", self.navigationController.navigationController.viewControllers.count);
+    
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
     
     self.memberArray = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupMembers"];
