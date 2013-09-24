@@ -21,12 +21,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *listButton;
 @property (weak, nonatomic) IBOutlet UIView *activeTabBarImage;
 @property (weak, nonatomic) IBOutlet UIButton *revealButtonItem;
-@property (weak, nonatomic) IBOutlet UIButton *revealRightButtonItem;
 @property (weak, nonatomic) IBOutlet UIView *placeholderView;
 @property (nonatomic, weak) UIViewController *currentViewController;
 @property (nonatomic, weak) UIViewController *leftViewController;
 @property (nonatomic, weak) UIViewController *rightViewController;
-@property (weak, nonatomic) IBOutlet UIImageView *coverPic;
 @property (weak, nonatomic) IBOutlet UIView *topWhiteBar;
 @property (weak, nonatomic) IBOutlet UIView *toolbar;
 @property (weak, nonatomic) IBOutlet UIView *topBar;

@@ -43,17 +43,12 @@
     self.groupTitle.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupName"];
     
     
-    CGRect frame= [self.coverPic frame];
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenHeight = screenRect.size.height;
     
     [self.mainView setFrame:screenRect];
     
-    [self.coverPic setFrame:CGRectMake(0,
-                                       0,
-                                       frame.size.width,
-                                       100)];
-    frame= [self.topWhiteBar frame];
+    CGRect frame= [self.topWhiteBar frame];
     [self.topWhiteBar setFrame:CGRectMake(0,
                                           0,
                                           frame.size.width,
@@ -91,6 +86,8 @@
     [self.leftButton addGestureRecognizer: self.revealViewController.panGestureRecognizer];
     [self.revealButtonItem addTarget:self action:@selector(hideLeftToggle) forControlEvents:UIControlEventTouchUpInside];
     [self.leftButton addTarget:self action:@selector(hideLeftToggle) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.revealViewController.panGestureRecognizer addTarget:self action:@selector(GestureEnded:)];
     
     
     //-----ScrollView------//
@@ -158,9 +155,14 @@
     
 }
 
+-(void)GestureEnded:(UIPanGestureRecognizer *)gesture{
+    if (gesture.state==UIGestureRecognizerStateEnded) {
+        [self hideLeftToggle];
+    }
+}
 
 -(void)hideLeftToggle{
-    if(self.leftButton.hidden==YES){
+    if(self.revealViewController.frontViewPosition==4){
         self.leftButton.hidden=NO;
         NSLog(@"RevealView %i",self.revealViewController.frontViewPosition);
     }else {
