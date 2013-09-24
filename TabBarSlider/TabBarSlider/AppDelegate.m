@@ -76,14 +76,25 @@
 {
     NSLog(@"showLoginView");
     UIStoryboard *welcomeStoryboard = [UIStoryboard storyboardWithName:@"welcomeStoryboard" bundle: nil];
-    
     WelcomeViewController* welcomeViewController = [welcomeStoryboard instantiateViewControllerWithIdentifier:@"WelcomeNavigationController"];
     
     [self.window makeKeyAndVisible];
     [self.window.rootViewController presentViewController:welcomeViewController animated:YES completion:nil];
     
+    //remove the cache
     NSCache *cache = [[NSCache alloc] init];
     [cache removeAllObjects];
+    
+    // Clean userdefaults
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"facebookId"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"facebookName"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentMember"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupId"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupName"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupMembers"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupCurrency"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupIndex"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"profile"];
 }
 
 - (void)dismissLoginView
@@ -92,9 +103,12 @@
     
     UINavigationController *rootViewController = (UINavigationController *) self.window.rootViewController;
     UIViewController *viewController = rootViewController.viewControllers[rootViewController.viewControllers.count-1];
-    NSLog(@"title = %@", viewController.title);
-
-    if([viewController.title isEqual: @"welcomeMenu"]) {
+    
+    
+    NSLog(@"viewController.title = %@", viewController.title);
+    NSLog(@"presentedViewController.title = %@", rootViewController.presentedViewController.class);
+    
+    if([viewController.title isEqualToString:@"welcomeMenu"] && [rootViewController.presentedViewController.title isEqualToString:@"loginNavigationController"]) {
         [[rootViewController presentedViewController] dismissViewControllerAnimated:NO completion:nil];
     }
     

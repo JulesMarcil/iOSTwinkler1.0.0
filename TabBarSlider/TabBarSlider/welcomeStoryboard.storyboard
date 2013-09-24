@@ -732,10 +732,10 @@
             </objects>
             <point key="canvasLocation" x="117" y="-649"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation Controller - loginNavigationController-->
         <scene sceneID="qXe-eQ-xvm">
             <objects>
-                <navigationController storyboardIdentifier="WelcomeNavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nqb-p7-9uq" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="WelcomeNavigationController" title="loginNavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nqb-p7-9uq" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Dzy-yV-Pxf">
