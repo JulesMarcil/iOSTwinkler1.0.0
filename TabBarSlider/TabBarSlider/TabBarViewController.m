@@ -111,35 +111,44 @@
     self.view.autoresizesSubviews=NO;
     
     //TIMELINE
-    UIStoryboard *timelineStoryboard=[UIStoryboard storyboardWithName:@"timelineStoryboard" bundle:nil];
-    TabBarViewController *dst=[timelineStoryboard instantiateInitialViewController];
+    UIStoryboard *timelineStoryboard = [UIStoryboard storyboardWithName:@"timelineStoryboard" bundle:nil];
+    TabBarViewController *middleVC = [timelineStoryboard instantiateInitialViewController];
     
-    [dst.view setFrame:CGRectMake(320, 20, dst.view.frame.size.width, dst.view.frame.size.height)];
+    UIView *timelineView = middleVC.view;
+    [timelineView setFrame:CGRectMake(320,
+                                       20,
+                                       320,
+                                       screenHeight+20)];
     
-    dst.view.layer.borderWidth = 1.0f;
-    dst.view.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
-    
-    [self.scrollView addSubview:dst.view];
-    [self addChildViewController:dst]; 
+    [self.scrollView addSubview:timelineView];
+    [self addChildViewController:middleVC];
+
     
     //EXPENSE
-    UIStoryboard *expenseStoryboard=[UIStoryboard storyboardWithName:@"expenseStoryboard" bundle:nil];
-    ExpenseViewController*leftVC=[expenseStoryboard instantiateInitialViewController];
-    
-    [leftVC.view setFrame:CGRectMake(0, 20, leftVC.view.frame.size.width, leftVC.view.frame.size.height)];
-    
-    [self.scrollView addSubview:leftVC.view];
-    [self addChildViewController:leftVC];
+     UIStoryboard *expenseStoryboard = [UIStoryboard storyboardWithName:@"expenseStoryboard" bundle:nil];
+     ExpenseViewController *leftVC = [expenseStoryboard instantiateInitialViewController];
+     
+     UIView *expenseView = leftVC.view;
+     [expenseView setFrame:CGRectMake(0,
+                                      20,
+                                      320,
+                                      screenHeight+20)];
+     
+     [self.scrollView addSubview:expenseView];
+     [self addChildViewController:leftVC];
     
     //DASHBOARD
-    UIStoryboard *dashboardStoryboard=[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    TabBarViewController  *rightVC=[dashboardStoryboard instantiateViewControllerWithIdentifier:@"dashboardVC"];
+    UIStoryboard *dashboardStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    TabBarViewController  *rightVC = [dashboardStoryboard instantiateViewControllerWithIdentifier:@"dashboardVC"];
     
-    [rightVC.view setFrame:CGRectMake(640, 20, rightVC.view.frame.size.width, rightVC.view.frame.size.height)];
+    UIView *dashboardView = rightVC.view;
+    [dashboardView setFrame:CGRectMake(640,
+                                       20,
+                                       320,
+                                       screenHeight+20)];
     
-    [self.scrollView addSubview:rightVC.view];
+    [self.scrollView addSubview:dashboardView];
     [self addChildViewController:rightVC];
-    
     
     [self.scrollView setContentOffset:CGPointMake(320, 0) animated:NO];
 }
