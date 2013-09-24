@@ -28,5 +28,6 @@
 
 - (IBAction)showPicker:(id)sender;
 - (IBAction)nextButton:(id)sender;
+- (IBAction)cancelButton:(id)sender;
 
 @end
