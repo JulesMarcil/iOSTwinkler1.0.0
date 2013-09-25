@@ -140,6 +140,8 @@
         
         //go to the created group here!
         
+        NSLog(@"parentVC: %@",self.presentingViewController.presentedViewController.class);
+        
     }];
 }
 
