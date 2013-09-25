@@ -768,17 +768,9 @@
     </scenes>
     <resources>
         <image name="add-expense-bckgd.png" width="320" height="460"/>
-        <image name="add-expense-bckgd.png" width="320" height="460"/>
-        <image name="add-expense-bckgd.png" width="320" height="460"/>
-        <image name="add-expense-bckgd.png" width="320" height="460"/>
         <image name="edit-button.png" width="30" height="26"/>
         <image name="left-arrow.png" width="11" height="23"/>
-        <image name="left-arrow.png" width="11" height="23"/>
         <image name="profile-pic-placeholder.png" width="160" height="160"/>
-        <image name="profile-pic-placeholder.png" width="160" height="160"/>
-        <image name="profile-pic-placeholder.png" width="160" height="160"/>
-        <image name="profile-pic-placeholder.png" width="160" height="160"/>
-        <image name="remove-button.png" width="25" height="25"/>
         <image name="remove-button.png" width="25" height="25"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
