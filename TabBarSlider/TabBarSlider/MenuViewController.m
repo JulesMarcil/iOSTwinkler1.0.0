@@ -130,7 +130,7 @@
     self.nameLabel.text = self.profile.name;
     self.friendNumberLabel.text = [NSString stringWithFormat:@"%@ Friends", self.profile.friendNumber];
     
-    NSString *facebookId =[[NSUserDefaults standardUserDefaults] objectForKey:@"facebookId"];
+    NSNumber *facebookId= [[[NSNumberFormatter alloc] init] numberFromString:self.profile.picturePath];
     
     NSURL *url = nil;
     if (facebookId) {
