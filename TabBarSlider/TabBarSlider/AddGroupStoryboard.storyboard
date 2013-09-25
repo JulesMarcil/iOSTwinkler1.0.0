@@ -232,6 +232,11 @@
                                                     <action selector="doneButton:" destination="xwu-3j-5Ge" eventType="touchUpInside" id="Nqr-Jx-uPW"/>
                                                 </connections>
                                             </button>
+                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="H2c-sg-pjb">
+                                                <rect key="frame" x="142" y="4" width="37" height="37"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </activityIndicatorView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Rir-Da-ug8">
                                                 <rect key="frame" x="-1" y="0.0" width="161" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -436,6 +441,7 @@
                         <outlet property="nextButton" destination="cTd-60-6mo" id="crW-KA-Svs"/>
                         <outlet property="scrollView" destination="qMA-E0-l6S" id="52a-HX-72l"/>
                         <outlet property="searchTextField" destination="00q-21-Kp3" id="frT-eN-j0k"/>
+                        <outlet property="spinner" destination="H2c-sg-pjb" id="7bk-zD-RK6"/>
                         <segue destination="tNB-5P-bto" kind="push" identifier="MembersToInvite" id="vth-i7-McO"/>
                     </connections>
                 </viewController>
@@ -762,9 +768,17 @@
     </scenes>
     <resources>
         <image name="add-expense-bckgd.png" width="320" height="460"/>
+        <image name="add-expense-bckgd.png" width="320" height="460"/>
+        <image name="add-expense-bckgd.png" width="320" height="460"/>
+        <image name="add-expense-bckgd.png" width="320" height="460"/>
         <image name="edit-button.png" width="30" height="26"/>
         <image name="left-arrow.png" width="11" height="23"/>
+        <image name="left-arrow.png" width="11" height="23"/>
         <image name="profile-pic-placeholder.png" width="160" height="160"/>
+        <image name="profile-pic-placeholder.png" width="160" height="160"/>
+        <image name="profile-pic-placeholder.png" width="160" height="160"/>
+        <image name="profile-pic-placeholder.png" width="160" height="160"/>
+        <image name="remove-button.png" width="25" height="25"/>
         <image name="remove-button.png" width="25" height="25"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

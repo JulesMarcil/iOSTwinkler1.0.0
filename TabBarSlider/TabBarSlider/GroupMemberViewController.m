@@ -395,6 +395,10 @@
 
 - (IBAction)doneButton:(id)sender {
     
+    [self.spinner startAnimating];
+    self.cancelButton.hidden = YES;
+    self.nextButton.hidden = YES;
+    
     self.group.members = self.memberArray;
     
     NSMutableArray *addMembers = [[NSMutableArray alloc] init];
@@ -490,6 +494,9 @@
                                    }
                                    failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                        NSLog(@"error: %@", error);
+                                       [self.spinner stopAnimating];
+                                       self.cancelButton.hidden = NO;
+                                       self.nextButton.hidden = NO;
                                    }];
 }
 
