@@ -13,6 +13,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import "memberCollectionViewCell.h"
 #import "ExpenseViewController.h"
+#import "TimelineViewController.h"
+#import "DashboardViewController.h"
 
 @interface TabBarViewController ()
 
@@ -112,13 +114,14 @@
     
     //TIMELINE
     UIStoryboard *timelineStoryboard = [UIStoryboard storyboardWithName:@"timelineStoryboard" bundle:nil];
-    TabBarViewController *middleVC = [timelineStoryboard instantiateInitialViewController];
+    TimelineViewController *middleVC = [timelineStoryboard instantiateInitialViewController];
     
     UIView *timelineView = middleVC.view;
     [timelineView setFrame:CGRectMake(320,
                                        20,
                                        320,
                                        screenHeight+20)];
+    
     
     [self.scrollView addSubview:timelineView];
     [self addChildViewController:middleVC];
@@ -142,13 +145,13 @@
     
     //DASHBOARD
     UIStoryboard *dashboardStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    TabBarViewController  *rightVC = [dashboardStoryboard instantiateViewControllerWithIdentifier:@"dashboardVC"];
+    DashboardViewController  *rightVC = [dashboardStoryboard instantiateViewControllerWithIdentifier:@"dashboardVC"];
     
     UIView *dashboardView = rightVC.view;
     [dashboardView setFrame:CGRectMake(640,
                                        20,
                                        320,
-                                       screenHeight)];
+                                       screenHeight+20)];
     
     dashboardView.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
     dashboardView.layer.borderWidth = 1.0f;
