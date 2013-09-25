@@ -50,12 +50,13 @@
     NSLog(@"menuViewController %@: viewDidLoad", self.title);
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(groupDataRetrieved) name:@"groupsWithJSONFinishedLoading" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(groupDataRetrieved)   name:@"groupsWithJSONFinishedLoading"  object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(profileDataRetrieved) name:@"profileWithJSONFinishedLoading" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData) name:@"doneAddMember" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeCurrentGroup) name:@"groupClosedSuccessfully" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData)             name:@"doneAddMember"                  object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeCurrentGroup)   name:@"groupClosedSuccessfully"        object:nil];
+    
     if ([self.title isEqual: @"welcomeMenu"]){
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:@"loginSuccess" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:@"loginSuccess"    object:nil];
     }
     
     if (![self.title isEqual: @"welcomeMenu"]){
@@ -125,14 +126,6 @@
 - (void)profileDataRetrieved {
     NSLog(@"menuViewController %@: profileDataRetrieved", self.title);
     
-    //set a fictious current member if there is no to make sure the group creation process is not blocked
-    NSDictionary *currentMember = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"];
-    
-    if(!currentMember) {
-        currentMember = [[NSDictionary alloc] initWithObjects:@[@-1, self.profile.name, self.profile.picturePath]  forKeys:@[@"id", @"name", @"picturePath"]];
-        [[NSUserDefaults standardUserDefaults] setObject:currentMember forKey:@"currentMember"];
-    }
-    
     // display profile information
     self.nameLabel.text = self.profile.name;
     self.friendNumberLabel.text = [NSString stringWithFormat:@"%@ Friends", self.profile.friendNumber];
@@ -166,8 +159,20 @@
 -(void) removeCurrentGroup {
     
     NSLog(@"MenuViewController %@: removeCurrentGroup", self.title);
-    NSNumber *index = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupIndex"];
-    Group *group = [self.groupDataController objectInListAtIndex:[index intValue]];
+    
+    NSDictionary *currentMember = [[NSDictionary alloc] initWithObjects:@[@-1, self.profile.name, self.profile.picturePath]  forKeys:@[@"id", @"name", @"picturePath"]];
+    [[NSUserDefaults standardUserDefaults] setObject:currentMember forKey:@"currentMember"];
+    
+    NSDictionary *currentMemberTest = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"];
+    NSLog(@"current member id = %@", currentMemberTest[@"id"]);
+    NSLog(@"current member name = %@", currentMemberTest[@"name"]);
+    
+    NSNumber *identifier = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupId"];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"identifier == %@", identifier];
+    NSArray *filtered = [self.groupDataController.groupList filteredArrayUsingPredicate:predicate];
+    Group *group = filtered[0];
+    
     [self.groupDataController removeGroupWithGroup:group];
     [self.groupOnMenu reloadData];
 }
@@ -179,7 +184,7 @@
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     if([self.groupDataController countOfList]>0){
-    return [self.groupDataController countOfList];
+        return [self.groupDataController countOfList];
     }else{
         return 1;
     }
@@ -361,27 +366,37 @@
     if ([self.title isEqualToString:@"welcomeMenu"]){
         [tableView deselectRowAtIndexPath:indexPath animated:NO];
         
-        Group   *selectedGroup=[self.groupDataController objectInListAtIndex:indexPath.row] ;
+        Group *selectedGroup=[self.groupDataController objectInListAtIndex:indexPath.row] ;
+        
+        [self pushNewGroup:selectedGroup];
+    }
+}
+
+-(void) pushNewGroup:(Group *)selectedGroup
+{
+    NSLog(@"MenuViewController %@: didselectrowatindexpath", self.title);
+    
+    if ([self.title isEqualToString:@"welcomeMenu"]){
         
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         UIViewController *dst = [mainStoryboard instantiateInitialViewController];
         
-        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.activeMember forKey:@"currentMember"];
-        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.identifier forKey:@"currentGroupId"];
-        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.name forKey:@"currentGroupName"];
-        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.members forKey:@"currentGroupMembers"];
-        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.currency forKey:@"currentGroupCurrency"];
-        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:indexPath.row] forKey:@"currentGroupIndex"];
+        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.activeMember             forKey:@"currentMember"];
+        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.identifier               forKey:@"currentGroupId"];
+        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.name                     forKey:@"currentGroupName"];
+        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.members                  forKey:@"currentGroupMembers"];
+        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.currency                 forKey:@"currentGroupCurrency"];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"newGroupSelected" object:nil];
         NSLog(@"menuViewController %@: newGroupSelected via select row post Notification", self.title);
+        NSLog(@"selectedGroupId = %@", selectedGroup.identifier);
         
         // Then push the new view controller in the usual way:
         [self.navigationController pushViewController:dst animated:YES];
     }
 }
 
-- (void) prepareForSegue: (UIStoryboardSegue *) segue sender: (id) sender
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // configure the destination view controller:
     if ( [segue.destinationViewController isKindOfClass: [TabBarViewController class]] && [sender isKindOfClass:[UIButton class]] ) {
@@ -398,15 +413,15 @@
         
         Group *selectedGroup = [self.groupDataController objectInListAtIndex:[self.groupOnMenu indexPathForSelectedRow].row];
         
-        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.identifier forKey:@"currentGroupId"];
-        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.name forKey:@"currentGroupName"];
-        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.members forKey:@"currentGroupMembers"];
+        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.identifier   forKey:@"currentGroupId"];
+        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.name         forKey:@"currentGroupName"];
+        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.members      forKey:@"currentGroupMembers"];
         [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.activeMember forKey:@"currentMember"];
-        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.currency forKey:@"currentGroupCurrency"];
-        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:[self.groupOnMenu indexPathForSelectedRow].row] forKey:@"currentGroupIndex"];
+        [[NSUserDefaults standardUserDefaults] setObject:selectedGroup.currency     forKey:@"currentGroupCurrency"];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"newGroupSelected" object:nil];
         NSLog(@"menueViewController %@: newGroupSelected via segue post Notification", self.title);
+        NSLog(@"selectedGroupId = %@", selectedGroup.identifier);
         
         SWRevealViewControllerSegue* rvcs = (SWRevealViewControllerSegue*) segue;
         
@@ -459,7 +474,7 @@
             
             NSMutableArray *navigationArray = [self.navigationController.viewControllers mutableCopy];
             [navigationArray removeObjectAtIndex:1];
-
+            
             UINavigationController * navigationController = [[UINavigationController alloc] init];
             [navigationController setViewControllers:navigationArray];
             
@@ -480,7 +495,16 @@
     NSLog(@"menuViewController: createGroup");
     
     UINavigationController *navigationController = [[UIStoryboard storyboardWithName:@"AddGroupStoryboard" bundle:nil] instantiateInitialViewController];
-    [self presentViewController:navigationController animated:YES completion:nil];
+    [self presentViewController:navigationController animated:YES completion:^{
+        
+        //set a fictious current member if there is no to make sure the group creation process is not blocked
+        NSDictionary *currentMember = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"];
+        
+        if(!currentMember) {
+            currentMember = [[NSDictionary alloc] initWithObjects:@[@-1, self.profile.name, self.profile.picturePath]  forKeys:@[@"id", @"name", @"picturePath"]];
+            [[NSUserDefaults standardUserDefaults] setObject:currentMember forKey:@"currentMember"];
+        }
+    }];
 }
 
 //--------DESIGN------------//

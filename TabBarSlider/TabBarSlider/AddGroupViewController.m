@@ -217,13 +217,12 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"GroupToMembers"]) {
         
         NSDictionary *currentMember = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"];
         NSLog(@"current member id = %@", currentMember[@"id"]);
+        NSLog(@"current member name = %@", currentMember[@"name"]);
         
         NSArray *members = [[NSArray alloc] initWithObjects:currentMember, nil];
         
@@ -253,8 +252,6 @@
     toolbar.translucent=YES;
     [toolbar sizeToFit];
     toolbar.tag=1;
-    
-    
     
     UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissKeyboard)];

@@ -12,6 +12,7 @@
 #import <MessageUI/MessageUI.h>
 #import <QuartzCore/QuartzCore.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import "MenuViewController.h"
 
 @interface InviteViewController ()
 
@@ -136,13 +137,15 @@
 
 - (IBAction)doneAction:(id)sender {
     
-    [self dismissViewControllerAnimated:YES completion:^(void){
-        
-        //go to the created group here!
-        
-        NSLog(@"parentVC: %@",self.presentingViewController.presentedViewController.class);
-        
-    }];
+    UINavigationController *presenting = (UINavigationController *)self.presentingViewController;
+    UIViewController *active = (UIViewController *)presenting.viewControllers[presenting.viewControllers.count-1];
+    
+    if([active.title isEqualToString:@"welcomeMenu"]){
+        MenuViewController *menu = (MenuViewController *)active;
+        [menu pushNewGroup:self.group];
+    }
+    
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 
