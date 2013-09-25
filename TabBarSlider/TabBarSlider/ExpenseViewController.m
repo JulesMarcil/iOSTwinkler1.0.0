@@ -186,7 +186,7 @@
                                      placeholderImage:[UIImage imageNamed:@"profile-pic.png"]
                                               success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                                                   cell.memberProfilePic.image = image;
-                                                  [cell.memberProfilePic setFrame:CGRectMake(19,14,30,30)];
+                                                  [cell.memberProfilePic setFrame:CGRectMake(19,14,35,35)];
                                                   [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:35.0];
                                               }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                                   NSLog(@"Failed with error: %@", error);
