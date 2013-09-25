@@ -223,6 +223,7 @@
         NSDictionary *currentMember = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"];
         NSLog(@"current member id = %@", currentMember[@"id"]);
         NSLog(@"current member name = %@", currentMember[@"name"]);
+        NSLog(@"current member path = %@", currentMember[@"picturePath"]);
         
         NSArray *members = [[NSArray alloc] initWithObjects:currentMember, nil];
         

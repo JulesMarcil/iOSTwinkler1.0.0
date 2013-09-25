@@ -43,8 +43,7 @@
                                       NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
                                       NSLog(@"response = %@", response);
                                       
-                                      [self setName:response[@"name"] friendNumber:response[@"friendNumber"] picturePath:response[@"picturePath"]
-                                       ];
+                                      [self setName:response[@"name"] friendNumber:response[@"friendNumber"] picturePath:response[@"picturePath"]];
                                       
                                       [[NSUserDefaults standardUserDefaults] setObject:response forKey:@"profile"];
                                       
