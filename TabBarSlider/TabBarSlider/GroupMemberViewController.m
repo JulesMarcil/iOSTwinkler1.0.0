@@ -115,6 +115,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     if (tableView.tag == 1) {
         
         static NSString *CellIdentifier = @"memberCell";
@@ -394,6 +395,10 @@
 
 - (IBAction)doneButton:(id)sender {
     
+    [self.spinner startAnimating];
+    self.cancelButton.hidden = YES;
+    self.nextButton.hidden = YES;
+    
     self.group.members = self.memberArray;
     
     NSMutableArray *addMembers = [[NSMutableArray alloc] init];
@@ -456,14 +461,15 @@
 
                                        self.link = response[@"link"];
                                        
-                                       [[NSUserDefaults standardUserDefaults] setObject:self.group.identifier forKey:@"currentGroupId"];
-                                       [[NSUserDefaults standardUserDefaults] setObject:self.group.name forKey:@"currentGroupName"];
-                                       [[NSUserDefaults standardUserDefaults] setObject:self.group.members forKey:@"currentGroupMembers"];
+                                       [[NSUserDefaults standardUserDefaults] setObject:self.group.identifier   forKey:@"currentGroupId"];
+                                       [[NSUserDefaults standardUserDefaults] setObject:self.group.name         forKey:@"currentGroupName"];
+                                       [[NSUserDefaults standardUserDefaults] setObject:self.group.members      forKey:@"currentGroupMembers"];
                                        [[NSUserDefaults standardUserDefaults] setObject:self.group.activeMember forKey:@"currentMember"];
-                                       [[NSUserDefaults standardUserDefaults] setObject:self.group.currency forKey:@"currentGroupCurrency"];
+                                       [[NSUserDefaults standardUserDefaults] setObject:self.group.currency     forKey:@"currentGroupCurrency"];
                                        
                                        [[NSNotificationCenter defaultCenter] postNotificationName:@"newGroupSelected" object:nil];
                                        NSLog(@"GroupMemberViewController: post Notification newGroupSelected");
+                                       
                                        [[NSNotificationCenter defaultCenter] postNotificationName:@"doneAddMember" object:nil];
                                        NSLog(@"GroupMemberViewController: post Notification doneAddMember");
                                      
@@ -488,6 +494,9 @@
                                    }
                                    failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                        NSLog(@"error: %@", error);
+                                       [self.spinner stopAnimating];
+                                       self.cancelButton.hidden = NO;
+                                       self.nextButton.hidden = NO;
                                    }];
 }
 

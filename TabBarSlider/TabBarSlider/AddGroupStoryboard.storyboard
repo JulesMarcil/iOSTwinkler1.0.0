@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4Wg-GR-YtS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4Wg-GR-YtS">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
@@ -232,6 +232,11 @@
                                                     <action selector="doneButton:" destination="xwu-3j-5Ge" eventType="touchUpInside" id="Nqr-Jx-uPW"/>
                                                 </connections>
                                             </button>
+                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="H2c-sg-pjb">
+                                                <rect key="frame" x="142" y="4" width="37" height="37"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            </activityIndicatorView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Rir-Da-ug8">
                                                 <rect key="frame" x="-1" y="0.0" width="161" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -436,6 +441,7 @@
                         <outlet property="nextButton" destination="cTd-60-6mo" id="crW-KA-Svs"/>
                         <outlet property="scrollView" destination="qMA-E0-l6S" id="52a-HX-72l"/>
                         <outlet property="searchTextField" destination="00q-21-Kp3" id="frT-eN-j0k"/>
+                        <outlet property="spinner" destination="H2c-sg-pjb" id="7bk-zD-RK6"/>
                         <segue destination="tNB-5P-bto" kind="push" identifier="MembersToInvite" id="vth-i7-McO"/>
                     </connections>
                 </viewController>
@@ -740,10 +746,10 @@
             </objects>
             <point key="canvasLocation" x="2213" y="-1338"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation Controller - addGroupNavigationController-->
         <scene sceneID="Ayr-Zd-e2X">
             <objects>
-                <navigationController id="4Wg-GR-YtS" sceneMemberID="viewController">
+                <navigationController title="addGroupNavigationController" id="4Wg-GR-YtS" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Y5I-wL-B0J">

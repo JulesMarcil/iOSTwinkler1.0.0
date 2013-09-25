@@ -181,13 +181,10 @@
 
 - (void)changeDate:(UIDatePicker *)sender {
     
-    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MMM dd, yyy"];
     NSString *strDate = [dateFormatter stringFromDate:sender.date];
-    
     self.dateLabel.text=strDate;
-    
 }
 
 - (void)removeViews:(id)object {
@@ -375,6 +372,13 @@
         //Get date of today
         NSDate *today = [NSDate date];
         
+        // Get added date
+        NSString *dateString = self.dateLabel.text;
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"MMM dd, yyy"];
+        NSDate *dateFromString = [[NSDate alloc] init];
+        dateFromString = [dateFormatter dateFromString:dateString];
+        
         //Create Member Array (to be completed)
         NSMutableArray *selectedMembers = [[NSMutableArray alloc] init];
         
@@ -395,7 +399,7 @@
                                                           name:self.expenseName.text
                                                         amount:[NSNumber numberWithInteger: [self.expenseAmount.text integerValue]]
                                                          owner:self.selectedExpenseOwner
-                                                          date:today
+                                                          date:dateFromString
                                                        members:selectedMembers
                                                         author:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"name"]
                                                      addedDate:today
@@ -403,6 +407,9 @@
                             ];
         
         self.expense = expense;
+        
+        NSNumber *timestamp = [NSNumber numberWithDouble:[self.expense.date timeIntervalSince1970]];
+        NSLog(@"timestamp %@", timestamp);
         
         //create selected member ids array
         NSMutableArray *selectedIds = [[NSMutableArray alloc] init];
@@ -416,6 +423,7 @@
         NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:
                                     self.expense.name, @"name",
                                     self.expense.amount, @"amount",
+                                    timestamp, @"date",
                                     currentGroupId, @"currentGroupId",
                                     self.selectedExpenseOwner[@"id"], @"owner_id",
                                     selectedIds, @"member_ids",

@@ -219,10 +219,16 @@
                                               NSError *error = nil;
                                               NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
                                               
-                                              [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentMember"];
-                                              NSLog(@"response = %@", response);
                                               
                                               [[NSNotificationCenter defaultCenter] postNotificationName:@"groupClosedSuccessfully" object:nil];
+                                              
+                                              [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentMember"];
+                                              
+                                              [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupName"];
+                                              [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupMembers"];
+                                              [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupCurrency"];
+                                              [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupIndex"];
+                                              NSLog(@"response = %@", response);
                                               
                                               UINavigationController * navigationController = self.navigationController.navigationController;
                                               

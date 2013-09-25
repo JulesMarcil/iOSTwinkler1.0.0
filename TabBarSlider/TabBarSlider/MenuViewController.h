@@ -29,6 +29,6 @@
 
 - (IBAction)Logout:(id)sender;
 - (IBAction)createGroup:(id)sender;
-
+-(void) pushNewGroup:(Group *)selectedGroup;
 
 @end

@@ -49,12 +49,6 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataRetrieved) name:@"messagesWithJSONFinishedLoading" object:nil];
     
-    self.refreshTimer = [NSTimer scheduledTimerWithTimeInterval:5.0
-                                                         target:self
-                                                       selector:@selector(dataRefresh)
-                                                       userInfo:nil
-                                                        repeats:YES];
-    
     self.timelineView.backgroundColor=[UIColor colorWithRed:(245/255.0) green:(245/255.0) blue:(245/255.0) alpha:1];
     
     //-------------Position----------------------------
@@ -103,7 +97,22 @@
     NSArray* buttons = [NSArray arrayWithObjects:button1, button2, button3, nil];
     
     self.navigation = [[ExpandableNavigation alloc] initWithMenuItems:buttons mainButton:self.main radius:120.0];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     
+    self.refreshTimer = [NSTimer scheduledTimerWithTimeInterval:5.0
+                                                         target:self
+                                                       selector:@selector(dataRefresh)
+                                                       userInfo:nil
+                                                        repeats:YES];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.refreshTimer invalidate];
+    self.refreshTimer = nil;
 }
 
 - (void)dataRefresh{
@@ -189,11 +198,6 @@
     
     [self.messageDataController addMessage:message];
     [self.messageOnTimeline reloadData];
-}
-
--(void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [self.refreshTimer invalidate];
 }
 
 - (void)viewDidUnload
