@@ -63,7 +63,6 @@
     
     self.expenseListTable.separatorColor = [UIColor clearColor];
     
-    
     self.view.backgroundColor=[UIColor colorWithRed:(245/255.0) green:(245/255.0) blue:(245/255.0) alpha:1];
     self.headerViewContainer.backgroundColor=[UIColor colorWithRed:(245/255.0) green:(245/255.0) blue:(245/255.0) alpha:1];
     
@@ -223,6 +222,7 @@
     
     
     cell.cellSeparatorView.backgroundColor = [UIColor colorWithRed:(236/255.0) green:(231/255.0) blue:(223/255.0) alpha: 1];
+    
 
     return cell;
 }
