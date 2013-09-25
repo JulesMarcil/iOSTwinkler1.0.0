@@ -358,6 +358,7 @@
         [UIView setAnimationDuration:0.2];
         cell.checkIcon.alpha=1;
         cell.memberProfilePic.alpha=1;
+        cell.isSelected=YES;
         [UIView commitAnimations];
     }
 }
