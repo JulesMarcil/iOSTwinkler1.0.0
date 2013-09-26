@@ -35,12 +35,19 @@
     [self.darkLine setFrame:CGRectMake(frame.origin.x, FBFrame.origin.y+44+15, frame.size.width, frame.size.height)];
     frame=[self.whiteLine frame];
     [self.whiteLine setFrame:CGRectMake(frame.origin.x, FBFrame.origin.y+44+16, frame.size.width, frame.size.height)];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(FacebookError) name:@"facebookError" object:nil];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)FacebookError{
+    [self.FBspinner stopAnimating];
+    [self.FBButton setTitleColor:[UIColor colorWithRed:255/255 green:255/255 blue:255/255 alpha:1] forState: UIControlStateNormal];
 }
 
 - (IBAction)FacebookLogin:(id)sender {

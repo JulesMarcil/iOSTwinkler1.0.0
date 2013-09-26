@@ -702,6 +702,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="7Lt-et-GKe"/>
                     <connections>
+                        <outlet property="FBButton" destination="LLf-8g-GbE" id="pnr-hd-JJm"/>
                         <outlet property="FBspinner" destination="aAy-AQ-Jrf" id="Byg-x3-qhp"/>
                         <outlet property="errorLabel" destination="Wws-dh-fAg" id="Zg3-Nb-pJo"/>
                         <outlet property="errorView" destination="20E-4a-Bh8" id="KXh-6Z-Ncb"/>

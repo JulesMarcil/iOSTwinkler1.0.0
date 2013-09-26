@@ -39,12 +39,18 @@
     self.errorView.layer.cornerRadius = 5;
     self.errorView.layer.masksToBounds = YES;
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(FacebookError) name:@"facebookError" object:nil];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)FacebookError{
+    [self.FBspinner stopAnimating];
+    [self.FBButton setTitleColor:[UIColor colorWithRed:255/255 green:255/255 blue:255/255 alpha:1] forState: UIControlStateNormal];
 }
 
 - (IBAction)EmailLogin:(id)sender {

@@ -165,6 +165,7 @@
     }
     
     if (error) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"facebookError" object:nil];
         UIAlertView *alertView = [[UIAlertView alloc]
                                   initWithTitle:@"Oops"
                                   message:@"Facebook is not responding, please try again"
