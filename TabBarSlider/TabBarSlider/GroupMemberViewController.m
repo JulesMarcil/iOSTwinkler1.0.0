@@ -451,7 +451,7 @@
                                    success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                        NSError *error = nil;
                                        NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
-                                       //NSLog(@"%@", response);
+                                       NSLog(@"%@", response);
                                        
                                        self.group.identifier = response[@"id"];
                                        self.group.name = response[@"name"];
