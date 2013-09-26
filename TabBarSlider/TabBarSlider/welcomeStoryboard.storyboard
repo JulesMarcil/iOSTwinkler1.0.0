@@ -518,12 +518,12 @@
                                 </subviews>
                             </scrollView>
                             <view contentMode="scaleToFill" id="lNK-4u-luY">
-                                <rect key="frame" x="20" y="154" width="280" height="1"/>
+                                <rect key="frame" x="20" y="262" width="280" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.88235300780000003" green="0.88235300780000003" blue="0.88235300780000003" alpha="1" colorSpace="deviceRGB"/>
                             </view>
                             <view contentMode="scaleToFill" id="Ko8-Iw-iCK">
-                                <rect key="frame" x="20" y="155" width="280" height="1"/>
+                                <rect key="frame" x="20" y="263" width="280" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
