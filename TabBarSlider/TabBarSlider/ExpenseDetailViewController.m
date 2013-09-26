@@ -113,10 +113,6 @@
     UIColor *borderColor = [UIColor colorWithRed:(200/255.0) green:(200/255.0) blue:(200/255.0) alpha:1] ;
     UIColor *textColor = [UIColor colorWithRed:(65/255.0) green:(65/255.0) blue:(65/255.0) alpha:1] ;
     
-    [self.editBtn setTitleColor: textColor forState: UIControlStateNormal];
-    [self.editBtn.layer  setBorderColor:borderColor.CGColor];
-    [self.editBtn.layer  setBorderWidth:1.0];
-    
     [self.deleteBtn setTitleColor: textColor forState: UIControlStateNormal];
     [self.deleteBtn.layer  setBorderColor:borderColor.CGColor];
     [self.deleteBtn.layer  setBorderWidth:1.0];

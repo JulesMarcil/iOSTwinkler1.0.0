@@ -23,7 +23,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *shareLabel;
 @property (weak, nonatomic) IBOutlet UILabel *expenseMembersLabel;
 @property (weak, nonatomic) IBOutlet UITableView *memberTableView;
-@property (weak, nonatomic) IBOutlet UIButton *editBtn;
 @property (weak, nonatomic) IBOutlet UIButton *deleteBtn;
 @property (weak, nonatomic) IBOutlet UILabel *expenseAuthorLabel;
 @property (strong, nonatomic) Expense *expense;
