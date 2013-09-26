@@ -18,6 +18,9 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (weak, nonatomic) IBOutlet UIView *errorView;
 @property (weak, nonatomic) IBOutlet UILabel *errorLabel;
+@property (weak, nonatomic) IBOutlet UIView *darkLine;
+@property (weak, nonatomic) IBOutlet UIView *whiteLine;
+@property (weak, nonatomic) IBOutlet UIButton *FBButton;
 
 - (IBAction)FacebookLogin:(id)sender;
 - (IBAction)EmailRegister:(id)sender;

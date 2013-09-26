@@ -29,6 +29,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    CGRect FBFrame=[self.FBButton frame];
+    CGRect frame=[self.darkLine frame];
+    [self.darkLine setFrame:CGRectMake(frame.origin.x, FBFrame.origin.y+44+15, frame.size.width, frame.size.height)];
+    frame=[self.whiteLine frame];
+    [self.whiteLine setFrame:CGRectMake(frame.origin.x, FBFrame.origin.y+44+16, frame.size.width, frame.size.height)];
 }
 
 - (void)didReceiveMemoryWarning

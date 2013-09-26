@@ -515,31 +515,34 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.61778539539999999" green="0.0" blue="0.0067035932410000002" alpha="0.14000000000000001" colorSpace="calibratedRGB"/>
                                     </view>
+                                    <view contentMode="scaleToFill" id="lNK-4u-luY">
+                                        <rect key="frame" x="20" y="252" width="280" height="1"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.88235300780000003" green="0.88235300780000003" blue="0.88235300780000003" alpha="1" colorSpace="deviceRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" id="Ko8-Iw-iCK">
+                                        <rect key="frame" x="20" y="252" width="280" height="1"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
                             </scrollView>
-                            <view contentMode="scaleToFill" id="lNK-4u-luY">
-                                <rect key="frame" x="20" y="262" width="280" height="1"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.88235300780000003" green="0.88235300780000003" blue="0.88235300780000003" alpha="1" colorSpace="deviceRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="Ko8-Iw-iCK">
-                                <rect key="frame" x="20" y="263" width="280" height="1"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.90588241815567017" green="0.90588241815567017" blue="0.90588241815567017" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="kfW-lf-MtA"/>
                     <connections>
+                        <outlet property="FBButton" destination="9zq-fI-8ZI" id="liY-xr-VAm"/>
                         <outlet property="FBspinner" destination="jsO-bi-Yje" id="wNu-gA-qgz"/>
                         <outlet property="confirmEmailInput" destination="KQP-85-02K" id="lGU-RR-0c2"/>
+                        <outlet property="darkLine" destination="lNK-4u-luY" id="fj0-WL-FN9"/>
                         <outlet property="emailInput" destination="A69-Ke-ooI" id="Itw-BN-WhF"/>
                         <outlet property="errorLabel" destination="MN0-Vs-TOB" id="NTe-Fz-EOo"/>
                         <outlet property="errorView" destination="G2r-S2-H2S" id="85q-c8-c4m"/>
                         <outlet property="passwordInput" destination="27T-GR-qkT" id="SNu-Nz-5ex"/>
                         <outlet property="spinner" destination="Xof-mt-k1N" id="bPX-Ba-AAN"/>
                         <outlet property="usernameInput" destination="d3R-3w-Sut" id="IyX-0r-Xxj"/>
+                        <outlet property="whiteLine" destination="Ko8-Iw-iCK" id="HWd-rH-qDP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="blr-AR-MCv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -756,10 +759,8 @@
         <image name="Twinkler_star.png" width="300" height="286"/>
         <image name="bckgd-2.png" width="1626" height="3000"/>
         <image name="facebook.png" width="69" height="85"/>
-        <image name="facebook.png" width="69" height="85"/>
         <image name="gear.png" width="156" height="156"/>
         <image name="heart-icon.png" width="23" height="20"/>
-        <image name="left-arrow.png" width="11" height="23"/>
         <image name="left-arrow.png" width="11" height="23"/>
         <image name="login-bckgd.png" width="320" height="560"/>
         <image name="profile-pic.png" width="160" height="160"/>
