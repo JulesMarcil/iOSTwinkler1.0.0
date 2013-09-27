@@ -8,19 +8,18 @@
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
-	<key>CFBundleIcons</key>
-	<dict>
-		<key>CFBundlePrimaryIcon</key>
-		<dict>
-			<key>CFBundleIconFiles</key>
-			<array>
-				<string>Icon-app.png</string>
-				<string>Icon-app-retina.png</string>
-			</array>
-			<key>UIPrerenderedIcon</key>
-			<true/>
-		</dict>
-	</dict>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string>icon-80</string>
+		<string>icon-58</string>
+		<string>icon-29</string>
+		<string>icon.png</string>
+		<string>icon@2x.png</string>
+		<string>icon-60.png</string>
+		<string>icon-76.png</string>
+		<string>icon-120.png</string>
+		<string>icon-152.png</string>
+	</array>
 	<key>CFBundleIdentifier</key>
 	<string>co.twinkler.app</string>
 	<key>CFBundleName</key>
@@ -48,6 +47,8 @@
 	<string>Twinkler</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UILaunchImageFile</key>
+	<string>Default</string>
 	<key>UIMainStoryboardFile</key>
 	<string>welcomeStoryboard</string>
 	<key>UIPrerenderedIcon</key>
