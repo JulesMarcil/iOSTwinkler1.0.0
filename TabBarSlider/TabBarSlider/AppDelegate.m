@@ -197,7 +197,7 @@
     [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id<FBGraphUser> user, NSError *error) {
         if (!error) {
             
-            [[NSUserDefaults standardUserDefaults] setObject:user.id forKey:@"facebookId"];
+            [[NSUserDefaults standardUserDefaults] setObject:[user objectForKey:@"id"] forKey:@"facebookId"];
             [[NSUserDefaults standardUserDefaults] setObject:user.name forKey:@"facebookName"];
             
             NSString *fbAccessToken = [[[FBSession activeSession] accessTokenData] accessToken];
