@@ -31,7 +31,7 @@
     if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
         [self openSession];
     }else if (authToken){
-        [self refreshAuthToken];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"loginSuccess" object:nil];
     }else{
         [self showLoginView];
     }
