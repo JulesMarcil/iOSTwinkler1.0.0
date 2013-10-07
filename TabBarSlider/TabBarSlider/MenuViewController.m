@@ -35,18 +35,18 @@
     
 }
 
-- (void)loginSuccess
-{
-    NSLog(@"menuViewController %@: loginSuccess", self.title);
-    self.groupDataController = nil;
-    self.profile = nil;
-    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-    [[NSNotificationCenter defaultCenter] addObserver:appDelegate selector:@selector(dismissLoginView) name:@"profileDisplayed" object:nil];
-    [self loadData];
-}
-
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
+    
+    CredentialStore *store = [[CredentialStore alloc] init];
+    NSString *authToken = [store authToken];
+    
+    if (authToken) {
+        [self loadData];
+    }
+    if ([self.title isEqual: @"welcomeMenu"]){
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:@"loginSuccess"    object:nil];
+    }
+    
     NSLog(@"menuViewController %@: viewDidLoad", self.title);
     [super viewDidLoad];
     
@@ -54,10 +54,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(profileDataRetrieved) name:@"profileWithJSONFinishedLoading" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData)             name:@"doneAddMember"                  object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeCurrentGroup)   name:@"groupClosedSuccessfully"        object:nil];
-    
-    if ([self.title isEqual: @"welcomeMenu"]){
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:@"loginSuccess"    object:nil];
-    }
     
     if (![self.title isEqual: @"welcomeMenu"]){
         [self loadData];
@@ -93,6 +89,16 @@
     [self.addGroupButton.layer setBorderWidth:1.0];
     self.groupOnMenu.separatorColor = [UIColor clearColor];
     self.groupOnMenu.separatorStyle = UITableViewCellSeparatorStyleNone;
+}
+
+- (void)loginSuccess {
+    
+    NSLog(@"menuViewController %@: loginSuccess", self.title);
+    self.groupDataController = nil;
+    self.profile = nil;
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    [[NSNotificationCenter defaultCenter] addObserver:appDelegate selector:@selector(dismissLoginView) name:@"profileDisplayed" object:nil];
+    [self loadData];
 }
 
 -(void) backToGroup{
