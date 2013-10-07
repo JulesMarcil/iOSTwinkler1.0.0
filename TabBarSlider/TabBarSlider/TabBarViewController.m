@@ -83,6 +83,10 @@
     [self.listButton addTarget:self action:@selector(listButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.listButton addTarget:self action:@selector(goToList) forControlEvents:UIControlEventTouchUpInside];
     
+    if (self.leftButton.hidden==NO) {
+        NSLog(@"button invisible");
+    };
+    
     [self.revealButtonItem addTarget:self.revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
     [self.leftButton addTarget:self.revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
     [self.leftButton addGestureRecognizer: self.revealViewController.panGestureRecognizer];
