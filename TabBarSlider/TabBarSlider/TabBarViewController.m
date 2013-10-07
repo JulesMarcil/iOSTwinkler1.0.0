@@ -65,7 +65,7 @@
                                       0,
                                       frame.size.width,
                                       100)];
-    self.toolbar.backgroundColor=[UIColor colorWithRed:(236/255.0) green:(162/255.0) blue:(150/255.0) alpha:0.95];
+    self.toolbar.backgroundColor=[UIColor colorWithRed:(166/255.0) green:(37/255.0) blue:(15/255.0) alpha:0.90];
     
     
     self.tabBarBck.layer.cornerRadius = 2;
@@ -93,7 +93,7 @@
     [self.revealButtonItem addTarget:self action:@selector(hideLeftToggle) forControlEvents:UIControlEventTouchUpInside];
     [self.leftButton addTarget:self action:@selector(hideLeftToggle) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.revealViewController.panGestureRecognizer addTarget:self action:@selector(GestureEnded:)];
+    [self.revealViewController.panGestureRecognizer addTarget:self action:@selector(PanGestureEnded:)];
     
     
     //-----ScrollView------//
@@ -168,7 +168,7 @@
     
 }
 
--(void)GestureEnded:(UIPanGestureRecognizer *)gesture{
+-(void)PanGestureEnded:(UIPanGestureRecognizer *)gesture{
     if (gesture.state==UIGestureRecognizerStateEnded) {
         [self hideLeftToggle];
     }

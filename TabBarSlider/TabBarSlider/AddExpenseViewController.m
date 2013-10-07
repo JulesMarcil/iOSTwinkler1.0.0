@@ -209,6 +209,11 @@
     if ([self.view viewWithTag:9]) {
         return;
     }
+    
+    
+    [self.expenseAmount resignFirstResponder];
+    [self.expenseName resignFirstResponder];
+    
     CGRect toolbarTargetFrame = CGRectMake(0, self.view.bounds.size.height-216-44, 320, 44);
     CGRect datePickerTargetFrame = CGRectMake(0, self.view.bounds.size.height-216, 320, 216);
     
@@ -289,6 +294,10 @@
     if ([self.view viewWithTag:9]) {
         return;
     }
+    
+    
+    [self.expenseAmount resignFirstResponder];
+    [self.expenseName resignFirstResponder];
     
     CGRect toolbarTargetFrame = CGRectMake(0, self.view.bounds.size.height-216-44, 320, 44);
     CGRect datePickerTargetFrame = CGRectMake(0, self.view.bounds.size.height-216, 320, 216);
