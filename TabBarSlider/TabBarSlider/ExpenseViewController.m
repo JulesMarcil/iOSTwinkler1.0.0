@@ -29,6 +29,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.refreshSpinner.hidden = NO;
     self.expenseDataController = [[ExpenseDataController alloc] init];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addExpense:) name:@"expenseAddedSuccesfully" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeExpense:) name:@"expenseRemovedSuccesfully" object:nil];
@@ -89,6 +90,7 @@
 - (void)dataRetrieved {
     [self.expenseListTable reloadData];
     [self setBalanceLabelValue:self.expenseDataController.balance];
+    self.refreshSpinner.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
