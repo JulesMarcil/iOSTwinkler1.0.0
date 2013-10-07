@@ -120,14 +120,9 @@
     cell.nameLabel.text = memberAtIndex[@"name"];
     
     NSDictionary *currency=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"];
-    NSNumberFormatter *format = [[NSNumberFormatter alloc]init];
-    [format setNumberStyle:NSNumberFormatterDecimalStyle];
-    [format setRoundingMode:NSNumberFormatterRoundHalfUp];
-    [format setMaximumFractionDigits:2];
-    NSNumber *balance = [NSNumber numberWithFloat:[memberAtIndex[@"balance"] floatValue]];
     
-    cell.balanceLabel.text = [NSString stringWithFormat:@"%@ %@" ,currency[@"symbol"], [balance stringValue]];
-    
+    NSNumber *balance = memberAtIndex[@"balance"];
+    cell.balanceLabel.text = [NSString stringWithFormat:@"%@ %g" ,currency[@"symbol"], [balance doubleValue]];
     
     if ([balance doubleValue]> 0) {
         cell.balanceLabel.textColor = [UIColor colorWithRed:(116/255.0) green:(178/255.0) blue:(20/255.0) alpha: 1];
@@ -201,11 +196,13 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
         if (buttonIndex == 0) {
+            
             //NO clicked
             NSLog(@"No clicked");
             NSLog(@"nav array class = %@", self.navigationController.viewControllers.class);
             NSLog(@"nav array count = %lu", (unsigned long)self.navigationController.viewControllers.count);
             NSLog(@"root viewcontroller class = %@", self.navigationController.topViewController.class);
+            
         } else if (buttonIndex == 1) {
             
             //YES clicekd
