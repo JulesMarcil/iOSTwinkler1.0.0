@@ -65,7 +65,7 @@
                                       0,
                                       frame.size.width,
                                       100)];
-    self.toolbar.backgroundColor=[UIColor colorWithRed:(166/255.0) green:(37/255.0) blue:(15/255.0) alpha:0.90];
+    self.toolbar.backgroundColor=[UIColor colorWithRed:(219/255.0) green:(75/255.0) blue:(75/255.0) alpha:0.90];
     
     
     self.tabBarBck.layer.cornerRadius = 2;
