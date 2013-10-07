@@ -489,6 +489,10 @@
                                     <outlet property="delegate" destination="uss-B9-F3Z" id="5DF-c0-Z5S"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" id="miP-Fm-QVf">
+                                <rect key="frame" x="0.0" y="200" width="320" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                             <view contentMode="scaleToFill" id="rSD-LK-zZB">
                                 <rect key="frame" x="0.0" y="311" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -537,6 +541,7 @@
                         <outlet property="balanceLabel" destination="9eN-MS-ktE" id="UfO-Em-wZW"/>
                         <outlet property="expenseListTable" destination="H48-RZ-UpL" id="hcM-g7-UEp"/>
                         <outlet property="headerViewContainer" destination="xRb-VC-kfj" id="DTq-mi-dYm"/>
+                        <outlet property="refreshSpinner" destination="miP-Fm-QVf" id="Hto-m2-IYS"/>
                         <outlet property="timelineImage" destination="CTl-I7-soh" id="sgm-ZD-DKk"/>
                         <outlet property="viewContainer" destination="cz8-0D-50U" id="ivd-Re-djm"/>
                     </connections>
@@ -737,13 +742,19 @@
     </scenes>
     <resources>
         <image name="add-expense-bckgd.png" width="320" height="460"/>
+        <image name="add-expense-bckgd.png" width="320" height="460"/>
         <image name="balance-knob.png" width="30" height="30"/>
         <image name="bin.png" width="50" height="50"/>
         <image name="chevron-arrow.png" width="23" height="11"/>
         <image name="edit-button.png" width="30" height="26"/>
+        <image name="edit-button.png" width="30" height="26"/>
         <image name="green-check.png" width="16" height="12"/>
         <image name="plus.png" width="21" height="21"/>
         <image name="profile-pic-placeholder.png" width="160" height="160"/>
+        <image name="profile-pic-placeholder.png" width="160" height="160"/>
+        <image name="profile-pic-placeholder.png" width="160" height="160"/>
+        <image name="timeline-line.png" width="6" height="11"/>
+        <image name="timeline-line.png" width="6" height="11"/>
         <image name="timeline-line.png" width="6" height="11"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
