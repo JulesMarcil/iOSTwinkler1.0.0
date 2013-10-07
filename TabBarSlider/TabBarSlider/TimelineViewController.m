@@ -86,12 +86,6 @@
     self.timelineTextBoxContainer.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
     self.timelineTextBoxContainer.layer.borderWidth = 1.0f;
     
-    
-    
-    
-    
-    
-    
     //-------------Expandable Button----------------------------
     // initialize ExpandableNavigation object with an array of buttons.
     NSArray* buttons = [NSArray arrayWithObjects:button1, button2, button3, nil];
@@ -168,8 +162,6 @@
                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                       NSLog(@"error: %@", error);
                                   }];
-    
-    
     
 }
 
@@ -285,7 +277,6 @@
             
             cell.messageLabel.text=messageAtIndex.body;
             
-            
             CGRect frame = cell.messageLabel.frame;
             frame.size.height = cell.messageLabel.contentSize.height+20;
             CGSize sz = [cell.messageLabel.text sizeWithFont:cell.messageLabel.font constrainedToSize:CGSizeMake(200, 20000) lineBreakMode:NSLineBreakByWordWrapping];
@@ -328,9 +319,8 @@
                 cell.timelineTimeLabel.text=[formatter stringFromDate:(NSDate*)messageAtIndex.date];
             }
             
-            
             return cell;
-        }else{
+        } else {
             static NSString *CellIdentifier = @"timelineCell";
             static NSDateFormatter *formatter = nil;
             
@@ -429,13 +419,9 @@
             
             [cell.memberProfilePicImage setFrame:CGRectMake(10,(int) sze.height-10, 35, 35)];
             
-          
             return cell;
         }
-        
-        
-    }
-    else{
+    } else {
         static NSString *CellIdentifier = @"notificationCell";
         static NSDateFormatter *formatter = nil;
         if (formatter == nil) {
@@ -468,21 +454,19 @@
         
         if ([messageAtIndex.owner isEqual: @"You"]) {
             cell.getLabel.text = @"You get";
-            cell.shareLabel.text = [NSString stringWithFormat:@"%@ %@", currency[@"symbol"], messageAtIndex.share];
+            cell.shareLabel.text = [NSString stringWithFormat:@"%@ %g", currency[@"symbol"], [messageAtIndex.share doubleValue]];
             cell.shareLabel.textColor = [UIColor colorWithRed:(116/255.0) green:(178/255.0) blue:(20/255.0) alpha: 1];
         } else {
             cell.getLabel.text = @"You owe";
             if ([messageAtIndex.share doubleValue] == 0) {
                 cell.shareLabel.text = [NSString stringWithFormat:@"%@ 0", currency[@"symbol"]];
             } else {
-                cell.shareLabel.text = [NSString stringWithFormat:@"%@ %@", currency[@"symbol"], [NSNumber numberWithDouble:([messageAtIndex.share doubleValue]*-1)]];
+                cell.shareLabel.text = [NSString stringWithFormat:@"%@ %g", currency[@"symbol"], ([messageAtIndex.share doubleValue]*-1)];
             }
             cell.shareLabel.textColor = [UIColor colorWithRed:(202/255.0) green:(73/255.0) blue:(60/255.0) alpha: 1];
         }
         
         cell.expenseName.text =messageAtIndex.name;
-
-        
         return cell;
     }
 }

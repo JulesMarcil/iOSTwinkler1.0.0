@@ -27,30 +27,25 @@
 
 @synthesize expenseListTable=_expenseListTable;
 
-- (void)awakeFromNib
-{
+- (void)awakeFromNib {
     [super awakeFromNib];
     self.expenseDataController = [[ExpenseDataController alloc] init];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addExpense:) name:@"expenseAddedSuccesfully" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeExpense:) name:@"expenseRemovedSuccesfully" object:nil];
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        
     }
     return self;
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
+- (void)viewDidLoad {
     
+    [super viewDidLoad];
     [self setBalanceLabelValue:self.expenseDataController.balance];
-
     
     [[NSNotificationCenter defaultCenter]
      addObserver:self
@@ -58,17 +53,13 @@
      name:@"expensesWithJSONFinishedLoading"
      object:nil];
     
-    
     self.expenseListTable.allowsSelectionDuringEditing = YES;
-    
     self.expenseListTable.separatorColor = [UIColor clearColor];
-    
     self.view.backgroundColor=[UIColor colorWithRed:(245/255.0) green:(245/255.0) blue:(245/255.0) alpha:1];
     self.headerViewContainer.backgroundColor=[UIColor colorWithRed:(245/255.0) green:(245/255.0) blue:(245/255.0) alpha:1];
     
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenHeight = screenRect.size.height;
-    
     
     CGRect frame= [self.view frame];
     
@@ -90,7 +81,6 @@
                                             321,
                                             frame.size.height)];
     
-    
     self.addExpenseView.layer.masksToBounds = YES;
     self.addExpenseView.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
     self.addExpenseView.layer.borderWidth = 1.0f;
@@ -101,23 +91,22 @@
     [self setBalanceLabelValue:self.expenseDataController.balance];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 // data management function
-- (void) setBalanceLabelValue:(NSNumber *)balance {
+- (void)setBalanceLabelValue:(NSNumber *)balance {
     
     if ([balance intValue] > 0) {
-        self.balanceLabel.text = [NSString stringWithFormat:@"+%@", balance];
+        self.balanceLabel.text = [NSString stringWithFormat:@"+%g", [balance doubleValue]];
     } else {
-        self.balanceLabel.text = [NSString stringWithFormat:@"%@", balance];
+        self.balanceLabel.text = [NSString stringWithFormat:@"%g", [balance doubleValue]];
     }
 }
 
-- (void) addExpense:(NSNotification *)note{
+- (void)addExpense:(NSNotification *)note{
     
     NSLog(@"add expense function called");
     
@@ -126,7 +115,7 @@
     [self.expenseListTable reloadData];
 }
 
-- (void) removeExpense:(NSNotification *)note{
+- (void)removeExpense:(NSNotification *)note{
     
     NSLog(@"remove expense function called");
     
@@ -136,36 +125,31 @@
 }
 // end of data management function
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
-- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.expenseDataController countOfList];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *CellIdentifier = @"expenseCell";
-    static NSDateFormatter *formatter = nil;
-    if (formatter == nil) {
-        formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateStyle:NSDateFormatterMediumStyle];
-    }
-    ExpenseItemCell *cell = [tableView
-                             dequeueReusableCellWithIdentifier:CellIdentifier];
     
+    static NSDateFormatter *formatter = nil;
+    formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    
+    ExpenseItemCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     cell.backgroundColor=[UIColor clearColor];
     
     if (cell == nil){
         cell = (ExpenseItemCell*) [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     };
     
-    
     //Set expense
-    Expense *expenseAtIndex = [self.expenseDataController
-                               objectInListAtIndex:indexPath.row];
+    Expense *expenseAtIndex = [self.expenseDataController objectInListAtIndex:indexPath.row];
     
     //Set picture
     NSString *path = expenseAtIndex.owner[@"picturePath"];
@@ -200,7 +184,6 @@
     
     
     //Set labels
-    
     cell.self.expenseNameLabel.text = expenseAtIndex.name;
     
     NSDictionary *currency=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"];
@@ -208,31 +191,28 @@
     
     if ([expenseAtIndex.owner[@"name"] isEqual: @"You"]) {
         cell.getLabel.text = @"You get";
-        cell.shareLabel.text = [NSString stringWithFormat:@"%@ %@", currency[@"symbol"], expenseAtIndex.share];
+        cell.shareLabel.text = [NSString stringWithFormat:@"%@ %g", currency[@"symbol"], [expenseAtIndex.share doubleValue]];
         cell.shareLabel.textColor = [UIColor colorWithRed:(116/255.0) green:(178/255.0) blue:(20/255.0) alpha: 1];
     } else {
         cell.getLabel.text = @"You owe";
         if ([expenseAtIndex.share doubleValue] == 0) {
             cell.shareLabel.text = [NSString stringWithFormat:@"%@ 0", currency[@"symbol"]];
         } else {
-            cell.shareLabel.text = [NSString stringWithFormat:@"%@ %@", currency[@"symbol"], [NSNumber numberWithDouble:([expenseAtIndex.share doubleValue]*-1)]];
+            cell.shareLabel.text = [NSString stringWithFormat:@"%@ %g", currency[@"symbol"], ([expenseAtIndex.share doubleValue]*-1)];
         }
         cell.shareLabel.textColor = [UIColor colorWithRed:(255/255.0) green:(146/255.0) blue:(123/255.0) alpha: 1];
     }
     
-    
     cell.cellSeparatorView.backgroundColor = [UIColor colorWithRed:(236/255.0) green:(231/255.0) blue:(223/255.0) alpha: 1];
-    
-
     return cell;
 }
 
 
 - (IBAction)addExpenseButton:(id)sender {
-    // to be kept for link to storyboard ...
+    // to be kept for link to storyboard ... (?)
 }
 
-- (IBAction)cancelAddMember:(UIStoryboardSegue *)segue{
+- (IBAction)cancelAddMember:(UIStoryboardSegue *)segue {
     if ([[segue identifier] isEqualToString:@"CancelInput"]) {
         [self dismissViewControllerAnimated:YES completion:NULL];
     }
@@ -249,7 +229,7 @@
     }
 }
 
--(void)goToTimeline{
+-(void)goToTimeline {
     UIStoryboard *timelineStoryboard=[UIStoryboard storyboardWithName:@"timelineStoryboard" bundle:nil];
     UIViewController *dst=[timelineStoryboard instantiateInitialViewController];
     
@@ -260,8 +240,6 @@
     }
     tbvc.currentViewController =dst;
     [tbvc.placeholderView addSubview:dst.view];
-    
-    
     
     CATransition *animation = [CATransition animation];
     [animation setDuration:0.3];
@@ -290,7 +268,7 @@
     [UIView commitAnimations];
 }
 
--(NSDictionary *) returnObjectFromArray:(NSArray *)array withId:(NSNumber *)identifier {
+-(NSDictionary *)returnObjectFromArray:(NSArray *)array withId:(NSNumber *)identifier {
     
     NSDictionary *member;
     for (int i=0; i < [array count]; i++){
@@ -322,8 +300,7 @@
     // Lets forget about that we were drawing
     UIGraphicsEndImageContext();
 }
--(void)setRoundedBorder:(UIImageView *)roundedView toDiameter:(float)newSize;
-{
+-(void)setRoundedBorder:(UIImageView *)roundedView toDiameter:(float)newSize; {
     CGPoint saveCenter = roundedView.center;
     CGRect newFrame = CGRectMake(roundedView.frame.origin.x, roundedView.frame.origin.y, newSize, newSize);
     roundedView.frame = newFrame;
