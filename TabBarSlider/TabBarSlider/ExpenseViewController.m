@@ -30,6 +30,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     NSLog(@"awakefromNib from ExpenseViewController");
+    self.spinnerContainer.hidden=NO;
     [self.refreshSpinner startAnimating];
     self.expenseDataController = [[ExpenseDataController alloc] init];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addExpense:) name:@"expenseAddedSuccesfully" object:nil];
@@ -86,11 +87,14 @@
     self.addExpenseView.layer.masksToBounds = YES;
     self.addExpenseView.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
     self.addExpenseView.layer.borderWidth = 1.0f;
+    
+    self.spinnerContainer.layer.cornerRadius = 10;
 }
 
 - (void)dataRetrieved {
     [self.expenseListTable reloadData];
     [self setBalanceLabelValue:self.expenseDataController.balance];
+    self.spinnerContainer.hidden=YES;
     [self.refreshSpinner stopAnimating];
 }
 

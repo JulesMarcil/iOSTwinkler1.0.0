@@ -469,7 +469,6 @@
     <resources>
         <image name="add-expense-bckgd.png" width="320" height="460"/>
         <image name="bubble-tail-blue.png" width="19" height="12"/>
-        <image name="bubble-tail-blue.png" width="19" height="12"/>
         <image name="chat-bck.png" width="1626" height="3000"/>
         <image name="main-arrow.png" width="34" height="34"/>
         <image name="main-button.png" width="34" height="34"/>

@@ -489,11 +489,25 @@
                                     <outlet property="delegate" destination="uss-B9-F3Z" id="5DF-c0-Z5S"/>
                                 </connections>
                             </tableView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" id="miP-Fm-QVf" userLabel="Large White Activity Indicator">
-                                <rect key="frame" x="151" y="207" width="20" height="20"/>
+                            <view contentMode="scaleToFill" id="wlx-2L-PY8">
+                                <rect key="frame" x="64" y="224" width="191" height="79"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </activityIndicatorView>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Updating Expenses" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OVQ-zK-goS">
+                                        <rect key="frame" x="0.0" y="50" width="191" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" id="miP-Fm-QVf" userLabel="Large White Activity Indicator">
+                                        <rect key="frame" x="77" y="10" width="37" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.75" colorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" id="rSD-LK-zZB">
                                 <rect key="frame" x="0.0" y="311" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -543,6 +557,7 @@
                         <outlet property="expenseListTable" destination="H48-RZ-UpL" id="hcM-g7-UEp"/>
                         <outlet property="headerViewContainer" destination="xRb-VC-kfj" id="DTq-mi-dYm"/>
                         <outlet property="refreshSpinner" destination="miP-Fm-QVf" id="Hto-m2-IYS"/>
+                        <outlet property="spinnerContainer" destination="wlx-2L-PY8" id="eBh-yf-sLC"/>
                         <outlet property="timelineImage" destination="CTl-I7-soh" id="sgm-ZD-DKk"/>
                         <outlet property="viewContainer" destination="cz8-0D-50U" id="ivd-Re-djm"/>
                     </connections>
