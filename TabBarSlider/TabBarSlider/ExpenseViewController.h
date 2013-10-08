@@ -25,7 +25,5 @@
 
 - (IBAction)setBalanceLabelValue:(NSNumber *)balance;
 - (IBAction)addExpenseButton:(id)sender;
-- (IBAction)cancelAddMember:(UIStoryboardSegue *)segue;
-
 
 @end
