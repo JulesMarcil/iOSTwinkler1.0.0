@@ -37,7 +37,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.spinnerContainer.hidden=NO;
+    self.spinnerContainer.hidden = NO;
     [self.refreshSpinner startAnimating];
     self.messageDataController = [[TimelineDataController alloc] init];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addExpense:) name:@"expenseAddedSuccesfully" object:nil];
@@ -47,6 +47,9 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
+    NSIndexPath* ipath = [NSIndexPath indexPathForRow: [self.messageOnTimeline numberOfRowsInSection:0]-1 inSection: 0];
+    [self.messageOnTimeline scrollToRowAtIndexPath: ipath atScrollPosition: UITableViewScrollPositionTop animated: NO];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataRetrieved) name:@"messagesWithJSONFinishedLoading" object:nil];
     

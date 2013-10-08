@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="BSy-DZ-mv2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="BSy-DZ-mv2">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
@@ -512,17 +512,13 @@
     <resources>
         <image name="bckgd-2.png" width="1626" height="3000"/>
         <image name="check-icon-active.png" width="20" height="20"/>
-        <image name="check-icon-active.png" width="20" height="20"/>
         <image name="check-icon.png" width="20" height="20"/>
-        <image name="coin-icon-active.png" width="20" height="20"/>
         <image name="coin-icon-active.png" width="20" height="20"/>
         <image name="coin-icon.png" width="20" height="20"/>
         <image name="gear.png" width="156" height="156"/>
         <image name="heart-icon.png" width="23" height="20"/>
         <image name="menu-button-white.png" width="36" height="36"/>
         <image name="profile-pic-placeholder.png" width="160" height="160"/>
-        <image name="profile-pic-placeholder.png" width="160" height="160"/>
-        <image name="tkr-icon-active.png" width="23" height="20"/>
         <image name="tkr-icon-active.png" width="23" height="20"/>
         <image name="tkr-icon.png" width="23" height="20"/>
     </resources>
