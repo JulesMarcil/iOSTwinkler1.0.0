@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *closeGroupButton;
 @property (weak, nonatomic) IBOutlet UIButton *inviteButton;
 @property (weak, nonatomic) IBOutlet UIView *dashboardTitle;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *refreshSpinner;
 
 - (IBAction)AddMemberAction:(id)sender;
 - (IBAction)CloseGroupAction:(id)sender;
