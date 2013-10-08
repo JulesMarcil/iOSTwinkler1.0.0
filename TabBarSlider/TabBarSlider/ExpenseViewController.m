@@ -29,7 +29,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.refreshSpinner.hidden = NO;
+    NSLog(@"awakefromNib from ExpenseViewController");
+    [self.refreshSpinner startAnimating];
     self.expenseDataController = [[ExpenseDataController alloc] init];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addExpense:) name:@"expenseAddedSuccesfully" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeExpense:) name:@"expenseRemovedSuccesfully" object:nil];
@@ -90,7 +91,7 @@
 - (void)dataRetrieved {
     [self.expenseListTable reloadData];
     [self setBalanceLabelValue:self.expenseDataController.balance];
-    self.refreshSpinner.hidden = YES;
+    [self.refreshSpinner stopAnimating];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -115,6 +116,7 @@
     [self.expenseDataController addExpenseWithExpense:[[note userInfo] valueForKey:@"expense"] atIndex:0];
     [self setBalanceLabelValue:[[note userInfo] valueForKey:@"balance"]];
     [self.expenseListTable reloadData];
+    [self.refreshSpinner stopAnimating];
 }
 
 - (void)removeExpense:(NSNotification *)note{
@@ -124,6 +126,7 @@
     [self.expenseDataController removeExpenseWithExpense:[[note userInfo] valueForKey:@"expense"]];
     [self setBalanceLabelValue:[[note userInfo] valueForKey:@"balance"]];
     [self.expenseListTable reloadData];
+    [self.refreshSpinner stopAnimating];
 }
 // end of data management function
 
@@ -211,13 +214,8 @@
 
 
 - (IBAction)addExpenseButton:(id)sender {
-    // to be kept for link to storyboard ... (?)
-}
-
-- (IBAction)cancelAddMember:(UIStoryboardSegue *)segue {
-    if ([[segue identifier] isEqualToString:@"CancelInput"]) {
-        [self dismissViewControllerAnimated:YES completion:NULL];
-    }
+    NSLog(@"addexpensebutton from expenseviewcontroller");
+    [self.refreshSpinner stopAnimating];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
