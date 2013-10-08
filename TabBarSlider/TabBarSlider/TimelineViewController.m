@@ -47,9 +47,7 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
-    
-    NSIndexPath* ipath = [NSIndexPath indexPathForRow: [self.messageOnTimeline numberOfRowsInSection:0]-1 inSection: 0];
-    [self.messageOnTimeline scrollToRowAtIndexPath: ipath atScrollPosition: UITableViewScrollPositionTop animated: NO];
+    [self scrollDown];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataRetrieved) name:@"messagesWithJSONFinishedLoading" object:nil];
     
@@ -159,8 +157,7 @@
                                           
                                           self.messageDataController.count = [NSNumber numberWithInt:self.messageDataController.countOfList];
                                           [self.messageOnTimeline reloadData];
-                                          NSIndexPath* ipath = [NSIndexPath indexPathForRow: [self.messageOnTimeline numberOfRowsInSection:0]-1 inSection: 0];
-                                          [self.messageOnTimeline scrollToRowAtIndexPath: ipath atScrollPosition: UITableViewScrollPositionTop animated: NO];
+                                          [self scrollDown];
                                           NSLog(@"success: %u messages added", z);
                                       }else{
                                           //NSLog(@"success: data in sync");
@@ -176,11 +173,7 @@
     [self.messageOnTimeline reloadData];
     self.spinnerContainer.hidden=YES;
     [self.refreshSpinner stopAnimating];
-    
-    if([self.messageDataController countOfList]>0){
-        NSIndexPath *myIndexPath = [NSIndexPath indexPathForRow:[self.messageDataController countOfList]-1 inSection:0];
-        [self.messageOnTimeline selectRowAtIndexPath:myIndexPath animated:NO scrollPosition:UITableViewScrollPositionBottom];
-    }
+    [self scrollDown];
 }
 
 - (void) addExpense:(NSNotification *)note{
@@ -770,6 +763,13 @@
     }
     
     [self.timelineTextBox resignFirstResponder];
+}
+
+-(void)scrollDown {
+    if([self.messageDataController countOfList]>0) {
+        NSIndexPath *myIndexPath = [NSIndexPath indexPathForRow:[self.messageDataController countOfList]-1 inSection:0];
+        [self.messageOnTimeline selectRowAtIndexPath:myIndexPath animated:NO scrollPosition:UITableViewScrollPositionBottom];
+    }
 }
 
 @end
