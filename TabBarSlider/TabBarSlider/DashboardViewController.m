@@ -84,6 +84,13 @@
     self.closeGroupButton.layer.borderWidth = 1.0f;
     
     
+    self.dashboardTitle.layer.cornerRadius = 3;
+    self.dashboardTitle.layer.masksToBounds = NO;
+    self.dashboardTitle.layer.shadowOffset = CGSizeMake(0, 0.6);
+    self.dashboardTitle.layer.shadowRadius = 1.2;
+    self.dashboardTitle.layer.shadowOpacity = 0.1;
+    
+    
 }
 - (void)didReceiveMemoryWarning
 {

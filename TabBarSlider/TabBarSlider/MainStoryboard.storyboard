@@ -50,16 +50,6 @@
                             <view contentMode="scaleToFill" id="yLr-kz-sh4">
                                 <rect key="frame" x="4" y="461" width="320" height="100"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" id="0YS-P4-w85">
-                                        <rect key="frame" x="115" y="56" width="1" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" id="92h-8l-NFF">
-                                        <rect key="frame" x="208" y="56" width="1" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                    </view>
                                     <view contentMode="scaleToFill" id="ba0-cD-7ZI">
                                         <rect key="frame" x="20" y="52" width="280" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -67,6 +57,16 @@
                                     </view>
                                     <view contentMode="scaleToFill" id="upL-xD-hup">
                                         <rect key="frame" x="114" y="52" width="95" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view alpha="0.59999999999999998" contentMode="scaleToFill" id="92h-8l-NFF">
+                                        <rect key="frame" x="208" y="56" width="1" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view alpha="0.59999999999999998" contentMode="scaleToFill" id="0YS-P4-w85">
+                                        <rect key="frame" x="115" y="56" width="1" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
@@ -204,10 +204,10 @@
                                             <rect key="frame" x="0.0" y="80" width="320" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Dashboard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Fe-sK-n1h">
-                                                    <rect key="frame" x="93" y="4" width="119" height="22"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="DASHBOARD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Fe-sK-n1h">
+                                                    <rect key="frame" x="0.0" y="4" width="320" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                                     <color key="textColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                 </label>
@@ -309,6 +309,7 @@
                     <connections>
                         <outlet property="actionButton" destination="1LF-8K-c26" id="5uh-UD-LiD"/>
                         <outlet property="closeGroupButton" destination="DyK-6Z-d8G" id="WWK-Pt-8uX"/>
+                        <outlet property="dashboardTitle" destination="ch1-js-4um" id="ZDr-SV-5Rc"/>
                         <outlet property="mainTableView" destination="BpQ-Bo-NIA" id="cMx-pc-edz"/>
                     </connections>
                 </viewController>
@@ -504,17 +505,13 @@
     <resources>
         <image name="bckgd-2.png" width="1626" height="3000"/>
         <image name="check-icon-active.png" width="20" height="20"/>
-        <image name="check-icon-active.png" width="20" height="20"/>
         <image name="check-icon.png" width="20" height="20"/>
-        <image name="coin-icon-active.png" width="20" height="20"/>
         <image name="coin-icon-active.png" width="20" height="20"/>
         <image name="coin-icon.png" width="20" height="20"/>
         <image name="gear.png" width="156" height="156"/>
         <image name="heart-icon.png" width="23" height="20"/>
         <image name="menu-button-white.png" width="36" height="36"/>
         <image name="profile-pic-placeholder.png" width="160" height="160"/>
-        <image name="profile-pic-placeholder.png" width="160" height="160"/>
-        <image name="tkr-icon-active.png" width="23" height="20"/>
         <image name="tkr-icon-active.png" width="23" height="20"/>
         <image name="tkr-icon.png" width="23" height="20"/>
     </resources>
