@@ -35,16 +35,16 @@
 @synthesize main;
 @synthesize navigation;
 
-- (void)awakeFromNib
-{
+- (void)awakeFromNib {
     [super awakeFromNib];
+    [self.refreshSpinner startAnimating];
     self.messageDataController = [[TimelineDataController alloc] init];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addExpense:) name:@"expenseAddedSuccesfully" object:nil];
 }
 
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
+    
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataRetrieved) name:@"messagesWithJSONFinishedLoading" object:nil];
@@ -166,11 +166,13 @@
 }
 
 - (void)dataRetrieved {
+    
     [self.messageOnTimeline reloadData];
+    [self.refreshSpinner stopAnimating];
     
     if([self.messageDataController countOfList]>0){
-    NSIndexPath *myIndexPath = [NSIndexPath indexPathForRow:[self.messageDataController countOfList]-1 inSection:0];
-    [self.messageOnTimeline selectRowAtIndexPath:myIndexPath animated:NO scrollPosition:UITableViewScrollPositionBottom];
+        NSIndexPath *myIndexPath = [NSIndexPath indexPathForRow:[self.messageDataController countOfList]-1 inSection:0];
+        [self.messageOnTimeline selectRowAtIndexPath:myIndexPath animated:NO scrollPosition:UITableViewScrollPositionBottom];
     }
 }
 

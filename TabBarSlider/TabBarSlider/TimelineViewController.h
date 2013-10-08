@@ -34,6 +34,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *timelineTextBox;
 @property (strong, nonatomic) IBOutlet UIView *timelineView;
 @property (weak, nonatomic) IBOutlet UIButton *smiley;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *refreshSpinner;
 
 - (IBAction)addExpenseButton:(id)sender;
 - (IBAction)addUserButton:(id)sender;
