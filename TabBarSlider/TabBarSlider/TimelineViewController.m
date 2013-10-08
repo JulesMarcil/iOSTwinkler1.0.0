@@ -37,6 +37,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.spinnerContainer.hidden=NO;
     [self.refreshSpinner startAnimating];
     self.messageDataController = [[TimelineDataController alloc] init];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addExpense:) name:@"expenseAddedSuccesfully" object:nil];
@@ -85,6 +86,8 @@
     self.timelineTextBoxContainer.layer.masksToBounds = YES;
     self.timelineTextBoxContainer.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
     self.timelineTextBoxContainer.layer.borderWidth = 1.0f;
+    
+    self.spinnerContainer.layer.cornerRadius = 10;
     
     //-------------Expandable Button----------------------------
     // initialize ExpandableNavigation object with an array of buttons.
@@ -168,6 +171,7 @@
 - (void)dataRetrieved {
     
     [self.messageOnTimeline reloadData];
+    self.spinnerContainer.hidden=YES;
     [self.refreshSpinner stopAnimating];
     
     if([self.messageDataController countOfList]>0){

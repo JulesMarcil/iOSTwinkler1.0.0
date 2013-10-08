@@ -35,6 +35,7 @@
 @property (strong, nonatomic) IBOutlet UIView *timelineView;
 @property (weak, nonatomic) IBOutlet UIButton *smiley;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *refreshSpinner;
+@property (weak, nonatomic) IBOutlet UIView *spinnerContainer;
 
 - (IBAction)addExpenseButton:(id)sender;
 - (IBAction)addUserButton:(id)sender;
