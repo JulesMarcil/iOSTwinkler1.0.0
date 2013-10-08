@@ -33,12 +33,14 @@
     
     //load data
     [self loadDashboardInfo];
-    
 }
 
-- (void) loadDashboardInfo{
+- (void) loadDashboardInfo {
     
-    //load dashboard info
+    //Launch Spinner
+    [self.refreshSpinner startAnimating];
+    
+    //Load Dashboard Info
     NSNumber *currentMemberId = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"id"];
     NSDictionary *parameters = [[NSDictionary alloc] initWithObjectsAndKeys:currentMemberId, @"currentMemberId", nil];
     
@@ -50,10 +52,13 @@
                                       
                                       self.dashboardInfo = response;
                                       [self.mainTableView reloadData];
+                                      
                                       NSLog(@"dashboard info loaded");
+                                      [self.refreshSpinner stopAnimating];
                                       
                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                       NSLog(@"error: %@", error);
+                                      [self.refreshSpinner stopAnimating];
                                   }];
 }
 
@@ -109,8 +114,8 @@
     return [self.dashboardInfo[@"members"] count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     static NSString *CellIdentifier = @"memberCell";
     DashboardMemberCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier];
     
@@ -200,8 +205,8 @@
     [alertView show];
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
         if (buttonIndex == 0) {
             
             //NO clicked
@@ -250,7 +255,7 @@
 
 // Design function !!!
 
--(void) setRoundedView:(UIImageView *)imageView picture: (UIImage *)picture toDiameter:(float)newSize{
+-(void) setRoundedView:(UIImageView *)imageView picture: (UIImage *)picture toDiameter:(float)newSize {
     // Begin a new image that will be the new image with the rounded corners
     // (here with the size of an UIImageView)
     UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, NO, 0.0f);
