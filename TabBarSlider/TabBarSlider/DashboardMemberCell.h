@@ -14,5 +14,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *balanceLabel;
 @property (weak, nonatomic) IBOutlet UIView *balanceContainerView;
+@property (weak, nonatomic) IBOutlet UIView *bottomContainer;
+@property (weak, nonatomic) IBOutlet UIView *topContainer;
+@property (weak, nonatomic) IBOutlet UIView *separatorView;
 
 @end

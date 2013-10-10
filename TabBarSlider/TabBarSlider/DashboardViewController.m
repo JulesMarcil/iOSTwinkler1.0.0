@@ -79,7 +79,7 @@
     CGRect frame=self.mainTableView.bounds;
     [self.mainTableView setFrame:CGRectMake(0, 0, 320, frame.size.height-20)];
     
-    self.mainTableView.separatorColor=[UIColor colorWithRed:(236/255.0) green:(231/255.0) blue:(223/255.0) alpha: 1];
+    self.mainTableView.separatorColor=[UIColor colorWithRed:(236/255.0) green:(231/255.0) blue:(223/255.0) alpha: 0];
     
     self.actionButton.layer.masksToBounds = YES;
     self.actionButton.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
@@ -144,10 +144,22 @@
         cell.balanceLabel.textColor = [UIColor colorWithRed:(60/255.0) green:(60/255.0) blue:(60/255.0) alpha: 1];
     }
     
-    cell.balanceContainerView.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha: 1];
-    cell.balanceContainerView.layer.cornerRadius = 10;
-    cell.balanceContainerView.layer.masksToBounds = YES;
     
+    cell.separatorView.backgroundColor=[UIColor colorWithRed:(236/255.0) green:(231/255.0) blue:(223/255.0) alpha: 1];
+    
+    if (indexPath.row==0){
+        cell.balanceContainerView.layer.cornerRadius = 10;
+        cell.bottomContainer.hidden=NO;
+    }else if (indexPath.row==[self.dashboardInfo[@"members"] count]-1){
+        cell.balanceContainerView.layer.cornerRadius = 10;
+        cell.topContainer.hidden=NO;
+        cell.separatorView.backgroundColor=[UIColor colorWithRed:(236/255.0) green:(231/255.0) blue:(223/255.0) alpha: 0];
+    }
+    
+    
+    cell.balanceContainerView.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha: 1];
+    cell.balanceContainerView.layer.masksToBounds = YES;
+
     NSString *path = memberAtIndex[@"picturePath"];
     NSNumber *facebookId= [[[NSNumberFormatter alloc] init] numberFromString:path];
     

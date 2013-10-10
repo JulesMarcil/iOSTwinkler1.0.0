@@ -58,7 +58,7 @@
     
     self.expenseListTable.allowsSelectionDuringEditing = YES;
     self.expenseListTable.separatorColor = [UIColor clearColor];
-    self.view.backgroundColor=[UIColor colorWithRed:(245/255.0) green:(245/255.0) blue:(245/255.0) alpha:1];
+    self.view.backgroundColor=[UIColor colorWithRed:(247/255.0) green:(245/255.0) blue:(245/255.0) alpha:1];
     self.headerViewContainer.backgroundColor=[UIColor colorWithRed:(245/255.0) green:(245/255.0) blue:(245/255.0) alpha:1];
     
     CGRect screenRect = [[UIScreen mainScreen] bounds];
@@ -70,25 +70,37 @@
     [self.expenseListTable setFrame:CGRectMake(0,
                                                -20,
                                                frame.size.width,
-                                               screenHeight-164+44+100-44)];
+                                               screenHeight-164+44+100)];
     
     frame= [self.timelineImage frame];
     [self.timelineImage setFrame:CGRectMake(frame.origin.x,
                                                0,
                                                4,
-                                            screenHeight-64)];
+                                            screenHeight)];
     
+    frame= [self.addExpenseBck frame];
+    [self.addExpenseBck setFrame:CGRectMake(frame.origin.x,
+                                             screenHeight-79,
+                                             320,
+                                             frame.size.height)];
     frame= [self.addExpenseView frame];
     [self.addExpenseView setFrame:CGRectMake(frame.origin.x,
-                                            screenHeight-64,
-                                            321,
-                                            frame.size.height)];
+                                             screenHeight-69,
+                                             240,
+                                             41)];
     
     self.addExpenseView.layer.masksToBounds = YES;
     self.addExpenseView.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
     self.addExpenseView.layer.borderWidth = 1.0f;
     
     self.spinnerContainer.layer.cornerRadius = 10;
+    
+    
+    self.balanceContainer.layer.cornerRadius = 3;
+    self.balanceContainer.layer.masksToBounds = NO;
+    self.balanceContainer.layer.shadowOffset = CGSizeMake(0, 0.6);
+    self.balanceContainer.layer.shadowRadius = 1.2;
+    self.balanceContainer.layer.shadowOpacity = 0.1;
 }
 
 - (void)dataRetrieved {

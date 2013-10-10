@@ -106,7 +106,7 @@
     
     self.scrollView.pagingEnabled = YES;
     self.scrollView.contentSize = CGSizeMake(960, self.scrollView.frame.size.height);
-    self.scrollView.backgroundColor=[UIColor colorWithRed:(245/255.0) green:(245/255.0) blue:(245/255.0) alpha:1];
+    self.scrollView.backgroundColor=[UIColor colorWithRed:(247/255.0) green:(245/255.0) blue:(245/255.0) alpha: 1];
     self.scrollView.showsHorizontalScrollIndicator = NO;
     self.scrollView.showsVerticalScrollIndicator = NO;
     self.scrollView.scrollsToTop = NO;
