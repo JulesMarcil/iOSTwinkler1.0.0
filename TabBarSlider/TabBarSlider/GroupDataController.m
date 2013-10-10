@@ -8,6 +8,7 @@
 
 #import "GroupDataController.h"
 #import "Group.h"
+#import "AuthAPIClient.h"
 #import "AFHTTPRequestOperation.h"
 
 @implementation GroupDataController
@@ -108,6 +109,36 @@
 
 - (void) removeGroupWithGroup:(Group *)group {
     [self.groupList removeObject:group];
+}
+
+- (void)refreshData {
+    
+    [[AuthAPIClient sharedClient] getPath:@"api/groups"
+                               parameters:nil
+                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                      
+                                      NSError *error = nil;
+                                      NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                                      
+                                      [self.groupList removeAllObjects];
+                                      
+                                      for(id key in response) {
+                                          
+                                          Group *group = [[Group alloc] initWithName:key[@"name"]
+                                                                          identifier:key[@"id"]
+                                                                             members:key[@"members"]
+                                                                        activeMember:key[@"activeMember"]
+                                                                            currency:key[@"currency"]
+                                                          ];
+                                          
+                                          [self addGroupWithGroup:group];
+                                      }
+                                      NSLog(@"GroupDataController: post Notification groupsWithJSONFinishedLoading");
+                                      [[NSNotificationCenter defaultCenter] postNotificationName:@"groupsWithJSONFinishedLoading" object:nil];
+                                  }
+                                  failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                      NSLog(@"error: %@", error);
+                                  }];
 }
 
 @end

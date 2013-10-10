@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UIView *tableViewHeader;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *friendNumberLabel;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *refreshSpinner;
 
 - (IBAction)Logout:(id)sender;
 - (IBAction)createGroup:(id)sender;

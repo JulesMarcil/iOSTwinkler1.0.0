@@ -17,5 +17,6 @@
 - (Group *)objectInListAtIndex:(NSUInteger)theIndex;
 - (void)addGroupWithGroup:(Group *)group;
 - (void)removeGroupWithGroup:(Group *)group;
+- (void)refreshData;
 
 @end

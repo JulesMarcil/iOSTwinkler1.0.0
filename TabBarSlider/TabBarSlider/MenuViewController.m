@@ -89,11 +89,23 @@
     [self.addGroupButton.layer setBorderWidth:1.0];
     self.groupOnMenu.separatorColor = [UIColor clearColor];
     self.groupOnMenu.separatorStyle = UITableViewCellSeparatorStyleNone;
+
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    [self.groupOnMenu addSubview:refreshControl];
+}
+
+- (void)refresh:(UIRefreshControl *)refreshControl {
+    NSLog(@"refresh function called");
+    [self.refreshSpinner startAnimating];
+    [self.groupDataController refreshData];
+    [self.profile loadProfile];
+    [refreshControl endRefreshing];
 }
 
 - (void)loginSuccess {
-    
     NSLog(@"menuViewController %@: loginSuccess", self.title);
+    
     self.groupDataController = nil;
     self.profile = nil;
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
@@ -103,13 +115,11 @@
 
 -(void) backToGroup{
     NSLog(@"menuViewController %@: backToGroup", self.title);
-    
     [self performSegueWithIdentifier:@"goToGroupSegue" sender:self];
 }
 
 -(void) loadData{
     NSLog(@"menuViewController %@: loadData", self.title);
-    
     self.groupDataController = [[GroupDataController alloc] init];
     
     NSDictionary *defaultProfile = [[NSUserDefaults standardUserDefaults] objectForKey:@"profile"];
@@ -125,7 +135,6 @@
 
 - (void)groupDataRetrieved {
     NSLog(@"menuViewController %@: groupDataRetrieved", self.title);
-    
     [self.groupOnMenu reloadData];
 }
 
