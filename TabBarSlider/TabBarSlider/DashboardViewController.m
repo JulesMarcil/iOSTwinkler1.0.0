@@ -95,8 +95,18 @@
     self.dashboardTitle.layer.shadowRadius = 1.2;
     self.dashboardTitle.layer.shadowOpacity = 0.1;
     
-    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    [self.mainTableView addSubview:refreshControl];
 }
+
+- (void)refresh:(UIRefreshControl *)refreshControl {
+    NSLog(@"refresh function called");
+    [self.refreshSpinner startAnimating];
+    [self loadDashboardInfo];
+    [refreshControl endRefreshing];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

@@ -95,15 +95,26 @@
     
     self.spinnerContainer.layer.cornerRadius = 10;
     
-    
     self.balanceContainer.layer.cornerRadius = 3;
     self.balanceContainer.layer.masksToBounds = NO;
     self.balanceContainer.layer.shadowOffset = CGSizeMake(0, 0.6);
     self.balanceContainer.layer.shadowRadius = 1.2;
     self.balanceContainer.layer.shadowOpacity = 0.1;
+    
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    [self.expenseListTable addSubview:refreshControl];
+}
+
+- (void)refresh:(UIRefreshControl *)refreshControl {
+    NSLog(@"refresh function called");
+    [self.refreshSpinner startAnimating];
+    [self.expenseDataController refreshData];
+    [refreshControl endRefreshing];
 }
 
 - (void)dataRetrieved {
+    NSLog(@"dataretrieved in expense");
     [self.expenseListTable reloadData];
     [self setBalanceLabelValue:self.expenseDataController.balance];
     self.spinnerContainer.hidden=YES;
