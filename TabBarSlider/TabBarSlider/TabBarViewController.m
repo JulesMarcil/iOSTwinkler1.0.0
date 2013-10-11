@@ -88,14 +88,6 @@
         NSLog(@"button invisible");
     };
     
-    [self.revealButtonItem addTarget:self.revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
-    [self.leftButton addTarget:self.revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
-    [self.leftButton addGestureRecognizer: self.revealViewController.panGestureRecognizer];
-    [self.revealButtonItem addTarget:self action:@selector(hideLeftToggle) forControlEvents:UIControlEventTouchUpInside];
-    [self.leftButton addTarget:self action:@selector(hideLeftToggle) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self.revealViewController.panGestureRecognizer addTarget:self action:@selector(PanGestureEnded:)];
-    
     
     //-----ScrollView------//
     frame= [self.scrollView frame];
@@ -165,6 +157,17 @@
     [self addChildViewController:rightVC];
     
     [self.scrollView setContentOffset:CGPointMake(320, 0) animated:NO];
+    
+    
+    
+    
+    [self.revealButtonItem addTarget:self.revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+    [self.leftButton addTarget:self.revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
+    [self.leftButton addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+    [self.revealButtonItem addTarget:self action:@selector(hideLeftToggle) forControlEvents:UIControlEventTouchUpInside];
+    [self.leftButton addTarget:self action:@selector(hideLeftToggle) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.revealViewController.panGestureRecognizer addTarget:self action:@selector(PanGestureEnded:)];
     
     
 }

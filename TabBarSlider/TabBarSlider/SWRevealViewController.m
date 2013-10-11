@@ -26,6 +26,7 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import <UIKit/UIGestureRecognizerSubclass.h>
+#import "TabBarViewController.h"
 
 #import "SWRevealViewController.h"
 
