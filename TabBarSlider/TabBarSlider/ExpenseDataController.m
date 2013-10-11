@@ -34,14 +34,13 @@
     
     NSCachedURLResponse *cachedResponse = [[NSURLCache sharedURLCache] cachedResponseForRequest:request];
     if (cachedResponse != nil && [[cachedResponse data] length] > 0) {
+        
+        NSLog(@"cached data for expenses");
         // Get cached data
         NSError* error;
         NSDictionary* response = [NSJSONSerialization JSONObjectWithData:cachedResponse.data options:kNilOptions error:&error];
         
-        //NSLog(@"cached data = %@", response);
-        
         self.balance = response[@"balance"];
-        
         for(id key in response[@"expenses"]) {
             
             NSTimeInterval interval1 = [key[@"date"] doubleValue];
@@ -142,6 +141,7 @@
     
     NSDictionary *currentMember = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"];
     NSDictionary *parameters = [[NSDictionary alloc] initWithObjectsAndKeys:currentMember[@"id"], @"currentMemberId", nil];
+    
     [[AuthAPIClient sharedClient] getPath:@"api/expenses"
                                parameters:parameters
                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {

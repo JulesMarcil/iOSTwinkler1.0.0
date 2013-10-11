@@ -7,6 +7,7 @@
 //
 
 #import "DashboardViewController.h"
+#import "AFHTTPRequestOperation.h"
 #import "AuthAPIClient.h"
 #import "UIImageView+AFNetworking.h"
 #import "DashboardMemberCell.h"
@@ -90,25 +91,44 @@
     self.spinnerView.hidden = NO;
     
     //Load Dashboard Info
+    CredentialStore *store = [[CredentialStore alloc] init];
+    NSString *authToken = [store authToken];
     NSNumber *currentMemberId = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"id"];
-    NSDictionary *parameters = [[NSDictionary alloc] initWithObjectsAndKeys:currentMemberId, @"currentMemberId", nil];
     
-    [[AuthAPIClient sharedClient] getPath:@"api/dashboard"
-                               parameters:parameters
-                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                      NSError *error = nil;
-                                      NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
-                                      
-                                      self.dashboardInfo = response;
-                                      [self.mainTableView reloadData];
-                                      
-                                      NSLog(@"dashboard info loaded");
-                                      self.spinnerView.hidden = YES;
-                                      
-                                  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                      NSLog(@"error: %@", error);
-                                      self.spinnerView.hidden = YES;
-                                  }];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@api/dashboard?access_token=%@&currentMemberId=%@", appURL, authToken, currentMemberId]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    
+    NSCachedURLResponse *cachedResponse = [[NSURLCache sharedURLCache] cachedResponseForRequest:request];
+    if (cachedResponse != nil && [[cachedResponse data] length] > 0) {
+        // Get cached data
+        NSError* error;
+        NSDictionary* response = [NSJSONSerialization JSONObjectWithData:cachedResponse.data options:kNilOptions error:&error];
+        
+        //NSLog(@"cached data = %@", response);
+        
+        self.dashboardInfo = response;
+        [self.mainTableView reloadData];
+    }
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc]initWithRequest:request];
+    
+    [operation  setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSError *error = nil;
+        NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+        
+        self.dashboardInfo = response;
+        [self.mainTableView reloadData];
+        
+        NSLog(@"dashboard info loaded");
+        self.spinnerView.hidden = YES;
+    }
+                                      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                          NSLog(@"error: %@", error);
+                                          self.spinnerView.hidden = YES;
+                                      }];
+    
+    [operation start];
 }
 
 - (void) refreshDashboardInfo {
