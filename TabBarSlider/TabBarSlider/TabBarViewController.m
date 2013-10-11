@@ -67,7 +67,7 @@
                                       0,
                                       frame.size.width,
                                       100)];
-    self.toolbar.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(91/255.0) blue:(84/255.0) alpha:0.90];
+    self.toolbar.backgroundColor=[UIColor colorWithRed:(254/255.0) green:(106/255.0) blue:(100/255.0) alpha:1];
     
     
     self.tabBarBck.layer.cornerRadius = 2;
@@ -166,9 +166,9 @@
     [self.revealButtonItem addTarget:self action:@selector(hideLeftToggle) forControlEvents:UIControlEventTouchUpInside];
     [self.leftButton addTarget:self action:@selector(hideLeftToggle) forControlEvents:UIControlEventTouchUpInside];
     
-    if (self.navigationController == self.presentedViewController){
-        [self.revealViewController.panGestureRecognizer addTarget:self action:@selector(PanGestureEnded:)];
-    }
+    //if (self.navigationController == self.presentedViewController){
+      //  [self.revealViewController.panGestureRecognizer addTarget:self action:@selector(PanGestureEnded:)];
+    //}
 }
 
 -(void)PanGestureEnded:(UIPanGestureRecognizer *)gesture{
