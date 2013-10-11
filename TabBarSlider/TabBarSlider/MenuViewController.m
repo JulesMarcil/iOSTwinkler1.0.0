@@ -44,13 +44,14 @@
         [self loadData];
     }
     if ([self.title isEqual: @"welcomeMenu"]){
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:@"loginSuccess"    object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSuccess) name:@"loginSuccess"                   object:nil];
     }
     
     NSLog(@"menuViewController %@: viewDidLoad", self.title);
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(groupDataRetrieved)   name:@"groupsWithJSONFinishedLoading"  object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(groupRefreshError)    name:@"groupsWithJSONFailedRefreshing" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(profileDataRetrieved) name:@"profileWithJSONFinishedLoading" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadData)             name:@"doneAddMember"                  object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeCurrentGroup)   name:@"groupClosedSuccessfully"        object:nil];
@@ -100,7 +101,21 @@
     [self.refreshSpinner startAnimating];
     [self.groupDataController refreshData];
     [self.profile loadProfile];
-    [refreshControl endRefreshing];
+    self.refreshControl = refreshControl;
+}
+
+-(void) groupRefreshError {
+    
+    if([self.title isEqual: @"welcomeMenu"]){
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Oops"
+                                                            message:@"Impossible to refresh groups, make sure you are connected"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Ok"
+                                                  otherButtonTitles:nil, nil];
+        alertView.tag = 0;
+        [alertView show];
+    }
+    [self.refreshControl endRefreshing];
 }
 
 - (void)loginSuccess {
@@ -136,6 +151,7 @@
 - (void)groupDataRetrieved {
     NSLog(@"menuViewController %@: groupDataRetrieved", self.title);
     [self.groupOnMenu reloadData];
+    [self.refreshControl endRefreshing];
 }
 
 - (void)profileDataRetrieved {
@@ -463,46 +479,54 @@
                                                        delegate:self
                                               cancelButtonTitle:@"Log Out"
                                               otherButtonTitles:@"Stay Logged In", nil];
+    alertView.tag = 1;
     [alertView show];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     
-    if (buttonIndex == 0) {
-        //YES
-        NSLog(@"menuViewController %@: logout effectively", self.title);
-        
-        CredentialStore *store = [[CredentialStore alloc] init];
-        NSString *authToken = [store authToken];
-        
-        if (authToken){
-            [store clearSavedCredentials];
-            NSLog(@"token cleared ! auth token = %@", authToken);
-        }
-        
-        if (FBSession.activeSession.isOpen){
-            [FBSession.activeSession closeAndClearTokenInformation];
-            NSLog(@"facebook session closed");
-        }
-        
-        if (![self.title isEqual:@"welcomeMenu"]){
+    switch (alertView.tag) {
+        case 1:
+            if (buttonIndex == 0) {
+                //YES
+                NSLog(@"menuViewController %@: logout effectively", self.title);
+                
+                CredentialStore *store = [[CredentialStore alloc] init];
+                NSString *authToken = [store authToken];
+                
+                if (authToken){
+                    [store clearSavedCredentials];
+                    NSLog(@"token cleared ! auth token = %@", authToken);
+                }
+                
+                if (FBSession.activeSession.isOpen){
+                    [FBSession.activeSession closeAndClearTokenInformation];
+                    NSLog(@"facebook session closed");
+                }
+                
+                if (![self.title isEqual:@"welcomeMenu"]){
+                    
+                    NSMutableArray *navigationArray = [self.navigationController.viewControllers mutableCopy];
+                    [navigationArray removeObjectAtIndex:1];
+                    
+                    UINavigationController * navigationController = [[UINavigationController alloc] init];
+                    [navigationController setViewControllers:navigationArray];
+                    
+                    [self.navigationController setViewControllers:navigationController.viewControllers];
+                    [self.navigationController popToRootViewControllerAnimated:NO];
+                }
+                
+                AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+                [appDelegate showLoginView];
+            }
+            else if (buttonIndex == 1) {
+                // No
+                NSLog(@"menuViewController %@: cancelLogout", self.title);
+            }
+            break;
             
-            NSMutableArray *navigationArray = [self.navigationController.viewControllers mutableCopy];
-            [navigationArray removeObjectAtIndex:1];
-            
-            UINavigationController * navigationController = [[UINavigationController alloc] init];
-            [navigationController setViewControllers:navigationArray];
-            
-            [self.navigationController setViewControllers:navigationController.viewControllers];
-            [self.navigationController popToRootViewControllerAnimated:NO];
-        }
-        
-        AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-        [appDelegate showLoginView];
-    }
-    else if (buttonIndex == 1) {
-        // No
-        NSLog(@"menuViewController %@: cancelLogout", self.title);
+        default:
+            break;
     }
 }
 
