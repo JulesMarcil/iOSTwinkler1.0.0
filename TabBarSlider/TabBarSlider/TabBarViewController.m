@@ -166,7 +166,9 @@
     [self.revealButtonItem addTarget:self action:@selector(hideLeftToggle) forControlEvents:UIControlEventTouchUpInside];
     [self.leftButton addTarget:self action:@selector(hideLeftToggle) forControlEvents:UIControlEventTouchUpInside];
     
-    //[self.revealViewController.panGestureRecognizer addTarget:self action:@selector(PanGestureEnded:)];
+    if (self.navigationController == self.presentedViewController){
+        [self.revealViewController.panGestureRecognizer addTarget:self action:@selector(PanGestureEnded:)];
+    }
 }
 
 -(void)PanGestureEnded:(UIPanGestureRecognizer *)gesture{
