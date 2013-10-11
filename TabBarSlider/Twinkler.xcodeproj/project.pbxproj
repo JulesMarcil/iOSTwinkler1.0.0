@@ -58,13 +58,11 @@
 		895C4E3A17AA77D2004EC590 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3917AA77D2004EC590 /* UIKit.framework */; };
 		895C4E3C17AA77D2004EC590 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3B17AA77D2004EC590 /* Foundation.framework */; };
 		895C4E3E17AA77D2004EC590 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3D17AA77D2004EC590 /* CoreGraphics.framework */; };
-		895C4E4417AA77D3004EC590 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 895C4E4217AA77D3004EC590 /* InfoPlist.strings */; };
 		895C4E4617AA77D3004EC590 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 895C4E4517AA77D3004EC590 /* main.m */; };
 		895C4E4A17AA77D3004EC590 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 895C4E4917AA77D3004EC590 /* AppDelegate.m */; };
 		895C4E5817AA77D9004EC590 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E5717AA77D9004EC590 /* SenTestingKit.framework */; };
 		895C4E5917AA77D9004EC590 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3917AA77D2004EC590 /* UIKit.framework */; };
 		895C4E5A17AA77D9004EC590 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 895C4E3B17AA77D2004EC590 /* Foundation.framework */; };
-		895C4E6217AA77D9004EC590 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 895C4E6017AA77D9004EC590 /* InfoPlist.strings */; };
 		895C4E6517AA77D9004EC590 /* TabBarSliderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 895C4E6417AA77D9004EC590 /* TabBarSliderTests.m */; };
 		895C4E6F17AA93CE004EC590 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 895C4E6E17AA93CE004EC590 /* MainStoryboard.storyboard */; };
 		895C4E7317AA952B004EC590 /* check-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 895C4E7017AA952B004EC590 /* check-icon.png */; };
@@ -128,7 +126,6 @@
 		BA24D4E617B017120042C7A4 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4DB17B017120042C7A4 /* AFURLConnectionOperation.m */; };
 		BA24D4E717B017120042C7A4 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4DD17B017120042C7A4 /* AFXMLRequestOperation.m */; };
 		BA24D4E817B017120042C7A4 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4DF17B017120042C7A4 /* UIImageView+AFNetworking.m */; };
-		BA24D4F017B0171C0042C7A4 /* SSKeychain.strings in Resources */ = {isa = PBXBuildFile; fileRef = BA24D4EA17B0171C0042C7A4 /* SSKeychain.strings */; };
 		BA24D4F117B0171C0042C7A4 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4ED17B0171C0042C7A4 /* SSKeychain.m */; };
 		BA24D4F217B0171C0042C7A4 /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4EF17B0171C0042C7A4 /* SSKeychainQuery.m */; };
 		BA3F79D017D67B010094E658 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3F79CF17D67B010094E658 /* MessageUI.framework */; };
@@ -237,7 +234,6 @@
 		895C4E3B17AA77D2004EC590 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		895C4E3D17AA77D2004EC590 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		895C4E4117AA77D3004EC590 /* Twinkler-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Twinkler-Info.plist"; sourceTree = "<group>"; };
-		895C4E4317AA77D3004EC590 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		895C4E4517AA77D3004EC590 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		895C4E4717AA77D3004EC590 /* Twinkler-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Twinkler-Prefix.pch"; sourceTree = "<group>"; };
 		895C4E4817AA77D3004EC590 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -245,7 +241,6 @@
 		895C4E5617AA77D9004EC590 /* TwinklerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwinklerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		895C4E5717AA77D9004EC590 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		895C4E5F17AA77D9004EC590 /* TwinklerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TwinklerTests-Info.plist"; sourceTree = "<group>"; };
-		895C4E6117AA77D9004EC590 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		895C4E6317AA77D9004EC590 /* TabBarSliderTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabBarSliderTests.h; sourceTree = "<group>"; };
 		895C4E6417AA77D9004EC590 /* TabBarSliderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabBarSliderTests.m; sourceTree = "<group>"; };
 		895C4E6E17AA93CE004EC590 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
@@ -327,7 +322,6 @@
 		BA24D4DD17B017120042C7A4 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		BA24D4DE17B017120042C7A4 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		BA24D4DF17B017120042C7A4 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
-		BA24D4EB17B0171C0042C7A4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SSKeychain.strings; sourceTree = "<group>"; };
 		BA24D4EC17B0171C0042C7A4 /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
 		BA24D4ED17B0171C0042C7A4 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
 		BA24D4EE17B0171C0042C7A4 /* SSKeychainQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychainQuery.h; sourceTree = "<group>"; };
@@ -639,7 +633,6 @@
 				8993880217C5FE7B00B5A9BE /* AppConstants.h */,
 				895C4E4717AA77D3004EC590 /* Twinkler-Prefix.pch */,
 				895C4E4117AA77D3004EC590 /* Twinkler-Info.plist */,
-				895C4E4217AA77D3004EC590 /* InfoPlist.strings */,
 				895C4E4517AA77D3004EC590 /* main.m */,
 				BAD291FD17F57ED000B39E8C /* Default~iphone.png */,
 				895913BE17D934FD0039CF72 /* Default-568h@2x.png */,
@@ -699,7 +692,6 @@
 			isa = PBXGroup;
 			children = (
 				895C4E5F17AA77D9004EC590 /* TwinklerTests-Info.plist */,
-				895C4E6017AA77D9004EC590 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -782,7 +774,6 @@
 		BA24D4E917B0171C0042C7A4 /* SSKeychain */ = {
 			isa = PBXGroup;
 			children = (
-				BA24D4EA17B0171C0042C7A4 /* SSKeychain.strings */,
 				BA24D4EC17B0171C0042C7A4 /* SSKeychain.h */,
 				BA24D4ED17B0171C0042C7A4 /* SSKeychain.m */,
 				BA24D4EE17B0171C0042C7A4 /* SSKeychainQuery.h */,
@@ -892,7 +883,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				895C4E4417AA77D3004EC590 /* InfoPlist.strings in Resources */,
 				895C4E6F17AA93CE004EC590 /* MainStoryboard.storyboard in Resources */,
 				895C4E7317AA952B004EC590 /* check-icon.png in Resources */,
 				895C4E7417AA952B004EC590 /* coin-icon.png in Resources */,
@@ -900,7 +890,6 @@
 				895C4E8917AAA92A004EC590 /* coin-icon-active.png in Resources */,
 				895C4EAC17AAF7CA004EC590 /* menu-button-white.png in Resources */,
 				895C4EB017AAF8D3004EC590 /* dashboard-button-white.png in Resources */,
-				BA24D4F017B0171C0042C7A4 /* SSKeychain.strings in Resources */,
 				BAD291F017F57BD500B39E8C /* icon-152.png in Resources */,
 				8901CECE17B05DB50084E749 /* check-button.png in Resources */,
 				8901CECF17B05DB50084E749 /* main-button.png in Resources */,
@@ -981,7 +970,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				895C4E6217AA77D9004EC590 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1085,33 +1073,6 @@
 			targetProxy = 895C4E5B17AA77D9004EC590 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		895C4E4217AA77D3004EC590 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				895C4E4317AA77D3004EC590 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		895C4E6017AA77D9004EC590 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				895C4E6117AA77D9004EC590 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		BA24D4EA17B0171C0042C7A4 /* SSKeychain.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BA24D4EB17B0171C0042C7A4 /* en */,
-			);
-			name = SSKeychain.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		895C4E6617AA77D9004EC590 /* Debug */ = {
