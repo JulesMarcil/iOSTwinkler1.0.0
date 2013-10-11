@@ -55,6 +55,7 @@
                                       [self.mainTableView reloadData];
                                       
                                       NSLog(@"dashboard info loaded");
+                                      NSLog(@"dashboard info: %@", self.dashboardInfo);
                                       [self.refreshSpinner stopAnimating];
                                       
                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -72,8 +73,7 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
@@ -109,20 +109,16 @@
     [refreshControl endRefreshing];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
 }
 
-- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section==0) {
         return 2;
     }else{
@@ -130,16 +126,13 @@
     }
 }
 
-
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    
     if(section == 0){
         return @"SUMMARY";
     } else {
         return @"BALANCE";
     }
 }
-
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
@@ -164,7 +157,6 @@
     UIView *view = [[UIView alloc] init];
     [view addSubview:label];
     
-    
     UIView *leftLineView = [[UIView alloc] init];
     leftLineView.backgroundColor=[UIColor colorWithRed:(135/255.0) green:(135/255.0) blue:(135/255.0) alpha: 0.4];
     
@@ -182,42 +174,44 @@
     [view addSubview:rightLineView];
     [view addSubview:leftLineView];
     
-    
     return view;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section==0) {
+    
+    NSDictionary *currency=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"];
+    
+    if (indexPath.section == 0) {
         static NSString *CellIdentifier = @"summaryCell";
         DashboardSummaryCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier];
         
         cell.backgroundColor=[UIColor clearColor];
         
         if (!cell) {
-            cell = (DashboardSummaryCell*) [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
-                                                                 reuseIdentifier:  CellIdentifier];
+            cell = (DashboardSummaryCell*) [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier:  CellIdentifier];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         
         cell.separatorView.backgroundColor=[UIColor colorWithRed:(236/255.0) green:(231/255.0) blue:(223/255.0) alpha: 1];
         
-        if (indexPath.row==0){
-            cell.balanceContainerView.layer.cornerRadius = 10;
-            cell.bottomContainer.hidden=NO;
-            cell.nameLabel.text = @"YOU PAID:";
-        }else{
+        if (indexPath.row == 0){
             cell.balanceContainerView.layer.cornerRadius = 10;
             cell.topContainer.hidden=NO;
             cell.separatorView.backgroundColor=[UIColor colorWithRed:(236/255.0) green:(231/255.0) blue:(223/255.0) alpha: 0];
             cell.nameLabel.text = @"TOTAL GROUP EXPENSES:";
+            cell.balanceLabel.text = [NSString stringWithFormat:@"%@ %@", currency[@"symbol"], self.dashboardInfo[@"total_paid"]];
+        } else {
+            cell.balanceContainerView.layer.cornerRadius = 10;
+            cell.bottomContainer.hidden=NO;
+            cell.nameLabel.text = @"YOU PAID:";
+            cell.balanceLabel.text = [NSString stringWithFormat:@"%@ %@", currency[@"symbol"], self.dashboardInfo[@"member_paid"]];
         }
         
         cell.balanceContainerView.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha: 1];
         cell.balanceContainerView.layer.masksToBounds = YES;
-        
-        
         return cell;
-    }else{
+        
+    } else {
         
     static NSString *CellIdentifier = @"memberCell";
     DashboardMemberCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier];
@@ -231,10 +225,7 @@
     }
     
     NSDictionary *memberAtIndex = [self.dashboardInfo[@"members"] objectAtIndex:indexPath.row];
-    
     cell.nameLabel.text = memberAtIndex[@"name"];
-    
-    NSDictionary *currency=[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"];
     
     NSNumber *balance = memberAtIndex[@"balance"];
     cell.balanceLabel.text = [NSString stringWithFormat:@"%@ %g" ,currency[@"symbol"], [balance doubleValue]];
@@ -247,7 +238,6 @@
         cell.balanceLabel.textColor = [UIColor colorWithRed:(60/255.0) green:(60/255.0) blue:(60/255.0) alpha: 1];
     }
     
-    
     cell.separatorView.backgroundColor=[UIColor colorWithRed:(236/255.0) green:(231/255.0) blue:(223/255.0) alpha: 1];
     
     if (indexPath.row==0){
@@ -258,7 +248,6 @@
         cell.topContainer.hidden=NO;
         cell.separatorView.backgroundColor=[UIColor colorWithRed:(236/255.0) green:(231/255.0) blue:(223/255.0) alpha: 0];
     }
-    
     
     cell.balanceContainerView.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha: 1];
     cell.balanceContainerView.layer.masksToBounds = YES;

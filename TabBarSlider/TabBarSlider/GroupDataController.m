@@ -25,7 +25,7 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     NSCachedURLResponse *cachedResponse = [[NSURLCache sharedURLCache] cachedResponseForRequest:request];
     
-    NSLog(@"cached response: %@", cachedResponse);
+    //NSLog(@"cached response: %@", cachedResponse);
     
     if (cachedResponse != nil && [[cachedResponse data] length] > 0) {
         
@@ -33,7 +33,7 @@
         NSError* error;
         NSDictionary* response = [NSJSONSerialization JSONObjectWithData:cachedResponse.data options:kNilOptions error:&error];
         
-        NSLog(@"cached data = %@", response);
+        //NSLog(@"cached data = %@", response);
         
         for(id key in response) {
             
