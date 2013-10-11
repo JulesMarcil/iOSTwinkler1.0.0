@@ -22,7 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *timelineImage;
 @property (weak, nonatomic) IBOutlet UIView *addExpenseView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *refreshSpinner;
-@property (weak, nonatomic) IBOutlet UIView *spinnerContainer;
+@property (weak, nonatomic) IBOutlet UIView *spinnerView;
 @property (weak, nonatomic) IBOutlet UIView *addExpenseBck;
 @property (weak, nonatomic) IBOutlet UIView *balanceContainer;
 

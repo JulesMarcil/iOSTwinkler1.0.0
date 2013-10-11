@@ -30,8 +30,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     NSLog(@"awakefromNib from ExpenseViewController");
-    self.spinnerContainer.hidden=NO;
-    [self.refreshSpinner startAnimating];
+    self.spinnerView.hidden = NO;
     self.expenseDataController = [[ExpenseDataController alloc] init];
 }
 
@@ -48,10 +47,11 @@
     [super viewDidLoad];
     [self setBalanceLabelValue:self.expenseDataController.balance];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataRetrieved)  name:@"expensesWithJSONFinishedLoading" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataError)      name:@"expensesWithJSONFailedLoading"   object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addExpense:)    name:@"expenseAddedSuccesfully"         object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeExpense:) name:@"expenseRemovedSuccesfully"       object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataRetrieved)    name:@"expensesWithJSONFinishedLoading"    object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataLoadError)    name:@"expensesWithJSONFailedLoading"      object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataRefreshError) name:@"expensesWithJSONFailedRefreshing"   object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addExpense:)      name:@"expenseAddedSuccesfully"            object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeExpense:)   name:@"expenseRemovedSuccesfully"          object:nil];
     
     self.expenseListTable.allowsSelectionDuringEditing = YES;
     self.expenseListTable.separatorColor = [UIColor clearColor];
@@ -90,7 +90,7 @@
     self.addExpenseView.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
     self.addExpenseView.layer.borderWidth = 1.0f;
     
-    self.spinnerContainer.layer.cornerRadius = 10;
+    self.spinnerView.layer.cornerRadius = 10;
     
     self.balanceContainer.layer.cornerRadius = 3;
     self.balanceContainer.layer.masksToBounds = NO;
@@ -106,8 +106,7 @@
 - (void)refresh:(UIRefreshControl *)refreshControl {
     NSLog(@"refresh function called");
     [refreshControl endRefreshing];
-    self.spinnerContainer.hidden=NO;
-    [self.refreshSpinner startAnimating];
+    self.spinnerView.hidden = NO;
     [self.expenseDataController refreshData];
 }
 
@@ -115,22 +114,24 @@
     NSLog(@"dataretrieved in expense");
     [self.expenseListTable reloadData];
     [self setBalanceLabelValue:self.expenseDataController.balance];
-    self.spinnerContainer.hidden=YES;
-    [self.refreshSpinner stopAnimating];
+    self.spinnerView.hidden = YES;
 }
 
-- (void)dataError {
-    NSLog(@"dataError in expense");
-    self.spinnerContainer.hidden=YES;
-    [self.refreshSpinner stopAnimating];
+- (void)dataLoadError {
+    NSLog(@"dataLoadError in expense");
+    self.spinnerView.hidden = YES;
+}
+
+- (void)dataRefreshError {
+    NSLog(@"dataRefreshError in expense");
     
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Oops"
                                                         message:@"Impossible to refresh expenses, make sure you are connected"
                                                        delegate:self
                                               cancelButtonTitle:@"Ok"
                                               otherButtonTitles:nil, nil];
-    
     [alertView show];
+    self.spinnerView.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -155,7 +156,6 @@
     [self.expenseDataController addExpenseWithExpense:[[note userInfo] valueForKey:@"expense"] atIndex:0];
     [self setBalanceLabelValue:[[note userInfo] valueForKey:@"balance"]];
     [self.expenseListTable reloadData];
-    [self.refreshSpinner stopAnimating];
 }
 
 - (void)removeExpense:(NSNotification *)note{
@@ -165,7 +165,6 @@
     [self.expenseDataController removeExpenseWithExpense:[[note userInfo] valueForKey:@"expense"]];
     [self setBalanceLabelValue:[[note userInfo] valueForKey:@"balance"]];
     [self.expenseListTable reloadData];
-    [self.refreshSpinner stopAnimating];
 }
 // end of data management function
 
@@ -254,7 +253,6 @@
 
 - (IBAction)addExpenseButton:(id)sender {
     NSLog(@"addexpensebutton from expenseviewcontroller");
-    [self.refreshSpinner stopAnimating];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

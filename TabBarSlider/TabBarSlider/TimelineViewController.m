@@ -37,8 +37,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.spinnerContainer.hidden = NO;
-    [self.refreshSpinner startAnimating];
+    self.spinnerView.hidden = NO;
     self.messageDataController = [[TimelineDataController alloc] init];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addExpense:) name:@"expenseAddedSuccesfully" object:nil];
 }
@@ -50,10 +49,9 @@
     [self scrollDown];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataRetrieved) name:@"messagesWithJSONFinishedLoading" object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataFailed)    name:@"messagesWithJSONFaileddLoading"  object:nil];
     
     //-------------Position----------------------------
-    
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGFloat screenHeight = screenRect.size.height;
     CGRect frame= [self.messageOnTimeline frame];
@@ -87,7 +85,7 @@
     self.timelineTextBoxContainer.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
     self.timelineTextBoxContainer.layer.borderWidth = 1.0f;
     
-    self.spinnerContainer.layer.cornerRadius = 10;
+    self.spinnerView.layer.cornerRadius = 10;
     
     //-------------Expandable Button----------------------------
     // initialize ExpandableNavigation object with an array of buttons.
@@ -164,15 +162,24 @@
                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                       //NSLog(@"error: %@", error);
                                   }];
-    
 }
 
 - (void)dataRetrieved {
     
     [self.messageOnTimeline reloadData];
-    self.spinnerContainer.hidden=YES;
-    [self.refreshSpinner stopAnimating];
+    self.spinnerView.hidden = YES;
     [self scrollDown];
+}
+
+- (void)dataFailed {
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Oops"
+                                                        message:@"Impossible to refresh timeline, make sure you are connected"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil, nil];
+    [alertView show];
+    self.spinnerView.hidden = YES;
 }
 
 - (void) addExpense:(NSNotification *)note{

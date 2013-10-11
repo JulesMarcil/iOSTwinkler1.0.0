@@ -36,34 +36,6 @@
     [self loadDashboardInfo];
 }
 
-- (void) loadDashboardInfo {
-    
-    //Launch Spinner
-    [self.refreshSpinner startAnimating];
-    
-    //Load Dashboard Info
-    NSNumber *currentMemberId = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"id"];
-    NSDictionary *parameters = [[NSDictionary alloc] initWithObjectsAndKeys:currentMemberId, @"currentMemberId", nil];
-    
-    [[AuthAPIClient sharedClient] getPath:@"api/dashboard"
-                               parameters:parameters
-                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                      NSError *error = nil;
-                                      NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
-                                      
-                                      self.dashboardInfo = response;
-                                      [self.mainTableView reloadData];
-                                      
-                                      NSLog(@"dashboard info loaded");
-                                      NSLog(@"dashboard info: %@", self.dashboardInfo);
-                                      [self.refreshSpinner stopAnimating];
-                                      
-                                  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                      NSLog(@"error: %@", error);
-                                      [self.refreshSpinner stopAnimating];
-                                  }];
-}
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -91,6 +63,8 @@
     self.closeGroupButton.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
     self.closeGroupButton.layer.borderWidth = 1.0f;
     
+    self.spinnerView.layer.cornerRadius = 10;
+    [self.view bringSubviewToFront:self.spinnerView];
     
     self.dashboardTitle.layer.cornerRadius = 3;
     self.dashboardTitle.layer.masksToBounds = NO;
@@ -105,9 +79,71 @@
 
 - (void)refresh:(UIRefreshControl *)refreshControl {
     NSLog(@"refresh function called");
-    [self.refreshSpinner startAnimating];
-    [self loadDashboardInfo];
     [refreshControl endRefreshing];
+    self.spinnerView.hidden = NO;
+    [self refreshDashboardInfo];
+}
+
+- (void) loadDashboardInfo {
+    
+    //Launch Spinner
+    self.spinnerView.hidden = NO;
+    
+    //Load Dashboard Info
+    NSNumber *currentMemberId = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"id"];
+    NSDictionary *parameters = [[NSDictionary alloc] initWithObjectsAndKeys:currentMemberId, @"currentMemberId", nil];
+    
+    [[AuthAPIClient sharedClient] getPath:@"api/dashboard"
+                               parameters:parameters
+                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                      NSError *error = nil;
+                                      NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                                      
+                                      self.dashboardInfo = response;
+                                      [self.mainTableView reloadData];
+                                      
+                                      NSLog(@"dashboard info loaded");
+                                      self.spinnerView.hidden = YES;
+                                      
+                                  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                      NSLog(@"error: %@", error);
+                                      self.spinnerView.hidden = YES;
+                                  }];
+}
+
+- (void) refreshDashboardInfo {
+    
+    //Launch Spinner
+    self.spinnerView.hidden = NO;
+    
+    //Refresh Dashboard Info
+    NSNumber *currentMemberId = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"id"];
+    NSDictionary *parameters = [[NSDictionary alloc] initWithObjectsAndKeys:currentMemberId, @"currentMemberId", nil];
+    
+    [[AuthAPIClient sharedClient] getPath:@"api/dashboard"
+                               parameters:parameters
+                                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                      NSError *error = nil;
+                                      NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                                      
+                                      self.dashboardInfo = response;
+                                      [self.mainTableView reloadData];
+                                      
+                                      NSLog(@"dashboard info loaded");
+                                      self.spinnerView.hidden = YES;
+                                      
+                                  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                      NSLog(@"error: %@", error);
+                                      
+                                      UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Oops"
+                                                                                          message:@"Impossible to refresh dashboard, make sure you are connected"
+                                                                                         delegate:self
+                                                                                cancelButtonTitle:@"Ok"
+                                                                                otherButtonTitles:nil, nil];
+                                      
+                                      [alertView show];
+                                      self.spinnerView.hidden = YES;
+                                  }];
 }
 
 - (void)didReceiveMemoryWarning {

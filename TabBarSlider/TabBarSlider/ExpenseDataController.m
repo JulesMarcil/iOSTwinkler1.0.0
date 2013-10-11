@@ -95,6 +95,8 @@
         NSLog(@"expensesWithJSONFinishedLoading");
     }
                                       failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                          [[NSNotificationCenter defaultCenter] postNotificationName:@"expensesWithJSONFailedLoading" object:nil];
+                                          NSLog(@"expensesWithJSONFailedLoading");
                                           NSLog(@"error: %@",  operation.responseString);
                                           
                                       }];
@@ -171,8 +173,8 @@
                                       [[NSNotificationCenter defaultCenter] postNotificationName:@"expensesWithJSONFinishedLoading" object:nil];
                                   }
                                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                      [[NSNotificationCenter defaultCenter] postNotificationName:@"expensesWithJSONFailedLoading" object:nil];
-                                      NSLog(@"expensesWithJSONFailedLoading");
+                                      [[NSNotificationCenter defaultCenter] postNotificationName:@"expensesWithJSONFailedRefreshing" object:nil];
+                                      NSLog(@"expensesWithJSONFailedRefreshing");
                                       NSLog(@"error: %@", error);
                                   }];
 }

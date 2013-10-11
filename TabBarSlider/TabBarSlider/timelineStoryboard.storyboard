@@ -329,7 +329,7 @@
                                 <rect key="frame" x="63" y="224" width="191" height="79"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" id="8QR-RK-gto">
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" id="8QR-RK-gto">
                                         <rect key="frame" x="77" y="10" width="37" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -357,7 +357,7 @@
                         <outlet property="messageOnTimeline" destination="v7W-NK-Fe6" id="vj5-dR-zmC"/>
                         <outlet property="refreshSpinner" destination="8QR-RK-gto" id="zAY-dM-u3T"/>
                         <outlet property="smiley" destination="EYo-mG-EmF" id="PlW-xF-kQa"/>
-                        <outlet property="spinnerContainer" destination="Rqq-Hj-WWW" id="V3t-P2-VsL"/>
+                        <outlet property="spinnerView" destination="Rqq-Hj-WWW" id="fMx-kl-YxS"/>
                         <outlet property="timelineTextBox" destination="F2w-rj-eIh" id="FBL-VD-VRL"/>
                         <outlet property="timelineView" destination="x9r-8f-awc" id="L9T-0Z-te6"/>
                     </connections>
