@@ -74,11 +74,12 @@
 }
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
     
+    [super viewDidLoad];
+    
+	// Do any additional setup after loading the view.
     CGRect frame=self.mainTableView.bounds;
-    [self.mainTableView setFrame:CGRectMake(0, 0, 320, frame.size.height-20)];
+    [self.mainTableView setFrame:CGRectMake(0, 0, 320, frame.size.height)];
     
     self.mainTableView.separatorColor=[UIColor colorWithRed:(236/255.0) green:(231/255.0) blue:(223/255.0) alpha: 0];
     self.mainTableView.backgroundColor=[UIColor colorWithRed:(236/255.0) green:(231/255.0) blue:(223/255.0) alpha: 0];
@@ -196,13 +197,13 @@
         
         if (indexPath.row == 0){
             cell.balanceContainerView.layer.cornerRadius = 10;
-            cell.topContainer.hidden=NO;
-            cell.separatorView.backgroundColor=[UIColor colorWithRed:(236/255.0) green:(231/255.0) blue:(223/255.0) alpha: 0];
+            cell.bottomContainer.hidden=NO;
             cell.nameLabel.text = @"TOTAL GROUP EXPENSES:";
             cell.balanceLabel.text = [NSString stringWithFormat:@"%@ %@", currency[@"symbol"], self.dashboardInfo[@"total_paid"]];
         } else {
             cell.balanceContainerView.layer.cornerRadius = 10;
-            cell.bottomContainer.hidden=NO;
+            cell.topContainer.hidden=NO;
+            cell.separatorView.backgroundColor=[UIColor colorWithRed:(236/255.0) green:(231/255.0) blue:(223/255.0) alpha: 0];
             cell.nameLabel.text = @"YOU PAID:";
             cell.balanceLabel.text = [NSString stringWithFormat:@"%@ %@", currency[@"symbol"], self.dashboardInfo[@"member_paid"]];
         }
@@ -213,73 +214,73 @@
         
     } else {
         
-    static NSString *CellIdentifier = @"memberCell";
-    DashboardMemberCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier];
-    
-    cell.backgroundColor=[UIColor clearColor];
-    
-    if (!cell) {
-        cell = (DashboardMemberCell*) [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
-                                      reuseIdentifier:  CellIdentifier];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    }
-    
-    NSDictionary *memberAtIndex = [self.dashboardInfo[@"members"] objectAtIndex:indexPath.row];
-    cell.nameLabel.text = memberAtIndex[@"name"];
-    
-    NSNumber *balance = memberAtIndex[@"balance"];
-    cell.balanceLabel.text = [NSString stringWithFormat:@"%@ %g" ,currency[@"symbol"], [balance doubleValue]];
-    
-    if ([balance doubleValue]> 0) {
-        cell.balanceLabel.textColor = [UIColor colorWithRed:(116/255.0) green:(178/255.0) blue:(20/255.0) alpha: 1];
-    } else if ([balance doubleValue] < 0) {
-        cell.balanceLabel.textColor = [UIColor colorWithRed:(202/255.0) green:(73/255.0) blue:(60/255.0) alpha: 1];
-    } else {
-        cell.balanceLabel.textColor = [UIColor colorWithRed:(60/255.0) green:(60/255.0) blue:(60/255.0) alpha: 1];
-    }
-    
-    cell.separatorView.backgroundColor=[UIColor colorWithRed:(236/255.0) green:(231/255.0) blue:(223/255.0) alpha: 1];
-    
-    if (indexPath.row==0){
-        cell.balanceContainerView.layer.cornerRadius = 10;
-        cell.bottomContainer.hidden=NO;
-    }else if (indexPath.row==[self.dashboardInfo[@"members"] count]-1){
-        cell.balanceContainerView.layer.cornerRadius = 10;
-        cell.topContainer.hidden=NO;
-        cell.separatorView.backgroundColor=[UIColor colorWithRed:(236/255.0) green:(231/255.0) blue:(223/255.0) alpha: 0];
-    }
-    
-    cell.balanceContainerView.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha: 1];
-    cell.balanceContainerView.layer.masksToBounds = YES;
-
-    NSString *path = memberAtIndex[@"picturePath"];
-    NSNumber *facebookId= [[[NSNumberFormatter alloc] init] numberFromString:path];
-    
-    NSURL *url;
-    if (facebookId) {
-        url = [NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=100&height=100", facebookId]];
-    } else if(![path isEqualToString:@"local"]) {
-        url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", appBaseURL, path]];
-    }
-    
-    if(url) {
+        static NSString *CellIdentifier = @"memberCell";
+        DashboardMemberCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier];
         
-        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        cell.backgroundColor=[UIColor clearColor];
         
-        [cell.memberProfilePic setImageWithURLRequest:request
-                                     placeholderImage:[UIImage imageNamed:@"profile-pic.png"]
-                                              success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                                  cell.memberProfilePic.image = image;
-                                                  [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:25.0];
-                                              }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-                                                  NSLog(@"Failed with error: %@", error);
-                                              }];
-    } else {
-        cell.memberProfilePic.image = [UIImage imageNamed:@"profile-pic.png"];
-    }
-    
-    [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:25.0];
-
+        if (!cell) {
+            cell = (DashboardMemberCell*) [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
+                                                                 reuseIdentifier:  CellIdentifier];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        
+        NSDictionary *memberAtIndex = [self.dashboardInfo[@"members"] objectAtIndex:indexPath.row];
+        cell.nameLabel.text = memberAtIndex[@"name"];
+        
+        NSNumber *balance = memberAtIndex[@"balance"];
+        cell.balanceLabel.text = [NSString stringWithFormat:@"%@ %g" ,currency[@"symbol"], [balance doubleValue]];
+        
+        if ([balance doubleValue]> 0) {
+            cell.balanceLabel.textColor = [UIColor colorWithRed:(116/255.0) green:(178/255.0) blue:(20/255.0) alpha: 1];
+        } else if ([balance doubleValue] < 0) {
+            cell.balanceLabel.textColor = [UIColor colorWithRed:(202/255.0) green:(73/255.0) blue:(60/255.0) alpha: 1];
+        } else {
+            cell.balanceLabel.textColor = [UIColor colorWithRed:(60/255.0) green:(60/255.0) blue:(60/255.0) alpha: 1];
+        }
+        
+        cell.separatorView.backgroundColor=[UIColor colorWithRed:(236/255.0) green:(231/255.0) blue:(223/255.0) alpha: 1];
+        
+        if (indexPath.row==0){
+            cell.balanceContainerView.layer.cornerRadius = 10;
+            cell.bottomContainer.hidden=NO;
+        }else if (indexPath.row==[self.dashboardInfo[@"members"] count]-1){
+            cell.balanceContainerView.layer.cornerRadius = 10;
+            cell.topContainer.hidden=NO;
+            cell.separatorView.backgroundColor=[UIColor colorWithRed:(236/255.0) green:(231/255.0) blue:(223/255.0) alpha: 0];
+        }
+        
+        cell.balanceContainerView.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha: 1];
+        cell.balanceContainerView.layer.masksToBounds = YES;
+        
+        NSString *path = memberAtIndex[@"picturePath"];
+        NSNumber *facebookId= [[[NSNumberFormatter alloc] init] numberFromString:path];
+        
+        NSURL *url;
+        if (facebookId) {
+            url = [NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=100&height=100", facebookId]];
+        } else if(![path isEqualToString:@"local"]) {
+            url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", appBaseURL, path]];
+        }
+        
+        if(url) {
+            
+            NSURLRequest *request = [NSURLRequest requestWithURL:url];
+            
+            [cell.memberProfilePic setImageWithURLRequest:request
+                                         placeholderImage:[UIImage imageNamed:@"profile-pic.png"]
+                                                  success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                                      cell.memberProfilePic.image = image;
+                                                      [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:25.0];
+                                                  }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                                      NSLog(@"Failed with error: %@", error);
+                                                  }];
+        } else {
+            cell.memberProfilePic.image = [UIImage imageNamed:@"profile-pic.png"];
+        }
+        
+        [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:25.0];
+        
         return cell;
     }
     
@@ -303,59 +304,59 @@
 
 - (IBAction)CloseGroupAction:(id)sender {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Are you sure?"
-                                                          message:@"If you close this group, you and your friends will not have any access to it anymore"
-                                                         delegate:self
-                                                cancelButtonTitle:@"No"
-                                                otherButtonTitles:@"Yes", nil];
+                                                        message:@"If you close this group, you and your friends will not have any access to it anymore"
+                                                       delegate:self
+                                              cancelButtonTitle:@"No"
+                                              otherButtonTitles:@"Yes", nil];
     
     [alertView show];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     
-        if (buttonIndex == 0) {
-            
-            //NO clicked
-            NSLog(@"No clicked");
-            NSLog(@"nav array class = %@", self.navigationController.viewControllers.class);
-            NSLog(@"nav array count = %lu", (unsigned long)self.navigationController.viewControllers.count);
-            NSLog(@"root viewcontroller class = %@", self.navigationController.topViewController.class);
-            
-        } else if (buttonIndex == 1) {
-            
-            //YES clicekd
-            NSLog(@"Yes clicked");
-            NSNumber *currentMemberId = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"id"];
-            NSDictionary *parameters = [[NSDictionary alloc] initWithObjectsAndKeys:currentMemberId, @"currentMemberId", nil];
-            
-            [[AuthAPIClient sharedClient] getPath:@"api/group/close"
-                                       parameters:parameters
-                                          success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                              NSError *error = nil;
-                                              NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
-                                              
-                                              
-                                              [[NSNotificationCenter defaultCenter] postNotificationName:@"groupClosedSuccessfully" object:nil];
-                                              
-                                              [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentMember"];
-                                              
-                                              [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupName"];
-                                              [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupMembers"];
-                                              [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupCurrency"];
-                                              [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupIndex"];
-                                              NSLog(@"response = %@", response);
-                                              
-                                              UINavigationController * navigationController = self.navigationController.navigationController;
-                                              
-                                              NSMutableArray *navigationArray = [navigationController.viewControllers mutableCopy];
-                                              [navigationArray removeObjectAtIndex:1];
-                                              self.navigationController.navigationController.viewControllers = navigationArray;
-                                              
-                                              [navigationController popToRootViewControllerAnimated:NO];
-                                              
-                                          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                              NSLog(@"error: %@", error);
-                                          }];
+    if (buttonIndex == 0) {
+        
+        //NO clicked
+        NSLog(@"No clicked");
+        NSLog(@"nav array class = %@", self.navigationController.viewControllers.class);
+        NSLog(@"nav array count = %lu", (unsigned long)self.navigationController.viewControllers.count);
+        NSLog(@"root viewcontroller class = %@", self.navigationController.topViewController.class);
+        
+    } else if (buttonIndex == 1) {
+        
+        //YES clicekd
+        NSLog(@"Yes clicked");
+        NSNumber *currentMemberId = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"][@"id"];
+        NSDictionary *parameters = [[NSDictionary alloc] initWithObjectsAndKeys:currentMemberId, @"currentMemberId", nil];
+        
+        [[AuthAPIClient sharedClient] getPath:@"api/group/close"
+                                   parameters:parameters
+                                      success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                          NSError *error = nil;
+                                          NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                                          
+                                          
+                                          [[NSNotificationCenter defaultCenter] postNotificationName:@"groupClosedSuccessfully" object:nil];
+                                          
+                                          [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentMember"];
+                                          
+                                          [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupName"];
+                                          [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupMembers"];
+                                          [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupCurrency"];
+                                          [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupIndex"];
+                                          NSLog(@"response = %@", response);
+                                          
+                                          UINavigationController * navigationController = self.navigationController.navigationController;
+                                          
+                                          NSMutableArray *navigationArray = [navigationController.viewControllers mutableCopy];
+                                          [navigationArray removeObjectAtIndex:1];
+                                          self.navigationController.navigationController.viewControllers = navigationArray;
+                                          
+                                          [navigationController popToRootViewControllerAnimated:NO];
+                                          
+                                      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                          NSLog(@"error: %@", error);
+                                      }];
     }
 }
 

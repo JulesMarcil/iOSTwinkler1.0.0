@@ -66,16 +66,16 @@
     
     frame= [self.actionBar frame];
     [self.actionBar setFrame:CGRectMake(0,
-                                        screenHeight-64,
+                                        screenHeight-44,
                                         frame.size.width,
                                         44)];
     frame= [self.main frame];
     [self.main setFrame:CGRectMake(10,
-                                   screenHeight-222+44+100+84-64,
+                                   screenHeight-222+44+100+84-44,
                                    frame.size.width,
                                    frame.size.height)];
     [self.smiley setFrame:CGRectMake(10,
-                                     screenHeight-222+44+100+84-64,
+                                     screenHeight-222+44+100+84-44,
                                      frame.size.width,
                                      frame.size.height)];
     

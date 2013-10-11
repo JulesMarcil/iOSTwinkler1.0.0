@@ -26,15 +26,17 @@
 
 @synthesize scrollView;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
     return self;
-}- (void)viewDidLoad
-{
+}
+
+- (void)viewDidLoad {
+    
     [super viewDidLoad];
     
     NSLog(@"tabbarvc viewdidload navcontrollers count = %u", self.navigationController.navigationController.viewControllers.count);
@@ -115,9 +117,9 @@
     
     UIView *timelineView = middleVC.view;
     [timelineView setFrame:CGRectMake(320,
-                                       20,
+                                       0,
                                        320,
-                                       screenHeight+20)];
+                                       screenHeight+40)];
     
     
     [self.scrollView addSubview:timelineView];
@@ -130,9 +132,9 @@
      
      UIView *expenseView = leftVC.view;
      [expenseView setFrame:CGRectMake(0,
-                                      20,
+                                      0,
                                       320,
-                                      screenHeight+20)];
+                                      screenHeight+40)];
     
     expenseView.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
     expenseView.layer.borderWidth = 1.0f;
@@ -146,9 +148,9 @@
     
     UIView *dashboardView = rightVC.view;
     [dashboardView setFrame:CGRectMake(640,
-                                       20,
+                                       0,
                                        320,
-                                       screenHeight+20)];
+                                       screenHeight+40)];
     
     dashboardView.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
     dashboardView.layer.borderWidth = 1.0f;
@@ -158,9 +160,6 @@
     
     [self.scrollView setContentOffset:CGPointMake(320, 0) animated:NO];
     
-    
-    
-    
     [self.revealButtonItem addTarget:self.revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
     [self.leftButton addTarget:self.revealViewController action:@selector(revealToggle:) forControlEvents:UIControlEventTouchUpInside];
     [self.leftButton addGestureRecognizer: self.revealViewController.panGestureRecognizer];
@@ -168,8 +167,6 @@
     [self.leftButton addTarget:self action:@selector(hideLeftToggle) forControlEvents:UIControlEventTouchUpInside];
     
     //[self.revealViewController.panGestureRecognizer addTarget:self action:@selector(PanGestureEnded:)];
-    
-    
 }
 
 -(void)PanGestureEnded:(UIPanGestureRecognizer *)gesture{
