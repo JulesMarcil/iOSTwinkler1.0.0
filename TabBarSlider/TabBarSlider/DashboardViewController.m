@@ -10,6 +10,7 @@
 #import "AuthAPIClient.h"
 #import "UIImageView+AFNetworking.h"
 #import "DashboardMemberCell.h"
+#import "DashboardSummaryCell.h"
 #import "Group.h"
 #import "AddGroupViewController.h"
 #import <QuartzCore/QuartzCore.h>
@@ -80,6 +81,7 @@
     [self.mainTableView setFrame:CGRectMake(0, 0, 320, frame.size.height-20)];
     
     self.mainTableView.separatorColor=[UIColor colorWithRed:(236/255.0) green:(231/255.0) blue:(223/255.0) alpha: 0];
+    self.mainTableView.backgroundColor=[UIColor colorWithRed:(236/255.0) green:(231/255.0) blue:(223/255.0) alpha: 0];
     
     self.actionButton.layer.masksToBounds = YES;
     self.actionButton.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
@@ -116,16 +118,107 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.dashboardInfo[@"members"] count];
+    if (section==0) {
+        return 2;
+    }else{
+        return [self.dashboardInfo[@"members"] count];
+    }
+}
+
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    
+    if(section == 0){
+        return @"SUMMARY";
+    } else {
+        return @"BALANCE";
+    }
+}
+
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    NSString *sectionTitle = [self tableView:tableView titleForHeaderInSection:section];
+    if (sectionTitle == nil) {
+        return nil;
+    }
+    
+    UILabel *label = [[UILabel alloc] init];
+    
+    if(section == 0){
+        label.frame =CGRectMake(0,25,320,20);
+    } else {
+        label.frame =CGRectMake(0,10,320,20);
+    }
+    
+    label.text = sectionTitle;
+    label.textAlignment = NSTextAlignmentCenter;
+    label.font=[UIFont fontWithName:@"HelveticaNeue-Light" size:14];
+    label.textColor=[UIColor colorWithRed:(135/255.0) green:(135/255.0) blue:(135/255.0) alpha: 1];
+    
+    UIView *view = [[UIView alloc] init];
+    [view addSubview:label];
+    
+    
+    UIView *leftLineView = [[UIView alloc] init];
+    leftLineView.backgroundColor=[UIColor colorWithRed:(135/255.0) green:(135/255.0) blue:(135/255.0) alpha: 0.4];
+    
+    UIView *rightLineView = [[UIView alloc] init];
+    rightLineView.backgroundColor=[UIColor colorWithRed:(135/255.0) green:(135/255.0) blue:(135/255.0) alpha: 0.4];
+    
+    if(section == 0){
+        [leftLineView setFrame:CGRectMake(0, 35, 100, 1)];
+        [rightLineView setFrame:CGRectMake(220, 35, 100, 1)];
+    } else {
+        [leftLineView setFrame:CGRectMake(0, 20, 100, 1)];
+        [rightLineView setFrame:CGRectMake(220, 20, 100, 1)];
+    }
+    
+    [view addSubview:rightLineView];
+    [view addSubview:leftLineView];
+    
+    
+    return view;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    if (indexPath.section==0) {
+        static NSString *CellIdentifier = @"summaryCell";
+        DashboardSummaryCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier];
+        
+        cell.backgroundColor=[UIColor clearColor];
+        
+        if (!cell) {
+            cell = (DashboardSummaryCell*) [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
+                                                                 reuseIdentifier:  CellIdentifier];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        
+        cell.separatorView.backgroundColor=[UIColor colorWithRed:(236/255.0) green:(231/255.0) blue:(223/255.0) alpha: 1];
+        
+        if (indexPath.row==0){
+            cell.balanceContainerView.layer.cornerRadius = 10;
+            cell.bottomContainer.hidden=NO;
+            cell.nameLabel.text = @"YOU PAID:";
+        }else{
+            cell.balanceContainerView.layer.cornerRadius = 10;
+            cell.topContainer.hidden=NO;
+            cell.separatorView.backgroundColor=[UIColor colorWithRed:(236/255.0) green:(231/255.0) blue:(223/255.0) alpha: 0];
+            cell.nameLabel.text = @"TOTAL GROUP EXPENSES:";
+        }
+        
+        cell.balanceContainerView.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha: 1];
+        cell.balanceContainerView.layer.masksToBounds = YES;
+        
+        
+        return cell;
+    }else{
+        
     static NSString *CellIdentifier = @"memberCell";
     DashboardMemberCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier];
     
@@ -198,7 +291,9 @@
     
     [self setRoundedView:cell.memberProfilePic picture:cell.memberProfilePic.image toDiameter:25.0];
 
-    return cell;    
+        return cell;
+    }
+    
 }
 
 - (IBAction)AddMemberAction:(id)sender {

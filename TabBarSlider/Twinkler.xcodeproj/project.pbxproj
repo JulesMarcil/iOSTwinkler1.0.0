@@ -118,6 +118,7 @@
 		89F7D7B117DA6052006BE7FD /* right-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F7D7B017DA6052006BE7FD /* right-arrow.png */; };
 		89F7D7B717DA91DD006BE7FD /* main-smiley.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F7D7B617DA91DD006BE7FD /* main-smiley.png */; };
 		89F7D7B917DAA23E006BE7FD /* Twinkler_star.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F7D7B817DAA23D006BE7FD /* Twinkler_star.png */; };
+		8AF42B4B1808011400E9BBB5 /* DashboardSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF42B4A1808011400E9BBB5 /* DashboardSummaryCell.m */; };
 		BA24D4E017B017120042C7A4 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4CE17B017120042C7A4 /* AFHTTPClient.m */; };
 		BA24D4E117B017120042C7A4 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4D017B017120042C7A4 /* AFHTTPRequestOperation.m */; };
 		BA24D4E217B017120042C7A4 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4D217B017120042C7A4 /* AFImageRequestOperation.m */; };
@@ -305,6 +306,8 @@
 		89F7D7B017DA6052006BE7FD /* right-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow.png"; sourceTree = "<group>"; };
 		89F7D7B617DA91DD006BE7FD /* main-smiley.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main-smiley.png"; sourceTree = "<group>"; };
 		89F7D7B817DAA23D006BE7FD /* Twinkler_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twinkler_star.png; sourceTree = "<group>"; };
+		8AF42B491808011400E9BBB5 /* DashboardSummaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardSummaryCell.h; sourceTree = "<group>"; };
+		8AF42B4A1808011400E9BBB5 /* DashboardSummaryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardSummaryCell.m; sourceTree = "<group>"; };
 		BA24D4CD17B017120042C7A4 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		BA24D4CE17B017120042C7A4 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		BA24D4CF17B017120042C7A4 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -733,6 +736,8 @@
 				89CEBC9317C6B5C400DF7085 /* DashboardViewController.m */,
 				BAC9293E17C77DF60067F5B0 /* DashboardMemberCell.h */,
 				BAC9293F17C77DF60067F5B0 /* DashboardMemberCell.m */,
+				8AF42B491808011400E9BBB5 /* DashboardSummaryCell.h */,
+				8AF42B4A1808011400E9BBB5 /* DashboardSummaryCell.m */,
 			);
 			name = Dashboard;
 			sourceTree = "<group>";
@@ -1022,6 +1027,7 @@
 				BA24D4E117B017120042C7A4 /* AFHTTPRequestOperation.m in Sources */,
 				BA24D4E217B017120042C7A4 /* AFImageRequestOperation.m in Sources */,
 				BA24D4E317B017120042C7A4 /* AFJSONRequestOperation.m in Sources */,
+				8AF42B4B1808011400E9BBB5 /* DashboardSummaryCell.m in Sources */,
 				BA24D4E417B017120042C7A4 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				BA24D4E517B017120042C7A4 /* AFPropertyListRequestOperation.m in Sources */,
 				BA24D4E617B017120042C7A4 /* AFURLConnectionOperation.m in Sources */,
