@@ -255,13 +255,13 @@
             cell.balanceContainerView.layer.cornerRadius = 10;
             cell.bottomContainer.hidden=NO;
             cell.nameLabel.text = @"TOTAL GROUP EXPENSES:";
-            cell.balanceLabel.text = [NSString stringWithFormat:@"%@ %@", currency[@"symbol"], self.dashboardInfo[@"total_paid"]];
+            cell.balanceLabel.text = [NSString stringWithFormat:@"%@ %@", currency[@"symbol"], [NSString stringWithFormat:@"%g", [self.dashboardInfo[@"total_paid"] doubleValue]]];
         } else {
             cell.balanceContainerView.layer.cornerRadius = 10;
             cell.topContainer.hidden=NO;
             cell.separatorView.backgroundColor=[UIColor colorWithRed:(236/255.0) green:(231/255.0) blue:(223/255.0) alpha: 0];
             cell.nameLabel.text = @"YOU PAID:";
-            cell.balanceLabel.text = [NSString stringWithFormat:@"%@ %@", currency[@"symbol"], self.dashboardInfo[@"member_paid"]];
+            cell.balanceLabel.text = [NSString stringWithFormat:@"%@ %@", currency[@"symbol"], [NSString stringWithFormat:@"%g", [self.dashboardInfo[@"member_paid"] doubleValue]]];
         }
         
         cell.balanceContainerView.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha: 1];
