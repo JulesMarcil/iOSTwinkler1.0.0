@@ -165,21 +165,23 @@
 }
 
 - (void)dataRetrieved {
-    
+    NSLog(@"dataretrieved in timeline");
     [self.messageOnTimeline reloadData];
     self.spinnerView.hidden = YES;
     [self scrollDown];
 }
 
 - (void)dataFailed {
-    
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Oops"
+    NSLog(@"datafailed in timeline");
+    if (self.navigationController != self.presentedViewController){
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Oops"
                                                         message:@"Impossible to refresh timeline, make sure you are connected"
                                                        delegate:self
                                               cancelButtonTitle:@"Ok"
                                               otherButtonTitles:nil, nil];
-    [alertView show];
-    self.spinnerView.hidden = YES;
+        [alertView show];
+        self.spinnerView.hidden = YES;
+    }
 }
 
 - (void) addExpense:(NSNotification *)note{
