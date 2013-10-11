@@ -56,9 +56,9 @@
     CGFloat screenHeight = screenRect.size.height;
     CGRect frame= [self.messageOnTimeline frame];
     [self.messageOnTimeline setFrame:CGRectMake(0,
-                                                -20,
+                                                0,
                                                 frame.size.width,
-                                                screenHeight-64)];
+                                                screenHeight-84)];
     [self.messageOnTimeline setContentOffset:CGPointMake(0, 999999999999)];
     
     
