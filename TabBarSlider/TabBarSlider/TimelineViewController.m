@@ -117,7 +117,7 @@
     NSDictionary *currentMember = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"];
     NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:currentMember[@"id"], @"currentMemberId", self.messageDataController.count, @"count", nil];
     
-    NSLog(@"count before refresh = %@", self.messageDataController.count);
+    //NSLog(@"count before refresh = %@", self.messageDataController.count);
     
     [[AuthAPIClient sharedClient] getPath:[NSString stringWithFormat:@"api/get/messages/%@", self.messageDataController.count]
                                parameters:parameters
@@ -127,11 +127,11 @@
                                       
                                       
                                       int x = [self.messageDataController.count intValue];
-                                      NSLog(@"stocked count = %u", x);
+                                      //NSLog(@"stocked count = %u", x);
                                       int y = self.messageDataController.countOfList;
-                                      NSLog(@"controller count = %u", y);
+                                      //NSLog(@"controller count = %u", y);
                                       int z = response.count;
-                                      NSLog(@"response count = %u", z);                        
+                                      //NSLog(@"response count = %u", z);
                                       
                                       if (z > 0){
                                           
@@ -157,12 +157,12 @@
                                           self.messageDataController.count = [NSNumber numberWithInt:self.messageDataController.countOfList];
                                           [self.messageOnTimeline reloadData];
                                           [self scrollDown];
-                                          NSLog(@"success: %u messages added", z);
+                                          //NSLog(@"success: %u messages added", z);
                                       }else{
                                           //NSLog(@"success: data in sync");
                                       }
                                   } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                      NSLog(@"error: %@", error);
+                                      //NSLog(@"error: %@", error);
                                   }];
     
 }

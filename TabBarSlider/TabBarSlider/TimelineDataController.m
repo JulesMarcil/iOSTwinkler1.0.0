@@ -32,8 +32,6 @@
         NSDictionary* response = [NSJSONSerialization JSONObjectWithData:cachedResponse.data options:kNilOptions error:&error];
         self.count = [NSNumber numberWithInt:response.count];
         
-        NSLog(@" setting count at %@", self.count);
-        
         for(id key in response) {
             
             Message *message = [[Message alloc] initWithType:key[@"type"]
@@ -61,8 +59,6 @@
         [self.messageList removeAllObjects];
         self.count = [NSNumber numberWithInt:response.count];
         
-        NSLog(@" setting count at %@", self.count);
-        
         for(id key in response) {
             
             Message *message = [[Message alloc] initWithType:key[@"type"]
@@ -80,7 +76,7 @@
         }
         [[NSNotificationCenter defaultCenter] postNotificationName:@"messagesWithJSONFinishedLoading" object:nil];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"error: %@", error);
+        //NSLog(@"error: %@", error);
     }];
     
     [operation start];

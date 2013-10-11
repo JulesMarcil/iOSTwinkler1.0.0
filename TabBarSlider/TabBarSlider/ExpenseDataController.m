@@ -171,6 +171,8 @@
                                       [[NSNotificationCenter defaultCenter] postNotificationName:@"expensesWithJSONFinishedLoading" object:nil];
                                   }
                                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                      [[NSNotificationCenter defaultCenter] postNotificationName:@"expensesWithJSONFailedLoading" object:nil];
+                                      NSLog(@"expensesWithJSONFailedLoading");
                                       NSLog(@"error: %@", error);
                                   }];
 }

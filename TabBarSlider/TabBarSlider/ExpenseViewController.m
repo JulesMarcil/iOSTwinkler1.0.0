@@ -33,8 +33,6 @@
     self.spinnerContainer.hidden=NO;
     [self.refreshSpinner startAnimating];
     self.expenseDataController = [[ExpenseDataController alloc] init];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addExpense:) name:@"expenseAddedSuccesfully" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeExpense:) name:@"expenseRemovedSuccesfully" object:nil];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -50,11 +48,10 @@
     [super viewDidLoad];
     [self setBalanceLabelValue:self.expenseDataController.balance];
     
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self
-     selector:@selector(dataRetrieved)
-     name:@"expensesWithJSONFinishedLoading"
-     object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataRetrieved)  name:@"expensesWithJSONFinishedLoading" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataError)      name:@"expensesWithJSONFailedLoading"   object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addExpense:)    name:@"expenseAddedSuccesfully"         object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeExpense:) name:@"expenseRemovedSuccesfully"       object:nil];
     
     self.expenseListTable.allowsSelectionDuringEditing = YES;
     self.expenseListTable.separatorColor = [UIColor clearColor];
@@ -108,9 +105,10 @@
 
 - (void)refresh:(UIRefreshControl *)refreshControl {
     NSLog(@"refresh function called");
+    [refreshControl endRefreshing];
+    self.spinnerContainer.hidden=NO;
     [self.refreshSpinner startAnimating];
     [self.expenseDataController refreshData];
-    [refreshControl endRefreshing];
 }
 
 - (void)dataRetrieved {
@@ -119,6 +117,20 @@
     [self setBalanceLabelValue:self.expenseDataController.balance];
     self.spinnerContainer.hidden=YES;
     [self.refreshSpinner stopAnimating];
+}
+
+- (void)dataError {
+    NSLog(@"dataError in expense");
+    self.spinnerContainer.hidden=YES;
+    [self.refreshSpinner stopAnimating];
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Oops"
+                                                        message:@"Impossible to refresh expenses, make sure you are connected"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil, nil];
+    
+    [alertView show];
 }
 
 - (void)didReceiveMemoryWarning {

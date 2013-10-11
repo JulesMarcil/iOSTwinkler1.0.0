@@ -26,7 +26,6 @@
 @property (weak, nonatomic) IBOutlet UIView *addExpenseBck;
 @property (weak, nonatomic) IBOutlet UIView *balanceContainer;
 
-- (IBAction)setBalanceLabelValue:(NSNumber *)balance;
 - (IBAction)addExpenseButton:(id)sender;
 
 @end
