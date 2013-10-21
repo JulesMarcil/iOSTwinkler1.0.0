@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddFriendsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface AddFriendsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate,UISearchDisplayDelegate, UISearchBarDelegate>
 
+- (IBAction)dismissModal:(id)sender;
+@property (weak, nonatomic) IBOutlet UITableView *friendTableView;
 @end
