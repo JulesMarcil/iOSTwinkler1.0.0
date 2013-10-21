@@ -16,14 +16,12 @@
 
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     NSLog(@"application didFinishLaunchingWithOptions");
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
-    
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"defaultProfile"];
     
     CredentialStore *store = [[CredentialStore alloc] init];
     NSString *authToken = [store authToken];
@@ -34,6 +32,13 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:@"loginSuccess" object:nil];
     }else{
         [self showLoginView];
+    }
+    
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
+    
+    UILocalNotification *pushNotif = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    if (pushNotif) {
+        [self application:application didReceiveRemoteNotification:pushNotif.userInfo];
     }
     
     return YES;
@@ -254,6 +259,30 @@
                                       NSLog(@"error: %@", error);
                                       [self showLoginView];
                                   }];
+}
+
+// --- Remote notificaton system ---
+
+// Delegation methods
+- (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)devToken {
+    const unsigned *tokenBytes = [devToken bytes];
+    self.registered = YES;
+    
+    NSString *hexToken = [NSString stringWithFormat:@"%08x%08x%08x%08x%08x%08x%08x%08x",
+                          ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
+                          ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
+                          ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:hexToken forKey:@"deviceToken"];
+}
+
+- (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err {
+    NSLog(@"Error in registration. Error: %@", err);
+}
+
+- (void)application:(UIApplication *)app didReceiveRemoteNotification:(NSDictionary *)notif {
+    NSString *groupId = [notif objectForKey:@"groupId"];
+    // go to group id
 }
 
 
