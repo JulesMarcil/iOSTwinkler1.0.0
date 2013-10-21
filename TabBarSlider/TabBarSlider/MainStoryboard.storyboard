@@ -61,17 +61,17 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
                                     <view alpha="0.59999999999999998" contentMode="scaleToFill" id="92h-8l-NFF">
-                                        <rect key="frame" x="208" y="56" width="1" height="22"/>
+                                        <rect key="frame" x="208" y="49" width="1" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
                                     <view alpha="0.59999999999999998" contentMode="scaleToFill" id="0YS-P4-w85">
-                                        <rect key="frame" x="115" y="56" width="1" height="22"/>
+                                        <rect key="frame" x="114" y="49" width="1" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Sdr-S6-Ogv">
-                                        <rect key="frame" x="11" y="45" width="107" height="44"/>
+                                        <rect key="frame" x="11" y="52" width="107" height="44"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                                         <state key="normal" image="coin-icon.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -81,7 +81,7 @@
                                         <state key="highlighted" image="coin-icon-active.png"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7cJ-cX-HfO">
-                                        <rect key="frame" x="107" y="45" width="107" height="44"/>
+                                        <rect key="frame" x="107" y="52" width="107" height="44"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                                         <state key="normal" image="tkr-icon.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -91,7 +91,7 @@
                                         <state key="highlighted" image="tkr-icon-active.png"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2f3-R7-Uas">
-                                        <rect key="frame" x="201" y="45" width="107" height="44"/>
+                                        <rect key="frame" x="201" y="52" width="107" height="44"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
                                         <state key="normal" image="check-icon.png">
                                             <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -101,7 +101,7 @@
                                         <state key="highlighted" image="check-icon-active.png"/>
                                     </button>
                                     <view clearsContextBeforeDrawing="NO" alpha="0.10000000000000001" contentMode="scaleToFill" id="T4e-6O-OIX">
-                                        <rect key="frame" x="0.0" y="99" width="320" height="1"/>
+                                        <rect key="frame" x="0.0" y="84" width="320" height="1"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.80000007152557373" green="0.27058824896812439" blue="0.25098040699958801" alpha="1" colorSpace="deviceRGB"/>
                                     </view>
@@ -217,11 +217,11 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="ykb-Gl-7xL">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="115"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" id="ch1-js-4um">
-                                            <rect key="frame" x="0.0" y="100" width="320" height="30"/>
+                                            <rect key="frame" x="0.0" y="85" width="320" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="DASHBOARD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Fe-sK-n1h">
@@ -235,7 +235,7 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Pull down to refresh" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aF7-Mj-3aj">
-                                            <rect key="frame" x="20" y="49" width="280" height="32"/>
+                                            <rect key="frame" x="20" y="40" width="280" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
@@ -245,7 +245,7 @@
                                     </subviews>
                                 </view>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="Nny-1Q-fSI">
-                                    <rect key="frame" x="0.0" y="236" width="320" height="181"/>
+                                    <rect key="frame" x="0.0" y="221" width="320" height="181"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="1LF-8K-c26">
@@ -284,7 +284,7 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="memberCell" rowHeight="42" id="3Dx-hh-yos" customClass="DashboardMemberCell">
-                                        <rect key="frame" x="0.0" y="152" width="320" height="42"/>
+                                        <rect key="frame" x="0.0" y="137" width="320" height="42"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Dx-hh-yos" id="CQM-Sq-FRE">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="41"/>
@@ -324,7 +324,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" id="eD9-Q7-d7a">
-                                                    <rect key="frame" x="13" y="41" width="295" height="1"/>
+                                                    <rect key="frame" x="13" y="40" width="295" height="1"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 </view>
@@ -342,7 +342,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="summaryCell" rowHeight="42" id="mcc-3q-ffX" customClass="DashboardSummaryCell">
-                                        <rect key="frame" x="0.0" y="194" width="320" height="42"/>
+                                        <rect key="frame" x="0.0" y="179" width="320" height="42"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mcc-3q-ffX" id="MlW-kK-bgr">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="41"/>
@@ -378,7 +378,7 @@
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" id="0r5-ME-nN0">
-                                                    <rect key="frame" x="13" y="41" width="295" height="1"/>
+                                                    <rect key="frame" x="13" y="39" width="295" height="1"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 </view>
@@ -435,7 +435,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="WRD-Md-uSG">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="566"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="h7j-Bc-Atg">
@@ -503,24 +503,6 @@
                                 <view key="tableFooterView" contentMode="scaleToFill" id="DNE-zt-r5x">
                                     <rect key="frame" x="0.0" y="267" width="320" height="55"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CuR-UW-Bkl">
-                                            <rect key="frame" x="30" y="10" width="260" height="35"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="0.24313725489999999" green="0.2666666667" blue="0.29411764709999999" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                            <state key="normal" title="Create a new Group">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <state key="highlighted">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="createGroup:" destination="jM0-tw-YH4" eventType="touchUpInside" id="bBY-4G-rDM"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
                                 </view>
                                 <prototypes>
                                     <tableViewCell alpha="0.0" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="groupCell" id="aIf-nK-6gS" customClass="GroupListCell">
@@ -572,6 +554,29 @@
                                     <outlet property="delegate" destination="jM0-tw-YH4" id="vD4-Ob-rYo"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" id="1g5-iw-s2e">
+                                <rect key="frame" x="0.0" y="528" width="320" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CuR-UW-Bkl">
+                                        <rect key="frame" x="16" y="4" width="228" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.18160912298387097" alpha="0.78000000000000003" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <state key="normal" title="Create a new Group">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="createGroup:" destination="jM0-tw-YH4" eventType="touchUpInside" id="bBY-4G-rDM"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.24313725489999999" green="0.2666666667" blue="0.29411764709999999" alpha="0.75" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -611,13 +616,17 @@
     <resources>
         <image name="bckgd-2.png" width="1626" height="3000"/>
         <image name="check-icon-active.png" width="20" height="20"/>
+        <image name="check-icon-active.png" width="20" height="20"/>
         <image name="check-icon.png" width="20" height="20"/>
+        <image name="coin-icon-active.png" width="20" height="20"/>
         <image name="coin-icon-active.png" width="20" height="20"/>
         <image name="coin-icon.png" width="20" height="20"/>
         <image name="gear.png" width="156" height="156"/>
         <image name="heart-icon.png" width="23" height="20"/>
         <image name="menu-button-white.png" width="36" height="36"/>
         <image name="profile-pic-placeholder.png" width="160" height="160"/>
+        <image name="profile-pic-placeholder.png" width="160" height="160"/>
+        <image name="tkr-icon-active.png" width="23" height="20"/>
         <image name="tkr-icon-active.png" width="23" height="20"/>
         <image name="tkr-icon.png" width="23" height="20"/>
     </resources>

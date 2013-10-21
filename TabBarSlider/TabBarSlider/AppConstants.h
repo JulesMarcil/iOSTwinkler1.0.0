@@ -10,9 +10,9 @@
 #define TabBarSlider_AppConstants_h
 
 
-#define expenseCGPoint  {20,52}
-#define listCGPoint {205,52}
-#define timelineCGPoint {114,52}
+#define expenseCGPoint  {20,45}
+#define listCGPoint {205,45}
+#define timelineCGPoint {114,45}
 
 //#define appURL @"http://www.twinkler.co/web/"
 //#define appBaseURL @"http://www.twinkler.co/"
