@@ -16,6 +16,9 @@
 @property (strong, nonatomic) NSArray *list;
 @property (strong, nonatomic) NSMutableArray *filteredList;
 @property (strong, nonatomic) NSMutableArray *selectedList;
+@property (weak, nonatomic) IBOutlet UIView *searchbarContainer;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+@property (weak, nonatomic) IBOutlet UIButton *doneButton;
 
 - (IBAction)dismissModal:(id)sender;
 

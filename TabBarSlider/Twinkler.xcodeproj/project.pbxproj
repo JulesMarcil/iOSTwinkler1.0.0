@@ -116,6 +116,7 @@
 		89F7D7B117DA6052006BE7FD /* right-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F7D7B017DA6052006BE7FD /* right-arrow.png */; };
 		89F7D7B717DA91DD006BE7FD /* main-smiley.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F7D7B617DA91DD006BE7FD /* main-smiley.png */; };
 		89F7D7B917DAA23E006BE7FD /* Twinkler_star.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F7D7B817DAA23D006BE7FD /* Twinkler_star.png */; };
+		8A5459B51815869900EC4E0D /* addFacebookFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5459B41815869900EC4E0D /* addFacebookFriendCell.m */; };
 		8AF42B4B1808011400E9BBB5 /* DashboardSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF42B4A1808011400E9BBB5 /* DashboardSummaryCell.m */; };
 		BA24D4E017B017120042C7A4 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4CE17B017120042C7A4 /* AFHTTPClient.m */; };
 		BA24D4E117B017120042C7A4 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4D017B017120042C7A4 /* AFHTTPRequestOperation.m */; };
@@ -302,6 +303,8 @@
 		89F7D7B017DA6052006BE7FD /* right-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow.png"; sourceTree = "<group>"; };
 		89F7D7B617DA91DD006BE7FD /* main-smiley.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main-smiley.png"; sourceTree = "<group>"; };
 		89F7D7B817DAA23D006BE7FD /* Twinkler_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twinkler_star.png; sourceTree = "<group>"; };
+		8A5459B31815869900EC4E0D /* addFacebookFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addFacebookFriendCell.h; sourceTree = "<group>"; };
+		8A5459B41815869900EC4E0D /* addFacebookFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addFacebookFriendCell.m; sourceTree = "<group>"; };
 		8AF42B491808011400E9BBB5 /* DashboardSummaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardSummaryCell.h; sourceTree = "<group>"; };
 		8AF42B4A1808011400E9BBB5 /* DashboardSummaryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardSummaryCell.m; sourceTree = "<group>"; };
 		BA24D4CD17B017120042C7A4 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
@@ -722,6 +725,8 @@
 				BABC149517CB52D6004AF222 /* InviteViewController.m */,
 				BACB523F18153E9B0045729D /* AddFriendsViewController.h */,
 				BACB524018153E9B0045729D /* AddFriendsViewController.m */,
+				8A5459B31815869900EC4E0D /* addFacebookFriendCell.h */,
+				8A5459B41815869900EC4E0D /* addFacebookFriendCell.m */,
 			);
 			name = AddMember;
 			sourceTree = "<group>";
@@ -1039,6 +1044,7 @@
 				BA9C6DFB17B062A200C50CC2 /* AddExpenseViewController.m in Sources */,
 				891183A217B13DD700B28ABE /* GroupListCell.m in Sources */,
 				891183B317B1A31200B28ABE /* ExpenseItemCell.m in Sources */,
+				8A5459B51815869900EC4E0D /* addFacebookFriendCell.m in Sources */,
 				BAAC681017B4D746006C69DE /* LoginViewController.m in Sources */,
 				BAAC681317B4E29D006C69DE /* Profile.m in Sources */,
 				8919A9DF17BA19AF00778467 /* timelineBubbleCell.m in Sources */,

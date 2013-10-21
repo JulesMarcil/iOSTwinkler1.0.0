@@ -7,6 +7,7 @@
 //
 
 #import "AddFriendsViewController.h"
+#import "addFacebookFriendCell.h"
 
 @interface AddFriendsViewController ()
 
@@ -37,6 +38,7 @@
     self.filteredList = [[NSMutableArray alloc] init];
     self.selectedList = [[NSMutableArray alloc] init];
     
+    
     FBRequest* friendsRequest = [FBRequest requestForMyFriends];
     [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
                                                   NSDictionary* result,
@@ -46,6 +48,15 @@
         [self.friendTableView reloadData];
         
     }];
+    
+    
+    
+    [[self.cancelButton layer] setBorderWidth:1.0f];
+    [[self.cancelButton layer] setBorderColor:[UIColor whiteColor].CGColor];
+    
+    [[self.doneButton layer] setBorderWidth:1.0f];
+    [[self.doneButton layer] setBorderColor:[UIColor whiteColor].CGColor];
+    self.searchbarContainer.backgroundColor=[UIColor colorWithRed:(254/255.0) green:(106/255.0) blue:(100/255.0) alpha:1];
 }
 
 - (void)didReceiveMemoryWarning
@@ -72,21 +83,24 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"friendCell";
     
-    UITableViewCell *cell = [_friendTableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    addFacebookFriendCell *cell = [_friendTableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell = [[addFacebookFriendCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
     // Configure the cell...
     NSDictionary<FBGraphUser>* friend;
     if (self.isSearching && [self.filteredList count]) {
-        //If the user is searching, use the list in our filteredList array.
         friend = [self.filteredList objectAtIndex:indexPath.row];
     } else {
         friend = [self.list objectAtIndex:indexPath.row];
     }
     
-    cell.textLabel.text = friend.name;
+    cell.facebookFriendName.text = friend.name;
+    
+    cell.profilePic.image = [UIImage imageNamed:@"profile-pic-placeholder.png"];
+    
+    [self setRoundedView:cell.profilePic picture:cell.profilePic.image toDiameter:35.0];
     
     return cell;
 }
@@ -143,5 +157,42 @@
     return YES;
 }
 
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];    NSDictionary<FBGraphUser>* friend;
+    if (self.isSearching && [self.filteredList count]) {
+        //If the user is searching, use the list in our filteredList array.
+        friend = [self.filteredList objectAtIndex:indexPath.row];
+    } else {
+        friend = [self.list objectAtIndex:indexPath.row];
+    };
+     addFacebookFriendCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.checkImage.hidden=NO;
+    
+}
+
+// ---- Design ---  //
+
+-(void) setRoundedView:(UIImageView *)imageView picture: (UIImage *)picture toDiameter:(float)newSize{
+    // Begin a new image that will be the new image with the rounded corners
+    // (here with the size of an UIImageView)
+    UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, NO, 0.0f);
+    
+    // Add a clip before drawing anything, in the shape of an rounded rect
+    [[UIBezierPath bezierPathWithRoundedRect:imageView.bounds
+                                cornerRadius:100.0] addClip];
+    // Draw your image
+    CGRect frame=imageView.bounds;
+    frame.size.width=newSize;
+    frame.size.height=newSize;
+    [picture drawInRect:frame];
+    
+    // Get the image, here setting the UIImageView image
+    imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+    
+    // Lets forget about that we were drawing
+    UIGraphicsEndImageContext();
+}
 
 @end
