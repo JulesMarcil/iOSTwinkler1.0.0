@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>D6070A7B-B5A0-4856-9C8B-66BA669FD4AC</string>
+	<string>188B1C1F-A3F8-4FFD-881C-529A3FBC1A05</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Twinkler</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>84C171D2-50A2-479B-AF53-7BA1E7F6F044</key>
-		<string>https://github.com/JulesMarcil/iOSTwinkler1.0.0.git</string>
+		<key>EC676606-7521-4D25-B6B0-99EF2BB4CFB2</key>
+		<string>https://github.com/JulesMarcil/iOSTwinkler1.0.0/</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>TabBarSlider/Twinkler.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>84C171D2-50A2-479B-AF53-7BA1E7F6F044</key>
+		<key>EC676606-7521-4D25-B6B0-99EF2BB4CFB2</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/JulesMarcil/iOSTwinkler1.0.0.git</string>
+	<string>https://github.com/JulesMarcil/iOSTwinkler1.0.0/</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>84C171D2-50A2-479B-AF53-7BA1E7F6F044</string>
+	<string>EC676606-7521-4D25-B6B0-99EF2BB4CFB2</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>84C171D2-50A2-479B-AF53-7BA1E7F6F044</string>
+			<string>EC676606-7521-4D25-B6B0-99EF2BB4CFB2</string>
 			<key>IDESourceControlWCCName</key>
-			<string>iosTwinkler</string>
+			<string>iOSTwinkler1.0</string>
 		</dict>
 	</array>
 </dict>

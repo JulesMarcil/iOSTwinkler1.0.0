@@ -16,5 +16,6 @@
 @property (weak, nonatomic) IBOutlet UIView *bottomContainer;
 @property (weak, nonatomic) IBOutlet UIView *topContainer;
 @property (weak, nonatomic) IBOutlet UIView *separatorView;
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 
 @end

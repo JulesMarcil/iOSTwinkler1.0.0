@@ -54,6 +54,7 @@
     CGRect frame=self.mainTableView.bounds;
     [self.mainTableView setFrame:CGRectMake(0, 0, 320, frame.size.height)];
     
+    
     self.mainTableView.separatorColor=[UIColor colorWithRed:(236/255.0) green:(231/255.0) blue:(223/255.0) alpha: 0];
     self.mainTableView.backgroundColor=[UIColor colorWithRed:(236/255.0) green:(231/255.0) blue:(223/255.0) alpha: 0];
     
@@ -203,13 +204,14 @@
     if(section == 0){
         label.frame =CGRectMake(0,25,320,20);
     } else {
-        label.frame =CGRectMake(0,10,320,20);
+        label.frame =CGRectMake(0,25,320,20);
     }
     
     label.text = sectionTitle;
     label.textAlignment = NSTextAlignmentCenter;
     label.font=[UIFont fontWithName:@"HelveticaNeue-Light" size:14];
     label.textColor=[UIColor colorWithRed:(135/255.0) green:(135/255.0) blue:(135/255.0) alpha: 1];
+    label.backgroundColor=[UIColor clearColor];
     
     UIView *view = [[UIView alloc] init];
     [view addSubview:label];
@@ -224,14 +226,24 @@
         [leftLineView setFrame:CGRectMake(0, 35, 100, 1)];
         [rightLineView setFrame:CGRectMake(220, 35, 100, 1)];
     } else {
-        [leftLineView setFrame:CGRectMake(0, 20, 100, 1)];
-        [rightLineView setFrame:CGRectMake(220, 20, 100, 1)];
+        [leftLineView setFrame:CGRectMake(0, 35, 100, 1)];
+        [rightLineView setFrame:CGRectMake(220, 35, 100, 1)];
     }
     
     [view addSubview:rightLineView];
     [view addSubview:leftLineView];
     
     return view;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 41;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 50;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -250,6 +262,7 @@
         }
         
         cell.separatorView.backgroundColor=[UIColor colorWithRed:(236/255.0) green:(231/255.0) blue:(223/255.0) alpha: 1];
+        [cell.contentView setFrame:CGRectMake(0, 0, 320, 42)];
         
         if (indexPath.row == 0){
             cell.balanceContainerView.layer.cornerRadius = 10;
@@ -290,9 +303,9 @@
         if ([balance doubleValue]> 0) {
             cell.balanceLabel.textColor = [UIColor colorWithRed:(116/255.0) green:(178/255.0) blue:(20/255.0) alpha: 1];
         } else if ([balance doubleValue] < 0) {
-            cell.balanceLabel.textColor = [UIColor colorWithRed:(202/255.0) green:(73/255.0) blue:(60/255.0) alpha: 1];
+            cell.balanceLabel.textColor =  [UIColor colorWithRed:(255/255.0) green:(146/255.0) blue:(123/255.0) alpha: 1];
         } else {
-            cell.balanceLabel.textColor = [UIColor colorWithRed:(60/255.0) green:(60/255.0) blue:(60/255.0) alpha: 1];
+            cell.balanceLabel.textColor = [UIColor colorWithRed:(116/255.0) green:(116/255.0) blue:(116/255.0) alpha: 1];
         }
         
         cell.separatorView.backgroundColor=[UIColor colorWithRed:(236/255.0) green:(231/255.0) blue:(223/255.0) alpha: 1];
