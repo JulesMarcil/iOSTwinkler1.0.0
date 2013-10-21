@@ -94,6 +94,9 @@
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
     [self.groupOnMenu addSubview:refreshControl];
+    
+    [[self.addGroupButton layer] setBorderWidth:1.0f];
+    [[self.addGroupButton layer] setBorderColor:[UIColor colorWithRed:(60/255.0) green:(60/255.0) blue:(60/255.0) alpha:1].CGColor];
 }
 
 - (void)refresh:(UIRefreshControl *)refreshControl {

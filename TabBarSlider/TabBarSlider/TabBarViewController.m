@@ -66,16 +66,20 @@
     [self.toolbar setFrame:CGRectMake(0,
                                       0,
                                       frame.size.width,
-                                      100)];
+                                      85)];
     self.toolbar.backgroundColor=[UIColor colorWithRed:(254/255.0) green:(106/255.0) blue:(100/255.0) alpha:1];
     
     
     self.tabBarBck.layer.cornerRadius = 2;
     self.tabBarBck.layer.masksToBounds = YES;
     self.tabBarBck.backgroundColor=[UIColor colorWithRed:(244/255.0) green:(87/255.0) blue:(80/255.0) alpha:1];
+    [self.tabBarBck setFrame:CGRectMake(20, 45, 280, 30)];
     self.activeTabBarImage.layer.cornerRadius = 2;
     self.activeTabBarImage.layer.masksToBounds = YES;
     
+    CGRect rect = CGRectMake(114, 40, self.activeTabBarImage.frame.size.width,self.activeTabBarImage.frame.size.height);
+    
+    [self.activeTabBarImage setFrame:rect];
     
     [self.timelineButton setSelected:YES];
     
