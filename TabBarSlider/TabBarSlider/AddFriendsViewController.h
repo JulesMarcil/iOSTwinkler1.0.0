@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIView *searchbarContainer;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 - (IBAction)dismissModal:(id)sender;
 

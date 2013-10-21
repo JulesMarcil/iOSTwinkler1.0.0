@@ -57,6 +57,8 @@
     [[self.doneButton layer] setBorderWidth:1.0f];
     [[self.doneButton layer] setBorderColor:[UIColor whiteColor].CGColor];
     self.searchbarContainer.backgroundColor=[UIColor colorWithRed:(254/255.0) green:(106/255.0) blue:(100/255.0) alpha:1];
+    self.searchBar.tintColor = [UIColor colorWithRed:(254/255.0) green:(106/255.0) blue:(100/255.0) alpha:1];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -95,7 +97,6 @@
     } else {
         friend = [self.list objectAtIndex:indexPath.row];
     }
-    
     cell.facebookFriendName.text = friend.name;
     
     cell.profilePic.image = [UIImage imageNamed:@"profile-pic-placeholder.png"];
@@ -167,6 +168,8 @@
     } else {
         friend = [self.list objectAtIndex:indexPath.row];
     };
+    
+    NSLog(friend.name);
      addFacebookFriendCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     cell.checkImage.hidden=NO;
     
