@@ -148,6 +148,7 @@
 		BABC149317CA7568004AF222 /* AddMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BABC149217CA7568004AF222 /* AddMemberCell.m */; };
 		BABC149617CB52D6004AF222 /* InviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BABC149517CB52D6004AF222 /* InviteViewController.m */; };
 		BAC9294017C77DF60067F5B0 /* DashboardMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC9293F17C77DF60067F5B0 /* DashboardMemberCell.m */; };
+		BACB524118153E9B0045729D /* AddFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BACB524018153E9B0045729D /* AddFriendsViewController.m */; };
 		BAD291ED17F57BD500B39E8C /* icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD291E717F57BD500B39E8C /* icon-60.png */; };
 		BAD291EE17F57BD500B39E8C /* icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD291E817F57BD500B39E8C /* icon-76.png */; };
 		BAD291EF17F57BD500B39E8C /* icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD291E917F57BD500B39E8C /* icon-120.png */; };
@@ -362,6 +363,8 @@
 		BABC149517CB52D6004AF222 /* InviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteViewController.m; sourceTree = "<group>"; };
 		BAC9293E17C77DF60067F5B0 /* DashboardMemberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardMemberCell.h; sourceTree = "<group>"; };
 		BAC9293F17C77DF60067F5B0 /* DashboardMemberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardMemberCell.m; sourceTree = "<group>"; };
+		BACB523F18153E9B0045729D /* AddFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFriendsViewController.h; sourceTree = "<group>"; };
+		BACB524018153E9B0045729D /* AddFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendsViewController.m; sourceTree = "<group>"; };
 		BAD291E717F57BD500B39E8C /* icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-60.png"; sourceTree = "<group>"; };
 		BAD291E817F57BD500B39E8C /* icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-76.png"; sourceTree = "<group>"; };
 		BAD291E917F57BD500B39E8C /* icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-120.png"; sourceTree = "<group>"; };
@@ -717,6 +720,8 @@
 				BABC149217CA7568004AF222 /* AddMemberCell.m */,
 				BABC149417CB52D6004AF222 /* InviteViewController.h */,
 				BABC149517CB52D6004AF222 /* InviteViewController.m */,
+				BACB523F18153E9B0045729D /* AddFriendsViewController.h */,
+				BACB524018153E9B0045729D /* AddFriendsViewController.m */,
 			);
 			name = AddMember;
 			sourceTree = "<group>";
@@ -1044,6 +1049,7 @@
 				BABC149317CA7568004AF222 /* AddMemberCell.m in Sources */,
 				BABC149617CB52D6004AF222 /* InviteViewController.m in Sources */,
 				89C54FF517D6494D007B8CEB /* notificationCell.m in Sources */,
+				BACB524118153E9B0045729D /* AddFriendsViewController.m in Sources */,
 				89C54FF917D67B03007B8CEB /* FeedbackViewController.m in Sources */,
 				894D1CD217D89FFA002A48EB /* ExpenseDetailViewController.m in Sources */,
 				895A5C0817E4B42300BCC75F /* WalkthroughViewController.m in Sources */,
