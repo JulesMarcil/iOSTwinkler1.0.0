@@ -22,17 +22,6 @@
 {
     [super viewDidLoad];
     
-    if (self.group) {
-        
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"AddGroupStoryboard" bundle:nil];
-        GroupMemberViewController *gmvc = (GroupMemberViewController *)[storyboard instantiateViewControllerWithIdentifier:@"AddMemberViewController"];
-        gmvc.group = self.group;
-        gmvc.memberArray = [[NSMutableArray alloc] initWithArray:self.group.members];
-        gmvc.hideBack = YES;
-        [gmvc.memberTableView reloadData];
-        [self.navigationController pushViewController:gmvc animated:NO];
-    }
-    
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     
     NSDictionary *Euro = [[NSDictionary alloc] initWithObjectsAndKeys:@"Euro", @"name", @"€", @"symbol", @1, @"id", nil];
@@ -234,9 +223,6 @@
                                           currency:self.selectedCurrency];
         
         GroupMemberViewController *gmvc = [segue destinationViewController];
-        gmvc.group = group;
-        gmvc.hideBack = NO;
-        gmvc.memberArray = [[NSMutableArray alloc] initWithArray:group.members];
     }
 }
 

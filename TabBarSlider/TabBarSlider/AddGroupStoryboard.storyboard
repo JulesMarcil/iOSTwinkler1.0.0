@@ -211,28 +211,29 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Oe-5I-542" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <searchDisplayController id="TDF-Gp-tiQ">
                     <connections>
+                        <outlet property="delegate" destination="5DR-I4-HS4" id="CH8-Y8-2bA"/>
                         <outlet property="searchBar" destination="xup-cr-7Ie" id="fWO-aX-0jA"/>
                     </connections>
                 </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="2093" y="-1690"/>
         </scene>
-        <!--View Controller-->
+        <!--Group Member View Controller-->
         <scene sceneID="ZZM-o7-axQ">
             <objects>
-                <viewController id="BYw-gn-9wP" sceneMemberID="viewController">
+                <viewController id="BYw-gn-9wP" customClass="GroupMemberViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d0S-ni-NcD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="y61-YH-kds">
-                                <rect key="frame" x="82" y="210" width="156" height="30"/>
+                                <rect key="frame" x="25" y="210" width="271" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Add friends from Facebook">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="5DR-I4-HS4" kind="modal" id="vKW-yj-sEU"/>
+                                    <action selector="selectFriendsButtonAction:" destination="BYw-gn-9wP" eventType="touchUpInside" id="71R-Vl-QMh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pRz-lF-1oY">
@@ -245,10 +246,29 @@
                                     <segue destination="7a5-oT-9tT" kind="custom" id="evo-ZQ-c5u"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" id="Dni-to-pCe" customClass="FBLoginView">
+                                <rect key="frame" x="80" y="119" width="160" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gFr-dO-yHT">
+                                <rect key="frame" x="88" y="269" width="130" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Programmed invite">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="5DR-I4-HS4" kind="modal" id="P3t-jE-jsP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="iAW-Z5-2Xk"/>
+                    <connections>
+                        <outlet property="loginView" destination="Dni-to-pCe" id="3Dg-Sz-eGy"/>
+                        <outlet property="selectFriendsButton" destination="y61-YH-kds" id="7cQ-YU-Ynz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rgl-g1-0sv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

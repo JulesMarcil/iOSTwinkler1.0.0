@@ -7,36 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FacebookSDK/FacebookSDK.h>
+
 @class Group;
 
-@interface GroupMemberViewController : UIViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDataSource, UIAlertViewDelegate>  {
-}
+@interface GroupMemberViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UITableView *memberSuggestionTableView;
-@property (weak, nonatomic) IBOutlet UITableView *memberTableView;
-@property (weak, nonatomic) IBOutlet UITextField *memberNameTextField;
-@property (strong, nonatomic) Group *group;
-@property (strong, nonatomic) NSMutableArray *memberArray;
-@property (strong, nonatomic) NSMutableArray *friends;
-@property (strong, nonatomic) NSString *link;
-@property (nonatomic, assign) BOOL hideBack;
-@property (weak, nonatomic) IBOutlet UIView *actionBarContainer;
-@property (weak, nonatomic) IBOutlet UIButton *backButton;
-@property (weak, nonatomic) IBOutlet UIButton *nextButton;
-@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
-@property (weak, nonatomic) IBOutlet UIView *searchTextField;
-@property (weak, nonatomic) IBOutlet UILabel *groupNameTextField;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UILabel *messageLabel;
-@property (weak, nonatomic) IBOutlet UILabel *groupMembersLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property (weak, nonatomic) IBOutlet FBLoginView *loginView;
+@property (unsafe_unretained, nonatomic) IBOutlet UIButton *selectFriendsButton;
+@property (retain, nonatomic) FBFriendPickerViewController *friendPickerController;
+@property (retain, nonatomic) UISearchBar *searchBar;
+@property (retain, nonatomic) NSString *searchText;
 
-- (IBAction)manualAddMember:(id)sender;
-- (IBAction)dismissKeyboard:(id)sender;
-- (IBAction)backButton:(id)sender;
-- (IBAction)cancelButton:(id)sender;
-- (IBAction)doneButton:(id)sender;
-- (IBAction)removeMember:(id)sender;
+- (IBAction)selectFriendsButtonAction:(id)sender;
 
 @end
