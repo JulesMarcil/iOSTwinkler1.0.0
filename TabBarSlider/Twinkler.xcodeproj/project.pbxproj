@@ -116,7 +116,6 @@
 		89F7D7B117DA6052006BE7FD /* right-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F7D7B017DA6052006BE7FD /* right-arrow.png */; };
 		89F7D7B717DA91DD006BE7FD /* main-smiley.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F7D7B617DA91DD006BE7FD /* main-smiley.png */; };
 		89F7D7B917DAA23E006BE7FD /* Twinkler_star.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F7D7B817DAA23D006BE7FD /* Twinkler_star.png */; };
-		8A00B9FF18169623001D0E61 /* walkthroughBck.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A00B9FE18169623001D0E61 /* walkthroughBck.png */; };
 		8A00BA0A1816AE36001D0E61 /* create-group.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A00BA061816AE36001D0E61 /* create-group.png */; };
 		8A00BA111816B049001D0E61 /* invite.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A00BA0E1816B049001D0E61 /* invite.png */; };
 		8A00BA121816B049001D0E61 /* payback.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A00BA0F1816B049001D0E61 /* payback.png */; };
@@ -127,6 +126,7 @@
 		8A00BA2C1816C152001D0E61 /* connect-with-fb.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A00BA2B1816C152001D0E61 /* connect-with-fb.png */; };
 		8A00BA2F1816C2EC001D0E61 /* flat-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A00BA2D1816C2EC001D0E61 /* flat-iphone.png */; };
 		8A00BA301816C2EC001D0E61 /* flat-mac.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A00BA2E1816C2EC001D0E61 /* flat-mac.png */; };
+		8A00BA321816CDB1001D0E61 /* walkthroughBck.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A00BA311816CDB1001D0E61 /* walkthroughBck.png */; };
 		8A5459B51815869900EC4E0D /* addFacebookFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5459B41815869900EC4E0D /* addFacebookFriendCell.m */; };
 		8AF42B4B1808011400E9BBB5 /* DashboardSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF42B4A1808011400E9BBB5 /* DashboardSummaryCell.m */; };
 		BA24D4E017B017120042C7A4 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4CE17B017120042C7A4 /* AFHTTPClient.m */; };
@@ -316,7 +316,6 @@
 		89F7D7B017DA6052006BE7FD /* right-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow.png"; sourceTree = "<group>"; };
 		89F7D7B617DA91DD006BE7FD /* main-smiley.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main-smiley.png"; sourceTree = "<group>"; };
 		89F7D7B817DAA23D006BE7FD /* Twinkler_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twinkler_star.png; sourceTree = "<group>"; };
-		8A00B9FE18169623001D0E61 /* walkthroughBck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = walkthroughBck.png; path = "../../../../../../Users/arnauddrizard/Dropbox/Twinkler - Start Up/Twinkler/Design App/App Store screenshots/Walkthrough/walkthroughBck.png"; sourceTree = "<group>"; };
 		8A00BA061816AE36001D0E61 /* create-group.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "create-group.png"; sourceTree = "<group>"; };
 		8A00BA0E1816B049001D0E61 /* invite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = invite.png; sourceTree = "<group>"; };
 		8A00BA0F1816B049001D0E61 /* payback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = payback.png; sourceTree = "<group>"; };
@@ -328,6 +327,7 @@
 		8A00BA2B1816C152001D0E61 /* connect-with-fb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connect-with-fb.png"; sourceTree = "<group>"; };
 		8A00BA2D1816C2EC001D0E61 /* flat-iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flat-iphone.png"; sourceTree = "<group>"; };
 		8A00BA2E1816C2EC001D0E61 /* flat-mac.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flat-mac.png"; sourceTree = "<group>"; };
+		8A00BA311816CDB1001D0E61 /* walkthroughBck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walkthroughBck.png; sourceTree = "<group>"; };
 		8A5459B31815869900EC4E0D /* addFacebookFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addFacebookFriendCell.h; sourceTree = "<group>"; };
 		8A5459B41815869900EC4E0D /* addFacebookFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addFacebookFriendCell.m; sourceTree = "<group>"; };
 		8AF42B491808011400E9BBB5 /* DashboardSummaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardSummaryCell.h; sourceTree = "<group>"; };
@@ -786,7 +786,6 @@
 				892F997117B8F1A700D86B4D /* login-bckgd.png */,
 				892F997317B8F1F600D86B4D /* tk-ihpone-icon-retina.png */,
 				892F996F17B8D59C00D86B4D /* facebook.png */,
-				8A00B9FE18169623001D0E61 /* walkthroughBck.png */,
 				8A00BA061816AE36001D0E61 /* create-group.png */,
 				8A00BA0E1816B049001D0E61 /* invite.png */,
 				8A00BA0F1816B049001D0E61 /* payback.png */,
@@ -796,6 +795,7 @@
 				8A00BA2B1816C152001D0E61 /* connect-with-fb.png */,
 				8A00BA2D1816C2EC001D0E61 /* flat-iphone.png */,
 				8A00BA2E1816C2EC001D0E61 /* flat-mac.png */,
+				8A00BA311816CDB1001D0E61 /* walkthroughBck.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -978,7 +978,6 @@
 				897B77B217BA6A3E00D00C49 /* bubble-tail-grey.png in Resources */,
 				897B77C217BB8E0D00D00C49 /* left-arrow.png in Resources */,
 				897B77C417BBDD2100D00C49 /* bubble-tail-white.png in Resources */,
-				8A00B9FF18169623001D0E61 /* walkthroughBck.png in Resources */,
 				89CEBC8417C6634000DF7085 /* AddGroupStoryboard.storyboard in Resources */,
 				89131B2917D54536008F9950 /* remove-button.png in Resources */,
 				8A00BA2F1816C2EC001D0E61 /* flat-iphone.png in Resources */,
@@ -1002,6 +1001,7 @@
 				894F00D917DDBF9600D368DD /* profile-pic.png in Resources */,
 				BAD291FA17F57E7A00B39E8C /* icon-29.png in Resources */,
 				BAD291F517F57DD000B39E8C /* icon.png in Resources */,
+				8A00BA321816CDB1001D0E61 /* walkthroughBck.png in Resources */,
 				89AFFF0F17E084A20028F09A /* Default@2x1.png in Resources */,
 				89AFFF1017E084A20028F09A /* Default1.png in Resources */,
 				89AFFF1217E0859A0028F09A /* Default-568h@2x1.png in Resources */,
