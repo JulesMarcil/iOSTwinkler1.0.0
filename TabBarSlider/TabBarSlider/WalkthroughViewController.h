@@ -22,6 +22,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *catchphraseHeaderLabel;
 @property (weak, nonatomic) IBOutlet UILabel *catchphraseSubLabel;
 @property (weak, nonatomic) IBOutlet UIButton *connectWithFbButton;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+
 - (IBAction)dismissView:(id)sender;
+- (IBAction)facebookConnect:(id)sender;
 
 @end

@@ -9,6 +9,7 @@
 #import "WalkthroughViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "customPageControl.h"
+#import "AppDelegate.h"
 
 @interface WalkthroughViewController ()
 
@@ -30,6 +31,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    [self.spinner stopAnimating];
+    
     self.scrollView.pagingEnabled = YES;
     self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * 6, self.scrollView.frame.size.height);
     self.scrollView.backgroundColor=[UIColor colorWithRed:(245/255.0) green:(245/255.0) blue:(245/255.0) alpha:1];
@@ -38,10 +41,8 @@
     self.scrollView.scrollsToTop = NO;
     self.scrollView.delegate = self;
     
-    
     self.pageControl.numberOfPages = 6;
     self.pageControl.currentPage = 0;
-    
     
     self.scrollView.backgroundColor=[UIColor clearColor];
     self.firstView.backgroundColor=[UIColor clearColor];
@@ -50,9 +51,6 @@
     self.fourthView.backgroundColor=[UIColor clearColor];
     self.fifthView.backgroundColor=[UIColor clearColor];
     self.sixthView.backgroundColor=[UIColor clearColor];
-    
-    
-    
     
     UIImageView *subview = [[UIImageView alloc] initWithFrame:self.view.frame];
     [subview setImage:[UIImage imageNamed:@"create-group.png"]];
@@ -136,4 +134,15 @@
     if (self.pageControl.currentPage<5)
     [self.scrollView setContentOffset:CGPointMake(320*(self.pageControl.currentPage+1), 0) animated:YES];
 }
+
+- (IBAction)facebookConnect:(id)sender {
+    
+    [self.spinner startAnimating];
+    
+    NSLog(@"login with facebook");
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    [appDelegate openSession];
+    
+}
+
 @end

@@ -28,12 +28,16 @@
     CredentialStore *store = [[CredentialStore alloc] init];
     NSString *authToken = [store authToken];
     
+    if (FBSession.activeSession.state == FBSessionStateOpen) {
+        
+    }
     if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
         [self openSession];
     }else if (authToken){
         [[NSNotificationCenter defaultCenter] postNotificationName:@"loginSuccess" object:nil];
     }else{
-        [self showLoginView];
+        [self showWalkthrough];
+        //[self showLoginView];
     }
     
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
@@ -104,6 +108,31 @@
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"profile"];
 }
 
+- (void)showWalkthrough
+{
+    NSLog(@"showWalkthrough");
+    UIStoryboard *welcomeStoryboard = [UIStoryboard storyboardWithName:@"welcomeStoryboard" bundle: nil];
+    WelcomeViewController* welcomeViewController = [welcomeStoryboard instantiateViewControllerWithIdentifier:@"Walkthrough"];
+    
+    [self.window makeKeyAndVisible];
+    [self.window.rootViewController presentViewController:welcomeViewController animated:YES completion:nil];
+    
+    //remove the cache
+    NSCache *cache = [[NSCache alloc] init];
+    [cache removeAllObjects];
+    
+    // Clean userdefaults
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"facebookId"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"facebookName"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentMember"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupId"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupName"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupMembers"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupCurrency"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"currentGroupIndex"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"profile"];
+}
+
 - (void)dismissLoginView
 {
     NSLog(@"dismissLoginView");
@@ -116,6 +145,10 @@
     NSLog(@"presentedViewController.title = %@", rootViewController.presentedViewController.class);
     
     if([viewController.title isEqualToString:@"welcomeMenu"] && [rootViewController.presentedViewController.title isEqualToString:@"loginNavigationController"]) {
+        [[rootViewController presentedViewController] dismissViewControllerAnimated:NO completion:nil];
+    }
+    
+    if([viewController.title isEqualToString:@"welcomeMenu"] && [rootViewController.presentedViewController.title isEqualToString:@"WalkthroughViewController"]) {
         [[rootViewController presentedViewController] dismissViewControllerAnimated:NO completion:nil];
     }
     
