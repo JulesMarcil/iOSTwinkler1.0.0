@@ -129,6 +129,8 @@
 		BA24D4E817B017120042C7A4 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4DF17B017120042C7A4 /* UIImageView+AFNetworking.m */; };
 		BA24D4F117B0171C0042C7A4 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4ED17B0171C0042C7A4 /* SSKeychain.m */; };
 		BA24D4F217B0171C0042C7A4 /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4EF17B0171C0042C7A4 /* SSKeychainQuery.m */; };
+		BA27D4D61816A3860079BDB2 /* RemoveFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA27D4D51816A3860079BDB2 /* RemoveFriendsViewController.m */; };
+		BA27D4D91816ABA70079BDB2 /* removeFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA27D4D81816ABA70079BDB2 /* removeFriendCell.m */; };
 		BA3F79D017D67B010094E658 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3F79CF17D67B010094E658 /* MessageUI.framework */; };
 		BA403FC717B008B700BE5282 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA403FC617B008B700BE5282 /* Security.framework */; };
 		BA403FC917B008BF00BE5282 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA403FC817B008BF00BE5282 /* MobileCoreServices.framework */; };
@@ -330,6 +332,10 @@
 		BA24D4ED17B0171C0042C7A4 /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
 		BA24D4EE17B0171C0042C7A4 /* SSKeychainQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychainQuery.h; sourceTree = "<group>"; };
 		BA24D4EF17B0171C0042C7A4 /* SSKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainQuery.m; sourceTree = "<group>"; };
+		BA27D4D41816A3860079BDB2 /* RemoveFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemoveFriendsViewController.h; sourceTree = "<group>"; };
+		BA27D4D51816A3860079BDB2 /* RemoveFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoveFriendsViewController.m; sourceTree = "<group>"; };
+		BA27D4D71816ABA70079BDB2 /* removeFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = removeFriendCell.h; sourceTree = "<group>"; };
+		BA27D4D81816ABA70079BDB2 /* removeFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = removeFriendCell.m; sourceTree = "<group>"; };
 		BA3F79CF17D67B010094E658 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		BA403FC617B008B700BE5282 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		BA403FC817B008BF00BE5282 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -740,6 +746,10 @@
 				BAC9293F17C77DF60067F5B0 /* DashboardMemberCell.m */,
 				8AF42B491808011400E9BBB5 /* DashboardSummaryCell.h */,
 				8AF42B4A1808011400E9BBB5 /* DashboardSummaryCell.m */,
+				BA27D4D41816A3860079BDB2 /* RemoveFriendsViewController.h */,
+				BA27D4D51816A3860079BDB2 /* RemoveFriendsViewController.m */,
+				BA27D4D71816ABA70079BDB2 /* removeFriendCell.h */,
+				BA27D4D81816ABA70079BDB2 /* removeFriendCell.m */,
 			);
 			name = Dashboard;
 			sourceTree = "<group>";
@@ -1008,6 +1018,7 @@
 			files = (
 				89C4707D17DF201E00468AD0 /* UIColor+FlatUI.m in Sources */,
 				892F99A617B98B3A00D86B4D /* WelcomeViewController.m in Sources */,
+				BA27D4D61816A3860079BDB2 /* RemoveFriendsViewController.m in Sources */,
 				89F71E1C17B596DB00BC9C32 /* memberCollectionViewCell.m in Sources */,
 				891F500D17B3C98300361986 /* UIImage+FlatUI.m in Sources */,
 				891F500917B3C8F800361986 /* FUIButton.m in Sources */,
@@ -1040,6 +1051,7 @@
 				BA9C6DEF17B0627E00C50CC2 /* MenuViewController.m in Sources */,
 				BA9C6DF817B062A200C50CC2 /* ExpenseViewController.m in Sources */,
 				BA9C6DF917B062A200C50CC2 /* Expense.m in Sources */,
+				BA27D4D91816ABA70079BDB2 /* removeFriendCell.m in Sources */,
 				BA9C6DFA17B062A200C50CC2 /* ExpenseDataController.m in Sources */,
 				BA9C6DFB17B062A200C50CC2 /* AddExpenseViewController.m in Sources */,
 				891183A217B13DD700B28ABE /* GroupListCell.m in Sources */,

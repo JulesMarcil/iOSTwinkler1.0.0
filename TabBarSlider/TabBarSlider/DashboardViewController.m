@@ -15,6 +15,7 @@
 #import "Group.h"
 #import "AddGroupViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "RemoveFriendsViewController.h"
 
 @interface DashboardViewController ()
 

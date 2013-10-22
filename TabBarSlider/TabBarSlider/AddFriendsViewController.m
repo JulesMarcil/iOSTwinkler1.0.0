@@ -103,6 +103,12 @@
     
     [self getImageForView:cell.profilePic Friend:friend size:35.0];
     
+    if ([self.selectedList containsObject:friend]){
+        cell.checkImage.hidden = NO;
+    } else {
+        cell.checkImage.hidden =YES;
+    }
+    
     return cell;
 }
 
@@ -145,7 +151,7 @@
         friend = [self.list objectAtIndex:indexPath.row];
     };
     
-    addFacebookFriendCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    addFacebookFriendCell *cell = (addFacebookFriendCell *)[tableView cellForRowAtIndexPath:indexPath];
     
     if ([self.selectedList containsObject:friend]){
         [self.selectedList removeObject:friend];
