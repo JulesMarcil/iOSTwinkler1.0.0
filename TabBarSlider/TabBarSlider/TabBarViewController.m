@@ -273,6 +273,12 @@
 -(void)goToList{
 }
 
+
+- (void)revealController:(SWRevealViewController *)revealController didMoveToPosition:(FrontViewPosition)position{
+    NSInteger *test=position;
+    NSLog(@"The value of integer num is %i", test);
+}
+
 //--------DESGIN---------
 -(void) setRoundedView:(UIImageView *)imageView picture: (UIImage *)picture toDiameter:(float)newSize{
     // Begin a new image that will be the new image with the rounded corners
@@ -294,6 +300,5 @@
     // Lets forget about that we were drawing
     UIGraphicsEndImageContext();
 }
-
 
 @end
