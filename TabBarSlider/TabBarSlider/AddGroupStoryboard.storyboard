@@ -435,9 +435,12 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EuX-dA-Bvi">
                                         <rect key="frame" x="10" y="118" width="250" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button">
+                                        <state key="normal" title="Add">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addMemberPopover:" destination="BYw-gn-9wP" eventType="touchUpInside" id="P8e-xu-2TL"/>
+                                        </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" text="Note: if you don't fill his email address, we won't be able to send him notifications" id="Bhh-Dk-LiI">
                                         <rect key="frame" x="0.0" y="165" width="280" height="53"/>
@@ -474,6 +477,10 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" id="mDR-PX-aen">
+                                        <rect key="frame" x="214" y="123" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -488,6 +495,9 @@
                         <outlet property="addWithFacebookButton" destination="gFr-dO-yHT" id="G3D-5f-l2H"/>
                         <outlet property="invitationButton" destination="pRz-lF-1oY" id="jCg-Id-XvS"/>
                         <outlet property="mainDoneButton" destination="fD9-Lw-Evh" id="PeI-WT-moG"/>
+                        <outlet property="memberEmailPopover" destination="SBG-oP-DTX" id="hCA-oV-hF0"/>
+                        <outlet property="memberNamePopover" destination="2sc-59-Fth" id="jQs-tL-yd0"/>
+                        <outlet property="spinnerPopover" destination="mDR-PX-aen" id="tDv-bA-GQu"/>
                         <outlet property="toolbar" destination="Ml8-iT-bEu" id="Rqr-6Z-hug"/>
                     </connections>
                 </viewController>

@@ -12,6 +12,7 @@
 #import "InviteViewController.h"
 #import "Group.h"
 #import "MenuViewController.h"
+#import "AuthAPIClient.h"
 
 @interface GroupMemberViewController ()
 
@@ -22,6 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.addedMembersPopover = [[NSMutableDictionary alloc] init];
     
     self.view.backgroundColor=[UIColor colorWithRed:(247/255.0) green:(245/255.0) blue:(245/255.0) alpha: 1];
     self.toolbar.backgroundColor=[UIColor colorWithRed:(254/255.0) green:(106/255.0) blue:(100/255.0) alpha:1];
@@ -83,17 +86,76 @@
     }
 }
 
+- (IBAction)addMemberPopover:(id)sender {
+    
+    if (self.memberNamePopover.text.length > 0){
+        
+        if([self.addedMembersPopover objectForKey:self.memberNamePopover.text]){
+            //already a member aded with this name
+        } else {
+        
+            NSDictionary *member = [[NSDictionary alloc] initWithObjects:@[self.memberNamePopover.text, self.memberEmailPopover.text] forKeys:@[@"name", @"email"]];
+            [self.addedMembersPopover setObject:member forKey:self.memberNamePopover.text];
+            
+            NSLog(@"%@ added to list", member[@"name"]);
+        
+            self.memberNamePopover.text = @"";
+            self.memberEmailPopover.text = @"";
+        }
+        
+    } else {
+        //Please enter a name
+    }
+}
+
 - (IBAction)doneAddMemberPopover:(id)sender {
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.3];
-    //you can change the setAnimationDuration value, it is in seconds.
     
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGRect rect = CGRectMake(10, screenRect.size.height+30, 300, 290);
-    [self.addMemberPopover setFrame:rect];
+    NSLog(@"doneAddMemberPopover, %u members to add", self.addedMembersPopover.count);
     
-    
-    [UIView commitAnimations];
+    if(self.addedMembersPopover.count > 0){
+        
+        //show spinner
+        [self.spinnerPopover startAnimating];
+        
+        NSLog(@"list = %@", self.addedMembersPopover);
+        
+        //Define post parameters
+        NSDictionary *parameters = [[NSDictionary alloc] initWithObjects:@[self.group.identifier, self.addedMembersPopover] forKeys:@[@"group", @"friends"]];
+        
+        [[AuthAPIClient sharedClient] postPath:@"api/group/manual"
+                                    parameters:parameters
+                                       success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                           NSError *error = nil;
+                                           NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                                           NSLog(@"%@", response);
+                                           [self.spinnerPopover stopAnimating];
+                                           
+                                           Group *group = [[Group alloc] initWithName:response[@"name"]
+                                                                           identifier:response[@"id"]
+                                                                              members:response[@"members"]
+                                                                         activeMember:self.group.activeMember
+                                                                             currency:response[@"currency"]];
+                                           self.group = group;
+                                           [[NSUserDefaults standardUserDefaults] setObject:self.group.members forKey:@"currentGroupMembers"];
+                                           [[NSNotificationCenter defaultCenter] postNotificationName:@"doneAddMember" object:nil userInfo:nil];
+                                           [self dismissPopover];
+                                       }
+                                       failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                           NSLog(@"error: %@", error);
+                                           [self.spinnerPopover stopAnimating];
+                                           self.doneButton.hidden = NO;
+                                           
+                                           UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Friends not added"
+                                                                                           message:@"Make sure you have a connection"
+                                                                                          delegate:self
+                                                                                 cancelButtonTitle:@"OK"
+                                                                                 otherButtonTitles:nil, nil];
+                                           [alert show];
+                                       }];
+        
+    } else {
+        [self dismissPopover];
+    }
 }
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField {
@@ -103,6 +165,11 @@
 }
 
 - (IBAction)cancelAddMemberPopover:(id)sender {
+    [self dismissPopover];
+}
+
+- (void)dismissPopover{
+    
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.3];
     //you can change the setAnimationDuration value, it is in seconds.
@@ -110,7 +177,6 @@
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     CGRect rect = CGRectMake(10, screenRect.size.height+30, 300, 290);
     [self.addMemberPopover setFrame:rect];
-    
     
     [UIView commitAnimations];
 }
