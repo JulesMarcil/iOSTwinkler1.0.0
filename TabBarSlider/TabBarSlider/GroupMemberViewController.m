@@ -9,7 +9,9 @@
 #import "GroupMemberViewController.h"
 #import "AppDelegate.h"
 #import "AddFriendsViewController.h"
+#import "InviteViewController.h"
 #import "Group.h"
+#import "MenuViewController.h"
 
 @interface GroupMemberViewController ()
 
@@ -31,11 +33,24 @@
         AddFriendsViewController *afvc = [segue destinationViewController];
         afvc.group = self.group;
     }
+    if ([segue.identifier isEqualToString:@"InvitationModal"]){
+        InviteViewController *ivc = [segue destinationViewController];
+        ivc.group = self.group;
+    }
 }
 
 - (void) done:(id)sender{
     [[NSUserDefaults standardUserDefaults] setObject:self.group.members forKey:@"currentGroupMembers"];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    UINavigationController *presenting = (UINavigationController *)self.presentingViewController;
+    UIViewController *active = (UIViewController *)presenting.viewControllers[presenting.viewControllers.count-1];
+    
+    if([active.title isEqualToString:@"welcomeMenu"]){
+        MenuViewController *menu = (MenuViewController *)active;
+        [menu pushNewGroup:self.group];
+    }
+    
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

@@ -299,7 +299,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="7a5-oT-9tT" kind="modal" id="FZD-ur-pgG"/>
+                                    <segue destination="7a5-oT-9tT" kind="modal" identifier="InvitationModal" id="FZD-ur-pgG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fD9-Lw-Evh">
@@ -355,15 +355,60 @@
             </objects>
             <point key="canvasLocation" x="1641" y="-1338"/>
         </scene>
-        <!--View Controller-->
+        <!--Invite View Controller-->
         <scene sceneID="ZcE-9b-qJx">
             <objects>
-                <viewController id="7a5-oT-9tT" sceneMemberID="viewController">
+                <viewController id="7a5-oT-9tT" customClass="InviteViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qMJ-YC-ybf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="1a4-5r-VVh">
+                                <rect key="frame" x="110" y="158" width="101" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Share via SMS">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareViaSMS:" destination="7a5-oT-9tT" eventType="touchUpInside" id="OyM-FG-dxk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="QzK-yI-SXk">
+                                <rect key="frame" x="107" y="223" width="106" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Share via Email">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareViaEmail:" destination="7a5-oT-9tT" eventType="touchUpInside" id="278-de-HgF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="c92-WT-5MW">
+                                <rect key="frame" x="93" y="288" width="136" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Share via Facebook">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ojf-82-vRQ">
+                                <rect key="frame" x="142" y="464" width="37" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneAction:" destination="7a5-oT-9tT" eventType="touchUpInside" id="Rz1-Fo-QXW"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="doneButton" destination="ojf-82-vRQ" id="GUd-fd-FNp"/>
+                        <outlet property="shareEmailButton" destination="QzK-yI-SXk" id="tD2-zn-d8h"/>
+                        <outlet property="shareFacebookButton" destination="c92-WT-5MW" id="maG-DM-unr"/>
+                        <outlet property="shareSMSButton" destination="1a4-5r-VVh" id="hWm-f2-dss"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zTI-Vg-eNY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

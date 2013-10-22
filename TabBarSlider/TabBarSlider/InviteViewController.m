@@ -70,7 +70,7 @@
     
 	if([MFMessageComposeViewController canSendText]){
         MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
-		controller.body = [NSString stringWithFormat:@"Hello, I added you to a group on Twinkler, follow this link to access it: http://www.twinkler.co/invitation/%@/%@", self.group.identifier, self.link];
+		controller.body = [NSString stringWithFormat:@"Hello, I added you to my group %@ on Twinkler. To join me go to http://www.twinkler.co and login", self.group.name];
 		controller.messageComposeDelegate = self;
 		[self presentViewController:controller animated:YES completion:nil];
 	} else {
@@ -102,7 +102,7 @@
     if ([MFMailComposeViewController canSendMail]) {
         MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
         controller.subject = @"I added you to a group on Twinkler";
-        [controller setMessageBody:[NSString stringWithFormat:@"Hello, I added you to a group on Twinkler, follow this link to access it: http://www.twinkler.co/invitation/%@/%@", self.group.identifier, self.link] isHTML:NO];
+        [controller setMessageBody:[NSString stringWithFormat:@"Hello, I added you to my group %@ on Twinkler. To join me go to http://www.twinkler.co and login", self.group.name] isHTML:NO];
         
         controller.mailComposeDelegate = (id) self;
         [self presentViewController:controller animated:YES completion:nil];
@@ -136,16 +136,7 @@
 }
 
 - (IBAction)doneAction:(id)sender {
-    
-    UINavigationController *presenting = (UINavigationController *)self.presentingViewController;
-    UIViewController *active = (UIViewController *)presenting.viewControllers[presenting.viewControllers.count-1];
-    
-    if([active.title isEqualToString:@"welcomeMenu"]){
-        MenuViewController *menu = (MenuViewController *)active;
-        [menu pushNewGroup:self.group];
-    }
-    
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
