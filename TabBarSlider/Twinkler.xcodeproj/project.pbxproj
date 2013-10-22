@@ -127,6 +127,9 @@
 		8A00BA2F1816C2EC001D0E61 /* flat-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A00BA2D1816C2EC001D0E61 /* flat-iphone.png */; };
 		8A00BA301816C2EC001D0E61 /* flat-mac.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A00BA2E1816C2EC001D0E61 /* flat-mac.png */; };
 		8A00BA321816CDB1001D0E61 /* walkthroughBck.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A00BA311816CDB1001D0E61 /* walkthroughBck.png */; };
+		8A00BA341816E619001D0E61 /* add-group.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A00BA331816E619001D0E61 /* add-group.png */; };
+		8A00BA361816FAAD001D0E61 /* upload-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A00BA351816FAAD001D0E61 /* upload-icon.png */; };
+		8A00BA391816FC52001D0E61 /* customSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A00BA381816FC52001D0E61 /* customSearchBar.m */; };
 		8A5459B51815869900EC4E0D /* addFacebookFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5459B41815869900EC4E0D /* addFacebookFriendCell.m */; };
 		8AF42B4B1808011400E9BBB5 /* DashboardSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF42B4A1808011400E9BBB5 /* DashboardSummaryCell.m */; };
 		BA24D4E017B017120042C7A4 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4CE17B017120042C7A4 /* AFHTTPClient.m */; };
@@ -328,6 +331,10 @@
 		8A00BA2D1816C2EC001D0E61 /* flat-iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flat-iphone.png"; sourceTree = "<group>"; };
 		8A00BA2E1816C2EC001D0E61 /* flat-mac.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flat-mac.png"; sourceTree = "<group>"; };
 		8A00BA311816CDB1001D0E61 /* walkthroughBck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = walkthroughBck.png; sourceTree = "<group>"; };
+		8A00BA331816E619001D0E61 /* add-group.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-group.png"; sourceTree = "<group>"; };
+		8A00BA351816FAAD001D0E61 /* upload-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "upload-icon.png"; sourceTree = "<group>"; };
+		8A00BA371816FC52001D0E61 /* customSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customSearchBar.h; sourceTree = "<group>"; };
+		8A00BA381816FC52001D0E61 /* customSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = customSearchBar.m; sourceTree = "<group>"; };
 		8A5459B31815869900EC4E0D /* addFacebookFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addFacebookFriendCell.h; sourceTree = "<group>"; };
 		8A5459B41815869900EC4E0D /* addFacebookFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addFacebookFriendCell.m; sourceTree = "<group>"; };
 		8AF42B491808011400E9BBB5 /* DashboardSummaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardSummaryCell.h; sourceTree = "<group>"; };
@@ -665,12 +672,14 @@
 		895C4E4017AA77D3004EC590 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8A00BA331816E619001D0E61 /* add-group.png */,
 				89C4707A17DF1FE400468AD0 /* UIColor+FlatUI.h */,
 				89C4707B17DF1FE400468AD0 /* UIColor+FlatUI.m */,
 				8993880217C5FE7B00B5A9BE /* AppConstants.h */,
 				895C4E4717AA77D3004EC590 /* Twinkler-Prefix.pch */,
 				895C4E4117AA77D3004EC590 /* Twinkler-Info.plist */,
 				895C4E4517AA77D3004EC590 /* main.m */,
+				8A00BA351816FAAD001D0E61 /* upload-icon.png */,
 				BAD291FD17F57ED000B39E8C /* Default~iphone.png */,
 				895913BE17D934FD0039CF72 /* Default-568h@2x.png */,
 				895913BC17D934F70039CF72 /* Default@2x.png */,
@@ -758,6 +767,8 @@
 				BACB524018153E9B0045729D /* AddFriendsViewController.m */,
 				8A5459B31815869900EC4E0D /* addFacebookFriendCell.h */,
 				8A5459B41815869900EC4E0D /* addFacebookFriendCell.m */,
+				8A00BA371816FC52001D0E61 /* customSearchBar.h */,
+				8A00BA381816FC52001D0E61 /* customSearchBar.m */,
 			);
 			name = AddMember;
 			sourceTree = "<group>";
@@ -974,6 +985,7 @@
 				BAD291EF17F57BD500B39E8C /* icon-120.png in Resources */,
 				892F997217B8F1A700D86B4D /* login-bckgd.png in Resources */,
 				892F997417B8F1F600D86B4D /* tk-ihpone-icon-retina.png in Resources */,
+				8A00BA341816E619001D0E61 /* add-group.png in Resources */,
 				BAD291FB17F57E7A00B39E8C /* icon-58.png in Resources */,
 				897B77B217BA6A3E00D00C49 /* bubble-tail-grey.png in Resources */,
 				897B77C217BB8E0D00D00C49 /* left-arrow.png in Resources */,
@@ -1014,6 +1026,7 @@
 				8990D7FA17E1C7FD00D89E81 /* main-arrow@2x.png in Resources */,
 				8990D7FC17E1C96400D89E81 /* money-button@2x.png in Resources */,
 				8990D7FE17E1C9D400D89E81 /* check-button@2x.png in Resources */,
+				8A00BA361816FAAD001D0E61 /* upload-icon.png in Resources */,
 				8990D80017E1CB4A00D89E81 /* uservoice-button@2x.png in Resources */,
 				8990D80217E1CCA900D89E81 /* user-button@2x.png in Resources */,
 				8990D80417E1F59D00D89E81 /* add-expense-bckgd.png in Resources */,
@@ -1084,6 +1097,7 @@
 				8AF42B4B1808011400E9BBB5 /* DashboardSummaryCell.m in Sources */,
 				BA24D4E417B017120042C7A4 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				BA24D4E517B017120042C7A4 /* AFPropertyListRequestOperation.m in Sources */,
+				8A00BA391816FC52001D0E61 /* customSearchBar.m in Sources */,
 				BA24D4E617B017120042C7A4 /* AFURLConnectionOperation.m in Sources */,
 				BA24D4E717B017120042C7A4 /* AFXMLRequestOperation.m in Sources */,
 				BA24D4E817B017120042C7A4 /* UIImageView+AFNetworking.m in Sources */,

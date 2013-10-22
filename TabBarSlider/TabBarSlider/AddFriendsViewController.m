@@ -52,15 +52,11 @@
         [self.friendTableView reloadData];
         
     }];
-    
-    [[self.cancelButton layer] setBorderWidth:1.0f];
-    [[self.cancelButton layer] setBorderColor:[UIColor whiteColor].CGColor];
-    
-    [[self.doneButton layer] setBorderWidth:1.0f];
-    [[self.doneButton layer] setBorderColor:[UIColor whiteColor].CGColor];
     self.searchbarContainer.backgroundColor=[UIColor colorWithRed:(254/255.0) green:(106/255.0) blue:(100/255.0) alpha:1];
     self.searchBar.tintColor = [UIColor colorWithRed:(254/255.0) green:(106/255.0) blue:(100/255.0) alpha:1];
     
+    
+    [self.friendTableView setSeparatorInset:UIEdgeInsetsZero];
 }
 
 - (void)didReceiveMemoryWarning
@@ -152,7 +148,7 @@
     };
     
     addFacebookFriendCell *cell = (addFacebookFriendCell *)[tableView cellForRowAtIndexPath:indexPath];
-    
+
     if ([self.selectedList containsObject:friend]){
         [self.selectedList removeObject:friend];
         cell.checkImage.hidden = YES;

@@ -54,21 +54,28 @@
     
     //-----DESIGN------//
     
-    UIColor *borderColor = [UIColor colorWithRed:(200/255.0) green:(200/255.0) blue:(200/255.0) alpha:1] ;
-    UIColor *textColor = [UIColor colorWithRed:(65/255.0) green:(65/255.0) blue:(65/255.0) alpha:1] ;
+    self.view.backgroundColor=[UIColor colorWithRed:(247/255.0) green:(245/255.0) blue:(245/255.0) alpha: 1];
+    self.toolbar.backgroundColor=[UIColor colorWithRed:(254/255.0) green:(106/255.0) blue:(100/255.0) alpha:1];
+    
+    UIColor *borderColor = [UIColor whiteColor] ;
+    UIColor *textColor = [UIColor whiteColor] ;
+
     
     [self.nextButton setTitleColor: textColor forState: UIControlStateNormal];
-    [self.nextButton.layer  setBorderColor:borderColor.CGColor];
-    [self.nextButton.layer  setBorderWidth:1.0];
+    //[self.nextButton.layer  setBorderColor:[UIColor colorWithRed:(136/255.0) green:(202/255.0) blue:(0/255.0) alpha:1].CGColor];
+    //[self.nextButton.layer  setBorderWidth:1.0];
+    self.nextButton.layer.cornerRadius = 5;
     
     [self.cancelButton setTitleColor: textColor forState: UIControlStateNormal];
-    [self.cancelButton.layer  setBorderColor:borderColor.CGColor];
-    [self.cancelButton.layer  setBorderWidth:1.0];
+    //[self.cancelButton.layer  setBorderColor:borderColor.CGColor];
+    //[self.cancelButton.layer  setBorderWidth:1.0];
+    self.cancelButton.layer.cornerRadius = 5;
     
-    self.groupNameContainer.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:0.8];
-    self.groupNameContainer.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
+    self.groupNameContainer.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:1];
+    self.groupNameContainer.layer.borderColor = [UIColor whiteColor].CGColor;
     self.groupNameContainer.layer.borderWidth = 1.0f;
-    
+    self.groupNameContainer.layer.cornerRadius = 5;
+    self.groupNameContainer.layer.masksToBounds = YES;
     
     CGRect frame= [self.actionBarContainer frame];
     CGRect screenRect = [[UIScreen mainScreen] bounds];
@@ -82,6 +89,8 @@
     self.errorView.layer.borderWidth = 1.0f;
     self.errorView.layer.cornerRadius = 5;
     self.errorView.layer.masksToBounds = YES;
+    
+    [self.groupName becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
@@ -164,7 +173,7 @@
     toolBar.tintColor= [UIColor blackColor];
     toolBar.translucent=YES;
     UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissCurrencyPicker:)];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(nextButton:)];
     [toolBar setItems:[NSArray arrayWithObjects:spacer, doneButton, nil]];
     [self.view addSubview:toolBar];
     
@@ -284,7 +293,7 @@
     toolbar.tag=1;
     
     UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissKeyboard)];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(nextButton:)];
     
     [toolbar setItems:[NSArray arrayWithObjects:spacer,spacer,doneButton, nil]];
     
