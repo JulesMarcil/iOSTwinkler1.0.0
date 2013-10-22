@@ -10,6 +10,7 @@
 #import "GroupMemberViewController.h"
 #import "Group.h"
 #import <QuartzCore/QuartzCore.h>
+#import "AuthAPIClient.h"
 
 @interface AddGroupViewController ()
 
@@ -22,6 +23,14 @@
 {
     [super viewDidLoad];
     
+    NSLog(@"viewdidload in add group with group name = %@", self.group.name);
+    
+    if (self.group){
+        NSLog(@"self.group detected in add group");
+        [self performSegueWithIdentifier:@"GroupToMembers" sender:self];
+    }
+    
+    [self.spinner stopAnimating];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     
     NSDictionary *Euro = [[NSDictionary alloc] initWithObjectsAndKeys:@"Euro", @"name", @"€", @"symbol", @1, @"id", nil];
@@ -195,7 +204,52 @@
 - (IBAction)nextButton:(id)sender {
     
     if ([self.groupName.text length]) {
-        [self performSegueWithIdentifier: @"GroupToMembers" sender: self];
+        //show spinner
+        self.nextButton.hidden=YES;
+        self.cancelButton.hidden=YES;
+        [self.spinner startAnimating];
+        
+        NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    self.groupName.text, @"name",
+                                    self.selectedCurrency[@"id"], @"currency",
+                                    nil];
+        
+        [[AuthAPIClient sharedClient] postPath:@"api/post/group"
+                                    parameters:parameters
+                                       success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                           NSError *error = nil;
+                                           NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                                           NSLog(@"%@", response);
+                                           
+                                           Group *group = [[Group alloc] initWithName:response[@"name"]
+                                                                           identifier:response[@"id"]
+                                                                              members:response[@"members"]
+                                                                         activeMember:response[@"activeMember"]
+                                                                             currency:response[@"currency"]];
+                                           self.group = group;
+                                           
+                                           [[NSUserDefaults standardUserDefaults] setObject:self.group.activeMember             forKey:@"currentMember"];
+                                           [[NSUserDefaults standardUserDefaults] setObject:self.group.identifier               forKey:@"currentGroupId"];
+                                           [[NSUserDefaults standardUserDefaults] setObject:self.group.name                     forKey:@"currentGroupName"];
+                                           [[NSUserDefaults standardUserDefaults] setObject:self.group.members                  forKey:@"currentGroupMembers"];
+                                           [[NSUserDefaults standardUserDefaults] setObject:self.group.currency                 forKey:@"currentGroupCurrency"];
+                                           
+                                           [[NSNotificationCenter defaultCenter] postNotificationName:@"doneAddMember" object:nil userInfo:nil];
+                                           [self performSegueWithIdentifier:@"GroupToMembers" sender:self];
+                                       }
+                                       failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                           NSLog(@"error: %@", error);
+                                           [self.spinner stopAnimating];
+                                           self.nextButton.hidden=NO;
+                                           self.cancelButton.hidden=NO;
+                                           
+                                           UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Group not added"
+                                                                                           message:@"Make sure you have a connection"
+                                                                                          delegate:self
+                                                                                 cancelButtonTitle:@"OK"
+                                                                                 otherButtonTitles:nil, nil];
+                                           [alert show];
+                                       }];
     }else{
         self.errorView.hidden=NO;
         self.errorLabel.hidden=NO;
@@ -209,20 +263,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"GroupToMembers"]) {
         
-        NSDictionary *currentMember = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentMember"];
-        NSLog(@"current member id = %@", currentMember[@"id"]);
-        NSLog(@"current member name = %@", currentMember[@"name"]);
-        NSLog(@"current member path = %@", currentMember[@"picturePath"]);
-        
-        NSArray *members = [[NSArray alloc] initWithObjects:currentMember, nil];
-        
-        Group *group = [[Group alloc] initWithName:self.groupName.text
-                                        identifier:nil
-                                           members:members
-                                      activeMember:currentMember
-                                          currency:self.selectedCurrency];
-        
         GroupMemberViewController *gmvc = [segue destinationViewController];
+        gmvc.group = self.group;
+        gmvc.title = self.group.name;
     }
 }
 
@@ -244,7 +287,6 @@
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissKeyboard)];
     
     [toolbar setItems:[NSArray arrayWithObjects:spacer,spacer,doneButton, nil]];
-    
     
     return toolbar;
 }

@@ -30,6 +30,7 @@
     
     //Set notification listener for new group selected
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadDashboardInfo) name:@"newGroupSelected" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadDashboardInfo) name:@"doneAddMember" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadDashboardInfo) name:@"expenseAddedSuccesfully" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadDashboardInfo) name:@"expenseRemovedSuccesfully" object:nil];
     

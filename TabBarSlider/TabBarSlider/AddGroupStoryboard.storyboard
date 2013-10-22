@@ -58,7 +58,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="BYw-gn-9wP" kind="push" id="taB-cK-4Qf"/>
+                                            <action selector="nextButton:" destination="CIg-Vp-Ncz" eventType="touchUpInside" id="Q4C-jx-7e4"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="G0z-mZ-VVv">
@@ -135,6 +135,10 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.61778539539999999" green="0.0" blue="0.0067035932410000002" alpha="0.14000000000000001" colorSpace="calibratedRGB"/>
                             </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" id="zDl-RG-jOn">
+                                <rect key="frame" x="150" y="248" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -149,6 +153,8 @@
                         <outlet property="groupName" destination="2AD-6o-Cjt" id="gxR-ep-HDg"/>
                         <outlet property="groupNameContainer" destination="VIH-Bb-QnF" id="ahv-YG-x9M"/>
                         <outlet property="nextButton" destination="YbX-kg-wRI" id="f0x-fC-hGZ"/>
+                        <outlet property="spinner" destination="zDl-RG-jOn" id="pcg-Fl-wdT"/>
+                        <segue destination="BYw-gn-9wP" kind="push" identifier="GroupToMembers" id="hpH-bz-lg1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cwD-lo-Hsf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -221,7 +227,7 @@
                                             <action selector="dismissModal:" destination="5DR-I4-HS4" eventType="touchUpInside" id="t5q-X2-YcU"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contacts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5xY-vZ-H5o">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friends" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5xY-vZ-H5o">
                                         <rect key="frame" x="60" y="14" width="199" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -236,7 +242,14 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="doneAction:" destination="5DR-I4-HS4" eventType="touchUpInside" id="0sU-KQ-FIE"/>
+                                        </connections>
                                     </button>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" id="emZ-xb-TBe">
+                                        <rect key="frame" x="276" y="14" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.57254904510000004" blue="0.48235297199999999" alpha="1" colorSpace="deviceRGB"/>
                             </view>
@@ -258,6 +271,7 @@
                         <outlet property="friendTableView" destination="iK2-PE-6jy" id="7g9-VD-fje"/>
                         <outlet property="searchBar" destination="xup-cr-7Ie" id="CNo-G5-uD5"/>
                         <outlet property="searchbarContainer" destination="94J-0z-ByE" id="CFb-0W-rKm"/>
+                        <outlet property="spinner" destination="emZ-xb-TBe" id="Ly6-eu-RYc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Oe-5I-542" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -278,48 +292,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="y61-YH-kds">
-                                <rect key="frame" x="25" y="210" width="271" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add friends from Facebook">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="selectFriendsButtonAction:" destination="BYw-gn-9wP" eventType="touchUpInside" id="71R-Vl-QMh"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pRz-lF-1oY">
-                                <rect key="frame" x="82" y="326" width="156" height="30"/>
+                                <rect key="frame" x="82" y="328" width="156" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="Send invitation">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="7a5-oT-9tT" kind="custom" id="evo-ZQ-c5u"/>
+                                    <segue destination="7a5-oT-9tT" kind="modal" id="FZD-ur-pgG"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" id="Dni-to-pCe" customClass="FBLoginView">
-                                <rect key="frame" x="80" y="119" width="160" height="39"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fD9-Lw-Evh">
+                                <rect key="frame" x="82" y="459" width="156" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
+                                <state key="normal" title="Done">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="done:" destination="BYw-gn-9wP" eventType="touchUpInside" id="3XX-AF-Lo4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GAd-EJ-OZr">
+                                <rect key="frame" x="82" y="136" width="156" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add friends manually">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gFr-dO-yHT">
-                                <rect key="frame" x="88" y="269" width="130" height="30"/>
+                                <rect key="frame" x="55" y="98" width="210" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Programmed invite">
+                                <state key="normal" title="Add friends with Facebook">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="5DR-I4-HS4" kind="modal" id="P3t-jE-jsP"/>
+                                    <segue destination="5DR-I4-HS4" kind="modal" identifier="FacebookModal" id="P3t-jE-jsP"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="You are currently alone in the group" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="NHa-eq-XPV">
+                                <rect key="frame" x="20" y="174" width="285" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="You just added 0 friends" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="UcN-6g-XlB">
+                                <rect key="frame" x="20" y="212" width="285" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="iAW-Z5-2Xk"/>
                     <connections>
-                        <outlet property="loginView" destination="Dni-to-pCe" id="3Dg-Sz-eGy"/>
-                        <outlet property="selectFriendsButton" destination="y61-YH-kds" id="7cQ-YU-Ynz"/>
+                        <outlet property="addWithFacebookButton" destination="gFr-dO-yHT" id="G3D-5f-l2H"/>
+                        <outlet property="friendNumber" destination="NHa-eq-XPV" id="Wk9-nI-bZ2"/>
+                        <outlet property="friendsAdded" destination="UcN-6g-XlB" id="eP4-oW-MNx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rgl-g1-0sv" userLabel="First Responder" sceneMemberID="firstResponder"/>

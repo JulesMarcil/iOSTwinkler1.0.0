@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIView *actionBarContainer;
 @property (weak, nonatomic) IBOutlet UIView *errorView;
 @property (weak, nonatomic) IBOutlet UILabel *errorLabel;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 - (IBAction)showPicker:(id)sender;
 - (IBAction)nextButton:(id)sender;

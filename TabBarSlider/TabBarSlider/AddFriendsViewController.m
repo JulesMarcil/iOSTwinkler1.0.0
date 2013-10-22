@@ -8,6 +8,9 @@
 
 #import "AddFriendsViewController.h"
 #import "addFacebookFriendCell.h"
+#import "UIImageView+AFNetworking.h"
+#import "AuthAPIClient.h"
+#import "Group.h"
 
 @interface AddFriendsViewController ()
 
@@ -31,6 +34,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [self.spinner stopAnimating];
     [self dismissViewControllerAnimated:YES completion:nil];
     
     self.isSearching = NO;
@@ -49,8 +53,6 @@
         
     }];
     
-    
-    
     [[self.cancelButton layer] setBorderWidth:1.0f];
     [[self.cancelButton layer] setBorderColor:[UIColor whiteColor].CGColor];
     
@@ -58,7 +60,7 @@
     [[self.doneButton layer] setBorderColor:[UIColor whiteColor].CGColor];
     self.searchbarContainer.backgroundColor=[UIColor colorWithRed:(254/255.0) green:(106/255.0) blue:(100/255.0) alpha:1];
     self.searchBar.tintColor = [UIColor colorWithRed:(254/255.0) green:(106/255.0) blue:(100/255.0) alpha:1];
-
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -99,17 +101,122 @@
     }
     cell.facebookFriendName.text = friend.name;
     
-    cell.profilePic.image = [UIImage imageNamed:@"profile-pic-placeholder.png"];
-    
-    [self setRoundedView:cell.profilePic picture:cell.profilePic.image toDiameter:35.0];
+    [self getImageForView:cell.profilePic Friend:friend size:35.0];
     
     return cell;
 }
 
+- (void)getImageForView:(UIImageView *)view Friend:(NSDictionary<FBGraphUser>*)friend size:(NSInteger) size{
+    
+    UIImage *placeholderImage = [[UIImage alloc] init];
+    placeholderImage = [UIImage imageNamed:@"profile-pic-placeholder.png"];
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=100&height=100", friend.id]];
+    
+    if (url) {
+        
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        
+        [view setImageWithURLRequest:request
+                    placeholderImage:placeholderImage
+                             success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                 view.image = image;
+                                 [self setRoundedView:view picture:view.image toDiameter:size];
+                             }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+                                 NSLog(@"Failed with error: %@", error);
+                             }];
+    } else {
+        
+        view.image = placeholderImage;
+        [self setRoundedView:view picture:view.image toDiameter:size];
+        
+    }
+}
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    NSDictionary<FBGraphUser>* friend;
+    
+    if (self.isSearching && [self.filteredList count]) {
+        //If the user is searching, use the list in our filteredList array.
+        friend = [self.filteredList objectAtIndex:indexPath.row];
+    } else {
+        friend = [self.list objectAtIndex:indexPath.row];
+    };
+    
+    addFacebookFriendCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    if ([self.selectedList containsObject:friend]){
+        [self.selectedList removeObject:friend];
+        cell.checkImage.hidden = YES;
+    } else {
+        [self.selectedList addObject:friend];
+        cell.checkImage.hidden = NO;
+    }
+}
 
 - (IBAction)dismissModal:(id)sender {
-    [self dismissViewControllerAnimated:NO completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)doneAction:(id)sender {
+    
+    if(self.selectedList.count > 0){
+        
+        //show spinner
+        self.doneButton.hidden=YES;
+        [self.spinner startAnimating];
+        
+        NSLog(@"list = %@", self.selectedList);
+        
+        NSMutableDictionary *friends = [[NSMutableDictionary alloc] init];
+        for (NSDictionary<FBGraphUser> *friend in self.selectedList){
+            NSDictionary *f = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                    friend.id, @"id",
+                                    friend.name, @"name",
+                                    friend.first_name, @"first_name",
+                                    friend.last_name, @"last_name",
+                                    friend.username, @"username",
+                               nil];
+            [friends setObject:f forKey:friend.id];
+        }
+        
+        //Define post parameters
+        NSDictionary *parameters = [[NSDictionary alloc] initWithObjects:@[self.group.identifier, friends] forKeys:@[@"group", @"friends"]];
+        
+        [[AuthAPIClient sharedClient] postPath:@"api/group/facebook"
+                                    parameters:parameters
+                                       success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                           NSError *error = nil;
+                                           NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                                           NSLog(@"%@", response);
+                                           
+                                           Group *group = [[Group alloc] initWithName:response[@"name"]
+                                                                           identifier:response[@"id"]
+                                                                              members:response[@"members"]
+                                                                         activeMember:self.group.activeMember
+                                                                             currency:response[@"currency"]];
+                                           self.group = group;
+                                           [[NSUserDefaults standardUserDefaults] setObject:self.group.members forKey:@"currentGroupMembers"];
+                                           [[NSNotificationCenter defaultCenter] postNotificationName:@"doneAddMember" object:nil userInfo:nil];
+                                           [self dismissViewControllerAnimated:YES completion:nil];
+                                       }
+                                       failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                           NSLog(@"error: %@", error);
+                                           [self.spinner stopAnimating];
+                                           self.doneButton.hidden = NO;
+                                           
+                                           UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Friends not added"
+                                                                                           message:@"Make sure you have a connection"
+                                                                                          delegate:self
+                                                                                 cancelButtonTitle:@"OK"
+                                                                                 otherButtonTitles:nil, nil];
+                                           [alert show];
+                                       }];
+    } else {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 - (void)filterListForSearchText:(NSString *)searchText
@@ -156,23 +263,6 @@
     
     // Return YES to cause the search result table view to be reloaded.
     return YES;
-}
-
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];    NSDictionary<FBGraphUser>* friend;
-    if (self.isSearching && [self.filteredList count]) {
-        //If the user is searching, use the list in our filteredList array.
-        friend = [self.filteredList objectAtIndex:indexPath.row];
-    } else {
-        friend = [self.list objectAtIndex:indexPath.row];
-    };
-    
-    NSLog(friend.name);
-     addFacebookFriendCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.checkImage.hidden=NO;
-    
 }
 
 // ---- Design ---  //

@@ -7,18 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <FacebookSDK/FacebookSDK.h>
 
 @class Group;
 
 @interface GroupMemberViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet FBLoginView *loginView;
-@property (unsafe_unretained, nonatomic) IBOutlet UIButton *selectFriendsButton;
-@property (retain, nonatomic) FBFriendPickerViewController *friendPickerController;
-@property (retain, nonatomic) UISearchBar *searchBar;
-@property (retain, nonatomic) NSString *searchText;
+@property (weak, nonatomic) IBOutlet UIButton *addWithFacebookButton;
+@property (weak, nonatomic) IBOutlet UITextField *friendNumber;
+@property (weak, nonatomic) IBOutlet UITextField *friendsAdded;
+@property (weak, nonatomic) Group *group;
 
-- (IBAction)selectFriendsButtonAction:(id)sender;
+- (IBAction)done:(id)sender;
 
 @end
