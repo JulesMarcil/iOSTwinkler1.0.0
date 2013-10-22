@@ -116,6 +116,17 @@
 		89F7D7B117DA6052006BE7FD /* right-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F7D7B017DA6052006BE7FD /* right-arrow.png */; };
 		89F7D7B717DA91DD006BE7FD /* main-smiley.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F7D7B617DA91DD006BE7FD /* main-smiley.png */; };
 		89F7D7B917DAA23E006BE7FD /* Twinkler_star.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F7D7B817DAA23D006BE7FD /* Twinkler_star.png */; };
+		8A00B9FF18169623001D0E61 /* walkthroughBck.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A00B9FE18169623001D0E61 /* walkthroughBck.png */; };
+		8A00BA0A1816AE36001D0E61 /* create-group.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A00BA061816AE36001D0E61 /* create-group.png */; };
+		8A00BA111816B049001D0E61 /* invite.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A00BA0E1816B049001D0E61 /* invite.png */; };
+		8A00BA121816B049001D0E61 /* payback.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A00BA0F1816B049001D0E61 /* payback.png */; };
+		8A00BA131816B049001D0E61 /* track-expenses.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A00BA101816B049001D0E61 /* track-expenses.png */; };
+		8A00BA211816BB49001D0E61 /* customPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A00BA201816BB49001D0E61 /* customPageControl.m */; };
+		8A00BA241816BBF5001D0E61 /* active_page_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A00BA221816BBF5001D0E61 /* active_page_image.png */; };
+		8A00BA271816BC59001D0E61 /* inactive_page_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A00BA261816BC59001D0E61 /* inactive_page_image.png */; };
+		8A00BA2C1816C152001D0E61 /* connect-with-fb.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A00BA2B1816C152001D0E61 /* connect-with-fb.png */; };
+		8A00BA2F1816C2EC001D0E61 /* flat-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A00BA2D1816C2EC001D0E61 /* flat-iphone.png */; };
+		8A00BA301816C2EC001D0E61 /* flat-mac.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A00BA2E1816C2EC001D0E61 /* flat-mac.png */; };
 		8A5459B51815869900EC4E0D /* addFacebookFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5459B41815869900EC4E0D /* addFacebookFriendCell.m */; };
 		8AF42B4B1808011400E9BBB5 /* DashboardSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF42B4A1808011400E9BBB5 /* DashboardSummaryCell.m */; };
 		BA24D4E017B017120042C7A4 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4CE17B017120042C7A4 /* AFHTTPClient.m */; };
@@ -303,6 +314,18 @@
 		89F7D7B017DA6052006BE7FD /* right-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow.png"; sourceTree = "<group>"; };
 		89F7D7B617DA91DD006BE7FD /* main-smiley.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main-smiley.png"; sourceTree = "<group>"; };
 		89F7D7B817DAA23D006BE7FD /* Twinkler_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twinkler_star.png; sourceTree = "<group>"; };
+		8A00B9FE18169623001D0E61 /* walkthroughBck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = walkthroughBck.png; path = "../../../../../../Users/arnauddrizard/Dropbox/Twinkler - Start Up/Twinkler/Design App/App Store screenshots/Walkthrough/walkthroughBck.png"; sourceTree = "<group>"; };
+		8A00BA061816AE36001D0E61 /* create-group.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "create-group.png"; sourceTree = "<group>"; };
+		8A00BA0E1816B049001D0E61 /* invite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = invite.png; sourceTree = "<group>"; };
+		8A00BA0F1816B049001D0E61 /* payback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = payback.png; sourceTree = "<group>"; };
+		8A00BA101816B049001D0E61 /* track-expenses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "track-expenses.png"; sourceTree = "<group>"; };
+		8A00BA1F1816BB49001D0E61 /* customPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customPageControl.h; sourceTree = "<group>"; };
+		8A00BA201816BB49001D0E61 /* customPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = customPageControl.m; sourceTree = "<group>"; };
+		8A00BA221816BBF5001D0E61 /* active_page_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = active_page_image.png; sourceTree = "<group>"; };
+		8A00BA261816BC59001D0E61 /* inactive_page_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inactive_page_image.png; sourceTree = "<group>"; };
+		8A00BA2B1816C152001D0E61 /* connect-with-fb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connect-with-fb.png"; sourceTree = "<group>"; };
+		8A00BA2D1816C2EC001D0E61 /* flat-iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flat-iphone.png"; sourceTree = "<group>"; };
+		8A00BA2E1816C2EC001D0E61 /* flat-mac.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flat-mac.png"; sourceTree = "<group>"; };
 		8A5459B31815869900EC4E0D /* addFacebookFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addFacebookFriendCell.h; sourceTree = "<group>"; };
 		8A5459B41815869900EC4E0D /* addFacebookFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addFacebookFriendCell.m; sourceTree = "<group>"; };
 		8AF42B491808011400E9BBB5 /* DashboardSummaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardSummaryCell.h; sourceTree = "<group>"; };
@@ -552,6 +575,8 @@
 				BAAC680F17B4D746006C69DE /* LoginViewController.m */,
 				BA7FC7E117BA29D1001E3A3C /* RegisterViewController.h */,
 				BA7FC7E217BA29D1001E3A3C /* RegisterViewController.m */,
+				8A00BA1F1816BB49001D0E61 /* customPageControl.h */,
+				8A00BA201816BB49001D0E61 /* customPageControl.m */,
 				89F71E1917B5946E00BC9C32 /* Images */,
 			);
 			name = WelcomeFlow;
@@ -751,6 +776,16 @@
 				892F997117B8F1A700D86B4D /* login-bckgd.png */,
 				892F997317B8F1F600D86B4D /* tk-ihpone-icon-retina.png */,
 				892F996F17B8D59C00D86B4D /* facebook.png */,
+				8A00B9FE18169623001D0E61 /* walkthroughBck.png */,
+				8A00BA061816AE36001D0E61 /* create-group.png */,
+				8A00BA0E1816B049001D0E61 /* invite.png */,
+				8A00BA0F1816B049001D0E61 /* payback.png */,
+				8A00BA101816B049001D0E61 /* track-expenses.png */,
+				8A00BA221816BBF5001D0E61 /* active_page_image.png */,
+				8A00BA261816BC59001D0E61 /* inactive_page_image.png */,
+				8A00BA2B1816C152001D0E61 /* connect-with-fb.png */,
+				8A00BA2D1816C2EC001D0E61 /* flat-iphone.png */,
+				8A00BA2E1816C2EC001D0E61 /* flat-mac.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -899,6 +934,7 @@
 				895C4E8717AAA92A004EC590 /* check-icon-active.png in Resources */,
 				895C4E8917AAA92A004EC590 /* coin-icon-active.png in Resources */,
 				895C4EAC17AAF7CA004EC590 /* menu-button-white.png in Resources */,
+				8A00BA301816C2EC001D0E61 /* flat-mac.png in Resources */,
 				895C4EB017AAF8D3004EC590 /* dashboard-button-white.png in Resources */,
 				BAD291F017F57BD500B39E8C /* icon-152.png in Resources */,
 				8901CECE17B05DB50084E749 /* check-button.png in Resources */,
@@ -914,6 +950,7 @@
 				891ABECA17B2493D00D507F7 /* bckgd-2.png in Resources */,
 				891ABECC17B24AA100D507F7 /* gear.png in Resources */,
 				891ABECF17B252D200D507F7 /* welcomeStoryboard.storyboard in Resources */,
+				8A00BA121816B049001D0E61 /* payback.png in Resources */,
 				8919DBDB17B2E8360005C67C /* chevron-arrow.png in Resources */,
 				8919DBE117B2F9280005C67C /* expense-detail-border.png in Resources */,
 				891F501417B3DFD000361986 /* edit-button.png in Resources */,
@@ -921,7 +958,9 @@
 				89F71E1317B5494E00BC9C32 /* add-expense-bckgd1.png in Resources */,
 				89F71E2817B6431100BC9C32 /* green-check.png in Resources */,
 				892C2A7517F224BB008F2875 /* member-icon-placeholder@2x.png in Resources */,
+				8A00BA271816BC59001D0E61 /* inactive_page_image.png in Resources */,
 				892F997017B8D59C00D86B4D /* facebook.png in Resources */,
+				8A00BA0A1816AE36001D0E61 /* create-group.png in Resources */,
 				BAD291EF17F57BD500B39E8C /* icon-120.png in Resources */,
 				892F997217B8F1A700D86B4D /* login-bckgd.png in Resources */,
 				892F997417B8F1F600D86B4D /* tk-ihpone-icon-retina.png in Resources */,
@@ -929,11 +968,15 @@
 				897B77B217BA6A3E00D00C49 /* bubble-tail-grey.png in Resources */,
 				897B77C217BB8E0D00D00C49 /* left-arrow.png in Resources */,
 				897B77C417BBDD2100D00C49 /* bubble-tail-white.png in Resources */,
+				8A00B9FF18169623001D0E61 /* walkthroughBck.png in Resources */,
 				89CEBC8417C6634000DF7085 /* AddGroupStoryboard.storyboard in Resources */,
 				89131B2917D54536008F9950 /* remove-button.png in Resources */,
+				8A00BA2F1816C2EC001D0E61 /* flat-iphone.png in Resources */,
 				895913BF17D934FD0039CF72 /* Default-568h@2x.png in Resources */,
+				8A00BA111816B049001D0E61 /* invite.png in Resources */,
 				895913CA17D939050039CF72 /* Default.png in Resources */,
 				895913CB17D939080039CF72 /* Default@2x.png in Resources */,
+				8A00BA131816B049001D0E61 /* track-expenses.png in Resources */,
 				BAD291F617F57DD000B39E8C /* icon@2x.png in Resources */,
 				89F7D7A017D9D767006BE7FD /* bubble-tail-blue.png in Resources */,
 				89F7D7A817D9F0BC006BE7FD /* member-icon-placeholder.png in Resources */,
@@ -941,9 +984,11 @@
 				89F7D7B117DA6052006BE7FD /* right-arrow.png in Resources */,
 				BAD291FC17F57E7A00B39E8C /* icon-80.png in Resources */,
 				89F7D7B717DA91DD006BE7FD /* main-smiley.png in Resources */,
+				8A00BA2C1816C152001D0E61 /* connect-with-fb.png in Resources */,
 				89F7D7B917DAA23E006BE7FD /* Twinkler_star.png in Resources */,
 				894ED0CE17DB7EAD0007FF29 /* main-arrow.png in Resources */,
 				894F00D717DDBCEC00D368DD /* profile-pic-placeholder.png in Resources */,
+				8A00BA241816BBF5001D0E61 /* active_page_image.png in Resources */,
 				894F00D917DDBF9600D368DD /* profile-pic.png in Resources */,
 				BAD291FA17F57E7A00B39E8C /* icon-29.png in Resources */,
 				BAD291F517F57DD000B39E8C /* icon.png in Resources */,
@@ -1039,6 +1084,7 @@
 				BA9C6DEE17B0627E00C50CC2 /* GroupDataController.m in Sources */,
 				BA9C6DEF17B0627E00C50CC2 /* MenuViewController.m in Sources */,
 				BA9C6DF817B062A200C50CC2 /* ExpenseViewController.m in Sources */,
+				8A00BA211816BB49001D0E61 /* customPageControl.m in Sources */,
 				BA9C6DF917B062A200C50CC2 /* Expense.m in Sources */,
 				BA9C6DFA17B062A200C50CC2 /* ExpenseDataController.m in Sources */,
 				BA9C6DFB17B062A200C50CC2 /* AddExpenseViewController.m in Sources */,
