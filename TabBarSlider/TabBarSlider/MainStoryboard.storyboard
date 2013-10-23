@@ -624,7 +624,7 @@
                                     </subviews>
                                 </view>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="DNE-zt-r5x">
-                                    <rect key="frame" x="0.0" y="267" width="320" height="55"/>
+                                    <rect key="frame" x="0.0" y="267" width="320" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </view>
                                 <prototypes>
