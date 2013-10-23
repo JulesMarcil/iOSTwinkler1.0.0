@@ -136,30 +136,6 @@
     
 }
 
-- (void)dismissPopover{
-    
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.3];
-    //you can change the setAnimationDuration value, it is in seconds.
-    
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGRect rect = CGRectMake(10, screenRect.size.height+30, 300, 230);
-    [self.addMemberPopover setFrame:rect];
-    
-    [self.view viewWithTag:1].alpha=0;
-    [self.view viewWithTag:3].frame=CGRectMake(0, self.view.bounds.size.height, 320, 44);
-    
-    [UIView commitAnimations];
-    
-    [[self.view viewWithTag:1] removeFromSuperview];
-    
-    [[self.view viewWithTag:3] removeFromSuperview];
-    
-    [self.memberNamePopover resignFirstResponder];
-    [self.memberEmailPopover resignFirstResponder];
-}
-
-
 - (IBAction)addMemberPopover:(id)sender {
     
     if (self.memberNamePopover.text.length > 0){
@@ -213,52 +189,86 @@
 
 - (IBAction)doneAddMemberPopover:(id)sender {
     
-    NSLog(@"doneAddMemberPopover, %u members to add", self.addedMembersPopover.count);
+   if (self.memberNamePopover.text.length > 0){
+       
+       if (self.memberEmailPopover.text.length > 0){
+           
+           NSDictionary *member = [[NSDictionary alloc] initWithObjects:@[self.memberNamePopover.text, self.memberEmailPopover.text] forKeys:@[@"name", @"email"]];
+           [self pushManualMemberPopover:member];
+           
+       } else {
+           //Please enter an email
+       }
+   } else {
+       //Please enter a name
+   }
+}
+
+- (void) pushManualMemberPopover:(NSDictionary *)member{
     
-    if(self.addedMembersPopover.count > 0){
-        
-        //show spinner
-        [self.spinnerPopover startAnimating];
-        
-        NSLog(@"list = %@", self.addedMembersPopover);
-        
-        //Define post parameters
-        NSDictionary *parameters = [[NSDictionary alloc] initWithObjects:@[self.group.identifier, self.addedMembersPopover] forKeys:@[@"group", @"friends"]];
-        
-        [[AuthAPIClient sharedClient] postPath:@"api/group/manual"
-                                    parameters:parameters
-                                       success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                           NSError *error = nil;
-                                           NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
-                                           NSLog(@"%@", response);
-                                           [self.spinnerPopover stopAnimating];
-                                           
-                                           Group *group = [[Group alloc] initWithName:response[@"name"]
-                                                                           identifier:response[@"id"]
-                                                                              members:response[@"members"]
-                                                                         activeMember:self.group.activeMember
-                                                                             currency:response[@"currency"]];
-                                           self.group = group;
-                                           [[NSUserDefaults standardUserDefaults] setObject:self.group.members forKey:@"currentGroupMembers"];
-                                           [[NSNotificationCenter defaultCenter] postNotificationName:@"doneAddMember" object:nil userInfo:nil];
-                                           [self dismissPopover];
-                                       }
-                                       failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                           NSLog(@"error: %@", error);
-                                           [self.spinnerPopover stopAnimating];
-                                           self.doneButton.hidden = NO;
-                                           
-                                           UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Friends not added"
-                                                                                           message:@"Make sure you have a connection"
-                                                                                          delegate:self
-                                                                                 cancelButtonTitle:@"OK"
-                                                                                 otherButtonTitles:nil, nil];
-                                           [alert show];
-                                       }];
-        
-    } else {
-        [self dismissPopover];
-    }
+    //show spinner
+    [self.spinnerPopover startAnimating];
+    
+    NSLog(@"member = %@", member);
+    
+    //Define post parameters
+    NSDictionary *parameters = [[NSDictionary alloc] initWithObjects:@[self.group.identifier, member] forKeys:@[@"group", @"member"]];
+    
+    [[AuthAPIClient sharedClient] postPath:@"api/group/manual"
+                                parameters:parameters
+                                   success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                       NSError *error = nil;
+                                       NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                                       NSLog(@"%@", response);
+                                       [self.spinnerPopover stopAnimating];
+                                       
+                                       Group *group = [[Group alloc] initWithName:response[@"name"]
+                                                                       identifier:response[@"id"]
+                                                                          members:response[@"members"]
+                                                                     activeMember:self.group.activeMember
+                                                                         currency:response[@"currency"]];
+                                       self.group = group;
+                                       [[NSUserDefaults standardUserDefaults] setObject:self.group.members forKey:@"currentGroupMembers"];
+                                       [[NSNotificationCenter defaultCenter] postNotificationName:@"doneAddMember" object:nil userInfo:nil];
+                                       self.memberNamePopover.text=@"";
+                                       self.memberEmailPopover.text=@"";
+                                       [self dismissPopover];
+                                   }
+                                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                       NSLog(@"error: %@", error);
+                                       [self.spinnerPopover stopAnimating];
+                                       self.doneButton.hidden = NO;
+                                       
+                                       UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Member not added"
+                                                                                       message:@"Make sure you have a connection"
+                                                                                      delegate:self
+                                                                             cancelButtonTitle:@"OK"
+                                                                             otherButtonTitles:nil, nil];
+                                       [alert show];
+                                   }];
+}
+
+- (void)dismissPopover{
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.3];
+    //you can change the setAnimationDuration value, it is in seconds.
+    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGRect rect = CGRectMake(10, screenRect.size.height+30, 300, 230);
+    [self.addMemberPopover setFrame:rect];
+    
+    [self.view viewWithTag:1].alpha=0;
+    [self.view viewWithTag:3].frame=CGRectMake(0, self.view.bounds.size.height, 320, 44);
+    
+    [UIView commitAnimations];
+    
+    [[self.view viewWithTag:1] removeFromSuperview];
+    
+    [[self.view viewWithTag:3] removeFromSuperview];
+    
+    [self.memberNamePopover resignFirstResponder];
+    [self.memberEmailPopover resignFirstResponder];
 }
 
 // --- call popover
@@ -300,8 +310,6 @@
     darkView.alpha = 0.6;
     
     [UIView commitAnimations];
-    
-    
     
     [self.memberNamePopover becomeFirstResponder];
 }
