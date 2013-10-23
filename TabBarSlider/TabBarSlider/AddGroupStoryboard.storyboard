@@ -214,6 +214,11 @@
                                 <rect key="frame" x="0.0" y="94" width="320" height="474"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="Nmw-rg-lEB">
+                                    <rect key="frame" x="0.0" y="77" width="320" height="216"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </view>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" rowHeight="55" id="Kpv-gy-9OH" customClass="addFacebookFriendCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="55"/>
