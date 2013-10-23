@@ -686,7 +686,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.18160912298387097" alpha="0.78000000000000003" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                        <state key="normal" title="Create a new Group">
+                                        <state key="normal" title="     Create a new Group">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -697,6 +697,10 @@
                                             <action selector="createGroup:" destination="jM0-tw-YH4" eventType="touchUpInside" id="bBY-4G-rDM"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus-button.png" id="q23-3p-rz6">
+                                        <rect key="frame" x="45" y="10" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.24313725489999999" green="0.2666666667" blue="0.29411764709999999" alpha="0.75" colorSpace="calibratedRGB"/>
                             </view>
@@ -740,14 +744,19 @@
     <resources>
         <image name="bckgd-2.png" width="1626" height="3000"/>
         <image name="check-icon-active.png" width="20" height="20"/>
+        <image name="check-icon-active.png" width="20" height="20"/>
         <image name="check-icon.png" width="20" height="20"/>
+        <image name="coin-icon-active.png" width="20" height="20"/>
         <image name="coin-icon-active.png" width="20" height="20"/>
         <image name="coin-icon.png" width="20" height="20"/>
         <image name="gear.png" width="156" height="156"/>
         <image name="green-check.png" width="16" height="12"/>
         <image name="heart-icon.png" width="23" height="20"/>
         <image name="menu-button-white.png" width="36" height="36"/>
+        <image name="plus-button.png" width="44" height="44"/>
         <image name="profile-pic-placeholder.png" width="160" height="160"/>
+        <image name="profile-pic-placeholder.png" width="160" height="160"/>
+        <image name="tkr-icon-active.png" width="23" height="20"/>
         <image name="tkr-icon-active.png" width="23" height="20"/>
         <image name="tkr-icon.png" width="23" height="20"/>
     </resources>

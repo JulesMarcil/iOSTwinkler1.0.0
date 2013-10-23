@@ -132,6 +132,7 @@
 		8A00BA391816FC52001D0E61 /* customSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A00BA381816FC52001D0E61 /* customSearchBar.m */; };
 		8A1E09EA1817C8C60048ABE8 /* blur-bckgd.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1E09E91817C8C60048ABE8 /* blur-bckgd.png */; };
 		8A1E09EC1817F0BF0048ABE8 /* add-friend.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1E09EB1817F0BF0048ABE8 /* add-friend.png */; };
+		8A1E09EE1817FAC20048ABE8 /* plus-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1E09ED1817FAC20048ABE8 /* plus-button.png */; };
 		8A5459B51815869900EC4E0D /* addFacebookFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5459B41815869900EC4E0D /* addFacebookFriendCell.m */; };
 		8AF42B4B1808011400E9BBB5 /* DashboardSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF42B4A1808011400E9BBB5 /* DashboardSummaryCell.m */; };
 		BA24D4E017B017120042C7A4 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4CE17B017120042C7A4 /* AFHTTPClient.m */; };
@@ -339,6 +340,7 @@
 		8A00BA381816FC52001D0E61 /* customSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = customSearchBar.m; sourceTree = "<group>"; };
 		8A1E09E91817C8C60048ABE8 /* blur-bckgd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blur-bckgd.png"; sourceTree = "<group>"; };
 		8A1E09EB1817F0BF0048ABE8 /* add-friend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-friend.png"; sourceTree = "<group>"; };
+		8A1E09ED1817FAC20048ABE8 /* plus-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus-button.png"; sourceTree = "<group>"; };
 		8A5459B31815869900EC4E0D /* addFacebookFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addFacebookFriendCell.h; sourceTree = "<group>"; };
 		8A5459B41815869900EC4E0D /* addFacebookFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addFacebookFriendCell.m; sourceTree = "<group>"; };
 		8AF42B491808011400E9BBB5 /* DashboardSummaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardSummaryCell.h; sourceTree = "<group>"; };
@@ -676,6 +678,7 @@
 		895C4E4017AA77D3004EC590 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8A1E09ED1817FAC20048ABE8 /* plus-button.png */,
 				8A1E09EB1817F0BF0048ABE8 /* add-friend.png */,
 				8A1E09E91817C8C60048ABE8 /* blur-bckgd.png */,
 				8A00BA331816E619001D0E61 /* add-group.png */,
@@ -1016,6 +1019,7 @@
 				89F7D7B917DAA23E006BE7FD /* Twinkler_star.png in Resources */,
 				894ED0CE17DB7EAD0007FF29 /* main-arrow.png in Resources */,
 				894F00D717DDBCEC00D368DD /* profile-pic-placeholder.png in Resources */,
+				8A1E09EE1817FAC20048ABE8 /* plus-button.png in Resources */,
 				8A00BA241816BBF5001D0E61 /* active_page_image.png in Resources */,
 				894F00D917DDBF9600D368DD /* profile-pic.png in Resources */,
 				BAD291FA17F57E7A00B39E8C /* icon-29.png in Resources */,
