@@ -19,9 +19,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *shareEmailButton;
 @property (weak, nonatomic) IBOutlet UIButton *shareFacebookButton;
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
+@property (weak, nonatomic) IBOutlet UIView *linkCopyContainer;
+@property (weak, nonatomic) IBOutlet UIView *toolbar;
+@property (weak, nonatomic) IBOutlet UIView *buttonContainer;
 
 - (IBAction)shareViaSMS:(id)sender;
 - (IBAction)shareViaEmail:(id)sender;
 - (IBAction)doneAction:(id)sender;
+- (IBAction)copyLink:(id)sender;
 
 @end

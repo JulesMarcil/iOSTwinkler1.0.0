@@ -158,6 +158,8 @@
     self.expenseAmount.keyboardType=UIKeyboardTypeDecimalPad;
     self.expenseAmount.inputAccessoryView=[self toolBarForKeyboardAccessory];
     
+    self.expenseName.autocapitalizationType = UITextAutocapitalizationTypeSentences;
+    
 }
 
 - (void)didReceiveMemoryWarning
