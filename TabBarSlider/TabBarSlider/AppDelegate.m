@@ -229,7 +229,6 @@
          NSLog(@"state = %u", state);
          NSLog(@"error = %@", error);
          
-         if(!error) {
              CredentialStore *store = [[CredentialStore alloc] init];
              NSString *authToken = [store authToken];
              if(authToken){
@@ -237,7 +236,7 @@
              } else {
                  [self FbDidLogin];
              }
-         }
+
      }];
 }
 
