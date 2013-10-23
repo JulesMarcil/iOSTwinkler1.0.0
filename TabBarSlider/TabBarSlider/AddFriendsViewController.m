@@ -55,8 +55,9 @@
     self.searchbarContainer.backgroundColor=[UIColor colorWithRed:(254/255.0) green:(106/255.0) blue:(100/255.0) alpha:1];
     self.searchBar.tintColor = [UIColor colorWithRed:(254/255.0) green:(106/255.0) blue:(100/255.0) alpha:1];
     
-    
-    [self.friendTableView setSeparatorInset:UIEdgeInsetsZero];
+    if ([self.friendTableView respondsToSelector:@selector(setSeparatorInset:)]) {
+        [self.friendTableView setSeparatorInset:UIEdgeInsetsZero];
+    }
 }
 
 - (void)didReceiveMemoryWarning

@@ -43,6 +43,10 @@
                                     currency:[[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"]];
     [self.friendTable reloadData];
     
+    if ([self.friendTable respondsToSelector:@selector(setSeparatorInset:)]) {
+        [self.friendTable setSeparatorInset:UIEdgeInsetsZero];
+    }
+    
     NSLog(@"view did load in remove friends with group of %u members", self.group.members.count);
 }
 
@@ -74,7 +78,7 @@
     NSDictionary* friend = [self.group.members objectAtIndex:indexPath.row];
     
     cell.friendName.text = friend[@"name"];
-    [self getImageForView:cell.profilePic Friend:friend size:35.0];
+    [self getImageForView:cell.profilePic Friend:friend size:45.0];
     
     NSString *currency = [[NSUserDefaults standardUserDefaults] objectForKey:@"currency"][@"symbol"];
     
@@ -93,6 +97,10 @@
     }
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 55;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -128,7 +136,15 @@
     UIImage *placeholderImage = [[UIImage alloc] init];
     placeholderImage = [UIImage imageNamed:@"profile-pic-placeholder.png"];
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=100&height=100", friend[@"id"]]];
+    NSString *path = friend[@"picturePath"];
+    NSNumber *facebookId= [[[NSNumberFormatter alloc] init] numberFromString:path];
+    
+    NSURL *url = nil;
+    if (facebookId) {
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=100&height=100", facebookId]];
+    } else if(![path isEqualToString:@"local"]) {
+        url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", appBaseURL, path]];
+    }
     
     if (url) {
         
