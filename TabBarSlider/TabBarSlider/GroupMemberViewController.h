@@ -28,7 +28,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *memberNamePopover;
 @property (weak, nonatomic) IBOutlet UITextField *memberEmailPopover;
 @property (strong, nonatomic) NSMutableDictionary *addedMembersPopover;
+@property (weak, nonatomic) IBOutlet UIImageView *bckPopover;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinnerPopover;
+@property (weak, nonatomic) IBOutlet UIView *spinnerContainer;
+@property (weak, nonatomic) IBOutlet UILabel *spinnerLabel;
 
 - (IBAction)addMemberPopover:(id)sender;
 - (IBAction)doneAddMemberPopover:(id)sender;

@@ -834,20 +834,6 @@
             </objects>
             <point key="canvasLocation" x="109" y="-1360"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="WOT-bK-zhu">
-            <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="32J-kH-HD2" sceneMemberID="viewController">
-                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="l1l-pN-11x">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <toolbarItems/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="g7c-RY-Aa6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
     </scenes>
     <resources>
         <image name="Twinkler_star.png" width="300" height="286"/>
