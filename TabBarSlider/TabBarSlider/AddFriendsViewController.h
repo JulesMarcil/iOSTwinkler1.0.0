@@ -13,6 +13,7 @@
 
 @interface AddFriendsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchDisplayDelegate, UISearchBarDelegate>
 
+@property (strong, nonatomic) Group *group;
 @property (weak, nonatomic) IBOutlet UITableView *friendTableView;
 @property (assign, nonatomic) BOOL isSearching;
 @property (strong, nonatomic) NSArray *list;
@@ -22,7 +23,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (strong, nonatomic) Group *group;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 - (IBAction)doneAction:(id)sender;

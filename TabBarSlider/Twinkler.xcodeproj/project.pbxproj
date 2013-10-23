@@ -183,6 +183,8 @@
 		BAD291FB17F57E7A00B39E8C /* icon-58.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD291F817F57E7A00B39E8C /* icon-58.png */; };
 		BAD291FC17F57E7A00B39E8C /* icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD291F917F57E7A00B39E8C /* icon-80.png */; };
 		BAD291FE17F57ED000B39E8C /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD291FD17F57ED000B39E8C /* Default~iphone.png */; };
+		BAD6C62818183E02008178CD /* ConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD6C62718183E02008178CD /* ConnectViewController.m */; };
+		BAD6C62B181840C3008178CD /* TellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD6C62A181840C3008178CD /* TellViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -428,6 +430,10 @@
 		BAD291F817F57E7A00B39E8C /* icon-58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-58.png"; sourceTree = "<group>"; };
 		BAD291F917F57E7A00B39E8C /* icon-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-80.png"; sourceTree = "<group>"; };
 		BAD291FD17F57ED000B39E8C /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default~iphone.png"; path = "../Default~iphone.png"; sourceTree = "<group>"; };
+		BAD6C62618183E02008178CD /* ConnectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectViewController.h; sourceTree = "<group>"; };
+		BAD6C62718183E02008178CD /* ConnectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectViewController.m; sourceTree = "<group>"; };
+		BAD6C629181840C3008178CD /* TellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TellViewController.h; sourceTree = "<group>"; };
+		BAD6C62A181840C3008178CD /* TellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TellViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -790,6 +796,10 @@
 				8A5459B41815869900EC4E0D /* addFacebookFriendCell.m */,
 				8A00BA371816FC52001D0E61 /* customSearchBar.h */,
 				8A00BA381816FC52001D0E61 /* customSearchBar.m */,
+				BAD6C62618183E02008178CD /* ConnectViewController.h */,
+				BAD6C62718183E02008178CD /* ConnectViewController.m */,
+				BAD6C629181840C3008178CD /* TellViewController.h */,
+				BAD6C62A181840C3008178CD /* TellViewController.m */,
 			);
 			name = AddMember;
 			sourceTree = "<group>";
@@ -1142,6 +1152,7 @@
 				BA27D4D91816ABA70079BDB2 /* removeFriendCell.m in Sources */,
 				BA9C6DFA17B062A200C50CC2 /* ExpenseDataController.m in Sources */,
 				BA9C6DFB17B062A200C50CC2 /* AddExpenseViewController.m in Sources */,
+				BAD6C62B181840C3008178CD /* TellViewController.m in Sources */,
 				891183A217B13DD700B28ABE /* GroupListCell.m in Sources */,
 				891183B317B1A31200B28ABE /* ExpenseItemCell.m in Sources */,
 				8A5459B51815869900EC4E0D /* addFacebookFriendCell.m in Sources */,
@@ -1159,6 +1170,7 @@
 				89C54FF917D67B03007B8CEB /* FeedbackViewController.m in Sources */,
 				894D1CD217D89FFA002A48EB /* ExpenseDetailViewController.m in Sources */,
 				895A5C0817E4B42300BCC75F /* WalkthroughViewController.m in Sources */,
+				BAD6C62818183E02008178CD /* ConnectViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

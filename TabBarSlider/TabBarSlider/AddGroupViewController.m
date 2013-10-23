@@ -7,7 +7,8 @@
 //
 
 #import "AddGroupViewController.h"
-#import "GroupMemberViewController.h"
+#import "AddFriendsViewController.h"
+#import "ConnectViewController.h"
 #import "Group.h"
 #import <QuartzCore/QuartzCore.h>
 #import "AuthAPIClient.h"
@@ -27,7 +28,7 @@
     
     if (self.group){
         NSLog(@"self.group detected in add group");
-        [self performSegueWithIdentifier:@"GroupToMembers" sender:self];
+        [self nextAction];
     }
     
     [self.spinner stopAnimating];
@@ -244,7 +245,7 @@
                                            [[NSUserDefaults standardUserDefaults] setObject:self.group.currency                 forKey:@"currentGroupCurrency"];
                                            
                                            [[NSNotificationCenter defaultCenter] postNotificationName:@"doneAddMember" object:nil userInfo:nil];
-                                           [self performSegueWithIdentifier:@"GroupToMembers" sender:self];
+                                           [self nextAction];
                                        }
                                        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                            NSLog(@"error: %@", error);
@@ -265,16 +266,29 @@
     }
 }
 
+- (void) nextAction{
+    if (FBSession.activeSession.isOpen == YES){
+        [self performSegueWithIdentifier:@"GroupToFriends" sender:self];
+    } else {
+        [self performSegueWithIdentifier:@"GroupToConnect" sender:self];
+    }
+}
+
 - (IBAction)cancelButton:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"GroupToMembers"]) {
+    if ([[segue identifier] isEqualToString:@"GroupToFriends"]) {
         
-        GroupMemberViewController *gmvc = [segue destinationViewController];
-        gmvc.group = self.group;
-        gmvc.title = self.group.name;
+        AddFriendsViewController *afvc = [segue destinationViewController];
+        afvc.group = self.group;
+        
+    } else if ([[segue identifier] isEqualToString:@"GroupToConnect"]) {
+        
+        ConnectViewController *cvc = [segue destinationViewController];
+        cvc.group = self.group;
+        
     }
 }
 
