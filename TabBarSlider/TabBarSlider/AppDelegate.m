@@ -28,10 +28,11 @@
     CredentialStore *store = [[CredentialStore alloc] init];
     NSString *authToken = [store authToken];
     
-    if (FBSession.activeSession.state == FBSessionStateOpen) {
-        
-    }
-    if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
+    if (FBSession.activeSession.state == FBSessionStateOpen && authToken) {
+        NSLog(@"FBSessionStateOpen");
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"loginSuccess" object:nil];
+    } else if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
+        NSLog(@"FBSessionStateCreatedTokenLoaded");
         [self openSession];
     }else if (authToken){
         [[NSNotificationCenter defaultCenter] postNotificationName:@"loginSuccess" object:nil];

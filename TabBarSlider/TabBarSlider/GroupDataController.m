@@ -74,7 +74,8 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:@"groupsWithJSONFinishedLoading" object:nil];
     }
                                       failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                                          NSLog(@"error in request: %@",  operation.responseString);                                    
+                                          NSLog(@"error in request: %@",  operation.responseString);
+                                          [[NSNotificationCenter defaultCenter] postNotificationName:@"groupsWithJSONFailedRefreshing" object:nil];
                                       }];
     
     [operation start];

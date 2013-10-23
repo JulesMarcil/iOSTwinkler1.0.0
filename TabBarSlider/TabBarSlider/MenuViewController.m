@@ -116,6 +116,9 @@
 
 -(void) groupRefreshError {
     
+    //Loading view to prevent crash before data is loaded
+    self.loadingView.hidden = YES;
+    
     if([self.title isEqual: @"welcomeMenu"]){
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Oops"
                                                             message:@"Impossible to refresh groups, make sure you are connected"
@@ -159,6 +162,10 @@
 }
 
 - (void)groupDataRetrieved {
+    
+    //Loading view to prevent crash before data is loaded
+    self.loadingView.hidden = YES;
+    
     NSLog(@"menuViewController %@: groupDataRetrieved", self.title);
     [self.groupOnMenu reloadData];
     [self.refreshControl endRefreshing];
@@ -408,7 +415,6 @@
         [tableView deselectRowAtIndexPath:indexPath animated:NO];
         
         Group *selectedGroup=[self.groupDataController objectInListAtIndex:indexPath.row] ;
-        
         [self pushNewGroup:selectedGroup];
     }
 }

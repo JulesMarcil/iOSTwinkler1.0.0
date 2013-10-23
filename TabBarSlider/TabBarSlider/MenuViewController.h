@@ -29,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *refreshSpinner;
 @property (weak, nonatomic) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet UIView *addGroupContainer;
+@property (weak, nonatomic) IBOutlet UIView *loadingView;
 
 - (IBAction)Logout:(id)sender;
 - (IBAction)createGroup:(id)sender;
