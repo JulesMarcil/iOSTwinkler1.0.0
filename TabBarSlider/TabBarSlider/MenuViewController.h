@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *friendNumberLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *refreshSpinner;
 @property (weak, nonatomic) UIRefreshControl *refreshControl;
+@property (weak, nonatomic) IBOutlet UIView *addGroupContainer;
 
 - (IBAction)Logout:(id)sender;
 - (IBAction)createGroup:(id)sender;

@@ -678,7 +678,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" id="1g5-iw-s2e">
-                                <rect key="frame" x="0.0" y="528" width="320" height="40"/>
+                                <rect key="frame" x="0.0" y="267" width="320" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CuR-UW-Bkl">
@@ -705,6 +705,7 @@
                     </view>
                     <connections>
                         <outlet property="addGroupButton" destination="CuR-UW-Bkl" id="Rhz-Bt-hZN"/>
+                        <outlet property="addGroupContainer" destination="1g5-iw-s2e" id="AUZ-qN-fc2"/>
                         <outlet property="friendNumberLabel" destination="Nyg-8Y-nT4" id="9yk-Bw-u22"/>
                         <outlet property="groupOnMenu" destination="WRD-Md-uSG" id="SNf-dM-25W"/>
                         <outlet property="nameLabel" destination="kMY-DJ-jsl" id="Mg2-Gj-w9K"/>

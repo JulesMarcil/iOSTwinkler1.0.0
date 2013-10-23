@@ -79,6 +79,13 @@
                                    frame.size.width,
                                    frame.size.height)];
     
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    frame= [self.addGroupContainer frame];
+    [self.addGroupContainer setFrame:CGRectMake(frame.origin.x,
+                                   screenRect.size.height-frame.size.height,
+                                   frame.size.width,
+                                   frame.size.height)];
+    
     [self setRoundedBorder:imageView toDiameter:71.0];
     [imageView.layer setBorderColor:borderColor.CGColor];
     [imageView.layer setBorderWidth:2.0];

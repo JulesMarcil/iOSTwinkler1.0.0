@@ -186,6 +186,7 @@
                     <navigationItem key="navigationItem" id="ZaB-Ig-jEc"/>
                     <connections>
                         <outlet property="addGroupButton" destination="IUl-zU-2Gj" id="gpW-qC-bMH"/>
+                        <outlet property="addGroupContainer" destination="FAh-yZ-96m" id="XUI-jL-Fvb"/>
                         <outlet property="friendNumberLabel" destination="Ymh-JN-2eu" id="a64-sy-Jqj"/>
                         <outlet property="groupOnMenu" destination="0u1-qC-fcC" id="Tug-sH-qPR"/>
                         <outlet property="nameLabel" destination="ysI-Zv-6Ig" id="oZ2-qD-MNS"/>
