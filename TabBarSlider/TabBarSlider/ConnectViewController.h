@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) Group *group;
 @property (weak, nonatomic) IBOutlet UITextView *messageView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (weak, nonatomic) IBOutlet UIButton *connectButton;
 @property (weak, nonatomic) IBOutlet UIButton *noButton;
 
