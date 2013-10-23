@@ -35,7 +35,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self.spinner stopAnimating];
-    [self dismissViewControllerAnimated:YES completion:nil];
     
     self.isSearching = NO;
     self.list = [[NSArray alloc] init];
@@ -203,7 +202,7 @@
                                            self.group = group;
                                            [[NSUserDefaults standardUserDefaults] setObject:self.group.members forKey:@"currentGroupMembers"];
                                            [[NSNotificationCenter defaultCenter] postNotificationName:@"doneAddMember" object:nil userInfo:nil];
-                                           [self dismissViewControllerAnimated:YES completion:nil];
+                                           [self performSegueWithIdentifier:@"FriendsToTell" sender:self];
                                        }
                                        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                            NSLog(@"error: %@", error);
@@ -218,7 +217,7 @@
                                            [alert show];
                                        }];
     } else {
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self performSegueWithIdentifier:@"FriendsToTell" sender:self];
     }
 }
 
