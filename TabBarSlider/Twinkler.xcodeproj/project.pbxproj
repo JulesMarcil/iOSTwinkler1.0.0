@@ -103,7 +103,6 @@
 		89C54FF517D6494D007B8CEB /* notificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C54FF417D6494C007B8CEB /* notificationCell.m */; };
 		89C54FF917D67B03007B8CEB /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C54FF817D67B03007B8CEB /* FeedbackViewController.m */; };
 		89CEBC8417C6634000DF7085 /* AddGroupStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89CEBC8317C6634000DF7085 /* AddGroupStoryboard.storyboard */; };
-		89CEBC8D17C668A900DF7085 /* GroupMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CEBC8C17C668A900DF7085 /* GroupMemberViewController.m */; };
 		89CEBC9417C6B5C400DF7085 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CEBC9317C6B5C400DF7085 /* DashboardViewController.m */; };
 		89F71E1317B5494E00BC9C32 /* add-expense-bckgd1.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F71E1217B5494E00BC9C32 /* add-expense-bckgd1.png */; };
 		89F71E1517B54A2000BC9C32 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89F71E1417B54A2000BC9C32 /* FacebookSDK.framework */; };
@@ -169,8 +168,6 @@
 		BA9C6DFB17B062A200C50CC2 /* AddExpenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9C6DF717B062A200C50CC2 /* AddExpenseViewController.m */; };
 		BAAC681017B4D746006C69DE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAC680F17B4D746006C69DE /* LoginViewController.m */; };
 		BAAC681317B4E29D006C69DE /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = BAAC681217B4E29D006C69DE /* Profile.m */; };
-		BABC149317CA7568004AF222 /* AddMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BABC149217CA7568004AF222 /* AddMemberCell.m */; };
-		BABC149617CB52D6004AF222 /* InviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BABC149517CB52D6004AF222 /* InviteViewController.m */; };
 		BAC9294017C77DF60067F5B0 /* DashboardMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC9293F17C77DF60067F5B0 /* DashboardMemberCell.m */; };
 		BACB524118153E9B0045729D /* AddFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BACB524018153E9B0045729D /* AddFriendsViewController.m */; };
 		BAD291ED17F57BD500B39E8C /* icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD291E717F57BD500B39E8C /* icon-60.png */; };
@@ -185,6 +182,7 @@
 		BAD291FE17F57ED000B39E8C /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = BAD291FD17F57ED000B39E8C /* Default~iphone.png */; };
 		BAD6C62818183E02008178CD /* ConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD6C62718183E02008178CD /* ConnectViewController.m */; };
 		BAD6C62B181840C3008178CD /* TellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD6C62A181840C3008178CD /* TellViewController.m */; };
+		BAD6C62E181849A4008178CD /* AddMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD6C62D181849A4008178CD /* AddMemberCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -313,8 +311,6 @@
 		89C54FF717D67B03007B8CEB /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
 		89C54FF817D67B03007B8CEB /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
 		89CEBC8317C6634000DF7085 /* AddGroupStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddGroupStoryboard.storyboard; sourceTree = "<group>"; };
-		89CEBC8B17C668A900DF7085 /* GroupMemberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupMemberViewController.h; sourceTree = "<group>"; };
-		89CEBC8C17C668A900DF7085 /* GroupMemberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupMemberViewController.m; sourceTree = "<group>"; };
 		89CEBC9217C6B5C400DF7085 /* DashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
 		89CEBC9317C6B5C400DF7085 /* DashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
 		89F71E1217B5494E00BC9C32 /* add-expense-bckgd1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-expense-bckgd1.png"; sourceTree = "<group>"; };
@@ -412,10 +408,6 @@
 		BAAC680F17B4D746006C69DE /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		BAAC681117B4E29D006C69DE /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
 		BAAC681217B4E29D006C69DE /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
-		BABC149117CA7568004AF222 /* AddMemberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMemberCell.h; sourceTree = "<group>"; };
-		BABC149217CA7568004AF222 /* AddMemberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMemberCell.m; sourceTree = "<group>"; };
-		BABC149417CB52D6004AF222 /* InviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InviteViewController.h; sourceTree = "<group>"; };
-		BABC149517CB52D6004AF222 /* InviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InviteViewController.m; sourceTree = "<group>"; };
 		BAC9293E17C77DF60067F5B0 /* DashboardMemberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardMemberCell.h; sourceTree = "<group>"; };
 		BAC9293F17C77DF60067F5B0 /* DashboardMemberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardMemberCell.m; sourceTree = "<group>"; };
 		BACB523F18153E9B0045729D /* AddFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFriendsViewController.h; sourceTree = "<group>"; };
@@ -434,6 +426,8 @@
 		BAD6C62718183E02008178CD /* ConnectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectViewController.m; sourceTree = "<group>"; };
 		BAD6C629181840C3008178CD /* TellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TellViewController.h; sourceTree = "<group>"; };
 		BAD6C62A181840C3008178CD /* TellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TellViewController.m; sourceTree = "<group>"; };
+		BAD6C62C181849A4008178CD /* AddMemberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMemberCell.h; sourceTree = "<group>"; };
+		BAD6C62D181849A4008178CD /* AddMemberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMemberCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -495,6 +489,8 @@
 				BA9C6DF517B062A200C50CC2 /* ExpenseDataController.m */,
 				BA9C6DF217B062A200C50CC2 /* Expense.h */,
 				BA9C6DF317B062A200C50CC2 /* Expense.m */,
+				BAD6C62C181849A4008178CD /* AddMemberCell.h */,
+				BAD6C62D181849A4008178CD /* AddMemberCell.m */,
 				891183B117B1A31200B28ABE /* ExpenseItemCell.h */,
 				891183B217B1A31200B28ABE /* ExpenseItemCell.m */,
 				89F71E1617B54E5600BC9C32 /* memberCollectionViewCell.h */,
@@ -784,20 +780,14 @@
 				89CEBC8317C6634000DF7085 /* AddGroupStoryboard.storyboard */,
 				BA9C6DE417B0627E00C50CC2 /* AddGroupViewController.h */,
 				BA9C6DE517B0627E00C50CC2 /* AddGroupViewController.m */,
-				89CEBC8B17C668A900DF7085 /* GroupMemberViewController.h */,
-				89CEBC8C17C668A900DF7085 /* GroupMemberViewController.m */,
-				BABC149117CA7568004AF222 /* AddMemberCell.h */,
-				BABC149217CA7568004AF222 /* AddMemberCell.m */,
-				BABC149417CB52D6004AF222 /* InviteViewController.h */,
-				BABC149517CB52D6004AF222 /* InviteViewController.m */,
+				BAD6C62618183E02008178CD /* ConnectViewController.h */,
+				BAD6C62718183E02008178CD /* ConnectViewController.m */,
 				BACB523F18153E9B0045729D /* AddFriendsViewController.h */,
 				BACB524018153E9B0045729D /* AddFriendsViewController.m */,
 				8A5459B31815869900EC4E0D /* addFacebookFriendCell.h */,
 				8A5459B41815869900EC4E0D /* addFacebookFriendCell.m */,
 				8A00BA371816FC52001D0E61 /* customSearchBar.h */,
 				8A00BA381816FC52001D0E61 /* customSearchBar.m */,
-				BAD6C62618183E02008178CD /* ConnectViewController.h */,
-				BAD6C62718183E02008178CD /* ConnectViewController.m */,
 				BAD6C629181840C3008178CD /* TellViewController.h */,
 				BAD6C62A181840C3008178CD /* TellViewController.m */,
 			);
@@ -1124,6 +1114,7 @@
 				895C4E8017AA9FA3004EC590 /* TabBarViewController.m in Sources */,
 				8901CE3F17AD072A0084E749 /* CustomTabBarSegue.m in Sources */,
 				8901CE4617AD09E20084E749 /* TimelineViewController.m in Sources */,
+				BAD6C62E181849A4008178CD /* AddMemberCell.m in Sources */,
 				8901CE7817AD18FD0084E749 /* TimelineDataController.m in Sources */,
 				8901CE7B17AD191A0084E749 /* Message.m in Sources */,
 				BA403FD017B00C5800BE5282 /* AuthAPIClient.m in Sources */,
@@ -1160,11 +1151,8 @@
 				BAAC681317B4E29D006C69DE /* Profile.m in Sources */,
 				8919A9DF17BA19AF00778467 /* timelineBubbleCell.m in Sources */,
 				BA7FC7E317BA29D1001E3A3C /* RegisterViewController.m in Sources */,
-				89CEBC8D17C668A900DF7085 /* GroupMemberViewController.m in Sources */,
 				89CEBC9417C6B5C400DF7085 /* DashboardViewController.m in Sources */,
 				BAC9294017C77DF60067F5B0 /* DashboardMemberCell.m in Sources */,
-				BABC149317CA7568004AF222 /* AddMemberCell.m in Sources */,
-				BABC149617CB52D6004AF222 /* InviteViewController.m in Sources */,
 				89C54FF517D6494D007B8CEB /* notificationCell.m in Sources */,
 				BACB524118153E9B0045729D /* AddFriendsViewController.m in Sources */,
 				89C54FF917D67B03007B8CEB /* FeedbackViewController.m in Sources */,

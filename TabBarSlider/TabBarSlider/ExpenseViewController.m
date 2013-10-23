@@ -16,7 +16,6 @@
 #import "ExpenseItemCell.h"
 #import "TabBarViewController.h"
 #import <QuartzCore/QuartzCore.h>
-#import "AddMemberCell.h"
 #import "ExpenseDetailViewController.h"
 
 @interface ExpenseViewController ()

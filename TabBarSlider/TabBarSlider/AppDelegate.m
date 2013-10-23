@@ -37,8 +37,8 @@
     }else if (authToken){
         [[NSNotificationCenter defaultCenter] postNotificationName:@"loginSuccess" object:nil];
     }else{
-        [self showWalkthrough];
-        //[self showLoginView];
+        //[self showWalkthrough];
+        [self showLoginView];
     }
     
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
@@ -228,7 +228,16 @@
          NSLog(@"session = %@", session);
          NSLog(@"state = %u", state);
          NSLog(@"error = %@", error);
-         [self FbDidLogin];
+         
+         if(!error) {
+             CredentialStore *store = [[CredentialStore alloc] init];
+             NSString *authToken = [store authToken];
+             if(authToken){
+                 [[NSNotificationCenter defaultCenter] postNotificationName:@"connectedToFacebook" object:nil];
+             } else {
+                 [self FbDidLogin];
+             }
+         }
      }];
 }
 
