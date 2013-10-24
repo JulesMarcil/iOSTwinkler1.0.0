@@ -77,15 +77,19 @@
     // Configure the cell...
     NSDictionary* friend = [self.group.members objectAtIndex:indexPath.row];
     
+    NSLog(@"friend   = %@", friend);
+    NSLog(@"currency = %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"]);
+    
     cell.friendName.text = friend[@"name"];
     [self getImageForView:cell.profilePic Friend:friend size:45.0];
     
-    NSString *currency = [[NSUserDefaults standardUserDefaults] objectForKey:@"currency"][@"symbol"];
+    NSString *currency = [[NSUserDefaults standardUserDefaults] objectForKey:@"currentGroupCurrency"][@"symbol"];
+    NSLog(@"currency = %@", currency);
     
-    if ([friend[@"balance"] doubleValue] > 0){
-        cell.balance.text = [NSString stringWithFormat:@"Owes %@ %@", currency, friend[@"balance"]];
-    } else if ([friend[@"balance"] doubleValue] < 0) {
-        cell.balance.text = [NSString stringWithFormat:@"Is owed %@ %@", currency, friend[@"balance"]];
+    if ([friend[@"balance"] doubleValue] < 0){
+        cell.balance.text = [NSString stringWithFormat:@"Owes %@ %g", currency, ([friend[@"balance"] doubleValue]*-1)];
+    } else if ([friend[@"balance"] doubleValue] > 0) {
+        cell.balance.text = [NSString stringWithFormat:@"Is owed %@ %g", currency, [friend[@"balance"] doubleValue]];
     } else {
         cell.balance.text = @"Has no debt";
     }
