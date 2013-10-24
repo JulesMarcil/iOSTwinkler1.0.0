@@ -37,8 +37,8 @@
     }else if (authToken){
         [[NSNotificationCenter defaultCenter] postNotificationName:@"loginSuccess" object:nil];
     }else{
-        //[self showWalkthrough];
-        [self showLoginView];
+        [self showWalkthrough];
+        //[self showLoginView];
     }
     
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];

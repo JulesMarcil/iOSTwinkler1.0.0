@@ -52,25 +52,48 @@
     self.fifthView.backgroundColor=[UIColor clearColor];
     self.sixthView.backgroundColor=[UIColor clearColor];
     
-    UIImageView *subview = [[UIImageView alloc] initWithFrame:self.view.frame];
+    
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    
+    if (screenRect.size.height<560) {
+        
+        UIImageView *subview = [[UIImageView alloc] initWithFrame:CGRectMake(0, -90, 320, 568)];
+        [subview setImage:[UIImage imageNamed:@"create-group.png"]];
+        [self.secondView addSubview:subview];
+        
+        UIImageView *subviewInvite = [[UIImageView alloc] initWithFrame:CGRectMake(0, -90, 320, 568)];
+        [subviewInvite setImage:[UIImage imageNamed:@"invite.png"]];
+        [self.thirdView addSubview:subviewInvite];
+        
+        
+        UIImageView *subviewExpense = [[UIImageView alloc] initWithFrame:CGRectMake(0, -90, 320, 568)];
+        [subviewExpense setImage:[UIImage imageNamed:@"track-expenses.png"]];
+        [self.fourthView addSubview:subviewExpense];
+        
+        UIImageView *subviewPayback = [[UIImageView alloc] initWithFrame:CGRectMake(0, -90, 320, 568)];
+        [subviewPayback setImage:[UIImage imageNamed:@"payback.png"]];
+        [self.fifthView addSubview:subviewPayback];
+    }else{
+    
+    UIImageView *subview = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 568)];
     [subview setImage:[UIImage imageNamed:@"create-group.png"]];
     [self.secondView addSubview:subview];
     
-    UIImageView *subviewInvite = [[UIImageView alloc] initWithFrame:self.view.frame];
+    UIImageView *subviewInvite = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 568)];
     [subviewInvite setImage:[UIImage imageNamed:@"invite.png"]];
     [self.thirdView addSubview:subviewInvite];
     
     
-    UIImageView *subviewExpense = [[UIImageView alloc] initWithFrame:self.view.frame];
+    UIImageView *subviewExpense = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 568)];
     [subviewExpense setImage:[UIImage imageNamed:@"track-expenses.png"]];
     [self.fourthView addSubview:subviewExpense];
     
-    UIImageView *subviewPayback = [[UIImageView alloc] initWithFrame:self.view.frame];
+    UIImageView *subviewPayback = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 568)];
     [subviewPayback setImage:[UIImage imageNamed:@"payback.png"]];
     [self.fifthView addSubview:subviewPayback];
+    }
     
     CGRect frame= [self.pageControl frame];
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
     [self.pageControl setFrame:CGRectMake(frame.origin.x,
                                                  screenRect.size.height-frame.size.height-90,
                                                  frame.size.width,
@@ -117,12 +140,18 @@
     int page = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     [self.pageControl setCurrentPage:page];
     switch (page) {
+        case 0:
+            self.dismissButton.titleLabel.text=@"Get Started!";
+            break;
+            
         case 5:
             self.dismissButton.hidden=YES;
             break;
             
             
         default:
+            self.dismissButton.titleLabel.text=@"Next";
+            self.dismissButton.titleLabel.textAlignment=NSTextAlignmentCenter;
             self.dismissButton.hidden=NO;
             break;
     }
