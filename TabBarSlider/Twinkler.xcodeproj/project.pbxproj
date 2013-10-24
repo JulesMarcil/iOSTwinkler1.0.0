@@ -688,6 +688,7 @@
 		895C4E4017AA77D3004EC590 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8993880217C5FE7B00B5A9BE /* AppConstants.h */,
 				8A1E09EF1818060C0048ABE8 /* link-button.png */,
 				8A1E09F5181808120048ABE8 /* sms-button.png */,
 				8A1E09F31818074F0048ABE8 /* facebook-icon.png */,
@@ -698,7 +699,6 @@
 				8A00BA331816E619001D0E61 /* add-group.png */,
 				89C4707A17DF1FE400468AD0 /* UIColor+FlatUI.h */,
 				89C4707B17DF1FE400468AD0 /* UIColor+FlatUI.m */,
-				8993880217C5FE7B00B5A9BE /* AppConstants.h */,
 				895C4E4717AA77D3004EC590 /* Twinkler-Prefix.pch */,
 				895C4E4117AA77D3004EC590 /* Twinkler-Info.plist */,
 				895C4E4517AA77D3004EC590 /* main.m */,

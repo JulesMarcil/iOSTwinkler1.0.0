@@ -62,50 +62,9 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.89803921568627454" green="0.37647058823529411" blue="0.35686274509803922" alpha="1" colorSpace="deviceRGB"/>
                             </view>
-                            <pickerView contentMode="scaleToFill" id="PuN-0V-19u">
-                                <rect key="frame" x="0.0" y="531" width="480" height="162"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="CIg-Vp-Ncz" id="FKV-zU-Bzr"/>
-                                    <outlet property="delegate" destination="CIg-Vp-Ncz" id="m7C-oj-m6t"/>
-                                </connections>
-                            </pickerView>
                             <view contentMode="scaleToFill" id="SuD-nS-wB3">
                                 <rect key="frame" x="0.0" y="299" width="321" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="YbX-kg-wRI">
-                                        <rect key="frame" x="159" y="0.0" width="162" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
-                                        <state key="normal" title="Next">
-                                            <color key="titleColor" red="0.24313725489999999" green="0.2666666667" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" red="0.85882359740000003" green="0.41176474089999998" blue="0.36470589040000001" alpha="1" colorSpace="deviceRGB"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="nextButton:" destination="CIg-Vp-Ncz" eventType="touchUpInside" id="Q4C-jx-7e4"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="G0z-mZ-VVv">
-                                        <rect key="frame" x="-1" y="0.0" width="161" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
-                                        <state key="normal" title="Cancel">
-                                            <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" red="0.7254902124" green="0.76470595600000002" blue="0.78039222959999999" alpha="1" colorSpace="deviceRGB"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="cancelButton:" destination="CIg-Vp-Ncz" eventType="touchUpInside" id="HBN-3T-cgA"/>
-                                            <segue destination="zEs-gd-fFJ" kind="unwind" unwindAction="cancelAddGroup:" id="hUI-Jn-9qP"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="MRZ-wP-xUh">
@@ -183,6 +142,14 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
+                            <pickerView contentMode="scaleToFill" id="PuN-0V-19u">
+                                <rect key="frame" x="0.0" y="531" width="480" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="CIg-Vp-Ncz" id="FKV-zU-Bzr"/>
+                                    <outlet property="delegate" destination="CIg-Vp-Ncz" id="m7C-oj-m6t"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -208,7 +175,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cwD-lo-Hsf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="zEs-gd-fFJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="689" y="-1338"/>
         </scene>

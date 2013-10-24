@@ -163,11 +163,11 @@
     CGRect toolbarTargetFrame = CGRectMake(0, self.view.bounds.size.height-216-44, 320, 44);
     CGRect datePickerTargetFrame = CGRectMake(0, self.view.bounds.size.height-216, 320, 216);
     
-    UIView *darkView = [[UIView alloc] initWithFrame:self.view.bounds];
+    UIView *darkView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, self.view.bounds.size.height-216)];
     darkView.alpha = 0;
     darkView.backgroundColor = [UIColor blackColor];
     darkView.tag = 9;
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissCurrencyPicker:)] ;
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissCurrencyPicker)] ;
     [darkView addGestureRecognizer:tapGesture];
     [self.view addSubview:darkView];
     
