@@ -27,6 +27,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *errorLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (weak, nonatomic) IBOutlet UIView *toolbar;
+@property (weak, nonatomic) IBOutlet UIView *currencyContainer;
+@property (weak, nonatomic) IBOutlet UIImageView *addGroupImage;
+@property (weak, nonatomic) IBOutlet UILabel *addGroupLabel;
 
 - (IBAction)showPicker:(id)sender;
 - (IBAction)nextButton:(id)sender;

@@ -41,6 +41,8 @@
     self.filteredList = [[NSMutableArray alloc] init];
     self.selectedList = [[NSMutableArray alloc] init];
     
+    self.spinnerView.layer.cornerRadius=5;
+    
     
     FBRequest* friendsRequest = [FBRequest requestForMyFriends];
     [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,

@@ -58,9 +58,7 @@
     self.view.backgroundColor=[UIColor colorWithRed:(247/255.0) green:(245/255.0) blue:(245/255.0) alpha: 1];
     self.toolbar.backgroundColor=[UIColor colorWithRed:(254/255.0) green:(106/255.0) blue:(100/255.0) alpha:1];
     
-    UIColor *borderColor = [UIColor whiteColor] ;
     UIColor *textColor = [UIColor whiteColor] ;
-
     
     [self.nextButton setTitleColor: textColor forState: UIControlStateNormal];
     //[self.nextButton.layer  setBorderColor:[UIColor colorWithRed:(136/255.0) green:(202/255.0) blue:(0/255.0) alpha:1].CGColor];
@@ -90,6 +88,11 @@
     self.errorView.layer.borderWidth = 1.0f;
     self.errorView.layer.cornerRadius = 5;
     self.errorView.layer.masksToBounds = YES;
+    
+    UIColor *borderColor = [UIColor colorWithRed:(200/255.0) green:(200/255.0) blue:(200/255.0) alpha:1] ;
+    self.currencyContainer.layer.cornerRadius = 5;
+    [self.currencyContainer.layer  setBorderColor:borderColor.CGColor];
+    [self.currencyContainer.layer  setBorderWidth:1.0];
     
     [self.groupName becomeFirstResponder];
 }
@@ -130,7 +133,7 @@
 }
 
 
-- (void)dismissCurrencyPicker:(id)sender {
+- (void)dismissCurrencyPicker{
     CGRect toolbarTargetFrame = CGRectMake(0, self.view.bounds.size.height, 320, 44);
     CGRect datePickerTargetFrame = CGRectMake(0, self.currencyPicker.bounds.size.height+44, 320, 216);
     [UIView beginAnimations:@"MoveOut" context:nil];
@@ -167,6 +170,9 @@
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissCurrencyPicker:)] ;
     [darkView addGestureRecognizer:tapGesture];
     [self.view addSubview:darkView];
+    
+    [self.view insertSubview:darkView belowSubview:self.currencyContainer];
+    
     [self.view addSubview:self.currencyPicker];
     
     UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height, 320, 44)] ;
@@ -261,8 +267,12 @@
                                            [alert show];
                                        }];
     }else{
+        [self dismissCurrencyPicker];
+        [self.groupName becomeFirstResponder];
         self.errorView.hidden=NO;
         self.errorLabel.hidden=NO;
+        self.addGroupImage.hidden=YES;
+        self.addGroupLabel.hidden=YES;
     }
 }
 
@@ -298,16 +308,30 @@
     }
 }
 
+- (void) selectCurrency:(id)sender{
+    
+    if ([self.groupName.text length]) {
+    [self.groupName resignFirstResponder];
+    [self showPicker:sender];
+    }else{
+        [self.groupName becomeFirstResponder];
+        self.errorView.hidden=NO;
+        self.errorLabel.hidden=NO;
+        self.addGroupImage.hidden=YES;
+        self.addGroupLabel.hidden=YES;
+        
+    }
+}
+
 - (UIToolbar *)keyboardToolBar {
     UIToolbar *toolbar=[[UIToolbar alloc]init];
     
-    toolbar.tintColor= [UIColor blackColor];
-    toolbar.translucent=YES;
+    toolbar.translucent=NO;
     [toolbar sizeToFit];
     toolbar.tag=1;
     
     UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(nextButton:)];
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStyleDone target:self action:@selector(selectCurrency:)];
     
     [toolbar setItems:[NSArray arrayWithObjects:spacer,spacer,doneButton, nil]];
     
