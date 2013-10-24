@@ -493,7 +493,7 @@
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"You're about to leave :("
                                                         message:@"Are you sure you want to log out?"
                                                        delegate:self
-                                              cancelButtonTitle:@"Log Out"
+                                              cancelButtonTitle:@"Log out"
                                               otherButtonTitles:@"Stay Logged In", nil];
     alertView.tag = 1;
     [alertView show];
