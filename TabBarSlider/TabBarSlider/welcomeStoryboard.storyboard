@@ -213,10 +213,10 @@
             </objects>
             <point key="canvasLocation" x="653" y="-649"/>
         </scene>
-        <!--Walkthrough View Controller - walkthrough-->
+        <!--Walkthrough View Controller - WalkthroughViewController-->
         <scene sceneID="4wd-fL-TyV">
             <objects>
-                <viewController storyboardIdentifier="Walkthrough" title="walkthrough" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2ID-yh-HWR" customClass="WalkthroughViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Walkthrough" title="WalkthroughViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2ID-yh-HWR" customClass="WalkthroughViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FJ5-r3-Hx7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

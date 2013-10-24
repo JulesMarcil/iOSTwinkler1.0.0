@@ -143,7 +143,7 @@
     
     
     NSLog(@"viewController.title = %@", viewController.title);
-    NSLog(@"presentedViewController.title = %@", rootViewController.presentedViewController.class);
+    NSLog(@"presentedViewController.title = %@", rootViewController.presentedViewController.title);
     
     if([viewController.title isEqualToString:@"welcomeMenu"] && [rootViewController.presentedViewController.title isEqualToString:@"loginNavigationController"]) {
         [[rootViewController presentedViewController] dismissViewControllerAnimated:NO completion:nil];
