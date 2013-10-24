@@ -29,17 +29,19 @@
     CredentialStore *store = [[CredentialStore alloc] init];
     NSString *authToken = [store authToken];
     
-    if (FBSession.activeSession.state == FBSessionStateOpen && authToken) {
-        NSLog(@"FBSessionStateOpen");
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"loginSuccess" object:nil];
-    } else if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
+    if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
         NSLog(@"FBSessionStateCreatedTokenLoaded");
         [self openSession];
     }else if (authToken){
         [[NSNotificationCenter defaultCenter] postNotificationName:@"loginSuccess" object:nil];
     }else{
-        [self showWalkthrough];
-        //[self showLoginView];
+        
+         if (![[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"]) {
+             // app never launched
+             [self showWalkthrough];
+         } else {
+            [self showLoginView];
+         }
     }
     
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound)];
@@ -153,17 +155,6 @@
     if([viewController.title isEqualToString:@"welcomeMenu"] && [rootViewController.presentedViewController.title isEqualToString:@"WalkthroughViewController"]) {
         [[rootViewController presentedViewController] dismissViewControllerAnimated:NO completion:nil];
     }
-    
-    /*
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"]) {
-        // app never launched
-        NSLog(@"showWalkthrough");
-        UIStoryboard *welcomeStoryboard = [UIStoryboard storyboardWithName:@"welcomeStoryboard" bundle: nil];
-        UIViewController *welcomeViewController = [welcomeStoryboard instantiateViewControllerWithIdentifier:@"Walkthrough"];
-    
-        [self.window makeKeyAndVisible];
-        [self.window.rootViewController presentViewController:welcomeViewController animated:YES completion:nil];
-    }*/
 }
 
 // *** Facebook login actions ***
