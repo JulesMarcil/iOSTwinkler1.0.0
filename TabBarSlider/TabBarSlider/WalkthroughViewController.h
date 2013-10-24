@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *catchphraseSubLabel;
 @property (weak, nonatomic) IBOutlet UIButton *connectWithFbButton;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property (weak, nonatomic) IBOutlet UIView *spinnerContainer;
 @property (weak, nonatomic) IBOutlet UIView *devicesContainer;
 @property (weak, nonatomic) IBOutlet UIImageView *twinklerLogo;
 

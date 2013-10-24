@@ -30,7 +30,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
+    self.spinnerContainer.hidden=YES;
     [self.spinner stopAnimating];
     
     self.scrollView.pagingEnabled = YES;
@@ -51,6 +51,8 @@
     self.fourthView.backgroundColor=[UIColor clearColor];
     self.fifthView.backgroundColor=[UIColor clearColor];
     self.sixthView.backgroundColor=[UIColor clearColor];
+    
+    self.spinnerContainer.layer.cornerRadius = 5;
     
     
     CGRect screenRect = [[UIScreen mainScreen] bounds];
@@ -172,8 +174,9 @@
 }
 
 - (IBAction)facebookConnect:(id)sender {
-    
+    self.spinnerContainer.hidden=NO;
     [self.spinner startAnimating];
+    [self.connectWithFbButton setEnabled:NO];
     
     NSLog(@"login with facebook");
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
