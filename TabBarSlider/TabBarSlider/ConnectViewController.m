@@ -10,6 +10,8 @@
 #import "AddFriendsViewController.h"
 #import "Group.h"
 #import "AppDelegate.h"
+#import <FacebookSDK/FacebookSDK.h>
+#import "AuthAPIClient.h"
 
 @interface ConnectViewController ()
 
@@ -60,6 +62,34 @@
 }
 
 - (void) connectedToFacebook{
+    
+    NSString *fbAccessToken = [[[FBSession activeSession] accessTokenData] accessToken];
+    
+    if(fbAccessToken) {
+        NSDictionary *parameters = [[NSDictionary alloc] initWithObjectsAndKeys:fbAccessToken,@"facebook_access_token", nil];
+        [[AuthAPIClient sharedClient] postPath:@"api/facebook/merge"
+                                    parameters:parameters
+                                       success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                           NSError * error = nil;
+                                           NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
+                                           NSLog(@"response: %@",response);
+                                           
+                                           [self mergedAccount];
+                                           
+                                       } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                           NSLog(@"error: %@", error);
+                                           [self.spinner stopAnimating];
+                                           UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Account not connected"
+                                                                                           message:@"The user could not be merged with the Facebook account, please try again"
+                                                                                          delegate:self
+                                                                                 cancelButtonTitle:@"OK"
+                                                                                 otherButtonTitles:nil, nil];
+                                           [alert show];
+                                       }];
+    }
+}
+
+- (void) mergedAccount{
     [self.spinner stopAnimating];
     [self performSegueWithIdentifier:@"ConnectToFriends" sender:self];
 }

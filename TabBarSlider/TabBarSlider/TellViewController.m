@@ -68,6 +68,19 @@
 }
 
 - (IBAction)facebookAction:(id)sender {
+    
+    NSLog(@"share with facebook");
+    
+    NSURL* url = [NSURL URLWithString:@"http://www.twinkler.co/"];
+    [FBDialogs presentShareDialogWithLink:url
+                                  handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
+                                      if(error) {
+                                          NSLog(@"Error: %@", error.description);
+                                      } else {
+                                          NSLog(@"Success!");
+                                      }
+                                  }];
+    
 }
 
 - (IBAction)emailAction:(id)sender {
