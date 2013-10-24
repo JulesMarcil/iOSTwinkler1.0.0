@@ -46,14 +46,6 @@
                                             <color key="textColor" red="0.79215693470000004" green="0.8078432083" blue="0.82352948189999997" alpha="1" colorSpace="deviceRGB"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Pull down to refresh" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="le2-zH-VNe">
-                                            <rect key="frame" x="24" y="50" width="280" height="32"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
-                                            <color key="textColor" red="0.79215693470000004" green="0.8078432083" blue="0.82352948189999997" alpha="1" colorSpace="deviceRGB"/>
-                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
@@ -477,7 +469,8 @@
     <resources>
         <image name="add-expense-bckgd.png" width="320" height="460"/>
         <image name="bubble-tail-blue.png" width="19" height="12"/>
-        <image name="chat-bck.png" width="20" height="20"/>
+        <image name="bubble-tail-blue.png" width="19" height="12"/>
+        <image name="chat-bck.png" width="320" height="460"/>
         <image name="main-arrow.png" width="34" height="34"/>
         <image name="main-button.png" width="34" height="34"/>
         <image name="money-button.png" width="34" height="34"/>

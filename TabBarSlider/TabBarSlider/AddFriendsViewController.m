@@ -60,6 +60,19 @@
     if ([self.friendTableView respondsToSelector:@selector(setSeparatorInset:)]) {
         [self.friendTableView setSeparatorInset:UIEdgeInsetsZero];
     }
+    
+    for (UIView *subview in self.searchBar.subviews)
+    {
+        for (UIView *subSubview in subview.subviews)
+        {
+            if ([subSubview conformsToProtocol:@protocol(UITextInputTraits)])
+            {
+                UITextField *textField = (UITextField *)subSubview;
+                textField.returnKeyType = UIReturnKeyDefault;
+                break;
+            }
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning
