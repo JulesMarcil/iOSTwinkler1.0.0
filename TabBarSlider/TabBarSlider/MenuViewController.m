@@ -335,7 +335,6 @@
             [self getImageForView:iv Member:groupMembers[0] size:22.0];
             [self getImageForView:ivbis Member:groupMembers[1] size:22.0];
             [self getImageForView:ivtier Member:groupMembers[2] size:22.0];
-            [self getImageForView:ivquatro Member:groupMembers[3] size:22.0];
             [cell.groupPicPlaceholder  addSubview:iv];
             [cell.groupPicPlaceholder  addSubview:ivbis];
             [cell.groupPicPlaceholder  addSubview:ivtier];
@@ -494,7 +493,7 @@
                                                         message:@"Are you sure you want to log out?"
                                                        delegate:self
                                               cancelButtonTitle:@"Log out"
-                                              otherButtonTitles:@"Stay Logged In", nil];
+                                              otherButtonTitles:@"Stay logged in", nil];
     alertView.tag = 1;
     [alertView show];
 }
