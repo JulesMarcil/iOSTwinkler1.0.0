@@ -17,7 +17,10 @@
 //#define appURL @"http://www.twinkler.co/web/"
 //#define appBaseURL @"http://www.twinkler.co/"
 
-#define appURL @"http://localhost:8888/Twinkler1.2.3/web/app_dev.php/"
-#define appBaseURL @"http://localhost:8888/Twinkler1.2.3/web/"
+//#define appURL @"http://localhost:8888/Twinkler1.2.3/web/app_dev.php/"
+//#define appBaseURL @"http://localhost:8888/Twinkler1.2.3/web/"
+
+#define appURL @"http://162.13.144.173/web/"
+#define appBaseURL @"http://162.13.144.173"
 
 #endif
