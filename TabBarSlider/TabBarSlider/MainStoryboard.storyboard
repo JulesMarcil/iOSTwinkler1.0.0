@@ -281,7 +281,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7sn-A9-dld">
-                                            <rect key="frame" x="20" y="69" width="280" height="44"/>
+                                            <rect key="frame" x="20" y="68" width="280" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
@@ -426,6 +426,7 @@
                         <outlet property="closeGroupButton" destination="DyK-6Z-d8G" id="WWK-Pt-8uX"/>
                         <outlet property="dashboardTitle" destination="ch1-js-4um" id="ZDr-SV-5Rc"/>
                         <outlet property="mainTableView" destination="BpQ-Bo-NIA" id="cMx-pc-edz"/>
+                        <outlet property="removeFriendButton" destination="7sn-A9-dld" id="XQi-mV-BM1"/>
                         <outlet property="spinnerView" destination="sqK-VH-Oxx" id="O8h-9B-Y2S"/>
                     </connections>
                 </viewController>

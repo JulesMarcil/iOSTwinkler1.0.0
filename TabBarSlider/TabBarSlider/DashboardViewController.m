@@ -66,6 +66,9 @@
     self.closeGroupButton.layer.masksToBounds = YES;
     self.closeGroupButton.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
     self.closeGroupButton.layer.borderWidth = 1.0f;
+    self.removeFriendButton.layer.masksToBounds = YES;
+    self.removeFriendButton.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
+    self.removeFriendButton.layer.borderWidth = 1.0f;
     
     self.spinnerView.layer.cornerRadius = 10;
     [self.view bringSubviewToFront:self.spinnerView];

@@ -16,6 +16,7 @@
 @property (strong, nonatomic) NSDictionary *dashboardInfo;
 @property (weak, nonatomic) IBOutlet UIButton *actionButton;
 @property (weak, nonatomic) IBOutlet UIButton *closeGroupButton;
+@property (weak, nonatomic) IBOutlet UIButton *removeFriendButton;
 @property (weak, nonatomic) IBOutlet UIButton *inviteButton;
 @property (weak, nonatomic) IBOutlet UIView *dashboardTitle;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *refreshSpinner;
