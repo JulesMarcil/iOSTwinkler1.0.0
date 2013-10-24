@@ -293,6 +293,8 @@
                                                 <state key="normal" title="Button" image="connect-with-fb.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <state key="selected" image="connect-with-fb-seleced.png"/>
+                                                <state key="highlighted" image="connect-with-fb-seleced.png"/>
                                                 <connections>
                                                     <action selector="facebookConnect:" destination="2ID-yh-HWR" eventType="touchUpInside" id="VZq-8N-5db"/>
                                                 </connections>
@@ -880,6 +882,8 @@
         <image name="Twinkler_star.png" width="300" height="286"/>
         <image name="Twinkler_star.png" width="300" height="286"/>
         <image name="bckgd-2.png" width="1626" height="3000"/>
+        <image name="connect-with-fb-seleced.png" width="280" height="51"/>
+        <image name="connect-with-fb-seleced.png" width="280" height="51"/>
         <image name="connect-with-fb.png" width="280" height="51"/>
         <image name="facebook.png" width="69" height="85"/>
         <image name="facebook.png" width="69" height="85"/>
