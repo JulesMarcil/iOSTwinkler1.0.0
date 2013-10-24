@@ -79,15 +79,17 @@
     self.dashboardTitle.layer.shadowRadius = 1.2;
     self.dashboardTitle.layer.shadowOpacity = 0.1;
     
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];;
     [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    refreshControl.alpha=0.6;
     [self.mainTableView addSubview:refreshControl];
+    [refreshControl setAutoresizingMask:(UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleLeftMargin)];
+    [[refreshControl.subviews objectAtIndex:0] setFrame:CGRectMake(75, 44, 20, 30)];
+    
 }
-
 - (void)refresh:(UIRefreshControl *)refreshControl {
     NSLog(@"refresh function called");
     [refreshControl endRefreshing];
-    self.spinnerView.hidden = NO;
     [self refreshDashboardInfo];
 }
 

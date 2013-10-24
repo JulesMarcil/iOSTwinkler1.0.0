@@ -382,6 +382,11 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
+                                        <view contentMode="scaleToFill" id="Hap-pL-f2G">
+                                            <rect key="frame" x="0.0" y="-219" width="320" height="296"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.96862745098039216" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="deviceRGB"/>
+                                        </view>
                                         <view contentMode="scaleToFill" id="9cu-b0-4p3">
                                             <rect key="frame" x="0.0" y="85" width="320" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -763,12 +768,18 @@
     </scenes>
     <resources>
         <image name="add-expense-bckgd.png" width="320" height="460"/>
+        <image name="add-expense-bckgd.png" width="320" height="460"/>
         <image name="balance-knob.png" width="30" height="30"/>
         <image name="bin.png" width="50" height="50"/>
         <image name="chevron-arrow.png" width="23" height="11"/>
         <image name="edit-button.png" width="30" height="26"/>
+        <image name="edit-button.png" width="30" height="26"/>
         <image name="green-check.png" width="16" height="12"/>
         <image name="profile-pic-placeholder.png" width="160" height="160"/>
+        <image name="profile-pic-placeholder.png" width="160" height="160"/>
+        <image name="profile-pic-placeholder.png" width="160" height="160"/>
+        <image name="timeline-line.png" width="6" height="11"/>
+        <image name="timeline-line.png" width="6" height="11"/>
         <image name="timeline-line.png" width="6" height="11"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
