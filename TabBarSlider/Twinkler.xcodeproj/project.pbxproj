@@ -105,7 +105,6 @@
 		89CEBC8417C6634000DF7085 /* AddGroupStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89CEBC8317C6634000DF7085 /* AddGroupStoryboard.storyboard */; };
 		89CEBC9417C6B5C400DF7085 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89CEBC9317C6B5C400DF7085 /* DashboardViewController.m */; };
 		89F71E1317B5494E00BC9C32 /* add-expense-bckgd1.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F71E1217B5494E00BC9C32 /* add-expense-bckgd1.png */; };
-		89F71E1517B54A2000BC9C32 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89F71E1417B54A2000BC9C32 /* FacebookSDK.framework */; };
 		89F71E1817B54E5600BC9C32 /* memberCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F71E1717B54E5600BC9C32 /* memberCollectionViewCell.m */; };
 		89F71E1C17B596DB00BC9C32 /* memberCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 89F71E1717B54E5600BC9C32 /* memberCollectionViewCell.m */; };
 		89F71E2817B6431100BC9C32 /* green-check.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F71E2717B6431100BC9C32 /* green-check.png */; };
@@ -151,6 +150,7 @@
 		BA24D4F217B0171C0042C7A4 /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4EF17B0171C0042C7A4 /* SSKeychainQuery.m */; };
 		BA27D4D61816A3860079BDB2 /* RemoveFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA27D4D51816A3860079BDB2 /* RemoveFriendsViewController.m */; };
 		BA27D4D91816ABA70079BDB2 /* removeFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA27D4D81816ABA70079BDB2 /* removeFriendCell.m */; };
+		BA3124A51819260800455A2D /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3124A41819260800455A2D /* FacebookSDK.framework */; };
 		BA3F79D017D67B010094E658 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3F79CF17D67B010094E658 /* MessageUI.framework */; };
 		BA403FC717B008B700BE5282 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA403FC617B008B700BE5282 /* Security.framework */; };
 		BA403FC917B008BF00BE5282 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA403FC817B008BF00BE5282 /* MobileCoreServices.framework */; };
@@ -314,7 +314,6 @@
 		89CEBC9217C6B5C400DF7085 /* DashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
 		89CEBC9317C6B5C400DF7085 /* DashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
 		89F71E1217B5494E00BC9C32 /* add-expense-bckgd1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-expense-bckgd1.png"; sourceTree = "<group>"; };
-		89F71E1417B54A2000BC9C32 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		89F71E1617B54E5600BC9C32 /* memberCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = memberCollectionViewCell.h; sourceTree = "<group>"; };
 		89F71E1717B54E5600BC9C32 /* memberCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = memberCollectionViewCell.m; sourceTree = "<group>"; };
 		89F71E2717B6431100BC9C32 /* green-check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green-check.png"; sourceTree = "<group>"; };
@@ -378,6 +377,7 @@
 		BA27D4D51816A3860079BDB2 /* RemoveFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoveFriendsViewController.m; sourceTree = "<group>"; };
 		BA27D4D71816ABA70079BDB2 /* removeFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = removeFriendCell.h; sourceTree = "<group>"; };
 		BA27D4D81816ABA70079BDB2 /* removeFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = removeFriendCell.m; sourceTree = "<group>"; };
+		BA3124A41819260800455A2D /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		BA3F79CF17D67B010094E658 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		BA403FC617B008B700BE5282 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		BA403FC817B008BF00BE5282 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -436,6 +436,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA3F79D017D67B010094E658 /* MessageUI.framework in Frameworks */,
+				BA3124A51819260800455A2D /* FacebookSDK.framework in Frameworks */,
 				891ABEE817B271F800D507F7 /* QuartzCore.framework in Frameworks */,
 				891ABEE617B271DE00D507F7 /* Accelerate.framework in Frameworks */,
 				BA403FCB17B008CB00BE5282 /* SystemConfiguration.framework in Frameworks */,
@@ -444,7 +445,6 @@
 				895C4E3A17AA77D2004EC590 /* UIKit.framework in Frameworks */,
 				895C4E3C17AA77D2004EC590 /* Foundation.framework in Frameworks */,
 				895C4E3E17AA77D2004EC590 /* CoreGraphics.framework in Frameworks */,
-				89F71E1517B54A2000BC9C32 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,8 +655,8 @@
 		895C4E3817AA77D2004EC590 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BA3124A41819260800455A2D /* FacebookSDK.framework */,
 				BA3F79CF17D67B010094E658 /* MessageUI.framework */,
-				89F71E1417B54A2000BC9C32 /* FacebookSDK.framework */,
 				891ABEE717B271F800D507F7 /* QuartzCore.framework */,
 				891ABEE517B271DE00D507F7 /* Accelerate.framework */,
 				BA403FCA17B008CB00BE5282 /* SystemConfiguration.framework */,
@@ -1256,8 +1256,9 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iosTwinkler/TabBarSlider\"",
-					"\"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iOSTwinkler1.0.0/TabBarSlider\"",
+					"\\\"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iosTwinkler/TabBarSlider\\\"",
+					"\\\"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iOSTwinkler1.0.0/TabBarSlider\\\"",
+					"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iosTwinkler/TabBarSlider",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TabBarSlider/Twinkler-Prefix.pch";
@@ -1276,8 +1277,9 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iosTwinkler/TabBarSlider\"",
-					"\"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iOSTwinkler1.0.0/TabBarSlider\"",
+					"\\\"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iosTwinkler/TabBarSlider\\\"",
+					"\\\"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iOSTwinkler1.0.0/TabBarSlider\\\"",
+					"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iosTwinkler/TabBarSlider",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TabBarSlider/Twinkler-Prefix.pch";

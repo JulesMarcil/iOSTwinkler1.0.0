@@ -24,6 +24,7 @@
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
     
     [FBLoginView class];
+    [FBAppEvents setFlushBehavior:FBAppEventsFlushBehaviorExplicitOnly];
     
     CredentialStore *store = [[CredentialStore alloc] init];
     NSString *authToken = [store authToken];
