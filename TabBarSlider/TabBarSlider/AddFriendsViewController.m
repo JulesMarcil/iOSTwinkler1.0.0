@@ -205,6 +205,11 @@
                                            self.group = group;
                                            [[NSUserDefaults standardUserDefaults] setObject:self.group.members forKey:@"currentGroupMembers"];
                                            [[NSNotificationCenter defaultCenter] postNotificationName:@"doneAddMember" object:nil userInfo:nil];
+                                           [self.spinner stopAnimating];
+                                           self.doneButton.hidden = NO;
+                                           [self.selectedList removeAllObjects];
+                                           self.searchBar.text = @"";
+                                           [self.friendTableView reloadData];
                                            [self performSegueWithIdentifier:@"FriendsToTell" sender:self];
                                        }
                                        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
