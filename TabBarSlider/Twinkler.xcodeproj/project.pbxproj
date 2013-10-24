@@ -114,10 +114,6 @@
 		89F7D7B117DA6052006BE7FD /* right-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F7D7B017DA6052006BE7FD /* right-arrow.png */; };
 		89F7D7B717DA91DD006BE7FD /* main-smiley.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F7D7B617DA91DD006BE7FD /* main-smiley.png */; };
 		89F7D7B917DAA23E006BE7FD /* Twinkler_star.png in Resources */ = {isa = PBXBuildFile; fileRef = 89F7D7B817DAA23D006BE7FD /* Twinkler_star.png */; };
-		8A00BA0A1816AE36001D0E61 /* create-group.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A00BA061816AE36001D0E61 /* create-group.png */; };
-		8A00BA111816B049001D0E61 /* invite.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A00BA0E1816B049001D0E61 /* invite.png */; };
-		8A00BA121816B049001D0E61 /* payback.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A00BA0F1816B049001D0E61 /* payback.png */; };
-		8A00BA131816B049001D0E61 /* track-expenses.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A00BA101816B049001D0E61 /* track-expenses.png */; };
 		8A00BA211816BB49001D0E61 /* customPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A00BA201816BB49001D0E61 /* customPageControl.m */; };
 		8A00BA241816BBF5001D0E61 /* active_page_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A00BA221816BBF5001D0E61 /* active_page_image.png */; };
 		8A00BA271816BC59001D0E61 /* inactive_page_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A00BA261816BC59001D0E61 /* inactive_page_image.png */; };
@@ -128,6 +124,11 @@
 		8A00BA341816E619001D0E61 /* add-group.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A00BA331816E619001D0E61 /* add-group.png */; };
 		8A00BA361816FAAD001D0E61 /* upload-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A00BA351816FAAD001D0E61 /* upload-icon.png */; };
 		8A00BA391816FC52001D0E61 /* customSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A00BA381816FC52001D0E61 /* customSearchBar.m */; };
+		8A08E48018198E4E00A7DC8F /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A08E47F18198E4E00A7DC8F /* FacebookSDK.framework */; };
+		8A08E48918199CB500A7DC8F /* create-group.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A08E48518199CB500A7DC8F /* create-group.png */; };
+		8A08E48A18199CB500A7DC8F /* invite.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A08E48618199CB500A7DC8F /* invite.png */; };
+		8A08E48B18199CB500A7DC8F /* payback.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A08E48718199CB500A7DC8F /* payback.png */; };
+		8A08E48C18199CB500A7DC8F /* track-expenses.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A08E48818199CB500A7DC8F /* track-expenses.png */; };
 		8A1E09EA1817C8C60048ABE8 /* blur-bckgd.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1E09E91817C8C60048ABE8 /* blur-bckgd.png */; };
 		8A1E09EC1817F0BF0048ABE8 /* add-friend.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1E09EB1817F0BF0048ABE8 /* add-friend.png */; };
 		8A1E09EE1817FAC20048ABE8 /* plus-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1E09ED1817FAC20048ABE8 /* plus-button.png */; };
@@ -150,7 +151,6 @@
 		BA24D4F217B0171C0042C7A4 /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4EF17B0171C0042C7A4 /* SSKeychainQuery.m */; };
 		BA27D4D61816A3860079BDB2 /* RemoveFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA27D4D51816A3860079BDB2 /* RemoveFriendsViewController.m */; };
 		BA27D4D91816ABA70079BDB2 /* removeFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BA27D4D81816ABA70079BDB2 /* removeFriendCell.m */; };
-		BA3124A51819260800455A2D /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3124A41819260800455A2D /* FacebookSDK.framework */; };
 		BA3F79D017D67B010094E658 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3F79CF17D67B010094E658 /* MessageUI.framework */; };
 		BA403FC717B008B700BE5282 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA403FC617B008B700BE5282 /* Security.framework */; };
 		BA403FC917B008BF00BE5282 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA403FC817B008BF00BE5282 /* MobileCoreServices.framework */; };
@@ -323,10 +323,6 @@
 		89F7D7B017DA6052006BE7FD /* right-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow.png"; sourceTree = "<group>"; };
 		89F7D7B617DA91DD006BE7FD /* main-smiley.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main-smiley.png"; sourceTree = "<group>"; };
 		89F7D7B817DAA23D006BE7FD /* Twinkler_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Twinkler_star.png; sourceTree = "<group>"; };
-		8A00BA061816AE36001D0E61 /* create-group.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "create-group.png"; sourceTree = "<group>"; };
-		8A00BA0E1816B049001D0E61 /* invite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = invite.png; sourceTree = "<group>"; };
-		8A00BA0F1816B049001D0E61 /* payback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = payback.png; sourceTree = "<group>"; };
-		8A00BA101816B049001D0E61 /* track-expenses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "track-expenses.png"; sourceTree = "<group>"; };
 		8A00BA1F1816BB49001D0E61 /* customPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customPageControl.h; sourceTree = "<group>"; };
 		8A00BA201816BB49001D0E61 /* customPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = customPageControl.m; sourceTree = "<group>"; };
 		8A00BA221816BBF5001D0E61 /* active_page_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = active_page_image.png; sourceTree = "<group>"; };
@@ -339,6 +335,11 @@
 		8A00BA351816FAAD001D0E61 /* upload-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "upload-icon.png"; sourceTree = "<group>"; };
 		8A00BA371816FC52001D0E61 /* customSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customSearchBar.h; sourceTree = "<group>"; };
 		8A00BA381816FC52001D0E61 /* customSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = customSearchBar.m; sourceTree = "<group>"; };
+		8A08E47F18198E4E00A7DC8F /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		8A08E48518199CB500A7DC8F /* create-group.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "create-group.png"; sourceTree = "<group>"; };
+		8A08E48618199CB500A7DC8F /* invite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = invite.png; sourceTree = "<group>"; };
+		8A08E48718199CB500A7DC8F /* payback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = payback.png; sourceTree = "<group>"; };
+		8A08E48818199CB500A7DC8F /* track-expenses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "track-expenses.png"; sourceTree = "<group>"; };
 		8A1E09E91817C8C60048ABE8 /* blur-bckgd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blur-bckgd.png"; sourceTree = "<group>"; };
 		8A1E09EB1817F0BF0048ABE8 /* add-friend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-friend.png"; sourceTree = "<group>"; };
 		8A1E09ED1817FAC20048ABE8 /* plus-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus-button.png"; sourceTree = "<group>"; };
@@ -377,7 +378,6 @@
 		BA27D4D51816A3860079BDB2 /* RemoveFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemoveFriendsViewController.m; sourceTree = "<group>"; };
 		BA27D4D71816ABA70079BDB2 /* removeFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = removeFriendCell.h; sourceTree = "<group>"; };
 		BA27D4D81816ABA70079BDB2 /* removeFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = removeFriendCell.m; sourceTree = "<group>"; };
-		BA3124A41819260800455A2D /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		BA3F79CF17D67B010094E658 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		BA403FC617B008B700BE5282 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		BA403FC817B008BF00BE5282 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -436,7 +436,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA3F79D017D67B010094E658 /* MessageUI.framework in Frameworks */,
-				BA3124A51819260800455A2D /* FacebookSDK.framework in Frameworks */,
+				8A08E48018198E4E00A7DC8F /* FacebookSDK.framework in Frameworks */,
 				891ABEE817B271F800D507F7 /* QuartzCore.framework in Frameworks */,
 				891ABEE617B271DE00D507F7 /* Accelerate.framework in Frameworks */,
 				BA403FCB17B008CB00BE5282 /* SystemConfiguration.framework in Frameworks */,
@@ -655,7 +655,7 @@
 		895C4E3817AA77D2004EC590 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BA3124A41819260800455A2D /* FacebookSDK.framework */,
+				8A08E47F18198E4E00A7DC8F /* FacebookSDK.framework */,
 				BA3F79CF17D67B010094E658 /* MessageUI.framework */,
 				891ABEE717B271F800D507F7 /* QuartzCore.framework */,
 				891ABEE517B271DE00D507F7 /* Accelerate.framework */,
@@ -818,16 +818,16 @@
 				892F997117B8F1A700D86B4D /* login-bckgd.png */,
 				892F997317B8F1F600D86B4D /* tk-ihpone-icon-retina.png */,
 				892F996F17B8D59C00D86B4D /* facebook.png */,
-				8A00BA061816AE36001D0E61 /* create-group.png */,
-				8A00BA0E1816B049001D0E61 /* invite.png */,
-				8A00BA0F1816B049001D0E61 /* payback.png */,
-				8A00BA101816B049001D0E61 /* track-expenses.png */,
 				8A00BA221816BBF5001D0E61 /* active_page_image.png */,
 				8A00BA261816BC59001D0E61 /* inactive_page_image.png */,
 				8A00BA2B1816C152001D0E61 /* connect-with-fb.png */,
 				8A00BA2D1816C2EC001D0E61 /* flat-iphone.png */,
 				8A00BA2E1816C2EC001D0E61 /* flat-mac.png */,
 				8A00BA311816CDB1001D0E61 /* walkthroughBck.png */,
+				8A08E48518199CB500A7DC8F /* create-group.png */,
+				8A08E48618199CB500A7DC8F /* invite.png */,
+				8A08E48718199CB500A7DC8F /* payback.png */,
+				8A08E48818199CB500A7DC8F /* track-expenses.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -982,19 +982,21 @@
 				BAD291F017F57BD500B39E8C /* icon-152.png in Resources */,
 				8901CECE17B05DB50084E749 /* check-button.png in Resources */,
 				8901CECF17B05DB50084E749 /* main-button.png in Resources */,
+				8A08E48A18199CB500A7DC8F /* invite.png in Resources */,
 				8901CED017B05DB50084E749 /* money-button.png in Resources */,
 				8901CED117B05DB50084E749 /* user-button.png in Resources */,
 				8901CED217B05DB50084E749 /* uservoice-button.png in Resources */,
 				BAD291FE17F57ED000B39E8C /* Default~iphone.png in Resources */,
 				8911839917B10A6600B28ABE /* expenseStoryboard.storyboard in Resources */,
+				8A08E48918199CB500A7DC8F /* create-group.png in Resources */,
 				8911839B17B10D5400B28ABE /* timelineStoryboard.storyboard in Resources */,
 				8911839F17B12D9D00B28ABE /* heart-icon.png in Resources */,
+				8A08E48B18199CB500A7DC8F /* payback.png in Resources */,
 				891183B517B1ABE700B28ABE /* balance-knob.png in Resources */,
 				8A1E09EA1817C8C60048ABE8 /* blur-bckgd.png in Resources */,
 				891ABECA17B2493D00D507F7 /* bckgd-2.png in Resources */,
 				891ABECC17B24AA100D507F7 /* gear.png in Resources */,
 				891ABECF17B252D200D507F7 /* welcomeStoryboard.storyboard in Resources */,
-				8A00BA121816B049001D0E61 /* payback.png in Resources */,
 				8919DBDB17B2E8360005C67C /* chevron-arrow.png in Resources */,
 				8919DBE117B2F9280005C67C /* expense-detail-border.png in Resources */,
 				891F501417B3DFD000361986 /* edit-button.png in Resources */,
@@ -1002,10 +1004,10 @@
 				8A1E09F41818074F0048ABE8 /* facebook-icon.png in Resources */,
 				89F71E1317B5494E00BC9C32 /* add-expense-bckgd1.png in Resources */,
 				89F71E2817B6431100BC9C32 /* green-check.png in Resources */,
+				8A08E48C18199CB500A7DC8F /* track-expenses.png in Resources */,
 				892C2A7517F224BB008F2875 /* member-icon-placeholder@2x.png in Resources */,
 				8A00BA271816BC59001D0E61 /* inactive_page_image.png in Resources */,
 				892F997017B8D59C00D86B4D /* facebook.png in Resources */,
-				8A00BA0A1816AE36001D0E61 /* create-group.png in Resources */,
 				BAD291EF17F57BD500B39E8C /* icon-120.png in Resources */,
 				892F997217B8F1A700D86B4D /* login-bckgd.png in Resources */,
 				892F997417B8F1F600D86B4D /* tk-ihpone-icon-retina.png in Resources */,
@@ -1018,10 +1020,8 @@
 				89131B2917D54536008F9950 /* remove-button.png in Resources */,
 				8A00BA2F1816C2EC001D0E61 /* flat-iphone.png in Resources */,
 				895913BF17D934FD0039CF72 /* Default-568h@2x.png in Resources */,
-				8A00BA111816B049001D0E61 /* invite.png in Resources */,
 				895913CA17D939050039CF72 /* Default.png in Resources */,
 				895913CB17D939080039CF72 /* Default@2x.png in Resources */,
-				8A00BA131816B049001D0E61 /* track-expenses.png in Resources */,
 				BAD291F617F57DD000B39E8C /* icon@2x.png in Resources */,
 				89F7D7A017D9D767006BE7FD /* bubble-tail-blue.png in Resources */,
 				89F7D7A817D9F0BC006BE7FD /* member-icon-placeholder.png in Resources */,
@@ -1256,9 +1256,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iosTwinkler/TabBarSlider\\\"",
-					"\\\"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iOSTwinkler1.0.0/TabBarSlider\\\"",
+					"\\\\\\\"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iosTwinkler/TabBarSlider\\\\\\\"",
+					"\\\\\\\"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iOSTwinkler1.0.0/TabBarSlider\\\\\\\"",
 					"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iosTwinkler/TabBarSlider",
+					"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iOSTwinkler1.0.0/TabBarSlider",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TabBarSlider/Twinkler-Prefix.pch";
@@ -1277,9 +1278,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iosTwinkler/TabBarSlider\\\"",
-					"\\\"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iOSTwinkler1.0.0/TabBarSlider\\\"",
+					"\\\\\\\"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iosTwinkler/TabBarSlider\\\\\\\"",
+					"\\\\\\\"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iOSTwinkler1.0.0/TabBarSlider\\\\\\\"",
 					"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iosTwinkler/TabBarSlider",
+					"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iOSTwinkler1.0.0/TabBarSlider",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TabBarSlider/Twinkler-Prefix.pch";

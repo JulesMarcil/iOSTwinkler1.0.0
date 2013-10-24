@@ -73,6 +73,13 @@
         UIImageView *subviewPayback = [[UIImageView alloc] initWithFrame:CGRectMake(0, -90, 320, 568)];
         [subviewPayback setImage:[UIImage imageNamed:@"payback.png"]];
         [self.fifthView addSubview:subviewPayback];
+        
+        CGRect frame= [self.devicesContainer frame];
+        [self.devicesContainer setFrame:CGRectMake(frame.origin.x,
+                                              30,
+                                              frame.size.width,
+                                              frame.size.height)];
+        self.twinklerLogo.hidden=YES;
     }else{
     
     UIImageView *subview = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 568)];
