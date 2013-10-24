@@ -129,6 +129,7 @@
 		8A08E48A18199CB500A7DC8F /* invite.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A08E48618199CB500A7DC8F /* invite.png */; };
 		8A08E48B18199CB500A7DC8F /* payback.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A08E48718199CB500A7DC8F /* payback.png */; };
 		8A08E48C18199CB500A7DC8F /* track-expenses.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A08E48818199CB500A7DC8F /* track-expenses.png */; };
+		8A08E48E1819AFF800A7DC8F /* connect-with-fb-seleced.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A08E48D1819AFF800A7DC8F /* connect-with-fb-seleced.png */; };
 		8A1E09EA1817C8C60048ABE8 /* blur-bckgd.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1E09E91817C8C60048ABE8 /* blur-bckgd.png */; };
 		8A1E09EC1817F0BF0048ABE8 /* add-friend.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1E09EB1817F0BF0048ABE8 /* add-friend.png */; };
 		8A1E09EE1817FAC20048ABE8 /* plus-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1E09ED1817FAC20048ABE8 /* plus-button.png */; };
@@ -340,6 +341,7 @@
 		8A08E48618199CB500A7DC8F /* invite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = invite.png; sourceTree = "<group>"; };
 		8A08E48718199CB500A7DC8F /* payback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = payback.png; sourceTree = "<group>"; };
 		8A08E48818199CB500A7DC8F /* track-expenses.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "track-expenses.png"; sourceTree = "<group>"; };
+		8A08E48D1819AFF800A7DC8F /* connect-with-fb-seleced.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connect-with-fb-seleced.png"; sourceTree = "<group>"; };
 		8A1E09E91817C8C60048ABE8 /* blur-bckgd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blur-bckgd.png"; sourceTree = "<group>"; };
 		8A1E09EB1817F0BF0048ABE8 /* add-friend.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "add-friend.png"; sourceTree = "<group>"; };
 		8A1E09ED1817FAC20048ABE8 /* plus-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus-button.png"; sourceTree = "<group>"; };
@@ -692,6 +694,7 @@
 				8A1E09EF1818060C0048ABE8 /* link-button.png */,
 				8A1E09F5181808120048ABE8 /* sms-button.png */,
 				8A1E09F31818074F0048ABE8 /* facebook-icon.png */,
+				8A08E48D1819AFF800A7DC8F /* connect-with-fb-seleced.png */,
 				8A1E09F1181807480048ABE8 /* mail-button.png */,
 				8A1E09ED1817FAC20048ABE8 /* plus-button.png */,
 				8A1E09EB1817F0BF0048ABE8 /* add-friend.png */,
@@ -1014,6 +1017,7 @@
 				8A00BA341816E619001D0E61 /* add-group.png in Resources */,
 				BAD291FB17F57E7A00B39E8C /* icon-58.png in Resources */,
 				897B77B217BA6A3E00D00C49 /* bubble-tail-grey.png in Resources */,
+				8A08E48E1819AFF800A7DC8F /* connect-with-fb-seleced.png in Resources */,
 				897B77C217BB8E0D00D00C49 /* left-arrow.png in Resources */,
 				897B77C417BBDD2100D00C49 /* bubble-tail-white.png in Resources */,
 				89CEBC8417C6634000DF7085 /* AddGroupStoryboard.storyboard in Resources */,
