@@ -21,6 +21,6 @@
 //#define appBaseURL @"http://localhost:8888/Twinkler1.2.3/web/"
 
 #define appURL @"http://162.13.144.173/web/"
-#define appBaseURL @"http://162.13.144.173"
+#define appBaseURL @"http://162.13.144.173/"
 
 #endif

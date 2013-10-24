@@ -74,12 +74,25 @@
                                            NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
                                            NSLog(@"response: %@",response);
                                            
-                                           [self mergedAccount];
+                                           NSString *er = response[@"error"];
+                                           if ([er isEqualToString:@"yes"]){
+                                               
+                                               [self.spinner stopAnimating];
+                                               UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops"
+                                                                                               message:response[@"message"]
+                                                                                              delegate:self
+                                                                                     cancelButtonTitle:@"OK"
+                                                                                     otherButtonTitles:nil, nil];
+                                               [alert show];
+                                               
+                                           } else {
+                                                [self mergedAccount];
+                                           }
                                            
                                        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                            NSLog(@"error: %@", error);
                                            [self.spinner stopAnimating];
-                                           UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Account not connected"
+                                           UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops"
                                                                                            message:@"The user could not be merged with the Facebook account, please try again"
                                                                                           delegate:self
                                                                                  cancelButtonTitle:@"OK"
