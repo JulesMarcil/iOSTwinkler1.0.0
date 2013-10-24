@@ -47,6 +47,7 @@
                                                   NSDictionary* result,
                                                   NSError *error) {
         self.list = [result objectForKey:@"data"];
+        self.spinnerView.hidden = YES;
         NSLog(@"Found: %i friends", self.list.count);
         [self.friendTableView reloadData];
         

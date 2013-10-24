@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property (weak, nonatomic) IBOutlet UIView *spinnerView;
 
 - (IBAction)doneAction:(id)sender;
 - (IBAction)dismissModal:(id)sender;
