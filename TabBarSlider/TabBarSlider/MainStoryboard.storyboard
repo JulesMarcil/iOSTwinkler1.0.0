@@ -245,7 +245,7 @@
                                     </subviews>
                                 </view>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="Nny-1Q-fSI">
-                                    <rect key="frame" x="0.0" y="221" width="320" height="181"/>
+                                    <rect key="frame" x="0.0" y="221" width="320" height="220"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" id="1LF-8K-c26">
@@ -745,7 +745,9 @@
     <resources>
         <image name="bckgd-2.png" width="1626" height="3000"/>
         <image name="check-icon-active.png" width="20" height="20"/>
+        <image name="check-icon-active.png" width="20" height="20"/>
         <image name="check-icon.png" width="20" height="20"/>
+        <image name="coin-icon-active.png" width="20" height="20"/>
         <image name="coin-icon-active.png" width="20" height="20"/>
         <image name="coin-icon.png" width="20" height="20"/>
         <image name="gear.png" width="156" height="156"/>
@@ -754,6 +756,8 @@
         <image name="menu-button-white.png" width="36" height="36"/>
         <image name="plus-button.png" width="44" height="44"/>
         <image name="profile-pic-placeholder.png" width="160" height="160"/>
+        <image name="profile-pic-placeholder.png" width="160" height="160"/>
+        <image name="tkr-icon-active.png" width="23" height="20"/>
         <image name="tkr-icon-active.png" width="23" height="20"/>
         <image name="tkr-icon.png" width="23" height="20"/>
     </resources>
