@@ -39,7 +39,6 @@
     [super awakeFromNib];
     self.spinnerView.hidden = NO;
     self.messageDataController = [[TimelineDataController alloc] init];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addExpense:) name:@"expenseAddedSuccesfully" object:nil];
 }
 
 
@@ -182,24 +181,6 @@
         [alertView show];
         self.spinnerView.hidden = YES;
     }
-}
-
-- (void) addExpense:(NSNotification *)note{
-    NSLog(@"add expense function called");
-    
-    Expense *expense = [[note userInfo] valueForKey:@"expense"];
-    Message *message = [[Message alloc] initWithType:@"expense"
-                                              author:expense.author
-                                                date:expense.date
-                                                body:nil
-                                               owner:expense.owner[@"name"]
-                                              amount:expense.amount
-                                                name:expense.name
-                                               share:expense.share
-                                         picturePath:expense.owner[@"picturePath"]];
-    
-    [self.messageDataController addMessage:message];
-    [self.messageOnTimeline reloadData];
 }
 
 - (void)viewDidUnload
