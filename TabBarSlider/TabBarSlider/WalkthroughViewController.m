@@ -117,9 +117,18 @@
     
     frame= [self.connectWithFbButton frame];
     [self.connectWithFbButton setFrame:CGRectMake(frame.origin.x,
-                                            screenRect.size.height-frame.size.height-30,
+                                            screenRect.size.height-frame.size.height-40,
                                             frame.size.width,
                                             frame.size.height)];
+    
+    
+    CGFloat screenHeight = screenRect.size.height;
+    
+    frame= [self.signinButton frame];
+    [self.signinButton setFrame:CGRectMake(frame.origin.x,
+                                           screenHeight-frame.size.height+5,
+                                           frame.size.width,
+                                           frame.size.height)];
     
     self.dismissButton.layer.masksToBounds = YES;
     self.dismissButton.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;

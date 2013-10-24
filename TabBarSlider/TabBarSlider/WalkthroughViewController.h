@@ -26,6 +26,8 @@
 @property (weak, nonatomic) IBOutlet UIView *spinnerContainer;
 @property (weak, nonatomic) IBOutlet UIView *devicesContainer;
 @property (weak, nonatomic) IBOutlet UIImageView *twinklerLogo;
+@property (weak, nonatomic) IBOutlet UIButton *signinButton;
+@property (weak, nonatomic) IBOutlet UILabel *loginLabel;
 
 - (IBAction)dismissView:(id)sender;
 - (IBAction)facebookConnect:(id)sender;

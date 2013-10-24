@@ -12,5 +12,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *registerButton;
 @property (weak, nonatomic) IBOutlet UIButton *signinButton;
 @property (weak, nonatomic) IBOutlet UIImageView *bckgdImage;
+@property (weak, nonatomic) IBOutlet UIView *spinnerContainer;
+@property (weak, nonatomic) IBOutlet UIButton *connectWithFbButton;
+@property (weak, nonatomic) IBOutlet UILabel *loginLabel;
+
+- (IBAction)FBConnect:(id)sender;
 
 @end

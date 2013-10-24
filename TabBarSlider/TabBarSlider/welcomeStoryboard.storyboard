@@ -361,6 +361,22 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.75" colorSpace="calibratedWhite"/>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fxV-IC-KAG">
+                                                <rect key="frame" x="18" y="510" width="284" height="54"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                                <state key="normal" title="Already registered with your email? Log in here!">
+                                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <state key="highlighted">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="TZK-DV-kkD" kind="push" id="8To-dW-aqR"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="0.57254904510000004" blue="0.48235297199999999" alpha="1" colorSpace="deviceRGB"/>
                                     </view>
@@ -390,6 +406,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="a82-yH-jcZ"/>
                     <connections>
                         <outlet property="connectWithFbButton" destination="cQ6-Zy-lbt" id="PSd-Oh-Igs"/>
                         <outlet property="devicesContainer" destination="wfq-v2-PEb" id="bcq-nU-i80"/>
@@ -400,6 +417,7 @@
                         <outlet property="pageControl" destination="9Tw-eu-eq1" id="lND-0N-5bF"/>
                         <outlet property="scrollView" destination="ime-Uz-ibA" id="0yU-qA-5Oq"/>
                         <outlet property="secondView" destination="mKN-Bg-ZBn" id="66M-nu-wLf"/>
+                        <outlet property="signinButton" destination="fxV-IC-KAG" id="9ma-TC-oMs"/>
                         <outlet property="sixthView" destination="53C-Xm-r47" id="unM-lm-apn"/>
                         <outlet property="spinner" destination="emT-t9-ySV" id="oyu-2j-x8u"/>
                         <outlet property="spinnerContainer" destination="ZKu-an-DdR" id="Zti-Eg-WOa"/>
@@ -409,7 +427,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ti-yg-vIo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="109" y="-2024"/>
+            <point key="canvasLocation" x="1161" y="-2024"/>
         </scene>
         <!--Welcome View Controller-->
         <scene sceneID="ay7-2o-n5b">
@@ -423,34 +441,57 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Sharing made easy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tRn-Jp-wdS">
-                                <rect key="frame" x="20" y="105" width="280" height="57"/>
+                            <view hidden="YES" contentMode="scaleToFill" id="8GW-Zc-drO">
+                                <rect key="frame" x="65" y="210" width="191" height="79"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
-                                <color key="textColor" red="0.24313725489999999" green="0.2666666667" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" id="ldO-HJ-zl0">
+                                        <rect key="frame" x="77" y="10" width="37" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Retrieving Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qDk-lX-NcT">
+                                        <rect key="frame" x="0.0" y="50" width="191" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.75" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="E9K-B0-yrh">
+                                <rect key="frame" x="20" y="393" width="280" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Button" image="connect-with-fb.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" image="connect-with-fb-seleced.png"/>
+                                <state key="highlighted" image="connect-with-fb-seleced.png"/>
+                                <connections>
+                                    <action selector="FBConnect:" destination="7Zp-lS-qAh" eventType="touchUpInside" id="gwB-dn-S0t"/>
+                                    <action selector="facebookConnect:" destination="2ID-yh-HWR" eventType="touchUpInside" id="4ZB-Fy-HoW"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Twinkler_star.png" id="CBc-vB-SZN">
+                                <rect key="frame" x="110" y="11" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already registered with your email? " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="b5z-eq-Uyu">
+                                <rect key="frame" x="23" y="455" width="274" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="A beautiful way to share with your friends" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aSP-2f-vAB">
-                                <rect key="frame" x="15" y="143" width="291" height="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IJk-Os-lGS">
+                                <rect key="frame" x="18" y="457" width="284" height="54"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
-                                <color key="textColor" red="0.24313725489999999" green="0.2666666667" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="It's free, fast and fun!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NZf-ln-sVQ">
-                                <rect key="frame" x="15" y="167" width="280" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
-                                <color key="textColor" red="0.24313725489999999" green="0.2666666667" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" alpha="0.60000000000000009" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IJk-Os-lGS">
-                                <rect key="frame" x="160" y="474" width="140" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
-                                <state key="normal" title="Sign in">
-                                    <color key="titleColor" red="0.24313725489999999" green="0.2666666667" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                <state key="normal" title="Log in here!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -460,26 +501,20 @@
                                     <segue destination="TZK-DV-kkD" kind="push" id="mL9-TZ-k4D"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.60000002384185791" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rc9-7z-3CX">
-                                <rect key="frame" x="15" y="474" width="140" height="54"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Manage Money with your Friends" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bJf-lp-bov">
+                                <rect key="frame" x="18" y="119" width="285" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
-                                <state key="normal" title="Register">
-                                    <color key="titleColor" red="0.24313725489999999" green="0.2666666667" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="yob-jf-MHu" kind="push" id="Z2h-j4-a7s"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Twinkler_star.png" id="CBc-vB-SZN">
-                                <rect key="frame" x="110" y="11" width="100" height="100"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" red="0.24313725489999999" green="0.2666666667" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Learn how easy it is to use Twinkler!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cUw-hn-Got">
+                                <rect key="frame" x="15" y="161" width="291" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                <color key="textColor" red="0.24313725489999999" green="0.2666666667" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -487,8 +522,10 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="bckgdImage" destination="f38-QL-bzz" id="PQt-8q-KP6"/>
-                        <outlet property="registerButton" destination="rc9-7z-3CX" id="U7P-6R-UVe"/>
+                        <outlet property="connectWithFbButton" destination="E9K-B0-yrh" id="5Ji-97-Yaz"/>
+                        <outlet property="loginLabel" destination="b5z-eq-Uyu" id="Bph-jA-Y6m"/>
                         <outlet property="signinButton" destination="IJk-Os-lGS" id="7GW-9Z-0Q3"/>
+                        <outlet property="spinnerContainer" destination="8GW-Zc-drO" id="YNs-Gx-qCk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1YF-PE-1rf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -684,7 +721,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="blr-AR-MCv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1114" y="-2029"/>
+            <point key="canvasLocation" x="2166" y="-2029"/>
         </scene>
         <!--Login View Controller - LoginViewController-->
         <scene sceneID="gol-nI-8sD">
@@ -892,18 +929,45 @@
             </objects>
             <point key="canvasLocation" x="109" y="-1360"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zuH-O2-l3x">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q04-B1-pJ8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WgF-6n-1Tj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2ID-yh-HWR" kind="relationship" relationship="rootViewController" id="eOO-9s-X2X"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nfP-Lt-Ufs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="635" y="-2024"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Twinkler_star.png" width="300" height="286"/>
+        <image name="Twinkler_star.png" width="300" height="286"/>
+        <image name="Twinkler_star.png" width="300" height="286"/>
         <image name="bckgd-2.png" width="1626" height="3000"/>
         <image name="connect-with-fb-seleced.png" width="280" height="51"/>
+        <image name="connect-with-fb-seleced.png" width="280" height="51"/>
+        <image name="connect-with-fb-seleced.png" width="280" height="51"/>
+        <image name="connect-with-fb-seleced.png" width="280" height="51"/>
         <image name="connect-with-fb.png" width="280" height="51"/>
+        <image name="connect-with-fb.png" width="280" height="51"/>
+        <image name="facebook.png" width="69" height="85"/>
         <image name="facebook.png" width="69" height="85"/>
         <image name="flat-iphone.png" width="382" height="805"/>
         <image name="flat-mac.png" width="224" height="131"/>
         <image name="gear.png" width="156" height="156"/>
         <image name="heart-icon.png" width="23" height="20"/>
         <image name="left-arrow.png" width="11" height="23"/>
+        <image name="left-arrow.png" width="11" height="23"/>
+        <image name="login-bckgd.png" width="320" height="560"/>
         <image name="login-bckgd.png" width="320" height="560"/>
         <image name="plus-button.png" width="44" height="44"/>
         <image name="profile-pic.png" width="160" height="160"/>
@@ -914,4 +978,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="8To-dW-aqR"/>
+    </inferredMetricsTieBreakers>
 </document>
