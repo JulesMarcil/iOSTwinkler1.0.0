@@ -396,11 +396,16 @@
                                             <action selector="dismissModal:" destination="5DR-I4-HS4" eventType="touchUpInside" id="3LK-Fg-f8g"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" id="wL8-Eo-6lK">
+                                        <rect key="frame" x="0.0" y="49" width="320" height="0.0"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.95686280729999995" green="0.34117648010000001" blue="0.31372550129999999" alpha="1" colorSpace="deviceRGB"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.57254904510000004" blue="0.48235297199999999" alpha="1" colorSpace="deviceRGB"/>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Your friends are now in your group on Twinkler, tell them to download the app or login on the website to join you!" textAlignment="center" id="POH-f1-QZx">
-                                <rect key="frame" x="20" y="86" width="280" height="53"/>
+                                <rect key="frame" x="20" y="62" width="280" height="67"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -408,12 +413,12 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <view contentMode="scaleToFill" id="iyT-XH-Rgz">
-                                <rect key="frame" x="-4" y="182" width="320" height="1"/>
+                                <rect key="frame" x="-4" y="149" width="320" height="1"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.80392163989999998" green="0.80392163989999998" blue="0.80392163989999998" alpha="1" colorSpace="deviceRGB"/>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SHARE WITH" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WrL-wt-wOJ">
-                                <rect key="frame" x="98" y="172" width="119" height="21"/>
+                                <rect key="frame" x="98" y="139" width="119" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.96862745100000003" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
@@ -421,11 +426,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" id="LqQ-wi-mSY">
-                                <rect key="frame" x="32" y="242" width="257" height="246"/>
+                                <rect key="frame" x="32" y="182" width="257" height="222"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1Vn-bp-Tja">
-                                        <rect key="frame" x="177" y="0.0" width="60" height="60"/>
+                                        <rect key="frame" x="177" y="15" width="60" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Share via Facebook" image="facebook-icon.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -435,7 +440,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="JF7-wB-26T">
-                                        <rect key="frame" x="20" y="0.0" width="60" height="60"/>
+                                        <rect key="frame" x="20" y="15" width="60" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="link-button.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -445,7 +450,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ayk-Wc-qap">
-                                        <rect key="frame" x="177" y="154" width="60" height="60"/>
+                                        <rect key="frame" x="177" y="122" width="60" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Share via SMS" image="sms-button.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -455,13 +460,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fEe-mE-Uh3">
-                                        <rect key="frame" x="142" y="222" width="131" height="21"/>
+                                        <rect key="frame" x="142" y="190" width="131" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FcJ-JB-l49">
-                                        <rect key="frame" x="20" y="164" width="60" height="40"/>
+                                        <rect key="frame" x="20" y="132" width="60" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="mail-button.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -471,19 +476,19 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Facebook" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kfk-rQ-FEO">
-                                        <rect key="frame" x="142" y="68" width="131" height="21"/>
+                                        <rect key="frame" x="142" y="83" width="131" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copy link" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bMy-7H-aXR">
-                                        <rect key="frame" x="-15" y="68" width="131" height="21"/>
+                                        <rect key="frame" x="-15" y="83" width="131" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="whL-iG-WWA">
-                                        <rect key="frame" x="-15" y="222" width="131" height="21"/>
+                                        <rect key="frame" x="-15" y="190" width="131" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                         <nil key="highlightedColor"/>
@@ -491,12 +496,29 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" id="xCk-Hw-HtC">
+                                <rect key="frame" x="84" y="438" width="153" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Link copied" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ErZ-UW-Qob">
+                                        <rect key="frame" x="0.0" y="6" width="153" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.75" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="6Jn-jM-9xI"/>
                     <connections>
+                        <outlet property="linkContainer" destination="LqQ-wi-mSY" id="qFH-Qg-xBb"/>
+                        <outlet property="linkCopyContainer" destination="xCk-Hw-HtC" id="jks-mZ-95o"/>
                         <outlet property="messageView" destination="POH-f1-QZx" id="rjT-WY-7AF"/>
+                        <outlet property="toolbar" destination="Uh8-Pg-qnu" id="HR3-gZ-FbV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uln-QQ-jGH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -522,8 +544,18 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" id="D6A-92-0gY">
+                                        <rect key="frame" x="0.0" y="49" width="320" height="0.0"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.95686280729999995" green="0.34117648010000001" blue="0.31372550129999999" alpha="1" colorSpace="deviceRGB"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99607843137254903" green="0.41568627450980389" blue="0.39215686274509803" alpha="1" colorSpace="deviceRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="a2s-2b-P6X">
+                                <rect key="frame" x="0.0" y="49" width="320" height="0.0"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.95686280729999995" green="0.34117648010000001" blue="0.31372550129999999" alpha="1" colorSpace="deviceRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5PO-Tw-b0E">
                                 <rect key="frame" x="-75" y="288" width="472" height="51"/>

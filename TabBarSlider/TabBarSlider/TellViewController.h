@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIView *linkCopyContainer;
 @property (weak, nonatomic) IBOutlet UIView *linkContainer;
 @property (weak, nonatomic) IBOutlet UITextView *linkLabel;
+@property (weak, nonatomic) IBOutlet UIView *toolbar;
 
 - (IBAction)copyAction:(id)sender;
 - (IBAction)facebookAction:(id)sender;
