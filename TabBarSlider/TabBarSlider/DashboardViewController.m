@@ -124,6 +124,8 @@
         NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
         
         self.dashboardInfo = response;
+        [[NSUserDefaults standardUserDefaults] setObject:response[@"members"] forKey:@"currentGroupMembers"];
+        
         [self.mainTableView reloadData];
         
         NSLog(@"dashboard info loaded");
