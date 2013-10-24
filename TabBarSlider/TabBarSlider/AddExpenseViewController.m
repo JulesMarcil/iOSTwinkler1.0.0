@@ -49,9 +49,9 @@
     
     frame= [self.scrollView frame];
     [self.scrollView setFrame:CGRectMake(frame.origin.x,
-                                                  20,
+                                                  0,
                                                   frame.size.width,
-                                                  frame.size.height)];
+                                                  screenHeight+20)];
     
     
     
@@ -105,7 +105,7 @@
                                                      frame.size.height)];
             break;
     }
-    
+
     frame= [self.bottomButtonContainer frame];
     [self.bottomButtonContainer setFrame:CGRectMake(frame.origin.x,
                                                     fmax(screenHeight-frame.size.height-40,frame.origin.y+fmax(0,((int)([memberArray count]/4)-1)*80)),
@@ -126,7 +126,7 @@
     
     self.scrollView.scrollEnabled = YES;
     frame= [self.bottomButtonContainer frame];
-    self.scrollView.contentSize =CGSizeMake(320, frame.origin.y+55) ;
+    self.scrollView.contentSize =CGSizeMake(320, frame.origin.y+80) ;
     
     self.expenseNameContainer.backgroundColor=[UIColor colorWithRed:(255/255.0) green:(255/255.0) blue:(255/255.0) alpha:0.8];
     self.expenseNameContainer.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;

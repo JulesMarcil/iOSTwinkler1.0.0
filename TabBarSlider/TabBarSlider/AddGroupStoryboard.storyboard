@@ -654,7 +654,6 @@
     <resources>
         <image name="add-group.png" width="476" height="165"/>
         <image name="connect-with-fb-seleced.png" width="280" height="51"/>
-        <image name="connect-with-fb-seleced.png" width="280" height="51"/>
         <image name="connect-with-fb.png" width="280" height="51"/>
         <image name="edit-button.png" width="30" height="26"/>
         <image name="facebook-icon.png" width="512" height="512"/>
