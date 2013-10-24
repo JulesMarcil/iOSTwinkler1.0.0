@@ -39,6 +39,9 @@
     
     [super viewDidLoad];
     
+    self.revealViewController.delegate=self;
+    
+    
     NSLog(@"tabbarvc viewdidload navcontrollers count = %u", self.navigationController.navigationController.viewControllers.count);
     
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
@@ -273,7 +276,23 @@
 -(void)goToList{
 }
 
-//--------DESGIN---------
+// ------ REVEALVIEW --------//
+
+- (void)revealController:(SWRevealViewController *)revealController didMoveToPosition:(FrontViewPosition)position{
+    if(self.revealViewController.frontViewPosition==4){
+        self.leftButton.hidden=NO;
+        NSLog(@"RevealView %i",self.revealViewController.frontViewPosition);
+        [self.revealViewController.frontViewController.view  addGestureRecognizer: self.revealViewController.panGestureRecognizer];
+    }else {
+        self.leftButton.hidden=YES;
+        NSLog(@"RevealView %i",self.revealViewController.frontViewPosition);
+        
+        [self.revealViewController.frontViewController.view  removeGestureRecognizer: self.revealViewController.panGestureRecognizer];
+    };
+}
+
+
+//--------DESGIN---------//
 -(void) setRoundedView:(UIImageView *)imageView picture: (UIImage *)picture toDiameter:(float)newSize{
     // Begin a new image that will be the new image with the rounded corners
     // (here with the size of an UIImageView)

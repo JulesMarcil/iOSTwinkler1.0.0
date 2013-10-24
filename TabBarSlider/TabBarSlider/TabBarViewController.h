@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SWRevealViewController.h"
 
-@interface TabBarViewController : UIViewController <UIScrollViewDelegate>{
+@interface TabBarViewController : UIViewController <UIScrollViewDelegate, SWRevealViewControllerDelegate>{
 	IBOutlet UIScrollView *scrollView;
     IBOutlet UIPageControl *pageControl;
 }
