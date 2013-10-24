@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (weak, nonatomic) IBOutlet UIButton *connectButton;
 @property (weak, nonatomic) IBOutlet UIButton *noButton;
+@property (weak, nonatomic) IBOutlet UIView *toolbar;
+@property (weak, nonatomic) IBOutlet UIView *labelContainerView;
 
 - (IBAction)connectAction:(id)sender;
 - (IBAction)noAction:(id)sender;
