@@ -307,6 +307,25 @@
                                     <outlet property="delegate" destination="5DR-I4-HS4" id="cFC-KZ-QT5"/>
                                 </connections>
                             </searchBar>
+                            <view contentMode="scaleToFill" id="Ur4-f1-wef">
+                                <rect key="frame" x="64" y="245" width="191" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Friends" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cYm-ge-MtO">
+                                        <rect key="frame" x="0.0" y="50" width="191" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" id="v3m-QP-5Ek" userLabel="Large White Activity Indicator">
+                                        <rect key="frame" x="77" y="10" width="37" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.75" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -318,6 +337,7 @@
                         <outlet property="searchBar" destination="xup-cr-7Ie" id="CNo-G5-uD5"/>
                         <outlet property="searchbarContainer" destination="94J-0z-ByE" id="CFb-0W-rKm"/>
                         <outlet property="spinner" destination="emZ-xb-TBe" id="Ly6-eu-RYc"/>
+                        <outlet property="spinnerView" destination="Ur4-f1-wef" id="lEe-o3-QVY"/>
                         <segue destination="3Co-lE-qbs" kind="push" identifier="FriendsToTell" id="Itc-k2-6TY"/>
                     </connections>
                 </viewController>
