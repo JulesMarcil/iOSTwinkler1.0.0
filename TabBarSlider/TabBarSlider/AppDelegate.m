@@ -41,6 +41,7 @@
              [self showWalkthrough];
          } else {
             [self showLoginView];
+             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];
          }
     }
     
@@ -116,7 +117,7 @@
 {
     NSLog(@"showWalkthrough");
     UIStoryboard *welcomeStoryboard = [UIStoryboard storyboardWithName:@"welcomeStoryboard" bundle: nil];
-    WelcomeViewController* welcomeViewController = [welcomeStoryboard instantiateViewControllerWithIdentifier:@"Walkthrough"];
+    WelcomeViewController* welcomeViewController = [welcomeStoryboard instantiateViewControllerWithIdentifier:@"WalkthroughNavigationController"];
     
     [self.window makeKeyAndVisible];
     [self.window.rootViewController presentViewController:welcomeViewController animated:YES completion:nil];
