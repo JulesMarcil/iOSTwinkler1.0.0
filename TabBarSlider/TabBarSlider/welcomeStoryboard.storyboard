@@ -427,12 +427,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ti-yg-vIo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1161" y="-2024"/>
+            <point key="canvasLocation" x="653" y="-2016"/>
         </scene>
-        <!--Welcome View Controller-->
+        <!--Welcome View Controller - ConnectViewController-->
         <scene sceneID="ay7-2o-n5b">
             <objects>
-                <viewController storyboardIdentifier="WelcomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7Zp-lS-qAh" customClass="WelcomeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeViewController" title="ConnectViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7Zp-lS-qAh" customClass="WelcomeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gbo-xW-ytO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -929,10 +929,10 @@
             </objects>
             <point key="canvasLocation" x="109" y="-1360"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation Controller - walkthroughNavigationController-->
         <scene sceneID="zuH-O2-l3x">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q04-B1-pJ8" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="WalkthroughNavigationController" title="walkthroughNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="q04-B1-pJ8" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WgF-6n-1Tj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -945,7 +945,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nfP-Lt-Ufs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="635" y="-2024"/>
+            <point key="canvasLocation" x="109" y="-2016"/>
         </scene>
     </scenes>
     <resources>
@@ -970,6 +970,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="8To-dW-aqR"/>
+        <segue reference="mL9-TZ-k4D"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -30,6 +30,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    
     self.spinnerContainer.hidden=YES;
     [self.spinner stopAnimating];
     
