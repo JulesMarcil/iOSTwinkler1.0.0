@@ -78,6 +78,12 @@
                                            if ([er isEqualToString:@"yes"]){
                                                
                                                [self.spinner stopAnimating];
+                                               
+                                               if (FBSession.activeSession.isOpen){
+                                                   [FBSession.activeSession closeAndClearTokenInformation];
+                                                   NSLog(@"facebook session closed");
+                                               }
+                                               
                                                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops"
                                                                                                message:response[@"message"]
                                                                                               delegate:self
