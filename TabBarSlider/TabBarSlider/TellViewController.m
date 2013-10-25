@@ -54,7 +54,7 @@
 }
 
 - (IBAction)copyAction:(id)sender {
-    [UIPasteboard generalPasteboard].string = @"http://www.twinkler.co or download our free iPhone app on: https://itunes.apple.com/app/twinkler/id702569884";
+    [UIPasteboard generalPasteboard].string = @"Go to http://www.twinkler.co or download our free iPhone app on: https://itunes.apple.com/app/twinkler/id702569884";
     self.linkCopyContainer.hidden = NO;
     self.linkCopyContainer.alpha = 1.0f;
     // Then fades it away after 2 seconds (the cross-fade animation will take 0.5s)
