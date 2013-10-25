@@ -54,8 +54,26 @@
                                            frame.size.width,
                                            frame.size.height)];
     
+    frame= [self.whyFBLogin frame];
+    [self.whyFBLogin setFrame:CGRectMake(frame.origin.x,
+                                         screenHeight+10,
+                                         frame.size.width,
+                                         frame.size.height)];
+    
+    frame= [self.seeWhyContainer frame];
+    [self.seeWhyContainer setFrame:CGRectMake(frame.origin.x,
+                                         screenHeight-frame.size.height,
+                                         frame.size.width,
+                                         frame.size.height)];
+    
     frame= [self.bckgdImage frame];
     [self.bckgdImage setFrame:screenRect];
+    
+    
+    self.whyLabelContainer.layer.cornerRadius=5;
+    self.whyLabelContainer.layer.masksToBounds = YES;
+    self.whyLabelContainer.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
+    self.whyLabelContainer.layer.borderWidth = 1.0f;
     
     self.spinnerContainer.layer.cornerRadius=5;
 }
@@ -74,5 +92,31 @@
     NSLog(@"login with facebook");
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     [appDelegate openSession];
+}
+
+- (IBAction)dismissFBView:(id)sender {
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenHeight = screenRect.size.height;
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:0.5f];
+    CGRect frame= [self.whyFBLogin frame];
+    [self.whyFBLogin setFrame:CGRectMake(frame.origin.x,
+                                         screenHeight+10,
+                                         frame.size.width,
+                                         frame.size.height)];
+    [UIView commitAnimations];
+}
+
+- (IBAction)whyFBSHow:(id)sender {
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:0.5f];
+    CGRect frame= [self.whyFBLogin frame];
+    [self.whyFBLogin setFrame:CGRectMake(frame.origin.x,
+                                         0,
+                                         frame.size.width,
+                                         frame.size.height)];
+    [UIView commitAnimations];
 }
 @end

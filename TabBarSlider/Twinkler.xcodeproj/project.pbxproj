@@ -141,6 +141,8 @@
 		8AF42B4B1808011400E9BBB5 /* DashboardSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF42B4A1808011400E9BBB5 /* DashboardSummaryCell.m */; };
 		8AFD8F55181A6C6B00C3637A /* connect-with-fb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AFD8F53181A6C6B00C3637A /* connect-with-fb@2x.png */; };
 		8AFD8F56181A6C6B00C3637A /* connect-with-fb-seleced@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AFD8F54181A6C6B00C3637A /* connect-with-fb-seleced@2x.png */; };
+		8AFD8F58181A744B00C3637A /* blur-bck-login.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AFD8F57181A744B00C3637A /* blur-bck-login.png */; };
+		8AFD8F5A181A82A000C3637A /* blur-bck-login-wlkth.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AFD8F59181A82A000C3637A /* blur-bck-login-wlkth.png */; };
 		BA24D4E017B017120042C7A4 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4CE17B017120042C7A4 /* AFHTTPClient.m */; };
 		BA24D4E117B017120042C7A4 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4D017B017120042C7A4 /* AFHTTPRequestOperation.m */; };
 		BA24D4E217B017120042C7A4 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = BA24D4D217B017120042C7A4 /* AFImageRequestOperation.m */; };
@@ -357,6 +359,8 @@
 		8AF42B4A1808011400E9BBB5 /* DashboardSummaryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardSummaryCell.m; sourceTree = "<group>"; };
 		8AFD8F53181A6C6B00C3637A /* connect-with-fb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connect-with-fb@2x.png"; sourceTree = "<group>"; };
 		8AFD8F54181A6C6B00C3637A /* connect-with-fb-seleced@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connect-with-fb-seleced@2x.png"; sourceTree = "<group>"; };
+		8AFD8F57181A744B00C3637A /* blur-bck-login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blur-bck-login.png"; sourceTree = "<group>"; };
+		8AFD8F59181A82A000C3637A /* blur-bck-login-wlkth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blur-bck-login-wlkth.png"; sourceTree = "<group>"; };
 		BA24D4CD17B017120042C7A4 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		BA24D4CE17B017120042C7A4 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		BA24D4CF17B017120042C7A4 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -823,6 +827,8 @@
 		89F71E1917B5946E00BC9C32 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				8AFD8F57181A744B00C3637A /* blur-bck-login.png */,
+				8AFD8F59181A82A000C3637A /* blur-bck-login-wlkth.png */,
 				897B77C117BB8E0D00D00C49 /* left-arrow.png */,
 				892F997117B8F1A700D86B4D /* login-bckgd.png */,
 				892F997317B8F1F600D86B4D /* tk-ihpone-icon-retina.png */,
@@ -986,6 +992,7 @@
 			files = (
 				895C4E6F17AA93CE004EC590 /* MainStoryboard.storyboard in Resources */,
 				895C4E7317AA952B004EC590 /* check-icon.png in Resources */,
+				8AFD8F5A181A82A000C3637A /* blur-bck-login-wlkth.png in Resources */,
 				8A1E09F6181808120048ABE8 /* sms-button.png in Resources */,
 				895C4E7417AA952B004EC590 /* coin-icon.png in Resources */,
 				895C4E8717AAA92A004EC590 /* check-icon-active.png in Resources */,
@@ -1004,6 +1011,7 @@
 				8911839917B10A6600B28ABE /* expenseStoryboard.storyboard in Resources */,
 				8A08E48918199CB500A7DC8F /* create-group.png in Resources */,
 				8911839B17B10D5400B28ABE /* timelineStoryboard.storyboard in Resources */,
+				8AFD8F58181A744B00C3637A /* blur-bck-login.png in Resources */,
 				8911839F17B12D9D00B28ABE /* heart-icon.png in Resources */,
 				8A08E48B18199CB500A7DC8F /* payback.png in Resources */,
 				891183B517B1ABE700B28ABE /* balance-knob.png in Resources */,

@@ -147,6 +147,34 @@
         self.pageControl.pageIndicatorTintColor = [UIColor colorWithRed:(249/255.0) green:(252/255.0) blue:(230/255.0) alpha:1];
     }
     
+    frame= [self.whyFBLogin frame];
+    [self.whyFBLogin setFrame:CGRectMake(frame.origin.x,
+                                         screenHeight+10,
+                                         frame.size.width,
+                                         frame.size.height)];
+    
+    frame= [self.seeWhyContainer frame];
+    [self.seeWhyContainer setFrame:CGRectMake(frame.origin.x,
+                                              screenHeight-frame.size.height+5,
+                                              frame.size.width,
+                                              frame.size.height-15)];
+    
+    frame= [self.oldSigninButton frame];
+    [self.oldSigninButton setFrame:CGRectMake(frame.origin.x,
+                                           screenHeight-frame.size.height-10,
+                                           frame.size.width,
+                                           frame.size.height)];
+    
+    frame= [self.alreadyRegisteredLabel frame];
+    [self.alreadyRegisteredLabel setFrame:CGRectMake(frame.origin.x,
+                                              screenHeight-frame.size.height-45,
+                                              frame.size.width,
+                                              frame.size.height)];
+    
+    self.whyLabelContainer.layer.cornerRadius=5;
+    self.whyLabelContainer.layer.masksToBounds = YES;
+    self.whyLabelContainer.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
+    self.whyLabelContainer.layer.borderWidth = 1.0f;
 }
 
 - (void)didReceiveMemoryWarning
@@ -193,6 +221,34 @@
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     [appDelegate openSession];
     
+}
+
+- (IBAction)dismissFBView:(id)sender {
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenHeight = screenRect.size.height;
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:0.5f];
+    CGRect frame= [self.whyFBLogin frame];
+    [self.whyFBLogin setFrame:CGRectMake(frame.origin.x,
+                                         screenHeight+10,
+                                         frame.size.width,
+                                         frame.size.height)];
+    [UIView commitAnimations];
+    self.pageControl.hidden=NO;
+}
+
+- (IBAction)whyFBShow:(id)sender {
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:0.5f];
+    CGRect frame= [self.whyFBLogin frame];
+    [self.whyFBLogin setFrame:CGRectMake(frame.origin.x,
+                                         0,
+                                         frame.size.width,
+                                         frame.size.height)];
+    [UIView commitAnimations];
+    self.pageControl.hidden=YES;
 }
 
 @end

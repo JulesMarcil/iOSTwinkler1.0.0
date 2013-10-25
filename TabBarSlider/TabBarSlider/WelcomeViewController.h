@@ -15,7 +15,12 @@
 @property (weak, nonatomic) IBOutlet UIView *spinnerContainer;
 @property (weak, nonatomic) IBOutlet UIButton *connectWithFbButton;
 @property (weak, nonatomic) IBOutlet UILabel *loginLabel;
+@property (weak, nonatomic) IBOutlet UIView *whyFBLogin;
+@property (weak, nonatomic) IBOutlet UIView *whyLabelContainer;
+@property (weak, nonatomic) IBOutlet UIView *seeWhyContainer;
 
 - (IBAction)FBConnect:(id)sender;
+- (IBAction)dismissFBView:(id)sender;
+- (IBAction)whyFBSHow:(id)sender;
 
 @end

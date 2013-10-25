@@ -28,8 +28,15 @@
 @property (weak, nonatomic) IBOutlet UIImageView *twinklerLogo;
 @property (weak, nonatomic) IBOutlet UIButton *signinButton;
 @property (weak, nonatomic) IBOutlet UILabel *loginLabel;
+@property (weak, nonatomic) IBOutlet UIView *whyFBLogin;
+@property (weak, nonatomic) IBOutlet UIView *seeWhyContainer;
+@property (weak, nonatomic) IBOutlet UIButton *oldSigninButton;
+@property (weak, nonatomic) IBOutlet UILabel *alreadyRegisteredLabel;
+@property (weak, nonatomic) IBOutlet UIView *whyLabelContainer;
 
 - (IBAction)dismissView:(id)sender;
 - (IBAction)facebookConnect:(id)sender;
+- (IBAction)dismissFBView:(id)sender;
+- (IBAction)whyFBShow:(id)sender;
 
 @end
