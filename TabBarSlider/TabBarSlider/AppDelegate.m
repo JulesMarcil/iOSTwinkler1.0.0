@@ -318,8 +318,7 @@
 }
 
 - (void)application:(UIApplication *)app didReceiveRemoteNotification:(NSDictionary *)notif {
-    NSString *groupId = [notif objectForKey:@"groupId"];
-    // go to group id
+    
 }
 
 
