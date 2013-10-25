@@ -1224,8 +1224,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jules Marcilhacy (QKYH83LLB4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jules Marcilhacy (QKYH83LLB4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jules Marcilhacy (62C8954B57)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jules Marcilhacy (62C8954B57)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1240,8 +1240,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "FE5721EC-AB1F-4E4D-B8E4-BB86E1629A46";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FE5721EC-AB1F-4E4D-B8E4-BB86E1629A46";
+				PROVISIONING_PROFILE = "DB70709A-7832-4617-B596-03C467CC4C3B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DB70709A-7832-4617-B596-03C467CC4C3B";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1258,8 +1258,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jules Marcilhacy (QKYH83LLB4)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jules Marcilhacy (QKYH83LLB4)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jules Marcilhacy (62C8954B57)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jules Marcilhacy (62C8954B57)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1267,8 +1267,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "FE5721EC-AB1F-4E4D-B8E4-BB86E1629A46";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FE5721EC-AB1F-4E4D-B8E4-BB86E1629A46";
+				PROVISIONING_PROFILE = "DB70709A-7832-4617-B596-03C467CC4C3B";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DB70709A-7832-4617-B596-03C467CC4C3B";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1277,8 +1277,8 @@
 		895C4E6917AA77D9004EC590 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Jules Marcilhacy (QKYH83LLB4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jules Marcilhacy (QKYH83LLB4)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\\\\\\\"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iosTwinkler/TabBarSlider\\\\\\\"",
@@ -1290,8 +1290,8 @@
 				GCC_PREFIX_HEADER = "TabBarSlider/Twinkler-Prefix.pch";
 				INFOPLIST_FILE = "TabBarSlider/Twinkler-Info.plist";
 				PRODUCT_NAME = Twinkler;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "297E22F9-33DB-43DB-A3BD-2D2F9B8020E9";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "297E22F9-33DB-43DB-A3BD-2D2F9B8020E9";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1299,8 +1299,8 @@
 		895C4E6A17AA77D9004EC590 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Jules Marcilhacy (QKYH83LLB4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jules Marcilhacy (QKYH83LLB4)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\\\\\\\"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iosTwinkler/TabBarSlider\\\\\\\"",
@@ -1312,8 +1312,8 @@
 				GCC_PREFIX_HEADER = "TabBarSlider/Twinkler-Prefix.pch";
 				INFOPLIST_FILE = "TabBarSlider/Twinkler-Info.plist";
 				PRODUCT_NAME = Twinkler;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "297E22F9-33DB-43DB-A3BD-2D2F9B8020E9";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "297E22F9-33DB-43DB-A3BD-2D2F9B8020E9";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
