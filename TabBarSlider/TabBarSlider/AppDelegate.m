@@ -39,9 +39,9 @@
          if (![[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"]) {
              // app never launched
              [self showWalkthrough];
+             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];
          } else {
             [self showLoginView];
-             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];
          }
     }
     
