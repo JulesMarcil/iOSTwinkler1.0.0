@@ -56,6 +56,8 @@
     
     frame= [self.bckgdImage frame];
     [self.bckgdImage setFrame:screenRect];
+    
+    self.spinnerContainer.layer.cornerRadius=5;
 }
 
 - (void)didReceiveMemoryWarning

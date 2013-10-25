@@ -99,6 +99,7 @@
     self.groupOnMenu.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl setTintColor:[UIColor whiteColor]];
     [refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
     [self.groupOnMenu addSubview:refreshControl];
     
