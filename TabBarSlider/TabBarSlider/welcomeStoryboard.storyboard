@@ -362,7 +362,7 @@
                                                             <action selector="whyFBShow:" destination="2ID-yh-HWR" eventType="touchUpInside" id="vkx-V9-Vpm"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="8cK-qr-dfB">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="8cK-qr-dfB">
                                                         <rect key="frame" x="230" y="9" width="22" height="22"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -401,6 +401,9 @@
                                                         <state key="highlighted">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <segue destination="TZK-DV-kkD" kind="push" id="zZ7-AA-adR"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="82b-iZ-n0T">
                                                         <rect key="frame" x="20" y="56" width="280" height="52"/>
@@ -1321,4 +1324,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="zZ7-AA-adR"/>
+    </inferredMetricsTieBreakers>
 </document>
