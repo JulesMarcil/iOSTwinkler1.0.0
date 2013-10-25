@@ -11,6 +11,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "AuthAPIClient.h"
 #import "Group.h"
+#import "TellViewController.h"
 
 @interface AddFriendsViewController ()
 
@@ -239,6 +240,13 @@
                                        }];
     } else {
         [self performSegueWithIdentifier:@"FriendsToTell" sender:self];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"FriendsToTell"]){
+        TellViewController *tvc = [segue destinationViewController];
+        tvc.group = self.group;
     }
 }
 
