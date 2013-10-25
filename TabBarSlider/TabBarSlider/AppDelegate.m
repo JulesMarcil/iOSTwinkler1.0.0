@@ -153,7 +153,7 @@
         [[rootViewController presentedViewController] dismissViewControllerAnimated:NO completion:nil];
     }
     
-    if([viewController.title isEqualToString:@"welcomeMenu"] && [rootViewController.presentedViewController.title isEqualToString:@"WalkthroughViewController"]) {
+    if([viewController.title isEqualToString:@"welcomeMenu"] && [rootViewController.presentedViewController.title isEqualToString:@"walkthroughNavigationController"]) {
         [[rootViewController presentedViewController] dismissViewControllerAnimated:NO completion:nil];
     }
 }
