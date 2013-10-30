@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "customPageControl.h"
 #import "AppDelegate.h"
+#import "GAITrackedViewController.h"
 
 @interface WalkthroughViewController ()
 
@@ -175,6 +176,11 @@
     self.whyLabelContainer.layer.masksToBounds = YES;
     self.whyLabelContainer.layer.borderColor = [UIColor colorWithRed:(205/255.0) green:(205/255.0) blue:(205/255.0) alpha:1].CGColor;
     self.whyLabelContainer.layer.borderWidth = 1.0f;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.screenName = @"Walkthrough";
 }
 
 - (void)didReceiveMemoryWarning

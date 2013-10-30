@@ -137,7 +137,10 @@
 		8A1E09F2181807480048ABE8 /* mail-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1E09F1181807480048ABE8 /* mail-button.png */; };
 		8A1E09F41818074F0048ABE8 /* facebook-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1E09F31818074F0048ABE8 /* facebook-icon.png */; };
 		8A1E09F6181808120048ABE8 /* sms-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8A1E09F5181808120048ABE8 /* sms-button.png */; };
+		8A20BB711821834B0098D484 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A20BB701821834B0098D484 /* CoreData.framework */; };
+		8A20BB73182183700098D484 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A20BB72182183700098D484 /* libz.dylib */; };
 		8A5459B51815869900EC4E0D /* addFacebookFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5459B41815869900EC4E0D /* addFacebookFriendCell.m */; };
+		8AB2205C182182E2009A3F23 /* libGoogleAnalytics_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB2205B182182E2009A3F23 /* libGoogleAnalytics_debug.a */; };
 		8AF42B4B1808011400E9BBB5 /* DashboardSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF42B4A1808011400E9BBB5 /* DashboardSummaryCell.m */; };
 		8AFD8F55181A6C6B00C3637A /* connect-with-fb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AFD8F53181A6C6B00C3637A /* connect-with-fb@2x.png */; };
 		8AFD8F56181A6C6B00C3637A /* connect-with-fb-seleced@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AFD8F54181A6C6B00C3637A /* connect-with-fb-seleced@2x.png */; };
@@ -353,8 +356,17 @@
 		8A1E09F1181807480048ABE8 /* mail-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mail-button.png"; sourceTree = "<group>"; };
 		8A1E09F31818074F0048ABE8 /* facebook-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-icon.png"; sourceTree = "<group>"; };
 		8A1E09F5181808120048ABE8 /* sms-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sms-button.png"; sourceTree = "<group>"; };
+		8A20BB701821834B0098D484 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8A20BB72182183700098D484 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		8A5459B31815869900EC4E0D /* addFacebookFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addFacebookFriendCell.h; sourceTree = "<group>"; };
 		8A5459B41815869900EC4E0D /* addFacebookFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addFacebookFriendCell.m; sourceTree = "<group>"; };
+		8AB22055182182CA009A3F23 /* GAI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		8AB22056182182CA009A3F23 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		8AB22057182182CA009A3F23 /* GAIFields.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		8AB22058182182CA009A3F23 /* GAILogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		8AB22059182182CA009A3F23 /* GAITrackedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		8AB2205A182182CA009A3F23 /* GAITracker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		8AB2205B182182E2009A3F23 /* libGoogleAnalytics_debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics_debug.a; sourceTree = "<group>"; };
 		8AF42B491808011400E9BBB5 /* DashboardSummaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardSummaryCell.h; sourceTree = "<group>"; };
 		8AF42B4A1808011400E9BBB5 /* DashboardSummaryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardSummaryCell.m; sourceTree = "<group>"; };
 		8AFD8F53181A6C6B00C3637A /* connect-with-fb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connect-with-fb@2x.png"; sourceTree = "<group>"; };
@@ -445,9 +457,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A20BB73182183700098D484 /* libz.dylib in Frameworks */,
+				8A20BB711821834B0098D484 /* CoreData.framework in Frameworks */,
 				BA3F79D017D67B010094E658 /* MessageUI.framework in Frameworks */,
 				8A08E48018198E4E00A7DC8F /* FacebookSDK.framework in Frameworks */,
 				891ABEE817B271F800D507F7 /* QuartzCore.framework in Frameworks */,
+				8AB2205C182182E2009A3F23 /* libGoogleAnalytics_debug.a in Frameworks */,
 				891ABEE617B271DE00D507F7 /* Accelerate.framework in Frameworks */,
 				BA403FCB17B008CB00BE5282 /* SystemConfiguration.framework in Frameworks */,
 				BA403FC917B008BF00BE5282 /* MobileCoreServices.framework in Frameworks */,
@@ -665,6 +680,8 @@
 		895C4E3817AA77D2004EC590 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8A20BB72182183700098D484 /* libz.dylib */,
+				8A20BB701821834B0098D484 /* CoreData.framework */,
 				8A08E47F18198E4E00A7DC8F /* FacebookSDK.framework */,
 				BA3F79CF17D67B010094E658 /* MessageUI.framework */,
 				891ABEE717B271F800D507F7 /* QuartzCore.framework */,
@@ -847,6 +864,20 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		8AB22054182182BD009A3F23 /* GA */ = {
+			isa = PBXGroup;
+			children = (
+				8AB22055182182CA009A3F23 /* GAI.h */,
+				8AB22056182182CA009A3F23 /* GAIDictionaryBuilder.h */,
+				8AB22057182182CA009A3F23 /* GAIFields.h */,
+				8AB22058182182CA009A3F23 /* GAILogger.h */,
+				8AB22059182182CA009A3F23 /* GAITrackedViewController.h */,
+				8AB2205A182182CA009A3F23 /* GAITracker.h */,
+				8AB2205B182182E2009A3F23 /* libGoogleAnalytics_debug.a */,
+			);
+			name = GA;
+			sourceTree = "<group>";
+		};
 		BA24D4CC17B017120042C7A4 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -887,6 +918,7 @@
 		BA403FA717B0068000BE5282 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				8AB22054182182BD009A3F23 /* GA */,
 				BA24D4E917B0171C0042C7A4 /* SSKeychain */,
 				BA24D4CC17B017120042C7A4 /* AFNetworking */,
 				BA403FA817B0068F00BE5282 /* SWRevealView */,
@@ -1289,6 +1321,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TabBarSlider/Twinkler-Prefix.pch";
 				INFOPLIST_FILE = "TabBarSlider/Twinkler-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iOSTwinkler1.0.0/TabBarSlider",
+				);
 				PRODUCT_NAME = Twinkler;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -1311,6 +1347,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TabBarSlider/Twinkler-Prefix.pch";
 				INFOPLIST_FILE = "TabBarSlider/Twinkler-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iOSTwinkler1.0.0/TabBarSlider",
+				);
 				PRODUCT_NAME = Twinkler;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";

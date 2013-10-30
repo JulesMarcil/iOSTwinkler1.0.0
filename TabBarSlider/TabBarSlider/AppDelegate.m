@@ -12,7 +12,7 @@
 #import "MenuViewController.h"
 #import "CredentialStore.h"
 #import "AuthAPIClient.h"
-
+#import "GAI.h"
 
 @implementation AppDelegate
 
@@ -51,6 +51,21 @@
     if (pushNotif) {
         [self application:application didReceiveRemoteNotification:pushNotif.userInfo];
     }
+    
+    //GA TRACKING
+    
+    // Optional: automatically send uncaught exceptions to Google Analytics.
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    
+    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+    [GAI sharedInstance].dispatchInterval = 20;
+    
+    // Optional: set Logger to VERBOSE for debug information.
+    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
+    
+    // Initialize tracker.
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-XXXX-Y"];
+
     
     return YES;
 }

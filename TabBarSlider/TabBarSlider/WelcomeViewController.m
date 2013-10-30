@@ -78,6 +78,12 @@
     self.spinnerContainer.layer.cornerRadius=5;
 }
 
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.screenName = @"WelcomeVC";
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

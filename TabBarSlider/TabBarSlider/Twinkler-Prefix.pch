@@ -18,4 +18,5 @@
     #import "CredentialStore.h"
     #import "AppConstants.h"
     #import <MessageUI/MessageUI.h>
+    #import "GAITrackedViewController.h"
 #endif

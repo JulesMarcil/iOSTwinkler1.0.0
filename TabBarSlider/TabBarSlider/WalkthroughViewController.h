@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "customPageControl.h"
 
-@interface WalkthroughViewController : UIViewController <UIScrollViewDelegate>
+@interface WalkthroughViewController : GAITrackedViewController <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *firstView;
 @property (weak, nonatomic) IBOutlet UIView *secondView;
