@@ -130,7 +130,7 @@
     UIImage *placeholderImage = [[UIImage alloc] init];
     placeholderImage = [UIImage imageNamed:@"profile-pic-placeholder.png"];
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=100&height=100", friend.id]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture?width=100&height=100", [friend objectForKey:@"id"]]];
     
     if (url) {
         
@@ -192,13 +192,13 @@
         NSMutableDictionary *friends = [[NSMutableDictionary alloc] init];
         for (NSDictionary<FBGraphUser> *friend in self.selectedList){
             NSDictionary *f = [[NSDictionary alloc] initWithObjectsAndKeys:
-                                    friend.id, @"id",
+                                    [friend objectForKey:@"id"], @"id",
                                     friend.name, @"name",
                                     friend.first_name, @"first_name",
                                     friend.last_name, @"last_name",
                                     friend.username, @"username",
                                nil];
-            [friends setObject:f forKey:friend.id];
+            [friends setObject:f forKey:[friend objectForKey:@"id"]];
         }
         
         //Define post parameters
