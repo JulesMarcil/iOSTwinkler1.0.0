@@ -45,6 +45,13 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(connectedToFacebook)   name:@"connectedToFacebook"  object:nil];
 }
 
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.screenName = @"ConnectVC";
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

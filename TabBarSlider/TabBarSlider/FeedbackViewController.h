@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FeedbackViewController : UIViewController <UITextViewDelegate>
+@interface FeedbackViewController : GAITrackedViewController <UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView *actionBarContainer;
 @property (weak, nonatomic) IBOutlet UIView *nextButton;

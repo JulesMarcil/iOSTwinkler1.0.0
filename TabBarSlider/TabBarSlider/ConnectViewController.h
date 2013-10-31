@@ -10,7 +10,7 @@
 
 @class Group;
 
-@interface ConnectViewController : UIViewController
+@interface ConnectViewController : GAITrackedViewController
 
 @property (weak, nonatomic) Group *group;
 @property (weak, nonatomic) IBOutlet UITextView *messageView;

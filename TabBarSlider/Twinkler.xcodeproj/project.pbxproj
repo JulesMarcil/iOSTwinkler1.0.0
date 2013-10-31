@@ -141,6 +141,8 @@
 		8A20BB73182183700098D484 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A20BB72182183700098D484 /* libz.dylib */; };
 		8A5459B51815869900EC4E0D /* addFacebookFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5459B41815869900EC4E0D /* addFacebookFriendCell.m */; };
 		8AB2205C182182E2009A3F23 /* libGoogleAnalytics_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB2205B182182E2009A3F23 /* libGoogleAnalytics_debug.a */; };
+		8AB90003182286EB0039A319 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB90002182286EB0039A319 /* AdSupport.framework */; };
+		8AB90005182287210039A319 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB90004182287210039A319 /* libGoogleAnalyticsServices.a */; };
 		8AF42B4B1808011400E9BBB5 /* DashboardSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AF42B4A1808011400E9BBB5 /* DashboardSummaryCell.m */; };
 		8AFD8F55181A6C6B00C3637A /* connect-with-fb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AFD8F53181A6C6B00C3637A /* connect-with-fb@2x.png */; };
 		8AFD8F56181A6C6B00C3637A /* connect-with-fb-seleced@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AFD8F54181A6C6B00C3637A /* connect-with-fb-seleced@2x.png */; };
@@ -367,6 +369,13 @@
 		8AB22059182182CA009A3F23 /* GAITrackedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
 		8AB2205A182182CA009A3F23 /* GAITracker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
 		8AB2205B182182E2009A3F23 /* libGoogleAnalytics_debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics_debug.a; sourceTree = "<group>"; };
+		8AB900001822866F0039A319 /* TAGLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TAGLogger.h; sourceTree = "<group>"; };
+		8AB900011822866F0039A319 /* TAGManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TAGManager.h; sourceTree = "<group>"; };
+		8AB90002182286EB0039A319 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		8AB90004182287210039A319 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
+		8AB9FFFD1822866F0039A319 /* TAGContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TAGContainer.h; sourceTree = "<group>"; };
+		8AB9FFFE1822866F0039A319 /* TAGContainerOpener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TAGContainerOpener.h; sourceTree = "<group>"; };
+		8AB9FFFF1822866F0039A319 /* TAGDataLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TAGDataLayer.h; sourceTree = "<group>"; };
 		8AF42B491808011400E9BBB5 /* DashboardSummaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardSummaryCell.h; sourceTree = "<group>"; };
 		8AF42B4A1808011400E9BBB5 /* DashboardSummaryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardSummaryCell.m; sourceTree = "<group>"; };
 		8AFD8F53181A6C6B00C3637A /* connect-with-fb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "connect-with-fb@2x.png"; sourceTree = "<group>"; };
@@ -457,6 +466,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AB90003182286EB0039A319 /* AdSupport.framework in Frameworks */,
 				8A20BB73182183700098D484 /* libz.dylib in Frameworks */,
 				8A20BB711821834B0098D484 /* CoreData.framework in Frameworks */,
 				BA3F79D017D67B010094E658 /* MessageUI.framework in Frameworks */,
@@ -464,6 +474,7 @@
 				891ABEE817B271F800D507F7 /* QuartzCore.framework in Frameworks */,
 				8AB2205C182182E2009A3F23 /* libGoogleAnalytics_debug.a in Frameworks */,
 				891ABEE617B271DE00D507F7 /* Accelerate.framework in Frameworks */,
+				8AB90005182287210039A319 /* libGoogleAnalyticsServices.a in Frameworks */,
 				BA403FCB17B008CB00BE5282 /* SystemConfiguration.framework in Frameworks */,
 				BA403FC917B008BF00BE5282 /* MobileCoreServices.framework in Frameworks */,
 				BA403FC717B008B700BE5282 /* Security.framework in Frameworks */,
@@ -680,6 +691,7 @@
 		895C4E3817AA77D2004EC590 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8AB90002182286EB0039A319 /* AdSupport.framework */,
 				8A20BB72182183700098D484 /* libz.dylib */,
 				8A20BB701821834B0098D484 /* CoreData.framework */,
 				8A08E47F18198E4E00A7DC8F /* FacebookSDK.framework */,
@@ -873,7 +885,13 @@
 				8AB22058182182CA009A3F23 /* GAILogger.h */,
 				8AB22059182182CA009A3F23 /* GAITrackedViewController.h */,
 				8AB2205A182182CA009A3F23 /* GAITracker.h */,
+				8AB9FFFD1822866F0039A319 /* TAGContainer.h */,
+				8AB9FFFE1822866F0039A319 /* TAGContainerOpener.h */,
+				8AB9FFFF1822866F0039A319 /* TAGDataLayer.h */,
+				8AB900001822866F0039A319 /* TAGLogger.h */,
+				8AB900011822866F0039A319 /* TAGManager.h */,
 				8AB2205B182182E2009A3F23 /* libGoogleAnalytics_debug.a */,
+				8AB90004182287210039A319 /* libGoogleAnalyticsServices.a */,
 			);
 			name = GA;
 			sourceTree = "<group>";

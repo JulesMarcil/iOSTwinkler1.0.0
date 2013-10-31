@@ -102,6 +102,12 @@
     [self.expenseListTable addSubview:refreshControl];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.screenName = @"ExpenseVC";
+}
+
+
 - (void)refresh:(UIRefreshControl *)refreshControl {
     NSLog(@"refresh function called");
     [refreshControl endRefreshing];

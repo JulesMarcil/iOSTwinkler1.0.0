@@ -162,6 +162,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [self.memberTableView flashScrollIndicators];
+    self.screenName=@"ExpenseDetailVC";
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {

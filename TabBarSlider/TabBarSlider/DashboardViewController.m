@@ -84,6 +84,13 @@
     [self.mainTableView addSubview:refreshControl];
     
 }
+
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.screenName = @"DashboardVC";
+}
+
 - (void)refresh:(UIRefreshControl *)refreshControl {
     NSLog(@"refresh function called");
     [refreshControl endRefreshing];

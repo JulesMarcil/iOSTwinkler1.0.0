@@ -49,6 +49,12 @@
     self.feedbackTextView.layer.borderWidth = 1.0f;
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.screenName = @"FeedbackVC";
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

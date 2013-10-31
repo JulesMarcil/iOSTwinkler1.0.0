@@ -11,7 +11,7 @@
 
 @class Expense;
 
-@interface AddExpenseViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate,UITextFieldDelegate>{
+@interface AddExpenseViewController : GAITrackedViewController <UIPickerViewDataSource, UIPickerViewDelegate,UITextFieldDelegate>{
     NSArray *memberArray;}
 
 @property (strong, nonatomic) IBOutlet UIView *mainContainerView;

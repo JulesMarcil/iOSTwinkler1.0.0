@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>//332120
 
-@interface DashboardViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate>  {
+@interface DashboardViewController : GAITrackedViewController <UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate>  {
     IBOutlet UITableView* mainTableView;
 }
 

@@ -10,7 +10,7 @@
 
 @class Group;
 
-@interface AddGroupViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate,UITextFieldDelegate> {
+@interface AddGroupViewController : GAITrackedViewController <UIPickerViewDataSource, UIPickerViewDelegate,UITextFieldDelegate> {
     NSArray *currencies;
 }
 

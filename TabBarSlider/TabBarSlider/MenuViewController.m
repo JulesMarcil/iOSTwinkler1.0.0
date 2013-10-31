@@ -107,6 +107,13 @@
     [[self.addGroupButton layer] setBorderColor:[UIColor colorWithRed:(60/255.0) green:(60/255.0) blue:(60/255.0) alpha:1].CGColor];
 }
 
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.screenName = @"MenuVC";
+}
+
+
 - (void)refresh:(UIRefreshControl *)refreshControl {
     NSLog(@"refresh function called");
     [self.refreshSpinner startAnimating];

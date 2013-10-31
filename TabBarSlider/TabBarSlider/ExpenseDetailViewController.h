@@ -10,7 +10,7 @@
 
 @class Expense;
 
-@interface ExpenseDetailViewController : UIViewController <UITableViewDataSource, UITableViewDataSource, UIScrollViewDelegate>{
+@interface ExpenseDetailViewController : GAITrackedViewController <UITableViewDataSource, UITableViewDataSource, UIScrollViewDelegate>{
 	IBOutlet UIScrollView *scrollView;
 }
 

@@ -14,7 +14,7 @@
 @class GroupListCell;
 @class Profile;
 
-@interface MenuViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate>  {
+@interface MenuViewController : GAITrackedViewController <UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate>  {
     IBOutlet UITableView* groupOnMenu;
 }
 

@@ -11,7 +11,7 @@
 
 @class ExpandableNavigation;
 
-@interface TimelineViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>  {
+@interface TimelineViewController : GAITrackedViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>  {
     IBOutlet UITableView* messageOnTimeline;
     UIButton* button1;
     UIButton* button2;

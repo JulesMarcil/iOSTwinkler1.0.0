@@ -178,6 +178,12 @@
     //}
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.screenName = @"TabBarVC";
+}
+
+
 -(void)PanGestureEnded:(UIPanGestureRecognizer *)gesture{
     if (gesture.state==UIGestureRecognizerStateEnded) {
         [self hideLeftToggle];

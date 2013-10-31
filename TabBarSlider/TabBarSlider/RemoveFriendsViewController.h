@@ -10,7 +10,7 @@
 
 @class Group;
 
-@interface RemoveFriendsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+@interface RemoveFriendsViewController : GAITrackedViewController <UITableViewDelegate, UITableViewDataSource> {
     IBOutlet UITableView* friendTable;
 }
 

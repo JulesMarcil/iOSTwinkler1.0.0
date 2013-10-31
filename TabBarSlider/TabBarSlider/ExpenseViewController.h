@@ -10,7 +10,7 @@
 #import "ExpenseDataController.h"
 #import "AddExpenseViewController.h"
 
-@interface ExpenseViewController : UIViewController<UITableViewDelegate, UITableViewDataSource> {
+@interface ExpenseViewController : GAITrackedViewController <UITableViewDelegate, UITableViewDataSource> {
     IBOutlet UITableView* expenseListTable;
 }
 

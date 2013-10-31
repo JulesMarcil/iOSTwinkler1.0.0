@@ -39,6 +39,11 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(FacebookError) name:@"facebookError" object:nil];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.screenName = @"RegisterVC";
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

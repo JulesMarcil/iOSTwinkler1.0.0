@@ -10,7 +10,7 @@
 
 @class Group;
 
-@interface TellViewController : UIViewController
+@interface TellViewController : GAITrackedViewController
 
 @property (strong, nonatomic) Group *group;
 @property (weak, nonatomic) IBOutlet UITextView *messageView;

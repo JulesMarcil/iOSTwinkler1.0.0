@@ -11,7 +11,7 @@
 
 @class Group;
 
-@interface AddFriendsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchDisplayDelegate, UISearchBarDelegate>
+@interface AddFriendsViewController : GAITrackedViewController <UITableViewDataSource, UITableViewDelegate, UISearchDisplayDelegate, UISearchBarDelegate>
 
 @property (strong, nonatomic) Group *group;
 @property (weak, nonatomic) IBOutlet UITableView *friendTableView;

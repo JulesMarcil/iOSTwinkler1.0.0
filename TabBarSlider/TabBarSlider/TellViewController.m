@@ -47,6 +47,13 @@
     [self.linkContainer.layer  setBorderWidth:1.0];
 }
 
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.screenName = @"TellVC";
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

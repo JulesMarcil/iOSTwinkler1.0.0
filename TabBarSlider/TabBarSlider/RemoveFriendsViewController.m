@@ -50,6 +50,13 @@
     NSLog(@"view did load in remove friends with group of %u members", self.group.members.count);
 }
 
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.screenName = @"RemoveFriendVC";
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

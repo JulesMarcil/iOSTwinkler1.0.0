@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginViewController : UIViewController  <UITextFieldDelegate>
+@interface LoginViewController : GAITrackedViewController  <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *firstErrorLabel;
 @property (weak, nonatomic) IBOutlet UILabel *errorLabel;
