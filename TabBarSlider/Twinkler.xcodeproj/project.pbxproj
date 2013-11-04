@@ -363,7 +363,6 @@
 		8A20BB72182183700098D484 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		8A5459B31815869900EC4E0D /* addFacebookFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addFacebookFriendCell.h; sourceTree = "<group>"; };
 		8A5459B41815869900EC4E0D /* addFacebookFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addFacebookFriendCell.m; sourceTree = "<group>"; };
-		8AAA81011827E051002E91DF /* libGoogleAnalytics_debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalytics_debug.a; path = ../../../../../Users/arnauddrizard/Desktop/libGoogleAnalytics_debug.a; sourceTree = "<group>"; };
 		8AAA81031827E07B002E91DF /* libGoogleAnalytics_debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics_debug.a; sourceTree = "<group>"; };
 		8AB22055182182CA009A3F23 /* GAI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
 		8AB22056182182CA009A3F23 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
@@ -696,7 +695,6 @@
 			isa = PBXGroup;
 			children = (
 				8AAA81031827E07B002E91DF /* libGoogleAnalytics_debug.a */,
-				8AAA81011827E051002E91DF /* libGoogleAnalytics_debug.a */,
 				8AB90002182286EB0039A319 /* AdSupport.framework */,
 				8A20BB72182183700098D484 /* libz.dylib */,
 				8A20BB701821834B0098D484 /* CoreData.framework */,
@@ -1349,9 +1347,9 @@
 				INFOPLIST_FILE = "TabBarSlider/Twinkler-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iOSTwinkler1.0.0/TabBarSlider/",
-					/Users/arnauddrizard/Desktop,
 					"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iOSTwinkler1.0.0/TabBarSlider",
+					"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iOSTwinkler1.0.0/TabBarSlider/",
+					"$(SRCROOT)/TabBarSlider",
 				);
 				PRODUCT_NAME = Twinkler;
 				PROVISIONING_PROFILE = "297E22F9-33DB-43DB-A3BD-2D2F9B8020E9";
@@ -1377,9 +1375,9 @@
 				INFOPLIST_FILE = "TabBarSlider/Twinkler-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iOSTwinkler1.0.0/TabBarSlider/",
-					/Users/arnauddrizard/Desktop,
 					"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iOSTwinkler1.0.0/TabBarSlider",
+					"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iOSTwinkler1.0.0/TabBarSlider/",
+					"$(SRCROOT)/TabBarSlider",
 				);
 				PRODUCT_NAME = Twinkler;
 				PROVISIONING_PROFILE = "297E22F9-33DB-43DB-A3BD-2D2F9B8020E9";
