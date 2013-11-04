@@ -140,7 +140,7 @@
 		8A20BB711821834B0098D484 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A20BB701821834B0098D484 /* CoreData.framework */; };
 		8A20BB73182183700098D484 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A20BB72182183700098D484 /* libz.dylib */; };
 		8A5459B51815869900EC4E0D /* addFacebookFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5459B41815869900EC4E0D /* addFacebookFriendCell.m */; };
-		8AB2205C182182E2009A3F23 /* libGoogleAnalytics_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB2205B182182E2009A3F23 /* libGoogleAnalytics_debug.a */; };
+		8AB2205C182182E2009A3F23 /* libGoogleAnalytics_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB2205B182182E2009A3F23 /* libGoogleAnalytics_debug.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 		8AB90003182286EB0039A319 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB90002182286EB0039A319 /* AdSupport.framework */; };
 		8AB90005182287210039A319 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB90004182287210039A319 /* libGoogleAnalyticsServices.a */; };
 		8AB9000718228AAE0039A319 /* GCDAProfiling.c in Sources */ = {isa = PBXBuildFile; fileRef = 8AB9000618228AAE0039A319 /* GCDAProfiling.c */; };
