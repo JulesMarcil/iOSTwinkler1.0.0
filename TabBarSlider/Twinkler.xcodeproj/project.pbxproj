@@ -140,7 +140,7 @@
 		8A20BB711821834B0098D484 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A20BB701821834B0098D484 /* CoreData.framework */; };
 		8A20BB73182183700098D484 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A20BB72182183700098D484 /* libz.dylib */; };
 		8A5459B51815869900EC4E0D /* addFacebookFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5459B41815869900EC4E0D /* addFacebookFriendCell.m */; };
-		8AB2205C182182E2009A3F23 /* libGoogleAnalytics_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB2205B182182E2009A3F23 /* libGoogleAnalytics_debug.a */; settings = {ATTRIBUTES = (Weak, ); }; };
+		8AAA81041827E07B002E91DF /* libGoogleAnalytics_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AAA81031827E07B002E91DF /* libGoogleAnalytics_debug.a */; };
 		8AB90003182286EB0039A319 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB90002182286EB0039A319 /* AdSupport.framework */; };
 		8AB90005182287210039A319 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AB90004182287210039A319 /* libGoogleAnalyticsServices.a */; };
 		8AB9000718228AAE0039A319 /* GCDAProfiling.c in Sources */ = {isa = PBXBuildFile; fileRef = 8AB9000618228AAE0039A319 /* GCDAProfiling.c */; };
@@ -363,6 +363,8 @@
 		8A20BB72182183700098D484 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		8A5459B31815869900EC4E0D /* addFacebookFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = addFacebookFriendCell.h; sourceTree = "<group>"; };
 		8A5459B41815869900EC4E0D /* addFacebookFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = addFacebookFriendCell.m; sourceTree = "<group>"; };
+		8AAA81011827E051002E91DF /* libGoogleAnalytics_debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalytics_debug.a; path = ../../../../../Users/arnauddrizard/Desktop/libGoogleAnalytics_debug.a; sourceTree = "<group>"; };
+		8AAA81031827E07B002E91DF /* libGoogleAnalytics_debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics_debug.a; sourceTree = "<group>"; };
 		8AB22055182182CA009A3F23 /* GAI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
 		8AB22056182182CA009A3F23 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
 		8AB22057182182CA009A3F23 /* GAIFields.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
@@ -474,13 +476,13 @@
 				BA3F79D017D67B010094E658 /* MessageUI.framework in Frameworks */,
 				8A08E48018198E4E00A7DC8F /* FacebookSDK.framework in Frameworks */,
 				891ABEE817B271F800D507F7 /* QuartzCore.framework in Frameworks */,
-				8AB2205C182182E2009A3F23 /* libGoogleAnalytics_debug.a in Frameworks */,
 				891ABEE617B271DE00D507F7 /* Accelerate.framework in Frameworks */,
 				8AB90005182287210039A319 /* libGoogleAnalyticsServices.a in Frameworks */,
 				BA403FCB17B008CB00BE5282 /* SystemConfiguration.framework in Frameworks */,
 				BA403FC917B008BF00BE5282 /* MobileCoreServices.framework in Frameworks */,
 				BA403FC717B008B700BE5282 /* Security.framework in Frameworks */,
 				895C4E3A17AA77D2004EC590 /* UIKit.framework in Frameworks */,
+				8AAA81041827E07B002E91DF /* libGoogleAnalytics_debug.a in Frameworks */,
 				895C4E3C17AA77D2004EC590 /* Foundation.framework in Frameworks */,
 				895C4E3E17AA77D2004EC590 /* CoreGraphics.framework in Frameworks */,
 			);
@@ -693,6 +695,8 @@
 		895C4E3817AA77D2004EC590 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8AAA81031827E07B002E91DF /* libGoogleAnalytics_debug.a */,
+				8AAA81011827E051002E91DF /* libGoogleAnalytics_debug.a */,
 				8AB90002182286EB0039A319 /* AdSupport.framework */,
 				8A20BB72182183700098D484 /* libz.dylib */,
 				8A20BB701821834B0098D484 /* CoreData.framework */,
@@ -1346,6 +1350,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iOSTwinkler1.0.0/TabBarSlider/",
+					/Users/arnauddrizard/Desktop,
+					"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iOSTwinkler1.0.0/TabBarSlider",
 				);
 				PRODUCT_NAME = Twinkler;
 				PROVISIONING_PROFILE = "297E22F9-33DB-43DB-A3BD-2D2F9B8020E9";
@@ -1372,6 +1378,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iOSTwinkler1.0.0/TabBarSlider/",
+					/Users/arnauddrizard/Desktop,
+					"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iOSTwinkler1.0.0/TabBarSlider",
 				);
 				PRODUCT_NAME = Twinkler;
 				PROVISIONING_PROFILE = "297E22F9-33DB-43DB-A3BD-2D2F9B8020E9";
