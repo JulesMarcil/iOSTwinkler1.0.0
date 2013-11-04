@@ -1345,7 +1345,7 @@
 				INFOPLIST_FILE = "TabBarSlider/Twinkler-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iOSTwinkler1.0.0/TabBarSlider",
+					"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iOSTwinkler1.0.0/TabBarSlider/",
 				);
 				PRODUCT_NAME = Twinkler;
 				PROVISIONING_PROFILE = "297E22F9-33DB-43DB-A3BD-2D2F9B8020E9";
@@ -1371,7 +1371,7 @@
 				INFOPLIST_FILE = "TabBarSlider/Twinkler-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iOSTwinkler1.0.0/TabBarSlider",
+					"$(SYSTEM_APPS_DIR)/MAMP/htdocs/iOSTwinkler1.0.0/TabBarSlider/",
 				);
 				PRODUCT_NAME = Twinkler;
 				PROVISIONING_PROFILE = "297E22F9-33DB-43DB-A3BD-2D2F9B8020E9";

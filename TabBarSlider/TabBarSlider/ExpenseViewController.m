@@ -44,6 +44,7 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    self.screenName = @"ExpenseVC";
     [self setBalanceLabelValue:self.expenseDataController.balance];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataRetrieved)    name:@"expensesWithJSONFinishedLoading"    object:nil];

@@ -38,6 +38,7 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    self.screenName = @"TabBarVC";
     
     self.revealViewController.delegate=self;
     

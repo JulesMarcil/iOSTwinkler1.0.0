@@ -51,6 +51,7 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    self.screenName = @"DashboardVC";
     
 	// Do any additional setup after loading the view.
     CGRect frame=self.mainTableView.bounds;

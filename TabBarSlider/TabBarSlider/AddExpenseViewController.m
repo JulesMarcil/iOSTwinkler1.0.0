@@ -35,6 +35,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.screenName = @"AddExpenseVC";
     [self.view endEditing:YES];
     [self.navigationController setNavigationBarHidden:YES animated:NO];
     

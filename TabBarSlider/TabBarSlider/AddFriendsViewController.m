@@ -34,6 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.screenName = @"AddFriendVC";
 	// Do any additional setup after loading the view.
     [self.spinner stopAnimating];
     

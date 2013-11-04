@@ -23,6 +23,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.screenName = @"AddGroupVC";
     
     NSLog(@"viewdidload in add group with group name = %@", self.group.name);
     

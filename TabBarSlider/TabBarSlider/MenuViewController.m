@@ -36,6 +36,7 @@
 }
 
 - (void)viewDidLoad {
+    self.screenName = @"MenuVC";
     
     CredentialStore *store = [[CredentialStore alloc] init];
     NSString *authToken = [store authToken];

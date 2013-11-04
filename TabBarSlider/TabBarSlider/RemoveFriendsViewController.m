@@ -32,6 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.screenName = @"RemoveFriendVC";
 	// Do any additional setup after loading the view.
     self.selectedList = [[NSMutableArray alloc] init];
     [self.spinner stopAnimating];

@@ -45,6 +45,7 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    self.screenName = @"TimelineVC";
     [self scrollDown];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataRetrieved) name:@"messagesWithJSONFinishedLoading" object:nil];

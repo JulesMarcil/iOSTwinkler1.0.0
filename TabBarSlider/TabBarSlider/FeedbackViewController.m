@@ -28,6 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.screenName = @"FeedbackVC";
     
     CGRect frame= [self.actionBarContainer frame];
     CGRect screenRect = [[UIScreen mainScreen] bounds];
