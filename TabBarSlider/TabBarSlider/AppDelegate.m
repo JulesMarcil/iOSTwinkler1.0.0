@@ -228,7 +228,7 @@
 - (void)openSession
 {
     NSLog(@"appdelegate: openSession");
-    [FBSession openActiveSessionWithReadPermissions:nil
+    [FBSession openActiveSessionWithReadPermissions:@[@"basic_info", @"email"]
                                        allowLoginUI:YES
                                   completionHandler:
      ^(FBSession *session, FBSessionState state, NSError *error) {
@@ -265,7 +265,7 @@
                                           success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                               NSError * error = nil;
                                               NSDictionary *response = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:&error];
-                                              //NSLog(@"response: %@",response);
+                                              NSLog(@"response: %@",response);
                                               NSString *authToken = [response objectForKey:@"access_token"];
                                               CredentialStore *store = [[CredentialStore alloc] init];
                                               [store setAuthToken:authToken];
