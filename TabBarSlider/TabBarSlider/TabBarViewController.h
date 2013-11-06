@@ -31,7 +31,7 @@
 @property (strong, nonatomic) NSArray *memberArray;
 @property (weak, nonatomic) IBOutlet UIView *tabBarBck;
 @property (nonatomic, retain) UIScrollView *scrollView;
-@property (nonatomic, weak) UIPageControl *pageControl;
+@property (nonatomic, retain) UIPageControl *pageControl;
 @property (weak, nonatomic) IBOutlet UIButton *leftButton;
 @property (weak, nonatomic) IBOutlet UIButton *rightButton;
 

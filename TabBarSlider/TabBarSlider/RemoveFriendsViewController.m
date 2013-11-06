@@ -162,11 +162,12 @@
         
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         
+         __unsafe_unretained UIImageView *weakView = view;
         [view setImageWithURLRequest:request
                     placeholderImage:placeholderImage
                              success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                 view.image = image;
-                                 [self setRoundedView:view picture:view.image toDiameter:size];
+                                 weakView.image = image;
+                                 [self setRoundedView:weakView picture:weakView.image toDiameter:size];
                              }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                  NSLog(@"Failed with error: %@", error);
                              }];
@@ -215,7 +216,7 @@
     } else if (buttonIndex == 1) {
         
         //show spinner
-        self.doneButton.hidden=YES;
+        self.doneButton.enabled=NO;
         [self.spinner startAnimating];
         
         NSLog(@"list = %@", self.selectedList);
@@ -248,7 +249,7 @@
                                        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                            NSLog(@"error: %@", error);
                                            [self.spinner stopAnimating];
-                                           self.doneButton.hidden = NO;
+                                           self.doneButton.enabled = YES;
                                            
                                            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Friends not removed"
                                                                                            message:@"Make sure you have a connection"

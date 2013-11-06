@@ -15,7 +15,8 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.checkIcon=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 16, 12)];
+        UIImageView *checkIcon = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 16, 12)];
+        self.checkIcon = checkIcon;
         [self.checkIcon setFrame:CGRectMake(0, 0, 16, 12)];
         self.checkIcon.image=[UIImage imageNamed: @"green-check"];
         [self addSubview:self.checkIcon];

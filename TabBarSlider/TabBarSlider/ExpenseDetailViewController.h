@@ -26,8 +26,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *deleteBtn;
 @property (weak, nonatomic) IBOutlet UILabel *expenseAuthorLabel;
 @property (strong, nonatomic) Expense *expense;
-@property   (weak, nonatomic) UIImage * presentationImage;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) UIImage * presentationImage;
+@property (retain, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 
 - (IBAction)editExpense:(id)sender;

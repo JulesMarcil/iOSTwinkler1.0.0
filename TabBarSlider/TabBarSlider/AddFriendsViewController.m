@@ -137,11 +137,12 @@
         
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         
+        __unsafe_unretained UIImageView *weakView = view;
         [view setImageWithURLRequest:request
                     placeholderImage:placeholderImage
                              success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                                 view.image = image;
-                                 [self setRoundedView:view picture:view.image toDiameter:size];
+                                 weakView.image = image;
+                                 [self setRoundedView:weakView picture:weakView.image toDiameter:size];
                              }failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
                                  NSLog(@"Failed with error: %@", error);
                              }];
@@ -332,7 +333,7 @@
             self.spinnerView.hidden = YES;
             
         } else {
-            NSLog(@"%@", result);
+            //NSLog(@"%@", result);
             self.list = [result objectForKey:@"data"];
             self.spinnerView.hidden = YES;
             NSLog(@"Found: %i friends", self.list.count);

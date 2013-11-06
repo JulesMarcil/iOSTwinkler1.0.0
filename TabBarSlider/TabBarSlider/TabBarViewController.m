@@ -25,6 +25,7 @@
 @implementation TabBarViewController
 
 @synthesize scrollView;
+@synthesize pageControl;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     

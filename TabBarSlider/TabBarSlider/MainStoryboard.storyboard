@@ -494,32 +494,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Remove Friends" id="72n-ro-aRl">
-                                        <barButtonItem key="leftBarButtonItem" style="plain" id="QTQ-Hs-QO7">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BhP-I5-whn">
-                                                <rect key="frame" x="16" y="5" width="71" height="33"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <state key="normal" title="Cancel">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="cancelAction:" destination="mQR-96-JoX" eventType="touchUpInside" id="zCf-hQ-CAl"/>
-                                                </connections>
-                                            </button>
+                                    <navigationItem title="Remove Friends" id="amn-15-f4T">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="IpP-Aq-B3e">
+                                            <connections>
+                                                <action selector="cancelAction:" destination="mQR-96-JoX" id="kjm-KD-BGD"/>
+                                            </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="CGN-0W-bRn">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZvY-Zr-O3b">
-                                                <rect key="frame" x="233" y="5" width="71" height="33"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <state key="normal" title="Done">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="doneAction:" destination="mQR-96-JoX" eventType="touchUpInside" id="4Wa-qf-5U5"/>
-                                                </connections>
-                                            </button>
+                                        <barButtonItem key="rightBarButtonItem" title="Done" id="t4I-9H-TOb">
+                                            <connections>
+                                                <action selector="doneAction:" destination="mQR-96-JoX" id="496-k8-4TS"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -531,8 +515,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="doneButton" destination="ZvY-Zr-O3b" id="zmX-mh-DLS"/>
+                        <outlet property="doneButton" destination="t4I-9H-TOb" id="cT3-DK-iPs"/>
                         <outlet property="friendTable" destination="oRD-N5-fPt" id="Eqh-5T-0Sy"/>
                         <outlet property="spinner" destination="JhH-Zc-vbd" id="pv8-QK-92w"/>
                     </connections>

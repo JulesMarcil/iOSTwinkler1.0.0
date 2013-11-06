@@ -15,7 +15,7 @@
 }
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
-@property (weak, nonatomic) IBOutlet UIButton *doneButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 @property (nonatomic, strong) UITableView *friendTable;
 @property (nonatomic, strong) Group *group;
 @property (nonatomic, strong) NSMutableArray *selectedList;
