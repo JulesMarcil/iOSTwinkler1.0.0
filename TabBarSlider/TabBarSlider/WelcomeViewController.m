@@ -31,6 +31,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(facebookError) name:@"facebookError"  object:nil];
+    
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
     self.screenName = @"WelcomeVC";
     
@@ -125,5 +128,12 @@
                                          frame.size.width,
                                          frame.size.height)];
     [UIView commitAnimations];
+}
+
+- (void) facebookError {
+    
+    self.spinnerContainer.hidden=YES;
+    [self.connectWithFbButton setEnabled:YES];
+    
 }
 @end

@@ -186,8 +186,6 @@
         case FBSessionStateOpen:
         {
             NSLog(@"FBSessionStateOpen");
-            
-            //[self dismissLoginView];
         }
             break;
         case FBSessionStateClosed:
@@ -212,17 +210,6 @@
         }
             break;
     }
-    
-    if (error) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"facebookError" object:nil];
-        UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:@"Oops"
-                                  message:@"Facebook is not responding, please try again"
-                                  delegate:nil
-                                  cancelButtonTitle:@"OK"
-                                  otherButtonTitles:nil];
-        [alertView show];
-    }
 }
 
 - (void)openSession
@@ -235,8 +222,14 @@
          [self sessionStateChanged:session state:state error:error];
          NSLog(@"session = %@", session);
          NSLog(@"state = %u", state);
-         NSLog(@"error = %@", error);
          
+         if(error){
+             NSLog(@"error = %@", error);
+             NSLog(@"error = %@", error.userInfo[@""]);
+             
+             [self handleAuthError:error];
+             [[NSNotificationCenter defaultCenter] postNotificationName:@"facebookError" object:nil];
+         } else {
              CredentialStore *store = [[CredentialStore alloc] init];
              NSString *authToken = [store authToken];
              if(authToken){
@@ -244,8 +237,37 @@
              } else {
                  [self FbDidLogin];
              }
-
+         }
      }];
+}
+
+- (void)handleAuthError:(NSError *)error{
+    NSString *alertMessage, *alertTitle;
+    
+    if (error.fberrorShouldNotifyUser) {
+        // If the SDK has a message for the user, surface it.
+        alertTitle = @"Something Went Wrong";
+        alertMessage = error.fberrorUserMessage;
+    } else if (error.fberrorCategory == FBErrorCategoryUserCancelled) {
+        // The user has cancelled a login. You can inspect the error
+        // for more context. For this sample, we will simply ignore it.
+        NSLog(@"user cancelled login");
+        alertTitle = @"Something Went Wrong";
+        alertMessage = @"You canceled the login";
+    } else {
+        // For simplicity, this sample treats other errors blindly.
+        alertTitle  = @"Unknown Error";
+        alertMessage = @"Error. Please try again later.";
+        NSLog(@"Unexpected error:%@", error);
+    }
+    
+    if (alertMessage) {
+        [[[UIAlertView alloc] initWithTitle:alertTitle
+                                    message:alertMessage
+                                   delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil] show];
+    }
 }
 
 - (void)FbDidLogin {
@@ -275,6 +297,14 @@
                                               
                                           } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                               NSLog(@"error: %@", error);
+                                              [[NSNotificationCenter defaultCenter] postNotificationName:@"facebookError" object:nil];
+                                              [FBSession.activeSession closeAndClearTokenInformation];
+                                              
+                                              [[[UIAlertView alloc] initWithTitle:@"Something went wrong"
+                                                                          message:@"An internal error occured with your account, please contact our support"
+                                                                         delegate:nil
+                                                                cancelButtonTitle:@"OK"
+                                                                otherButtonTitles:nil] show];
                                           }];
         }
     }];

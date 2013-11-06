@@ -34,6 +34,8 @@
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
     self.screenName = @"Walkthrough";
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(facebookError) name:@"facebookError"  object:nil];
+    
     self.spinnerContainer.hidden=YES;
     [self.spinner stopAnimating];
     
@@ -256,6 +258,13 @@
                                          frame.size.height)];
     [UIView commitAnimations];
     self.pageControl.hidden=YES;
+}
+
+- (void) facebookError {
+    
+    self.spinnerContainer.hidden=YES;
+    [self.spinner stopAnimating];
+    [self.connectWithFbButton setEnabled:YES];
 }
 
 @end
