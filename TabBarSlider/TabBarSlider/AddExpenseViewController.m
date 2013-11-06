@@ -414,7 +414,7 @@
         
         Expense *expense = [[Expense alloc] initWithIdentifier:@-1
                                                           name:self.expenseName.text
-                                                        amount:[NSNumber numberWithInteger: [self.expenseAmount.text integerValue]]
+                                                        amount:[NSNumber numberWithDouble: [self.expenseAmount.text doubleValue]]
                                                          owner:self.selectedExpenseOwner
                                                           date:dateFromString
                                                        members:selectedMembers
@@ -461,7 +461,7 @@
                                            
                                            Expense *expense = [[Expense alloc] initWithIdentifier:expense_response[@"id"]
                                                                                              name:expense_response[@"name"]
-                                                                                           amount:[NSNumber numberWithInteger: [expense_response[@"amount"] integerValue]]
+                                                                                           amount:[NSNumber numberWithDouble: [expense_response[@"amount"] doubleValue]]
                                                                                             owner:expense_response[@"owner"]
                                                                                              date:[NSDate dateWithTimeIntervalSince1970:interval1]
                                                                                           members:expense_response[@"members"]

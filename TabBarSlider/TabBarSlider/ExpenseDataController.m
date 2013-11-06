@@ -48,7 +48,7 @@
             
             Expense *expense = [[Expense alloc] initWithIdentifier:key[@"id"]
                                                               name:key[@"name"]
-                                                            amount:[NSNumber numberWithInteger: [key[@"amount"] integerValue]]
+                                                            amount:[NSNumber numberWithDouble: [key[@"amount"] doubleValue]]
                                                              owner:key[@"owner"]
                                                               date:[NSDate dateWithTimeIntervalSince1970:interval1]
                                                            members:key[@"members"]
@@ -79,7 +79,7 @@
             
             Expense *expense = [[Expense alloc] initWithIdentifier:key[@"id"]
                                                               name:key[@"name"]
-                                                            amount:[NSNumber numberWithInteger: [key[@"amount"] integerValue]]
+                                                            amount:[NSNumber numberWithDouble: [key[@"amount"] doubleValue]]
                                                              owner:key[@"owner"]
                                                               date:[NSDate dateWithTimeIntervalSince1970:interval1]
                                                            members:key[@"members"]
@@ -159,7 +159,7 @@
                                           
                                           Expense *expense = [[Expense alloc] initWithIdentifier:key[@"id"]
                                                                                             name:key[@"name"]
-                                                                                          amount:[NSNumber numberWithInteger: [key[@"amount"] integerValue]]
+                                                                                          amount:[NSNumber numberWithDouble: [key[@"amount"] doubleValue]]
                                                                                            owner:key[@"owner"]
                                                                                             date:[NSDate dateWithTimeIntervalSince1970:interval1]
                                                                                          members:key[@"members"]
