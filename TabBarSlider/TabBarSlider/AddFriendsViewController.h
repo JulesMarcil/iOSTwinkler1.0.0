@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (weak, nonatomic) IBOutlet UIView *spinnerView;
+@property (assign, nonatomic) int *retryCount;
 
 - (IBAction)doneAction:(id)sender;
 - (IBAction)dismissModal:(id)sender;

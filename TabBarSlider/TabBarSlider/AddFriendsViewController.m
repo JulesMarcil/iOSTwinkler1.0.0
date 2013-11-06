@@ -19,7 +19,6 @@
 
 @implementation AddFriendsViewController
 
-
 @synthesize friendTableView=_friendTableView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -36,6 +35,11 @@
     [super viewDidLoad];
     self.screenName = @"AddFriendVC";
 	// Do any additional setup after loading the view.
+    
+    [self requestFacebookFriends];
+    
+    self.retryCount = 0;
+    
     [self.spinner stopAnimating];
     
     self.isSearching = NO;
@@ -45,17 +49,6 @@
     
     self.spinnerView.layer.cornerRadius=5;
     
-    
-    FBRequest* friendsRequest = [FBRequest requestForMyFriends];
-    [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
-                                                  NSDictionary* result,
-                                                  NSError *error) {
-        self.list = [result objectForKey:@"data"];
-        self.spinnerView.hidden = YES;
-        NSLog(@"Found: %i friends", self.list.count);
-        [self.friendTableView reloadData];
-        
-    }];
     self.searchbarContainer.backgroundColor=[UIColor colorWithRed:(254/255.0) green:(106/255.0) blue:(100/255.0) alpha:1];
     self.searchBar.tintColor = [UIColor colorWithRed:(254/255.0) green:(106/255.0) blue:(100/255.0) alpha:1];
     
@@ -325,6 +318,77 @@
     
     // Lets forget about that we were drawing
     UIGraphicsEndImageContext();
+}
+
+// --- Facebook handle error --- //
+
+- (void) requestFacebookFriends {
+    FBRequest* friendsRequest = [FBRequest requestForMyFriends];
+    [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
+                                                  NSDictionary* result,
+                                                  NSError *error) {
+        if (error){
+            [self handleAPICallError:error];
+            self.spinnerView.hidden = YES;
+            
+        } else {
+            NSLog(@"%@", result);
+            self.list = [result objectForKey:@"data"];
+            self.spinnerView.hidden = YES;
+            NSLog(@"Found: %i friends", self.list.count);
+            [self.friendTableView reloadData];
+        }
+    }];
+}
+
+// Helper method to handle errors during API calls
+- (void)handleAPICallError:(NSError *)error
+{
+    // Some Graph API errors are retriable. For this sample, we will have a simple
+    // retry policy of one additional attempt.
+    self.retryCount++;
+    if (error.fberrorCategory == FBErrorCategoryRetry ||
+        error.fberrorCategory == FBErrorCategoryThrottling) {
+        // We also retry on a throttling error message. A more sophisticated app
+        // should consider a back-off period.
+        if (*self.retryCount < 2) {
+            NSLog(@"Retrying open graph post");
+            // Recovery tactic: Call API again.
+            [self requestFacebookFriends];
+            return;
+        } else {
+            NSLog(@"Retry count exceeded.");
+        }
+    }
+    
+    NSString *alertTitle, *alertMessage;
+    // People can revoke post permissions on your app externally so it
+    // can be worthwhile to request for permissions again at the point
+    // that they are needed. This sample assumes a simple policy
+    // of re-requesting permissions.
+    if (error.fberrorCategory == FBErrorCategoryPermissions) {
+        NSLog(@"Re-requesting permissions");
+        // Recovery tactic: Ask for required permissions.
+        alertTitle = @"Error in permissions";
+        alertMessage = @"Please log out and log in again";
+    }
+    if (error.fberrorShouldNotifyUser) {
+        // If the SDK has a message for the user, surface it.
+        alertTitle = @"Something Went Wrong";
+        alertMessage = error.fberrorUserMessage;
+    } else {
+        NSLog(@"Unexpected error posting to open graph: %@", error);
+        alertTitle = @"Unknown error";
+        alertMessage = @"Unable to post to open graph. Please try again later.";
+    }
+    
+    if (alertMessage) {
+        [[[UIAlertView alloc] initWithTitle:alertTitle
+                                    message:alertMessage
+                                   delegate:nil
+                          cancelButtonTitle:@"OK"
+                          otherButtonTitles:nil] show];
+    }
 }
 
 @end
